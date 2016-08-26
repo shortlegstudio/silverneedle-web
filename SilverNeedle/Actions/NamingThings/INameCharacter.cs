@@ -3,7 +3,7 @@
 // //     Copyright (c) Short Leg Studio, LLC. All rights reserved.
 // // </copyright>
 // //-----------------------------------------------------------------------
-using SilverNeedle.Names.Gateways;
+using SilverNeedle.Names;
 using SilverNeedle.Characters;
 
 namespace SilverNeedle.Actions.NamingThings

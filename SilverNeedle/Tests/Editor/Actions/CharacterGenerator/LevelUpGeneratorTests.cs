@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using SilverNeedle.Characters;
-using SilverNeedle.Mechanics.CharacterGenerator;
-using SilverNeedle.Mechanics.CharacterGenerator.Abilities;
+using SilverNeedle.Actions.CharacterGenerator;
+using SilverNeedle.Actions.CharacterGenerator.Abilities;
 using System.Linq;
 using System.Collections.Generic;
 

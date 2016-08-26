@@ -1,11 +1,11 @@
 ﻿using NUnit.Framework;
 using SilverNeedle.Characters;
-using SilverNeedle.Mechanics.CharacterGenerator;
+using SilverNeedle.Actions.CharacterGenerator;
 using System.Linq;
 using System.Collections.Generic;
 using SilverNeedle;
 using SilverNeedle.Actions.NamingThings;
-using SilverNeedle.Names.Gateways;
+using SilverNeedle.Names;
 using System;
 
 

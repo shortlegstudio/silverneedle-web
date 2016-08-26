@@ -21,7 +21,7 @@ namespace SilverNeedle.Characters
         /// <summary>
         /// The Trait Data File
         /// </summary>
-        private const string TraitDataFile = "Data/traits.yml";
+        private const string TraitDataFile = "traits.yml";
 
         /// <summary>
         /// The traits available

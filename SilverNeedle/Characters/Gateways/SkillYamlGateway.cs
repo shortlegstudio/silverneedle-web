@@ -20,7 +20,7 @@ namespace SilverNeedle.Characters
         /// <summary>
         /// The Skills Data File
         /// </summary>
-        private const string SkillDataFile = "Data/skills.yml";
+        private const string SkillDataFile = "skills.yml";
 
         /// <summary>
         /// The skills that have been loaded

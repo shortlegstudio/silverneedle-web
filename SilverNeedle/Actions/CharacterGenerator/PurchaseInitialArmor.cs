@@ -4,7 +4,7 @@
 // </copyright>
 //-----------------------------------------------------------------------
 
-namespace SilverNeedle.Mechanics.CharacterGenerator
+namespace SilverNeedle.Actions.CharacterGenerator
 {
     using System;
     using System.Collections.Generic;
@@ -26,7 +26,7 @@ namespace SilverNeedle.Mechanics.CharacterGenerator
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SilverNeedle.Mechanics.CharacterGenerator.PurchaseInitialArmor"/> class.
+        /// <see cref="SilverNeedle.Actions.CharacterGenerator.PurchaseInitialArmor"/> class.
         /// </summary>
         /// <param name="armorRepo">Armor gateway to load from.</param>
         public PurchaseInitialArmor(IArmorGateway armorRepo)

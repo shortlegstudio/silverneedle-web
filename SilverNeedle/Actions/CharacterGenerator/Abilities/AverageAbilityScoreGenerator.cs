@@ -3,7 +3,7 @@
 //     Copyright (c) Short Leg Studio, LLC. All rights reserved.
 // </copyright>
 //-----------------------------------------------------------------------
-namespace SilverNeedle.Mechanics.CharacterGenerator.Abilities
+namespace SilverNeedle.Actions.CharacterGenerator.Abilities
 {
     using SilverNeedle;
     using SilverNeedle.Characters;
@@ -21,7 +21,7 @@ namespace SilverNeedle.Mechanics.CharacterGenerator.Abilities
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SilverNeedle.Mechanics.CharacterGenerator.Abilities.AverageAbilityScoreGenerator"/> class.
+        /// <see cref="SilverNeedle.Actions.CharacterGenerator.Abilities.AverageAbilityScoreGenerator"/> class.
         /// </summary>
         public AverageAbilityScoreGenerator()
         {

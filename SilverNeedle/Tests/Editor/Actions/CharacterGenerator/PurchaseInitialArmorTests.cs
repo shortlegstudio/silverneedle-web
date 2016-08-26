@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Collections.Generic;
 using NUnit.Framework;
-using SilverNeedle.Mechanics.CharacterGenerator;
+using SilverNeedle.Actions.CharacterGenerator;
 using SilverNeedle.Equipment.Gateways;
 using System.Runtime.InteropServices;
 using SilverNeedle.Equipment;

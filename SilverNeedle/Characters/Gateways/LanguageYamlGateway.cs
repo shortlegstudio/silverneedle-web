@@ -19,7 +19,7 @@ namespace SilverNeedle.Characters
         /// <summary>
         /// The language data file.
         /// </summary>
-        private const string LanguageDataFile = "Data/languages.yml";
+        private const string LanguageDataFile = "languages.yml";
 
         /// <summary>
         /// The languages that are loaded.

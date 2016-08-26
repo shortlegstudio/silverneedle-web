@@ -5,7 +5,7 @@ using SilverNeedle.Dice;
 using System.Linq;
 using SilverNeedle;
 using System.Collections.Generic;
-using SilverNeedle.Mechanics.CharacterGenerator;
+using SilverNeedle.Actions.CharacterGenerator;
 
 namespace Actions {
 	[TestFixture]

@@ -4,7 +4,7 @@
 // // </copyright>
 // //-----------------------------------------------------------------------
 
-namespace SilverNeedle.Names.Gateways
+namespace SilverNeedle.Names
 {
     using System;
     using System.Collections.Generic;
@@ -14,7 +14,7 @@ namespace SilverNeedle.Names.Gateways
 
     public class CharacterNamesYamlGateway : ICharacterNamesGateway
     {
-        private const string CharacterNamesDataFile = "Data/Names.yml";
+        private const string CharacterNamesDataFile = "Names.yml";
         private IList<NameInformation> namesDatabase;
 
         public CharacterNamesYamlGateway() : this(FileHelper.OpenYaml(CharacterNamesDataFile))

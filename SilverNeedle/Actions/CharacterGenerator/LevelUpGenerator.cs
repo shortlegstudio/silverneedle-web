@@ -4,7 +4,7 @@
 // </copyright>
 //-----------------------------------------------------------------------
 
-namespace SilverNeedle.Mechanics.CharacterGenerator
+namespace SilverNeedle.Actions.CharacterGenerator
 {
     using SilverNeedle;
     using SilverNeedle.Characters;
@@ -21,7 +21,7 @@ namespace SilverNeedle.Mechanics.CharacterGenerator
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SilverNeedle.Mechanics.CharacterGenerator.LevelUpGenerator"/> class.
+        /// <see cref="SilverNeedle.Actions.CharacterGenerator.LevelUpGenerator"/> class.
         /// </summary>
         /// <param name="hitPointGen">Generator for hit points.</param>
         public LevelUpGenerator(HitPointGenerator hitPointGen)

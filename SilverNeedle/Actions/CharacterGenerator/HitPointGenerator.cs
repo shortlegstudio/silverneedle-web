@@ -4,7 +4,7 @@
 // </copyright>
 //-----------------------------------------------------------------------
 
-namespace SilverNeedle.Mechanics.CharacterGenerator
+namespace SilverNeedle.Actions.CharacterGenerator
 {
     using System.Collections.Generic;
     using SilverNeedle.Dice;

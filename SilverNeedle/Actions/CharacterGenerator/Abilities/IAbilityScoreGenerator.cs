@@ -4,7 +4,7 @@
 // </copyright>
 //-----------------------------------------------------------------------
 
-namespace SilverNeedle.Mechanics.CharacterGenerator.Abilities
+namespace SilverNeedle.Actions.CharacterGenerator.Abilities
 {
     using System;
     using SilverNeedle.Characters;

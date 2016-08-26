@@ -19,7 +19,7 @@ namespace SilverNeedle.Characters
         /// <summary>
         /// The yaml file holding class data
         /// </summary>
-        private const string ClassDataFile = "Data/classes.yml";
+        private const string ClassDataFile = "classes.yml";
 
         /// <summary>
         /// The classes that are loaded

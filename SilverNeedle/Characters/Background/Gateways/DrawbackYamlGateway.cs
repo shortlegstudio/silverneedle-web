@@ -13,7 +13,7 @@ namespace SilverNeedle.Characters.Background
 {
     public class DrawbackYamlGateway : IDrawbackGateway
     {
-        private const string DrawbackYamlDataFile = "Data/drawbacks.yml";
+        private const string DrawbackYamlDataFile = "drawbacks.yml";
 
         private WeightedOptionTable<Drawback> drawbacks;
 

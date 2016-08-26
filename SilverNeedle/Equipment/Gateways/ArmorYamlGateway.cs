@@ -20,7 +20,7 @@ namespace SilverNeedle.Equipment.Gateways
         /// <summary>
         /// The armor yaml file.
         /// </summary>
-        private const string ArmorYamlFile = "Data/Armors.yml";
+        private const string ArmorYamlFile = "Armors.yml";
 
         /// <summary>
         /// The armors that are loaded.

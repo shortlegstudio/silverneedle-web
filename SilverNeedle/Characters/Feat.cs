@@ -20,7 +20,7 @@ namespace SilverNeedle.Characters
         /// <summary>
         /// The trait data file.
         /// </summary>
-        private const string TraitDataFile = "Data/feats.yml";
+        private const string TraitDataFile = "feats.yml";
 
         /// <summary>
         /// The feats that are loaded

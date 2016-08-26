@@ -10,7 +10,7 @@ using SilverNeedle.Characters.Background;
 using SilverNeedle.Actions.CharacterGenerator.Background;
 
 
-namespace SilverNeedle.Mechanics.CharacterGenerator
+namespace SilverNeedle.Actions.CharacterGenerator
 {
     // TODO: This class design is kind of all over the place. Is it trying to do everything or is it driven by an outside source?
     using System.Collections.Generic;
@@ -19,7 +19,7 @@ namespace SilverNeedle.Mechanics.CharacterGenerator
     using SilverNeedle.Characters;
     using SilverNeedle.Equipment;
     using SilverNeedle.Equipment.Gateways;
-    using SilverNeedle.Mechanics.CharacterGenerator.Abilities;
+    using SilverNeedle.Actions.CharacterGenerator.Abilities;
 
     /// <summary>
     /// Character generator generates a new character. By specifying different generators different character
@@ -72,7 +72,7 @@ namespace SilverNeedle.Mechanics.CharacterGenerator
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SilverNeedle.Mechanics.CharacterGenerator.CharacterGenerator"/> class.
+        /// <see cref="SilverNeedle.Actions.CharacterGenerator.CharacterGenerator"/> class.
         /// </summary>
         /// <param name="abilities">Ability score generator to use.</param>
         /// <param name="langs">Language selector to use.</param>

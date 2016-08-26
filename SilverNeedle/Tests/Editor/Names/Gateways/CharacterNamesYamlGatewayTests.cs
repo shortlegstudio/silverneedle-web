@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using System.Linq;
 using SilverNeedle;
-using SilverNeedle.Names.Gateways;
+using SilverNeedle.Names;
 using SilverNeedle.Characters;
 using SilverNeedle.Yaml;
 

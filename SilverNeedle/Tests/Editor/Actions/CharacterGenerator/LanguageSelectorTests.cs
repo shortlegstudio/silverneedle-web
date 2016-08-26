@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 using SilverNeedle.Characters;
-using SilverNeedle.Mechanics.CharacterGenerator;
+using SilverNeedle.Actions.CharacterGenerator;
 using System.Linq;
 using System.Collections.Generic;
 using SilverNeedle;

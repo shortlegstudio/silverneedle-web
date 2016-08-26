@@ -14,7 +14,7 @@ namespace SilverNeedle.Characters.Background
 
     public class ClassOriginYamlGateway : IClassOriginYamlGateway
     {
-        private const string ClassOriginYamlDataFile = "Data/classorigins.yml";
+        private const string ClassOriginYamlDataFile = "classorigins.yml";
         private List<ClassOrigin> classOrigins;
 
         public ClassOriginYamlGateway()

@@ -3,7 +3,7 @@
 //     Copyright (c) Short Leg Studio, LLC. All rights reserved.
 // </copyright>
 //-----------------------------------------------------------------------
-namespace SilverNeedle.Mechanics.CharacterGenerator
+namespace SilverNeedle.Actions.CharacterGenerator
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -22,7 +22,7 @@ namespace SilverNeedle.Mechanics.CharacterGenerator
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SilverNeedle.Mechanics.CharacterGenerator.LanguageSelector"/> class.
+        /// <see cref="SilverNeedle.Actions.CharacterGenerator.LanguageSelector"/> class.
         /// </summary>
         /// <param name="languages">Languages gateway to fetch languages from</param>
         public LanguageSelector(IEntityGateway<Language> languages)

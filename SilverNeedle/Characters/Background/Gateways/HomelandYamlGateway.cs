@@ -14,7 +14,7 @@ namespace SilverNeedle.Characters.Background
 {
     public class HomelandYamlGateway : IHomelandGateway
     {
-        private const string HomelandYamlDataFile = "Data/homelands.yml";
+        private const string HomelandYamlDataFile = "homelands.yml";
         private IList<Homeland> homelands;
 
         public HomelandYamlGateway() : this(FileHelper.OpenYaml(HomelandYamlDataFile))

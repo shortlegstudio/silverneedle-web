@@ -20,7 +20,7 @@ namespace SilverNeedle.Equipment.Gateways
         /// <summary>
         /// The weapon yaml file.
         /// </summary>
-        private const string WeaponYamlFile = "Data/weapons.yml";
+        private const string WeaponYamlFile = "weapons.yml";
 
         /// <summary>
         /// The weapons.

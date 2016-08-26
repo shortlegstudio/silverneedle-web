@@ -4,7 +4,7 @@
 // </copyright>
 //-----------------------------------------------------------------------
 
-namespace SilverNeedle.Mechanics.CharacterGenerator
+namespace SilverNeedle.Actions.CharacterGenerator
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -25,7 +25,7 @@ namespace SilverNeedle.Mechanics.CharacterGenerator
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SilverNeedle.Mechanics.CharacterGenerator.EquipMeleeAndRangedWeapon"/> class.
+        /// <see cref="SilverNeedle.Actions.CharacterGenerator.EquipMeleeAndRangedWeapon"/> class.
         /// </summary>
         /// <param name="weapons">Weapons available for purchase</param>
         public EquipMeleeAndRangedWeapon(IWeaponGateway weapons)

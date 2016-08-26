@@ -1,5 +1,5 @@
 ﻿using NUnit.Framework;
-using SilverNeedle.Mechanics.CharacterGenerator.Abilities;
+using SilverNeedle.Actions.CharacterGenerator.Abilities;
 using SilverNeedle.Characters;
 
 

@@ -16,7 +16,7 @@ namespace SilverNeedle.Characters
 {
     public class RaceMaturityYamlGateway : IRaceMaturityGateway
     {
-        private const string MaturityDataFile = "Data/maturity.yml";
+        private const string MaturityDataFile = "maturity.yml";
         private List<Maturity> maturities;
 
         public RaceMaturityYamlGateway()

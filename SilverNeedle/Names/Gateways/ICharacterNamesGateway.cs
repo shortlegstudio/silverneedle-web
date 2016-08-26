@@ -4,7 +4,7 @@
 // // </copyright>
 // //-----------------------------------------------------------------------
 
-namespace SilverNeedle.Names.Gateways
+namespace SilverNeedle.Names
 {
     using System;
     using System.Collections.Generic;

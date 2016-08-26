@@ -21,7 +21,7 @@ namespace SilverNeedle.Characters
         /// <summary>
         /// The race data file path.
         /// </summary>
-        private const string RaceDataFile = "Data/races.yml";
+        private const string RaceDataFile = "races.yml";
 
         /// <summary>
         /// The races.

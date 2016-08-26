@@ -4,7 +4,7 @@
 // </copyright>
 //-----------------------------------------------------------------------
 
-namespace SilverNeedle.Mechanics.CharacterGenerator
+namespace SilverNeedle.Actions.CharacterGenerator
 {
     using System;
     using System.Collections.Generic;
@@ -28,7 +28,7 @@ namespace SilverNeedle.Mechanics.CharacterGenerator
         private IEntityGateway<Race> racesGateway;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SilverNeedle.Mechanics.CharacterGenerator.RaceSelector"/> class.
+        /// Initializes a new instance of the <see cref="SilverNeedle.Actions.CharacterGenerator.RaceSelector"/> class.
         /// </summary>
         /// <param name="races">Races gateway to load from.</param>
         /// <param name="traitGateway">Trait gateway.</param>
