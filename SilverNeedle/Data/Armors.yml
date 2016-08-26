@@ -1,0 +1,162 @@
+- armor:
+  name: Padded
+  cost: 5gp
+  armor_class: 1
+  maximum_dexterity_bonus: 8
+  armor_check_penalty: 0
+  arcane_spell_failure_chance: 5
+  weight: 10
+  armor_type: Light
+- armor:
+  name: Leather
+  cost: 10gp
+  armor_class: 2
+  maximum_dexterity_bonus: 6
+  armor_check_penalty: 0
+  arcane_spell_failure_chance: 10
+  weight: 15
+  armor_type: Light
+- armor:
+  name: Studded Leather
+  cost: 25gp
+  armor_class: 3
+  maximum_dexterity_bonus: 5
+  armor_check_penalty: -1
+  arcane_spell_failure_chance: 15
+  weight: 20
+  armor_type: Light
+- armor:
+  name: Chain Shirt
+  cost: 100gp
+  armor_class: 4
+  maximum_dexterity_bonus: 4
+  armor_check_penalty: -2
+  arcane_spell_failure_chance: 20
+  weight: 25
+  armor_type: Light
+- armor:
+  name: hide
+  cost: 15gp
+  armor_class: 4
+  maximum_dexterity_bonus: 4
+  armor_check_penalty: -3
+  arcane_spell_failure_chance: 20
+  weight: 25
+  armor_type: Medium
+- armor:
+  name: Scale Mail
+  cost: 50gp
+  armor_class: 5
+  maximum_dexterity_bonus: 3
+  armor_check_penalty: -4
+  arcane_spell_failure_chance: 25
+  weight: 30
+  armor_type: Medium
+- armor:
+  name: Chainmail
+  cost: 150gp
+  armor_class: 6
+  maximum_dexterity_bonus: 2
+  armor_check_penalty: -5
+  arcane_spell_failure_chance: 30
+  weight: 40
+  armor_type: Medium
+- armor:
+  name: Breastplate
+  cost: 200gp
+  armor_class: 6
+  maximum_dexterity_bonus: 3
+  armor_check_penalty: -4
+  arcane_spell_failure_chance: 25
+  weight: 30
+  armor_type: Medium
+- armor:
+  name: Splint Mail
+  cost: 200gp
+  armor_class: 7
+  maximum_dexterity_bonus: 0
+  armor_check_penalty: -7
+  arcane_spell_failure_chance: 40
+  weight: 45
+  armor_type: Heavy
+- armor:
+  name: Banded Mail
+  cost: 250gp
+  armor_class: 7
+  maximum_dexterity_bonus: 1
+  armor_check_penalty: -7
+  arcane_spell_failure_chance: 35
+  weight: 35
+  armor_type: Heavy
+- armor:
+  name: Half Plate
+  cost: 600gp
+  armor_class: 8
+  maximum_dexterity_bonus: 0
+  armor_check_penalty: -7
+  arcane_spell_failure_chance: 40
+  weight: 50
+  armor_type: Heavy
+- armor:
+  name: Full Plate
+  cost: 1500gp
+  armor_class: 9
+  maximum_dexterity_bonus: 1
+  armor_check_penalty: -6
+  arcane_spell_failure_chance: 35
+  weight: 50
+  armor_type: Heavy
+- armor:
+  name: Buckler
+  cost: 5gp
+  armor_class: 1
+  maximum_dexterity_bonus: 10000
+  armor_check_penalty: -1
+  arcane_spell_failure_chance: 5
+  weight: 5
+  armor_type: Shield
+- armor:
+  name: Light Wooden Shield
+  cost: 3gp
+  armor_class: 1
+  maximum_dexterity_bonus: 10000
+  armor_check_penalty: -1
+  arcane_spell_failure_chance: 5
+  weight: 5
+  armor_type: Shield
+- armor:
+  name: Light Steel Shield
+  cost: 9gp
+  armor_class: 1
+  maximum_dexterity_bonus: 10000
+  armor_check_penalty: -1
+  arcane_spell_failure_chance: 5
+  weight: 6
+  armor_type: Shield
+- armor:
+  name: Heavy Wooden Shield
+  cost: 7gp
+  armor_class: 2
+  maximum_dexterity_bonus: 10000
+  armor_check_penalty: -2
+  arcane_spell_failure_chance: 15
+  weight: 10
+  armor_type: Shield
+- armor:
+  name: Heavy Steel Shield
+  cost: 20gp
+  armor_class: 2
+  maximum_dexterity_bonus: 10000
+  armor_check_penalty: -2
+  arcane_spell_failure_chance: 15
+  weight: 15
+  armor_type: Shield
+- armor:
+  name: Tower Shield
+  cost: 30gp
+  armor_class: 4
+  maximum_dexterity_bonus: 2
+  armor_check_penalty: -10
+  arcane_spell_failure_chance: 50
+  weight: 45
+  armor_type: Shield

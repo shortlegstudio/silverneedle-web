@@ -1,0 +1,70 @@
+- weapontraining:
+  name: Weapon Training
+  description: Choose group of weapons and get a bonus {0} on attack damage rolls.
+- bravery:
+  name: Bravery
+  description: Bonus of +{0} on Will saves vs Fear.
+- ragepowers:
+  - Animal Fury
+  - Clear Mind
+  - Fearless Rage
+- uncannydodge:
+  name: Uncanny Dodge
+  description: Cannot be caught flat-footed.
+- trapsense:
+  name: Trap Sense
+  description: Bonus {0} on reflex saves vs Traps.
+- domains:
+  - domain:
+    name: Air Domain
+    deities: Gozreh, Shelyn
+    powers:
+      1: Lightning Arc
+      6: Electricity Resistance
+    spells:
+      1: Obscuring Mist
+      2: Wind Wall
+      3: Gaseous Form
+- class:
+  name: Fighter
+  weaponproficiencies: simple, martial
+  armorproficiencies: light, medium, heavy
+  shieldproficiency: yes
+  towershieldproficiency: yes
+  levels:
+    - 1:
+      - bonusfeat: combat
+    - 2:
+      - bonusfeat: combat
+      - bravery: 1
+    - 3:
+      - armortraining: 1
+    - 4:
+      - bonusfeat: combat
+    - 5:
+      - weapontraining: 1
+    - 6:
+      - bonusfeat: combat
+      - bravery: 2
+- class:
+  name: Barbarian
+  proficiencies: ...
+  levels:
+    - 1:
+      - fastmovement: 10
+      - rage
+    - 2:
+      - ragepower
+      - uncannydodge
+- class:
+  name: Cleric
+  levels:
+    - 1:
+      - domains: 2
+      - channelenergy: 1d6
+      - aura
+      - spells:
+        - 0: 3
+        - 1: 1
+    - 3:
+      - channelenergy: 2d6

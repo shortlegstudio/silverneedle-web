@@ -1,0 +1,60 @@
+- language:
+  name: Abyssal
+  description: Demons and other chaotic evil outsiders
+- language:
+  name: Aklo
+  description: Derros, inhuman or otherworldly monsters, evil fey
+- language:
+  name: Aquan
+  description: Aquatic creatures, water-based creatures
+- language:
+  name: Auran
+  description: Flying creatures, air-based creatures
+- language:
+  name: Celestial
+  description: Angels and other good outsiders
+- language:
+  name: Common
+  description: Humans and other core races
+- language:
+  name: Draconic
+  description: Dragons, reptilian humanoids
+- language:
+  name: Druidic
+  description: Druids only
+- language:
+  name: Dwarven
+  description: Dwarves
+- language:
+  name: Elven
+  description: Elves, half-elves
+- language:
+  name: Giant
+  description: Cyclopses, ettins, giants, ogres, trolls
+- language:
+  name: Gnome
+  description: Gnomes
+- language:
+  name: Goblin
+  description: Bugbears, goblins, hobgoblins
+- language:
+  name: Halfling
+  description: Halflings
+- language:
+  name: Ignan
+  description: Fire-based creatures
+- language:
+  name: Infernal
+  description: Devils and other lawful evil outsiders
+- language:
+  name: Orc
+  description: Orcs, half-orcs
+- language:
+  name: Sylvan
+  description: Centaurs, fey creatures, plant creatures, unicorns
+- language:
+  name: Terran
+  description: Earth-based creatures
+- language:
+  name: Undercommon
+  description: Drow, duergar, morlocks, svirfneblin

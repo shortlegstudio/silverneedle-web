@@ -1,0 +1,700 @@
+- weapon:
+  name: Battleaxe
+  weight: 6
+  damage: 1d8
+  damage_type: Slashing
+  type: OneHanded
+  group: Axes
+  training_level: Martial
+  cost: 10gp
+  critical_modifier: 3
+- weapon:
+  name: Bastard Sword
+  weight: 6
+  damage: 1d10
+  damage_type: Slashing
+  type: OneHanded
+  group: HeavyBlades
+  training_level: Exotic
+  cost: 35gp
+  critical_threat: 19
+- weapon:
+  name: Blowgun
+  weight: 1
+  damage: 1d2
+  damage_type: Piercing
+  range: 20
+  type: Ranged
+  group: Thrown
+  training_level: Simple
+  cost: 2gp
+- weapon:
+  name: Bolas
+  weight: 2
+  damage: 1d4
+  damage_type: Bludgeoning
+  range: 10
+  type: Ranged
+  group: Thrown
+  training_level: Exotic
+  cost: 5gp
+  tags: nonlethal, trip
+- weapon:
+  name: Club
+  weight: 3
+  damage: 1d6
+  damage_type: Bludgeoning
+  type: OneHanded
+  group: Hammers
+  training_level: Simple
+- weapon:
+  name: Composite Longbow
+  weight: 3
+  damage: 1d8
+  damage_type: Piercing
+  type: Ranged
+  group: Bows
+  training_level: Martial
+  cost: 100gp
+  range: 110
+  critical_modifier: 3
+- weapon:
+  name: Composite Shortbow
+  weight: 2
+  damage: 1d6
+  damage_type: Piercing
+  type: Ranged
+  group: Bows
+  training_level: Martial
+  cost: 75gp
+  range: 70
+  critical_modifier: 3
+- weapon:
+  name: Heavy Crossbow
+  weight: 8
+  damage: 1d10
+  damage_type: Piercing
+  critical_threat: 19
+  critical_modifier: 2
+  range: 120
+  type: Ranged
+  group: Crossbows
+  training_level: Simple
+  cost: 50gp
+- weapon:
+  name: Light Crossbow
+  weight: 4
+  damage: 1d8
+  damage_type: Piercing
+  critical_threat: 19
+  critical_modifier: 2
+  range: 80
+  type: Ranged
+  group: Crossbows
+  training_level: Simple
+  cost: 35gp
+- weapon:
+  name: Dagger
+  weight: 1
+  damage: 1d4
+  damage_type: Piercing
+  critical_threat: 19
+  critical_modifier: 2
+  range: 10
+  type: Light
+  group: LightBlades
+  training_level: Simple
+  cost: 2gp
+- weapon:
+  name: Punching Dagger
+  weight: 1
+  damage: 1d4
+  damage_type: Piercing
+  critical_threat: 20
+  critical_modifier: 3
+  type: Light
+  group: Close
+  training_level: Simple
+  cost: 2gp
+- weapon:
+  name: Dart
+  weight: 0.5
+  damage: 1d4
+  damage_type: Piercing
+  range: 20
+  cost: 5sp
+  group: Thrown
+  training_level: Simple
+  type: Ranged
+- weapon:
+  name: Dire Flail
+  weight: 10
+  damage: 1d8
+  damage_type: Bludgeoning
+  cost: 90gp
+  group: Double
+  training_level: Exotic
+  type: TwoHanded
+  tags: disarm, trip, double
+- weapon:
+  name: Dwarven Urgosh
+  weight: 12
+  damage: 1d8
+  damage_type: Piercing
+  cost: 50gp
+  group: Double
+  training_level: Exotic
+  type: TwoHanded
+  tags: double, brace
+  critical_modifier: 3
+- weapon:
+  name: Dwarven Waraxe
+  weight: 8
+  damage: 1d10
+  damage_type: Slashing
+  cost: 30gp
+  group: Axes
+  training_level: Exotic
+  type: OneHanded
+  critical_modifier: 3
+- weapon:
+  name: Elven Curve Blade
+  weight: 7
+  damage: 1d10
+  damage_type: Piercing
+  cost: 80gp
+  group: HeavyBlades
+  training_level: Exotic
+  type: TwoHanded
+  critical_threat: 18
+- weapon:
+  name: Falchion
+  weight: 8
+  damage: 2d4
+  damage_type: Slashing
+  type: TwoHanded
+  group: HeavyBlades
+  training_level: Martial
+  cost: 75gp
+  critical_threat: 18
+- weapon:
+  name: Flail
+  weight: 5
+  damage: 1d8
+  damage_type: Bludgeoning
+  type: OneHanded
+  group: Hammers
+  training_level: Martial
+  tags: disarm, trip
+  cost: 8gp
+- weapon:
+  name: Gauntlet
+  weight: 1
+  damage: 1d3
+  damage_type: Piercing
+  type: Light
+  group: Close
+  training_level: Simple
+  cost: 2gp
+- weapon:
+  name: Glaive
+  weight: 10
+  damage: 1d10
+  damage_type: Slashing
+  type: TwoHanded
+  group: Polearms
+  training_level: Martial
+  cost: 8gp
+  critical_modifier: 3
+  tags: reach
+- weapon:
+  name: Gnome Hooked Hammer
+  weight: 6
+  damage: 1d8
+  damage_type: Bludgeoning
+  cost: 20gp
+  group: Double
+  training_level: Exotic
+  type: TwoHanded
+  tags: trip, double
+  critical_modifier: 3
+- weapon:
+  name: Greataxe
+  weight: 12
+  damage: 1d12
+  damage_type: Slashing
+  type: TwoHanded
+  group: Axes
+  training_level: Martial
+  cost: 20gp
+  critical_modifier: 3
+- weapon:
+  name: Greatclub
+  weight: 8
+  damage: 1d10
+  damage_type: Bludgeoning
+  type: TwoHanded
+  group: Hammers
+  training_level: Martial
+  cost: 5gp
+- weapon:
+  name: Greatsword
+  weight: 8
+  damage: 2d6
+  damage_type: Slashing
+  type: TwoHanded
+  group: HeavyBlades
+  training_level: Martial
+  cost: 50gp
+  critical_threat: 19
+- weapon:
+  name: Guisarme
+  weight: 12
+  damage: 2d4
+  damage_type: Slashing
+  type: TwoHanded
+  group: Polearms
+  training_level: Martial
+  cost: 9gp
+  critical_modifier: 3
+  tags: reach, trip
+- weapon:
+  name: Halberd
+  weight: 12
+  damage: 1d10
+  damage_type: Slashing
+  type: TwoHanded
+  group: Polearms
+  training_level: Martial
+  cost: 10gp
+  critical_modifier: 3
+  tags: brace, trip
+- weapon:
+  name: Halfling Sling Staff
+  weight: 3
+  damage: 1d8
+  damage_type: Bludgeoning
+  range: 80
+  type: Ranged
+  group: Thrown
+  training_level: Exotic
+  cost: 20gp
+  tags: halfling
+  critical_modifier: 3
+- weapon:
+  name: Handaxe
+  weight: 3
+  damage: 1d6
+  damage_type: Slashing
+  type: Light
+  group: Axes
+  training_level: Martial
+  cost: 2gp
+  critical_modifier: 3
+- weapon:
+  name: Hand Crossbow
+  weight: 2
+  damage: 1d4
+  damage_type: Piercing
+  range: 30
+  type: Ranged
+  group: Crossbows
+  training_level: Exotic
+  cost: 100gp
+  critical_threat: 19
+- weapon:
+  name: Heavy Flail
+  weight: 10
+  damage: 1d10
+  damage_type: Bludgeoning
+  type: TwoHanded
+  group: Hammers
+  training_level: Martial
+  cost: 15gp
+  critical_threat: 19
+  tags: disarm, trip
+- weapon:
+  name: Heavy Pick
+  weight: 6
+  damage: 1d6
+  damage_type: Piercing
+  type: OneHanded
+  group: Axes
+  training_level: Martial
+  cost: 8gp
+  critical_modifier: 4
+- weapon:
+  name: Heavy Repeating Crossbow
+  weight: 12
+  damage: 1d10
+  damage_type: Piercing
+  range: 120
+  type: Ranged
+  group: Thrown
+  training_level: Exotic
+  cost: 400gp
+  critical_threat: 19
+- weapon:
+  name: Javelin
+  weight: 2
+  damage: 1d6
+  damage_type: Piercing
+  range: 30
+  type: Ranged
+  group: Thrown
+  training_level: Simple
+  cost: 1gp
+- weapon:
+  name: Kama
+  weight: 2
+  damage: 1d6
+  damage_type: Slashing
+  type: Light
+  group: Monk
+  training_level: Exotic
+  cost: 2gp
+  tags: monk, trip
+- weapon:
+  name: Kukri
+  weight: 1
+  damage: 1d4
+  damage_type: Slashing
+  type: Light
+  group: LightBlades
+  training_level: Martial
+  cost: 8gp
+  critical_threat: 18
+- weapon:
+  name: Lance
+  weight: 10
+  damage: 1d8
+  damage_type: Piercing
+  type: TwoHanded
+  group: Spears
+  training_level: Martial
+  cost: 10gp
+  critical_modifier: 3
+  tags: reach
+- weapon:
+  name: Light Hammer
+  weight: 2
+  damage: 1d4
+  damage_type: Bludgeoning
+  range: 20
+  type: Light
+  group: Hammers
+  training_level: Martial
+  cost: 1gp
+- weapon:
+  name: Light Pick
+  weight: 3
+  damage: 1d4
+  damage_type: Piercing
+  type: Light
+  group: Axes
+  training_level: Martial
+  cost: 4gp
+  critical_modifier: 4
+- weapon:
+  name: Light Repeating Crossbow
+  weight: 6
+  damage: 1d8
+  damage_type: Piercing
+  range: 80
+  type: Ranged
+  group: Crossbows
+  training_level: Exotic
+  cost: 250gp
+  critical_threat: 19
+- weapon:
+  name: Longbow
+  weight: 3
+  damage: 1d8
+  damage_type: Piercing
+  type: Ranged
+  group: Bows
+  training_level: Martial
+  cost: 75gp
+  range: 100
+  critical_modifier: 3
+- weapon:
+  name: Longspear
+  weight: 9
+  damage: 1d8
+  damage_type: Piercing
+  critical_threat: 20
+  critical_modifier: 3
+  type: TwoHanded
+  group: Spears
+  training_level: Simple
+  cost: 5gp
+- weapon:
+  name: Longsword
+  weight: 4
+  damage: 1d8
+  damage_type: Slashing
+  type: OneHanded
+  group: HeavyBlades
+  training_level: Martial
+  cost: 15gp
+  critical_threat: 19
+- weapon:
+  name: Mace, Light
+  weight: 4
+  damage: 1d6
+  damage_type: Bludgeoning
+  type: Light
+  group: Hammers
+  training_level: Simple
+- weapon:
+  name: Morningstar
+  weight: 6
+  damage: 1d8
+  damage_type: Bludgeoning
+  type: OneHanded
+  group: Flails
+  training_level: Simple
+- weapon:
+  name: Nunchaku
+  weight: 2
+  damage: 1d6
+  damage_type: Bludgeoning
+  type: Light
+  group: Monk
+  training_level: Exotic
+  cost: 2gp
+  tags: monk, disarm
+- weapon:
+  name: Orc Double Axe
+  weight: 15
+  damage: 1d8
+  damage_type: Slashing
+  cost: 60gp
+  group: Double
+  training_level: Exotic
+  type: TwoHanded
+  tags: double
+  critical_modifier: 3
+- weapon:
+  name: Quarterstaff
+  weight: 4
+  damage: 1d6
+  damage_type: Bludgeoning
+  type: TwoHanded
+  group: Monk
+  training_level: Simple
+- weapon:
+  name: Ranseur
+  weight: 12
+  damage: 2d4
+  damage_type: Piercing
+  type: TwoHanded
+  group: Polearms
+  training_level: Martial
+  cost: 10gp
+  critical_modifier: 3
+  tags: disarm, reach
+- weapon:
+  name: Rapier
+  weight: 2
+  damage: 1d6
+  damage_type: Piercing
+  type: OneHanded
+  group: LightBlades
+  training_level: Martial
+  cost: 20gp
+  critical_threat: 18
+- weapon:
+  name: Sai
+  weight: 1
+  damage: 1d4
+  damage_type: Bludgeoning
+  type: Light
+  group: Monk
+  training_level: Exotic
+  cost: 1gp
+  tags: monk, disarm
+- weapon:
+  name: Sap
+  weight: 2
+  damage: 1d6
+  damage_type: Bludgeoning
+  type: Light
+  group: Close
+  training_level: Martial
+  cost: 1gp
+  tags: nonlethal
+- weapon:
+  name: Scimitar
+  weight: 4
+  damage: 1d6
+  damage_type: Slashing
+  type: OneHanded
+  group: HeavyBlades
+  training_level: Martial
+  cost: 15gp
+  critical_threat: 18
+- weapon:
+  name: Scythe
+  weight: 10
+  damage: 2d4
+  damage_type: Slashing
+  type: TwoHanded
+  group: HeavyBlades
+  training_level: Martial
+  cost: 18gp
+  critical_modifier: 4
+  tags: trip
+- weapon:
+  name: Shortbow
+  weight: 2
+  damage: 1d6
+  damage_type: Piercing
+  type: Ranged
+  group: Bows
+  training_level: Martial
+  cost: 30gp
+  range: 60
+  critical_modifier: 3
+- weapon:
+  name: Shortspear
+  weight: 3
+  damage: 1d6
+  damage_type: Piercing
+  range: 20
+  training_level: Simple
+  type: TwoHanded
+  group: Spears
+  cost: 2gp
+- weapon:
+  name: Shuriken
+  weight: 0.1
+  damage: 1d2
+  damage_type: Piercing
+  range: 10
+  type: Ranged
+  group: Thrown
+  training_level: Exotic
+  cost: 2sp
+  tags: monk
+- weapon:
+  name: Siangham
+  weight: 1
+  damage: 1d6
+  damage_type: Piercing
+  type: Light
+  group: Monk
+  training_level: Exotic
+  cost: 3gp
+  tags: monk
+- weapon:
+  name: Sling
+  weight: 0
+  damage: 1d4
+  damage_type: Bludgeoning
+  range: 50
+  type: Ranged
+  group: Thrown
+  training_level: Simple
+- weapon:
+  name: Spear
+  weight: 6
+  damage: 1d8
+  damage_type: Piercing
+  critical_threat: 20
+  critical_modifier: 3
+  range: 20
+  type: TwoHanded
+  group: Spears
+  training_level: Simple
+  cost: 2gp
+- weapon:
+  name: Sickle
+  weight: 2
+  damage: 1d6
+  damage_type: Slashing
+  type: Light
+  group: LightBlades
+  training_level: Simple
+- weapon:
+  name: Spiked Chain
+  weight: 10
+  damage: 2d4
+  damage_type: Piercing
+  cost: 25gp
+  group: Flails
+  training_level: Exotic
+  type: TwoHanded
+  tags: disarm, trip
+- weapon:
+  name: Starknife
+  weight: 3
+  damage: 1d4
+  damage_type: Piercing
+  type: Light
+  group: Thrown
+  training_level: Martial
+  range: 20
+  cost: 24gp
+- weapon:
+  name: Short sword
+  weight: 2
+  damage: 1d6
+  damage_type: Piercing
+  type: Light
+  group: LightBlades
+  training_level: Martial
+  cost: 10gp
+  critical_threat: 19
+- weapon:
+  name: Throwing Axe
+  weight: 2
+  damage: 1d6
+  damage_type: Slashing
+  range: 10
+  type: Light
+  group: Axes
+  training_level: Martial
+  cost: 8gp
+- weapon:
+  name: Trident
+  weight: 4
+  damage: 1d8
+  damage_type: Piercing
+  type: OneHanded
+  group: Spears
+  training_level: Martial
+  cost: 15gp
+  range: 10
+  tags: brace
+- weapon:
+  name: Two-Bladed Sword
+  weight: 10
+  damage: 1d8
+  damage_type: Slashing
+  cost: 100gp
+  group: Double
+  training_level: Exotic
+  type: TwoHanded
+  tags: double
+  critical_threat: 19
+- weapon:
+  name: Warhammer
+  weight: 5
+  damage: 1d8
+  damage_type: Bludgeoning
+  type: OneHanded
+  group: Hammers
+  training_level: Martial
+  cost: 12gp
+  critical_modifier: 3
+- weapon:
+  name: Whip
+  weight: 2
+  damage: 1d3
+  damage_type: Slashing
+  cost: 1gp
+  group: Flails
+  training_level: Exotic
+  type: OneHanded
+  tags: disarm, nonlethal, reach, trip

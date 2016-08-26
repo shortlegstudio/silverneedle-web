@@ -1,0 +1,99 @@
+- homeland:
+  race: dwarf
+  table:
+    - location: Hills/Mountains
+      weight: 40
+      traits: Goldsniffer, Highlander
+    - location: Underground
+      weight: 40
+      traits: Surface Stranger, Tunnel Fighter
+    - location: Non-Dwarven Town/Village
+      weight: 7
+      traits: Brewmaster, Militia Veteran
+    - location: Non-Dwarven City/Metropolis
+      weight: 8
+      traits: Brewmaster, Vagabond Child
+- homeland:
+  race: elf
+  table:
+    - location: Forest
+      weight: 60
+      traits: Log Roller
+    - location: Non-Elven City/Metropolis
+      weight: 20
+      traits: Civilized, Forlorn
+    - location: Non-Elven Town/Village
+      weight: 15
+      traits: Forlorn
+- homeland:
+  race: half-elf
+  table:
+    - location: Forest
+      weight: 30
+      traits: Log Roller
+    - location: Town/Village
+      weight: 40
+      traits: Militia Veteran
+    - location: City/Metropolis
+      weight: 30
+      traits: Civilized, Failed Apprentice
+    - location: Frontier
+      weight: 5
+      traits: Frontier Forged
+- homeland:
+  race: gnome
+  table:
+    - location: Forest
+      weight: 30
+      traits: Log Roller, Animal Friend
+    - location: Non-Gnome Town/Village
+      weight: 35
+      traits: Animal Friend
+    - location: Non-Gnome City/Metropolis
+      weight: 39
+      traits: Rapscallion
+- homeland:
+  race: half-orc
+  table:
+    - location: Subterranean
+      weight: 25
+      traits: Scrapper, Surface Stranger
+    - location: Orc Settlement
+      weight: 35
+      traits: Scrapper
+    - location: Town/Village
+      weight: 10
+      traits: Militia Veteran
+    - location: City/Metropolis
+      weight: 6
+      traits: Brute, Vagabond Child
+    - location: Frontier
+      weight: 10
+      traits: Frontier Forged
+    - location: No Homeland
+      weight: 10
+      traits: Outcast
+- homeland:
+  race: Halfling
+  table:
+    - location: Halfling Settlement
+      weight: 50
+      traits: Civilized, Well Informed
+    - location: Human Settlement
+      weight: 30
+      traits: Child of the Streets, Well Informed
+    - location: Traveling Caravan
+      weight: 15
+      traits: Friend in Every Town
+- homeland:
+  race: human
+  table:
+    - location: Town/Village
+      weight: 50
+      traits: Militia Veteran
+    - location: City/Metropolis
+      weight: 35
+      traits: Civilized, Vagabond Child
+    - location: Frontier
+      weight: 10
+      traits: Frontier Forged

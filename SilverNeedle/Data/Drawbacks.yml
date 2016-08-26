@@ -1,0 +1,60 @@
+- name: Attachment (Object)
+  weight: 5
+  traits: Attached
+- name: Attachment (Person)
+  weight: 5
+  traits: Attached
+- name: Family
+  weight: 5
+  traits: Family Ties
+- name: Justice
+  weight: 5
+  traits: Headstrong
+- name: Love
+  weight: 5
+  traits: Lovesick
+- name: Loyalty
+  weight: 5
+  traits: Pride
+- name: Material Wealth
+  weight: 5
+  traits: Avarice
+- name: Pleasure
+  weight: 5
+  traits: Hedonistic
+- name: Power
+  weight: 5
+  traits: Power-Hungry
+- name: Pride
+  weight: 5
+  traits: Pride
+- name: Race
+  weight: 5
+  traits: Xenophobic
+- name: Religion
+  weight: 5
+  traits: Zealous
+- name: Reputation/Fame
+  weight: 5
+  traits: Vain
+- name: Safety/Security
+  weight: 5
+  traits: Paranoid
+- name: Self-Doubt
+  weight: 5
+  traits: Doubt
+- name: Social Acceptance
+  weight: 5
+  traits: Dependent
+- name: The Future
+  weight: 5
+  traits: Meticulous
+- name: The Past
+  weight: 5
+  traits: Sentimental
+- name: Worldview
+  weight: 5
+  traits: Provincial
+- name: Youth
+  weight: 5
+  traits: Vain

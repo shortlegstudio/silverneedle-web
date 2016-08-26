@@ -1,0 +1,42 @@
+- maturity:
+    race: human
+    adulthood: 15
+    young: 1d4
+    trained: 1d6
+    studied: 2d6
+- maturity:
+    race: dwarf
+    adulthood: 40
+    young: 3d6
+    trained: 5d6
+    studied: 7d6
+- maturity:
+    race: elf
+    adulthood: 110
+    young: 4d6
+    trained: 6d6
+    studied: 10d6
+- maturity:
+    race: gnome
+    adulthood: 40
+    young: 4d6
+    trained: 6d6
+    studied: 9d6
+- maturity:
+    race: half-elf
+    adulthood: 20
+    young: 1d6
+    trained: 2d6
+    studied: 3d6
+- maturity:
+    race: half-orc
+    adulthood: 14
+    young: 1d4
+    trained: 1d6
+    studied: 2d6
+- maturity:
+    race: halfling
+    adulthood: 20
+    young: 2d4
+    trained: 3d6
+    studied: 4d6
