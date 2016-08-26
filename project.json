@@ -62,7 +62,7 @@
       "Areas/**/Views",
       "appsettings.json",
       "web.config",
-      "Data"
+      "SilverNeedle/Data"
     ]
   },
 
