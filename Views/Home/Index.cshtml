@@ -1,10 +1,71 @@
 @{
     ViewData["Title"] = "Home Page";
+    var character = (SilverNeedle.Characters.CharacterSheetTextView)ViewData["Character"];
 }
-<h1>@ViewData["Name"]</h1>
+
+<h1>@character.Name</h1>
 <div class="row">
-    <strong>@ViewData["Race"] @ViewData["Class"] @ViewData["Level"]</strong>
-    <p>@ViewData["Alignment"] @ViewData["Size"]</p>
-    <strong>Init</strong>@ViewData["Initiative"]; <strong>Senses</strong> @ViewData["Senses"]
+    <strong>@character.Race @character.Class @character.Level</strong>
+    <p>@character.Alignment @character.Size</p>
+    <strong>Init</strong> @character.Initiative; <strong>Senses</strong> @character.Senses; <strong>Perception</strong> @character.Perception
+</div>
+<div class="row">
+    <h4>DEFENSE</h3>
+    <p><strong>AC</strong> @character.ArmorClass, touch @character.TouchArmorClass, flat-footed @character.FlatFootedArmorClass</p>
+    <p><strong>HP</strong> @character.HitPoints</p>
+    <p><strong>Fort</strong> @character.FortitudeSave, <strong>Reflex</strong>@character.ReflexSave, <strong>Will</strong>@character.WillSave</p>
+</div>
+<div class="row">
+    <h4>OFFENSE</h3>
+    <strong>Speed</strong> @character.MovementSpeed ft
+    @for(int i = 0; i < character.AttackTypes.Length; i++)
+    { <p><strong>@character.AttackTypes[i]</strong> @character.Attacks[i]</p>}
+    <p><strong>Special Attacks</strong>
+    @foreach(var spc in @character.SpecialAttacks)
+        { @spc }
+</div>
+<div class="row">
+    <h4>STATISTICS</h4>
+    <p>
+    <strong>Str</strong> @character.Strength (@character.StrengthModifier)
+    <strong>Dex</strong> @character.Dexterity (@character.DexterityModifier)
+    <strong>Con</strong> @character.Constitution (@character.ConstitutionModifier)
+    <strong>Int</strong> @character.Intelligence (@character.IntelligenceModifier)
+    <strong>Wis</strong> @character.Wisdom (@character.WisdomModifier)
+    <strong>Cha</strong> @character.Charisma (@character.CharismaModifier)
+    </p>
+    <p>
+        <strong>Base Atk</strong> @character.BaseAttackBonus
+        <strong>CMB</strong> @character.CombatManeuverBonus
+        <strong>CMD</strong> @character.CombatManeuverDefense
+    </p>
+    <p>
+        <strong>Feats</strong>
+        <ul>
+        @foreach(var f in character.Feats)
+        { <li>@f</li> }
+        </ul>
+    </p>
+    <p>
+        <strong>Skills</strong>
+        <ul>
+        @foreach(var s in character.CapableSkills)
+        { <li>@s</li> }
+        </ul>
+    </p>
+    <p>
+        <strong>Languages</strong>
+        <ul>
+        @foreach(var l in character.Languages)
+        { <li>@l</li> }
+        </ul>
+    </p>
+    <p>
+        <strong>Gear</strong>
+        <ul>
+        @foreach(var g in character.Gear)
+        { <li>@g</li> }
+        </ul>
+    </p>
 </div>
 

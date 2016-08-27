@@ -11,10 +11,7 @@ namespace SilverNeedle.Characters
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using SilverNeedle;
-    using SilverNeedle.Characters;
-
+    
     /// <summary>
     /// A character sheet is the object that ties everything together.
     /// </summary>

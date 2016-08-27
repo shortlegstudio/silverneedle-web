@@ -24,7 +24,7 @@ namespace silverneedleweb.Controllers
             );
 
             var character = gen.GenerateRandomCharacter();
-            SetCharacterViewData(character);
+            ViewData["character"] = new CharacterSheetTextView(character);
             return View();
         }
 
@@ -45,17 +45,6 @@ namespace silverneedleweb.Controllers
         public IActionResult Error()
         {
             return View();
-        }
-
-        private void SetCharacterViewData(CharacterSheet character)
-        {
-            ViewData["Name"] = character.Name;
-            ViewData["Race"] = character.Race.Name;
-            ViewData["Initiative"] = character.Initiative.TotalValue.ToModifierString();
-            ViewData["Senses"] = character.GetSkillValue("Perception").ToModifierString();
-            ViewData["Class"] = character.Class.Name;
-            ViewData["Size"] = character.Size.Size.ToString();
-            ViewData["Alignment"] = character.Alignment.ToString();
         }
     }
 }

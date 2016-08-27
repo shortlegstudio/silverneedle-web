@@ -46,29 +46,29 @@ namespace Characters {
 		[Test]
 		public void CMBIsBABAndStrengthAndSize() {
 			smallStats.BaseAttackBonus.SetValue (3);
-			Assert.AreEqual (5, smallStats.CombatManueverBonus ());
+			Assert.AreEqual (5, smallStats.CombatManeuverBonus ());
 		}
 
 		[Test]
 		public void CMDIsBABStrengthAndDexterityAndSize() {
 			smallStats.BaseAttackBonus.SetValue (3);
-			Assert.AreEqual (18, smallStats.CombatManueverDefense ());
+			Assert.AreEqual (18, smallStats.CombatManeuverDefense ());
 		}
 
 		[Test]
 		public void ModifiersCanBeAppliedToCombatManeuverDefense() {
 			var mods = new MockMod();
-			var oldCMD = smallStats.CombatManueverDefense();
+			var oldCMD = smallStats.CombatManeuverDefense();
 			smallStats.ProcessModifier(mods);
-			Assert.AreEqual(oldCMD + 1, smallStats.CombatManueverDefense());
+			Assert.AreEqual(oldCMD + 1, smallStats.CombatManeuverDefense());
 		}
 
 		[Test]
 		public void ModifiersCanBeAppliedToCombatManeuverBonus() {
 			var mods = new MockMod();
-			var oldCMB = smallStats.CombatManueverBonus();
+			var oldCMB = smallStats.CombatManeuverBonus();
 			smallStats.ProcessModifier(mods);
-			Assert.AreEqual(oldCMB + 1, smallStats.CombatManueverBonus());
+			Assert.AreEqual(oldCMB + 1, smallStats.CombatManeuverBonus());
 		}
 
 		[Test]

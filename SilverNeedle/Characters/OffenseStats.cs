@@ -128,7 +128,7 @@ namespace SilverNeedle.Characters
         /// Calculates the combat manuever bonus.
         /// </summary>
         /// <returns>The manuever bonus.</returns>
-        public int CombatManueverBonus()
+        public int CombatManeuverBonus()
         {
             return this.combatManeuverOffense.TotalValue + 
                 this.BaseAttackBonus.TotalValue + 
@@ -140,7 +140,7 @@ namespace SilverNeedle.Characters
         /// Calculate the combats manuever defense.
         /// </summary>
         /// <returns>The manuever defense.</returns>
-        public int CombatManueverDefense()
+        public int CombatManeuverDefense()
         {
             return this.combatManeuverDefense.TotalValue + 
                 this.BaseAttackBonus.TotalValue + 
