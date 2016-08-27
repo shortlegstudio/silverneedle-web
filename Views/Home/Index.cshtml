@@ -4,20 +4,68 @@
 }
 <div class="charactersheet">
     <h1>@character.Name</h1>
-    <strong>@character.Race @character.Class @character.Level</strong>
-    <p>@character.Alignment @character.Size</p>
-    <strong>Init</strong> @character.Initiative; <strong>Senses</strong> @character.Senses; <strong>Perception</strong> @character.Perception
-    <h5>DEFENSE</h5>
-    <p><strong>AC</strong> @character.ArmorClass, touch @character.TouchArmorClass, flat-footed @character.FlatFootedArmorClass</p>
-    <p><strong>HP</strong> @character.HitPoints</p>
-    <p><strong>Fort</strong> @character.FortitudeSave, <strong>Reflex</strong>@character.ReflexSave, <strong>Will</strong>@character.WillSave</p>
-    <h5>OFFENSE</h5>
-    <strong>Speed</strong> @character.MovementSpeed ft
-    @for(int i = 0; i < character.AttackTypes.Length; i++)
-    { <p><strong>@character.AttackTypes[i]</strong> @character.Attacks[i]</p>}
-    <p><strong>Special Attacks</strong>
-    @foreach(var spc in @character.SpecialAttacks)
-        { @spc }
+    <div class="row">
+        <div class="col-md-6">
+            <h5>Vitals</h5>
+            <ul class="stats">
+                <li><strong>@character.Race @character.Class @character.Level</strong></li>
+                <li>@character.Alignment @character.Size</li>
+                <li>
+                    <ul class="commalist">
+                        <li><strong>Init</strong> @character.Initiative</li>
+                        <li><strong>Senses</strong> @character.Senses</li>
+                        <li><strong>Perception</strong> @character.Perception</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <h5>History</h5>
+            <ul class="stats">
+                <li>
+                    <ul class="commalist">
+                        <li><strong>Father</strong> @character.Father</li>
+                        <li><strong>Mother</strong> @character.Mother</li>
+                    </ul>
+                    <li><strong>Homeland</strong> @character.Homeland</li>
+                    <li><strong>Drawback</strong> @character.Drawback</li>
+                    <li><strong>Origins</strong> @character.ClassOrigin</li>
+                </li>
+                             
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <h5>DEFENSE</h5>
+            <ul class="stats">
+                <li>
+                    <ul class="commalist">
+                        <li><strong>AC</strong> @character.ArmorClass</li>
+                        <li><i>touch</i> @character.TouchArmorClass</li>
+                        <li><i>flat-footed</i> @character.FlatFootedArmorClass</li>
+                    </ul>
+                </li>
+                <li><strong>HP</strong> @character.HitPoints</li>
+                <li>
+                    <ul class="commalist">
+                        <li><strong>Fort</strong> @character.FortitudeSave</li>
+                        <li><strong>Reflex</strong>@character.ReflexSave</li>
+                        <li><strong>Will</strong>@character.WillSave</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <h5>OFFENSE</h5>
+            <strong>Speed</strong> @character.MovementSpeed ft
+            @for(int i = 0; i < character.AttackTypes.Length; i++)
+            { <p><strong>@character.AttackTypes[i]</strong> @character.Attacks[i]</p>}
+            <p><strong>Special Attacks</strong>
+            @foreach(var spc in @character.SpecialAttacks)
+                { @spc }
+        </div>
+    </div>
     <h5>STATISTICS</h5>
     <p>
     <strong>Str</strong> @character.Strength (@character.StrengthModifier)

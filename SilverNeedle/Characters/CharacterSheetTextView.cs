@@ -56,6 +56,12 @@ namespace SilverNeedle.Characters
             
             Languages = character.Languages.Select(x => x.Name).ToArray();
             Gear = character.Inventory.All.Select(x => x.Name).ToArray();
+
+            Father = character.History.FamilyTree.Father;
+            Mother = character.History.FamilyTree.Mother;
+            ClassOrigin = character.History.ClassOriginStory.Name;
+            Drawback = character.History.Drawback.Name;
+            Homeland = character.History.Homeland.Location;
         }
 
         public string Name { get; private set; }
@@ -101,6 +107,13 @@ namespace SilverNeedle.Characters
         public string[] Languages { get; private set; }
 
         public string[] Gear { get; private set; }
+
+        public string Father { get; private set; }
+        public string Mother { get; private set; }
+
+        public string ClassOrigin { get; private set; }
+        public string Drawback { get; private set; }
+        public string Homeland { get; private set; }
         private string FormatSenses(CharacterSheet character)
         {
             string senses = string.Join(
