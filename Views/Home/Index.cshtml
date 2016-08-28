@@ -58,12 +58,15 @@
         </div>
         <div class="col-md-6">
             <h5>OFFENSE</h5>
-            <strong>Speed</strong> @character.MovementSpeed ft
-            @for(int i = 0; i < character.AttackTypes.Length; i++)
-            { <p><strong>@character.AttackTypes[i]</strong> @character.Attacks[i]</p>}
-            <p><strong>Special Attacks</strong>
-            @foreach(var spc in @character.SpecialAttacks)
-                { @spc }
+            <ul class="stats">
+                <li><strong>Speed</strong> @character.MovementSpeed ft</li>
+                @for(int i = 0; i < character.AttackTypes.Length; i++)
+                    { <li><strong>@character.AttackTypes[i]</strong> @character.Attacks[i]</li>}
+                <li><strong>Special Attacks</strong>
+                @foreach(var spc in @character.SpecialAttacks)
+                    { @spc }
+                </li>
+            </ul>
         </div>
     </div>
     <h5>STATISTICS</h5>

@@ -221,34 +221,47 @@ namespace SilverNeedle.Characters
         public IList<AttackStatistic> Attacks()
         {
             var attacks = new List<AttackStatistic>();
-
-            // Get A list of weapons and return them
-            foreach (var weapon in this.inventory.Weapons)
+            
+            // Get all the melee weapons
+            foreach (var weapon in this.inventory.Weapons.Where(x => x.IsMelee))
             {
-                var atk = new AttackStatistic();
-                atk.Name = weapon.Name;
-                atk.Weapon = weapon;
-                atk.Damage = DiceStrings.ParseDice(DamageTables.ConvertDamageBySize(weapon.Damage, this.Size.Size));
-                if (weapon.IsMelee)
-                {
-                    atk.Damage.Modifier = AbilityScores.GetModifier(AbilityScoreTypes.Strength);
-                    atk.AttackBonus = this.MeleeAttackBonus();
-                }
-                else if (weapon.IsRanged)
-                {
-                    atk.AttackBonus = this.RangeAttackBonus();
-                }
+                attacks.Add(
+                    CreateAttack(AttackTypes.Melee, weapon)
+                );
+            }
 
-                // If not proficient, add a penalty to the attack bonus
-                if (!this.IsProficient(weapon))
-                {
-                    atk.AttackBonus += UnproficientWeaponModifier;
-                }
-
-                attacks.Add(atk);
+            // Get all the ranged weapons
+            foreach (var weapon in this.inventory.Weapons.Where(x => x.IsRanged))
+            {
+                attacks.Add(
+                    CreateAttack(AttackTypes.Ranged, weapon)
+                );
             }
 
             return attacks;
+        }
+
+        private AttackStatistic CreateAttack(AttackTypes attackType, Weapon weapon) 
+        {
+            var atk = new AttackStatistic();
+            atk.AttackType = attackType;
+            atk.Name = weapon.Name;
+            atk.Weapon = weapon;
+            atk.Damage = DiceStrings.ParseDice(DamageTables.ConvertDamageBySize(weapon.Damage, this.Size.Size));
+            atk.AttackBonus = this.MeleeAttackBonus();
+            
+            // Figure out to apply damage modifier
+            if (attackType == AttackTypes.Melee)
+            {
+                atk.Damage.Modifier = AbilityScores.GetModifier(AbilityScoreTypes.Strength);
+            }
+            
+            // If not proficient, add a penalty to the attack bonus
+            if (!this.IsProficient(weapon))
+            {
+                atk.AttackBonus += UnproficientWeaponModifier;
+            }
+            return atk;
         }
 
         /// <summary>
@@ -278,6 +291,8 @@ namespace SilverNeedle.Characters
             /// Gets or sets the attack bonus.
             /// </summary>
             public int AttackBonus { get; set; }
+
+            public AttackTypes AttackType { get; set; }
 
             /// <summary>
             /// Returns a <see cref="System.String"/> that represents the current <see cref="SilverNeedle.Characters.OffenseStats+AttackStatistic"/>.

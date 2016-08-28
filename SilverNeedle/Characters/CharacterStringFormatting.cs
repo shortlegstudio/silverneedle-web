@@ -60,5 +60,10 @@ namespace SilverNeedle.Characters
             return value.ToString();
         }
 
+        public static string ToRangeString(this int value)
+        {
+            return string.Format("{0}'", value);
+        }
+
    }
 }

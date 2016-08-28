@@ -1,5 +1,5 @@
 - armor:
-  name: Padded
+  name: Padded Armor
   cost: 5gp
   armor_class: 1
   maximum_dexterity_bonus: 8
@@ -8,7 +8,7 @@
   weight: 10
   armor_type: Light
 - armor:
-  name: Leather
+  name: Leather Armor
   cost: 10gp
   armor_class: 2
   maximum_dexterity_bonus: 6
@@ -17,7 +17,7 @@
   weight: 15
   armor_type: Light
 - armor:
-  name: Studded Leather
+  name: Studded Leather Armor
   cost: 25gp
   armor_class: 3
   maximum_dexterity_bonus: 5
@@ -35,7 +35,7 @@
   weight: 25
   armor_type: Light
 - armor:
-  name: hide
+  name: Hide Armor
   cost: 15gp
   armor_class: 4
   maximum_dexterity_bonus: 4

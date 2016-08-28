@@ -127,6 +127,15 @@ namespace Characters {
 			Assert.AreEqual(smallStats.MeleeAttackBonus() + OffenseStats.UnproficientWeaponModifier, atk.AttackBonus);
 		}
 
+		[Test]
+		public void ThrownWeaponsAreReturnedForBothMeleeAndRangedVersions()
+		{
+			inventory.AddGear(Dagger());
+			var atks = smallStats.Attacks();
+			Assert.IsTrue(atks.Any(x => x.AttackType == AttackTypes.Melee));
+			Assert.IsTrue(atks.Any(x => x.AttackType == AttackTypes.Ranged));
+		}
+
         [Test]
         public void TracksSpecialAttackAbilities()
         {
@@ -145,6 +154,10 @@ namespace Characters {
 
 		private Weapon Nunchaku() {
 			return new Weapon("Nunchaku", 0, "1d6", DamageTypes.Bludgeoning, 20, 2, 0, WeaponType.OneHanded, WeaponGroup.Monk, WeaponTrainingLevel.Exotic);
+		}
+
+		private Weapon Dagger() {
+			return new Weapon("Dagger", 0, "1d4", DamageTypes.Piercing, 20, 2, 10, WeaponType.Light, WeaponGroup.Thrown, WeaponTrainingLevel.Simple);
 		}
 
 		class MockMod : IModifiesStats {

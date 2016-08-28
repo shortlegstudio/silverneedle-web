@@ -25,8 +25,12 @@ namespace SilverNeedle.Characters
             WillSave = character.Defense.WillSave.ToString();
             MovementSpeed = character.Movement.BaseMovement.TotalValue.ToString();
             MovementSquares = character.Movement.BaseSquares.ToString();
-            AttackTypes = character.Offense.Attacks().Select(x => x.Name).ToArray();
-            Attacks = character.Offense.Attacks().Select(x => string.Format("{0} {1} ({2})", x.Weapon.Name, x.AttackBonus.ToModifierString(), x.Damage.ToString())).ToArray();
+            AttackTypes = character.Offense.Attacks().Select(x => x.AttackType.ToString()).ToArray();
+            Attacks = character.Offense.Attacks().Select(x => string.Format("{0} {1} ({2}) {3}", 
+                x.Weapon.Name, 
+                x.AttackBonus.ToModifierString(), 
+                x.Damage.ToString(), 
+                x.Weapon.IsRanged ? x.Weapon.Range.ToRangeString() : "")).ToArray();
             SpecialAttacks = character.Offense.OffensiveAbilities.Select(x => x.Condition).ToArray();
             Strength = character.AbilityScores.GetScore(AbilityScoreTypes.Strength).ToString();
             StrengthModifier = character.AbilityScores.GetModifier(AbilityScoreTypes.Strength).ToModifierString();
