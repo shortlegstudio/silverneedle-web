@@ -3,24 +3,20 @@
 //     Copyright (c) Short Leg Studio, LLC. All rights reserved.
 // </copyright>
 //-----------------------------------------------------------------------
-using SilverNeedle.Actions.NamingThings;
-using SilverNeedle.Actions.CharacterGenerator;
-using SilverNeedle.Actions.CharacterGenerator.Appearance;
-using SilverNeedle.Characters.Background;
-using SilverNeedle.Actions.CharacterGenerator.Background;
-
 
 namespace SilverNeedle.Actions.CharacterGenerator
 {
     // TODO: This class design is kind of all over the place. Is it trying to do everything or is it driven by an outside source?
-    using System.Collections.Generic;
     using System.Linq;
     using SilverNeedle;
-    using SilverNeedle.Characters;
-    using SilverNeedle.Equipment;
-    using SilverNeedle.Equipment.Gateways;
     using SilverNeedle.Actions.CharacterGenerator.Abilities;
-
+    using SilverNeedle.Actions.CharacterGenerator.Appearance;
+    using SilverNeedle.Actions.CharacterGenerator.Background;
+    using SilverNeedle.Actions.NamingThings;
+    using SilverNeedle.Characters;
+    using SilverNeedle.Characters.Background;
+    using SilverNeedle.Equipment;
+    
     /// <summary>
     /// Character generator generates a new character. By specifying different generators different character
     /// creation schemes are possible

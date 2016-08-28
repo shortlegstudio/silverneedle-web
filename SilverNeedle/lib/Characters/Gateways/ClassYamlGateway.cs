@@ -57,7 +57,7 @@ namespace SilverNeedle.Characters
         /// </summary>
         /// <returns>The from yaml.</returns>
         /// <param name="yaml">Yaml data to load from.</param>
-        private static IList<Class> LoadFromYaml(YamlNodeWrapper yaml)
+        private IList<Class> LoadFromYaml(YamlNodeWrapper yaml)
         {
             var classes = new List<Class>();
 

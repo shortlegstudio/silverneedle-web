@@ -4,7 +4,7 @@
 // </copyright>
 //-----------------------------------------------------------------------
 
-namespace SilverNeedle.Equipment.Gateways
+namespace SilverNeedle.Equipment
 {
     using System.Collections.Generic;
     using SilverNeedle.Characters;

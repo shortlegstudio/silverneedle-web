@@ -3,7 +3,6 @@ using System.Linq;
 using System.Collections.Generic;
 using NUnit.Framework;
 using SilverNeedle.Equipment;
-using SilverNeedle.Equipment.Gateways;
 using SilverNeedle;
 using SilverNeedle.Characters;
 using SilverNeedle.Yaml;

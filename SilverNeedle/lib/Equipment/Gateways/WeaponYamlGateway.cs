@@ -3,7 +3,7 @@
 //     Copyright (c) Short Leg Studio, LLC. All rights reserved.
 // </copyright>
 //-----------------------------------------------------------------------
-namespace SilverNeedle.Equipment.Gateways
+namespace SilverNeedle.Equipment
 {
     using System;
     using System.Collections.Generic;

@@ -4,7 +4,6 @@ using NUnit.Framework;
 using SilverNeedle.Characters;
 using SilverNeedle.Equipment;
 using SilverNeedle;
-using SilverNeedle.Equipment.Gateways;
 using SilverNeedle.Yaml;
 
 namespace Equipment {

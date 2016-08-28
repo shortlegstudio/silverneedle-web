@@ -4,8 +4,6 @@ using SilverNeedle.Actions.CharacterGenerator;
 using System.Linq;
 using System.Collections.Generic;
 using SilverNeedle.Equipment;
-using SilverNeedle.Equipment.Gateways;
-
 
 namespace Actions {
 	[TestFixture]

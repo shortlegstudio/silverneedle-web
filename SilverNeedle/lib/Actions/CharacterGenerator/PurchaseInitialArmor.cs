@@ -12,8 +12,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
     using SilverNeedle;
     using SilverNeedle.Characters;
     using SilverNeedle.Equipment;
-    using SilverNeedle.Equipment.Gateways;
-
+    
     /// <summary>
     /// Purchase initial armor for a character
     /// </summary>
