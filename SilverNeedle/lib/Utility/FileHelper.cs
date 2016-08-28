@@ -23,25 +23,27 @@ namespace SilverNeedle
         {
             var path = Path.Combine(Configuration.DataPath, fileName);
             ShortLog.DebugFormat("Loading Yaml File: {0}", path);
-            var input = File.OpenText(path);
+            using(var input = File.OpenText(path))
+            {
+                var yaml = new YamlStream();
+                yaml.Load(input);
 
-            var yaml = new YamlStream();
-            yaml.Load(input);
-
-            // Examine the stream
-            return new YamlNodeWrapper(yaml.Documents[0].RootNode);
+                // Examine the stream
+                return new YamlNodeWrapper(yaml.Documents[0].RootNode);
+            }
         }
 
         public static YamlNodeWrapper OpenYaml2(string fileName)
         {
             ShortLog.DebugFormat("Loading Yaml File: {0}", fileName);
-            var input = File.OpenText(fileName);
-
-            var yaml = new YamlStream();
-            yaml.Load(input);
-
-            // Examine the stream
-            return new YamlNodeWrapper(yaml.Documents[0].RootNode);
+            using(var input = File.OpenText(fileName))
+            {
+                var yaml = new YamlStream();
+                yaml.Load(input);
+                
+                // Examine the stream
+                return new YamlNodeWrapper(yaml.Documents[0].RootNode);
+            }
         }
 
         /// <summary>
