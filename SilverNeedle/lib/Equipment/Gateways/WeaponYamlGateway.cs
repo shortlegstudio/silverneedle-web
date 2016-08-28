@@ -9,7 +9,6 @@ namespace SilverNeedle.Equipment
     using System.Collections.Generic;
     using System.Linq;
     using SilverNeedle.Characters;
-    using SilverNeedle.Equipment;
     using SilverNeedle.Yaml;
 
     /// <summary>
@@ -20,19 +19,22 @@ namespace SilverNeedle.Equipment
         /// <summary>
         /// The weapon yaml file.
         /// </summary>
-        private const string WeaponYamlFile = "weapons.yml";
+        private const string WeaponYamlFileType = "weapon";
 
         /// <summary>
         /// The weapons.
         /// </summary>
-        private IList<Weapon> weapons;
+        private IList<Weapon> weapons = new List<Weapon>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Equipment.Gateways.WeaponYamlGateway"/> class.
         /// </summary>
         public WeaponYamlGateway()
         { 
-            this.LoadFromYaml(FileHelper.OpenYaml(WeaponYamlFile));
+            foreach(var y in DatafileLoader.Instance.GetYamlFiles(WeaponYamlFileType))
+            {
+                this.LoadFromYaml(y);
+            }
         }
 
         /// <summary>
@@ -69,8 +71,6 @@ namespace SilverNeedle.Equipment
         /// <param name="yaml">Yaml data to load.</param>
         private void LoadFromYaml(YamlNodeWrapper yaml)
         {
-            this.weapons = new List<Weapon>();
-
             foreach (var node in yaml.Children())
             {
                 ShortLog.DebugFormat("Loading Weapon: {0}", node.GetString("name"));

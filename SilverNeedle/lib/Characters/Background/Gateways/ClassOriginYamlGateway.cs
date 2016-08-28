@@ -14,12 +14,15 @@ namespace SilverNeedle.Characters.Background
 
     public class ClassOriginYamlGateway : IClassOriginYamlGateway
     {
-        private const string ClassOriginYamlDataFile = "classorigins.yml";
-        private List<ClassOrigin> classOrigins;
+        private const string ClassOriginYamlDataFileType = "classorigin";
+        private List<ClassOrigin> classOrigins = new List<ClassOrigin>();
 
         public ClassOriginYamlGateway()
-            : this(FileHelper.OpenYaml(ClassOriginYamlDataFile))
         {
+            foreach(var y in DatafileLoader.Instance.GetYamlFiles(ClassOriginYamlDataFileType)) 
+            {
+                this.ParseYaml(y);
+            }
         }
 
         public ClassOriginYamlGateway(YamlNodeWrapper yaml)
@@ -45,7 +48,6 @@ namespace SilverNeedle.Characters.Background
 
         private void ParseYaml(YamlNodeWrapper yaml)
         {
-            classOrigins = new List<ClassOrigin>();
             foreach (var classNode in yaml.Children())
             {
                 var table = classNode.GetNode("table");

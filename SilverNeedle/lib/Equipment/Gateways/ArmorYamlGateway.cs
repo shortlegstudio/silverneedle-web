@@ -9,7 +9,6 @@ namespace SilverNeedle.Equipment
     using System.Collections.Generic;
     using System.Linq;
     using SilverNeedle.Characters;
-    using SilverNeedle.Equipment;
     using SilverNeedle.Yaml;
 
     /// <summary>
@@ -20,19 +19,22 @@ namespace SilverNeedle.Equipment
         /// <summary>
         /// The armor yaml file.
         /// </summary>
-        private const string ArmorYamlFile = "Armors.yml";
+        private const string ArmorYamlFileType = "armor";
 
         /// <summary>
         /// The armors that are loaded.
         /// </summary>
-        private IList<Armor> armors;
+        private IList<Armor> armors = new List<Armor>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Equipment.Gateways.ArmorYamlGateway"/> class.
         /// </summary>
         public ArmorYamlGateway()
         {
-            this.LoadFromYaml(FileHelper.OpenYaml(ArmorYamlFile));
+            foreach(var y in DatafileLoader.Instance.GetYamlFiles(ArmorYamlFileType))
+            {
+                this.LoadFromYaml(y);
+            }
         }
 
         /// <summary>
@@ -101,8 +103,6 @@ namespace SilverNeedle.Equipment
         /// <param name="yaml">Yaml to parse.</param>
         private void LoadFromYaml(YamlNodeWrapper yaml)
         {
-            this.armors = new List<Armor>();
-
             foreach (var node in yaml.Children())
             {
                 ShortLog.DebugFormat("Loading Armor: {0}", node.GetString("name"));

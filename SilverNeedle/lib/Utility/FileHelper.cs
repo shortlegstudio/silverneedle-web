@@ -32,6 +32,18 @@ namespace SilverNeedle
             return new YamlNodeWrapper(yaml.Documents[0].RootNode);
         }
 
+        public static YamlNodeWrapper OpenYaml2(string fileName)
+        {
+            ShortLog.DebugFormat("Loading Yaml File: {0}", fileName);
+            var input = File.OpenText(fileName);
+
+            var yaml = new YamlStream();
+            yaml.Load(input);
+
+            // Examine the stream
+            return new YamlNodeWrapper(yaml.Documents[0].RootNode);
+        }
+
         /// <summary>
         /// Returns all files in a path based off of the dataPath for the application
         /// </summary>

@@ -1,3 +1,4 @@
+--- !<drawback>
 - name: Attachment (Object)
   weight: 5
   traits: Attached

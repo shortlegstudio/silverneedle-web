@@ -21,19 +21,22 @@ namespace SilverNeedle.Characters
         /// <summary>
         /// The race data file path.
         /// </summary>
-        private const string RaceDataFile = "races.yml";
+        private const string RaceDataFileType = "race";
 
         /// <summary>
         /// The races.
         /// </summary>
-        private IList<Race> races;
+        private IList<Race> races = new List<Race>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Characters.Gateways.RaceYamlGateway"/> class.
         /// </summary>
         public RaceYamlGateway()
         {
-            this.LoadFromYaml(FileHelper.OpenYaml(RaceDataFile));
+            var yamlFiles = DatafileLoader.Instance.GetYamlFiles(RaceDataFileType);
+            foreach(var y in yamlFiles) {
+                this.LoadFromYaml(y);
+            }
         }
 
         /// <summary>
@@ -60,8 +63,6 @@ namespace SilverNeedle.Characters
         /// <param name="yaml">Yaml data to parse.</param>
         private void LoadFromYaml(YamlNodeWrapper yaml)
         {
-            this.races = new List<Race>();
-
             foreach (var raceNode in yaml.Children())
             {
                 var race = new Race();

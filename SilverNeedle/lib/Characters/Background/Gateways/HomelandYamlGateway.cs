@@ -14,12 +14,15 @@ namespace SilverNeedle.Characters.Background
 {
     public class HomelandYamlGateway : IHomelandGateway
     {
-        private const string HomelandYamlDataFile = "homelands.yml";
-        private IList<Homeland> homelands;
+        private const string HomelandYamlDataFileType = "homeland";
+        private IList<Homeland> homelands = new List<Homeland>();
 
-        public HomelandYamlGateway() : this(FileHelper.OpenYaml(HomelandYamlDataFile))
+        public HomelandYamlGateway()
         {
-            
+            foreach(var y in DatafileLoader.Instance.GetYamlFiles(HomelandYamlDataFileType))
+            {
+                this.ParseYaml(y);
+            }
         }
 
         public HomelandYamlGateway(YamlNodeWrapper yaml)
@@ -40,7 +43,6 @@ namespace SilverNeedle.Characters.Background
 
         private void ParseYaml(YamlNodeWrapper yaml)
         {
-            homelands = new List<Homeland>();
             foreach (var node in yaml.Children())
             {
                 var table = node.GetNode("table");

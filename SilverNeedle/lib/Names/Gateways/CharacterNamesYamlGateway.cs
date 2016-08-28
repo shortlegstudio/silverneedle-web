@@ -14,17 +14,19 @@ namespace SilverNeedle.Names
 
     public class CharacterNamesYamlGateway : ICharacterNamesGateway
     {
-        private const string CharacterNamesDataFile = "Names.yml";
-        private IList<NameInformation> namesDatabase;
+        private const string CharacterNamesDataFileType = "names";
+        private IList<NameInformation> namesDatabase = new List<NameInformation>();
 
-        public CharacterNamesYamlGateway() : this(FileHelper.OpenYaml(CharacterNamesDataFile))
+        public CharacterNamesYamlGateway() 
         {
-            
+            foreach(var y in DatafileLoader.Instance.GetYamlFiles(CharacterNamesDataFileType))
+            {
+                this.LoadFromYaml(y);
+            }
         }
 
         public CharacterNamesYamlGateway(YamlNodeWrapper yamlData)
         {
-            namesDatabase = new List<NameInformation>();
             LoadFromYaml(yamlData);
         }
 

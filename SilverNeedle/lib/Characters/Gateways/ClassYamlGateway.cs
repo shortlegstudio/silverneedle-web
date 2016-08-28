@@ -8,7 +8,6 @@ namespace SilverNeedle.Characters
     using System.Collections.Generic;
     using SilverNeedle;
     using SilverNeedle.Dice;
-    using SilverNeedle.Characters;
     using SilverNeedle.Yaml;
 
     /// <summary>
@@ -19,12 +18,12 @@ namespace SilverNeedle.Characters
         /// <summary>
         /// The yaml file holding class data
         /// </summary>
-        private const string ClassDataFile = "classes.yml";
+        private const string ClassDataFileType = "class";
 
         /// <summary>
         /// The classes that are loaded
         /// </summary>
-        private IList<Class> classes;
+        private IList<Class> classes = new List<Class>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Characters.Gateways.ClassYamlGateway"/> class.
@@ -32,7 +31,7 @@ namespace SilverNeedle.Characters
         /// <param name="yaml">Yaml data.</param>
         public ClassYamlGateway(YamlNodeWrapper yaml)
         {
-            this.classes = LoadFromYaml(yaml);
+            this.classes.Add(LoadFromYaml(yaml));
         }
 
         /// <summary>
@@ -40,7 +39,11 @@ namespace SilverNeedle.Characters
         /// </summary>
         public ClassYamlGateway()
         {
-            this.classes = LoadFromYaml(FileHelper.OpenYaml(ClassDataFile));
+            // Use DatafileLoader to get all class files;
+            var yamlNodes = DatafileLoader.Instance.GetYamlFiles(ClassDataFileType);
+            foreach(var y in yamlNodes) {
+                this.classes.Add(LoadFromYaml(y));
+            }
         }
 
         /// <summary>

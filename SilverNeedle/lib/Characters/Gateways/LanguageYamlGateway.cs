@@ -19,19 +19,22 @@ namespace SilverNeedle.Characters
         /// <summary>
         /// The language data file.
         /// </summary>
-        private const string LanguageDataFile = "languages.yml";
+        private const string LanguageDataFileType = "language";
 
         /// <summary>
         /// The languages that are loaded.
         /// </summary>
-        private IList<Language> languages;
+        private IList<Language> languages = new List<Language>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Characters.Gateways.LanguageYamlGateway"/> class.
         /// </summary>
         public LanguageYamlGateway()
         {
-            this.LoadFromYaml(FileHelper.OpenYaml(LanguageDataFile));
+            var yamlFiles = DatafileLoader.Instance.GetYamlFiles(LanguageDataFileType);
+            foreach(var y in yamlFiles) {
+                this.LoadFromYaml(y);
+            }
         }
 
         /// <summary>
@@ -58,7 +61,6 @@ namespace SilverNeedle.Characters
         /// <param name="yaml">Yaml to parse.</param>
         private void LoadFromYaml(YamlNodeWrapper yaml)
         {
-            this.languages = new List<Language>();
             foreach (var n in yaml.Children())
             {
                 this.languages.Add(new Language(

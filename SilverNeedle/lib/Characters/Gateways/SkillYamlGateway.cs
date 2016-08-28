@@ -9,7 +9,6 @@ namespace SilverNeedle.Characters
     using System;
     using System.Collections.Generic;
     using SilverNeedle;
-    using SilverNeedle.Characters;
     using SilverNeedle.Yaml;
 
     /// <summary>
@@ -20,19 +19,21 @@ namespace SilverNeedle.Characters
         /// <summary>
         /// The Skills Data File
         /// </summary>
-        private const string SkillDataFile = "skills.yml";
+        private const string SkillDataFileType = "skill";
 
         /// <summary>
         /// The skills that have been loaded
         /// </summary>
-        private IList<Skill> skills;
+        private IList<Skill> skills = new List<Skill>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Characters.Gateways.SkillYamlGateway"/> class.
         /// </summary>
         public SkillYamlGateway()
         {
-            this.LoadFromYaml(FileHelper.OpenYaml(SkillDataFile));
+            foreach(var y in DatafileLoader.Instance.GetYamlFiles(SkillDataFileType)) {
+                this.LoadFromYaml(y);
+            }
         }
 
         /// <summary>
@@ -59,8 +60,6 @@ namespace SilverNeedle.Characters
         /// <param name="yaml">Yaml data to load from</param>
         private void LoadFromYaml(YamlNodeWrapper yaml)
         {
-            this.skills = new List<Skill>();
-
             foreach (var skillNode in yaml.Children())
             {
                 var skill = new Skill(

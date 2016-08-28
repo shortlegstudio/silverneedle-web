@@ -8,9 +8,7 @@ namespace SilverNeedle.Characters
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
     using SilverNeedle;
-    using SilverNeedle.Characters;
     using SilverNeedle.Yaml;
 
     /// <summary>
@@ -21,19 +19,22 @@ namespace SilverNeedle.Characters
         /// <summary>
         /// The Trait Data File
         /// </summary>
-        private const string TraitDataFile = "traits.yml";
+        private const string TraitDataFileType = "trait";
 
         /// <summary>
         /// The traits available
         /// </summary>
-        private IList<Trait> traits;
+        private IList<Trait> traits = new List<Trait>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Characters.Gateways.TraitYamlGateway"/> class.
         /// </summary>
         public TraitYamlGateway()
         {
-            this.LoadFromYaml(FileHelper.OpenYaml(TraitDataFile));
+            foreach(var y in DatafileLoader.Instance.GetYamlFiles(TraitDataFileType))
+            {
+                this.LoadFromYaml(y);
+            }
         }
 
         /// <summary>
@@ -60,8 +61,6 @@ namespace SilverNeedle.Characters
         /// <param name="yaml">Yaml node to load from</param>
         private void LoadFromYaml(YamlNodeWrapper yaml)
         {
-            this.traits = new List<Trait>();
-
             foreach (var traitNode in yaml.Children())
             {
                 var trait = new Trait();

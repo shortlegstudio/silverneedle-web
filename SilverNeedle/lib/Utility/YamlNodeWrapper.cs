@@ -287,6 +287,11 @@ namespace SilverNeedle.Yaml
             return results;
         }
 
+        public string GetTag()
+        {
+            return this.node.Tag;
+        }
+
         /// <summary>
         /// Returns a <see cref="System.String"/> that represents the current <see cref="SilverNeedle.YamlNodeWrapper"/>.
         /// </summary>

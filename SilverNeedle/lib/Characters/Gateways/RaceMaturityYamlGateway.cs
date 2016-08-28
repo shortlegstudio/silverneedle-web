@@ -16,12 +16,16 @@ namespace SilverNeedle.Characters
 {
     public class RaceMaturityYamlGateway : IRaceMaturityGateway
     {
-        private const string MaturityDataFile = "maturity.yml";
-        private List<Maturity> maturities;
+        private const string MaturityDataFileType = "maturity";
+        private List<Maturity> maturities = new List<Maturity>();
 
         public RaceMaturityYamlGateway()
         {
-            ParseYaml(FileHelper.OpenYaml(MaturityDataFile));
+            var yamlFiles = DatafileLoader.Instance.GetYamlFiles(MaturityDataFileType);
+            foreach(var y in yamlFiles) 
+            {
+                ParseYaml(y);
+            }
         }
 
         public RaceMaturityYamlGateway(YamlNodeWrapper yaml)
@@ -41,7 +45,6 @@ namespace SilverNeedle.Characters
 
         private void ParseYaml(YamlNodeWrapper yaml) 
         {
-            maturities = new List<Maturity>();
             foreach (var mat_node in yaml.Children())
             {
                 var node = mat_node.GetNode("maturity");

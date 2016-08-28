@@ -13,13 +13,16 @@ namespace SilverNeedle.Characters.Background
 {
     public class DrawbackYamlGateway : IDrawbackGateway
     {
-        private const string DrawbackYamlDataFile = "drawbacks.yml";
+        private const string DrawbackYamlDataFileType = "drawback";
 
-        private WeightedOptionTable<Drawback> drawbacks;
+        private WeightedOptionTable<Drawback> drawbacks = new WeightedOptionTable<Drawback>();
 
         public DrawbackYamlGateway()
-            : this(FileHelper.OpenYaml(DrawbackYamlDataFile))
         {
+            foreach(var y in DatafileLoader.Instance.GetYamlFiles(DrawbackYamlDataFileType))
+            {
+                ParseYaml(y);
+            }
         }
 
         public DrawbackYamlGateway(YamlNodeWrapper yamlNode)
@@ -39,7 +42,6 @@ namespace SilverNeedle.Characters.Background
 
         private void ParseYaml(YamlNodeWrapper yaml)
         {
-            drawbacks = new WeightedOptionTable<Drawback>();
             foreach (var node in yaml.Children())
             {
                 var drawback = new Drawback();
