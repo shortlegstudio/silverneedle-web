@@ -1,0 +1,71 @@
+--- !<classorigin>
+- background:
+  class: adept
+  table:
+    - name: Atonement
+      weight: 10
+      traits: Oathbound
+    - name: Converted
+      weight: 10
+      traits: Inspired
+    - name: Devoted
+      weight: 10
+      traits: Blessed
+    - name: Healed
+      weight: 10
+      traits: Sacred Touch
+    - name: Taken in by the Church
+      weight: 10
+      traits: Child of the Temple
+- background:
+  class: aristocrat
+  table:
+    - name: Family Inheritance
+      weight: 10
+      traits: Born Rich
+    - name: Married Into
+      weight: 10
+      traits: Noble Outsider
+    - name: Military Upbringing
+      weight: 10
+      traits: General Commander
+- background:
+  class: commoner
+  table:
+    - name: Farmer
+      weight: 10
+      traits: Peasant
+    - name: Fisherman
+      weight: 10
+      traits: Peasant
+    - name: Miner
+      weight: 10
+      traits: Peasant
+    - name: Lumberjack
+      weight: 10
+      traits: Peasant
+- background:
+  class: expert
+  table:
+    - name: Merchant
+      weight: 10
+      traits: Merchant
+    - name: Mason
+      weight: 10
+      traits: Builder
+    - name: Carpenter
+      weight: 10
+      traits: Builder
+- background:
+  class: warrior
+  table:
+    - name: Town Watch
+      weight: 10
+      traits: Militia Veteran
+    - name: Palace Guard 
+      weight: 10
+      traits: Militia Veteran
+    - name: Mercenary
+      weight: 10
+      traits: Mercenary
+
