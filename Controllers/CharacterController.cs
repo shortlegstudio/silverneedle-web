@@ -3,6 +3,7 @@
 // This software is released under the MIT License.
 // http://opensource.org/licenses/mit-license.php
 using Microsoft.AspNetCore.Mvc;
+using SilverNeedle;
 using SilverNeedle.Actions.CharacterGenerator;
 using SilverNeedle.Actions.CharacterGenerator.Abilities;
 using SilverNeedle.Actions.NamingThings;
@@ -30,7 +31,8 @@ namespace silverneedleweb.Controllers
                 new StandardAbilityScoreGenerator(),
                 new LanguageSelector(new LanguageYamlGateway()),
                 new RaceAssigner(new TraitYamlGateway()),
-                new NameCharacter(new CharacterNamesYamlGateway())
+                new NameCharacter(new CharacterNamesYamlGateway()),
+                new GatewayProvider()
             );
 
             var character = gen.GenerateRandomCharacter();

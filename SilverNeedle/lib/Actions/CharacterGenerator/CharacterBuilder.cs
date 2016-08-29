@@ -43,29 +43,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
         /// </summary>
         private INameCharacter nameGenerator;
 
-        /// <summary>
-        /// The armor gateway provides access to all armor
-        /// </summary>
-        private IArmorGateway armorGateway;
-
-        /// <summary>
-        /// The weapon gateway provides access to all weapons
-        /// </summary>
-        private IWeaponGateway weaponGateway;
-
-        /// <summary>
-        /// The skill gateway provides access to all skills
-        /// </summary>
-        private IEntityGateway<Skill> skillGateway;
-
-        /// <summary>
-        /// The class gateway provides access to classes
-        /// </summary>
-        private IEntityGateway<Class> classGateway;
-
-        private IRaceMaturityGateway maturityGateway;
-
-        private IRaceGateway raceGateway;
+        private GatewayProvider gateways;
        
 
         /// <summary>
@@ -80,19 +58,14 @@ namespace SilverNeedle.Actions.CharacterGenerator
             IAbilityScoreGenerator abilities,
             LanguageSelector langs,
             RaceAssigner races,
-            INameCharacter names)
+            INameCharacter names,
+            GatewayProvider gateways)
         {
             this.abilityGenerator = abilities;
             this.languageSelector = langs;
             this.raceAssigner = races;
             this.nameGenerator = names;
-
-            this.armorGateway = new ArmorYamlGateway();
-            this.weaponGateway = new WeaponYamlGateway();
-            this.skillGateway = new SkillYamlGateway();
-            this.classGateway = new ClassYamlGateway();
-            this.maturityGateway = new RaceMaturityYamlGateway();
-            this.raceGateway = new RaceYamlGateway();
+            this.gateways = gateways;
         }
 
         /// <summary>
@@ -102,12 +75,12 @@ namespace SilverNeedle.Actions.CharacterGenerator
         /// <returns>The level0.</returns>
         public CharacterSheet CreateLevel0()
         {
-            var character = new CharacterSheet(this.skillGateway.All());
+            var character = new CharacterSheet(this.gateways.Skills.All());
 
             character.Gender = EnumHelpers.ChooseOne<Gender>();
             character.Alignment = EnumHelpers.ChooseOne<CharacterAlignment>();
             this.abilityGenerator.AssignAbilities(character.AbilityScores);
-            this.raceAssigner.SetRace(character, raceGateway.All().ToList().ChooseOne());
+            this.raceAssigner.SetRace(character, gateways.Races.All().ToList().ChooseOne());
 
             character.Languages.Add(
                 this.languageSelector.PickLanguages(
@@ -115,7 +88,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
                     character.AbilityScores.GetModifier(AbilityScoreTypes.Intelligence)));
 
             // Assign Age to adult
-            character.Age = maturityGateway.Get(character.Race).Adulthood;
+            character.Age = this.gateways.Maturity.Get(character.Race).Adulthood;
 
             //Generate a facial description
             var facials = new CreateFacialFeatures();
@@ -136,13 +109,13 @@ namespace SilverNeedle.Actions.CharacterGenerator
         /// <param name="character">Character to assign class to.</param>
         public CharacterSheet SelectClass(CharacterSheet character)
         {
-            character.SetClass(this.classGateway.All().ToList().ChooseOne());
+            character.SetClass(this.gateways.Classes.All().ToList().ChooseOne());
             var hp = new HitPointGenerator();
             character.SetHitPoints(hp.RollHitPoints(character));
 
             // Assign Age based on class
             var assignAge = new AssignAge();
-            character.Age = assignAge.RandomAge(character.Class.ClassDevelopmentAge, maturityGateway.Get(character.Race));
+            character.Age = assignAge.RandomAge(character.Class.ClassDevelopmentAge, this.gateways.Maturity.Get(character.Race));
 
             // Figure out how this class came about
             var classOrigin = new ClassOriginStoryCreator(new ClassOriginYamlGateway());
@@ -167,10 +140,10 @@ namespace SilverNeedle.Actions.CharacterGenerator
             skillGen.AssignSkillPointsRandomly(character);
 
             // Get some gear!
-            var equip = new EquipMeleeAndRangedWeapon(this.weaponGateway);
+            var equip = new EquipMeleeAndRangedWeapon(this.gateways.Weapons);
             equip.AssignWeapons(character.Inventory, character.Offense.WeaponProficiencies);
 
-            var equipArmor = new PurchaseInitialArmor(this.armorGateway);
+            var equipArmor = new PurchaseInitialArmor(this.gateways.Armors);
             equipArmor.PurchaseArmorAndShield(character.Inventory, character.Defense.ArmorProficiencies);
 
             return character;
