@@ -36,7 +36,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
         /// <summary>
         /// The race selector chooses which race the character will be
         /// </summary>
-        private RaceSelector raceSelector;
+        private RaceAssigner raceAssigner;
 
         /// <summary>
         /// The name generator selects the name for the character
@@ -64,6 +64,8 @@ namespace SilverNeedle.Actions.CharacterGenerator
         private IEntityGateway<Class> classGateway;
 
         private IRaceMaturityGateway maturityGateway;
+
+        private IRaceGateway raceGateway;
        
 
         /// <summary>
@@ -77,12 +79,12 @@ namespace SilverNeedle.Actions.CharacterGenerator
         public CharacterBuilder(
             IAbilityScoreGenerator abilities,
             LanguageSelector langs,
-            RaceSelector races,
+            RaceAssigner races,
             INameCharacter names)
         {
             this.abilityGenerator = abilities;
             this.languageSelector = langs;
-            this.raceSelector = races;
+            this.raceAssigner = races;
             this.nameGenerator = names;
 
             this.armorGateway = new ArmorYamlGateway();
@@ -90,6 +92,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
             this.skillGateway = new SkillYamlGateway();
             this.classGateway = new ClassYamlGateway();
             this.maturityGateway = new RaceMaturityYamlGateway();
+            this.raceGateway = new RaceYamlGateway();
         }
 
         /// <summary>
@@ -104,7 +107,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
             character.Gender = EnumHelpers.ChooseOne<Gender>();
             character.Alignment = EnumHelpers.ChooseOne<CharacterAlignment>();
             this.abilityGenerator.AssignAbilities(character.AbilityScores);
-            this.raceSelector.ChooseRace(character);
+            this.raceAssigner.SetRace(character, raceGateway.All().ToList().ChooseOne());
 
             character.Languages.Add(
                 this.languageSelector.PickLanguages(

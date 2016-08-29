@@ -39,7 +39,7 @@ namespace Actions {
 			elf.WeightRange = DiceStrings.ParseDice ("20d8");
 
 			//sheet.SetRace (elf);
-			var assign = new RaceSelector(new TestRacesGateway(), gateway);
+			var assign = new RaceAssigner(gateway);
 			assign.SetRace(sheet, elf);
 			Assert.AreEqual(elf, sheet.Race);
 			Assert.IsTrue(sheet.Traits.Any(x => x == trait));
@@ -57,7 +57,7 @@ namespace Actions {
 			smallGuy.WeightRange = DiceStrings.ParseDice ("2d4+100");
 
 
-			var assign = new RaceSelector(new TestRacesGateway(), gateway);
+			var assign = new RaceAssigner(gateway);
 			assign.SetRace(sheet, smallGuy);
 			Assert.AreEqual (CharacterSize.Small, sheet.Size.Size);
 			Assert.GreaterOrEqual (sheet.Size.Height, 12);
@@ -74,46 +74,11 @@ namespace Actions {
 			fastGuy.WeightRange = DiceStrings.ParseDice ("2d4+100");
 			fastGuy.BaseMovementSpeed = 45;
 
-			var assign = new RaceSelector(new TestRacesGateway(), new TestTraitGateway());
+			var assign = new RaceAssigner(new TestTraitGateway());
 			assign.SetRace(sheet, fastGuy);
 			Assert.AreEqual (45, sheet.Movement.BaseMovement.TotalValue);
 		}
 
-		[Test]
-		public void CanSelectARaceFromAWeightedTable() {
-				var sheet = new CharacterSheet(_testSkills);
-				var assign = new RaceSelector(new TestRacesGateway(), new TestTraitGateway());
-				var table = new WeightedOptionTable<string>();
-				table.AddEntry("Elf", 10);
-				table.AddEntry("Dwarf", 0);
-				assign.ChooseRace(sheet, table);
-				Assert.AreEqual("Elf", sheet.Race.Name);
-		}
-	}
-
-	class TestRacesGateway : IRaceGateway {
-		public List<Race> Races = new List<Race>();
-
-		public TestRacesGateway() {
-				var race = new Race();
-				race.Name = "Elf";
-				race.HeightRange = DiceStrings.ParseDice ("2d4+10");
-				race.WeightRange = DiceStrings.ParseDice("2d6+120");
-				Races.Add(race);
-				race = new Race();
-				race.Name = "Dwarf";
-				race.HeightRange = DiceStrings.ParseDice ("2d4+10");
-				race.WeightRange = DiceStrings.ParseDice("2d6+120");
-				Races.Add(race);
-		}
-
-		public IEnumerable<Race> All() {
-				return Races; 
-		}
-
-		public Race Get(string name) {
-				return Races.First(x => x.Name == name);
-		}
 	}
 
 	class TestTraitGateway : IEntityGateway<Trait> {

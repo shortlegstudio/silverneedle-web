@@ -29,7 +29,7 @@ namespace silverneedleweb.Controllers
             var gen = new CharacterBuilder(
                 new StandardAbilityScoreGenerator(),
                 new LanguageSelector(new LanguageYamlGateway()),
-                new RaceSelector(new RaceYamlGateway(), new TraitYamlGateway()),
+                new RaceAssigner(new TraitYamlGateway()),
                 new NameCharacter(new CharacterNamesYamlGateway())
             );
 
