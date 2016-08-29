@@ -16,29 +16,16 @@ namespace silverneedleweb.Controllers
     {
         public IActionResult Index()
         {
-            var gen = new CharacterGenerator(
-                new StandardAbilityScoreGenerator(),
-                new LanguageSelector(new LanguageYamlGateway()),
-                new RaceSelector(new RaceYamlGateway(), new TraitYamlGateway()),
-                new NameCharacter(new CharacterNamesYamlGateway())
-            );
-
-            var character = gen.GenerateRandomCharacter();
-            ViewData["character"] = new CharacterSheetTextView(character);
             return View();
         }
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
-
             return View();
         }
 
-        public IActionResult Contact()
+        public IActionResult CharacterGenerator()
         {
-            ViewData["Message"] = "Your contact page.";
-
             return View();
         }
 

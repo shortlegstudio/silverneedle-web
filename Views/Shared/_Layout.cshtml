@@ -27,13 +27,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Silver Needle</a>
+                <a asp-area="" asp-controller="Character" asp-action="Index" class="navbar-brand">Silver Needle</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li><a asp-area="" asp-controller="Character" asp-action="Index">Home</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    <li><a href="http://shortlegstudio.com/contact-1/">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -42,7 +42,8 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; 2016 - Short Leg Studio, LLC</p>
+            <p>&copy; 2016 - <a href="http://shortlegstudio.com">Short Leg Studio, LLC</a></p>
+            <p><a href="https://github.com/shortlegstudio/silverneedle-web">Source Code For this Site on GitHub</a></p>
         </footer>
     </div>
 
