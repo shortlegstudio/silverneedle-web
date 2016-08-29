@@ -25,14 +25,14 @@ namespace SilverNeedle.Actions.CharacterGenerator
         /// <summary>
         /// The races gateway provides access to all races
         /// </summary>
-        private IEntityGateway<Race> racesGateway;
+        private IRaceGateway racesGateway;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Actions.CharacterGenerator.RaceSelector"/> class.
         /// </summary>
         /// <param name="races">Races gateway to load from.</param>
         /// <param name="traitGateway">Trait gateway.</param>
-        public RaceSelector(IEntityGateway<Race> races, IEntityGateway<Trait> traitGateway)
+        public RaceSelector(IRaceGateway races, IEntityGateway<Trait> traitGateway)
         {
             this.traitGateway = traitGateway;
             this.racesGateway = races;
@@ -47,6 +47,13 @@ namespace SilverNeedle.Actions.CharacterGenerator
             this.SetRace(character, this.racesGateway.All().ToList().ChooseOne());
         }
 
+        public void ChooseRace(CharacterSheet character, WeightedOptionTable<string> races)
+        {
+            var raceName = races.ChooseRandomly();
+            var race = this.racesGateway.Get(raceName);
+            SetRace(character, race);
+        }
+
         /// <summary>
         /// Sets the race.
         /// </summary>
@@ -56,7 +63,6 @@ namespace SilverNeedle.Actions.CharacterGenerator
         {
             character.SetRace(race);
 
-            // TODO: These assignments should happen elsewhere. They could happen in a separate mechanic but not here
             this.SetSpeedForRace(character, race);
             this.SetTraitsForRace(character, race);
             this.SetAbilityScoresForRace(character.AbilityScores, race);

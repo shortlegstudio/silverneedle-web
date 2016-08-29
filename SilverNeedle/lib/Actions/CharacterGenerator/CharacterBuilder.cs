@@ -21,7 +21,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
     /// Character generator generates a new character. By specifying different generators different character
     /// creation schemes are possible
     /// </summary>
-    public class CharacterGenerator
+    public class CharacterBuilder
     {
         /// <summary>
         /// The ability generator handles the ability score creation
@@ -68,13 +68,13 @@ namespace SilverNeedle.Actions.CharacterGenerator
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SilverNeedle.Actions.CharacterGenerator.CharacterGenerator"/> class.
+        /// <see cref="SilverNeedle.Actions.CharacterGenerator.CharacterBuilder"/> class.
         /// </summary>
         /// <param name="abilities">Ability score generator to use.</param>
         /// <param name="langs">Language selector to use.</param>
         /// <param name="races">Race selector to use.</param>
         /// <param name="names">Name selector to use.</param>
-        public CharacterGenerator(
+        public CharacterBuilder(
             IAbilityScoreGenerator abilities,
             LanguageSelector langs,
             RaceSelector races,

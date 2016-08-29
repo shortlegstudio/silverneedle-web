@@ -1,0 +1,19 @@
+--- !<characterbuilds>
+- characterbuild:
+  name: Archer
+  classes:
+    - name: fighter
+      weight: 10
+    - name: ranger
+      weight: 15
+    - name: rogue
+      weight: 4
+  races:
+    - name: human
+      weight: 10
+    - name: elf
+      weight: 8
+    - name: half-orc
+      weight: 6
+    - name: half-elf 
+      weight: 8      

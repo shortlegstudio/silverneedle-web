@@ -42,6 +42,14 @@ namespace SilverNeedle
             return source[index];
         }
 
+        public static WeightedOptionTable<T> CreateFlatTable<T>(this IEnumerable<T> source) {
+            var table = new WeightedOptionTable<T>();
+            foreach(var f in source) {
+                table.AddEntry(f, 1);
+            }            
+            return table;
+        }
+
         /// <summary>
         /// Adds an enumerable list of items to a list
         /// </summary>

@@ -26,7 +26,7 @@ namespace silverneedleweb.Controllers
 
         public IActionResult Character()
         {
-            var gen = new CharacterGenerator(
+            var gen = new CharacterBuilder(
                 new StandardAbilityScoreGenerator(),
                 new LanguageSelector(new LanguageYamlGateway()),
                 new RaceSelector(new RaceYamlGateway(), new TraitYamlGateway()),

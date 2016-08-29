@@ -78,13 +78,41 @@ namespace Actions {
 			assign.SetRace(sheet, fastGuy);
 			Assert.AreEqual (45, sheet.Movement.BaseMovement.TotalValue);
 		}
+
+		[Test]
+		public void CanSelectARaceFromAWeightedTable() {
+				var sheet = new CharacterSheet(_testSkills);
+				var assign = new RaceSelector(new TestRacesGateway(), new TestTraitGateway());
+				var table = new WeightedOptionTable<string>();
+				table.AddEntry("Elf", 10);
+				table.AddEntry("Dwarf", 0);
+				assign.ChooseRace(sheet, table);
+				Assert.AreEqual("Elf", sheet.Race.Name);
+		}
 	}
 
-	class TestRacesGateway : IEntityGateway<Race> {
+	class TestRacesGateway : IRaceGateway {
 		public List<Race> Races = new List<Race>();
 
+		public TestRacesGateway() {
+				var race = new Race();
+				race.Name = "Elf";
+				race.HeightRange = DiceStrings.ParseDice ("2d4+10");
+				race.WeightRange = DiceStrings.ParseDice("2d6+120");
+				Races.Add(race);
+				race = new Race();
+				race.Name = "Dwarf";
+				race.HeightRange = DiceStrings.ParseDice ("2d4+10");
+				race.WeightRange = DiceStrings.ParseDice("2d6+120");
+				Races.Add(race);
+		}
+
 		public IEnumerable<Race> All() {
-			return Races; 
+				return Races; 
+		}
+
+		public Race Get(string name) {
+				return Races.First(x => x.Name == name);
 		}
 	}
 

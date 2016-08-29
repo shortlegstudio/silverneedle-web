@@ -8,6 +8,7 @@ namespace SilverNeedle.Characters
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using SilverNeedle.Dice;
     using SilverNeedle;
     using SilverNeedle.Characters;
@@ -16,7 +17,7 @@ namespace SilverNeedle.Characters
     /// <summary>
     /// Race yaml gateway.
     /// </summary>
-    public class RaceYamlGateway : IEntityGateway<Race>
+    public class RaceYamlGateway : IRaceGateway
     {
         /// <summary>
         /// The race data file path.
@@ -55,6 +56,17 @@ namespace SilverNeedle.Characters
         public IEnumerable<Race> All()
         {
             return this.races;
+        }
+
+        /// <summary>
+        /// Fetches a race by name. Case insensitive search.
+        /// Throws exception if race not found.
+        /// </summary>
+        /// <param name="name">Name of race to find</param>
+        /// <returns>Race matching by name</returns>
+        public Race Get(string name)
+        {
+            return this.races.First(x => string.Equals(x.Name, name, StringComparison.OrdinalIgnoreCase));
         }
 
         /// <summary>
