@@ -149,6 +149,10 @@ namespace SilverNeedle.Actions.CharacterGenerator
             return character;
         }
 
+        public CharacterSheet CreateCharacter(CharacterBuildStrategy buildStrategy) 
+        {
+            return null;
+        }
 
         private History GenerateHistory(CharacterSheet character)
         {

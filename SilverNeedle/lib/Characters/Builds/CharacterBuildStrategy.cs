@@ -5,9 +5,9 @@
 
 namespace SilverNeedle.Characters
 {
-    public class CharacterBuild
+    public class CharacterBuildStrategy
     {
-        public CharacterBuild()
+        public CharacterBuildStrategy()
         {
             Classes = new WeightedOptionTable<string>();
             Races = new WeightedOptionTable<string>();

@@ -11,19 +11,19 @@ namespace SilverNeedle.Characters
 
     public class CharacterBuildYamlGateway : ICharacterBuildGateway
     {
-        private List<CharacterBuild> characterBuilds = new List<CharacterBuild>();
+        private List<CharacterBuildStrategy> characterBuilds = new List<CharacterBuildStrategy>();
 
         public CharacterBuildYamlGateway(YamlNodeWrapper yamlNodeWrapper)
         {
             ParseYaml(yamlNodeWrapper);
         }
 
-        public IEnumerable<CharacterBuild> All() 
+        public IEnumerable<CharacterBuildStrategy> All() 
         {
             return characterBuilds;
         }
 
-        public CharacterBuild GetBuild(string build)
+        public CharacterBuildStrategy GetBuild(string build)
         {
             return characterBuilds.FirstOrDefault(x => x.Name == build);
         }
@@ -32,7 +32,7 @@ namespace SilverNeedle.Characters
         {
             foreach(var node in yaml.Children())
             {
-                var build = new CharacterBuild();
+                var build = new CharacterBuildStrategy();
                 build.Name = node.GetString("name");
                 var races = node.GetNode("races");
                 foreach(var r in races.Children())

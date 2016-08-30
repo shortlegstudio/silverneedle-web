@@ -9,7 +9,7 @@ namespace SilverNeedle.Characters
     
     public interface ICharacterBuildGateway
     {
-        IEnumerable<CharacterBuild> All();
-        CharacterBuild GetBuild(string build);
+        IEnumerable<CharacterBuildStrategy> All();
+        CharacterBuildStrategy GetBuild(string build);
     }
 }
