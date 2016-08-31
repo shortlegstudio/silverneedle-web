@@ -69,14 +69,42 @@ namespace SilverNeedle.Actions.CharacterGenerator
         }
 
         /// <summary>
+        /// Generates the random character.
+        /// </summary>
+        /// <returns>The random character.</returns>
+        public CharacterSheet GenerateRandomCharacter()
+        {
+            var character = new CharacterSheet(this.gateways.Skills.All());
+            this.CreateLevel0(character); 
+            this.SelectClass(character);
+            character.AddFeat(Feat.GetQualifyingFeats(character).ToList().ChooseOne());
+
+            // Assign Skill Points
+            var skillGen = new SkillPointGenerator();
+            skillGen.AssignSkillPointsRandomly(character);
+
+            // Get some gear!
+            var equip = new EquipMeleeAndRangedWeapon(this.gateways.Weapons);
+            equip.AssignWeapons(character.Inventory, character.Offense.WeaponProficiencies);
+
+            var equipArmor = new PurchaseInitialArmor(this.gateways.Armors);
+            equipArmor.PurchaseArmorAndShield(character.Inventory, character.Defense.ArmorProficiencies);
+
+            return character;
+        }
+
+        public CharacterSheet CreateCharacter(CharacterBuildStrategy buildStrategy) 
+        {
+            return null;
+        }
+
+        /// <summary>
         /// Creates a Level 0 character. A level 0 character has no class but has the basic attributes selected
         /// Think of this as a young character before identifying their professions
         /// </summary>
         /// <returns>The level0.</returns>
-        public CharacterSheet CreateLevel0()
+        private CharacterSheet CreateLevel0(CharacterSheet character)
         {
-            var character = new CharacterSheet(this.gateways.Skills.All());
-
             character.Gender = EnumHelpers.ChooseOne<Gender>();
             character.Alignment = EnumHelpers.ChooseOne<CharacterAlignment>();
             this.abilityGenerator.AssignAbilities(character.AbilityScores);
@@ -102,58 +130,6 @@ namespace SilverNeedle.Actions.CharacterGenerator
             return character;
         }
 
-        /// <summary>
-        /// Selects the class for the character
-        /// </summary>
-        /// <returns>The class that was selected.</returns>
-        /// <param name="character">Character to assign class to.</param>
-        public CharacterSheet SelectClass(CharacterSheet character)
-        {
-            character.SetClass(this.gateways.Classes.All().ToList().ChooseOne());
-            var hp = new HitPointGenerator();
-            character.SetHitPoints(hp.RollHitPoints(character));
-
-            // Assign Age based on class
-            var assignAge = new AssignAge();
-            character.Age = assignAge.RandomAge(character.Class.ClassDevelopmentAge, this.gateways.Maturity.Get(character.Race));
-
-            // Figure out how this class came about
-            var classOrigin = new ClassOriginStoryCreator(new ClassOriginYamlGateway());
-            character.History.ClassOriginStory = classOrigin.CreateStory(character.Class.Name);
-
-            return character;
-        }
-
-        /// <summary>
-        /// Generates the random character.
-        /// </summary>
-        /// <returns>The random character.</returns>
-        public CharacterSheet GenerateRandomCharacter()
-        {
-            var skillGen = new SkillPointGenerator();
-
-            var character = this.CreateLevel0();
-            this.SelectClass(character);
-            character.AddFeat(Feat.GetQualifyingFeats(character).ToList().ChooseOne());
-
-            // Assign Skill Points
-            skillGen.AssignSkillPointsRandomly(character);
-
-            // Get some gear!
-            var equip = new EquipMeleeAndRangedWeapon(this.gateways.Weapons);
-            equip.AssignWeapons(character.Inventory, character.Offense.WeaponProficiencies);
-
-            var equipArmor = new PurchaseInitialArmor(this.gateways.Armors);
-            equipArmor.PurchaseArmorAndShield(character.Inventory, character.Defense.ArmorProficiencies);
-
-            return character;
-        }
-
-        public CharacterSheet CreateCharacter(CharacterBuildStrategy buildStrategy) 
-        {
-            return null;
-        }
-
         private History GenerateHistory(CharacterSheet character)
         {
             var history = new History();
@@ -172,5 +148,26 @@ namespace SilverNeedle.Actions.CharacterGenerator
 
             return history;
         }
+
+                /// <summary>
+        /// Selects the class for the character
+        /// </summary>
+        /// <returns>The class that was selected.</returns>
+        /// <param name="character">Character to assign class to.</param>
+        private void SelectClass(CharacterSheet character)
+        {
+            character.SetClass(this.gateways.Classes.All().ToList().ChooseOne());
+            var hp = new HitPointRoller();
+            hp.AddMaxHitPoints(character);
+
+            // Assign Age based on class
+            var assignAge = new AssignAge();
+            character.Age = assignAge.RandomAge(character.Class.ClassDevelopmentAge, this.gateways.Maturity.Get(character.Race));
+
+            // Figure out how this class came about
+            var classOrigin = new ClassOriginStoryCreator(new ClassOriginYamlGateway());
+            character.History.ClassOriginStory = classOrigin.CreateStory(character.Class.Name);
+        }
+
     }
 }

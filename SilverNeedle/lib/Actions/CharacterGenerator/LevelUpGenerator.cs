@@ -17,14 +17,14 @@ namespace SilverNeedle.Actions.CharacterGenerator
         /// <summary>
         /// The HP generator rolls the hit points
         /// </summary>
-        private HitPointGenerator hitPointGenerator;
+        private HitPointRoller hitPointGenerator;
 
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="SilverNeedle.Actions.CharacterGenerator.LevelUpGenerator"/> class.
         /// </summary>
         /// <param name="hitPointGen">Generator for hit points.</param>
-        public LevelUpGenerator(HitPointGenerator hitPointGen)
+        public LevelUpGenerator(HitPointRoller hitPointGen)
         {
             this.hitPointGenerator = hitPointGen;
         }
@@ -49,9 +49,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
         public void LevelUp(CharacterSheet character)
         {
             character.SetLevel(character.Level + 1);
-            var incrementHitpoints = this.hitPointGenerator.RollLevelUp(character);
-            character.MaxHitPoints += incrementHitpoints;
-            character.CurrentHitPoints += incrementHitpoints;
+            this.hitPointGenerator.AddLevelUpHitPoints(character);            
             character.Defense.LevelUpDefenseStats(character.Class);
 
             // Special Level ups

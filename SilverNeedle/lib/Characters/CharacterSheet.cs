@@ -16,8 +16,13 @@ namespace SilverNeedle.Characters
     /// A character sheet is the object that ties everything together.
     /// </summary>
     /// <remarks>This should only delegate to proper objects to perform actions. There should not be specific rule logic here</remarks>
-    public class CharacterSheet
+    public class CharacterSheet : IHitPointTracker
     {
+        public CharacterSheet() : this(new List<Skill>())
+        {
+
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Characters.CharacterSheet"/> class.
         /// </summary>
@@ -141,13 +146,13 @@ namespace SilverNeedle.Characters
         /// Gets or sets the max hit points.
         /// </summary>
         /// <value>The character's maximum hit points.</value>
-        public int MaxHitPoints { get; set; }
+        public int MaxHitPoints { get; private set; }
 
         /// <summary>
         /// Gets or sets the current hit points.
         /// </summary>
         /// <value>The character's current hit points.</value>
-        public int CurrentHitPoints { get; set; }
+        public int CurrentHitPoints { get; private set; }
 
         /// <summary>
         /// Gets the offense stats.
@@ -279,10 +284,20 @@ namespace SilverNeedle.Characters
         /// Sets the hit points for the character. Sets both maximum and current
         /// </summary>
         /// <param name="hitPoints">new max and current hit points</param>
-        public void SetHitPoints(int hitPoints)
+        public void SetMaxHitPoints(int hitPoints)
         {
             this.MaxHitPoints = hitPoints;
-            this.CurrentHitPoints = hitPoints;
+        }
+
+        public void SetCurrentHitPoints(int hp)
+        {
+            this.CurrentHitPoints = hp;
+        }
+
+        public void IncreaseHitPoints(int hp)
+        {
+            this.MaxHitPoints += hp;
+            this.CurrentHitPoints += hp;
         }
 
         /// <summary>

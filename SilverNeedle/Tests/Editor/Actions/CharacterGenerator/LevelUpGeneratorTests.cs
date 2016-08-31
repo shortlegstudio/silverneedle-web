@@ -23,7 +23,7 @@ namespace Actions {
 
 	    [Test]
 	    public void LevelingUpIncrementsTheLevelNumber() {
-			var levelUp = new LevelUpGenerator (new HitPointGenerator());
+			var levelUp = new LevelUpGenerator (new HitPointRoller());
 			levelUp.LevelUp (character);
 			Assert.AreEqual (2, character.Level);
 	    }
@@ -31,7 +31,7 @@ namespace Actions {
 		[Test]
 		public void HitpointsIncreaseWhenYouLevelUp() {
 			var hp = character.MaxHitPoints;
-			var levelUp = new LevelUpGenerator (new HitPointGenerator());
+			var levelUp = new LevelUpGenerator (new HitPointRoller());
 
 			levelUp.LevelUp (character);
 			Assert.Greater (character.MaxHitPoints, hp);
@@ -39,7 +39,7 @@ namespace Actions {
 
 		[Test]
 		public void EveryFourLevelsYouGetAnExtraAbilityScore() {
-			var levelUp = new LevelUpGenerator (new HitPointGenerator());
+			var levelUp = new LevelUpGenerator (new HitPointRoller());
 
 			levelUp.BringCharacterToLevel (character, 4);
 
