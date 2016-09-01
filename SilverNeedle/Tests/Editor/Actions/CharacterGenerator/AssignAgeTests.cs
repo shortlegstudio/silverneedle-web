@@ -1,14 +1,11 @@
-﻿using System;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using SilverNeedle.Characters;
 using SilverNeedle.Dice;
-using System.Linq;
-using SilverNeedle;
-using System.Collections.Generic;
 using SilverNeedle.Actions.CharacterGenerator;
 
-namespace Actions {
-	[TestFixture]
+namespace Actions
+{
+    [TestFixture]
 	public class AssignAgeTests {
         [Test]
         public void AssignsAnAgeToACharacterBasedOnClassAndMaturity()
@@ -23,6 +20,7 @@ namespace Actions {
             Assert.GreaterOrEqual(age, 16);
             Assert.LessOrEqual(age, 19);
         }
+
 	}
 }
 

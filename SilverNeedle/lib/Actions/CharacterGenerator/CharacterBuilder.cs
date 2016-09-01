@@ -156,18 +156,22 @@ namespace SilverNeedle.Actions.CharacterGenerator
         /// <param name="character">Character to assign class to.</param>
         private void SelectClass(CharacterSheet character)
         {
-            character.SetClass(this.gateways.Classes.All().ToList().ChooseOne());
-            var hp = new HitPointRoller();
-            hp.AddMaxHitPoints(character);
-
+            var classSelector = new ClassSelector(gateways.Classes);
+            classSelector.ChooseClass(character);
+            
             // Assign Age based on class
             var assignAge = new AssignAge();
-            character.Age = assignAge.RandomAge(character.Class.ClassDevelopmentAge, this.gateways.Maturity.Get(character.Race));
+            assignAge.RandomAge(character.Class.ClassDevelopmentAge, gateways.Maturity.Get(character.Race));
 
             // Figure out how this class came about
             var classOrigin = new ClassOriginStoryCreator(new ClassOriginYamlGateway());
             character.History.ClassOriginStory = classOrigin.CreateStory(character.Class.Name);
         }
 
+        private void AddHitPoints(CharacterSheet character) 
+        {
+            var hp = new HitPointRoller();
+            hp.AddMaxHitPoints(character);
+        }
     }
 }

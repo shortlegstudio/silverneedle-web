@@ -10,6 +10,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
 {
     public class AssignAge
     {
+
         public AssignAge()
         {
         }
