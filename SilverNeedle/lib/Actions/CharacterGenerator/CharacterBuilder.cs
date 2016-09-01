@@ -74,28 +74,37 @@ namespace SilverNeedle.Actions.CharacterGenerator
         /// <returns>The random character.</returns>
         public CharacterSheet GenerateRandomCharacter()
         {
+            // Create Character
             var character = new CharacterSheet(this.gateways.Skills.All());
-            this.CreateLevel0(character); 
+
+            // Assign Basic Attributes
+            this.AssignAttributes(character);
+            this.ChooseRace(character);
+            this.CreateDescription(character);
+            this.CreateName(character);
+            this.ChooseLanguages(character);
+            this.GenerateHistory(character);
+
+            // Choose the class
             this.SelectClass(character);
-            character.AddFeat(Feat.GetQualifyingFeats(character).ToList().ChooseOne());
 
-            // Assign Skill Points
-            var skillGen = new SkillPointGenerator();
-            skillGen.AssignSkillPointsRandomly(character);
-
-            // Get some gear!
-            var equip = new EquipMeleeAndRangedWeapon(this.gateways.Weapons);
-            equip.AssignWeapons(character.Inventory, character.Offense.WeaponProficiencies);
-
-            var equipArmor = new PurchaseInitialArmor(this.gateways.Armors);
-            equipArmor.PurchaseArmorAndShield(character.Inventory, character.Defense.ArmorProficiencies);
+            // Select level one feat
+            this.ChooseFeats(character);
+            this.AddHitPoints(character);
+            this.CalculateAge(character);
+            this.GenerateBackground(character);
+            this.AssignSkillPoints(character);
+            this.EquipWeapons(character);
+            this.EquipArmor(character);
 
             return character;
         }
 
-        public CharacterSheet CreateCharacter(CharacterBuildStrategy buildStrategy) 
+        private void AssignSkillPoints(CharacterSheet character)
         {
-            return null;
+            // Assign Skill Points
+            var skillGen = new SkillPointGenerator();
+            skillGen.AssignSkillPointsRandomly(character);
         }
 
         /// <summary>
@@ -103,34 +112,16 @@ namespace SilverNeedle.Actions.CharacterGenerator
         /// Think of this as a young character before identifying their professions
         /// </summary>
         /// <returns>The level0.</returns>
-        private CharacterSheet CreateLevel0(CharacterSheet character)
+        private CharacterSheet AssignAttributes(CharacterSheet character)
         {
             character.Gender = EnumHelpers.ChooseOne<Gender>();
             character.Alignment = EnumHelpers.ChooseOne<CharacterAlignment>();
             this.abilityGenerator.AssignAbilities(character.AbilityScores);
-            this.raceAssigner.SetRace(character, gateways.Races.All().ToList().ChooseOne());
-
-            character.Languages.Add(
-                this.languageSelector.PickLanguages(
-                    character.Race, 
-                    character.AbilityScores.GetModifier(AbilityScoreTypes.Intelligence)));
-
-            // Assign Age to adult
-            character.Age = this.gateways.Maturity.Get(character.Race).Adulthood;
-
-            //Generate a facial description
-            var facials = new CreateFacialFeatures();
-            character.FacialDescription = facials.CreateFace(character.Gender);
-
-            // Names come last
-            character.Name = this.nameGenerator.CreateFullName(character.Gender, character.Race.Name);
-
-            character.History = GenerateHistory(character);
-
+            
             return character;
         }
 
-        private History GenerateHistory(CharacterSheet character)
+        private void GenerateHistory(CharacterSheet character)
         {
             var history = new History();
 
@@ -145,8 +136,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
             // Drawback
             var drawback = new CharacterDrawbackSelector(new DrawbackYamlGateway());
             history.Drawback = drawback.SelectDrawback();
-
-            return history;
+            character.History = history;            
         }
 
                 /// <summary>
@@ -158,20 +148,73 @@ namespace SilverNeedle.Actions.CharacterGenerator
         {
             var classSelector = new ClassSelector(gateways.Classes);
             classSelector.ChooseClass(character);
-            
-            // Assign Age based on class
-            var assignAge = new AssignAge();
-            assignAge.RandomAge(character.Class.ClassDevelopmentAge, gateways.Maturity.Get(character.Race));
-
-            // Figure out how this class came about
-            var classOrigin = new ClassOriginStoryCreator(new ClassOriginYamlGateway());
-            character.History.ClassOriginStory = classOrigin.CreateStory(character.Class.Name);
         }
 
         private void AddHitPoints(CharacterSheet character) 
         {
             var hp = new HitPointRoller();
             hp.AddMaxHitPoints(character);
+        }
+
+        private void CalculateAge(CharacterSheet character)
+        {
+            // Assign Age based on class
+            var assignAge = new AssignAge();
+            assignAge.RandomAge(character.Class.ClassDevelopmentAge, gateways.Maturity.Get(character.Race));
+        }
+
+        private void GenerateBackground(CharacterSheet character)
+        {
+            // Figure out how this class came about
+            var classOrigin = new ClassOriginStoryCreator(new ClassOriginYamlGateway());
+            character.History.ClassOriginStory = classOrigin.CreateStory(character.Class.Name);
+        }
+
+        private void ChooseLanguages(CharacterSheet character)
+        {
+            character.Languages.Add(
+                this.languageSelector.PickLanguages(
+                    character.Race, 
+                    character.AbilityScores.GetModifier(AbilityScoreTypes.Intelligence)));
+        }
+
+        private void ChooseFeats(CharacterSheet character)
+        {
+            character.AddFeat(Feat.GetQualifyingFeats(character).ToList().ChooseOne());            
+        }
+
+        private void EquipWeapons(CharacterSheet character)
+        {
+            // Get some gear!
+            var equip = new EquipMeleeAndRangedWeapon(this.gateways.Weapons);
+            equip.AssignWeapons(character.Inventory, character.Offense.WeaponProficiencies);
+        }
+
+        private void EquipArmor(CharacterSheet character)
+        {
+            var equipArmor = new PurchaseInitialArmor(this.gateways.Armors);
+            equipArmor.PurchaseArmorAndShield(character.Inventory, character.Defense.ArmorProficiencies);
+        }
+
+        private void ChooseRace(CharacterSheet character)
+        {
+            this.raceAssigner.SetRace(character, gateways.Races.All().ToList().ChooseOne());
+
+            // Assign Age to adult
+            character.Age = this.gateways.Maturity.Get(character.Race).Adulthood;
+        }
+
+        private void CreateDescription(CharacterSheet character)
+        {
+            //Generate a facial description
+            var facials = new CreateFacialFeatures();
+            character.FacialDescription = facials.CreateFace(character.Gender);
+        }
+
+        private void CreateName(CharacterSheet character)
+        {
+            // Names come last
+            character.Name = this.nameGenerator.CreateFullName(character.Gender, character.Race.Name);
         }
     }
 }
