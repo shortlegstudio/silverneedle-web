@@ -9,6 +9,7 @@ using SilverNeedle.Actions.CharacterGenerator.Abilities;
 using SilverNeedle.Actions.NamingThings;
 using SilverNeedle.Characters;
 using SilverNeedle.Names;
+using System.Linq;
 
 
 namespace silverneedleweb.Controllers
@@ -17,11 +18,10 @@ namespace silverneedleweb.Controllers
     {
         public IActionResult Index()
         {
-            ViewData["Strategies"] = new string [] {
-              "Front-Line",
-              "Caster",
-              "Healer"
-            };
+            var strategyRepo = new CharacterBuildYamlGateway();
+            var strategies = strategyRepo.All();
+            ViewData["Strategies"] = strategies.Select(x => x.Name).ToArray();
+            
             return View();
         }
 

@@ -11,7 +11,18 @@ namespace SilverNeedle.Characters
 
     public class CharacterBuildYamlGateway : ICharacterBuildGateway
     {
+        private string CharacterBuildDataFileType = "characterbuilds";
+
         private List<CharacterBuildStrategy> characterBuilds = new List<CharacterBuildStrategy>();
+
+        public CharacterBuildYamlGateway()
+        {
+            // Use DatafileLoader to get all class files;
+            var yamlNodes = DatafileLoader.Instance.GetYamlFiles(CharacterBuildDataFileType);
+            foreach(var y in yamlNodes) {
+                this.ParseYaml(y);
+            }
+        }
 
         public CharacterBuildYamlGateway(YamlNodeWrapper yamlNodeWrapper)
         {

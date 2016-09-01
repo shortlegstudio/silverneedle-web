@@ -17,3 +17,23 @@
       weight: 6
     - name: half-elf 
       weight: 8      
+- characterbuild:
+  name: Front-Line
+  classes:
+    - name: fighter
+      weight: 10
+    - name: ranger
+      weight: 7
+    - name: paladin
+      weight: 10
+    - name: barbarian
+      weight: 10
+  races:
+    - name: human
+      weight: 10
+    - name: elf
+      weight: 8
+    - name: half-orc
+      weight: 6
+    - name: half-elf 
+      weight: 8      
