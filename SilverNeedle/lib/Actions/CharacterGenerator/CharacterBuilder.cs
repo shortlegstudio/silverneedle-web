@@ -74,6 +74,11 @@ namespace SilverNeedle.Actions.CharacterGenerator
         /// <returns>The random character.</returns>
         public CharacterSheet GenerateRandomCharacter()
         {
+            return GenerateCharacter(new CharacterBuildStrategy());
+        }
+
+        public CharacterSheet GenerateCharacter(CharacterBuildStrategy strategy)
+        {
             // Create Character
             var character = new CharacterSheet(this.gateways.Skills.All());
 
@@ -139,7 +144,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
             character.History = history;            
         }
 
-                /// <summary>
+        /// <summary>
         /// Selects the class for the character
         /// </summary>
         /// <returns>The class that was selected.</returns>
