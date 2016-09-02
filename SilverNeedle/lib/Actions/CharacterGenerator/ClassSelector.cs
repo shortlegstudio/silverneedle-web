@@ -19,7 +19,18 @@ namespace SilverNeedle.Actions.CharacterGenerator
     
         public void ChooseClass(CharacterSheet character)
         {
-            var cls = classes.All().ToList().ChooseOne();
+            AssignClass(character, classes.All().ToList().ChooseOne());
+        }
+
+        public void ChooseClass(CharacterSheet character, WeightedOptionTable<string> classChoices)
+        {
+            var choice = classChoices.ChooseRandomly();
+            var cls = classes.All().First(x => x.Name == choice);
+            AssignClass(character, cls);
+        }   
+
+        private void AssignClass(CharacterSheet character, Class cls) 
+        {
             character.SetClass(cls);
             
             var hpRoller = new HitPointRoller();
