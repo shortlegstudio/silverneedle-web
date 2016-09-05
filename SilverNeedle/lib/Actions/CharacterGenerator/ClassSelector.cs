@@ -10,22 +10,28 @@ namespace SilverNeedle.Actions.CharacterGenerator
 {
     public class ClassSelector
     {
-        private IEntityGateway<Class> classes; 
+        private IClassGateway classes; 
 
-        public ClassSelector (IEntityGateway<Class> classes)
+        public ClassSelector (IClassGateway classes)
         {
             this.classes = classes;
         }
     
-        public void ChooseClass(CharacterSheet character)
+        public void ChooseAny(CharacterSheet character)
         {
             AssignClass(character, classes.All().ToList().ChooseOne());
         }
 
         public void ChooseClass(CharacterSheet character, WeightedOptionTable<string> classChoices)
         {
+            if (classChoices.IsEmpty)
+            {
+                ChooseAny(character);
+                return;
+            }
+            
             var choice = classChoices.ChooseRandomly();
-            var cls = classes.All().First(x => x.Name == choice);
+            var cls = classes.GetByName(choice);
             AssignClass(character, cls);
         }   
 

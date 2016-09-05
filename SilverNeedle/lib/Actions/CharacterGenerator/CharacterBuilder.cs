@@ -36,7 +36,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
         /// <summary>
         /// The race selector chooses which race the character will be
         /// </summary>
-        private RaceAssigner raceAssigner;
+        private RaceSelector raceAssigner;
 
         /// <summary>
         /// The name generator selects the name for the character
@@ -57,7 +57,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
         public CharacterBuilder(
             IAbilityScoreGenerator abilities,
             LanguageSelector langs,
-            RaceAssigner races,
+            RaceSelector races,
             INameCharacter names,
             GatewayProvider gateways)
         {
@@ -84,14 +84,14 @@ namespace SilverNeedle.Actions.CharacterGenerator
 
             // Assign Basic Attributes
             this.AssignAttributes(character);
-            this.ChooseRace(character);
+            this.ChooseRace(character, strategy);
             this.CreateDescription(character);
             this.CreateName(character);
             this.ChooseLanguages(character);
             this.GenerateHistory(character);
 
             // Choose the class
-            this.SelectClass(character);
+            this.SelectClass(character, strategy);
 
             // Select level one feat
             this.ChooseFeats(character);
@@ -149,10 +149,10 @@ namespace SilverNeedle.Actions.CharacterGenerator
         /// </summary>
         /// <returns>The class that was selected.</returns>
         /// <param name="character">Character to assign class to.</param>
-        private void SelectClass(CharacterSheet character)
+        private void SelectClass(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             var classSelector = new ClassSelector(gateways.Classes);
-            classSelector.ChooseClass(character);
+            classSelector.ChooseClass(character, strategy.Classes);
         }
 
         private void AddHitPoints(CharacterSheet character) 
@@ -201,10 +201,10 @@ namespace SilverNeedle.Actions.CharacterGenerator
             equipArmor.PurchaseArmorAndShield(character.Inventory, character.Defense.ArmorProficiencies);
         }
 
-        private void ChooseRace(CharacterSheet character)
+        private void ChooseRace(CharacterSheet character, CharacterBuildStrategy strategy)
         {
-            this.raceAssigner.SetRace(character, gateways.Races.All().ToList().ChooseOne());
-
+            this.raceAssigner.ChooseRace(character, strategy.Races);
+            
             // Assign Age to adult
             character.Age = this.gateways.Maturity.Get(character.Race).Adulthood;
         }

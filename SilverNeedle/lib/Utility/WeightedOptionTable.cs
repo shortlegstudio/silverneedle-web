@@ -26,6 +26,11 @@ namespace SilverNeedle
             maxValue = 1;
         }
 
+        public bool IsEmpty
+        {
+            get { return table.Count == 0; }
+        }
+
         public IEnumerable<TableEntry> All()
         {
             return table;

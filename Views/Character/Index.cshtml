@@ -3,21 +3,22 @@
     var strategies = (string[])ViewData["Strategies"];
 }
 <h1>Generate NPC</h1>
+
 <div class="row">
     <div class="col-md-12">
-        <fieldset class="form-group">
-            <legend>Character Options</legend>
-            <div class="form-group">
-                <label for="strategy">Type</label>
-                <select name="strategy" id="strategy" class="form-control">
-                    @foreach(var s in strategies)
-                    {
-                        <option>@s</option>
-                    }
-                </select>
-            </div>
-        </fieldset>
         <form asp-controller="Character" asp-action="Character" method="POST">
+            <fieldset class="form-group">
+                <legend>Character Options</legend>
+                <div class="form-group">
+                    <label for="strategy">Type</label>
+                    <select name="strategy" id="strategy" class="form-control">
+                        @foreach(var s in strategies)
+                        {
+                            <option>@s</option>
+                        }
+                    </select>
+                </div>
+            </fieldset>
             <input type="submit" value="Create Character" class="btn btn-primary" />
         </form>
     </div>

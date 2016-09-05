@@ -22,7 +22,7 @@ namespace Actions
             
             Assert.IsNull(character.Class);
             var selector = new ClassSelector(new ClassYamlGateway());
-            selector.ChooseClass(character);
+            selector.ChooseAny(character);
             Assert.IsNotNull(character.Class);
         }
 
@@ -31,7 +31,7 @@ namespace Actions
         {
             var character = new CharacterSheet();
             var selector = new ClassSelector(new ClassYamlGateway());
-            selector.ChooseClass(character);
+            selector.ChooseAny(character);
 
             Assert.Greater(character.MaxHitPoints, 0);
             Assert.Greater(character.CurrentHitPoints, 0);
@@ -48,6 +48,18 @@ namespace Actions
             selector.ChooseClass(character, choices);
 
             Assert.AreEqual("Fighter", character.Class.Name);
+        }
+
+        [Test]
+        public void EmptyOptionTableChoosesFromAnyOfTheClasses()
+        {
+            var character = new CharacterSheet();
+            var selector = new ClassSelector(new ClassYamlGateway());
+            var choices = new WeightedOptionTable<string>();
+            
+            Assert.IsNull(character.Class);
+            selector.ChooseClass(character, choices);
+            Assert.IsNotNull(character.Class);
         }
     }
 }

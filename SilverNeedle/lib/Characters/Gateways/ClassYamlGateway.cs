@@ -5,7 +5,9 @@
 //-----------------------------------------------------------------------
 namespace SilverNeedle.Characters
 {
+    using System;
     using System.Collections.Generic;
+    using System.Linq;
     using SilverNeedle;
     using SilverNeedle.Dice;
     using SilverNeedle.Yaml;
@@ -13,7 +15,7 @@ namespace SilverNeedle.Characters
     /// <summary>
     /// Class yaml gateway.
     /// </summary>
-    public class ClassYamlGateway : IEntityGateway<Class>
+    public class ClassYamlGateway : IClassGateway
     {
         /// <summary>
         /// The yaml file holding class data
@@ -53,6 +55,13 @@ namespace SilverNeedle.Characters
         public IEnumerable<Class> All()
         {
             return this.classes;
+        }
+
+        public Class GetByName(string name) 
+        {
+            return this.classes.First(
+                x => string.Equals(name, x.Name, StringComparison.OrdinalIgnoreCase)
+            );
         }
 
         /// <summary>

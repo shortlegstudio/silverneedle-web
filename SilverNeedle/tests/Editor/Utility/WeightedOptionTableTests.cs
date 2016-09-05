@@ -74,6 +74,13 @@ namespace Utility
                     
             }
         }
+
+        [Test]
+        public void EmptyTablesAreFlaggedAsEmpty()
+        {
+            var table = new WeightedOptionTable<string>();
+            Assert.IsTrue(table.IsEmpty);
+        }
     }
 }
 

@@ -15,21 +15,37 @@ namespace SilverNeedle.Actions.CharacterGenerator
     /// <summary>
     /// Race selector chooses a race for a charactor
     /// </summary>
-    public class RaceAssigner
+    public class RaceSelector
     {
         /// <summary>
         /// The trait gateway provides access to all traits
         /// </summary>
         private IEntityGateway<Trait> traitGateway;
 
+        private IRaceGateway raceGateway;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Actions.CharacterGenerator.RaceSelector"/> class.
         /// </summary>
         /// <param name="races">Races gateway to load from.</param>
         /// <param name="traitGateway">Trait gateway.</param>
-        public RaceAssigner(IEntityGateway<Trait> traitGateway)
+        public RaceSelector(IRaceGateway raceGateway, IEntityGateway<Trait> traitGateway)
         {
             this.traitGateway = traitGateway;
+            this.raceGateway = raceGateway;
+        }
+
+        public void ChooseRace(CharacterSheet character, WeightedOptionTable<string> options)
+        {
+            if (options.IsEmpty) 
+            {
+                this.SetRace(character, raceGateway.All().ToList().ChooseOne());
+                return;
+            }
+
+            var choice = options.ChooseRandomly();
+            var race = raceGateway.Get(choice);
+            this.SetRace(character, race);
         }
 
         /// <summary>

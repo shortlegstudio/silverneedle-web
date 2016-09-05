@@ -16,26 +16,31 @@ namespace silverneedleweb.Controllers
 {
     public class CharacterController : Controller
     {
+        private CharacterBuildYamlGateway strategyGateway = new CharacterBuildYamlGateway();
+
         public IActionResult Index()
         {
-            var strategyRepo = new CharacterBuildYamlGateway();
-            var strategies = strategyRepo.All();
+            var strategies = strategyGateway.All();
             ViewData["Strategies"] = strategies.Select(x => x.Name).ToArray();
             
             return View();
         }
 
-        public IActionResult Character()
+        public IActionResult Character(string strategy)
         {
+            var gateways = new GatewayProvider();
+            
             var gen = new CharacterBuilder(
                 new StandardAbilityScoreGenerator(),
                 new LanguageSelector(new LanguageYamlGateway()),
-                new RaceAssigner(new TraitYamlGateway()),
+                new RaceSelector(gateways.Races, new TraitYamlGateway()),
                 new NameCharacter(new CharacterNamesYamlGateway()),
                 new GatewayProvider()
             );
 
-            var character = gen.GenerateRandomCharacter();
+            var build = strategyGateway.GetBuild(strategy);
+
+            var character = gen.GenerateCharacter(build);
             ViewData["character"] = new CharacterSheetTextView(character);
             
             return View();

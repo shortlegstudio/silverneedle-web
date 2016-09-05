@@ -19,7 +19,7 @@ namespace SilverNeedle
         public IWeaponGateway Weapons { get; set; }
         public IEntityGateway<Skill> Skills { get; set; }
 
-        public IEntityGateway<Class> Classes { get; set; }
+        public IClassGateway Classes { get; set; }
 
         public IRaceMaturityGateway Maturity { get; set; }
 
