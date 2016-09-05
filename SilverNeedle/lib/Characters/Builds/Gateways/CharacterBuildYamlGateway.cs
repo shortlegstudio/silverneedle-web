@@ -36,7 +36,7 @@ namespace SilverNeedle.Characters
 
         public CharacterBuildStrategy GetBuild(string build)
         {
-            return characterBuilds.FirstOrDefault(x => x.Name == build);
+            return characterBuilds.FirstOrDefault(x => x.Name.EqualsIgnoreCase(build));
         }
 
         private void ParseYaml(YamlNodeWrapper yaml)
@@ -50,11 +50,14 @@ namespace SilverNeedle.Characters
                 {
                     build.Races.AddEntry(r.GetString("name"), r.GetInteger("weight"));
                 }
+                
                 var classes = node.GetNode("classes");
                 foreach(var c in classes.Children())
                 {
                     build.Classes.AddEntry(c.GetString("name"), c.GetInteger("weight"));
                 }
+
+                build.ClassSkillMultiplier = node.GetFloat("classskillmultiplier");
                 characterBuilds.Add(build);
             }
 

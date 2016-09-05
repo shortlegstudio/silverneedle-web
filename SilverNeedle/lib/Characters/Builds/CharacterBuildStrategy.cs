@@ -16,5 +16,7 @@ namespace SilverNeedle.Characters
         public string Name { get; set; }
         public WeightedOptionTable<string> Classes { get; set; }
         public WeightedOptionTable<string> Races { get; set; }
+
+        public float ClassSkillMultiplier { get; set; }
     }
 }

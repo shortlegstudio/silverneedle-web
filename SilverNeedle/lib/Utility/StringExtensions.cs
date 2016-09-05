@@ -5,6 +5,7 @@
 //-----------------------------------------------------------------------
 namespace SilverNeedle
 {
+    using System;
     using Inflector;
 
     /// <summary>
@@ -20,6 +21,11 @@ namespace SilverNeedle
         public static string Capitalize(this string source)
         {
             return Inflector.Capitalize(source);
+        }
+
+        public static bool EqualsIgnoreCase(this string source, string compare)
+        {
+            return string.Equals(source, compare, StringComparison.OrdinalIgnoreCase);
         }
     }
 }
