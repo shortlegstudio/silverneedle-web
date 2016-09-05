@@ -44,23 +44,36 @@ namespace SilverNeedle.Characters
             foreach(var node in yaml.Children())
             {
                 var build = new CharacterBuildStrategy();
-                build.Name = node.GetString("name");
-                var races = node.GetNode("races");
-                foreach(var r in races.Children())
-                {
-                    build.Races.AddEntry(r.GetString("name"), r.GetInteger("weight"));
-                }
-                
-                var classes = node.GetNode("classes");
-                foreach(var c in classes.Children())
-                {
-                    build.Classes.AddEntry(c.GetString("name"), c.GetInteger("weight"));
-                }
 
+                // Basic Properties
+                build.Name = node.GetString("name");
                 build.ClassSkillMultiplier = node.GetFloat("classskillmultiplier");
+                build.BaseSkillWeight = node.GetInteger("baseskillweight");
+                
+                // Collections
+                //
+                // Races
+                var races = node.GetNode("races");
+                BuildWeightedTable(build.Races, races);
+                
+                // Classes
+                var classes = node.GetNode("classes");
+                BuildWeightedTable(build.Classes, classes);
+                
+                // Skills
+                var skills = node.GetNode("skills");
+                BuildWeightedTable(build.FavoredSkills, skills);
+                
                 characterBuilds.Add(build);
             }
-
         }
+        
+        private void BuildWeightedTable(WeightedOptionTable<string> tableToBuild, YamlNodeWrapper node)
+        {
+            foreach(var child in node.Children())
+            {
+                tableToBuild.AddEntry(child.GetString("name"), child.GetInteger("weight"));
+            }
+        }    
     }
 }

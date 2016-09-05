@@ -1,6 +1,8 @@
 --- !<characterbuilds>
 - characterbuild:
   name: Archer
+  classskillmultiplier: 2.5
+  baseskillweight: 1
   classes:
     - name: fighter
       weight: 10
@@ -17,8 +19,19 @@
       weight: 6
     - name: half-elf 
       weight: 8      
+  skills:
+    - name: survival
+      weight: 20
+    - name: swim
+      weight: 10
+    - name: climb
+      weight: 16
+    - name: perception
+      weight: 24 
 - characterbuild:
   name: Front-Line
+  classskillmultiplier: 3  
+  baseskillweight: 1
   classes:
     - name: fighter
       weight: 10
@@ -37,3 +50,14 @@
       weight: 6
     - name: half-elf 
       weight: 8      
+  skills:
+    - name: survival 
+      weight: 10
+    - name: climb
+      weight: 15
+    - name: swim
+      weight: 15
+    - name: heal
+      weight: 6
+    - name: intimidate
+      weight: 8

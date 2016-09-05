@@ -44,6 +44,22 @@ namespace Characters
             Assert.IsNotNull(tank);
         }
 
+        [Test]
+        public void StrategyProvidesBaseForAllSkills()
+        {
+            var archer = gateway.GetBuild("archer");
+            Assert.AreEqual(1, archer.BaseSkillWeight);
+        }
+
+        [Test]
+        public void StrategyProvidesSpecificationOnSkills()
+        {
+            var archer = gateway.GetBuild("archer");
+            Assert.IsNotNull(archer.FavoredSkills);
+            Assert.AreEqual("survival", archer.FavoredSkills.All().First().Option);
+            Assert.AreEqual(20, archer.FavoredSkills.All().First().MaximumValue);
+        }
+
         private const string CharacterBuildYaml = @"--- 
 - build:
   name: Archer
