@@ -261,6 +261,11 @@ namespace SilverNeedle.Characters
             return SkillRanks.GetSkill(skill.Name);
         }
 
+        public CharacterSkill GetSkill(string skillName)
+        {
+            return SkillRanks.GetSkill(skillName);
+        }
+
         /// <summary>
         /// Gets the skill value. 
         /// </summary>

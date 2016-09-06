@@ -108,7 +108,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
         private void AssignSkillPoints(CharacterSheet character)
         {
             // Assign Skill Points
-            var skillGen = new SkillPointGenerator();
+            var skillGen = new SkillPointDistributor();
             skillGen.AssignSkillPointsRandomly(character);
         }
 

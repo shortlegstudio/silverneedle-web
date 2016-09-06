@@ -27,7 +27,7 @@ namespace SilverNeedle.Characters
         /// <param name="scores">Ability scores for a baseline.</param>
         public SkillRanks(IEnumerable<Skill> skillList, AbilityScores scores)
         {
-            this.skills = new Dictionary<string, CharacterSkill>();
+            this.skills = new Dictionary<string, CharacterSkill>(StringComparer.OrdinalIgnoreCase);
 
             this.FillSkills(skillList, scores);
         }

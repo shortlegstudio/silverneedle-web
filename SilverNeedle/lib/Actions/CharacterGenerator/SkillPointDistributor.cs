@@ -13,7 +13,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
     /// <summary>
     /// Skill point generator.
     /// </summary>
-    public class SkillPointGenerator
+    public class SkillPointDistributor
     {
         /// <summary>
         /// Assigns the skill points randomly.
@@ -32,6 +32,32 @@ namespace SilverNeedle.Actions.CharacterGenerator
                 }
 
                 skill.AddRank();
+            }
+        }
+
+        public void AssignSkillPoints(CharacterSheet character, DistributionSettings settings)
+        {
+            // Assign Skill Points based on strategy
+            var strategy = settings.PreferredSkills;
+
+            for (int i = 0; i < settings.SkillPointsToAssign; i++)
+            {
+                var option = strategy.ChooseRandomly();
+                var skill = character.GetSkill(option);
+                skill.AddRank();
+            }
+        }
+
+        public class DistributionSettings
+        {
+            public Class Class { get; set; }
+            public int SkillPointsToAssign { get; set; }
+            public WeightedOptionTable<string> PreferredSkills { get; set; }
+
+            public DistributionSettings (Class cls, WeightedOptionTable<string> skills)
+            {
+                this.PreferredSkills = skills;
+                this.Class = cls;
             }
         }
     }

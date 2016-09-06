@@ -141,6 +141,15 @@ namespace Characters
             sheet.AddTrait(trait);
             Assert.Greater(sheet.SpecialQualities.SpecialAbilities.Count(), 0);
         }
+
+        [Test]
+        public void CanGetSkillByName()
+        {
+            var character = new CharacterSheet(_testSkills);
+            Assert.IsNotNull(character.GetSkill("Climb"));
+            Assert.AreEqual("Climb", character.GetSkill("Climb").Name);
+            Assert.AreEqual("Climb", character.GetSkill("climb").Name);
+        }
     }
 
 
