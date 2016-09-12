@@ -35,12 +35,17 @@ namespace SilverNeedle.Actions.CharacterGenerator
             AssignClass(character, cls);
         }   
 
-        private void AssignClass(CharacterSheet character, Class cls) 
+        public void AssignClass(CharacterSheet character, Class cls) 
         {
             character.SetClass(cls);
             
             var hpRoller = new HitPointRoller();
             var hp = hpRoller.AddMaxHitPoints(character);
+
+            foreach(var skill in cls.ClassSkills)
+            {
+                character.SkillRanks.SetClassSkill(skill);
+            }
         }
     }
 }

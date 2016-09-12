@@ -19,6 +19,8 @@ namespace Actions
     public class SkillPointDistributorTests
     {
         public List<Skill> availableSkills;
+        public SkillRanks skills;
+        public SkillPointDistributor distributor;
 
         [SetUp]
         public void SetUp() 
@@ -30,27 +32,46 @@ namespace Actions
 
             availableSkills.Add(climb);
             availableSkills.Add(acrobat);
-            availableSkills.Add(knowledge);    
+            availableSkills.Add(knowledge);
+            skills = new SkillRanks(availableSkills, new AbilityScores());    
+            distributor = new SkillPointDistributor();
         }
 
         [Test]
         public void ChoosesSkillsBasedOnTheStrategyRecommendation()
         {
-            var distributor = new SkillPointDistributor();
-            var character = new CharacterSheet(availableSkills);
-
-            var cls = new Class();
             var strategy = new WeightedOptionTable<string>();
             strategy.AddEntry("Climb", 20);
 
-            var settings = new SkillPointDistributor.DistributionSettings(
-                cls,
-                strategy
-            );
-            settings.SkillPointsToAssign = 1;
+            distributor.AssignSkillPoints(skills, strategy, 1, 1);      
+            Assert.AreEqual(1, skills.GetSkill("Climb").Ranks);
+        }
 
-            distributor.AssignSkillPoints(character, settings);      
-            Assert.AreEqual(1, character.GetSkill("Climb").Ranks);
+        [Test]
+        public void IfSkillHasMaxRanksChooseOtherPreferredSkill()
+        {
+            var strategy = new WeightedOptionTable<string>();
+            strategy.AddEntry("Climb", 2000000);  // This is not a 100% guaranteed test. But it should be reliable enough. If failures happen will adjust
+            strategy.AddEntry("Acrobatics", 1);
+
+            distributor.AssignSkillPoints(skills, strategy, 2, 1);
+            Assert.AreEqual(1, skills.GetSkill("Climb").Ranks);
+            Assert.AreEqual(1, skills.GetSkill("Acrobatics").Ranks);
+        }
+
+        [Test]
+        public void IfAllPreferredSkillsAreMaxedAssignAPointToRemainingClassSkills()
+        {
+            var strategy = new WeightedOptionTable<string>();
+            strategy.AddEntry("Climb", 1);  
+            
+            //Set Knowledge (Arcana) as a class skill
+            skills.GetSkill("Knowledge (Arcana)").ClassSkill = true;
+            
+            distributor.AssignSkillPoints(skills, strategy, 2, 1);
+            Assert.AreEqual(1, skills.GetSkill("Climb").Ranks);
+            Assert.AreEqual(1, skills.GetSkill("Knowledge (Arcana)").Ranks);
+            
         }
     }
 }

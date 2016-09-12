@@ -49,7 +49,15 @@ namespace SilverNeedle.Characters
         /// <param name="skill">Skill name to lookup.</param>
         public CharacterSkill GetSkill(string skill)
         {
-            return this.skills[skill];
+            try 
+            {
+                return this.skills[skill];
+            }
+            catch
+            {
+                ShortLog.ErrorFormat("Cannot find skill: {0}", skill);
+                throw;
+            }
         }
 
         /// <summary>
@@ -84,6 +92,25 @@ namespace SilverNeedle.Characters
                 {
                     sk.AddModifier(a);
                 }
+            }
+        }
+
+        public void SetClassSkill(string skillName)
+        {
+            switch(skillName.ToLower())
+            {
+                case "craft":
+                case "profession":
+                case "perform":
+                    var skills = this.skills.Where(x => x.Key.StartsWith(skillName, StringComparison.OrdinalIgnoreCase)).Select(x => x.Value);
+                    foreach (var craft in skills)
+                    {
+                        craft.ClassSkill = true;
+                    }
+                    break;
+                default:
+                    GetSkill(skillName).ClassSkill = true;
+                    break;
             }
         }
 

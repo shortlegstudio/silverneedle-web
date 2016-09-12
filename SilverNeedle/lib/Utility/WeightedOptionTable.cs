@@ -28,7 +28,7 @@ namespace SilverNeedle
 
         public bool IsEmpty
         {
-            get { return table.Count == 0; }
+            get { return table.Count == 0 || maxValue == 1; }
         }
 
         public IEnumerable<TableEntry> All()
@@ -44,6 +44,15 @@ namespace SilverNeedle
             entry.MaximumValue = maxValue + weight - 1;
             maxValue = entry.MaximumValue + 1;
             table.Add(entry);
+        }
+
+        public void Disable(T option)
+        {
+            var entry = table.First(x => option.Equals(x.Option));
+            entry.Disabled = true;
+            entry.MinimumValue = 0;
+            entry.MaximumValue = 0;
+            RecalculateTable();
         }
 
         public T GetOption(int value)
@@ -62,11 +71,28 @@ namespace SilverNeedle
             return GetOption(value);
         }
 
+        private void RecalculateTable()
+        {
+            maxValue = 1;
+            foreach(var entry in All())
+            {
+                if (!entry.Disabled)
+                {
+                    int weight = entry.MaximumValue - entry.MinimumValue;
+                    entry.MinimumValue = maxValue;
+                    entry.MaximumValue = entry.MinimumValue + weight;
+                    maxValue = entry.MaximumValue + 1;
+                }
+            }
+        }
+
         public class TableEntry
         {
             public int MinimumValue { get; set; }
             public int MaximumValue { get; set; }
             public T Option { get; set; }
+
+            public bool Disabled { get; set; }
         }
     }
 }

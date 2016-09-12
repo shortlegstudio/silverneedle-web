@@ -98,18 +98,18 @@ namespace SilverNeedle.Actions.CharacterGenerator
             this.AddHitPoints(character);
             this.CalculateAge(character);
             this.GenerateBackground(character);
-            this.AssignSkillPoints(character);
+            this.AssignSkillPoints(character, strategy);
             this.EquipWeapons(character);
             this.EquipArmor(character);
 
             return character;
         }
 
-        private void AssignSkillPoints(CharacterSheet character)
+        private void AssignSkillPoints(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             // Assign Skill Points
             var skillGen = new SkillPointDistributor();
-            skillGen.AssignSkillPointsRandomly(character);
+            skillGen.AssignSkillPoints(character.SkillRanks, strategy.FavoredSkills, character.GetSkillPointsPerLevel(), character.Level);
         }
 
         /// <summary>

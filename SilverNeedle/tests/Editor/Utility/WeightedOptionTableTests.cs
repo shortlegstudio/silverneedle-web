@@ -81,6 +81,30 @@ namespace Utility
             var table = new WeightedOptionTable<string>();
             Assert.IsTrue(table.IsEmpty);
         }
+
+        [Test]
+        public void EntriesCanBeDisabledWhichForcesADifferentOptionToBeChosen()
+        {
+            var table = new WeightedOptionTable<string>();
+            table.AddEntry("Foo", 12);
+            table.AddEntry("Bar", 100);
+
+            table.Disable("Bar");
+            for(int i = 0; i < 1000; i++)
+            {
+                var result = table.ChooseRandomly();
+                Assert.AreEqual("Foo", result);
+            }
+        }
+
+        [Test]
+        public void IfAllOptionsAreDisabledThanFlagAsEmpty()
+        {
+            var table = new WeightedOptionTable<int>();
+            table.AddEntry(1, 1);
+            table.Disable(1);
+            Assert.IsTrue(table.IsEmpty);
+        }
     }
 }
 

@@ -6,6 +6,7 @@
 
 namespace SilverNeedle.Actions.CharacterGenerator
 {
+    using System.Collections.Generic;
     using System.Linq;
     using SilverNeedle;
     using SilverNeedle.Characters;
@@ -35,30 +36,40 @@ namespace SilverNeedle.Actions.CharacterGenerator
             }
         }
 
-        public void AssignSkillPoints(CharacterSheet character, DistributionSettings settings)
+        public void AssignSkillPoints(SkillRanks skills, WeightedOptionTable<string> preferredSkills, int skillPoints, int maxLevel)
         {
-            // Assign Skill Points based on strategy
-            var strategy = settings.PreferredSkills;
-
-            for (int i = 0; i < settings.SkillPointsToAssign; i++)
+            int assigned = 0;
+            while (assigned < skillPoints)
             {
-                var option = strategy.ChooseRandomly();
-                var skill = character.GetSkill(option);
-                skill.AddRank();
-            }
-        }
+                if (!preferredSkills.IsEmpty)
+                {
+                    var option = preferredSkills.ChooseRandomly();
+                    var skill = skills.GetSkill(option);
+                    
+                    if(skill.Ranks < maxLevel)
+                    {                
+                        skill.AddRank();
+                        assigned++;
+                    }
+                    else
+                    {
+                        preferredSkills.Disable(option);
+                    }
+                }
+                else
+                {
+                    // no preferred skills so just pick class skills
+                    var skill = skills.GetSkills().Where(x => x.ClassSkill).ToList().ChooseOne();
+                    if (skill.Ranks < maxLevel)
+                    {
+                        skill.AddRank();
+                        assigned++;
+                    }
+                }
 
-        public class DistributionSettings
-        {
-            public Class Class { get; set; }
-            public int SkillPointsToAssign { get; set; }
-            public WeightedOptionTable<string> PreferredSkills { get; set; }
-
-            public DistributionSettings (Class cls, WeightedOptionTable<string> skills)
-            {
-                this.PreferredSkills = skills;
-                this.Class = cls;
             }
+
+            ShortLog.Debug("Ending");
         }
     }
 }

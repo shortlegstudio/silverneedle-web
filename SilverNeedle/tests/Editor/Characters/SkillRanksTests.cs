@@ -69,6 +69,40 @@ namespace Characters
             //Should not throw exception
         }
 
+        [Test]
+        public void SettingACraftSkillAsClassSkillSetsAllCraftSkills()
+        {
+            _skillList.Add(new Skill("Craft (Shoes)", AbilityScoreTypes.Intelligence, false));
+            _skillList.Add(new Skill("Craft (Jewelry)", AbilityScoreTypes.Intelligence, false));
+            var ranks = new SkillRanks(_skillList, new AbilityScores());
+            ranks.SetClassSkill("Craft");
+            Assert.IsTrue(ranks.GetSkill("Craft (Shoes)").ClassSkill);
+            Assert.IsTrue(ranks.GetSkill("Craft (Jewelry)").ClassSkill);
+        }
+
+        [Test]
+        public void SettingAProfessionsSkillAsClassSkillSetsAllProfessionsSkills()
+        {
+            _skillList.Add(new Skill("Profession (Bouncer)", AbilityScoreTypes.Intelligence, false));
+            _skillList.Add(new Skill("Profession (Turnip Farmer)", AbilityScoreTypes.Intelligence, false));
+            var ranks = new SkillRanks(_skillList, new AbilityScores());
+            ranks.SetClassSkill("Profession");
+            Assert.IsTrue(ranks.GetSkill("Profession (Bouncer)").ClassSkill);
+            Assert.IsTrue(ranks.GetSkill("Profession (Turnip Farmer)").ClassSkill);
+        }
+
+        [Test]
+        public void SettingAPerformSkillAsClassSkillSetsAllPerformSkills()
+        {
+            _skillList.Add(new Skill("Perform (Debate)", AbilityScoreTypes.Intelligence, false));
+            _skillList.Add(new Skill("Perform (Art)", AbilityScoreTypes.Intelligence, false));
+            var ranks = new SkillRanks(_skillList, new AbilityScores());
+            ranks.SetClassSkill("Perform");
+            Assert.IsTrue(ranks.GetSkill("Perform (Debate)").ClassSkill);
+            Assert.IsTrue(ranks.GetSkill("Perform (Art)").ClassSkill);
+        }
+    
+
         class MockMod : IModifiesStats
         {
             public IList<BasicStatModifier> Modifiers { get; set; }
