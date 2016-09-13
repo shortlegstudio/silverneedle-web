@@ -5,6 +5,7 @@
 //-----------------------------------------------------------------------
 namespace SilverNeedle.Characters
 {
+    using System;
     using System.Collections.Generic;
     using SilverNeedle;
 
@@ -51,6 +52,14 @@ namespace SilverNeedle.Characters
         /// </summary>
         /// <value>The description.</value>
         public string Description { get; private set; }
+
+        public bool IsCraftSkill
+        {
+            get
+            {
+                return Name.StartsWith("craft", StringComparison.OrdinalIgnoreCase);
+            }
+        }
 
         /// <summary>
         /// Returns a <see cref="System.String"/> that represents the current <see cref="SilverNeedle.Characters.Skill"/>.

@@ -102,7 +102,14 @@ namespace Characters
             Assert.IsTrue(ranks.GetSkill("Perform (Art)").ClassSkill);
         }
     
-
+        [Test]
+        public void CanFetchAllTheClassSkills()
+        {
+            Subject.SetClassSkill("Climb");
+            var classSkills = Subject.GetClassSkills();
+            Assert.AreEqual(1, classSkills.Count());
+            Assert.AreEqual("Climb", classSkills.First().Name);
+        }
         class MockMod : IModifiesStats
         {
             public IList<BasicStatModifier> Modifiers { get; set; }

@@ -66,12 +66,32 @@ namespace Actions
             strategy.AddEntry("Climb", 1);  
             
             //Set Knowledge (Arcana) as a class skill
-            skills.GetSkill("Knowledge (Arcana)").ClassSkill = true;
+            skills.SetClassSkill("Knowledge (Arcana)");
             
             distributor.AssignSkillPoints(skills, strategy, 2, 1);
             Assert.AreEqual(1, skills.GetSkill("Climb").Ranks);
             Assert.AreEqual(1, skills.GetSkill("Knowledge (Arcana)").Ranks);
+        }
+
+        [Test]
+        public void IfAssigningToClassSkillsOnlyUseOneCraftSkill()
+        {
+            var strategy = new WeightedOptionTable<string>();
             
+            //Set Knowledge (Arcana) as a class skill
+            availableSkills.Add(new Skill("Craft (Pottery)", AbilityScoreTypes.Intelligence, false));
+            availableSkills.Add(new Skill("Craft (Jewelry)", AbilityScoreTypes.Intelligence, false));
+
+            //Assign two points, should go all to one skill
+            for (int i = 0; i < 1000; i++)
+            {
+                var skillRanks = new SkillRanks(availableSkills, new AbilityScores());
+                skillRanks.SetClassSkill("Craft (Pottery)");
+                skillRanks.SetClassSkill("Craft (Jewelry)");
+                
+                distributor.AssignSkillPoints(skillRanks, strategy, 2, 2);
+                Assert.IsTrue(skillRanks.GetSkills().Any(x => x.Ranks == 2));            
+            }
         }
     }
 }

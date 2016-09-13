@@ -59,17 +59,27 @@ namespace SilverNeedle.Actions.CharacterGenerator
                 else
                 {
                     // no preferred skills so just pick class skills
-                    var skill = skills.GetSkills().Where(x => x.ClassSkill).ToList().ChooseOne();
-                    if (skill.Ranks < maxLevel)
+                    var skill = skills.GetSkills().Where(
+                        x => x.ClassSkill
+                        && x.Ranks < maxLevel
+                    ).ToList().ChooseOne();
+                    
+                    //Craft skills require special attention
+                    if (skill.Skill.IsCraftSkill)
+                    {
+                        if(skill.Ranks > 0 || skills.GetSkills().Where(x => x.Skill.IsCraftSkill).All(x => x.Ranks == 0))
+                        {
+                            skill.AddRank();
+                            assigned++;
+                        }
+                    }
+                    else
                     {
                         skill.AddRank();
                         assigned++;
                     }
-                }
-
+                }                    
             }
-
-            ShortLog.Debug("Ending");
         }
     }
 }

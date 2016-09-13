@@ -114,6 +114,11 @@ namespace SilverNeedle.Characters
             }
         }
 
+        public IEnumerable<CharacterSkill> GetClassSkills()
+        {
+            return this.skills.Values.Where(x => x.ClassSkill);
+        }
+
         /// <summary>
         /// Fills the skills.
         /// </summary>
