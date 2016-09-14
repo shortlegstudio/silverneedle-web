@@ -11,10 +11,24 @@ namespace Characters {
 		[TestFixture]
 		public class SkillTests {
 				[Test]
-				public void CanDetectCraftingSkills()
+				public void CraftingSkillsAreConsideredBackgroundSkills()
 				{
 						var skill = new Skill("Craft (Pottery)", AbilityScoreTypes.Intelligence, false);
-						Assert.IsTrue(skill.IsCraftSkill);
+						Assert.IsTrue(skill.IsBackgroundSkill);
+				}
+
+				[Test]
+				public void ProfessionSkillsAreConsideredBackgroundSkills()
+				{
+						var skill = new Skill("Profession (Fisherman)", AbilityScoreTypes.Wisdom, true);
+						Assert.IsTrue(skill.IsBackgroundSkill);						
+				}
+
+				[Test]
+				public void PerformSkillsAreConsideredBackgroundSkills()
+				{
+						var skill = new Skill("Perform (Oratory)", AbilityScoreTypes.Charisma, false);
+						Assert.IsTrue(skill.IsBackgroundSkill);
 				}
 
 

@@ -53,11 +53,13 @@ namespace SilverNeedle.Characters
         /// <value>The description.</value>
         public string Description { get; private set; }
 
-        public bool IsCraftSkill
+        public bool IsBackgroundSkill
         {
             get
             {
-                return Name.StartsWith("craft", StringComparison.OrdinalIgnoreCase);
+                return Name.StartsWith("craft", StringComparison.OrdinalIgnoreCase) ||
+                    Name.StartsWith("profession", StringComparison.OrdinalIgnoreCase) ||
+                    Name.StartsWith("perform", StringComparison.OrdinalIgnoreCase);
             }
         }
 

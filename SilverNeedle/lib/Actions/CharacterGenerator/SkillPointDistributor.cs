@@ -41,45 +41,55 @@ namespace SilverNeedle.Actions.CharacterGenerator
             int assigned = 0;
             while (assigned < skillPoints)
             {
-                if (!preferredSkills.IsEmpty)
+                var selectedSkill = ChooseSkill(skills, preferredSkills, maxLevel);
+                if(selectedSkill != null)
                 {
-                    var option = preferredSkills.ChooseRandomly();
-                    var skill = skills.GetSkill(option);
-                    
-                    if(skill.Ranks < maxLevel)
-                    {                
-                        skill.AddRank();
-                        assigned++;
-                    }
-                    else
+                    selectedSkill.AddRank();
+                    assigned++;
+                }
+            }
+        }
+
+        private CharacterSkill ChooseSkill(SkillRanks skills, WeightedOptionTable<string> preferredSkills, int maxLevel)
+        {
+
+            if (!preferredSkills.IsEmpty)
+            {
+                var option = preferredSkills.ChooseRandomly();
+                var skill = skills.GetSkill(option);
+
+                if (skill.Ranks < maxLevel)
+                {
+                    return skill;
+                }
+                else
+                {
+                    preferredSkills.Disable(option);
+                }
+            }
+            else
+            {
+                // no preferred skills so just pick class skills
+                var skill = skills.GetSkills().Where(
+                    x => x.ClassSkill
+                    && x.Ranks < maxLevel
+                ).ToList().ChooseOne();
+
+                // Background skills require special attention
+                // In general just take one background skill
+                if (skill.Skill.IsBackgroundSkill)
+                {
+                    if (skill.Ranks > 0 || skills.GetSkills().Where(x => x.Skill.IsBackgroundSkill).All(x => x.Ranks == 0))
                     {
-                        preferredSkills.Disable(option);
+                        return skill;                       
                     }
                 }
                 else
                 {
-                    // no preferred skills so just pick class skills
-                    var skill = skills.GetSkills().Where(
-                        x => x.ClassSkill
-                        && x.Ranks < maxLevel
-                    ).ToList().ChooseOne();
-                    
-                    //Craft skills require special attention
-                    if (skill.Skill.IsCraftSkill)
-                    {
-                        if(skill.Ranks > 0 || skills.GetSkills().Where(x => x.Skill.IsCraftSkill).All(x => x.Ranks == 0))
-                        {
-                            skill.AddRank();
-                            assigned++;
-                        }
-                    }
-                    else
-                    {
-                        skill.AddRank();
-                        assigned++;
-                    }
-                }                    
+                    return skill;
+                }            
             }
+            return null;
         }
     }
 }
