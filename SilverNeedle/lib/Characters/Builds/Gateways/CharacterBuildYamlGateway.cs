@@ -64,6 +64,10 @@ namespace SilverNeedle.Characters
                 var skills = node.GetNode("skills");
                 BuildWeightedTable(build.FavoredSkills, skills);
                 
+                // Feats
+                var feats = node.GetNode("feats");
+                BuildWeightedTable(build.FavoredFeats, feats);
+
                 characterBuilds.Add(build);
             }
         }

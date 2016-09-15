@@ -60,6 +60,18 @@ namespace Characters
             Assert.AreEqual(20, archer.FavoredSkills.All().First().MaximumValue);
         }
 
+        [Test]
+        public void StrategyProvidesRecommendationsOnFeats()
+        {
+            var tank = gateway.GetBuild("tank");
+            var feats = tank.FavoredFeats.All();
+            
+            Assert.AreEqual("power attack", feats.First().Option);
+            Assert.AreEqual(100, feats.First().MaximumValue);
+
+            Assert.AreEqual(3, feats.Count());
+        }
+
         private const string CharacterBuildYaml = @"--- 
 - build:
   name: Archer
@@ -84,6 +96,11 @@ namespace Characters
       weight: 16
     - name: perception
       weight: 16    
+  feats:
+    - name: point-blank shot
+      weight: 20
+    - name: quick draw
+      weight: 10
 - build:
   name: Tank
   races:
@@ -109,6 +126,13 @@ namespace Characters
       weight: 16
     - name: perception
       weight: 16    
+  feats:
+    - name: power attack
+      weight: 100
+    - name: cleave
+      weight: 40
+    - name: shield focus
+      weight: 10
 ";
     }
 }

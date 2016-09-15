@@ -27,7 +27,16 @@
     - name: climb
       weight: 16
     - name: perception
-      weight: 24 
+      weight: 24
+  feats:
+    - name: point-blank shot
+      weight: 40
+    - name: rapid shot
+      weight: 40
+    - name: precise shot
+      weight: 20
+    - name: deadly aim
+      weight: 20
 - characterbuild:
   name: Front-Line
   classskillmultiplier: 3  
@@ -61,3 +70,12 @@
       weight: 6
     - name: intimidate
       weight: 8
+  feats:
+    - name: power attack
+      weight: 30
+    - name: combat reflexes
+      weight: 20
+    - name: cleave
+      weight: 20
+    - name: improved initiative
+      weight: 5
