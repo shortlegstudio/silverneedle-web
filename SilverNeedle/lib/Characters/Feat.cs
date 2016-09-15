@@ -62,7 +62,7 @@ namespace SilverNeedle.Characters
         /// Gets the prerequisites.
         /// </summary>
         /// <value>The prerequisites needed to meet requirements for this feat.</value>
-        public Prerequisites Prerequisites { get; private set; }
+        public Prerequisites Prerequisites { get; set; }
 
         /// <summary>
         /// Gets a value indicating whether this instance is combat feat.
