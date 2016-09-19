@@ -45,6 +45,8 @@ namespace SilverNeedle.Actions.CharacterGenerator
 
         private GatewayProvider gateways;
 
+        private FeatSelector featSelector;
+
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="SilverNeedle.Actions.CharacterGenerator.CharacterBuilder"/> class.
@@ -58,6 +60,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
             LanguageSelector langs,
             RaceSelector races,
             INameCharacter names,
+            FeatSelector feats,
             GatewayProvider gateways)
         {
             this.abilityGenerator = abilities;
@@ -65,6 +68,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
             this.raceAssigner = races;
             this.nameGenerator = names;
             this.gateways = gateways;
+            this.featSelector = feats;
         }
 
         /// <summary>
@@ -93,7 +97,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
             this.SelectClass(character, strategy);
 
             // Select level one feat
-            this.ChooseFeats(character);
+            this.ChooseFeats(character, strategy);
             this.AddHitPoints(character);
             this.CalculateAge(character);
             this.GenerateBackground(character);
@@ -182,9 +186,9 @@ namespace SilverNeedle.Actions.CharacterGenerator
                     character.AbilityScores.GetModifier(AbilityScoreTypes.Intelligence)));
         }
 
-        private void ChooseFeats(CharacterSheet character)
+        private void ChooseFeats(CharacterSheet character, CharacterBuildStrategy strategy)
         {
-            character.AddFeat(gateways.Feats.GetQualifyingFeats(character).ToList().ChooseOne());            
+            featSelector.SelectFeats(character, strategy.FavoredFeats);
         }
 
         private void EquipWeapons(CharacterSheet character)

@@ -35,6 +35,7 @@ namespace silverneedleweb.Controllers
                 new LanguageSelector(new LanguageYamlGateway()),
                 new RaceSelector(gateways.Races, new TraitYamlGateway()),
                 new NameCharacter(new CharacterNamesYamlGateway()),
+                new FeatSelector(gateways.Feats),
                 new GatewayProvider()
             );
 
