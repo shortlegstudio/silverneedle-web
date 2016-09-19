@@ -12,5 +12,7 @@ namespace SilverNeedle.Characters
         IEnumerable<Feat> All();
 
         Feat GetByName(string name);
+
+        IEnumerable<Feat> GetQualifyingFeats(CharacterSheet character);
     }
 }

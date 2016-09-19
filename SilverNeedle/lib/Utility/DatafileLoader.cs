@@ -42,7 +42,7 @@ namespace SilverNeedle
             var files = System.IO.Directory.GetFiles(dataDirectory, "*.yml");
             foreach(var f in files)
             {
-                var yaml = FileHelper.OpenYaml2(f);
+                var yaml = FileHelper.OpenYaml(f);
                 var type = GuessFileType(yaml);
                 ShortLog.DebugFormat("FILE: {0}, TYPE: {1}", f, type);
 

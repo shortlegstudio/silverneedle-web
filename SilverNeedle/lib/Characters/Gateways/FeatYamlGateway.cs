@@ -13,8 +13,17 @@ namespace SilverNeedle.Characters
 {
     public class FeatYamlGateway : IFeatGateway
     {
+              /// <summary>
+        /// The trait data file.
+        /// </summary>
+        private const string FeatDataFile = "feats.yml";
+
         private IList<Feat> feats;
 
+        public FeatYamlGateway() : this(FileHelper.OpenYamlDataFile(FeatDataFile))
+        {
+
+        }
         public FeatYamlGateway(YamlNodeWrapper yaml)
         {
             feats = new List<Feat>();
@@ -29,6 +38,11 @@ namespace SilverNeedle.Characters
         public Feat GetByName(string name)
         {
             return feats.FirstOrDefault(x => x.Name.EqualsIgnoreCase(name));
+        }
+
+        public IEnumerable<Feat> GetQualifyingFeats(CharacterSheet character)
+        {
+            return feats.Where(x => x.IsQualified(character));
         }
 
         private void ParseYamlFile(YamlNodeWrapper yaml)

@@ -16,10 +16,12 @@ namespace SilverNeedle
     {
         /// <summary>
         /// Loads a Yaml document and returns the YamlDotNet parser
+        /// 
+        /// This is based on the data file path configured
         /// </summary>
         /// <returns>The YamlDotNet parser</returns>
         /// <param name="fileName">File name to open</param>
-        public static YamlNodeWrapper OpenYaml(string fileName)
+        public static YamlNodeWrapper OpenYamlDataFile(string fileName)
         {
             var path = Path.Combine(Configuration.DataPath, fileName);
             ShortLog.DebugFormat("Loading Yaml File: {0}", path);
@@ -33,7 +35,7 @@ namespace SilverNeedle
             }
         }
 
-        public static YamlNodeWrapper OpenYaml2(string fileName)
+        public static YamlNodeWrapper OpenYaml(string fileName)
         {
             ShortLog.DebugFormat("Loading Yaml File: {0}", fileName);
             using(var input = File.OpenText(fileName))

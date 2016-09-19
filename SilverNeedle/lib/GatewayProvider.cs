@@ -27,6 +27,8 @@ namespace SilverNeedle
 
         public ICharacterNamesGateway Names { get; set; }
 
+        public IFeatGateway Feats { get; set; }
+
         public void SetAllYaml() {
             Armors = new ArmorYamlGateway();
             Weapons = new WeaponYamlGateway();
@@ -35,6 +37,7 @@ namespace SilverNeedle
             Maturity = new RaceMaturityYamlGateway();
             Races = new RaceYamlGateway();
             Names = new CharacterNamesYamlGateway();
+            Feats = new FeatYamlGateway();
         }
     }
 }

@@ -17,15 +17,6 @@ namespace SilverNeedle.Characters
     /// </summary>
     public class Feat : IModifiesStats, IProvidesSpecialAbilities
     {
-        /// <summary>
-        /// The trait data file.
-        /// </summary>
-        private const string TraitDataFile = "feats.yml";
-
-        /// <summary>
-        /// The feats that are loaded
-        /// </summary>
-        private static IList<Feat> loadedFeats = new List<Feat>();
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Characters.Feat"/> class.
@@ -96,112 +87,6 @@ namespace SilverNeedle.Characters
         /// </summary>
         /// <value>The tags for this feat.</value>
         public IList<string> Tags { get; set; }
-
-        /// <summary>
-        /// Loads all the feats from a YAML node.
-        /// </summary>
-        /// <returns>The feats stored in the YAML document.</returns>
-        /// <param name="yaml">YAML to parse out.</param>
-        public static IList<Feat> LoadFromYaml(YamlNodeWrapper yaml)
-        {
-            // TODO: Refactor to Gateway class
-            var feats = new List<Feat>();
-
-            foreach (var featNode in yaml.Children())
-            {
-                var feat = new Feat();
-                feat.Name = featNode.GetString("name"); 
-                ShortLog.DebugFormat("Loading Feat: {0}", feat.Name);
-                feat.Description = featNode.GetString("description");
-
-                // Get Any skill Modifiers if they exist
-                var skills = featNode.GetNodeOptional("modifiers");
-                if (skills != null)
-                {
-                    foreach (var skillAdj in skills.Children())
-                    {
-                        var skillName = skillAdj.GetString("stat");
-                        var modifier = skillAdj.GetInteger("modifier");
-                        var type = skillAdj.GetString("type");
-                        feat.Modifiers.Add(new BasicStatModifier(
-                            skillName,
-                            modifier,
-                            type,
-                            string.Format("{0} (feat)", feat.Name)));
-                    }
-                }
-
-                // Get Any Prerequisites
-                var prereq = featNode.GetNodeOptional("prerequisites");
-                if (prereq != null)
-                {
-                    feat.Prerequisites = new Prerequisites(prereq);
-                }
-
-                feat.Tags = featNode.GetCommaStringOptional("tags").ToList();
-                feats.Add(feat);
-            }
-
-            return feats;
-        }
-
-        /// <summary>
-        /// Gets a feat that matches the name.
-        /// </summary>
-        /// <returns>The feat to find.</returns>
-        /// <param name="name">Name of the feat.</param>
-        public static Feat GetFeat(string name)
-        {
-            return GetFeats().First(x => x.Name == name); 
-        }
-
-        /// <summary>
-        /// Gets all of the feats.
-        /// </summary>
-        /// <returns>The feats that are loaded.</returns>
-        public static IList<Feat> GetFeats()
-        {
-            if (loadedFeats == null || loadedFeats.Count == 0)
-            {
-                var yaml = FileHelper.OpenYaml(TraitDataFile);
-                loadedFeats = LoadFromYaml(yaml);
-                ShortLog.Debug("Loaded Traits: " + loadedFeats.Count);
-            }
-
-            return loadedFeats;
-        }
-
-        /// <summary>
-        /// Gets all the qualifying feats for a character.
-        /// </summary>
-        /// <returns>The qualifying feats.</returns>
-        /// <param name="character">Character that is validating.</param>
-        public static IEnumerable<Feat> GetQualifyingFeats(CharacterSheet character)
-        {
-            return GetFeats().Where(x => x.IsQualified(character) && !character.Feats.Contains(x));
-        }
-
-        /// <summary>
-        /// Gets the qualifying feats that are also in tagged with the specified value.
-        /// Allows getting qualifying combat feats for example
-        /// </summary>
-        /// <returns>The qualifying feats.</returns>
-        /// <param name="character">Character to qualify.</param>
-        /// <param name="tag">Tags to filter the feats.</param>
-        public static IEnumerable<Feat> GetQualifyingFeats(CharacterSheet character, string tag)
-        {
-            return GetQualifyingFeats(character).Where(x => 
-                x.Tags.Contains(tag) || string.IsNullOrEmpty(tag));
-        }
-
-        /// <summary>
-        /// Sets the feats to use for fetching
-        /// </summary>
-        /// <param name="feats">Feats to store.</param>
-        public static void SetFeats(IList<Feat> feats)
-        {
-            loadedFeats = feats;
-        }
 
         /// <summary>
         /// Figures out if the character is qualified.

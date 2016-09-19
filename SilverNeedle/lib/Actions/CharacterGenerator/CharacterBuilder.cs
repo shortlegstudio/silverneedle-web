@@ -44,7 +44,6 @@ namespace SilverNeedle.Actions.CharacterGenerator
         private INameCharacter nameGenerator;
 
         private GatewayProvider gateways;
-       
 
         /// <summary>
         /// Initializes a new instance of the
@@ -185,7 +184,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
 
         private void ChooseFeats(CharacterSheet character)
         {
-            character.AddFeat(Feat.GetQualifyingFeats(character).ToList().ChooseOne());            
+            character.AddFeat(gateways.Feats.GetQualifyingFeats(character).ToList().ChooseOne());            
         }
 
         private void EquipWeapons(CharacterSheet character)

@@ -91,6 +91,14 @@ namespace Characters
             Assert.IsFalse (Acrobatic.IsItemCreation);
         }
 
+        public void CanReturnQualifyingFeats() {
+            var character = new CharacterSheet();
+            character.AbilityScores.SetScore(AbilityScoreTypes.Intelligence, 13);
+            var qual = featGateway.GetQualifyingFeats(character);
+            Assert.AreEqual(1, qual.Count());
+            Assert.AreEqual(CombatExpertise, qual.First());
+
+        }
         private const string FeatYamlFile = @"--- 
 - feat: 
   name: Acrobatic
