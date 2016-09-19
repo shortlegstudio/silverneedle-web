@@ -58,7 +58,9 @@
     - name: half-orc
       weight: 6
     - name: half-elf 
-      weight: 8      
+      weight: 8  
+    - name: dwarf
+      weight: 12    
   skills:
     - name: survival 
       weight: 10
