@@ -1,0 +1,23 @@
+--- !<class>
+- class:
+  name: Paladin
+  skillpoints: 2
+  skills:
+    - Craft
+    - Diplomacy
+    - Handle Animal
+    - Heal
+    - Knowledge Nobility
+    - Knowledge Religion
+    - Profession
+    - Ride
+    - Sense Motive
+    - Spellcraft
+  hitdice: d10
+  baseattackbonus: 1
+  fortitude: 0.667
+  reflex: 0.334
+  will: 0.667
+  armorproficiencies: light, medium, heavy
+  weaponproficiencies: simple, martial
+  developedage: trained

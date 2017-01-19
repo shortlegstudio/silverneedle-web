@@ -39,7 +39,7 @@ namespace SilverNeedle
         private void LoadDataDirectory() 
         {
             // Find all yaml files and track them
-            var files = System.IO.Directory.GetFiles(dataDirectory, "*.yml");
+            var files = System.IO.Directory.EnumerateFiles(dataDirectory, "*.yml", System.IO.SearchOption.AllDirectories);
             foreach(var f in files)
             {
                 var yaml = FileHelper.OpenYaml(f);

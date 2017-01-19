@@ -1,0 +1,21 @@
+--- !<class>
+- class:
+  name: Sorcerer
+  skillpoints: 2
+  skills:
+    - Appraise
+    - Bluff
+    - Craft
+    - Fly
+    - Intimidate
+    - Knowledge Arcana
+    - Profession
+    - Spellcraft
+    - Use Magical Device
+  hitdice: d6
+  baseattackbonus: 0.5
+  fortitude: 0.334
+  reflex: 0.334
+  will: 0.667
+  weaponproficiencies: simple
+  developedage: young

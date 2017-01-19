@@ -1,0 +1,23 @@
+--- !<class>
+- class:
+  name: Barbarian
+  skillpoints: 4
+  skills:
+    - Acrobatics
+    - Climb
+    - Craft
+    - Handle Animal
+    - Intimidate
+    - Knowledge Nature
+    - Perception
+    - Ride
+    - Survival
+    - Swim
+  hitdice: d12
+  baseattackbonus: 1
+  fortitude: 0.667
+  reflex: 0.334
+  will: 0.334
+  armorproficiencies: light, medium
+  weaponproficiencies: simple, martial
+  developedage: Young

@@ -1,0 +1,26 @@
+--- !<class>
+- class:
+  name: Druid
+  skillpoints: 4
+  skills:
+    - Climb
+    - Craft
+    - Fly
+    - Handle Animal
+    - Heal
+    - Knowledge Geography
+    - Knowledge Nature
+    - Perception
+    - Profession
+    - Ride
+    - Spellcraft
+    - Survival
+    - Swim
+  hitdice: d8
+  baseattackbonus: 0.75
+  fortitude: 0.667
+  reflex: 0.334
+  will: 0.667
+  armorproficiencies: light, medium
+  weaponproficiencies: club, dagger, dart, quarterstaff, scimitar, scythe, sickle, shortspear, sling, spear
+  developedage: studied

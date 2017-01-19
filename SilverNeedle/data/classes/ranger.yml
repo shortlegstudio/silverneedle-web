@@ -1,0 +1,28 @@
+--- !<class>
+- class:
+  name: Ranger
+  skillpoints: 6
+  skills:
+    - Climb
+    - Craft
+    - Handle Animal
+    - Heal
+    - Intimidate
+    - Knowledge Dungeoneering
+    - Knowledge Geography
+    - Knowledge Nature
+    - Perception
+    - Profession
+    - Ride
+    - Spellcraft
+    - Stealth
+    - Survival
+    - Swim
+  hitdice: d10
+  baseattackbonus: 1
+  fortitude: 0.667
+  reflex: 0.667
+  will: 0.334
+  armorproficiencies: light, medium
+  weaponproficiencies: simple, martial
+  developedage: trained

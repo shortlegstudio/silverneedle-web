@@ -1,0 +1,23 @@
+--- !<class>
+- class:
+  name: Fighter
+  skillpoints: 2
+  skills:
+    - Climb
+    - Craft
+    - Handle Animal
+    - Intimidate
+    - Knowledge Dungeoneering
+    - Knowledge Engineering
+    - Profession
+    - Ride
+    - Survival
+    - Swim
+  hitdice: d10
+  baseattackbonus: 1
+  fortitude: 0.667
+  reflex: 0.334
+  will: 0.334
+  armorproficiencies: light, medium, heavy
+  weaponproficiencies: simple, martial
+  developedage: trained

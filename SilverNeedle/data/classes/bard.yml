@@ -1,0 +1,41 @@
+--- !<class>
+- class:
+  name: Bard
+  skillpoints: 6
+  skills:
+    - Acrobatics
+    - Appraise
+    - Bluff
+    - Climb
+    - Craft
+    - Diplomacy
+    - Disguise
+    - Escape Artist
+    - Intimidate
+    - Knowledge Arcana
+    - Knowledge Dungeoneering
+    - Knowledge Engineering
+    - Knowledge Geography
+    - Knowledge History
+    - Knowledge Local
+    - Knowledge Nature
+    - Knowledge Nobility
+    - Knowledge Planes
+    - Knowledge Religion
+    - Linguistics
+    - Perception
+    - Perform
+    - Profession
+    - Sense Motive
+    - Sleight of Hand
+    - Spellcraft
+    - Stealth
+    - Use Magical Device
+  hitdice: d6
+  baseattackbonus: 0.75
+  fortitude: 0.334
+  reflex: 0.667
+  will: 0.667
+  armorproficiencies: light
+  weaponproficiencies: simple, longsword, rapier, sap, short sword, shortbow, whip
+  developedage: trained

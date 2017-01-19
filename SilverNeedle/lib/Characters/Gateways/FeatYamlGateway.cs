@@ -16,18 +16,20 @@ namespace SilverNeedle.Characters
               /// <summary>
         /// The trait data file.
         /// </summary>
-        private const string FeatDataFile = "feats.yml";
+        private const string FeatDataFileType = "feat";
 
-        private IList<Feat> feats;
+        private IList<Feat> feats = new List<Feat>();
 
-        public FeatYamlGateway() : this(FileHelper.OpenYamlDataFile(FeatDataFile))
+        public FeatYamlGateway()
         {
-
+            var yamlNodes = DatafileLoader.Instance.GetYamlFiles(FeatDataFileType);
+            foreach(var y in yamlNodes) {
+                this.feats.Add(LoadFromYaml(y));
+            }
         }
         public FeatYamlGateway(YamlNodeWrapper yaml)
         {
-            feats = new List<Feat>();
-            ParseYamlFile(yaml);
+            feats.Add(LoadFromYaml(yaml));
         }
 
         public IEnumerable<Feat> All()
@@ -45,8 +47,9 @@ namespace SilverNeedle.Characters
             return feats.Where(x => x.IsQualified(character));
         }
 
-        private void ParseYamlFile(YamlNodeWrapper yaml)
+        private IList<Feat> LoadFromYaml(YamlNodeWrapper yaml)
         {
+            var loadedFeats = new List<Feat>();
             foreach (var featNode in yaml.Children())
             {
                 var feat = new Feat();
@@ -79,8 +82,10 @@ namespace SilverNeedle.Characters
                 }
 
                 feat.Tags = featNode.GetCommaStringOptional("tags").ToList();
-                this.feats.Add(feat);
+                loadedFeats.Add(feat);
             }
+
+            return loadedFeats;
         }
     }
 }

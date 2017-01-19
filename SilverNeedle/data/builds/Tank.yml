@@ -1,44 +1,6 @@
 --- !<characterbuilds>
 - characterbuild:
-  name: Archer
-  classskillmultiplier: 2.5
-  baseskillweight: 1
-  classes:
-    - name: fighter
-      weight: 10
-    - name: ranger
-      weight: 15
-    - name: rogue
-      weight: 4
-  races:
-    - name: human
-      weight: 10
-    - name: elf
-      weight: 8
-    - name: half-orc
-      weight: 6
-    - name: half-elf 
-      weight: 8      
-  skills:
-    - name: survival
-      weight: 20
-    - name: swim
-      weight: 10
-    - name: climb
-      weight: 16
-    - name: perception
-      weight: 24
-  feats:
-    - name: point-blank shot
-      weight: 40
-    - name: rapid shot
-      weight: 40
-    - name: precise shot
-      weight: 20
-    - name: deadly aim
-      weight: 20
-- characterbuild:
-  name: Front-Line
+  name: Tank
   classskillmultiplier: 3  
   baseskillweight: 1
   classes:
