@@ -25,6 +25,7 @@ namespace Actions
         {
             powerattack = new Feat();
             cleave = new Feat();
+            cleave.Prerequisites.Add(new Prerequisites.FeatPrerequisite("power attack"));
             empowerspell = new Feat();
 
             var gateway = new Mock<IFeatGateway>();
@@ -39,12 +40,27 @@ namespace Actions
         {
             var strategy = new WeightedOptionTable<string>();
             strategy.AddEntry("power attack", 5000000);
-            strategy.AddEntry("something else", 1);
+            strategy.AddEntry("cleave", 1);
             
             var character = new CharacterSheet();
             selector.SelectFeats(character, strategy);
             Assert.AreEqual(powerattack, character.Feats[0]); 
 
+        }
+
+        [Test]
+        public void OnlySelectsFeatsThatCharacterQualifiesFor()
+        {
+            var strategy = new WeightedOptionTable<string>();
+            strategy.AddEntry("power attack", 1);
+            strategy.AddEntry("cleave", 5000000);
+            var character = new CharacterSheet();
+            
+            for(int i = 0; i < 1000; i++)
+            {
+                selector.SelectFeats(character, strategy);
+                Assert.AreEqual(powerattack, character.Feats[0]);
+            }            
         } 
 
     }

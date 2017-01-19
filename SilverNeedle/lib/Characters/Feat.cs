@@ -97,5 +97,10 @@ namespace SilverNeedle.Characters
         {
             return Prerequisites.IsQualified(character);
         }
+
+        public override string ToString()
+        {
+            return string.Format("Feat: {0}", Name);
+        }
     }
 }

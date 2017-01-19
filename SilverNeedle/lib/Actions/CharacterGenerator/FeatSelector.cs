@@ -18,6 +18,16 @@ namespace SilverNeedle.Actions.CharacterGenerator
 
         public void SelectFeats(CharacterSheet character, WeightedOptionTable<string> preferredFeats)
         {
+            
+            //Enable/Disable options based on whether qualified for feat
+            foreach(var entry in preferredFeats.All())
+            {
+                var f = feats.GetByName(entry.Option);
+                if(!f.IsQualified(character)) {
+                    preferredFeats.Disable(entry.Option);
+                }
+            }
+            
             var selection = preferredFeats.ChooseRandomly();
             var feat = feats.GetByName(selection);
             character.AddFeat(feat);

@@ -2,9 +2,15 @@
 - trait:
   name: Adaptability
   description: Half-Elves receive Skill Focus as a bonus feat at 1st Level.
+  special:
+    - type: Bonus Feat
+      condition: Skill Focus
 - trait:
   name: Bonus Feat
   description: Gain a bonus feat at level one
+  special:
+    - type: Bonus Feat
+      condition: Any
 - trait:
   name: Darkvision
   description: See in the dark up to 60 feet.
