@@ -46,6 +46,7 @@ namespace SilverNeedle.Characters
 
             this.Traits = new List<Trait>();
             this.Feats = new List<Feat>();
+            this.FeatTokens = new List<FeatToken>();
             this.SpecialQualities = new SpecialQualities();
 
             this.Level = 1;
@@ -123,6 +124,13 @@ namespace SilverNeedle.Characters
         /// </summary>
         /// <value>The character's feats.</value>
         public IList<Feat> Feats { get; private set; }
+
+        /// <summary>
+        /// Represents an available feat chose the generator may make. Could be triggered
+        /// by a racial trait, level up, or class bonus for example
+        /// </summary>
+        /// <returns>Any feat tokens available</returns>
+        public IList<FeatToken> FeatTokens { get; private set; }
 
         /// <summary>
         /// Gets the initiative modifier.

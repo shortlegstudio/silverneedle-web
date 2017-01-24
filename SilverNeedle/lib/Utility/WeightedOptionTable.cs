@@ -38,8 +38,9 @@ namespace SilverNeedle
 
         public void AddEntry(T option, int weight)
         {
-            var entry = new TableEntry();
+            var entry = new TableEntry();            
             entry.Option = option;
+            entry.Weight = weight;
             entry.MinimumValue = maxValue;
             entry.MaximumValue = maxValue + weight - 1;
             maxValue = entry.MaximumValue + 1;
@@ -48,10 +49,17 @@ namespace SilverNeedle
 
         public void Disable(T option)
         {
-            var entry = table.First(x => option.Equals(x.Option));
+            var entry = FindEntry(option);
             entry.Disabled = true;
             entry.MinimumValue = 0;
             entry.MaximumValue = 0;
+            RecalculateTable();
+        }
+
+        public void Enable(T option)
+        {
+            var entry = FindEntry(option);
+            entry.Disabled = false;
             RecalculateTable();
         }
 
@@ -71,16 +79,20 @@ namespace SilverNeedle
             return GetOption(value);
         }
 
+        private TableEntry FindEntry(T option) 
+        {
+            return table.First(x => option.Equals(x.Option));
+        }
+
         private void RecalculateTable()
         {
             maxValue = 1;
             foreach(var entry in All())
             {
                 if (!entry.Disabled)
-                {
-                    int weight = entry.MaximumValue - entry.MinimumValue;
+                {                    ;
                     entry.MinimumValue = maxValue;
-                    entry.MaximumValue = entry.MinimumValue + weight;
+                    entry.MaximumValue = entry.MinimumValue + entry.Weight - 1;
                     maxValue = entry.MaximumValue + 1;
                 }
             }
@@ -90,6 +102,8 @@ namespace SilverNeedle
         {
             public int MinimumValue { get; set; }
             public int MaximumValue { get; set; }
+            public int Weight { get; set; }
+
             public T Option { get; set; }
 
             public bool Disabled { get; set; }

@@ -98,6 +98,20 @@ namespace Utility
         }
 
         [Test]
+        public void DisabledEntriesCanBeReenabled()
+        {
+            var table = new WeightedOptionTable<string>();
+            table.AddEntry("Foo", 483);
+            var entry = table.All().First();
+            var originalMax = entry.MaximumValue;
+            table.Disable("Foo");
+            Assert.IsTrue(entry.Disabled);
+            table.Enable("Foo");
+            Assert.IsFalse(entry.Disabled);
+            Assert.AreEqual(originalMax, entry.MaximumValue);
+        }
+
+        [Test]
         public void IfAllOptionsAreDisabledThanFlagAsEmpty()
         {
             var table = new WeightedOptionTable<int>();

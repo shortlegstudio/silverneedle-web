@@ -84,19 +84,21 @@ namespace SilverNeedle.Actions.CharacterGenerator
         {
             // Create Character
             var character = new CharacterSheet(this.gateways.Skills.All());
-
+            character.FeatTokens.Add(new FeatToken());
+            
             // Assign Basic Attributes
-            this.AssignAttributes(character);
+            this.AssignAttributes(character);            
             this.ChooseRace(character, strategy);
             this.CreateDescription(character);
             this.CreateName(character);
             this.ChooseLanguages(character);
             this.GenerateHistory(character);
+            
 
             // Choose the class
             this.SelectClass(character, strategy);
 
-            // Select level one feat
+            // Select feats
             this.ChooseFeats(character, strategy);
             this.AddHitPoints(character);
             this.CalculateAge(character);

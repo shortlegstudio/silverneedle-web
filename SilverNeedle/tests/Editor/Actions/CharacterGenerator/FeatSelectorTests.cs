@@ -24,9 +24,15 @@ namespace Actions
         public void SetUp()
         {
             powerattack = new Feat();
+            powerattack.Name = "Power Attack";
+
             cleave = new Feat();
+            cleave.Name = "Cleave";
             cleave.Prerequisites.Add(new Prerequisites.FeatPrerequisite("power attack"));
+
             empowerspell = new Feat();
+            empowerspell.Name = "Empower Spell";
+            empowerspell.Tags.Add("metamagic");
 
             var gateway = new Mock<IFeatGateway>();
             gateway.Setup(x => x.GetByName("power attack")).Returns(powerattack);
@@ -43,6 +49,8 @@ namespace Actions
             strategy.AddEntry("cleave", 1);
             
             var character = new CharacterSheet();
+            character.FeatTokens.Add(new FeatToken());
+            
             selector.SelectFeats(character, strategy);
             Assert.AreEqual(powerattack, character.Feats[0]); 
 
@@ -55,7 +63,8 @@ namespace Actions
             strategy.AddEntry("power attack", 1);
             strategy.AddEntry("cleave", 5000000);
             var character = new CharacterSheet();
-            
+            character.FeatTokens.Add(new FeatToken());
+
             for(int i = 0; i < 1000; i++)
             {
                 selector.SelectFeats(character, strategy);
@@ -63,5 +72,39 @@ namespace Actions
             }            
         } 
 
+        [Test]
+        public void SelectFeatsBasedOnTokensAvailable() 
+        {
+            var strategy = new WeightedOptionTable<string>();
+            strategy.AddEntry("power attack", 5000000);
+            strategy.AddEntry("empower spell", 1);
+
+            var character = new CharacterSheet();
+            character.FeatTokens.Add(new FeatToken("metamagic"));
+
+            for(int i = 0; i < 1000; i++)
+            {
+                selector.SelectFeats(character, strategy);
+                Assert.AreEqual(empowerspell, character.Feats[0]);
+            }            
+        }
+
+        [Test]
+        public void SelectsAFeatForEachOutstandingToken() {
+            var strategy = new WeightedOptionTable<string>();
+            strategy.AddEntry("power attack", 5000000);
+            strategy.AddEntry("empower spell", 1);
+
+            var character = new CharacterSheet();
+            character.FeatTokens.Add(new FeatToken("metamagic"));
+            character.FeatTokens.Add(new FeatToken());
+
+            for(int i = 0; i < 1000; i++)
+            {
+                selector.SelectFeats(character, strategy);
+                Assert.IsTrue(character.Feats.Contains(empowerspell));
+                Assert.IsTrue(character.Feats.Contains(powerattack));
+            }        
+        }
     }
 }
