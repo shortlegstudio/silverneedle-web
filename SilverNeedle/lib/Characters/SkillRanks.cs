@@ -20,6 +20,8 @@ namespace SilverNeedle.Characters
         /// </summary>
         private IDictionary<string, CharacterSkill> skills;
 
+        private BasicStat BonusSkillPoints = new BasicStat();
+
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Characters.SkillRanks"/> class.
         /// </summary>
@@ -28,8 +30,8 @@ namespace SilverNeedle.Characters
         public SkillRanks(IEnumerable<Skill> skillList, AbilityScores scores)
         {
             this.skills = new Dictionary<string, CharacterSkill>(StringComparer.OrdinalIgnoreCase);
-
             this.FillSkills(skillList, scores);
+            this.BonusSkillPoints.AddModifier(new AbilityStatModifier(scores.GetAbility(AbilityScoreTypes.Intelligence)));
         }
 
         /// <summary>
@@ -92,6 +94,9 @@ namespace SilverNeedle.Characters
                 {
                     sk.AddModifier(a);
                 }
+                else if(a.StatisticName == "Skill Points") {
+                    BonusSkillPoints.AddModifier(a);
+                }
             }
         }
 
@@ -117,6 +122,11 @@ namespace SilverNeedle.Characters
         public IEnumerable<CharacterSkill> GetClassSkills()
         {
             return this.skills.Values.Where(x => x.ClassSkill);
+        }
+
+        public int BonusSkillPointsPerLevel() 
+        {
+            return BonusSkillPoints.TotalValue;
         }
 
         /// <summary>

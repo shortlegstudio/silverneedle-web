@@ -110,6 +110,24 @@ namespace Characters
             Assert.AreEqual(1, classSkills.Count());
             Assert.AreEqual("Climb", classSkills.First().Name);
         }
+
+        [Test]
+        public void SkillPointsPerLevelCanHaveBonuses() 
+        {
+            _abilityScores.SetScore(AbilityScoreTypes.Intelligence, 10);
+            
+            var trait = new Trait();
+            trait.Modifiers.Add(new BasicStatModifier("Skill Points", 1, "bonus", "trait"));
+            Subject.ProcessModifier(trait);
+            Assert.AreEqual(1, Subject.BonusSkillPointsPerLevel());
+        }
+
+        [Test]
+        public void SkillPointsPerLevelIsBasedOnIntelligence() {
+            _abilityScores.SetScore(AbilityScoreTypes.Intelligence, 16);
+            Assert.AreEqual(3, Subject.BonusSkillPointsPerLevel());
+        
+        }
         class MockMod : IModifiesStats
         {
             public IList<BasicStatModifier> Modifiers { get; set; }

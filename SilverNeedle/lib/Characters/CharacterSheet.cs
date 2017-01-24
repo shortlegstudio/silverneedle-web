@@ -282,7 +282,7 @@ namespace SilverNeedle.Characters
         /// <returns>The skill points per level.</returns>
         public int GetSkillPointsPerLevel()
         {
-            return Class.SkillPoints + AbilityScores.GetModifier(AbilityScoreTypes.Intelligence);
+            return Class.SkillPoints + SkillRanks.BonusSkillPointsPerLevel();
         }
 
         /// <summary>

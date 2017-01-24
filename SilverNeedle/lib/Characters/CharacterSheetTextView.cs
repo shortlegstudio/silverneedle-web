@@ -8,6 +8,7 @@ namespace SilverNeedle.Characters
         public CharacterSheetTextView(CharacterSheet character)
         {
             Name = character.Name;
+            Gender = character.Gender.ToString();
             Race = character.Race.Name;
             Class = character.Class.Name;
             Alignment = character.Alignment.ShortString();
@@ -69,6 +70,7 @@ namespace SilverNeedle.Characters
         }
 
         public string Name { get; private set; }
+        public string Gender { get; private set; }
         public string Race { get; private set; }
         public string Class { get; private set; }
         public string Level { get; private set; }

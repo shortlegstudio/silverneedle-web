@@ -208,6 +208,10 @@
   description: >
     Humans gain an additional skill rank at 1st level and one additional
     rank whenever they gain a level.
+  modifiers:
+    - stat: Skill Points
+      modifier: 1
+      type: bonus
 - trait:
   name: Slow Speed
   description: Speed of only 20 feet instead of 30 feet.
