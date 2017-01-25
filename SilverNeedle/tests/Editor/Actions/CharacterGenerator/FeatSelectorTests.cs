@@ -62,11 +62,12 @@ namespace Actions
             var strategy = new WeightedOptionTable<string>();
             strategy.AddEntry("power attack", 1);
             strategy.AddEntry("cleave", 5000000);
-            var character = new CharacterSheet();
-            character.FeatTokens.Add(new FeatToken());
-
+            
             for(int i = 0; i < 1000; i++)
             {
+                var character = new CharacterSheet();
+                character.FeatTokens.Add(new FeatToken());
+
                 selector.SelectFeats(character, strategy);
                 Assert.AreEqual(powerattack, character.Feats[0]);
             }            
@@ -79,11 +80,12 @@ namespace Actions
             strategy.AddEntry("power attack", 5000000);
             strategy.AddEntry("empower spell", 1);
 
-            var character = new CharacterSheet();
-            character.FeatTokens.Add(new FeatToken("metamagic"));
 
             for(int i = 0; i < 1000; i++)
             {
+                var character = new CharacterSheet();
+                character.FeatTokens.Add(new FeatToken("metamagic"));
+
                 selector.SelectFeats(character, strategy);
                 Assert.AreEqual(empowerspell, character.Feats[0]);
             }            
@@ -94,17 +96,27 @@ namespace Actions
             var strategy = new WeightedOptionTable<string>();
             strategy.AddEntry("power attack", 5000000);
             strategy.AddEntry("empower spell", 1);
-
-            var character = new CharacterSheet();
-            character.FeatTokens.Add(new FeatToken("metamagic"));
-            character.FeatTokens.Add(new FeatToken());
-
+        
             for(int i = 0; i < 1000; i++)
             {
+                var character = new CharacterSheet();
+                character.FeatTokens.Add(new FeatToken("metamagic"));
+                character.FeatTokens.Add(new FeatToken());
+
                 selector.SelectFeats(character, strategy);
                 Assert.IsTrue(character.Feats.Contains(empowerspell));
                 Assert.IsTrue(character.Feats.Contains(powerattack));
             }        
+        }
+
+        [Test]
+        public void FeatTokensAreUsedUpAfterSelection() {
+            var strategy = new WeightedOptionTable<string>();
+            strategy.AddEntry("power attack", 5000000);
+            var character = new CharacterSheet();
+            character.FeatTokens.Add(new FeatToken());
+            selector.SelectFeats(character, strategy);
+            Assert.AreEqual(0, character.FeatTokens.Count);
         }
     }
 }

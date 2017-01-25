@@ -343,6 +343,17 @@ namespace SilverNeedle.Characters
             this.Defense.ProcessSpecialAbilities(abilities);
             this.Offense.ProcessSpecialAbilities(abilities);
             this.SpecialQualities.ProcessSpecialAbilities(abilities);
+
+
+            foreach(var mod in abilities.SpecialAbilities) {
+                if(mod.Type == "Feat Token")
+                {
+                    var token = new FeatToken(mod.Condition);
+                    FeatTokens.Add(token);
+                }
+
+            }
+
         }
 
         /// <summary>

@@ -12,7 +12,9 @@ namespace SilverNeedle.Characters
         private IList<string> tags = new List<string>();
         public FeatToken(string tag)
         {
-            tags.Add(tag);
+            if(!string.IsNullOrEmpty(tag)) {
+                tags.Add(tag);
+            }
         }
 
         public FeatToken() { }
@@ -24,6 +26,11 @@ namespace SilverNeedle.Characters
                 return true;
                 
             return feat.Tags.Any(x => tags.Contains(x));
+        }
+
+        public override string ToString()
+        {
+            return string.Format("FeatToken({0})", string.Join(",", tags));
         }
     }
 }

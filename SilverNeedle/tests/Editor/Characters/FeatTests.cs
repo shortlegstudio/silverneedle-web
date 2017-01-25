@@ -28,5 +28,14 @@ namespace Characters {
 			Assert.IsTrue (CombatExpertise.IsQualified (smartCharacter));
 			Assert.IsFalse (CombatExpertise.IsQualified (dumbCharacter));
 		}		
+
+		[Test]
+        public void IfFeatIsAlreadySelectedItCannotBeSelectedAgain()
+        {
+            var character = new CharacterSheet (new List<Skill>());
+            var basicFeat = new Feat();
+            character.AddFeat(basicFeat);
+            Assert.IsFalse(basicFeat.IsQualified(character));
+        }
 	}
 }

@@ -79,6 +79,12 @@ namespace SilverNeedle
             return GetOption(value);
         }
 
+        public override string ToString() 
+        {
+            var entries = string.Join("\n", table.Select(x => x.ToString()));
+            return string.Format("-- Weighted Table --\n{0}", entries);
+        }
+
         private TableEntry FindEntry(T option) 
         {
             return table.First(x => option.Equals(x.Option));
@@ -90,7 +96,7 @@ namespace SilverNeedle
             foreach(var entry in All())
             {
                 if (!entry.Disabled)
-                {                    ;
+                {                    
                     entry.MinimumValue = maxValue;
                     entry.MaximumValue = entry.MinimumValue + entry.Weight - 1;
                     maxValue = entry.MaximumValue + 1;
@@ -107,6 +113,10 @@ namespace SilverNeedle
             public T Option { get; set; }
 
             public bool Disabled { get; set; }
+
+            public override string ToString() {
+                return string.Format("Entry: {0} ({1}-{2})[{3}]", Option, MinimumValue, MaximumValue, Weight);
+            }
         }
     }
 }

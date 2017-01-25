@@ -17,25 +17,31 @@ namespace SilverNeedle.Actions.CharacterGenerator
         }
 
         public void SelectFeats(CharacterSheet character, WeightedOptionTable<string> preferredFeats)
-        {
-            
+        {            
             foreach(var token in character.FeatTokens) 
             {
                 //Enable/Disable options based on whether qualified for feat
                 foreach(var entry in preferredFeats.All())
                 {
                     var f = feats.GetByName(entry.Option);
-                    if(!f.IsQualified(character) || !token.Qualifies(f) ) {
+                    if(!f.IsQualified(character)) {
+                        ShortLog.DebugFormat("Feat {0} Disabled - Unqualified", f.Name); 
+                        preferredFeats.Disable(entry.Option);
+                    }
+                    else if(!token.Qualifies(f)) {
+                        ShortLog.DebugFormat("Feat {0} Disabled - Token Unable {1}", f.Name, token.ToString()); 
                         preferredFeats.Disable(entry.Option);
                     } else {
                         preferredFeats.Enable(entry.Option);
                     }
                 }
-                
+                ShortLog.Debug(preferredFeats.ToString());
                 var selection = preferredFeats.ChooseRandomly();
                 var feat = feats.GetByName(selection);
                 character.AddFeat(feat);
             }
+
+            character.FeatTokens.Clear();
         }
 
     }

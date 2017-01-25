@@ -95,7 +95,8 @@ namespace SilverNeedle.Characters
         /// <returns>true if the character is qualified</returns>
         public bool IsQualified(CharacterSheet character)
         {
-            return Prerequisites.IsQualified(character);
+            return Prerequisites.IsQualified(character) 
+                && !character.Feats.Contains(this);
         }
 
         public override string ToString()
