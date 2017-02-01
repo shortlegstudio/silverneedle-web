@@ -3,7 +3,7 @@
   name: Adaptability
   description: Half-Elves receive Skill Focus as a bonus feat at 1st Level.
   special:
-    - type: Feat Token (todo)
+    - type: Feat Token
       condition: Skill Focus
 - trait:
   name: Bonus Feat

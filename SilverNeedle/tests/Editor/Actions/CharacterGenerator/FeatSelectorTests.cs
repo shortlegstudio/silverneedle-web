@@ -19,6 +19,7 @@ namespace Actions
         Feat empowerspell;
 
         FeatSelector selector;
+        Mock<IFeatGateway> gateway;
 
         [SetUp]
         public void SetUp()
@@ -34,10 +35,10 @@ namespace Actions
             empowerspell.Name = "Empower Spell";
             empowerspell.Tags.Add("metamagic");
 
-            var gateway = new Mock<IFeatGateway>();
+            gateway = new Mock<IFeatGateway>();
             gateway.Setup(x => x.GetByName("power attack")).Returns(powerattack);
             gateway.Setup(x => x.GetByName("cleave")).Returns(cleave);
-            gateway.Setup(x => x.GetByName("empower spell")).Returns(empowerspell);
+            gateway.Setup(x => x.GetByName("empower spell")).Returns(empowerspell);            
 
             selector = new FeatSelector(gateway.Object);
         }
@@ -117,6 +118,17 @@ namespace Actions
             character.FeatTokens.Add(new FeatToken());
             selector.SelectFeats(character, strategy);
             Assert.AreEqual(0, character.FeatTokens.Count);
+        }
+
+        [Test]
+        public void IfNoPreferredFeatsArePossibleJustSelectRandomlyFromAnyPossible()
+        {
+            var strategy = new WeightedOptionTable<string>();
+            var character = new CharacterSheet();
+            gateway.Setup(x => x.GetQualifyingFeats(character)).Returns(new Feat[] {powerattack, empowerspell});
+            character.FeatTokens.Add(new FeatToken());
+            selector.SelectFeats(character, strategy);
+            Assert.IsTrue(character.Feats[0] == powerattack || character.Feats[0] == empowerspell);
         }
     }
 }

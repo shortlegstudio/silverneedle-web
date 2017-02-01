@@ -6,7 +6,9 @@
 namespace SilverNeedle.Actions.CharacterGenerator
 {
     using SilverNeedle.Characters;
-
+    using System.Linq;
+    
+    //TODO: Instead of passing in the gateway and the character sheet just use the token, strategy, and qualifying feats
     public class FeatSelector
     {
         IFeatGateway feats;
@@ -20,6 +22,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
         {            
             foreach(var token in character.FeatTokens) 
             {
+                
                 //Enable/Disable options based on whether qualified for feat
                 foreach(var entry in preferredFeats.All())
                 {
@@ -35,12 +38,16 @@ namespace SilverNeedle.Actions.CharacterGenerator
                         preferredFeats.Enable(entry.Option);
                     }
                 }
-                ShortLog.Debug(preferredFeats.ToString());
-                var selection = preferredFeats.ChooseRandomly();
-                var feat = feats.GetByName(selection);
-                character.AddFeat(feat);
-            }
 
+                if(preferredFeats.IsEmpty) {
+                    var feats = this.feats.GetQualifyingFeats(character).ToList();
+                    character.AddFeat(feats.ChooseOne());
+                } else {
+                    var selection = preferredFeats.ChooseRandomly();
+                    var feat = feats.GetByName(selection);
+                    character.AddFeat(feat);
+                }               
+            }
             character.FeatTokens.Clear();
         }
 

@@ -26,5 +26,14 @@ namespace Characters {
             Assert.IsTrue(featToken.Qualifies(f));
             
         }
+
+        [Test]
+        public void FeatTokensCanMatchByNameAsWell()
+        {
+            var feat = new Feat();
+            feat.Name = "Turtle Snapper";
+            var featToken = new FeatToken("Turtle Snapper");
+            Assert.IsTrue(featToken.Qualifies(feat));
+        }
 	}
 }

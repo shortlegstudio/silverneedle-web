@@ -24,8 +24,9 @@ namespace SilverNeedle.Characters
             //Empty list always is true
             if (tags.Count == 0)
                 return true;
-                
-            return feat.Tags.Any(x => tags.Contains(x));
+
+                            
+            return tags.Any(x => feat.Tags.Contains(x) || feat.Name.EqualsIgnoreCase(x));
         }
 
         public override string ToString()
