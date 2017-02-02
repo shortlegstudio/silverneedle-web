@@ -36,6 +36,7 @@ namespace SilverNeedle.Characters
             this.ClassSkills = new List<string>();
             this.ArmorProficiencies = new List<string>();
             this.WeaponProficiencies = new List<string>();
+            this.Levels = new List<Level>();
         }
 
         /// <summary>
@@ -100,6 +101,8 @@ namespace SilverNeedle.Characters
         public IList<string> WeaponProficiencies { get; set; }
 
         public ClassDevelopmentAge ClassDevelopmentAge { get; set; }
+
+        public IList<Level> Levels { get; set; }
 
         /// <summary>
         /// Gets a value indicating whether this class has a good fortitude save.

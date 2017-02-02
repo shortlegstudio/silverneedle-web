@@ -21,3 +21,12 @@
   armorproficiencies: light, medium, heavy
   weaponproficiencies: simple, martial
   developedage: trained
+  levels:
+    - level: 1
+      special:
+        - name: Bonus Feat
+          type: Feat Token
+          condition: combat
+
+    
+

@@ -148,6 +148,14 @@ namespace Characters
             Assert.AreEqual(ClassDevelopmentAge.Trained, Fighter.ClassDevelopmentAge);
             Assert.AreEqual(ClassDevelopmentAge.Studied, Wizard.ClassDevelopmentAge);
         }
+
+        [Test]
+        public void LoadsAbilitiesForLevel() 
+        {
+            Assert.AreEqual(3, Fighter.Levels.Count);
+            Assert.AreEqual(5, Monk.Levels.Count);
+            Assert.AreEqual(4, Wizard.Levels.Count);
+        }
         private const string ClassYamlFile = @"--- 
 - class: 
   name: Fighter
@@ -165,6 +173,10 @@ namespace Characters
   armorproficiencies: light, medium, heavy
   weaponproficiencies: simple, martial
   developedage: Trained
+  levels:
+    - level: 1      
+    - level: 2
+    - level: 3
 - class: 
   name: Monk
   skillpoints: 4
@@ -181,6 +193,12 @@ namespace Characters
   will: 0.334
   weaponproficiencies: simple, monk
   developedage: Studied
+  levels:
+    - level: 1      
+    - level: 2
+    - level: 3
+    - level: 4
+    - level: 5
 - class: 
   name: Wizard
   skillpoints: 4
@@ -196,6 +214,11 @@ namespace Characters
   will: 0.667
   weaponproficiencies: club, dagger, crossbow
   developedage: Studied
+  levels:
+    - level: 1      
+    - level: 2
+    - level: 3
+    - level: 4
 ...";
     }
 }

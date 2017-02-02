@@ -99,6 +99,16 @@ namespace SilverNeedle.Characters
                     cls.AddClassSkill(s.Value);
                 }
 
+                //Load Levels
+                var levels = node.GetNodeOptional("levels");
+                if (levels != null)
+                {
+                    foreach(var l in levels.Children()) 
+                    {
+                        var level = new Level(l);
+                        cls.Levels.Add(level);
+                    }
+                }
                 classes.Add(cls);
             }
 
