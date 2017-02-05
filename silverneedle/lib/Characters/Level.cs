@@ -3,14 +3,28 @@ namespace SilverNeedle.Characters
     using System.Collections.Generic;
     using SilverNeedle.Yaml;
 
-    public class Level
+    public class Level : IProvidesSpecialAbilities
     {
-        public IList<LevelAbility> Special { get; set; }
+        public IList<SpecialAbility> SpecialAbilities { get; private set; }
+        
         public int Number { get; private set; }
         public Level(YamlNodeWrapper yaml)
         {
-            Special = new List<LevelAbility>();
+            SpecialAbilities = new List<SpecialAbility>();
             Load(yaml);
+        }
+
+        public Level(int number, IEnumerable<LevelAbility> abilities) : this(number)
+        {
+            foreach(var a in abilities) {
+                SpecialAbilities.Add(a);
+            }
+        }
+
+        public Level(int number)
+        {
+            SpecialAbilities = new List<SpecialAbility>();
+            Number = number;
         }
 
         private void Load(YamlNodeWrapper yaml)
@@ -21,7 +35,7 @@ namespace SilverNeedle.Characters
             {
                 foreach(var s in specials.Children())
                 {
-                    Special.Add(new LevelAbility(
+                    SpecialAbilities.Add(new LevelAbility(
                         s.GetString("name"),
                         s.GetString("condition"),
                         s.GetString("type")

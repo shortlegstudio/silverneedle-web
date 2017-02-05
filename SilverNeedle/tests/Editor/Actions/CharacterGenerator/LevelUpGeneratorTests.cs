@@ -48,5 +48,19 @@ namespace Actions {
 				character.AbilityScores.Abilities.Any (x => x.TotalValue > 10)
 			);
 		}
+
+		[Test]
+		public void AssignsFeatTokensToCharacters() {
+            var levelUp = new LevelUpGenerator(new HitPointRoller());
+            var abilities = new LevelAbility[] {
+                new LevelAbility("Bonus Feat", "combat", "Feat Token")
+            };
+
+            var levelOne = new Level(2, abilities);
+            character.Class.Levels.Add(levelOne);
+
+            levelUp.LevelUp(character);
+            Assert.AreEqual(1, character.FeatTokens.Count);
+		}
 	}
 }

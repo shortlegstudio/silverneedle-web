@@ -30,8 +30,8 @@ namespace Characters
         public void LevelsCanHaveSpecialAbilities()
         {
             var level = new Level(fighter);
-            Assert.AreEqual(1, level.Special.Count);
-            var special = level.Special.First();
+            Assert.AreEqual(1, level.SpecialAbilities.Count);
+            var special = level.SpecialAbilities.First();
             Assert.AreEqual("Feat Token", special.Type);
             Assert.AreEqual("combat", special.Condition);
         }

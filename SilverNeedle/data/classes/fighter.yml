@@ -27,6 +27,12 @@
         - name: Bonus Feat
           type: Feat Token
           condition: combat
+    - level: 2
+      special:
+        - name: Bonus Feat
+          type: Feat Token
+          condition: combat
+        
 
     
 

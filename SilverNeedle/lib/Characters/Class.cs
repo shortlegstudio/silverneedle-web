@@ -165,5 +165,14 @@ namespace SilverNeedle.Characters
                 ShortLog.Debug("Not adding class skill as it already is there: " + name);
             }
         }
+
+        public Level GetLevel(int levelNumber)
+        {
+            var l = Levels.FirstOrDefault(x => x.Number == levelNumber);
+            if (l == null) {
+                l = new Level(levelNumber);
+            }
+            return l;
+        }
     }
 }

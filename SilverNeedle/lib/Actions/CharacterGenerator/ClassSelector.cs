@@ -46,6 +46,8 @@ namespace SilverNeedle.Actions.CharacterGenerator
             {
                 character.SkillRanks.SetClassSkill(skill);
             }
+            var firstClassLevel = cls.GetLevel(1);
+            character.ProcessSpecialAbilities(firstClassLevel);            
         }
     }
 }

@@ -102,6 +102,17 @@ namespace Actions
 
         }
 
+        [Test]
+        public void AddSpecialAbilitiesFromFirstLevelForClass()
+        {
+            var cls = new Class();
+            cls.Levels.Add(new Level(1, new LevelAbility[] {new LevelAbility("Foo", "vs. Fear", "Feat Token")}));
+            var selector = new ClassSelector(classGateway);
+            var character = new CharacterSheet();
+            selector.AssignClass(character, cls);
+            Assert.AreEqual(1, character.FeatTokens.Count);
+        }
+
         
     }
 }

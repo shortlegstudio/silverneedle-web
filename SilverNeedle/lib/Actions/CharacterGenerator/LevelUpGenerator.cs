@@ -51,6 +51,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
             character.SetLevel(character.Level + 1);
             this.hitPointGenerator.AddLevelUpHitPoints(character);            
             character.Defense.LevelUpDefenseStats(character.Class);
+            AddSpecialAbilities(character, character.Class.GetLevel(character.Level));
 
             // Special Level ups
             if (character.Level % 4 == 0)
@@ -73,6 +74,11 @@ namespace SilverNeedle.Actions.CharacterGenerator
             adjust.AbilityName = ability;
 
             character.AbilityScores.GetAbility(ability).AddModifier(adjust);
+        }
+
+        private void AddSpecialAbilities(CharacterSheet character, Level level)
+        {
+            character.ProcessSpecialAbilities(level);
         }
     }
 }
