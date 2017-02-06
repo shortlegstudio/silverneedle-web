@@ -32,7 +32,130 @@
         - name: Bonus Feat
           type: Feat Token
           condition: combat
-        
+      modifiers:      
+        - name: Bravery +1
+          stat: Will
+          modifier: 1
+          type: bonus
+          condition: fear
+    - level: 3
+      special:
+        - name: Armor Training 1
+          type: Armor Training 1
+          condition:
+    - level: 4
+      special:
+        - name: Bonus Feat
+          type: Feat Token
+          condition: combat
+    - level: 5
+      special:
+        - name: Weapon Training 1
+          type: Weapon Training
+          condition:
+    - level: 6
+      special:
+        - name: Bonus Feat
+          type: Feat Token
+          condition: combat
+      modifiers:
+        - name: Bravery +2
+          stat: Will
+          modifier: 1
+          type: bonus
+          condition: fear
+    - level: 7
+      special:
+        - name: Armor Training 2
+          type: Armor Training 2
+          condition:
+    - level: 8
+      special:
+        - name: Bonus Feat
+          type: Feat Token
+          condition: combat
+    - level: 9
+      special:
+        - name: Weapon Training 2
+          type: Weapon Training 2
+          condition:
+    - level: 10
+      special:
+        - name: Bonus Feat
+          type: Feat Token
+          condition: combat
+      modifiers:
+        - name: Bravery +3
+          stat: Will
+          modifier: 1
+          type: bonus
+          condition: fear
+    - level: 11
+      special:
+        - name: Armor Training 3
+          type: Armor Training 3
+          condition:
+    - level: 12
+      special:
+        - name: Bonus Feat
+          type: Feat Token
+          condition: combat
+    - level: 13
+      special:
+        - name: Weapon Training 3
+          type: Weapon Training 3
+          condition:
+    - level: 14
+      special:
+        - name: Bonus Feat
+          type: Feat Token
+          condition: combat
+      modifiers:
+        - name: Bravery +4
+          stat: Will
+          modifier: 1
+          type: bonus
+          condition: fear
+    - level: 15
+      special:
+        - name: Armor Training 4
+          type: Armor Training 4
+          condition:
+    - level: 16
+      special:
+        - name: Bonus Feat
+          type: Feat Token
+          condition: combat
+    - level: 17
+      special:
+        - name: Weapon Training 4
+          type: Weapon Training 4
+          condition:
+    - level: 18
+      special:
+        - name: Bonus Feat
+          type: Feat Token
+          condition: combat
+      modifiers:
+        - name: Bravery +5
+          stat: Will
+          modifier: 1
+          type: bonus
+          condition: fear
+    - level: 19
+      special:
+        - name: Armor Mastery
+          type: Armor Mastery
+          condition:
+    - level: 20
+      special:
+        - name: Bonus Feat
+          type: Feat Token
+          condition: combat
+        - name: Weapon Mastery
+          type: Weapon Mastery
+          condition:
+    
 
     
 

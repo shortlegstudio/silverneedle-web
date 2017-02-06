@@ -26,7 +26,7 @@ namespace silverneedleweb.Controllers
             return View();
         }
 
-        public IActionResult Character(string strategy)
+        public IActionResult Character(string strategy, int level)
         {
             var gateways = new GatewayProvider();
             
@@ -41,7 +41,7 @@ namespace silverneedleweb.Controllers
 
             var build = strategyGateway.GetBuild(strategy);
 
-            var character = gen.GenerateCharacter(build);
+            var character = gen.GenerateCharacter(build, level);
             ViewData["character"] = new CharacterSheetTextView(character);
             
             return View();

@@ -77,10 +77,10 @@ namespace SilverNeedle.Actions.CharacterGenerator
         /// <returns>The random character.</returns>
         public CharacterSheet GenerateRandomCharacter()
         {
-            return GenerateCharacter(new CharacterBuildStrategy());
+            return GenerateCharacter(new CharacterBuildStrategy(), 1);
         }
 
-        public CharacterSheet GenerateCharacter(CharacterBuildStrategy strategy)
+        public CharacterSheet GenerateCharacter(CharacterBuildStrategy strategy, int level)
         {
             // Create Character
             var character = new CharacterSheet(this.gateways.Skills.All());
@@ -107,6 +107,12 @@ namespace SilverNeedle.Actions.CharacterGenerator
             this.EquipWeapons(character);
             this.EquipArmor(character);
 
+            for(int i = 1; i < level; i++)
+            {
+                this.LevelUp(character, strategy);
+                this.AssignSkillPoints(character, strategy);
+                this.ChooseFeats(character, strategy);
+            }
             return character;
         }
 
@@ -225,6 +231,12 @@ namespace SilverNeedle.Actions.CharacterGenerator
         {
             // Names come last
             character.Name = this.nameGenerator.CreateFullName(character.Gender, character.Race.Name);
+        }
+
+        private void LevelUp(CharacterSheet character, CharacterBuildStrategy strategy)
+        {
+            var levelUp = new LevelUpCharacter(new HitPointRoller());
+            levelUp.LevelUp(character);
         }
     }
 }
