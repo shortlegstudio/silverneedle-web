@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace Actions {
 	[TestFixture]
-	public class LevelUpGeneratorTests {
+	public class LevelUpCharacterTests {
 		CharacterSheet character;
 
 		[SetUp]
@@ -23,7 +23,7 @@ namespace Actions {
 
 	    [Test]
 	    public void LevelingUpIncrementsTheLevelNumber() {
-			var levelUp = new LevelUpGenerator (new HitPointRoller());
+			var levelUp = new LevelUpCharacter (new HitPointRoller());
 			levelUp.LevelUp (character);
 			Assert.AreEqual (2, character.Level);
 	    }
@@ -31,7 +31,7 @@ namespace Actions {
 		[Test]
 		public void HitpointsIncreaseWhenYouLevelUp() {
 			var hp = character.MaxHitPoints;
-			var levelUp = new LevelUpGenerator (new HitPointRoller());
+			var levelUp = new LevelUpCharacter (new HitPointRoller());
 
 			levelUp.LevelUp (character);
 			Assert.Greater (character.MaxHitPoints, hp);
@@ -39,7 +39,7 @@ namespace Actions {
 
 		[Test]
 		public void EveryFourLevelsYouGetAnExtraAbilityScore() {
-			var levelUp = new LevelUpGenerator (new HitPointRoller());
+			var levelUp = new LevelUpCharacter (new HitPointRoller());
 
 			levelUp.BringCharacterToLevel (character, 4);
 
@@ -51,7 +51,7 @@ namespace Actions {
 
 		[Test]
 		public void AssignsFeatTokensToCharacters() {
-            var levelUp = new LevelUpGenerator(new HitPointRoller());
+            var levelUp = new LevelUpCharacter(new HitPointRoller());
             var abilities = new LevelAbility[] {
                 new LevelAbility("Bonus Feat", "combat", "Feat Token")
             };

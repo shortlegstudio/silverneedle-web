@@ -12,7 +12,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
     /// <summary>
     /// Level up generator handles adding more levels to a character in a specific class
     /// </summary>
-    public class LevelUpGenerator
+    public class LevelUpCharacter
     {
         /// <summary>
         /// The HP generator rolls the hit points
@@ -21,10 +21,10 @@ namespace SilverNeedle.Actions.CharacterGenerator
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SilverNeedle.Actions.CharacterGenerator.LevelUpGenerator"/> class.
+        /// <see cref="SilverNeedle.Actions.CharacterGenerator.LevelUpCharacter"/> class.
         /// </summary>
         /// <param name="hitPointGen">Generator for hit points.</param>
-        public LevelUpGenerator(HitPointRoller hitPointGen)
+        public LevelUpCharacter(HitPointRoller hitPointGen)
         {
             this.hitPointGenerator = hitPointGen;
         }
