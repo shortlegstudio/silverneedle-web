@@ -71,7 +71,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
 
         private void AddSpecialAbilities(CharacterSheet character, Level level)
         {
-            character.ProcessSpecialAbilities(level);
+            character.AddLevelAbilities(level);
         }
     }
 }

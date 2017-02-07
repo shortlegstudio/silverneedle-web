@@ -29,6 +29,15 @@ namespace SilverNeedle.Characters
                 var amount = mod.GetInteger("modifier");
                 var type = mod.GetString("type");
                 var condition = mod.GetStringOptional("condition");
+                var name = mod.GetStringOptional("name");
+                if(!string.IsNullOrEmpty(name)) 
+                {
+                    name = source + " " + name;
+                }
+                else
+                {
+                    name = source;
+                }
                 BasicStatModifier modifier;
 
                 if (!string.IsNullOrEmpty(condition))
@@ -38,7 +47,7 @@ namespace SilverNeedle.Characters
                         statName,
                         amount,
                         type,
-                        source);
+                        name);
                 }
                 else
                 {
@@ -46,7 +55,7 @@ namespace SilverNeedle.Characters
                         statName,
                         amount,
                         type,
-                        source);
+                        name);
                 }
 
                 modifiers.Add(modifier);

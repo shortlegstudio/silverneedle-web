@@ -33,7 +33,20 @@ namespace Characters
             Assert.AreEqual(1, level.SpecialAbilities.Count);
             var special = level.SpecialAbilities.First();
             Assert.AreEqual("Feat Token", special.Type);
-            Assert.AreEqual("combat", special.Condition);
+            Assert.AreEqual("combat", special.Condition); 
+        }
+
+        [Test]
+        public void LevelsCanModifyStats()
+        {
+            var level = new Level(fighter);
+            Assert.AreEqual(1, level.Modifiers.Count);
+            var mod = level.Modifiers.First() as ConditionalStatModifier;
+            Assert.AreEqual("Will", mod.StatisticName);
+            Assert.AreEqual(1, mod.Modifier);
+            Assert.AreEqual("Level (2) Bravery +2", mod.Reason);
+            Assert.AreEqual("bonus", mod.Type);
+            Assert.AreEqual("fear", mod.Condition);
         }
 
         const string fighterLevel = @"---
@@ -42,6 +55,12 @@ namespace Characters
     - name: Bonus Feat
       type: Feat Token
       condition: combat
+  modifiers:
+    - name: Bravery +2
+      stat: Will
+      modifier: 1
+      type: bonus
+      condition: fear
 ...";
     }
 }

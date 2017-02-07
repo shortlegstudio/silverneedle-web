@@ -50,6 +50,8 @@ namespace SilverNeedle.Characters
             this.FeatTokens = new List<FeatToken>();            
             this.SpecialQualities = new SpecialQualities();
 
+            this.LevelAbilities = new List<LevelAbility>();
+
             this.Level = 1;
         }
 
@@ -101,6 +103,8 @@ namespace SilverNeedle.Characters
         /// </summary>
         /// <value>The character's level.</value>
         public int Level { get; private set; }
+
+        public IList<LevelAbility> LevelAbilities { get; private set; }
 
         /// <summary>
         /// Gets the ability scores
@@ -328,20 +332,26 @@ namespace SilverNeedle.Characters
                 this.Modified(this, args);
             }
         }
+
+        public void AddLevelAbilities(Level level)
+        {
+            ProcessStatModifier(level);
+            ProcessSpecialAbilities(level);
+        }
             
         /// <summary>
         /// Processes the stat modifier. This takes anything that modifies stats and relays it to interested classes that might want to monitor for it
         /// TODO: Better mechanism would be a call back whenever a stat modifier is sent to the character sheet
         /// </summary>
         /// <param name="modifier">Modifier that can change stats.</param>
-        public void ProcessStatModifier(IModifiesStats modifier)
+        private void ProcessStatModifier(IModifiesStats modifier)
         {
             SkillRanks.ProcessModifier(modifier);
             this.Defense.ProcessModifier(modifier);
             this.Offense.ProcessModifier(modifier);
         }
 
-        public void ProcessSpecialAbilities(IProvidesSpecialAbilities abilities)
+        private void ProcessSpecialAbilities(IProvidesSpecialAbilities abilities)
         {
             this.Defense.ProcessSpecialAbilities(abilities);
             this.Offense.ProcessSpecialAbilities(abilities);

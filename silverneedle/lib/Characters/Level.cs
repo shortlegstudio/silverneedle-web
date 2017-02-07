@@ -1,16 +1,19 @@
 namespace SilverNeedle.Characters
 {
+    using System;
     using System.Collections.Generic;
     using SilverNeedle.Yaml;
 
-    public class Level : IProvidesSpecialAbilities
+    public class Level : IProvidesSpecialAbilities, IModifiesStats
     {
         public IList<SpecialAbility> SpecialAbilities { get; private set; }
-        
+        public IList<BasicStatModifier> Modifiers { get; private set; }
         public int Number { get; private set; }
+
         public Level(YamlNodeWrapper yaml)
         {
             SpecialAbilities = new List<SpecialAbility>();
+            Modifiers = new List<BasicStatModifier>();
             Load(yaml);
         }
 
@@ -24,6 +27,7 @@ namespace SilverNeedle.Characters
         public Level(int number)
         {
             SpecialAbilities = new List<SpecialAbility>();
+            Modifiers = new List<BasicStatModifier>();
             Number = number;
         }
 
@@ -40,6 +44,17 @@ namespace SilverNeedle.Characters
                         s.GetString("condition"),
                         s.GetString("type")
                     ));
+                }
+            }
+
+            //Verbose and probably could be simplified
+            var modifiers = yaml.GetNodeOptional("modifiers");
+            if (modifiers != null)
+            {
+                var mods = ParseStatModifiersYaml.ParseYaml(modifiers, string.Format("Level ({0})", Number));
+                foreach(var m in mods) 
+                {
+                    Modifiers.Add(m);
                 }
             }
         }
