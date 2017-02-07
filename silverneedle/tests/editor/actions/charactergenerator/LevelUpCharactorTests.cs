@@ -15,7 +15,7 @@ namespace Actions {
 		public void SetUp() {
 			character = new CharacterSheet (new List<Skill>());
 			var abGen = new AverageAbilityScoreGenerator ();
-			abGen.AssignAbilities (character.AbilityScores);
+			abGen.RandomScores (character.AbilityScores);
 			var cls = new Class ();
 			character.SetClass (cls);
 		}

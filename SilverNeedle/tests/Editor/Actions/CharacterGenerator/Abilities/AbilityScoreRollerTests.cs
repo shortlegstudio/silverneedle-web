@@ -10,7 +10,7 @@ namespace Actions {
 		public void CharactersCanRollSomeStats() {
 			var roller = new StandardAbilityScoreGenerator ();
 			var abilities = new AbilityScores ();
-			roller.AssignAbilities (abilities);
+			roller.RandomScores (abilities);
 
 			//Values should be between 3 and 18 for all abilities
 			foreach (var a in abilities.Abilities) {
@@ -23,7 +23,7 @@ namespace Actions {
 		public void CreateAverageScores() {
 			var roller = new AverageAbilityScoreGenerator ();
 			var abilities = new AbilityScores ();
-			roller.AssignAbilities (abilities);
+			roller.RandomScores (abilities);
 			Assert.AreEqual (10, abilities.GetScore (AbilityScoreTypes.Strength));
 			Assert.AreEqual (10, abilities.GetScore (AbilityScoreTypes.Dexterity));
 			Assert.AreEqual (10, abilities.GetScore (AbilityScoreTypes.Constitution));

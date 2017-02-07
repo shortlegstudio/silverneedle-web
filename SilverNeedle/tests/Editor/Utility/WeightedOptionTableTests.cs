@@ -128,6 +128,17 @@ namespace Utility
             Assert.IsTrue(table.HasOption("Foo"));
             Assert.IsFalse(table.HasOption("Bar"));
         }
+
+        [Test]
+        public void ReturnsARandomListBasedOnPreferredOptions() 
+        {
+            var table = new WeightedOptionTable<string>();
+            table.AddEntry("Foo", 1);
+            table.AddEntry("Bar", 1000000);
+            var list = table.UniqueList();
+            Assert.AreEqual("Bar", list.First());
+            Assert.AreEqual("Foo", list.Last());
+        }
     }
 }
 

@@ -45,9 +45,9 @@
       weight: 5
   abilities:
     - name: strength
-      weight: 10
+      weight: 100
     - name: constitution
-      weight: 8
+      weight: 80
     - name: dexterity
-      weight: 6
+      weight: 60
     

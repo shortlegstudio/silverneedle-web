@@ -18,6 +18,7 @@ namespace SilverNeedle.Actions.CharacterGenerator.Abilities
         /// Assigns the abilities.
         /// </summary>
         /// <param name="scores">Scores to assign</param>
-        void AssignAbilities(AbilityScores scores);
+        void RandomScores(AbilityScores scores);
+        void StrategyScores(AbilityScores abilities, WeightedOptionTable<AbilityScoreTypes> preferred);
     }
 }

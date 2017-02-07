@@ -31,12 +31,18 @@ namespace SilverNeedle.Actions.CharacterGenerator.Abilities
         /// Assigns the ability scores to the character
         /// </summary>
         /// <param name="abilities">Abilities to assign score to.</param>
-        public void AssignAbilities(AbilityScores abilities)
+        public void RandomScores(AbilityScores abilities)
         {
             foreach (var e in EnumHelpers.GetValues<AbilityScoreTypes>())
             {
                 abilities.SetScore(e, AverageScore);
             }
+        }
+
+        public void StrategyScores(AbilityScores abilities, WeightedOptionTable<AbilityScoreTypes> preferred)
+        {
+            //Just makes them average anyway
+            RandomScores(abilities);
         }
     }
 }

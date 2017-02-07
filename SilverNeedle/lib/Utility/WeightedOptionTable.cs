@@ -84,10 +84,35 @@ namespace SilverNeedle
             return All().Any(x => x.Option.Equals(option));
         }
 
+        public IEnumerable<T> UniqueList()
+        {
+            var tempTable = CopyEnabledOptions();
+            List<T> list = new List<T>();
+            while(!tempTable.IsEmpty) {
+                var opt = tempTable.ChooseRandomly();
+                tempTable.Disable(opt);
+                list.Add(opt);
+            }
+            return list;
+        }
+
         public override string ToString() 
         {
             var entries = string.Join("\n", table.Select(x => x.ToString()));
             return string.Format("-- Weighted Table --\n{0}", entries);
+        }
+
+        public WeightedOptionTable<T> CopyEnabledOptions()
+        {
+            //Create temp enabled Table
+            var tempTable = new WeightedOptionTable<T>();
+            foreach(var a in All())
+            {
+                if(!a.Disabled) {
+                    tempTable.AddEntry(a.Option, a.Weight);
+                }
+            }
+            return tempTable;
         }
 
         private TableEntry FindEntry(T option) 

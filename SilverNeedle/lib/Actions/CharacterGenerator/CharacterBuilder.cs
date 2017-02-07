@@ -87,7 +87,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
             character.FeatTokens.Add(new FeatToken());
             
             // Assign Basic Attributes
-            this.AssignAttributes(character);            
+            this.AssignAttributes(character, strategy);            
             this.ChooseRace(character, strategy);
             this.CreateDescription(character);
             this.CreateName(character);
@@ -128,11 +128,11 @@ namespace SilverNeedle.Actions.CharacterGenerator
         /// Think of this as a young character before identifying their professions
         /// </summary>
         /// <returns>The level0.</returns>
-        private CharacterSheet AssignAttributes(CharacterSheet character)
+        private CharacterSheet AssignAttributes(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             character.Gender = EnumHelpers.ChooseOne<Gender>();
             character.Alignment = EnumHelpers.ChooseOne<CharacterAlignment>();
-            this.abilityGenerator.AssignAbilities(character.AbilityScores);
+            this.abilityGenerator.StrategyScores(character.AbilityScores, strategy.FavoredAbilities);
             
             return character;
         }

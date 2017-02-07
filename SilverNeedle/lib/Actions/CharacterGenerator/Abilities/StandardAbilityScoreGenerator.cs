@@ -5,6 +5,8 @@
 //-----------------------------------------------------------------------
 namespace SilverNeedle.Actions.CharacterGenerator.Abilities
 {
+    using System.Collections.Generic;
+    using System.Linq;
     using SilverNeedle;
     using SilverNeedle.Dice;
     using SilverNeedle.Characters;
@@ -26,12 +28,33 @@ namespace SilverNeedle.Actions.CharacterGenerator.Abilities
         /// Assigns the abilities.
         /// </summary>
         /// <param name="abilities">Abilities to assign to</param>
-        public void AssignAbilities(AbilityScores abilities)
+        public void RandomScores(AbilityScores abilities)
         {
             foreach (var e in EnumHelpers.GetValues<AbilityScoreTypes>())
             {
                 abilities.SetScore(e, this.Roll4d6());
             }
+        }
+
+        public void StrategyScores(AbilityScores abilities, WeightedOptionTable<AbilityScoreTypes> abilityPref)
+        {
+            //Roll up 6 scores
+            List<int> scores = new List<int>();
+            IEnumerable<AbilityScoreTypes> weightedAbilities = abilityPref.UniqueList();
+            
+            //Create sorted list of items
+            for(int i = 0; i < 6; i++) {
+                scores.Add(Roll4d6());
+            }            
+            scores.Sort();
+
+            for(int i = 0; i < 6; i++)
+            {
+                ShortLog.DebugFormat("i: {0}", i.ToString());
+                var ability = weightedAbilities.ElementAt(i);
+                var score = scores.ElementAt(5 - i);
+                abilities.SetScore(ability, score);
+            }            
         }
 
         /// <summary>
