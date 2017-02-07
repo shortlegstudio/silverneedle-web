@@ -119,6 +119,15 @@ namespace Utility
             table.Disable(1);
             Assert.IsTrue(table.IsEmpty);
         }
+
+        [Test]
+        public void ReturnsTrueIfOptionExists()
+        {
+            var table = new WeightedOptionTable<string>();
+            table.AddEntry("Foo", 1);
+            Assert.IsTrue(table.HasOption("Foo"));
+            Assert.IsFalse(table.HasOption("Bar"));
+        }
     }
 }
 

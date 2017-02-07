@@ -79,6 +79,11 @@ namespace SilverNeedle
             return GetOption(value);
         }
 
+        public bool HasOption(T option)
+        {
+            return All().Any(x => x.Option.Equals(option));
+        }
+
         public override string ToString() 
         {
             var entries = string.Join("\n", table.Select(x => x.ToString()));

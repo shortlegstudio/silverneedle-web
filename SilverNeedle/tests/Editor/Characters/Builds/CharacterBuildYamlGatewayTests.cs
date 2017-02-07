@@ -72,6 +72,28 @@ namespace Characters
             Assert.AreEqual(3, feats.Count());
         }
 
+        [Test]
+        public void StrategyFavorsSomeAttributesAheadOfOthers() 
+        {
+            var tank = gateway.GetBuild("tank");
+            var abilities = tank.FavoredAbilities.All();
+            Assert.AreEqual(AbilityScoreTypes.Strength, abilities.First().Option);
+            Assert.AreEqual(100, abilities.First().MaximumValue);
+            Assert.AreEqual(6, abilities.Count());
+        }
+
+        [Test]
+        public void StrategyProvidesDefaultsToAbilitiesNotSpecifiedOfOne()
+        {
+            var archer = gateway.GetBuild("archer");
+            var abilities = archer.FavoredAbilities.All();
+            Assert.AreEqual(AbilityScoreTypes.Strength, abilities.First().Option);
+            Assert.AreEqual(AbilityScoreTypes.Charisma, abilities.Last().Option);
+            Assert.AreEqual(1, abilities.First().MaximumValue);
+            Assert.AreEqual(6, abilities.Last().MaximumValue);
+            Assert.AreEqual(6, abilities.Count());
+        }
+
         private const string CharacterBuildYaml = @"--- 
 - build:
   name: Archer
@@ -133,6 +155,11 @@ namespace Characters
       weight: 40
     - name: shield focus
       weight: 10
+  abilities:
+    - name: strength
+      weight: 100
+    - name: dexterity
+      weight: 50
 ";
     }
 }

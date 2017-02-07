@@ -41,4 +41,13 @@
       weight: 10
     - name: iron will
       weight: 10
+  abilities:
+    - name: dexterity
+      weight: 10
+    - name: strength
+      weight: 8
+    - name: constitution
+      weight: 6
+    - name: wisdom
+      weight: 4
       

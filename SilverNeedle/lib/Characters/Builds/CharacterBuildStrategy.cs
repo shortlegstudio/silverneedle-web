@@ -13,6 +13,7 @@ namespace SilverNeedle.Characters
             Races = new WeightedOptionTable<string>();
             FavoredSkills = new WeightedOptionTable<string>();
             FavoredFeats = new WeightedOptionTable<string>();
+            FavoredAbilities = new WeightedOptionTable<AbilityScoreTypes>();
         }
         
         public string Name { get; set; }
@@ -25,5 +26,7 @@ namespace SilverNeedle.Characters
 
         public WeightedOptionTable<string> FavoredSkills { get; set; }
         public WeightedOptionTable<string> FavoredFeats { get; set; }
+
+        public WeightedOptionTable<AbilityScoreTypes> FavoredAbilities { get; set; }
     }
 }

@@ -68,6 +68,9 @@ namespace SilverNeedle.Characters
                 var feats = node.GetNode("feats");
                 BuildWeightedTable(build.FavoredFeats, feats);
 
+                var abilities = node.GetNodeOptional("abilities");
+                BuildAbilityTable(build.FavoredAbilities, abilities);
+
                 characterBuilds.Add(build);
             }
         }
@@ -78,6 +81,31 @@ namespace SilverNeedle.Characters
             {
                 tableToBuild.AddEntry(child.GetString("name"), child.GetInteger("weight"));
             }
-        }    
+        }  
+
+        private void BuildAbilityTable(WeightedOptionTable<AbilityScoreTypes> abilityTable, YamlNodeWrapper node)
+        {
+            if (node != null)
+            {
+                foreach(var child in node.Children())
+                {
+                    abilityTable.AddEntry(child.GetEnum<AbilityScoreTypes>("name"), child.GetInteger("weight"));
+                }
+            }
+
+            FillInMissingAbilities(abilityTable);
+        }
+
+        private void FillInMissingAbilities(WeightedOptionTable<AbilityScoreTypes> abilityTable)
+        {
+            //build empty table
+            foreach(var a in EnumHelpers.GetValues<AbilityScoreTypes>())
+            {
+                if(!abilityTable.HasOption(a)) 
+                {
+                    abilityTable.AddEntry(a, 1);
+                }
+            }
+        }
     }
 }

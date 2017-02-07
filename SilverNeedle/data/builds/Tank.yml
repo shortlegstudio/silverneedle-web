@@ -43,3 +43,11 @@
       weight: 20
     - name: improved initiative
       weight: 5
+  abilities:
+    - name: strength
+      weight: 10
+    - name: constitution
+      weight: 8
+    - name: dexterity
+      weight: 6
+    
