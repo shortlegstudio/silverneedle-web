@@ -22,5 +22,10 @@ namespace SilverNeedle
         {
             return (int)Math.Floor(val);
         }
+
+        public static int AtLeast(this int val, int min)
+        {
+            return (int)Math.Max(val, min);
+        }
     }
 }

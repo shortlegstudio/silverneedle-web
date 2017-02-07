@@ -21,9 +21,18 @@ namespace SilverNeedle.Characters
             return armor.MaximumDexterityBonus + ArmorTrainingLevel;
         }
 
+        public int GetArmorCheckPenalty(Armor armor)
+        {
+            return (armor.ArmorCheckPenalty - ArmorTrainingLevel).AtLeast(0);
+        }
+
         public int GetMovementSpeed(int baseSpeed, Armor armor)
         {
             if(ArmorTrainingLevel >= 1 && armor.ArmorType == ArmorType.Medium) {
+                return baseSpeed;
+            }
+
+            if(ArmorTrainingLevel >= 2 && armor.ArmorType == ArmorType.Heavy) {
                 return baseSpeed;
             }
 
