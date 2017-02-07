@@ -90,5 +90,17 @@ namespace SilverNeedle.Equipment
         /// </summary>
         /// <value>The type of the armor.</value>
         public ArmorType ArmorType { get; set; }
+
+        public int MovementSpeedPenalty {
+            get {
+                switch(ArmorType) {
+                    case ArmorType.Medium:
+                    case ArmorType.Heavy:
+                        return 10;
+                    default: 
+                        return 0;
+                }
+            }
+        }
     }
 }
