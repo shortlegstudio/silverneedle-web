@@ -8,6 +8,7 @@ using System.Collections.Generic;
 namespace Actions {
 	[TestFixture]
 	public class LevelUpCharacterTests {
+        //Handles moving characters to Level 2 and beyond
 		CharacterSheet character;
 
 		[SetUp]
@@ -47,6 +48,14 @@ namespace Actions {
 			Assert.IsTrue (
 				character.AbilityScores.Abilities.Any (x => x.TotalValue > 10)
 			);
+		}
+
+		[Test]
+		public void EveryOtherLevelAddsAFeatToken() {
+            //Level one feats are currently handled outside this
+            var levelUp = new LevelUpCharacter(new HitPointRoller());
+            levelUp.BringCharacterToLevel(character, 3);
+            Assert.AreEqual(1, character.FeatTokens.Count);
 		}
 
 		[Test]

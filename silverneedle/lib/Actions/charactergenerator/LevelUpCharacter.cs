@@ -53,6 +53,10 @@ namespace SilverNeedle.Actions.CharacterGenerator
             character.Defense.LevelUpDefenseStats(character.Class);
             AddSpecialAbilities(character, character.Class.GetLevel(character.Level));
 
+            if(character.Level % 2 == 1) {
+                character.FeatTokens.Add(new FeatToken());
+            }
+            
             // Special Level ups
             if (character.Level % 4 == 0)
             {
