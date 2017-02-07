@@ -44,9 +44,9 @@ namespace Actions {
 
 			levelUp.BringCharacterToLevel (character, 4);
 
-			//At least one ability should be greater than 10 now
+			//Should have an abilityScore Token
 			Assert.IsTrue (
-				character.AbilityScores.Abilities.Any (x => x.TotalValue > 10)
+				character.AbilityScoreTokens.Count > 0				
 			);
 		}
 

@@ -99,6 +99,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
             this.SelectClass(character, strategy);
 
             // Select feats
+            this.AssignAbilityPoints(character, strategy);
             this.ChooseFeats(character, strategy);
             this.AddHitPoints(character);
             this.CalculateAge(character);
@@ -110,6 +111,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
             for(int i = 1; i < level; i++)
             {
                 this.LevelUp(character, strategy);
+                this.AssignAbilityPoints(character, strategy);
                 this.AssignSkillPoints(character, strategy);
                 this.ChooseFeats(character, strategy);
             }
@@ -237,6 +239,12 @@ namespace SilverNeedle.Actions.CharacterGenerator
         {
             var levelUp = new LevelUpCharacter(new HitPointRoller());
             levelUp.LevelUp(character);
+        }
+
+        private void AssignAbilityPoints(CharacterSheet character, CharacterBuildStrategy strategy)
+        {
+            var abilityAssigner = new AbilityPointAssigner();
+            abilityAssigner.AssignByStrategy(character, strategy.FavoredAbilities);
         }
     }
 }

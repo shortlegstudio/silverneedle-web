@@ -35,7 +35,7 @@ namespace Characters {
 		[Test]
 		public void HumansCanChooseAbilityModifier() {
 			var mod = human.AbilityModifiers.First ();
-			Assert.IsTrue (mod.RacialModifier);
+			Assert.IsTrue (mod.ChooseAny);
 			Assert.AreEqual (2, mod.Modifier);
 
 		}

@@ -108,17 +108,17 @@ namespace Actions
             }
         }
 
-				[Test]
-				public void IfChoiceListIsEmptyChooseAnyRace() 
-				{	
-						var sheet = new CharacterSheet();
-						var options = new WeightedOptionTable<string>();
+        [Test]
+        public void IfChoiceListIsEmptyChooseAnyRace() 
+        {	
+                var sheet = new CharacterSheet();
+                var options = new WeightedOptionTable<string>();
 
-						raceGateway.Setup(x => x.All()).Returns(new Race[] { elf });
+                raceGateway.Setup(x => x.All()).Returns(new Race[] { elf });
 
-						raceSelectorSubject.ChooseRace(sheet, options);
-						Assert.AreEqual(elf, sheet.Race);
-				}
+                raceSelectorSubject.ChooseRace(sheet, options);
+                Assert.AreEqual(elf, sheet.Race);
+        }
     }
 
     class TestTraitGateway : IEntityGateway<Trait>

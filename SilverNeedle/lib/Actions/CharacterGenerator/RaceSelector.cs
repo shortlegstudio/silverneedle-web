@@ -59,7 +59,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
 
             this.SetSpeedForRace(character, race);
             this.SetTraitsForRace(character, race);
-            this.SetAbilityScoresForRace(character.AbilityScores, race);
+            this.SetAbilityScoresForRace(character, race);
             this.SetSizeForRace(character.Size, race);
 
             // TODO: Should not trigger events from here, that should be handled by the data object
@@ -97,20 +97,19 @@ namespace SilverNeedle.Actions.CharacterGenerator
         /// </summary>
         /// <param name="abilities">Abilities for adjustments.</param>
         /// <param name="race">Race selected.</param>
-        private void SetAbilityScoresForRace(AbilityScores abilities, Race race)
+        private void SetAbilityScoresForRace(CharacterSheet character, Race race)
         {
             // Add Ability Modifiers
             foreach (var adj in race.AbilityModifiers)
             {
-                if (adj.RacialModifier)
+                if (adj.ChooseAny)
                 {
-                    var ability = EnumHelpers.ChooseOne<AbilityScoreTypes>();
-                    var a = abilities.GetAbility(ability);
-                    a.AddModifier(adj);
+                    var token = new AbilityScoreToken(adj);
+                    character.AbilityScoreTokens.Enqueue(token);
                 }
                 else
                 {
-                    var a = abilities.GetAbility(adj.AbilityName);
+                    var a = character.AbilityScores.GetAbility(adj.AbilityName);
                     a.AddModifier(adj);
                 }
             }

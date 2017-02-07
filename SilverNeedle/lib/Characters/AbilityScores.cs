@@ -136,6 +136,12 @@ namespace SilverNeedle.Characters
             }
         }
 
+        public void AddModifier(AbilityScoreAdjustment adj)
+        {
+            var a = GetAbility(adj.AbilityName);
+            a.AddModifier(adj);
+        }
+
         /// <summary>
         /// Tracks when abilities are modified by registering for their events
         /// </summary>

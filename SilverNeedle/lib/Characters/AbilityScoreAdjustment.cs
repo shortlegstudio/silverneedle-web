@@ -15,7 +15,7 @@ namespace SilverNeedle.Characters
         /// Gets or sets a value indicating whether this modifier was triggered by racial selection
         /// </summary>
         /// <value><c>true</c> if racial modifier; otherwise, <c>false</c>.</value>
-        public bool RacialModifier { get; set; }
+        public bool ChooseAny { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the ability.

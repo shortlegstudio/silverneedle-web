@@ -60,24 +60,13 @@ namespace SilverNeedle.Actions.CharacterGenerator
             // Special Level ups
             if (character.Level % 4 == 0)
             {
-                this.AssignAbilityPoints(character);
+                var adj = new AbilityScoreAdjustment();
+                adj.Reason = string.Format("Level ({0})", character.Level);
+                adj.Modifier = 1;
+                character.AbilityScoreTokens.Enqueue(
+                    new AbilityScoreToken(adj)
+                );
             }
-        }
-
-        /// <summary>
-        /// Assigns the ability points.
-        /// </summary>
-        /// <param name="character">Character to assign an ability point to.</param>
-        private void AssignAbilityPoints(CharacterSheet character)
-        {
-            // TODO: Move to generator / assigner / selector
-            var ability = EnumHelpers.ChooseOne<AbilityScoreTypes>();
-            var adjust = new AbilityScoreAdjustment();
-            adjust.Reason = "Level Up";
-            adjust.Modifier = 1;
-            adjust.AbilityName = ability;
-
-            character.AbilityScores.GetAbility(ability).AddModifier(adjust);
         }
 
         private void AddSpecialAbilities(CharacterSheet character, Level level)

@@ -31,6 +31,7 @@ namespace SilverNeedle.Characters
         {
             // TODO: Figure out if skillList is a logical dependency for the character sheet
             this.AbilityScores = new AbilityScores();
+            this.AbilityScoreTokens = new Queue<AbilityScoreToken>();
             this.Size = new SizeStats();
             this.Inventory = new Inventory();
             this.Initiative = new Initiative(this.AbilityScores);
@@ -46,7 +47,7 @@ namespace SilverNeedle.Characters
 
             this.Traits = new List<Trait>();
             this.Feats = new List<Feat>();
-            this.FeatTokens = new List<FeatToken>();
+            this.FeatTokens = new List<FeatToken>();            
             this.SpecialQualities = new SpecialQualities();
 
             this.Level = 1;
@@ -106,6 +107,8 @@ namespace SilverNeedle.Characters
         /// </summary>
         /// <value>The character's ability scores.</value>
         public AbilityScores AbilityScores { get; private set; }
+
+        public Queue<AbilityScoreToken> AbilityScoreTokens { get; private set; }
 
         /// <summary>
         /// Gets the skill ranks.

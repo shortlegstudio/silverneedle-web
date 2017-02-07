@@ -94,7 +94,7 @@ namespace SilverNeedle.Characters
                     // Special case is races that can choose
                     if (string.Compare(ability.Key, "choose", true) == 0)
                     {
-                        modifier.RacialModifier = true;
+                        modifier.ChooseAny = true;
                     }
                     else
                     {
