@@ -6,33 +6,35 @@ namespace SilverNeedle.Characters
     /// Provides the ability to move at full speed with heavier armors and 
     /// reduces the maximum dex penalty of armor
     /// </summary>
-    public class ArmorTraining : SpecialAbility
+    public class ArmorTraining : LevelAbility
     {
-        public int ArmorTrainingLevel { get; private set; }
+        public ArmorTraining()
+        {
+        }
 
         public ArmorTraining(int level)
         {
-            this.Type = "Armor Training";
-            ArmorTrainingLevel = level;            
+            Level = level;
         }
+
 
         public int GetMaximumDexterityBonus(Armor armor)
         {
-            return armor.MaximumDexterityBonus + ArmorTrainingLevel;
+            return armor.MaximumDexterityBonus + Level;
         }
 
         public int GetArmorCheckPenalty(Armor armor)
         {
-            return (armor.ArmorCheckPenalty - ArmorTrainingLevel).AtLeast(0);
+            return (armor.ArmorCheckPenalty - Level).AtLeast(0);
         }
 
         public int GetMovementSpeed(int baseSpeed, Armor armor)
         {
-            if(ArmorTrainingLevel >= 1 && armor.ArmorType == ArmorType.Medium) {
+            if(Level >= 1 && armor.ArmorType == ArmorType.Medium) {
                 return baseSpeed;
             }
 
-            if(ArmorTrainingLevel >= 2 && armor.ArmorType == ArmorType.Heavy) {
+            if(Level >= 2 && armor.ArmorType == ArmorType.Heavy) {
                 return baseSpeed;
             }
 

@@ -108,6 +108,11 @@ namespace SilverNeedle.Yaml
             return this.sequenceNode.Children.Select(x => new YamlNodeWrapper(x)).ToList();
         }
 
+        public bool HasNode(string node) 
+        {
+            return GetNodeOptional(node) != null;
+        }
+
         /// <summary>
         /// Gets a string value from the node based on the key. 
         /// Note: Throws exception if key is not found

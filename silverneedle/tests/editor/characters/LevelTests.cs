@@ -12,10 +12,12 @@ namespace Characters
     public class LevelTests
     {
         private YamlNodeWrapper fighter;
+        private YamlNodeWrapper rogue;
         [SetUp]
         public void SetUp() 
         {
             fighter = fighterLevel.ParseYaml().Children().First();
+            rogue = rogueLevel.ParseYaml().Children().First();
         }
 
         [Test]
@@ -49,6 +51,17 @@ namespace Characters
             Assert.AreEqual("fear", mod.Condition);
         }
 
+        [Test]
+        public void InstantiatesASpecificTypeIfSpecifiedByImplementationParameter()
+        {
+            var level = new Level(rogue);
+            Assert.AreEqual(1, level.SpecialAbilities.Count);
+            var ability = level.SpecialAbilities.First();
+            Assert.IsInstanceOf(typeof(RogueTalent), ability);
+            var talent = ability as RogueTalent;
+            Assert.AreEqual("", talent.Condition);
+            Assert.AreEqual("Rogue Talent", talent.Type);
+        }
         const string fighterLevel = @"---
 - level: 2
   special:
@@ -62,5 +75,15 @@ namespace Characters
       type: bonus
       condition: fear
 ...";
+
+        const string rogueLevel = @"---
+- level: 2
+  special:
+    - name: Rogue Talent 1
+      type: Rogue Talent
+      implementation: SilverNeedle.Characters.RogueTalent
+      condition:
+      level: 1
+";
     }
 }

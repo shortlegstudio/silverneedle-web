@@ -39,11 +39,23 @@ namespace SilverNeedle.Characters
             {
                 foreach(var s in specials.Children())
                 {
-                    SpecialAbilities.Add(new LevelAbility(
+                    LevelAbility ability;
+                    // If a special implementation is available
+                    if (s.HasNode("implementation")) {
+                        ability = LevelAbility.InstatiateFromType(
+                            s.GetString("implementation"),
+                            s.GetString("name"),
+                            s.GetString("condition"),
+                            s.GetString("type"),
+                            s.GetIntegerOptional("level")
+                        );
+                    } else {
+                        ability = new LevelAbility(
                         s.GetString("name"),
                         s.GetString("condition"),
-                        s.GetString("type")
-                    ));
+                        s.GetString("type"));
+                    }
+                    SpecialAbilities.Add(ability);                    
                 }
             }
 
