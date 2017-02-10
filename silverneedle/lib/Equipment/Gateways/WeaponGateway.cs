@@ -9,17 +9,17 @@ namespace SilverNeedle.Equipment
     using System.Collections.Generic;
     using System.Linq;
     using SilverNeedle.Characters;
-    using SilverNeedle.Yaml;
+    using SilverNeedle.Utility;
 
     /// <summary>
     /// Weapon yaml gateway.
     /// </summary>
-    public class WeaponYamlGateway : IWeaponGateway
+    public class WeaponGateway : IWeaponGateway
     {
         /// <summary>
         /// The weapon yaml file.
         /// </summary>
-        private const string WeaponYamlFileType = "weapon";
+        private const string WeaponDataType = "weapon";
 
         /// <summary>
         /// The weapons.
@@ -29,11 +29,11 @@ namespace SilverNeedle.Equipment
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Equipment.Gateways.WeaponYamlGateway"/> class.
         /// </summary>
-        public WeaponYamlGateway()
+        public WeaponGateway()
         { 
-            foreach(var y in DatafileLoader.Instance.GetYamlFiles(WeaponYamlFileType))
+            foreach(var y in DatafileLoader.Instance.GetDataFiles(WeaponDataType))
             {
-                this.LoadFromYaml(y);
+                this.LoadObjects(y);
             }
         }
 
@@ -41,9 +41,9 @@ namespace SilverNeedle.Equipment
         /// Initializes a new instance of the <see cref="SilverNeedle.Equipment.Gateways.WeaponYamlGateway"/> class.
         /// </summary>
         /// <param name="yamlData">Yaml data.</param>
-        public WeaponYamlGateway(YamlNodeWrapper yamlData)
+        public WeaponGateway(IObjectStore data)
         { 
-            this.LoadFromYaml(yamlData);
+            this.LoadObjects(data);
         }
 
         /// <summary>
@@ -66,12 +66,12 @@ namespace SilverNeedle.Equipment
         }
 
         /// <summary>
-        /// Loads from yaml.
+        /// Loads from Data Store.
         /// </summary>
-        /// <param name="yaml">Yaml data to load.</param>
-        private void LoadFromYaml(YamlNodeWrapper yaml)
+        /// <param name="dataStore">Data to load.</param>
+        private void LoadObjects(IObjectStore dataStore)
         {
-            foreach (var node in yaml.Children())
+            foreach (var node in dataStore.Children)
             {
                 ShortLog.DebugFormat("Loading Weapon: {0}", node.GetString("name"));
                 var w = new Weapon(

@@ -1,33 +1,33 @@
 ﻿// //-----------------------------------------------------------------------
-// // <copyright file="ClassOriginYamlGateway.cs" company="Short Leg Studio, LLC">
+// // <copyright file="ClassOriginGateway.cs" company="Short Leg Studio, LLC">
 // //     Copyright (c) Short Leg Studio, LLC. All rights reserved.
 // // </copyright>
 // //-----------------------------------------------------------------------
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using SilverNeedle.Yaml;
 
 namespace SilverNeedle.Characters.Background
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
     using SilverNeedle;
+    using SilverNeedle.Utility;
 
-    public class ClassOriginYamlGateway : IClassOriginYamlGateway
+    public class ClassOriginGateway : IClassOriginGateway
     {
-        private const string ClassOriginYamlDataFileType = "classorigin";
+        private const string ClassOriginDataFileType = "classorigin";
         private List<ClassOrigin> classOrigins = new List<ClassOrigin>();
 
-        public ClassOriginYamlGateway()
+        public ClassOriginGateway()
         {
-            foreach(var y in DatafileLoader.Instance.GetYamlFiles(ClassOriginYamlDataFileType)) 
+            foreach(var y in DatafileLoader.Instance.GetDataFiles(ClassOriginDataFileType)) 
             {
-                this.ParseYaml(y);
+                this.LoadObjects(y);
             }
         }
 
-        public ClassOriginYamlGateway(YamlNodeWrapper yaml)
+        public ClassOriginGateway(IObjectStore dataStore)
         {
-            ParseYaml(yaml);
+            LoadObjects(dataStore);
         }
 
         public ClassOrigin ChooseOne(string cls)
@@ -46,19 +46,19 @@ namespace SilverNeedle.Characters.Background
             return table;
         }
 
-        private void ParseYaml(YamlNodeWrapper yaml)
+        private void LoadObjects(IObjectStore data)
         {
-            foreach (var classNode in yaml.Children())
+            foreach (var classNode in data.Children)
             {
-                var table = classNode.GetNode("table");
-                foreach (var entry in table.Children())
+                var table = classNode.GetObject("table");
+                foreach (var entry in table.Children)
                 {
                     var origin = new ClassOrigin();
                     origin.Class = classNode.GetString("class");
                     origin.Name = entry.GetString("name");
                     origin.Weighting = entry.GetInteger("weight");
-                    origin.Traits.Add(entry.GetCommaStringOptional("traits"));
-                    origin.Storylines.Add(entry.GetCommaStringOptional("storylines"));
+                    origin.Traits.Add(entry.GetListOptional("traits"));
+                    origin.Storylines.Add(entry.GetListOptional("storylines"));
                     classOrigins.Add(origin);
                 }
             }

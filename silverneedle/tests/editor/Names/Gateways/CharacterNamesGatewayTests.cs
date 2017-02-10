@@ -7,12 +7,12 @@ using SilverNeedle.Yaml;
 
 namespace Names {
 	[TestFixture]
-	public class CharacterNamesYamlGatewayTests
+	public class CharacterNamesGatewayTests
     {
         [Test]
         public void CanLoadABunchOfNames()
         {
-            var gateway = new CharacterNamesYamlGateway(CharacterNamesYamlFile.ParseYaml());
+            var gateway = new CharacterNamesGateway(CharacterNamesTestData.ParseYaml());
             var names = gateway.GetFirstNames();
             Assert.Greater(names.Count(), 0);
             Assert.IsTrue(names.Contains("Steve"));
@@ -22,7 +22,7 @@ namespace Names {
         [Test]
         public void PrunesOutAnyEmptyStrings() 
         {
-            var gateway = new CharacterNamesYamlGateway(CharacterNamesYamlFile.ParseYaml());
+            var gateway = new CharacterNamesGateway(CharacterNamesTestData.ParseYaml());
             var names = gateway.GetFirstNames();
             Assert.IsFalse(names.Any(x => string.IsNullOrEmpty(x)));
         }
@@ -30,7 +30,7 @@ namespace Names {
         [Test]
         public void CanLoadSomeLastNames()
         {
-            var gateway = new CharacterNamesYamlGateway(CharacterNamesYamlFile.ParseYaml());
+            var gateway = new CharacterNamesGateway(CharacterNamesTestData.ParseYaml());
             var names = gateway.GetLastNames();
             Assert.Greater(names.Count(), 0);
             Assert.IsTrue(names.Contains("Hookum"));
@@ -40,7 +40,7 @@ namespace Names {
         [Test]
         public void CanFilterNamesBasedOnRaceAndGender()
         {
-            var gateway = new CharacterNamesYamlGateway(CharacterNamesYamlFile.ParseYaml());
+            var gateway = new CharacterNamesGateway(CharacterNamesTestData.ParseYaml());
             var names = gateway.GetFirstNames(Gender.Female, "human");
             Assert.AreEqual(0, names.Count());
             names = gateway.GetFirstNames(Gender.Female, "dwarf");
@@ -51,13 +51,13 @@ namespace Names {
         [Test]
         public void CanFilterLastNamesBasedOnRace()
         {
-            var gateway = new CharacterNamesYamlGateway(CharacterNamesYamlFile.ParseYaml());
+            var gateway = new CharacterNamesGateway(CharacterNamesTestData.ParseYaml());
             var names = gateway.GetLastNames("human");
             Assert.IsTrue(names.Contains("Stookum"));
             Assert.IsFalse(names.Contains("Roofus"));
         }
 
-        const string CharacterNamesYamlFile = @"
+        const string CharacterNamesTestData = @"
 - gender: male
   race: human
   category: first

@@ -144,7 +144,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
             var history = new History();
 
             //Homeland
-            var homelandSelector = new HomelandSelector(new HomelandYamlGateway());
+            var homelandSelector = new HomelandSelector(new HomelandGateway());
             history.Homeland = homelandSelector.SelectHomelandByRace(character.Race.Name);
 
             // Family
@@ -152,7 +152,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
             history.FamilyTree = familyHistory.CreateFamilyTree(character.Race.Name);
 
             // Drawback
-            var drawback = new CharacterDrawbackSelector(new DrawbackYamlGateway());
+            var drawback = new CharacterDrawbackSelector(new DrawbackGateway());
             history.Drawback = drawback.SelectDrawback();
             character.History = history;            
         }
@@ -184,7 +184,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
         private void GenerateBackground(CharacterSheet character)
         {
             // Figure out how this class came about
-            var classOrigin = new ClassOriginStoryCreator(new ClassOriginYamlGateway());
+            var classOrigin = new ClassOriginStoryCreator(new ClassOriginGateway());
             character.History.ClassOriginStory = classOrigin.CreateStory(character.Class.Name);
         }
 

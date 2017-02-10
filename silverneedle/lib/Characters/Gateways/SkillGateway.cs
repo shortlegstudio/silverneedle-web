@@ -9,12 +9,12 @@ namespace SilverNeedle.Characters
     using System;
     using System.Collections.Generic;
     using SilverNeedle;
-    using SilverNeedle.Yaml;
+    using SilverNeedle.Utility;
 
     /// <summary>
     /// Skill yaml gateway provides access to Skills information via a YAML file
     /// </summary>
-    public class SkillYamlGateway : IEntityGateway<Skill>
+    public class SkillGateway : IEntityGateway<Skill>
     {
         /// <summary>
         /// The Skills Data File
@@ -27,22 +27,22 @@ namespace SilverNeedle.Characters
         private IList<Skill> skills = new List<Skill>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SilverNeedle.Characters.Gateways.SkillYamlGateway"/> class.
+        /// Initializes a new instance of the <see cref="SilverNeedle.Characters.Gateways.SkillGateway"/> class.
         /// </summary>
-        public SkillYamlGateway()
+        public SkillGateway()
         {
-            foreach(var y in DatafileLoader.Instance.GetYamlFiles(SkillDataFileType)) {
-                this.LoadFromYaml(y);
+            foreach(var y in DatafileLoader.Instance.GetDataFiles(SkillDataFileType)) {
+                this.LoadObjects(y);
             }
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Characters.Gateways.SkillYamlGateway"/> class.
         /// </summary>
-        /// <param name="yaml">Yaml data to parse.</param>
-        public SkillYamlGateway(YamlNodeWrapper yaml)
+        /// <param name="dataStore">Yaml data to parse.</param>
+        public SkillGateway(IObjectStore dataStore)
         { 
-            this.LoadFromYaml(yaml);
+            this.LoadObjects(dataStore);
         }
 
         /// <summary>
@@ -55,12 +55,12 @@ namespace SilverNeedle.Characters
         }
 
         /// <summary>
-        /// Loads from yaml.
+        /// Loads from data store.
         /// </summary>
-        /// <param name="yaml">Yaml data to load from</param>
-        private void LoadFromYaml(YamlNodeWrapper yaml)
+        /// <param name="dataStore">Data to load from</param>
+        private void LoadObjects(IObjectStore dataStore)
         {
-            foreach (var skillNode in yaml.Children())
+            foreach (var skillNode in dataStore.Children)
             {
                 var skill = new Skill(
                     skillNode.GetString("name"),

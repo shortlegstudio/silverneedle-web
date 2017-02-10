@@ -12,7 +12,7 @@ namespace Equipment {
 	public class WeaponYamlGatewayTests {
 		[Test]
 		public void AllImportantStatsForALongSwordAreAvailable() {
-			var repo = new WeaponYamlGateway (WeaponYamlFile.ParseYaml());
+			var repo = new WeaponGateway (WeaponYamlFile.ParseYaml());
 			var weapons = repo.All ();
 			var longsword = weapons.First();
 			Assert.AreEqual ("Longsword", longsword.Name);
@@ -28,7 +28,7 @@ namespace Equipment {
 
 		[Test]
 		public void AllImportantStatsForADaggerAreAvailable() {
-			var repo = new WeaponYamlGateway (WeaponYamlFile.ParseYaml());
+			var repo = new WeaponGateway (WeaponYamlFile.ParseYaml());
 			var dagger = repo.All().Last();
 			Assert.AreEqual ("Dagger", dagger.Name);
 			Assert.AreEqual ("1d4", dagger.Damage);
@@ -44,7 +44,7 @@ namespace Equipment {
 
 		[Test]
 		public void CanSelectWeaponsBasedOnProficiencies() {
-			var repo = new WeaponYamlGateway(WeaponYamlFile.ParseYaml());
+			var repo = new WeaponGateway(WeaponYamlFile.ParseYaml());
 			var prof = new WeaponProficiency("dagger");
 
 			var results = repo.FindByProficient(new WeaponProficiency[] { prof });

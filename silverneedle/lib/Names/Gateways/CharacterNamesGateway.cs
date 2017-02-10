@@ -1,5 +1,5 @@
 ﻿// //-----------------------------------------------------------------------
-// // <copyright file="CharacterNamesGatewayYaml.cs" company="Short Leg Studio, LLC">
+// // <copyright file="CharacterNamesGateway.cs" company="Short Leg Studio, LLC">
 // //     Copyright (c) Short Leg Studio, LLC. All rights reserved.
 // // </copyright>
 // //-----------------------------------------------------------------------
@@ -10,24 +10,24 @@ namespace SilverNeedle.Names
     using System.Collections.Generic;
     using System.Linq;
     using SilverNeedle.Characters;
-    using SilverNeedle.Yaml;
+    using SilverNeedle.Utility;
 
-    public class CharacterNamesYamlGateway : ICharacterNamesGateway
+    public class CharacterNamesGateway : ICharacterNamesGateway
     {
         private const string CharacterNamesDataFileType = "names";
         private IList<NameInformation> namesDatabase = new List<NameInformation>();
 
-        public CharacterNamesYamlGateway() 
+        public CharacterNamesGateway() 
         {
-            foreach(var y in DatafileLoader.Instance.GetYamlFiles(CharacterNamesDataFileType))
+            foreach(var y in DatafileLoader.Instance.GetDataFiles(CharacterNamesDataFileType))
             {
-                this.LoadFromYaml(y);
+                this.LoadObjects(y);
             }
         }
 
-        public CharacterNamesYamlGateway(YamlNodeWrapper yamlData)
+        public CharacterNamesGateway(IObjectStore data)
         {
-            LoadFromYaml(yamlData);
+            LoadObjects(data);
         }
 
         public IList<string> GetFirstNames()
@@ -78,15 +78,15 @@ namespace SilverNeedle.Names
             return string.Equals(race, names.Race, StringComparison.OrdinalIgnoreCase);
         }
 
-        private void LoadFromYaml(YamlNodeWrapper yamlData)
+        private void LoadObjects(IObjectStore data)
         {
-            foreach (var node in yamlData.Children())
+            foreach (var node in data.Children)
             {
                 var name = new NameInformation();
                 name.Gender = node.GetString("gender");
                 name.Type = node.GetEnum<NameTypes>("category");
                 name.Race = node.GetString("race");
-                var names = node.GetCommaString("names");
+                var names = node.GetList("names");
 
                 name.Names.Add(
                     names.Where(x => string.IsNullOrEmpty(x) == false));

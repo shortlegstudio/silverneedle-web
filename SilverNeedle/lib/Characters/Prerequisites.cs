@@ -9,7 +9,7 @@ namespace SilverNeedle.Characters
     using System.Collections.Generic;
     using System.Linq;
     using SilverNeedle;
-    using SilverNeedle.Yaml;
+    using SilverNeedle.Utility;
 
 
     /// <summary>
@@ -37,7 +37,7 @@ namespace SilverNeedle.Characters
         /// Initializes a new instance of the <see cref="SilverNeedle.Characters.Prerequisites"/> class.
         /// </summary>
         /// <param name="yaml">Yaml node wrapper to parse requisites from.</param>
-        public Prerequisites(YamlNodeWrapper yaml)
+        public Prerequisites(IObjectStore yaml)
         {
             this.ParseYaml(yaml);
         }
@@ -61,9 +61,9 @@ namespace SilverNeedle.Characters
         /// Parses the yaml and find prerequisites
         /// </summary>
         /// <param name="yaml">Yaml Node to parse </param>
-        private void ParseYaml(YamlNodeWrapper yaml)
+        private void ParseYaml(IObjectStore yaml)
         {
-            foreach (var prereq in yaml.Children())
+            foreach (var prereq in yaml.Children)
             {
                 Prerequisite newreq = null;
 

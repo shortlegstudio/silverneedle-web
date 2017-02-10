@@ -15,7 +15,7 @@ namespace Characters {
 
 		[SetUp]
 		public void LoadYamlRepository() {
-			var repo = new SkillYamlGateway (SkillsYamlFile.ParseYaml());
+			var repo = new SkillGateway (SkillsYamlFile.ParseYaml());
 			var skills = repo.All();
 
 			Acrobatics = skills.First (x => x.Name == "Acrobatics");

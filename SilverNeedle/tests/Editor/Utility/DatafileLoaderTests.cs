@@ -18,7 +18,7 @@ namespace Utility
         public void ProvidesAccessToAListOfFilesThatMatchCriteria()
         {
             var datafileLoader = new DatafileLoader();
-            var files = datafileLoader.GetYamlFiles("armor");
+            var files = datafileLoader.GetDataFiles("armor");
             Assert.Greater(files.Count(), 0);
         }
     }

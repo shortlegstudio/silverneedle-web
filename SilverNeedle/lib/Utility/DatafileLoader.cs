@@ -6,6 +6,7 @@
 namespace SilverNeedle
 {
     using System.Collections.Generic;
+    using SilverNeedle.Utility;
     using SilverNeedle.Yaml;
 
     public class DatafileLoader
@@ -21,19 +22,19 @@ namespace SilverNeedle
             }
         }
 
-        private Dictionary<string, IList<YamlNodeWrapper>> fileListYamlMap;
+        private Dictionary<string, IList<IObjectStore>> fileListMap;
         private string dataDirectory;
 
         public DatafileLoader()
         {
-            fileListYamlMap = new Dictionary<string, IList<YamlNodeWrapper>>();
+            fileListMap = new Dictionary<string, IList<IObjectStore>>();
             dataDirectory = Configuration.DataPath;
             LoadDataDirectory();
         }
 
-        public IEnumerable<YamlNodeWrapper> GetYamlFiles(string datafileType)
+        public IEnumerable<IObjectStore> GetDataFiles(string datafileType)
         {
-            return fileListYamlMap[datafileType];
+            return fileListMap[datafileType];
         }
 
         private void LoadDataDirectory() 
@@ -48,15 +49,15 @@ namespace SilverNeedle
 
                 if(string.IsNullOrEmpty(type) == false)
                 {
-                    IList<YamlNodeWrapper> yamlFiles;
-                    if (fileListYamlMap.ContainsKey(type)) {
-                        yamlFiles = fileListYamlMap[type];
+                    IList<IObjectStore> dataFiles;
+                    if (fileListMap.ContainsKey(type)) {
+                        dataFiles = fileListMap[type];
                     } else {
-                        yamlFiles = new List<YamlNodeWrapper>();
-                        fileListYamlMap.Add(type, yamlFiles);
+                        dataFiles = new List<IObjectStore>();
+                        fileListMap.Add(type, dataFiles);
                     }
 
-                    yamlFiles.Add(yaml);
+                    dataFiles.Add(yaml);
                 }
             }
         }

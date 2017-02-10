@@ -1,5 +1,5 @@
 ﻿// //-----------------------------------------------------------------------
-// // <copyright file="HomelandYamlGatewayTests.cs" company="Short Leg Studio, LLC">
+// // <copyright file="HomelandGatewayTests.cs" company="Short Leg Studio, LLC">
 // //     Copyright (c) Short Leg Studio, LLC. All rights reserved.
 // // </copyright>
 // //-----------------------------------------------------------------------
@@ -12,12 +12,12 @@ using SilverNeedle.Yaml;
 namespace Characters
 {
     [TestFixture]
-    public class ClassOriginYamlGatewayTests
+    public class ClassOriginGatewayTests
     {
         [Test]
         public void LoadsUpClassOriginFromYamlFileWithExpectedAttributes()
         {
-            var gateway = new ClassOriginYamlGateway(ClassOriginYamlFile.ParseYaml());
+            var gateway = new ClassOriginGateway(ClassOriginYamlFile.ParseYaml());
             var bardOriginTable = gateway.GetClassOriginOptions("bard");
             var entry = bardOriginTable.All().First().Option;
             Assert.AreEqual("Celebrity", entry.Name);
@@ -28,7 +28,7 @@ namespace Characters
         [Test]
         public void CaseInsensitiveSearchesForClassOrigins()
         {
-            var gateway = new ClassOriginYamlGateway(ClassOriginYamlFile.ParseYaml());
+            var gateway = new ClassOriginGateway(ClassOriginYamlFile.ParseYaml());
             Assert.Greater(gateway.GetClassOriginOptions("Barbarian").All().Count(), 0);
             Assert.Greater(gateway.GetClassOriginOptions("BARD").All().Count(), 0);
         }

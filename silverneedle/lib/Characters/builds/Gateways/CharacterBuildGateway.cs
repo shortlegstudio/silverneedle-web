@@ -7,24 +7,24 @@ namespace SilverNeedle.Characters
 {
     using System.Collections.Generic;
     using System.Linq;
-    using Yaml;
+    using SilverNeedle.Utility;
 
-    public class CharacterBuildYamlGateway : ICharacterBuildGateway
+    public class CharacterBuildGateway : ICharacterBuildGateway
     {
         private string CharacterBuildDataFileType = "characterbuilds";
 
         private List<CharacterBuildStrategy> characterBuilds = new List<CharacterBuildStrategy>();
 
-        public CharacterBuildYamlGateway()
+        public CharacterBuildGateway()
         {
             // Use DatafileLoader to get all class files;
-            var yamlNodes = DatafileLoader.Instance.GetYamlFiles(CharacterBuildDataFileType);
+            var yamlNodes = DatafileLoader.Instance.GetDataFiles(CharacterBuildDataFileType);
             foreach(var y in yamlNodes) {
                 this.ParseYaml(y);
             }
         }
 
-        public CharacterBuildYamlGateway(YamlNodeWrapper yamlNodeWrapper)
+        public CharacterBuildGateway(IObjectStore yamlNodeWrapper)
         {
             ParseYaml(yamlNodeWrapper);
         }
@@ -39,9 +39,9 @@ namespace SilverNeedle.Characters
             return characterBuilds.FirstOrDefault(x => x.Name.EqualsIgnoreCase(build));
         }
 
-        private void ParseYaml(YamlNodeWrapper yaml)
+        private void ParseYaml(IObjectStore yaml)
         {
-            foreach(var node in yaml.Children())
+            foreach(var node in yaml.Children)
             {
                 var build = new CharacterBuildStrategy();
 
@@ -53,41 +53,41 @@ namespace SilverNeedle.Characters
                 // Collections
                 //
                 // Races
-                var races = node.GetNode("races");
+                var races = node.GetObject("races");
                 BuildWeightedTable(build.Races, races);
                 
                 // Classes
-                var classes = node.GetNode("classes");
+                var classes = node.GetObject("classes");
                 BuildWeightedTable(build.Classes, classes);
                 
                 // Skills
-                var skills = node.GetNode("skills");
+                var skills = node.GetObject("skills");
                 BuildWeightedTable(build.FavoredSkills, skills);
                 
                 // Feats
-                var feats = node.GetNode("feats");
+                var feats = node.GetObject("feats");
                 BuildWeightedTable(build.FavoredFeats, feats);
 
-                var abilities = node.GetNodeOptional("abilities");
+                var abilities = node.GetObjectOptional("abilities");
                 BuildAbilityTable(build.FavoredAbilities, abilities);
 
                 characterBuilds.Add(build);
             }
         }
         
-        private void BuildWeightedTable(WeightedOptionTable<string> tableToBuild, YamlNodeWrapper node)
+        private void BuildWeightedTable(WeightedOptionTable<string> tableToBuild, IObjectStore node)
         {
-            foreach(var child in node.Children())
+            foreach(var child in node.Children)
             {
                 tableToBuild.AddEntry(child.GetString("name"), child.GetInteger("weight"));
             }
         }  
 
-        private void BuildAbilityTable(WeightedOptionTable<AbilityScoreTypes> abilityTable, YamlNodeWrapper node)
+        private void BuildAbilityTable(WeightedOptionTable<AbilityScoreTypes> abilityTable, IObjectStore node)
         {
             if (node != null)
             {
-                foreach(var child in node.Children())
+                foreach(var child in node.Children)
                 {
                     abilityTable.AddEntry(child.GetEnum<AbilityScoreTypes>("name"), child.GetInteger("weight"));
                 }

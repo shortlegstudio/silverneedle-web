@@ -9,12 +9,12 @@ namespace SilverNeedle.Characters
     using System.Collections.Generic;
     using SilverNeedle;
     using SilverNeedle.Characters;
-    using SilverNeedle.Yaml;
+    using SilverNeedle.Utility;
 
     /// <summary>
     /// Language yaml gateway.
     /// </summary>
-    public class LanguageYamlGateway : IEntityGateway<Language>
+    public class LanguageGateway : IEntityGateway<Language>
     {
         /// <summary>
         /// The language data file.
@@ -29,11 +29,11 @@ namespace SilverNeedle.Characters
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Characters.Gateways.LanguageYamlGateway"/> class.
         /// </summary>
-        public LanguageYamlGateway()
+        public LanguageGateway()
         {
-            var yamlFiles = DatafileLoader.Instance.GetYamlFiles(LanguageDataFileType);
-            foreach(var y in yamlFiles) {
-                this.LoadFromYaml(y);
+            var dataFiles = DatafileLoader.Instance.GetDataFiles(LanguageDataFileType);
+            foreach(var y in dataFiles) {
+                this.LoadObjects(y);
             }
         }
 
@@ -41,9 +41,9 @@ namespace SilverNeedle.Characters
         /// Initializes a new instance of the <see cref="SilverNeedle.Characters.Gateways.LanguageYamlGateway"/> class.
         /// </summary>
         /// <param name="yaml">Yaml node to parse for languages</param>
-        public LanguageYamlGateway(YamlNodeWrapper yaml)
+        public LanguageGateway(IObjectStore dataStore)
         {
-            this.LoadFromYaml(yaml);
+            this.LoadObjects(dataStore);
         }
 
         /// <summary>
@@ -58,10 +58,10 @@ namespace SilverNeedle.Characters
         /// <summary>
         /// Loads from yaml.
         /// </summary>
-        /// <param name="yaml">Yaml to parse.</param>
-        private void LoadFromYaml(YamlNodeWrapper yaml)
+        /// <param name="dataStore">Yaml to parse.</param>
+        private void LoadObjects(IObjectStore dataStore)
         {
-            foreach (var n in yaml.Children())
+            foreach (var n in dataStore.Children)
             {
                 this.languages.Add(new Language(
                         n.GetString("name"),

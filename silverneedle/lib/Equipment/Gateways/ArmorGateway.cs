@@ -9,17 +9,17 @@ namespace SilverNeedle.Equipment
     using System.Collections.Generic;
     using System.Linq;
     using SilverNeedle.Characters;
-    using SilverNeedle.Yaml;
+    using SilverNeedle.Utility;
 
     /// <summary>
     /// Armor yaml gateway.
     /// </summary>
-    public class ArmorYamlGateway : IArmorGateway
+    public class ArmorGateway : IArmorGateway
     {
         /// <summary>
         /// The armor yaml file.
         /// </summary>
-        private const string ArmorYamlFileType = "armor";
+        private const string ArmorDataType = "armor";
 
         /// <summary>
         /// The armors that are loaded.
@@ -29,11 +29,11 @@ namespace SilverNeedle.Equipment
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Equipment.Gateways.ArmorYamlGateway"/> class.
         /// </summary>
-        public ArmorYamlGateway()
+        public ArmorGateway()
         {
-            foreach(var y in DatafileLoader.Instance.GetYamlFiles(ArmorYamlFileType))
+            foreach(var y in DatafileLoader.Instance.GetDataFiles(ArmorDataType))
             {
-                this.LoadFromYaml(y);
+                this.LoadObjects(y);
             }
         }
 
@@ -41,9 +41,9 @@ namespace SilverNeedle.Equipment
         /// Initializes a new instance of the <see cref="SilverNeedle.Equipment.Gateways.ArmorYamlGateway"/> class.
         /// </summary>
         /// <param name="yaml">Yaml to parse</param>
-        public ArmorYamlGateway(YamlNodeWrapper yaml)
+        public ArmorGateway(IObjectStore dataStore)
         {
-            this.LoadFromYaml(yaml);
+            this.LoadObjects(dataStore);
         }
 
         /// <summary>
@@ -101,9 +101,9 @@ namespace SilverNeedle.Equipment
         /// Loads from yaml.
         /// </summary>
         /// <param name="yaml">Yaml to parse.</param>
-        private void LoadFromYaml(YamlNodeWrapper yaml)
+        private void LoadObjects(IObjectStore yaml)
         {
-            foreach (var node in yaml.Children())
+            foreach (var node in yaml.Children)
             {
                 ShortLog.DebugFormat("Loading Armor: {0}", node.GetString("name"));
                 var armor = new Armor(

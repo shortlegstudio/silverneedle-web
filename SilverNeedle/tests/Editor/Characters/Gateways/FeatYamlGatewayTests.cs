@@ -20,7 +20,7 @@ namespace Characters
         IFeatGateway featGateway;
         [SetUp]
         public void SetUp() {
-            this.featGateway = new FeatYamlGateway(FeatYamlFile.ParseYaml());
+            this.featGateway = new FeatGateway(FeatYamlFile.ParseYaml());
             Acrobatic = featGateway.GetByName("Acrobatic");
             CombatExpertise = featGateway.GetByName("Combat Expertise");
             PowerAttack = featGateway.GetByName("Power Attack");

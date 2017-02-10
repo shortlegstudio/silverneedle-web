@@ -2,7 +2,7 @@ namespace SilverNeedle.Characters
 {
     using System;
     using System.Collections.Generic;
-    using SilverNeedle.Yaml;
+    using SilverNeedle.Utility;
 
     public class Level : IProvidesSpecialAbilities, IModifiesStats
     {
@@ -10,7 +10,7 @@ namespace SilverNeedle.Characters
         public IList<BasicStatModifier> Modifiers { get; private set; }
         public int Number { get; private set; }
 
-        public Level(YamlNodeWrapper yaml)
+        public Level(IObjectStore yaml)
         {
             SpecialAbilities = new List<SpecialAbility>();
             Modifiers = new List<BasicStatModifier>();
@@ -31,17 +31,17 @@ namespace SilverNeedle.Characters
             Number = number;
         }
 
-        private void Load(YamlNodeWrapper yaml)
+        private void Load(IObjectStore yaml)
         {
             Number = yaml.GetInteger("level");
-            var specials = yaml.GetNodeOptional("special");
+            var specials = yaml.GetObjectOptional("special");
             if (specials != null)
             {
-                foreach(var s in specials.Children())
+                foreach(var s in specials.Children)
                 {
                     LevelAbility ability;
                     // If a special implementation is available
-                    if (s.HasNode("implementation")) {
+                    if (s.HasKey("implementation")) {
                         ability = LevelAbility.InstatiateFromType(
                             s.GetString("implementation"),
                             s.GetString("name"),
@@ -60,7 +60,7 @@ namespace SilverNeedle.Characters
             }
 
             //Verbose and probably could be simplified
-            var modifiers = yaml.GetNodeOptional("modifiers");
+            var modifiers = yaml.GetObjectOptional("modifiers");
             if (modifiers != null)
             {
                 var mods = ParseStatModifiersYaml.ParseYaml(modifiers, string.Format("Level ({0})", Number));

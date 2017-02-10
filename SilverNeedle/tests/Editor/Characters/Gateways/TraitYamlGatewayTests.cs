@@ -12,11 +12,11 @@ namespace Characters {
 		Trait hardy;
 		Trait halflingLuck;
 		Trait stoneCunning;
-		TraitYamlGateway gateway;
+		TraitGateway gateway;
 
 		[SetUp]
 		public void SetUp() {
-			gateway = new TraitYamlGateway(TraitYamlFile.ParseYaml());
+			gateway = new TraitGateway(TraitYamlFile.ParseYaml());
 			var traits = gateway.All();
 			darkvision = traits.First (x => x.Name == "Darkvision");
 			hardy = traits.First (x => x.Name == "Hardy");

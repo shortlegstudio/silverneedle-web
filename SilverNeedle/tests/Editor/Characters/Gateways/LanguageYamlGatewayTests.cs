@@ -11,7 +11,7 @@ namespace Characters {
 	{
 		[Test]
 		public void ParseTheYamlFile() {
-			var gateway = new LanguageYamlGateway (LanguageYamlFile.ParseYaml ());
+			var gateway = new LanguageGateway (LanguageYamlFile.ParseYaml ());
 			var french = gateway.All().First (x => x.Name == "French");
 			Assert.AreEqual ("C'est la vie", french.Description);
 			var english = gateway.All().First (x => x.Name == "English");

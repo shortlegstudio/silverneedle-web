@@ -8,29 +8,29 @@ using SilverNeedle;
 using System.Collections.Generic;
 using SilverNeedle.Dice;
 using System.Linq;
-using SilverNeedle.Yaml;
+using SilverNeedle.Utility;
 
 
 
 namespace SilverNeedle.Characters
 {
-    public class RaceMaturityYamlGateway : IRaceMaturityGateway
+    public class RaceMaturityGateway : IRaceMaturityGateway
     {
         private const string MaturityDataFileType = "maturity";
         private List<Maturity> maturities = new List<Maturity>();
 
-        public RaceMaturityYamlGateway()
+        public RaceMaturityGateway()
         {
-            var yamlFiles = DatafileLoader.Instance.GetYamlFiles(MaturityDataFileType);
-            foreach(var y in yamlFiles) 
+            var dataFiles = DatafileLoader.Instance.GetDataFiles(MaturityDataFileType);
+            foreach(var y in dataFiles) 
             {
-                ParseYaml(y);
+                LoadObjects(y);
             }
         }
 
-        public RaceMaturityYamlGateway(YamlNodeWrapper yaml)
+        public RaceMaturityGateway(IObjectStore dataStore)
         {
-            ParseYaml(yaml);
+            LoadObjects(dataStore);
         }
 
         public System.Collections.Generic.IEnumerable<Maturity> All()
@@ -43,11 +43,11 @@ namespace SilverNeedle.Characters
             return All().FirstOrDefault(x => string.Compare(x.Name, race.Name, true) == 0);
         }
 
-        private void ParseYaml(YamlNodeWrapper yaml) 
+        private void LoadObjects(IObjectStore dataStore) 
         {
-            foreach (var mat_node in yaml.Children())
+            foreach (var mat_node in dataStore.Children)
             {
-                var node = mat_node.GetNode("maturity");
+                var node = mat_node.GetObject("maturity");
                 var maturity = new Maturity();
                 maturity.Name = node.GetString("race");
                 maturity.Adulthood = node.GetInteger("adulthood");

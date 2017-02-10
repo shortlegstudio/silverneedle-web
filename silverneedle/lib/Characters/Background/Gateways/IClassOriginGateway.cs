@@ -1,5 +1,5 @@
 ﻿// //-----------------------------------------------------------------------
-// // <copyright file="IClassOriginYamlGateway.cs" company="Short Leg Studio, LLC">
+// // <copyright file="IClassOriginGateway.cs" company="Short Leg Studio, LLC">
 // //     Copyright (c) Short Leg Studio, LLC. All rights reserved.
 // // </copyright>
 // //-----------------------------------------------------------------------
@@ -9,7 +9,7 @@ namespace SilverNeedle.Characters.Background
 {
     using SilverNeedle;
 
-    public interface IClassOriginYamlGateway
+    public interface IClassOriginGateway
     {
         WeightedOptionTable<ClassOrigin> GetClassOriginOptions(string cls);
         ClassOrigin ChooseOne(string cls);

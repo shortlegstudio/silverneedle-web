@@ -5,19 +5,20 @@ using System.IO;
 using System.Linq;
 using SilverNeedle.Dice;
 using SilverNeedle.Yaml;
+using SilverNeedle.Utility;
 
 namespace Characters
 {
     [TestFixture]
     public class LevelTests
     {
-        private YamlNodeWrapper fighter;
-        private YamlNodeWrapper rogue;
+        private IObjectStore fighter;
+        private IObjectStore rogue;
         [SetUp]
         public void SetUp() 
         {
-            fighter = fighterLevel.ParseYaml().Children().First();
-            rogue = rogueLevel.ParseYaml().Children().First();
+            fighter = fighterLevel.ParseYaml().Children.First();
+            rogue = rogueLevel.ParseYaml().Children.First();
         }
 
         [Test]

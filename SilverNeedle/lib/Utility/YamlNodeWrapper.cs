@@ -12,11 +12,12 @@ namespace SilverNeedle.Yaml
     using System.Linq;
     using System.Text.RegularExpressions;
     using YamlDotNet.RepresentationModel;
+    using SilverNeedle.Utility;
 
     /// <summary>
     /// A wrapper around the YamlNodes that abstracts away complexities of the Yaml format
     /// </summary>
-    public class YamlNodeWrapper
+    public class YamlNodeWrapper : IObjectStore
     {
         /// <summary>
         /// Has a value if node is a sequence node
@@ -94,23 +95,29 @@ namespace SilverNeedle.Yaml
         /// Determines whether this instance has children.
         /// </summary>
         /// <returns><c>true</c> if this instance has children; otherwise, <c>false</c>.</returns>
-        public bool HasChildren()
+        public bool HasChildren
         {
-            return this.sequenceNode != null && this.sequenceNode.Children.Count > 0;
+            get
+            {
+                return Children.Count() > 0;
+            }
         }
 
         /// <summary>
         /// Children found in this instance of YAML
         /// </summary>
         /// <returns>Returns the children of this node if there are any</returns>
-        public IList<YamlNodeWrapper> Children()
-        {
-            return this.sequenceNode.Children.Select(x => new YamlNodeWrapper(x)).ToList();
+        public IEnumerable<IObjectStore> Children 
+        {            
+            get
+            {
+                return this.sequenceNode.Children.Select(x => new YamlNodeWrapper(x)).ToList();
+            }
         }
 
-        public bool HasNode(string node) 
+        public bool HasKey(string node) 
         {
-            return GetNodeOptional(node) != null;
+            return GetObjectOptional(node) != null;
         }
 
         /// <summary>
@@ -121,7 +128,7 @@ namespace SilverNeedle.Yaml
         /// <param name="key">Key to lookup</param>
         public string GetString(string key)
         {
-            var item = this.GetNode(key);
+            var item = this.GetObject(key);
             return item.Value;
         }
 
@@ -132,7 +139,7 @@ namespace SilverNeedle.Yaml
         /// <param name="key">Key to lookup in node</param>
         public string GetStringOptional(string key)
         {
-            var item = this.GetNodeOptional(key);
+            var item = this.GetObjectOptional(key);
             if (item != null)
             {
                 return item.Value;
@@ -147,7 +154,7 @@ namespace SilverNeedle.Yaml
         /// <returns>The string array split and trimmed around commas. 
         /// Returns an empty array if key is not found </returns>
         /// <param name="key">Key to the comma delimited string</param>
-        public string[] GetCommaStringOptional(string key)
+        public string[] GetListOptional(string key)
         {
             var val = this.GetStringOptional(key);
             if (val != null)
@@ -165,7 +172,7 @@ namespace SilverNeedle.Yaml
         /// <returns>The string array split and trimmed around commas. 
         /// Returns an empty array if key is not found </returns>
         /// <param name="key">Key to the comma delimited string</param>
-        public string[] GetCommaString(string key)
+        public string[] GetList(string key)
         {
             var val = this.GetString(key);
             if (val != null)
@@ -174,6 +181,11 @@ namespace SilverNeedle.Yaml
             }
 
             return new string[] { };
+        }
+
+        public bool GetBool(string key)
+        {
+            return this.GetString(key) == this.booleanTrueString;
         }
 
         /// <summary>
@@ -223,6 +235,16 @@ namespace SilverNeedle.Yaml
             return float.Parse(this.GetString(key));
         }
 
+        public float GetFloatOptional(string key)
+        {
+            var v = GetStringOptional(key);
+            if (v == null)
+            {
+                return 0;
+            }
+            return float.Parse(v);
+        }
+
         /// <summary>
         /// Gets an enum value from the YAML node. Throws exception if not found
         /// Ignores Case
@@ -235,12 +257,20 @@ namespace SilverNeedle.Yaml
             return (T)Enum.Parse(typeof(T), this.GetStringOptional(key), true);
         }
 
+        public IEnumerable<string> Keys 
+        {
+            get
+            {
+                return this.Children.Select(x => x.Key);
+            }
+        }
+
         /// <summary>
         /// Gets a wrapper node based on key for traversing trees. Throws exception if not found
         /// </summary>
         /// <returns>The node from the key</returns>
         /// <param name="key">Key to lookup in YAML node</param>
-        public YamlNodeWrapper GetNode(string key)
+        public IObjectStore GetObject(string key)
         {
             try
             {
@@ -259,7 +289,7 @@ namespace SilverNeedle.Yaml
         /// </summary>
         /// <returns>The node optional.</returns>
         /// <param name="key">Key to lookup in YAML node</param>
-        public YamlNodeWrapper GetNodeOptional(string key)
+        public IObjectStore GetObjectOptional(string key)
         {
             try
             {
@@ -308,7 +338,7 @@ namespace SilverNeedle.Yaml
                 this.node, 
                 this.Value, 
                 this.Key, 
-                this.HasChildren());
+                this.HasChildren);
         }
     }
 }

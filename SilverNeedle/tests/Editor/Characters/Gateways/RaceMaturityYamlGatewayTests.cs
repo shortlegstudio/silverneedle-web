@@ -17,11 +17,11 @@ namespace Characters {
     public class RaceMaturityYamlGatewayTests {
         Maturity human;
         Maturity dwarf;
-        RaceMaturityYamlGateway gateway;
+        RaceMaturityGateway gateway;
 
         [SetUp]
         public void SetUp() {
-            gateway = new RaceMaturityYamlGateway (MaturityDataFile.ParseYaml());
+            gateway = new RaceMaturityGateway (MaturityDataFile.ParseYaml());
             human = gateway.All().First(x => x.Name == "human");
             dwarf = gateway.All().First(x => x.Name == "dwarf");
         }

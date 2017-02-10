@@ -12,12 +12,12 @@ namespace SilverNeedle.Characters
     using SilverNeedle.Dice;
     using SilverNeedle;
     using SilverNeedle.Characters;
-    using SilverNeedle.Yaml;
+    using SilverNeedle.Utility;
 
     /// <summary>
     /// Race yaml gateway.
     /// </summary>
-    public class RaceYamlGateway : IRaceGateway
+    public class RaceGateway : IRaceGateway
     {
         /// <summary>
         /// The race data file path.
@@ -32,21 +32,21 @@ namespace SilverNeedle.Characters
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Characters.Gateways.RaceYamlGateway"/> class.
         /// </summary>
-        public RaceYamlGateway()
+        public RaceGateway()
         {
-            var yamlFiles = DatafileLoader.Instance.GetYamlFiles(RaceDataFileType);
-            foreach(var y in yamlFiles) {
-                this.LoadFromYaml(y);
+            var dataFiles = DatafileLoader.Instance.GetDataFiles(RaceDataFileType);
+            foreach(var y in dataFiles) {
+                this.LoadObjects(y);
             }
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Characters.Gateways.RaceYamlGateway"/> class.
         /// </summary>
-        /// <param name="yaml">Yaml data.</param>
-        public RaceYamlGateway(YamlNodeWrapper yaml)
+        /// <param name="dataStore">Yaml data.</param>
+        public RaceGateway(IObjectStore dataStore)
         {
-            this.LoadFromYaml(yaml);
+            this.LoadObjects(dataStore);
         }
 
         /// <summary>
@@ -70,12 +70,12 @@ namespace SilverNeedle.Characters
         }
 
         /// <summary>
-        /// Loads from yaml.
+        /// Loads from dataStore
         /// </summary>
-        /// <param name="yaml">Yaml data to parse.</param>
-        private void LoadFromYaml(YamlNodeWrapper yaml)
+        /// <param name="dataStore">Data to parse.</param>
+        private void LoadObjects(IObjectStore dataStore)
         {
-            foreach (var raceNode in yaml.Children())
+            foreach (var raceNode in dataStore.Children)
             {
                 var race = new Race();
                 race.Name = raceNode.GetString("name"); 
@@ -84,7 +84,7 @@ namespace SilverNeedle.Characters
                 race.HeightRange = DiceStrings.ParseDice(raceNode.GetString("height"));
                 race.WeightRange = DiceStrings.ParseDice(raceNode.GetString("weight"));
 
-                var abilities = raceNode.GetNode("abilities");
+                var abilities = raceNode.GetObject("abilities");
                 foreach (var ability in abilities.ChildrenToDictionary())
                 {
                     var modifier = new AbilityScoreAdjustment();
@@ -104,15 +104,15 @@ namespace SilverNeedle.Characters
                     race.AbilityModifiers.Add(modifier);
                 }
 
-                var traits = raceNode.GetNode("traits");
-                foreach (var trait in traits.Children())
+                var traits = raceNode.GetObject("traits");
+                foreach (var trait in traits.Children)
                 {
                     race.Traits.Add(trait.Value);
                 }
 
-                var languages = raceNode.GetNode("languages");
-                race.KnownLanguages.Add(languages.GetCommaStringOptional("known"));
-                race.AvailableLanguages.Add(languages.GetCommaStringOptional("available"));
+                var languages = raceNode.GetObject("languages");
+                race.KnownLanguages.Add(languages.GetListOptional("known"));
+                race.AvailableLanguages.Add(languages.GetListOptional("available"));
 
                 // Get Speed
                 race.BaseMovementSpeed = raceNode.GetInteger("basemovementspeed");

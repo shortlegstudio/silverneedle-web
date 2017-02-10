@@ -16,7 +16,7 @@ namespace silverneedleweb.Controllers
 {
     public class CharacterController : Controller
     {
-        private CharacterBuildYamlGateway strategyGateway = new CharacterBuildYamlGateway();
+        private CharacterBuildGateway strategyGateway = new CharacterBuildGateway();
 
         public IActionResult Index()
         {
@@ -32,9 +32,9 @@ namespace silverneedleweb.Controllers
             
             var gen = new CharacterBuilder(
                 new StandardAbilityScoreGenerator(),
-                new LanguageSelector(new LanguageYamlGateway()),
-                new RaceSelector(gateways.Races, new TraitYamlGateway()),
-                new NameCharacter(new CharacterNamesYamlGateway()),
+                new LanguageSelector(new LanguageGateway()),
+                new RaceSelector(gateways.Races, new TraitGateway()),
+                new NameCharacter(new CharacterNamesGateway()),
                 new FeatSelector(gateways.Feats),
                 new GatewayProvider()
             );

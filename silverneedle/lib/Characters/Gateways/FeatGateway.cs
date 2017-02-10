@@ -7,11 +7,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using SilverNeedle;
-using SilverNeedle.Yaml;
+using SilverNeedle.Utility;
 
 namespace SilverNeedle.Characters
 {
-    public class FeatYamlGateway : IFeatGateway
+    public class FeatGateway : IFeatGateway
     {
               /// <summary>
         /// The trait data file.
@@ -20,16 +20,16 @@ namespace SilverNeedle.Characters
 
         private IList<Feat> feats = new List<Feat>();
 
-        public FeatYamlGateway()
+        public FeatGateway()
         {
-            var yamlNodes = DatafileLoader.Instance.GetYamlFiles(FeatDataFileType);
-            foreach(var y in yamlNodes) {
-                this.feats.Add(LoadFromYaml(y));
+            var objects = DatafileLoader.Instance.GetDataFiles(FeatDataFileType);
+            foreach(var y in objects) {
+                this.feats.Add(LoadObjects(y));
             }
         }
-        public FeatYamlGateway(YamlNodeWrapper yaml)
+        public FeatGateway(IObjectStore dataStore)
         {
-            feats.Add(LoadFromYaml(yaml));
+            feats.Add(LoadObjects(dataStore));
         }
 
         public IEnumerable<Feat> All()
@@ -47,10 +47,10 @@ namespace SilverNeedle.Characters
             return feats.Where(x => x.IsQualified(character));
         }
 
-        private IList<Feat> LoadFromYaml(YamlNodeWrapper yaml)
+        private IList<Feat> LoadObjects(IObjectStore yaml)
         {
             var loadedFeats = new List<Feat>();
-            foreach (var featNode in yaml.Children())
+            foreach (var featNode in yaml.Children)
             {
                 var feat = new Feat();
                 feat.Name = featNode.GetString("name"); 
@@ -58,10 +58,10 @@ namespace SilverNeedle.Characters
                 feat.Description = featNode.GetString("description");
 
                 // Get Any skill Modifiers if they exist
-                var skills = featNode.GetNodeOptional("modifiers");
+                var skills = featNode.GetObjectOptional("modifiers");
                 if (skills != null)
                 {
-                    foreach (var skillAdj in skills.Children())
+                    foreach (var skillAdj in skills.Children)
                     {
                         var skillName = skillAdj.GetString("stat");
                         var modifier = skillAdj.GetInteger("modifier");
@@ -75,13 +75,13 @@ namespace SilverNeedle.Characters
                 }
 
                 // Get any prerequisites
-                var prereq = featNode.GetNodeOptional("prerequisites");
+                var prereq = featNode.GetObjectOptional("prerequisites");
                 if (prereq != null)
                 {
                     feat.Prerequisites = new Prerequisites(prereq);
                 }
 
-                feat.Tags = featNode.GetCommaStringOptional("tags").ToList();
+                feat.Tags = featNode.GetListOptional("tags").ToList();
                 loadedFeats.Add(feat);
             }
 

@@ -1,5 +1,5 @@
 ﻿// //-----------------------------------------------------------------------
-// // <copyright file="DrawbackYamlGatewayTests.cs" company="Short Leg Studio, LLC">
+// // <copyright file="DrawbackGatewayTests.cs" company="Short Leg Studio, LLC">
 // //     Copyright (c) Short Leg Studio, LLC. All rights reserved.
 // // </copyright>
 // //-----------------------------------------------------------------------
@@ -12,12 +12,12 @@ using SilverNeedle.Yaml;
 namespace Characters
 {
     [TestFixture]
-    public class DrawbackYamlGatewayTests
+    public class DrawbackGatewayTests
     {
         [Test]
         public void MakesAllDrawbacksAvailableUponRequest()
         {
-            var gateway = new DrawbackYamlGateway(DrawbackYamlFile.ParseYaml());
+            var gateway = new DrawbackGateway(DrawbackYamlFile.ParseYaml());
             var drawbacks = gateway.GetDrawbacks().All();
             Assert.Greater(drawbacks.Count(), 0);
             Assert.IsTrue(drawbacks.Any(x => x.Option.Name == "The Future"));

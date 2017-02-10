@@ -1,5 +1,5 @@
 ﻿// //-----------------------------------------------------------------------
-// // <copyright file="HomelandYamlGateway.cs" company="Short Leg Studio, LLC">
+// // <copyright file="HomelandGateway.cs" company="Short Leg Studio, LLC">
 // //     Copyright (c) Short Leg Studio, LLC. All rights reserved.
 // // </copyright>
 // //-----------------------------------------------------------------------
@@ -8,26 +8,26 @@ using SilverNeedle.Characters;
 using System.Collections.Generic;
 using System.Linq;
 using SilverNeedle;
-using SilverNeedle.Yaml;
+using SilverNeedle.Utility;
 
 namespace SilverNeedle.Characters.Background
 {
-    public class HomelandYamlGateway : IHomelandGateway
+    public class HomelandGateway : IHomelandGateway
     {
         private const string HomelandYamlDataFileType = "homeland";
         private IList<Homeland> homelands = new List<Homeland>();
 
-        public HomelandYamlGateway()
+        public HomelandGateway()
         {
-            foreach(var y in DatafileLoader.Instance.GetYamlFiles(HomelandYamlDataFileType))
+            foreach(var y in DatafileLoader.Instance.GetDataFiles(HomelandYamlDataFileType))
             {
-                this.ParseYaml(y);
+                this.LoadObjects(y);
             }
         }
 
-        public HomelandYamlGateway(YamlNodeWrapper yaml)
+        public HomelandGateway(IObjectStore yaml)
         {
-            ParseYaml(yaml);
+            LoadObjects(yaml);
         }
 
         public WeightedOptionTable<Homeland> GetRacialOptions(string race)
@@ -41,18 +41,18 @@ namespace SilverNeedle.Characters.Background
             return table;
         }
 
-        private void ParseYaml(YamlNodeWrapper yaml)
+        private void LoadObjects(IObjectStore yaml)
         {
-            foreach (var node in yaml.Children())
+            foreach (var node in yaml.Children)
             {
-                var table = node.GetNode("table");
-                foreach (var entry in table.Children())
+                var table = node.GetObject("table");
+                foreach (var entry in table.Children)
                 {
                     var homeland = new Homeland();
                     homeland.Race = node.GetString("race");
                     homeland.Location = entry.GetString("location");
                     homeland.Weighting = entry.GetInteger("weight");
-                    homeland.Traits.Add(entry.GetCommaStringOptional("traits"));
+                    homeland.Traits.Add(entry.GetListOptional("traits"));
                     homelands.Add(homeland);
                 }
             }

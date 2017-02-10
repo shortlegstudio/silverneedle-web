@@ -9,12 +9,12 @@ namespace SilverNeedle.Characters
     using System;
     using System.Collections.Generic;
     using SilverNeedle;
-    using SilverNeedle.Yaml;
+    using SilverNeedle.Utility;
 
     /// <summary>
     /// Trait yaml gateway provides access to traits in the yaml file
     /// </summary>
-    public class TraitYamlGateway : IEntityGateway<Trait>
+    public class TraitGateway : IEntityGateway<Trait>
     {
         /// <summary>
         /// The Trait Data File
@@ -27,23 +27,23 @@ namespace SilverNeedle.Characters
         private IList<Trait> traits = new List<Trait>();
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SilverNeedle.Characters.Gateways.TraitYamlGateway"/> class.
+        /// Initializes a new instance of the <see cref="SilverNeedle.Characters.Gateways.TraitGateway"/> class.
         /// </summary>
-        public TraitYamlGateway()
+        public TraitGateway()
         {
-            foreach(var y in DatafileLoader.Instance.GetYamlFiles(TraitDataFileType))
+            foreach(var y in DatafileLoader.Instance.GetDataFiles(TraitDataFileType))
             {
-                this.LoadFromYaml(y);
+                this.LoadObjects(y);
             }
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Characters.Gateways.TraitYamlGateway"/> class.
         /// </summary>
-        /// <param name="yaml">Yaml to parse.</param>
-        public TraitYamlGateway(YamlNodeWrapper yaml)
+        /// <param name="dataStore">Yaml to parse.</param>
+        public TraitGateway(IObjectStore dataStore)
         {
-            this.LoadFromYaml(yaml);
+            this.LoadObjects(dataStore);
         }
 
         /// <summary>
@@ -56,21 +56,21 @@ namespace SilverNeedle.Characters
         }
 
         /// <summary>
-        /// Loads from yaml.
+        /// Loads from data store.
         /// </summary>
-        /// <param name="yaml">Yaml node to load from</param>
-        private void LoadFromYaml(YamlNodeWrapper yaml)
+        /// <param name="dataStore">Data store to load from</param>
+        private void LoadObjects(IObjectStore dataStore)
         {
-            foreach (var traitNode in yaml.Children())
+            foreach (var traitNode in dataStore.Children)
             {
                 var trait = new Trait();
                 trait.Name = traitNode.GetString("name"); 
                 ShortLog.Debug("Loading Trait: " + trait.Name);
                 trait.Description = traitNode.GetString("description");
-                trait.Tags.Add(traitNode.GetCommaStringOptional("tags"));
+                trait.Tags.Add(traitNode.GetListOptional("tags"));
 
                 // Get Any skill Modifiers if they exist
-                var modifiers = traitNode.GetNodeOptional("modifiers");
+                var modifiers = traitNode.GetObjectOptional("modifiers");
                 if (modifiers != null)
                 {
                     var mods = ParseStatModifiersYaml.ParseYaml(modifiers, string.Format("{0} (trait)", trait.Name));
@@ -81,10 +81,10 @@ namespace SilverNeedle.Characters
                 }
 
                 // Get any special abilities
-                var abilities = traitNode.GetNodeOptional("special");
+                var abilities = traitNode.GetObjectOptional("special");
                 if (abilities != null)
                 {
-                    foreach (var spec in abilities.Children())
+                    foreach (var spec in abilities.Children)
                     {
                         var specialAbility = new SpecialAbility(
                                                  spec.GetString("condition"),

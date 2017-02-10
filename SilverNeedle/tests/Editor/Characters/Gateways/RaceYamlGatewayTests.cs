@@ -16,7 +16,7 @@ namespace Characters {
 
 		[SetUp]
 		public void SetUp() {
-			var repository = new RaceYamlGateway (RaceYamlFile.ParseYaml());
+			var repository = new RaceGateway (RaceYamlFile.ParseYaml());
 			var races = repository.All ();
 			dwarf = races.First (x => x.Name == "Dwarf");
 			elf = races.First (x => x.Name == "Elf");

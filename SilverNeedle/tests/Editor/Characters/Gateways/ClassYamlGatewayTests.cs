@@ -11,7 +11,7 @@ namespace Characters
     [TestFixture]
     public class ClassYamlGatewayTests
     {
-        ClassYamlGateway gateway;
+        ClassGateway gateway;
         Class Fighter;
         Class Monk;
         Class Wizard;
@@ -19,7 +19,7 @@ namespace Characters
         [SetUp]
         public void SetUp()
         {
-            gateway = new ClassYamlGateway(ClassYamlFile.ParseYaml());
+            gateway = new ClassGateway(ClassYamlFile.ParseYaml());
             var classes = gateway.All();
 
             Fighter = classes.First(x => x.Name == "Fighter");

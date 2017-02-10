@@ -13,7 +13,7 @@ namespace Characters {
 		[Test]
 		public void ParseSomeYaml() {
 			var yamlNode = PrerequisitesYaml.ParseYaml();
-			var prereq = yamlNode.GetNode ("prerequisites");
+			var prereq = yamlNode.GetObject ("prerequisites");
 
 			var prereqs = new Prerequisites (prereq);
 

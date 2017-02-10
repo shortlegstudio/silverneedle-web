@@ -11,13 +11,13 @@ namespace Characters
     using SilverNeedle.Yaml;
 
     [TestFixture]
-    public class CharacterBuildYamlGatewayTests
+    public class CharacterBuildGatewayTests
     {
-        CharacterBuildYamlGateway gateway;
+        CharacterBuildGateway gateway;
         [SetUp]
         public void SetUp()
         {
-            gateway = new CharacterBuildYamlGateway(CharacterBuildYaml.ParseYaml()); 
+            gateway = new CharacterBuildGateway(CharacterBuildYaml.ParseYaml()); 
         }
 
         [Test]

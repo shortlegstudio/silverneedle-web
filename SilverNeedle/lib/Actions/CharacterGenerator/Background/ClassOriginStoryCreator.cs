@@ -10,9 +10,9 @@ namespace SilverNeedle.Actions.CharacterGenerator.Background
 {
     public class ClassOriginStoryCreator
     {
-        IClassOriginYamlGateway classOrigins;
+        IClassOriginGateway classOrigins;
 
-        public ClassOriginStoryCreator(IClassOriginYamlGateway classOrigins)
+        public ClassOriginStoryCreator(IClassOriginGateway classOrigins)
         {
             this.classOrigins = classOrigins;
         }

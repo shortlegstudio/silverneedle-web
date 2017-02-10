@@ -1,5 +1,5 @@
 ﻿// //-----------------------------------------------------------------------
-// // <copyright file="HomelandYamlGatewayTests.cs" company="Short Leg Studio, LLC">
+// // <copyright file="HomelandGatewayTests.cs" company="Short Leg Studio, LLC">
 // //     Copyright (c) Short Leg Studio, LLC. All rights reserved.
 // // </copyright>
 // //-----------------------------------------------------------------------
@@ -12,13 +12,13 @@ using SilverNeedle.Yaml;
 namespace Characters
 {
     [TestFixture]
-    public class HomelandYamlGatewayTests
+    public class HomelandGatewayTests
     {
 
         [Test]
         public void LoadsUpHomelandFromYamlFileWithExpectedAttributes()
         {
-            var gateway = new HomelandYamlGateway(HomelandYamlFile.ParseYaml());
+            var gateway = new HomelandGateway(HomelandYamlFile.ParseYaml());
             var dwarfTable = gateway.GetRacialOptions("dwarf");
             Assert.AreEqual(3, dwarfTable.All().Count());
             var mountain = dwarfTable.All().First().Option;
@@ -31,7 +31,7 @@ namespace Characters
         [Test]
         public void IsCaseInsensitiveOnRaceNames()
         {
-            var gateway = new HomelandYamlGateway(HomelandYamlFile.ParseYaml());
+            var gateway = new HomelandGateway(HomelandYamlFile.ParseYaml());
             var dwarfTable = gateway.GetRacialOptions("Human");
             Assert.AreEqual(2, dwarfTable.All().Count());
         }

@@ -30,14 +30,14 @@ namespace SilverNeedle
         public IFeatGateway Feats { get; set; }
 
         public void SetAllYaml() {
-            Armors = new ArmorYamlGateway();
-            Weapons = new WeaponYamlGateway();
-            Skills = new SkillYamlGateway();
-            Classes = new ClassYamlGateway();
-            Maturity = new RaceMaturityYamlGateway();
-            Races = new RaceYamlGateway();
-            Names = new CharacterNamesYamlGateway();
-            Feats = new FeatYamlGateway();
+            Armors = new ArmorGateway();
+            Weapons = new WeaponGateway();
+            Skills = new SkillGateway();
+            Classes = new ClassGateway();
+            Maturity = new RaceMaturityGateway();
+            Races = new RaceGateway();
+            Names = new CharacterNamesGateway();
+            Feats = new FeatGateway();
         }
     }
 }

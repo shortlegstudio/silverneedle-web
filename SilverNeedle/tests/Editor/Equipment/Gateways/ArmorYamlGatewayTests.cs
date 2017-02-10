@@ -11,11 +11,11 @@ namespace Equipment {
 	[TestFixture]
 	public class ArmorYamlGatewayTests
 	{
-		ArmorYamlGateway gateway;
+		ArmorGateway gateway;
 
 		[SetUp]
 		public void ReadArmorYamlString() {
-			gateway = new ArmorYamlGateway (ArmorYamlFile.ParseYaml ());
+			gateway = new ArmorGateway (ArmorYamlFile.ParseYaml ());
 		}
 			
 		[Test]

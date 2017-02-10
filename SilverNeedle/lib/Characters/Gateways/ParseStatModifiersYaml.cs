@@ -6,7 +6,7 @@
 namespace SilverNeedle.Characters
 {
     using System.Collections.Generic;
-    using SilverNeedle.Yaml;
+    using SilverNeedle.Utility;
 
     /// <summary>
     /// Parse stat modifiers yaml.
@@ -19,11 +19,11 @@ namespace SilverNeedle.Characters
         /// <returns>The yaml.</returns>
         /// <param name="modifierNode">Modifier node.</param>
         /// <param name="source">Source of the modifier.</param>
-        public static IList<BasicStatModifier> ParseYaml(YamlNodeWrapper modifierNode, string source)
+        public static IList<BasicStatModifier> ParseYaml(IObjectStore modifierNode, string source)
         {
             IList<BasicStatModifier> modifiers = new List<BasicStatModifier>();
 
-            foreach (var mod in modifierNode.Children())
+            foreach (var mod in modifierNode.Children)
             {
                 var statName = mod.GetString("stat");
                 var amount = mod.GetInteger("modifier");

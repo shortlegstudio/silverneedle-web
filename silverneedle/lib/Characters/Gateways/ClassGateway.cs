@@ -10,12 +10,12 @@ namespace SilverNeedle.Characters
     using System.Linq;
     using SilverNeedle;
     using SilverNeedle.Dice;
-    using SilverNeedle.Yaml;
+    using SilverNeedle.Utility;
 
     /// <summary>
     /// Class yaml gateway.
     /// </summary>
-    public class ClassYamlGateway : IClassGateway
+    public class ClassGateway : IClassGateway
     {
         /// <summary>
         /// The yaml file holding class data
@@ -31,20 +31,20 @@ namespace SilverNeedle.Characters
         /// Initializes a new instance of the <see cref="SilverNeedle.Characters.Gateways.ClassYamlGateway"/> class.
         /// </summary>
         /// <param name="yaml">Yaml data.</param>
-        public ClassYamlGateway(YamlNodeWrapper yaml)
+        public ClassGateway(IObjectStore dataStore)
         {
-            this.classes.Add(LoadFromYaml(yaml));
+            this.classes.Add(LoadObjects(dataStore));
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Characters.Gateways.ClassYamlGateway"/> class.
         /// </summary>
-        public ClassYamlGateway()
+        public ClassGateway()
         {
             // Use DatafileLoader to get all class files;
-            var yamlNodes = DatafileLoader.Instance.GetYamlFiles(ClassDataFileType);
+            var yamlNodes = DatafileLoader.Instance.GetDataFiles(ClassDataFileType);
             foreach(var y in yamlNodes) {
-                this.classes.Add(LoadFromYaml(y));
+                this.classes.Add(LoadObjects(y));
             }
         }
 
@@ -69,11 +69,11 @@ namespace SilverNeedle.Characters
         /// </summary>
         /// <returns>The from yaml.</returns>
         /// <param name="yaml">Yaml data to load from.</param>
-        private IList<Class> LoadFromYaml(YamlNodeWrapper yaml)
+        private IList<Class> LoadObjects(IObjectStore yaml)
         {
             var classes = new List<Class>();
 
-            foreach (var node in yaml.Children())
+            foreach (var node in yaml.Children)
             {
                 var cls = new Class();
                 cls.Name = node.GetString("name"); 
@@ -86,24 +86,24 @@ namespace SilverNeedle.Characters
                 cls.WillSaveRate = node.GetFloat("will");
                 cls.ClassDevelopmentAge = node.GetEnum<ClassDevelopmentAge>("developedage");
 
-                var armor = node.GetCommaStringOptional("armorproficiencies");
+                var armor = node.GetListOptional("armorproficiencies");
                 cls.ArmorProficiencies.Add(armor);
 
-                var weapons = node.GetCommaStringOptional("weaponproficiencies");
+                var weapons = node.GetListOptional("weaponproficiencies");
                 cls.WeaponProficiencies.Add(weapons);
 
                 // Get the Skills for this class
-                var skills = node.GetNode("skills").Children();
+                var skills = node.GetObject("skills").Children;
                 foreach (var s in skills)
                 {
                     cls.AddClassSkill(s.Value);
                 }
 
                 //Load Levels
-                var levels = node.GetNodeOptional("levels");
+                var levels = node.GetObjectOptional("levels");
                 if (levels != null)
                 {
-                    foreach(var l in levels.Children()) 
+                    foreach(var l in levels.Children)
                     {
                         var level = new Level(l);
                         cls.Levels.Add(level);
