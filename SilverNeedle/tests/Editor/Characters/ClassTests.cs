@@ -1,11 +1,5 @@
-﻿using System.Linq;
-using System.IO;
-using NUnit.Framework;
-using SilverNeedle;
-using SilverNeedle.Dice;
+﻿using NUnit.Framework;
 using SilverNeedle.Characters;
-using YamlDotNet.RepresentationModel;
-using System.Text;
 
 
 namespace Characters {

@@ -9,7 +9,7 @@ using SilverNeedle.Yaml;
 namespace Equipment {
 
 	[TestFixture]
-	public class WeaponYamlGatewayTests {
+	public class WeaponGatewayTests {
 		[Test]
 		public void AllImportantStatsForALongSwordAreAvailable() {
 			var repo = new WeaponGateway (WeaponYamlFile.ParseYaml());

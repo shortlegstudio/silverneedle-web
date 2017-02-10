@@ -14,7 +14,7 @@ using SilverNeedle.Yaml;
 namespace Characters {
 
     [TestFixture]
-    public class RaceMaturityYamlGatewayTests {
+    public class RaceMaturityGatewayTests {
         Maturity human;
         Maturity dwarf;
         RaceMaturityGateway gateway;

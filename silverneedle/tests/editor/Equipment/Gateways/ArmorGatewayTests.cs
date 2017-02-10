@@ -9,7 +9,7 @@ using SilverNeedle.Yaml;
 
 namespace Equipment {
 	[TestFixture]
-	public class ArmorYamlGatewayTests
+	public class ArmorGatewayTests
 	{
 		ArmorGateway gateway;
 

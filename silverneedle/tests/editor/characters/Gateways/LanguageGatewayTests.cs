@@ -7,7 +7,7 @@ using SilverNeedle.Yaml;
 
 namespace Characters {
 	[TestFixture]
-	public class LanguageYamlGatewayTests
+	public class LanguageGatewayTests
 	{
 		[Test]
 		public void ParseTheYamlFile() {

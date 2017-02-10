@@ -8,7 +8,7 @@ using SilverNeedle.Yaml;
 namespace Characters {
 
 	[TestFixture]
-	public class RaceYamlGatewayTests {
+	public class RaceGatewayTests {
 		Race dwarf;
 		Race elf;
 		Race halfling;

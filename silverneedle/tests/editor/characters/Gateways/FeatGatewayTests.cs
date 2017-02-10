@@ -11,7 +11,7 @@ namespace Characters
     using SilverNeedle.Yaml;
 
     [TestFixture]
-    public class FeatYamlGatewayTests {
+    public class FeatGatewayTests {
         Feat Acrobatic;
         Feat CombatExpertise;
         Feat PowerAttack;

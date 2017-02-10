@@ -1,9 +1,6 @@
-﻿using System.Linq;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using NUnit.Framework;
-using SilverNeedle;
 using SilverNeedle.Characters;
-using SilverNeedle.Yaml;
 
 namespace Characters {
 

@@ -1,14 +1,12 @@
-﻿using System;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using System.Linq;
-using SilverNeedle;
 using SilverNeedle.Characters;
 using SilverNeedle.Yaml;
 
 namespace Characters {
 
 	[TestFixture]
-	public class SkillYamlGatewayTests {
+	public class SkillGatewayTests {
 		Skill Acrobatics;
 		Skill Bluff;
 		Skill DisableDevice;

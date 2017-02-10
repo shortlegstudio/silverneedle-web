@@ -7,7 +7,7 @@ using SilverNeedle.Yaml;
 
 namespace Characters {
 	[TestFixture]
-	public class TraitYamlGatewayTests {
+	public class TraitGatewayTests {
 		Trait darkvision;
 		Trait hardy;
 		Trait halflingLuck;
