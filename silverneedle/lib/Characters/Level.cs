@@ -10,11 +10,11 @@ namespace SilverNeedle.Characters
         public IList<BasicStatModifier> Modifiers { get; private set; }
         public int Number { get; private set; }
 
-        public Level(IObjectStore yaml)
+        public Level(IObjectStore objectStore)
         {
             SpecialAbilities = new List<SpecialAbility>();
             Modifiers = new List<BasicStatModifier>();
-            Load(yaml);
+            Load(objectStore);
         }
 
         public Level(int number, IEnumerable<LevelAbility> abilities) : this(number)
@@ -31,10 +31,10 @@ namespace SilverNeedle.Characters
             Number = number;
         }
 
-        private void Load(IObjectStore yaml)
+        private void Load(IObjectStore objectStore)
         {
-            Number = yaml.GetInteger("level");
-            var specials = yaml.GetObjectOptional("special");
+            Number = objectStore.GetInteger("level");
+            var specials = objectStore.GetObjectOptional("special");
             if (specials != null)
             {
                 foreach(var s in specials.Children)
@@ -60,7 +60,7 @@ namespace SilverNeedle.Characters
             }
 
             //Verbose and probably could be simplified
-            var modifiers = yaml.GetObjectOptional("modifiers");
+            var modifiers = objectStore.GetObjectOptional("modifiers");
             if (modifiers != null)
             {
                 var mods = ParseStatModifiersYaml.ParseYaml(modifiers, string.Format("Level ({0})", Number));
