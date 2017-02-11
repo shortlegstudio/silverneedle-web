@@ -69,9 +69,8 @@
       "Areas/**/Views",
       "appsettings.json",
       "web.config",
-      "SilverNeedle/Data"
-    ],
-    "includeFiles": "SilverNeedle/Data/Names.yml"
+      "SilverNeedle/data"
+    ]
   },
 
   "scripts": {
