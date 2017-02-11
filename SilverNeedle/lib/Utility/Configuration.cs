@@ -4,7 +4,7 @@ namespace SilverNeedle
     {
         static Configuration() 
         {
-            DataPath = "./SilverNeedle/Data";
+            DataPath = "./SilverNeedle/data";
         }
 
         public static string DataPath { get; set; }
