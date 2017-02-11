@@ -70,7 +70,8 @@
       "appsettings.json",
       "web.config",
       "SilverNeedle/Data"
-    ]
+    ],
+    "includeFiles": "SilverNeedle/Data/Names.yml"
   },
 
   "scripts": {
