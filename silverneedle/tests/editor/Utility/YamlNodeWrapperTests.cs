@@ -12,11 +12,10 @@ namespace Yaml
         public void ProvidesAListOfKeysForNode()
         {
             string demo = @"---
-object: 
-  node1: value
-  node2: value
-  node3: value
-  node4: value
+node1: value
+node2: value
+node3: value
+node4: value
 ...";
             IObjectStore y = demo.ParseYaml();
             Assert.AreEqual(4, y.Keys.Count());

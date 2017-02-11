@@ -261,7 +261,7 @@ namespace SilverNeedle.Yaml
         {
             get
             {
-                return this.Children.Select(x => x.Key);
+                return this.mappingNode.Children.Select(x => x.Key.ToString());
             }
         }
 
