@@ -71,7 +71,7 @@
       special:
         - name: Armor Training 2
           type: Armor Training
-          implementation: ArmorTraining          
+          implementation: SilverNeedle.Characters.ArmorTraining          
           level: 2
           condition:
     - level: 8
@@ -100,7 +100,7 @@
       special:
         - name: Armor Training 3
           type: Armor Training
-          implementation: ArmorTraining          
+          implementation: SilverNeedle.Characters.ArmorTraining          
           level: 3
           condition:
     - level: 12
@@ -129,7 +129,7 @@
       special:
         - name: Armor Training 4
           type: Armor Training
-          implementation: ArmorTraining
+          implementation: SilverNeedle.Characters.ArmorTraining
           level: 4
           condition:
     - level: 16

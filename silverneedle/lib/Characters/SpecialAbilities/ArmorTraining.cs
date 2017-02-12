@@ -1,6 +1,7 @@
 namespace SilverNeedle.Characters
 {
     using SilverNeedle.Equipment;
+    using SilverNeedle.Utility;
 
     /// <summary>
     /// Provides the ability to move at full speed with heavier armors and 
@@ -12,10 +13,12 @@ namespace SilverNeedle.Characters
         {
         }
 
-        public ArmorTraining(int level)
+        public ArmorTraining(IObjectStore data) : base(data)
         {
-            Level = level;
+            Level = data.GetInteger("level");
         }
+
+        
 
 
         public int GetMaximumDexterityBonus(Armor armor)

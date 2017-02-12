@@ -1,6 +1,7 @@
 namespace SilverNeedle.Characters
 {
     using System;
+    using SilverNeedle.Utility;
 
     public class LevelAbility : SpecialAbility
     {
@@ -11,20 +12,21 @@ namespace SilverNeedle.Characters
             Name = name;
         }
 
+        public LevelAbility(IObjectStore data)
+        {
+            this.Type = data.GetString("type");
+            this.Condition = data.GetStringOptional("condition");
+            this.Name = data.GetString("name");
+        }
+
         public LevelAbility()
         {
 
         }
 
-        public static LevelAbility InstatiateFromType(string typeName, string name, string condition, string type, int level)
+        public static LevelAbility InstatiateFromType(string typeName, IObjectStore data)
         {
-            var a = Activator.CreateInstance(System.Type.GetType(typeName));
-            var ability = (LevelAbility)a;
-            ability.Name = name;
-            ability.Condition = condition;
-            ability.Type = type;
-            ability.Level = level;
-            return a as LevelAbility;
+            return Activator.CreateInstance(System.Type.GetType(typeName), data) as LevelAbility;
         }
     }
 }
