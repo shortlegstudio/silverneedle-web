@@ -25,29 +25,7 @@ namespace SilverNeedle.Characters
             : base()
         {
             this.abilities = abilities;
-            this.abilities.Modified += this.AbilityModified;
-            this.UpdateInitiative();
-        }
-
-        /// <summary>
-        /// Abilitieses the modified.
-        /// </summary>
-        /// <param name="sender">Sender of the event.</param>
-        /// <param name="args">Arguments that modified the ability</param>
-        private void AbilityModified(object sender, AbilityModifiedEventArgs args)
-        {
-            if (args.Ability.Name == AbilityScoreTypes.Dexterity)
-            {
-                this.UpdateInitiative();
-            }
-        }
-
-        /// <summary>
-        /// Updates the initiative.
-        /// </summary>
-        private void UpdateInitiative()
-        {
-            this.SetValue(this.abilities.GetModifier(AbilityScoreTypes.Dexterity));
+            this.AddModifier(new AbilityStatModifier(abilities.GetAbility(AbilityScoreTypes.Dexterity)));
         }
     }
 }
