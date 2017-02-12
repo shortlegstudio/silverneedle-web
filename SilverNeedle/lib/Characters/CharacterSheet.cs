@@ -201,10 +201,11 @@ namespace SilverNeedle.Characters
         {
             // TODO: Offense and defense have very different behaviors
             this.Class = cls;
-            this.Offense.BaseAttackBonus.SetValue(this.CalculateCurrentBaseAttackBonus());
-
+            
             // Add Weapon Proficiencies
             this.Offense.AddWeaponProficiencies(cls.WeaponProficiencies);
+
+            this.Offense.LevelUp(cls);
 
             // Add Armor Proficiencies
             this.Defense.AddArmorProficiencies(cls.ArmorProficiencies);
@@ -367,15 +368,6 @@ namespace SilverNeedle.Characters
 
             }
 
-        }
-
-        /// <summary>
-        /// Gets the current base attack bonus. TODO: This should move to OffenseStats or to a mechanic
-        /// </summary>
-        /// <returns>The current base attack bonus.</returns>
-        private int CalculateCurrentBaseAttackBonus()
-        {
-            return (int)Class.BaseAttackBonusRate * this.Level;
         }
     }
 }

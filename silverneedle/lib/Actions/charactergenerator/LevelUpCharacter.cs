@@ -49,7 +49,8 @@ namespace SilverNeedle.Actions.CharacterGenerator
         public void LevelUp(CharacterSheet character)
         {
             character.SetLevel(character.Level + 1);
-            this.hitPointGenerator.AddLevelUpHitPoints(character);            
+            this.hitPointGenerator.AddLevelUpHitPoints(character);
+            character.Offense.LevelUp(character.Class);            
             character.Defense.LevelUpDefenseStats(character.Class);
             AddSpecialAbilities(character, character.Class.GetLevel(character.Level));
 

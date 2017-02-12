@@ -241,6 +241,11 @@ namespace SilverNeedle.Characters
             return attacks;
         }
 
+        public void LevelUp(Class characterClass)
+        {
+            BaseAttackBonus.AddModifier(new BasicStatModifier(characterClass.BaseAttackBonusRate, string.Format("{0} Level", characterClass.Name)));            
+        }
+
         private AttackStatistic CreateAttack(AttackTypes attackType, Weapon weapon) 
         {
             var atk = new AttackStatistic();

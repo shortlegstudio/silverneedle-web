@@ -144,6 +144,17 @@ namespace Characters {
             Assert.Greater(smallStats.OffensiveAbilities.Count(), 0);
         }
 
+        [Test]
+        public void LevelsUpCombatStatsBasedOnClass()
+        {
+            var cls = new Class();
+            cls.BaseAttackBonusRate = 1;
+            smallStats.LevelUp(cls);
+            Assert.AreEqual(1, smallStats.BaseAttackBonus.TotalValue);
+            smallStats.LevelUp(cls);
+            Assert.AreEqual(2, smallStats.BaseAttackBonus.TotalValue);            
+        }
+
 		private Weapon Longsword() {
 			return new Weapon("Longsword", 0, "1d8", DamageTypes.Slashing, 19, 2, 0, WeaponType.OneHanded, WeaponGroup.HeavyBlades, WeaponTrainingLevel.Martial);
 		}

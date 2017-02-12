@@ -71,5 +71,34 @@ namespace Actions {
             levelUp.LevelUp(character);
             Assert.AreEqual(1, character.FeatTokens.Count);
 		}
+
+        [Test]
+        public void IncreasesBaseAttackBonus() {
+            var levelUp = new LevelUpCharacter(new HitPointRoller());
+            var level = new Level(2);
+            character.Class.BaseAttackBonusRate = 1;
+            Assert.AreEqual(0, character.Offense.BaseAttackBonus.TotalValue);
+            levelUp.LevelUp(character);
+            Assert.AreEqual(1, character.Offense.BaseAttackBonus.TotalValue);
+        }
+
+        [Test]
+        public void IncreasesSavingsThrowsOnLevelUp()
+        {
+            character.Class.WillSaveRate = 1;
+            character.Class.FortitudeSaveRate = 1;
+            character.Class.ReflexSaveRate = 1;
+            Assert.AreEqual(0, character.Defense.WillSave.TotalValue);
+            Assert.AreEqual(0, character.Defense.ReflexSave.TotalValue);
+            Assert.AreEqual(0, character.Defense.FortitudeSave.TotalValue);
+            
+            
+            var levelUp = new LevelUpCharacter(new HitPointRoller());
+            var level = new Level(2);
+            levelUp.LevelUp(character);
+            Assert.AreEqual(1, character.Defense.WillSave.TotalValue);
+            Assert.AreEqual(1, character.Defense.ReflexSave.TotalValue);
+            Assert.AreEqual(1, character.Defense.FortitudeSave.TotalValue);
+        }
 	}
 }
