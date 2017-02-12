@@ -1,4 +1,28 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-<a asp-area="" asp-controller="Character" asp-action="Character" class="btn">Create Character</a>
+<div class="row">
+<h1>Silver Needle RPG Helper</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-4 text-center">
+        Generate a bunch of names to choose from. This will generate a few names
+        for all races available in Silver Needle at this time.
+        <br />
+        <a asp-area="" asp-controller="Names" asp-action="Index" class="btn btn-lg btn-default align-center" role="button">Name Generator</a>
+    </div>
+    <div class="col-md-4 text-center">
+        The simple character generator will becoming soon. It will provide 
+        general likes, dislikes and appearances for your characters.
+        <br />
+        <a asp-area="" asp-controller="Character" asp-action="Character" class="btn btn-lg btn-default disabled" role="button">Coming Soon</a>
+    </div>
+    <div class="col-md-4 text-center">
+        The advanced character generator makes very robust and detailed characters
+        for filling out the world or when needed because the party went crazy
+        and attacked a bunch of people that was not really expected to happen.
+        <br />
+        <a asp-area="" asp-controller="Character" asp-action="Character" class="btn btn-lg btn-default" role="button">Advanced Character</a>
+    </div>
+</div>

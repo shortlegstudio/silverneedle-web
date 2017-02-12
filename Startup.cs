@@ -53,7 +53,7 @@ namespace silverneedleweb
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Character}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
