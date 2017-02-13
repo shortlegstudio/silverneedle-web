@@ -5,6 +5,7 @@
 }
 <div class="container-fluid">
 <h1>Names</h1>
+ <a asp-area="" asp-controller="Names" asp-action="Index" class="btn btn-lg btn-primary pull-right" role="button">Regenerate</a>
 
 @foreach(var category in names){
     @if(lastRace != category.Race) 
