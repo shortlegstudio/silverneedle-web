@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/shortlegstudio/silverneedle-web.svg?branch=master)](https://travis-ci.org/shortlegstudio/silverneedle-web)
 # Character Generator
 This is an NPC generator that utilizes various strategies and weightings in 
 order to create characters that might make sense. These are currently loosely 
