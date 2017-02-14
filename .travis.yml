@@ -4,4 +4,9 @@ sudo: required
 mono: none
 dotnet: 1.0.0-preview2-1-003177
 script:
-    - ./build.sh --quiet verify
+- "./build.sh --quiet verify"
+deploy:
+  provider: heroku
+  app: silverneedle
+  api_key:
+    secure: e7OEMV9sLiNoN+jy9cKd1AfgPwZVU6ahoqDfeHf2X3cpezTJrnknWvwO54Q+5YH2mUCWOAToEwGQyyRDw3T7ijKFLjg7JTomJlTkfAyRr+cENlFrWJGrDBaPK8tUgALt4hy6SD1gIi5CU4SrvJZOsgPvLlikvfpNjS3agjdu8XqhoPM98YdRhwoTJVFaLcpjEf0BSP4fAynqb9c1FellEbZ5SabQu0JbX/cQD+ND/HBGmyKcWcPy8O9onh2VI+zkx8r/YeCRpLbIYyDSCYwwNR9opiQlYN36/vS1HiUiab0cKLDgHUfHjNkehmSZyxN9tvoSOMgbHUK+OqZccEEwj5IKqyK1Bly5ElwgHe3Zxoj6kztkxnqiBHad9Sbzg7tdaQFrc75glJejfUqEG2WbKWSdPqyJaA0DejyVTAAoayT/KQ9aJdjwWAjLnw0lH2fEhs0QDk8G+1o3hHiiMXXslAMRlxI7KmiV0xNAJnpA2ra02uBDHiiLLyWCdBAfWQV8TqqMZn0P9avdXW9ibIqO+/0J2iW1oCK8c8fVNA9+1euQyuZC+nu0X0sHNRBxdSjX0CDrNA9ZrntrGpivC12KVr/AC7tP7bi7J5ztvB+a8gFM5oSD0oQq487CHA/JuvaM1UGJhWz8OsSfhrIVPVLkWrymQHyEE1g/OxtU5MtZqA8=
