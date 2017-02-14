@@ -117,7 +117,7 @@ namespace SilverNeedle.Yaml
 
         public bool HasKey(string node) 
         {
-            return GetObjectOptional(node) != null;
+            return Keys.Any(x => x == node);
         }
 
         /// <summary>
@@ -291,15 +291,11 @@ namespace SilverNeedle.Yaml
         /// <param name="key">Key to lookup in YAML node</param>
         public IObjectStore GetObjectOptional(string key)
         {
-            try
-            {
-                var item = this.mappingNode.Children[new YamlScalarNode(key)];
-                return new YamlNodeWrapper(item);
-            }
-            catch (KeyNotFoundException)
-            {
+            if (!HasKey(key))
                 return null;
-            }
+                
+            var item = this.mappingNode.Children[new YamlScalarNode(key)];
+            return new YamlNodeWrapper(item);        
         }
 
         /// <summary>
