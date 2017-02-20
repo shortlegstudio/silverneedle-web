@@ -18,5 +18,6 @@ namespace SilverNeedle
         /// </summary>
         /// <returns>Enumerable collection of the entities</returns>
         IEnumerable<T> All();
+        
     }
 }
