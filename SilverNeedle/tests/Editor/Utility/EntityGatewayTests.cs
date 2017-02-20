@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using SilverNeedle.Utility;
 using System.Linq;
+using SilverNeedle.Characters;
 
 namespace Utility {
 
@@ -26,6 +27,13 @@ namespace Utility {
             var all = g.All();
             Assert.AreEqual(1, g.Where(x => x.Name == "prop1").Count());
             Assert.AreEqual(1, g.Where(x => x.Name == "prop2").Count());
+        }
+
+        [Test]
+        public void LoadsDirectlyFromDatafileLoaderByDefault()
+        {
+            var gateway = new EntityGateway<PersonalityType>();
+            Assert.Greater(gateway.All().Count(), 0);
         }
 
         public class TestObject {

@@ -67,6 +67,7 @@ namespace SilverNeedle.Characters
             ClassOrigin = character.History.ClassOriginStory.Name;
             Drawback = character.History.Drawback.Name;
             Homeland = character.History.Homeland.Location;
+            Personality = character.PersonalityType.Descriptors.ToArray();
         }
 
         public string Name { get; private set; }
@@ -120,6 +121,9 @@ namespace SilverNeedle.Characters
         public string ClassOrigin { get; private set; }
         public string Drawback { get; private set; }
         public string Homeland { get; private set; }
+
+        public string[] Personality { get; private set; }
+
         private string FormatSenses(CharacterSheet character)
         {
             string senses = string.Join(

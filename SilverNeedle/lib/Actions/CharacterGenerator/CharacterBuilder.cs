@@ -93,6 +93,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
             this.CreateName(character);
             this.ChooseLanguages(character);
             this.GenerateHistory(character);
+            this.CreatePersonality(character, strategy);
             
 
             // Choose the class
@@ -245,6 +246,12 @@ namespace SilverNeedle.Actions.CharacterGenerator
         {
             var abilityAssigner = new AbilityPointAssigner();
             abilityAssigner.AssignByStrategy(character, strategy.FavoredAbilities);
+        }
+
+        private void CreatePersonality(CharacterSheet character, CharacterBuildStrategy strategy)
+        {
+            var builder = new PersonalityBuilder();
+            builder.Random(character);
         }
     }
 }

@@ -21,5 +21,16 @@ namespace Utility
             var files = datafileLoader.GetDataFiles("armor");
             Assert.Greater(files.Count(), 0);
         }
+
+        [Test]
+        public void CanFindFilesOfSpecificObjectType()
+        {
+            //TODO: It's a bad test because it's dependent on data files. 
+            // On the otherhand it also ensures some data files
+            var datafileLoader = new DatafileLoader();
+            var files = datafileLoader.GetDataFiles<SilverNeedle.Characters.PersonalityType>();
+            Assert.Greater(files.Count(), 0);
+
+        }
     }
 }

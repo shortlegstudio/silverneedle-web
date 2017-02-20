@@ -43,7 +43,8 @@ namespace silverneedleweb.Controllers
 
             var character = gen.GenerateCharacter(build, level);
             ViewData["character"] = new CharacterSheetTextView(character);
-            
+            ViewData["strategy"] = strategy;
+            ViewData["level"] = level;
             return View();
         }
 

@@ -6,6 +6,7 @@
 namespace SilverNeedle
 {
     using System;
+    using System.Linq;
     using System.Text.RegularExpressions;
     using Inflector;
 
@@ -29,9 +30,15 @@ namespace SilverNeedle
             return string.Equals(source, compare, StringComparison.OrdinalIgnoreCase);
         }
 
+        /// <summary>
+        /// Parses by new line and comma, trims resulting strings.
+        /// </summary>
+        /// <param name="source"></param>
+        /// <returns></returns>
         public static string[] ParseList(this string source)
         {
-            return Regex.Split(source, "[\\n ,]+");
+            var array = Regex.Split(source, "[\\n,]+");
+            return array.Select(x => x.Trim()).ToArray();
         }
     }
 }

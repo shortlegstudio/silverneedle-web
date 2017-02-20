@@ -30,6 +30,20 @@ namespace SilverNeedle.Utility
             LoadObjects(data);
         }
 
+        public EntityGateway() 
+        {
+            dataStore = new List<T>();
+            objectType = typeof(T);
+            var files = DatafileLoader.Instance.GetDataFiles<T>();
+            foreach(var f in files)
+            {
+                //NOTE: Root of a data file is the file itself not the objects contained
+                //Kind of a tricky distinction, probably need a different data type
+                //in the future
+                LoadObjects(f.Children);
+            }
+        }
+
         private void LoadObjects(IEnumerable<IObjectStore> data)
         {
             foreach(var d in data) {

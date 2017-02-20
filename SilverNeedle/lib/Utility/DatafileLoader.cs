@@ -5,6 +5,7 @@
 
 namespace SilverNeedle
 {
+    using System;
     using System.Collections.Generic;
     using SilverNeedle.Utility;
     using SilverNeedle.Yaml;
@@ -35,6 +36,12 @@ namespace SilverNeedle
         public IEnumerable<IObjectStore> GetDataFiles(string datafileType)
         {
             return fileListMap[datafileType];
+        }
+
+        public IEnumerable<IObjectStore> GetDataFiles<T>()
+        {
+            var type = typeof(T);
+            return fileListMap[type.FullName];
         }
 
         private void LoadDataDirectory() 

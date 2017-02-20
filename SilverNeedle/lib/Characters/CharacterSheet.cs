@@ -80,6 +80,8 @@ namespace SilverNeedle.Characters
         /// <value>The character's gender.</value>
         public Gender Gender { get; set; }
 
+        public PersonalityType PersonalityType { get; set; }
+
         /// <summary>
         /// Gets or sets the size.
         /// </summary>

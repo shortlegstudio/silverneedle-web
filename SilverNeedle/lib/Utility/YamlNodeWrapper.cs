@@ -174,10 +174,10 @@ namespace SilverNeedle.Yaml
         /// <param name="key">Key to the comma delimited string</param>
         public string[] GetList(string key)
         {
-            var val = this.GetString(key);
+            var val = this.GetString(key);            
             if (val != null)
             {
-                return Regex.Split(val, "[\\n ,]+");
+                return val.ParseList();                
             }
 
             return new string[] { };

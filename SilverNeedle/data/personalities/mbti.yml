@@ -1,11 +1,151 @@
---- !<mbti>
+--- !<SilverNeedle.Characters.PersonalityType>
 - type: ISTJ
   descriptors: |
     Quiet, Serious, Practical, Matter-of-fact, Realistic
     Responsible, Logical, Enjoys order and organization
     Values traditions and loyalty
-  alignment: Lawful
 - type: ISFJ
-  descriptors:
-    - 
+  descriptors: |
+    Quiet, Friendly, Responsible, Conscientious
+    Committed and steady, Thorough and accurate, Loyal and considerate,
+    Remembers specifics about people important to them
+    Concerned for others feelings, Strive for harmony and order
+- type: INFJ
+  descriptors: |
+    Seek meaning and connection in ideas.
+    Want to understand what motivates people and are insightful about others. 
+    Conscientious and committed to their firm values. 
+    Develop a clear vision about how best to serve the common good. 
+    Organized and decisive in implementing their vision.
+- type: INTJ
+  descriptors: |
+    Great drive for implementing their ideas and achieving their goals. 
+    Quickly see patterns in external events and develop long-range explanatory perspectives. 
+    Organize a job and carry it through. 
+    Skeptical and independent
+    High standards of competence and performance - for themselves and others.
+- type: ISTP
+  descriptors: |
+    Tolerant and flexible.
+    Quiet observers until a problem appears.
+    Analyze what makes things work. 
+    Interested in cause and effect.
+    Organize facts using logical principles
+    Value efficiency.
+- type: ISFP
+  descriptors: |
+    Quiet and friendly.
+    Sensitive and kind. 
+    Enjoy the present moment and what's going on around them. 
+    Like to have their own space and to work within their own time frame. 
+    Loyal and committed to their values and to people who are important to them. 
+    Dislike disagreements and conflicts. 
+    Do not force their opinions or values on others.
+- type: INFP
+  descriptors: |
+    Idealistic 
+    Loyal to their values and to people who are important to them.
+     Want an external life that is congruent with their values. 
+     Curious and quick to see possibilities.
+     Seek to understand people and to help them fulfill their potential. 
+     Adaptable and flexible.
+     Accepting unless a value is threatened.  
+- type: INTP
+  descriptors: |
+    Seek to develop logical explanations for everything that interests them. 
+    Theoretical and abstract.
+    Interested more in ideas than in social interaction. 
+    Quiet and contained.
+    Flexible and adaptable. 
+    Ability to focus in depth to solve problems in their area of interest. 
+    Skeptical and critical.
+    Analytical.
+- type: ESTP
+  descriptors: |
+    Flexible and tolerant.
+    Takes a pragmatic approach focused on immediate results. 
+    Theories and conceptual explanations bore them.
+    Energetically engages to solve the problem. 
+    Focus on the here-and-now.
+    Spontaneous.
+    Enjoy each moment that they can be active with others. 
+    Enjoy material comforts and style. 
+    Learn best through doing.
+- type: ESFP
+  descriptors: |
+    Outgoing and friendly. 
+    Exuberant lover of life and people.
+    Appreciates material comforts. 
+    Enjoy working with others to make things happen. 
+    Bring common sense and a realistic approach to their work.
+    Make work fun. 
+    Flexible and spontaneous.
+    Adapts readily to new people and environments. 
+    Learn best by trying a new skill with other people.
+- type: ENFP
+  descriptors: |
+    Warmly enthusiastic and imaginative. 
+    See life as full of possibilities. 
+    Make connections between events and information very quickly.
+    Confidently proceeds based on the patterns they see. 
+    Want a lot of affirmation from others.
+    Readily give appreciation and support. 
+    Spontaneous and flexible.
+    Relies on their ability to improvise and their verbal fluency.
+- type: ENTP
+  descriptors: |
+    Quick and ingenious.
+    Stimulating and alert.
+    Outspoken. 
+    Resourceful in solving new and challenging problems. 
+    Adept at generating conceptual possibilities and then analyzing them strategically. 
+    Good at reading other people. 
+    Bored by routine.
+    Seldom does the same thing the same way.
+    Apt to turn to one new interest after another.
+- type: ESTJ
+  descriptors: |
+    Practical and realistic.
+    Matter-of-fact. 
+    Decisive.
+    Quickly moves to implement decisions. 
+    Organizes projects and people to get things done.
+    Focus on getting results in the most efficient way possible. 
+    Takes care of routine details. 
+    Have a clear set of logical standards.
+    Forceful in implementing their plans.
+- type: ESFJ
+  descriptors: |
+    Warmhearted and conscientious.
+    Cooperative. 
+    Want harmony in their environment.
+    Like to work with others.
+    On time.
+    Loyal and follow through even in small matters. 
+    Notice what others need in their day-by-day lives and try to provide it. 
+    Want to be appreciated for who they are and for what they contribute.
+- type: ENFJ
+  descriptors: |
+    Warm and empathetic.
+    Responsive and responsible. 
+    Highly attuned to the emotions and motivations of others. 
+    Find potential in everyone.
+    Wants to help others fulfill their potential. 
+    May act as catalysts for individual and group growth. 
+    Loyal.
+    Responsive to praise and criticism. 
+    Sociable.
+    Facilitates others in a group.
+    Provides inspiring leadership.
+- type: ENTJ
+  descriptors: |
+    Frank and decisive.
+    Assumes leadership readily. 
+    Quickly see illogical and inefficient procedures and policies.
+    Develop and implement comprehensive systems to solve organizational problems. 
+    Enjoy long-term planning and goal setting. 
+    Usually well informed.
+    Well read.
+    Enjoys expanding their knowledge and passing it on to others. 
+    Forceful in presenting their ideas.
 
