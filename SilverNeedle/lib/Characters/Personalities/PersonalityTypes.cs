@@ -4,15 +4,25 @@
 // https://opensource.org/licenses/MIT
 
 namespace SilverNeedle.Characters {
-    public enum PersonalityTypes {
+    public class PersonalityTypes {
+        public enum Attitude {
         Extroverted = 'E',
-        Introverted = 'I',
+        Introverted = 'I'
+        };
+        public enum Information {
         Intuitive = 'N',
-        Sensing = 'S',
+        Sensing = 'S'
+        };
+
+        public enum DecisionMaking {
         Thinking = 'T',
-        Feeling = 'F',
+        Feeling = 'F'
+        };
+        
+        public enum Structure {
         Judging = 'J',
         Perceiving = 'P'
+        };
     }
 
 }

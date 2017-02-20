@@ -27,7 +27,7 @@ namespace SilverNeedle.Utility
 
         public MemoryStore()
         {
-            dataStore = new Dictionary<string, MemoryStore>();
+            dataStore = new Dictionary<string, IObjectStore>();
         }
 
         public MemoryStore(string key, string value) : base()
@@ -78,7 +78,7 @@ namespace SilverNeedle.Utility
 
         public string[] GetList(string key)
         {
-            throw new NotImplementedException();
+            return GetString(key).ParseList();
         }
 
         public string[] GetListOptional(string key)
@@ -116,7 +116,8 @@ namespace SilverNeedle.Utility
 
         public void SetValue(string key, string value)
         {
-            dataStore.Add(key, new MemoryStore(key, value));
+            SetValue(key, new MemoryStore(key, value));
+            
         }
 
         public void SetValue(string key, int value)
@@ -124,6 +125,10 @@ namespace SilverNeedle.Utility
             SetValue(key, value.ToString());
         }
 
-        private Dictionary<string, MemoryStore> dataStore;
+        public void SetValue(string key, IObjectStore data) {
+            dataStore.Add(key, data);
+        }
+
+        private Dictionary<string, IObjectStore> dataStore;
     }
 }

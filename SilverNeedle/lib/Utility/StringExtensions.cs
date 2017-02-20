@@ -6,6 +6,7 @@
 namespace SilverNeedle
 {
     using System;
+    using System.Text.RegularExpressions;
     using Inflector;
 
     /// <summary>
@@ -26,6 +27,11 @@ namespace SilverNeedle
         public static bool EqualsIgnoreCase(this string source, string compare)
         {
             return string.Equals(source, compare, StringComparison.OrdinalIgnoreCase);
+        }
+
+        public static string[] ParseList(this string source)
+        {
+            return Regex.Split(source, "[\\n ,]+");
         }
     }
 }

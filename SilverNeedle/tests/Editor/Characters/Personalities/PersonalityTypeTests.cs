@@ -1,5 +1,7 @@
+using System.Linq;
 using NUnit.Framework;
 using SilverNeedle.Characters;
+using SilverNeedle.Utility;
 
 namespace Characters {
     [TestFixture]
@@ -8,10 +10,24 @@ namespace Characters {
         public void PersonalityTypesProvideASummaryOfCharacterBehaviorsBasedOnMyersBriggs()
         {
             var personality = new PersonalityType("INFP");
-            Assert.AreEqual(PersonalityTypes.Introverted, personality.Attitude);
-            Assert.AreEqual(PersonalityTypes.Intuitive, personality.InformationProcessing);
-            Assert.AreEqual(PersonalityTypes.Feeling, personality.DecisionMaking);
-            Assert.AreEqual(PersonalityTypes.Perceiving, personality.Structure);            
+            Assert.AreEqual(PersonalityTypes.Attitude.Introverted, personality.Attitude);
+            Assert.AreEqual(PersonalityTypes.Information.Intuitive, personality.InformationProcessing);
+            Assert.AreEqual(PersonalityTypes.DecisionMaking.Feeling, personality.DecisionMaking);
+            Assert.AreEqual(PersonalityTypes.Structure.Perceiving, personality.Structure);            
+        }
+
+        [Test]
+        public void CanLoadPersonalityType() {
+            var data = new MemoryStore();
+            data.SetValue("type", "ISTJ");
+            data.SetValue("descriptors", "Quiet, Serious, Focused");
+
+            var personality = new PersonalityType(data);
+            Assert.AreEqual(PersonalityTypes.Attitude.Introverted, personality.Attitude);
+            Assert.AreEqual(PersonalityTypes.Information.Sensing, personality.InformationProcessing);
+            Assert.AreEqual(PersonalityTypes.DecisionMaking.Thinking, personality.DecisionMaking);
+            Assert.AreEqual(PersonalityTypes.Structure.Judging, personality.Structure);            
+            Assert.AreEqual("Quiet", personality.Descriptors.ElementAt(0));
         }
     }
 }
