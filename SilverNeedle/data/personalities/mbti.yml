@@ -4,12 +4,37 @@
     Quiet, Serious, Practical, Matter-of-fact, Realistic
     Responsible, Logical, Enjoys order and organization
     Values traditions and loyalty
+    Honest and direct
+    Strong-willed and dutiful
+    Very responsible
+    Calm and practical
+    Create and enforce order
+    Jack-of-all-trades
+  weaknesses: |
+    Stubborn
+    Insensitive
+    Always by the book
+    Judgemental
+    Unreasonably blames self
 - type: ISFJ
   descriptors: |
     Quiet, Friendly, Responsible, Conscientious
     Committed and steady, Thorough and accurate, Loyal and considerate,
     Remembers specifics about people important to them
     Concerned for others feelings, Strive for harmony and order
+    Supportive
+    Reliable and patient
+    Imaginative and observant
+    Enthusiastic
+    Loyal and Hard-working
+    Good practical skills
+  weaknesses: |
+    Shy and overly humble
+    Takes things too personally
+    Represses feelings
+    Overloads self
+    Reluctant to change
+    Too altruistic
 - type: INFJ
   descriptors: |
     Seek meaning and connection in ideas.
@@ -17,6 +42,18 @@
     Conscientious and committed to their firm values. 
     Develop a clear vision about how best to serve the common good. 
     Organized and decisive in implementing their vision.
+    Creative
+    Insightful
+    Inspiring and convincing
+    Decisive
+    Determined and passionate
+    Altruistic
+  weaknesses: |
+    Sensitive to criticism
+    Extremely private
+    Perfectionist
+    Always needs to have a cause
+    Burns out easily
 - type: INTJ
   descriptors: |
     Great drive for implementing their ideas and achieving their goals. 
@@ -24,6 +61,18 @@
     Organize a job and carry it through. 
     Skeptical and independent
     High standards of competence and performance - for themselves and others.
+    Quick and imaginative mind.
+    Self confident
+    Independent and decisive
+    Hard-working and determined
+    Open-minded
+    Jack-of-all-trades
+  weaknesses: |
+    Arrogant
+    Judgemental
+    Overly analytical
+    Loathes highly structured groups and environments
+    Clueless about romance and social interactions
 - type: ISTP
   descriptors: |
     Tolerant and flexible.
@@ -32,6 +81,20 @@
     Interested in cause and effect.
     Organize facts using logical principles
     Value efficiency.
+    Optimistic
+    Energetic
+    Creative but practical
+    Spontaneous but rational
+    Good at prioritizing
+    Great in a crisis
+    Relaxed
+  weaknesses: |
+    Stubborn
+    Insensitive
+    Private and reserved
+    Easily bored
+    Dislike commitments
+    Risky behaviors
 - type: ISFP
   descriptors: |
     Quiet and friendly.
@@ -41,15 +104,40 @@
     Loyal and committed to their values and to people who are important to them. 
     Dislike disagreements and conflicts. 
     Do not force their opinions or values on others.
+    Charming
+    Sensitive to others
+    Imaginative
+    Passionate
+    Curious
+    Artistic
+  weaknesses: |
+    Fiercly independent
+    Unpredictable
+    Easily stressed
+    Overly competitive
+    Fluctuating self-esteem. Highs and lows depending on what is happening.
 - type: INFP
   descriptors: |
     Idealistic 
     Loyal to their values and to people who are important to them.
-     Want an external life that is congruent with their values. 
-     Curious and quick to see possibilities.
-     Seek to understand people and to help them fulfill their potential. 
-     Adaptable and flexible.
-     Accepting unless a value is threatened.  
+    Want an external life that is congruent with their values. 
+    Curious and quick to see possibilities.
+    Seek to understand people and to help them fulfill their potential. 
+    Adaptable and flexible.
+    Accepting unless a value is threatened.  
+    Seeks and values harmony
+    Open-minded and flexible
+    Very creative
+    Passionate and energetic
+    Dedicated and hard-working
+  weaknesses: |
+    Too idealistic
+    Too altruistic
+    Impractical
+    Neglects day-to-day responsibilities
+    Dislikes dealing with data
+    Takes thing personallay
+    Difficult to get to know
 - type: INTP
   descriptors: |
     Seek to develop logical explanations for everything that interests them. 
@@ -60,6 +148,19 @@
     Ability to focus in depth to solve problems in their area of interest. 
     Skeptical and critical.
     Analytical.
+    Abstract thinker
+    Imaginative and original
+    Open-minded
+    Enthusiastic
+    Objective
+    Honest and straightforward
+  weaknesses: |
+    Private and withdrawn
+    Insensitive
+    Absent-minded
+    Condescending
+    Loathes rules and guidelines
+    Second-guesses self
 - type: ESTP
   descriptors: |
     Flexible and tolerant.
@@ -71,6 +172,19 @@
     Enjoy each moment that they can be active with others. 
     Enjoy material comforts and style. 
     Learn best through doing.
+    Bold
+    Rational and practical
+    Original
+    Perceptive
+    Direct
+    Sociable
+  weaknesses: |
+    Insensitive
+    Impatient
+    Risk-prone
+    Unstructured
+    Misses sight of the bigger picture
+    Defiant
 - type: ESFP
   descriptors: |
     Outgoing and friendly. 
@@ -82,6 +196,18 @@
     Flexible and spontaneous.
     Adapts readily to new people and environments. 
     Learn best by trying a new skill with other people.
+    Bold
+    Original
+    Aesthetics and showmanship. Everyday is a performance.
+    Practical
+    Observant
+    Excellent people skills
+  weaknesses: |
+    Sensitive
+    Conflict-Averse
+    Easily Bored
+    Poor at long-term planning
+    Unfocused
 - type: ENFP
   descriptors: |
     Warmly enthusiastic and imaginative. 
@@ -92,6 +218,19 @@
     Readily give appreciation and support. 
     Spontaneous and flexible.
     Relies on their ability to improvise and their verbal fluency.
+    Curious
+    Observant
+    Energetic and enthusiastic
+    Excellent communicators
+    Know how to relax
+    Very popular and friendly
+  weaknesses: |
+    Poor practical skills
+    Finds it difficult to focus
+    Overthinks things
+    Gets stressed easily
+    Highly emotional
+    Independent to a fault
 - type: ENTP
   descriptors: |
     Quick and ingenious.
@@ -103,6 +242,18 @@
     Bored by routine.
     Seldom does the same thing the same way.
     Apt to turn to one new interest after another.
+    Knowledgeable
+    Quick thinker
+    Original
+    Excellent brainstormer
+    Charismatic
+    Energetic
+  weaknesses: |
+    Very argumentative
+    Insensitive
+    Intolerant
+    Finds it difficult to focus
+    Dislikes practical matters
 - type: ESTJ
   descriptors: |
     Practical and realistic.
@@ -114,6 +265,19 @@
     Takes care of routine details. 
     Have a clear set of logical standards.
     Forceful in implementing their plans.
+    Dedicated
+    Strong-willed
+    Direct and honest
+    Loyal and patient and reliable
+    Enjoys creating order
+    Excellent organizer
+  weaknesses: |
+    Inflexible and stubborn
+    Uncomfortable with unconventional situations
+    Judgemental
+    Too focused on social status
+    Finds it difficult to relax
+    Finds it difficult to express emotion
 - type: ESFJ
   descriptors: |
     Warmhearted and conscientious.
@@ -124,6 +288,18 @@
     Loyal and follow through even in small matters. 
     Notice what others need in their day-by-day lives and try to provide it. 
     Want to be appreciated for who they are and for what they contribute.
+    Strong practical skills
+    Strong sense of duty
+    Very loyal
+    Sensitive and warm
+    Good at connecting with others
+  weaknesses: |
+    Worried about social status
+    Inflexible
+    Reluctant to innovate or improvise
+    Vulnerable to criticism
+    Really needy
+    Too selfless
 - type: ENFJ
   descriptors: |
     Warm and empathetic.
@@ -137,6 +313,17 @@
     Sociable.
     Facilitates others in a group.
     Provides inspiring leadership.
+    Tolerant
+    Reliable
+    Charismatic
+    Altruistic
+    Natural leader
+  weaknesses: |
+    Overly idealistic
+    Too selfless
+    Too sensitive
+    Self-esteem fluctuates wildly from highs to lows
+    Stuggles to make tough decisions
 - type: ENTJ
   descriptors: |
     Frank and decisive.
@@ -148,4 +335,16 @@
     Well read.
     Enjoys expanding their knowledge and passing it on to others. 
     Forceful in presenting their ideas.
-
+    Efficient
+    Energetic
+    Self-confident
+    Strong-willed
+    Strategic thinker
+    Charismatic and inspiring
+  weaknesses: |
+    Stubborn and dominant
+    Intolerant
+    Impatient
+    Arrogant
+    Poor at handling emotions
+    Cold and ruthless

@@ -16,6 +16,8 @@ namespace SilverNeedle.Characters
         public PersonalityTypes.DecisionMaking DecisionMaking { get; private set; }
         public PersonalityTypes.Structure Structure { get; private set; }
         public IEnumerable<string> Descriptors { get; private set; }
+
+        public IEnumerable<string> Weaknesses { get; private set; }
         
         public PersonalityType(string type) {
             ParseType(type);
@@ -24,7 +26,8 @@ namespace SilverNeedle.Characters
         public PersonalityType(IObjectStore data) 
         {
             ParseType(data.GetString("type"));         
-            Descriptors = data.GetList("descriptors");               
+            Descriptors = data.GetList("descriptors");     
+            Weaknesses = data.GetList("weaknesses");          
         }
 
         private void ParseType(string type) {

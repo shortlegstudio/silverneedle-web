@@ -68,6 +68,7 @@ namespace SilverNeedle.Characters
             Drawback = character.History.Drawback.Name;
             Homeland = character.History.Homeland.Location;
             Personality = character.PersonalityType.Descriptors.ToArray();
+            PersonalityWeaknesses = character.PersonalityType.Weaknesses.ToArray();
         }
 
         public string Name { get; private set; }
@@ -123,6 +124,8 @@ namespace SilverNeedle.Characters
         public string Homeland { get; private set; }
 
         public string[] Personality { get; private set; }
+
+        public string[] PersonalityWeaknesses { get; private set; }
 
         private string FormatSenses(CharacterSheet character)
         {
