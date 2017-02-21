@@ -38,7 +38,7 @@ namespace SilverNeedle
         public static string[] ParseList(this string source)
         {
             var array = Regex.Split(source, "[\\n,]+");
-            return array.Select(x => x.Trim()).ToArray();
+            return array.Select(x => x.Trim()).Where(x => string.IsNullOrEmpty(x) == false).ToArray();
         }
     }
 }

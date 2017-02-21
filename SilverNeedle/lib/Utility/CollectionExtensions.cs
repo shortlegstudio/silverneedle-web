@@ -7,6 +7,7 @@ namespace SilverNeedle
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
 
     /// <summary>
     /// Provides extension methods to collections and enumerable classes
@@ -31,15 +32,35 @@ namespace SilverNeedle
         /// <returns>The randomly selected item</returns>
         /// <param name="source">Source list to choose for items</param>
         /// <typeparam name="T">The type of items in the list</typeparam>
-        public static T ChooseOne<T>(this IList<T> source) 
+        public static T ChooseOne<T>(this IEnumerable<T> source) 
         {
-            if (source == null || source.Count == 0) 
+            if (source == null || source.Count() == 0) 
             {
                 throw new ArgumentException("Cannot choose from an empty list");
             }
 
-            var index = Randomly.Range(0, source.Count);
-            return source[index];
+            var index = Randomly.Range(0, source.Count());
+            return source.ElementAt(index);
+        }
+
+        public static IEnumerable<T> Choose<T>(this IEnumerable<T> source, int count) 
+        {
+            if (source == null || source.Count() == 0) 
+            {
+                throw new ArgumentException("Cannot choose from an empty list");
+            }
+            if(count > source.Count())
+            {
+                throw new ArgumentException("Not enough items in list to choose from.");
+            }
+
+            var results = new List<T>();
+            for(int i = 0; i < count; i++)
+            {                
+                var item = source.Where(x => results.Contains(x) == false).ToList().ChooseOne();    
+                results.Add(item);            
+            }
+            return results;
         }
 
         public static WeightedOptionTable<T> CreateFlatTable<T>(this IEnumerable<T> source) {

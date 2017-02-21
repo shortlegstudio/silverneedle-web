@@ -2,7 +2,8 @@ namespace SilverNeedle.Characters
 {
     using SilverNeedle;
     using System.Linq;
-
+    using SilverNeedle.Utility;
+    
     public class CharacterSheetTextView
     {
         public CharacterSheetTextView(CharacterSheet character)
@@ -67,8 +68,8 @@ namespace SilverNeedle.Characters
             ClassOrigin = character.History.ClassOriginStory.Name;
             Drawback = character.History.Drawback.Name;
             Homeland = character.History.Homeland.Location;
-            Personality = character.PersonalityType.Descriptors.ToArray();
-            PersonalityWeaknesses = character.PersonalityType.Weaknesses.ToArray();
+            Personality = character.PersonalityType.Descriptors.Choose(3).ToArray();
+            PersonalityWeaknesses = character.PersonalityType.Weaknesses.Choose(3).ToArray();
         }
 
         public string Name { get; private set; }

@@ -22,38 +22,6 @@
                     </ul>
                 </li>
             </ul>
-        </div>
-        <div class="col-md-6">
-            <h5>History</h5>
-            <ul class="stats">
-                <li>
-                    <ul class="commalist">
-                        <li><strong>Father</strong> @character.Father</li>
-                        <li><strong>Mother</strong> @character.Mother</li>
-                    </ul>
-                </li>
-                <li><strong>Homeland</strong> @character.Homeland</li>
-                <li><strong>Drawback</strong> @character.Drawback</li>
-                <li><strong>Origins</strong> @character.ClassOrigin</li>
-                <li><strong>Personality</strong>
-                    <ul class="commalist">
-                        @foreach(var p in character.Personality
-                        )
-                        { <li>@p</li> }
-                    </ul>
-                </li>  
-                <li><strong>Weaknesses</strong>
-                    <ul class="commalist">
-                        @foreach(var p in character.PersonalityWeaknesses
-                        )
-                        { <li>@p</li> }
-                    </ul>
-                </li>  
-            </ul>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
             <h5>DEFENSE</h5>
             <ul class="stats">
                 <li>
@@ -72,8 +40,6 @@
                     </ul>
                 </li>
             </ul>
-        </div>
-        <div class="col-md-6">
             <h5>OFFENSE</h5>
             <ul class="stats">
                 <li><strong>Speed</strong> @character.MovementSpeed ft</li>
@@ -84,9 +50,7 @@
                     { @spc }
                 </li>
             </ul>
-        </div>
-    </div>
-    <h5>STATISTICS</h5>
+            <h5>STATISTICS</h5>
     <p>
     <strong>Str</strong> @character.Strength (@character.StrengthModifier)
     <strong>Dex</strong> @character.Dexterity (@character.DexterityModifier)
@@ -128,5 +92,35 @@
         { <li>@g</li> }
         </ul>
     </p>
+        </div>
+        <div class="col-md-6">
+            <h5>History</h5>
+            <ul class="stats">
+                <li>
+                    <ul class="commalist">
+                        <li><strong>Father</strong> @character.Father</li>
+                        <li><strong>Mother</strong> @character.Mother</li>
+                    </ul>
+                </li>
+                <li><strong>Homeland</strong> @character.Homeland</li>
+                <li><strong>Drawback</strong> @character.Drawback</li>
+                <li><strong>Origins</strong> @character.ClassOrigin</li>
+                <li><strong>Personality</strong>
+                    <ul>
+                        @foreach(var p in character.Personality
+                        )
+                        { <li>@p</li> }
+                    </ul>
+                </li>  
+                <li><strong>Weaknesses</strong>
+                    <ul>
+                        @foreach(var p in character.PersonalityWeaknesses
+                        )
+                        { <li>@p</li> }
+                    </ul>
+                </li>  
+            </ul>
+        </div>
+    </div>
 </div>
 

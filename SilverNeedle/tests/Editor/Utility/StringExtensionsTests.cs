@@ -20,5 +20,12 @@ namespace Utility
             Assert.IsTrue(foo.EqualsIgnoreCase("foo"));
             Assert.IsFalse(foo.EqualsIgnoreCase("fu"));
         }
+
+        [Test]
+        public void DropEmptyItems()
+        {
+            var list = "foo,,".ParseList();
+            Assert.AreEqual(1, list.Length);
+        }
     }
 }
