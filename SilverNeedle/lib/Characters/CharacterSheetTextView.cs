@@ -3,7 +3,7 @@ namespace SilverNeedle.Characters
     using SilverNeedle;
     using System.Linq;
     using SilverNeedle.Utility;
-    
+
     public class CharacterSheetTextView
     {
         public CharacterSheetTextView(CharacterSheet character)
@@ -70,6 +70,8 @@ namespace SilverNeedle.Characters
             Homeland = character.History.Homeland.Location;
             Personality = character.PersonalityType.Descriptors.Choose(3).ToArray();
             PersonalityWeaknesses = character.PersonalityType.Weaknesses.Choose(3).ToArray();
+            IdealName = character.Ideal.Name;
+            IdealDescription = character.Ideal.Description;
         }
 
         public string Name { get; private set; }
@@ -128,6 +130,8 @@ namespace SilverNeedle.Characters
 
         public string[] PersonalityWeaknesses { get; private set; }
 
+        public string IdealName { get; private set; }
+        public string IdealDescription { get; private set; }
         private string FormatSenses(CharacterSheet character)
         {
             string senses = string.Join(

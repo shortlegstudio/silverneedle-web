@@ -12,15 +12,18 @@ namespace SilverNeedle.Actions.CharacterGenerator
     public class PersonalityBuilder
     {
         private EntityGateway<PersonalityType> personalities;
+        private EntityGateway<Ideal> ideals;
 
         public PersonalityBuilder()
         {
             personalities = new EntityGateway<PersonalityType>();
+            ideals = new EntityGateway<Ideal>();
         }
 
         public void Random(CharacterSheet character)
         {
-            character.PersonalityType = personalities.All().ToList().ChooseOne();
+            character.PersonalityType = personalities.ChooseOne();         
+            character.Ideal = ideals.ChooseOne();
         }
     }
 }

@@ -23,6 +23,16 @@ namespace SilverNeedle.Utility
             return dataStore.Where(predicate);
         }
 
+        public T ChooseOne()
+        {
+            return dataStore.ChooseOne();
+        }
+
+        public IEnumerable<T> Choose(int number)
+        {
+            return dataStore.Choose(number);
+        }
+
         public EntityGateway(IEnumerable<IObjectStore> data) 
         {
             dataStore = new List<T>();

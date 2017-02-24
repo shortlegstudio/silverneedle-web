@@ -22,5 +22,16 @@ namespace Actions.CharacterGenerator
             Assert.IsNotNull(cs.PersonalityType);
             Assert.IsInstanceOf(typeof(PersonalityType), cs.PersonalityType);            
         }
+
+        [Test]
+        public void AssignsSomeRandomIdeals()
+        {
+            var builder = new PersonalityBuilder();
+            var cs = new CharacterSheet();
+
+            builder.Random(cs);
+            Assert.IsNotNull(cs.Ideal);
+            Assert.IsInstanceOf(typeof(Ideal), cs.Ideal);
+        }
     }
 }

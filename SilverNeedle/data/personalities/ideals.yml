@@ -1,0 +1,45 @@
+--- !<SilverNeedle.Characters.Ideal>
+- name: Faith
+  description: I trust in my deity.
+- name: Tradition
+  description: We must stay true to our roots.
+- name: Charity
+  description: I always give help to those in need.
+- name: Change
+  description: I take a different route home each day.
+- name: Power
+  description: I hope to rise to the top.
+- name: Aspiration
+  description: I try to prove my worth by my actions.
+- name: Independence
+  description: I believe in individual rights.
+- name: Fairness
+  description: I believe in justice and equality.
+- name: Creativity
+  description: I come up with ideas.
+- name: Friendship
+  description: I stick close to ones that have earned my trust.
+- name: Freedom
+  description: I believe in people to choose their own way.
+- name: Greed
+  description: I am driven by a need for wealth.
+- name: Community
+  description: I value my town and people in it.
+- name: Redemption
+  description: I believe in the good in everyone
+- name: Beauty
+  description: I like beautiful things and people.
+- name: Honesty
+  description: I value the truth above all and do not lie.
+- name: Respect
+  description: All living things deserve to be treated with respect.
+- name: Greater Good
+  description: I make decisions for what I perceive is the better for the many.
+- name: Logic
+  description: I calculate and use data to make my decisions.
+- name: Nobility
+  description: I believe in the aristocracy and the order of society.
+- name: Might
+  description: I believe in strength and power.
+- name: Integrity
+  description: I stick to my decisions and commitments.

@@ -82,6 +82,7 @@ namespace SilverNeedle.Characters
 
         public PersonalityType PersonalityType { get; set; }
 
+        public Ideal Ideal { get; set; }
         /// <summary>
         /// Gets or sets the size.
         /// </summary>
