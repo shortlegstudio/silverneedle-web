@@ -40,3 +40,7 @@ ul.stats ul.commalist
 {
     padding-left: 0;
 }
+ul.inline li
+{
+    display: inline;
+}

@@ -48,6 +48,42 @@ namespace silverneedleweb.Controllers
             return View();
         }
 
+        public IActionResult Group()
+        {
+            var strategies = strategyGateway.All();
+            ViewData["Strategies"] = strategies.Select(x => x.Name).ToArray();
+            
+            return View();
+        }
+
+        public IActionResult CharacterGroup(string strategy, int number)
+        {
+            var gateways = new GatewayProvider();
+            
+            var gen = new CharacterBuilder(
+                new StandardAbilityScoreGenerator(),
+                new LanguageSelector(new LanguageGateway()),
+                new RaceSelector(gateways.Races, new TraitGateway()),
+                new NameCharacter(new CharacterNamesGateway()),
+                new FeatSelector(gateways.Feats),
+                new GatewayProvider()
+            );
+
+            var build = strategyGateway.GetBuild(strategy);
+            var characters = new CharacterSheetTextView[number];
+
+            for(int i = 0; i < number; i++)
+            {
+                var character = gen.GenerateCharacter(build, 1);
+                characters[i] = new CharacterSheetTextView(character);
+            }
+            
+            ViewData["characters"] = characters;
+            ViewData["strategy"] = strategy;
+            ViewData["level"] = 1;
+            return View();
+        }
+
         public IActionResult Error()
         {
             return View();

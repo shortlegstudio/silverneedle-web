@@ -1,0 +1,52 @@
+@{
+    var characters = (SilverNeedle.Characters.CharacterSheetTextView[])ViewData["Characters"];
+    ViewData["Title"] = "NPC Group";
+    
+}
+
+<div class="charactersheet">
+    <h1>
+      <span>NPC Group</span>
+      <a asp-area="" asp-controller="Character" asp-action="CharacterGroup" asp-route-strategy="@ViewData["strategy"]" asp-route-number="@ViewData["number"]" class="btn btn-lg btn-primary pull-right" role="button">Regenerate</a>
+    </h1>
+    @foreach(var c in characters)
+    {
+      <div class="row">
+          <div class="col-md-12">
+              <h5>@c.Name</h5>
+              <ul class="stats inline">
+                  <li><strong>@c.Gender @c.Race</strong></li>
+                  <li>@c.Alignment</li>
+                  <li> <strong>Perception</strong> @c.Perception</li>
+                  <li><strong>Ideal</strong> @c.IdealName - @c.IdealDescription</li>
+              </ul>
+          </div>  
+      </div>
+      <div class="row">
+          <div class="col-md-6">
+            <ul class="stats">
+                
+                <li><strong>Personality</strong>
+                    <ul>
+                    @foreach(var p in c.Personality
+                    )
+                    { <li>@p</li> }
+                    </ul>
+                </li>  
+            </ul>
+          </div>
+          <div class="col-md-6">
+              <ul>
+                <li><strong>Weaknesses</strong>
+                    <ul>
+                        @foreach(var p in c.PersonalityWeaknesses
+                        )
+                        { <li>@p</li> }
+                    </ul>
+                </li>  
+              </ul>
+          </div>
+      </div>
+    }
+</div>
+
