@@ -6,23 +6,28 @@
 </div>
 
 <div class="row">
-    <div class="col-md-4 text-center">
+    <div class="col-md-4 text-center panel-top">
         Generate a bunch of names to choose from. This will generate a few names
         for all races available in Silver Needle at this time.
-        <br />
-        <a asp-area="" asp-controller="Names" asp-action="Index" class="btn btn-lg btn-default align-center" role="button">Name Generator</a>
     </div>
-    <div class="col-md-4 text-center">
+    <div class="col-md-4 text-center panel-top">
         This generates some simple NPC characters of more commoner professions to 
         help fill out your world of characters.
-        <br />
-        <a asp-area="" asp-controller="Character" asp-action="Group" class="btn btn-lg btn-default" role="button">Group Builder</a>
-    </div>
-    <div class="col-md-4 text-center">
+     </div>
+    <div class="col-md-4 text-center panel-top">
         The advanced character generator makes very robust and detailed characters
         for filling out the world or when needed because the party went crazy
         and attacked a bunch of people that was not really expected to happen.
-        <br />
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4 text-center panel-bottom">
+        <a asp-area="" asp-controller="Names" asp-action="Index" class="btn btn-lg btn-default align-center" role="button">Name Generator</a>
+    </div>
+    <div class="col-md-4 text-center panel-bottom">
+         <a asp-area="" asp-controller="Character" asp-action="Group" class="btn btn-lg btn-default" role="button">Group Builder</a>
+    </div>
+    <div class="col-md-4 text-center panel-bottom">
         <a asp-area="" asp-controller="Character" asp-action="Index" class="btn btn-lg btn-default" role="button">Advanced Character</a>
     </div>
 </div>
