@@ -42,5 +42,29 @@ namespace Utility
             Assert.IsTrue(memStore.HasKey("foo"));
             Assert.IsFalse(memStore.HasKey("somethingCrazy"));
         }
+
+        [Test]
+        public void CanGetAnEnum()
+        {
+            var memStore = new MemoryStore();
+            memStore.SetValue("enum", "Bar");
+            Assert.AreEqual(TestEnum.Bar, memStore.GetEnum<TestEnum>("enum"));
+        }
+
+        [Test]
+        public void CanSetAndGetBools()
+        {
+            var memStore = new MemoryStore();
+            memStore.SetValue("bool", true);
+            memStore.SetValue("falsies", false);
+            Assert.IsTrue(memStore.GetBool("bool"));
+            Assert.IsFalse(memStore.GetBool("falsies"));
+        }
+
+        public enum TestEnum
+        {
+            Foo,
+            Bar
+        }
     }
 }

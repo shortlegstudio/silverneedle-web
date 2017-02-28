@@ -62,11 +62,7 @@ namespace SilverNeedle.Characters
         {
             foreach (var skillNode in dataStore.Children)
             {
-                var skill = new Skill(
-                    skillNode.GetString("name"),
-                    AbilityScore.GetType(skillNode.GetString("ability")),
-                    skillNode.GetString("trained") == "yes",
-                    skillNode.GetString("description"));
+                var skill = new Skill(skillNode);
                 this.skills.Add(skill);
             }
         }

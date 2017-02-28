@@ -7,7 +7,7 @@ namespace SilverNeedle.Characters
 {
     using System;
     using System.Collections.Generic;
-    using SilverNeedle;
+    using SilverNeedle.Utility;
 
     /// <summary>
     /// Represents a skill that a character can perform
@@ -27,6 +27,14 @@ namespace SilverNeedle.Characters
             this.Ability = baseAbility;
             this.TrainingRequired = trainingRequired;
             this.Description = description;
+        }
+
+        public Skill(IObjectStore data)
+        {
+            Name = data.GetString("name");            
+            Ability = data.GetEnum<AbilityScoreTypes>("ability");
+            TrainingRequired = data.GetBool("trained");
+            Description = data.GetStringOptional("description");
         }
 
         /// <summary>

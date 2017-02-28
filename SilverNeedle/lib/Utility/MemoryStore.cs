@@ -43,7 +43,7 @@ namespace SilverNeedle.Utility
 
         public bool GetBool(string key)
         {
-            throw new NotImplementedException();
+            return Boolean.Parse(GetString(key));
         }
 
         public bool GetBoolOptional(string key)
@@ -53,7 +53,7 @@ namespace SilverNeedle.Utility
 
         public T GetEnum<T>(string key)
         {
-            throw new NotImplementedException();
+            return (T)Enum.Parse(typeof(T), GetString(key));
         }
 
         public float GetFloat(string key)
@@ -134,6 +134,10 @@ namespace SilverNeedle.Utility
             SetValue(key, value.ToString());
         }
 
+        public void SetValue(string key, bool boolean)
+        {
+            SetValue(key, boolean.ToString());
+        }
         private Dictionary<string, IObjectStore> dataStore;
     }
 }
