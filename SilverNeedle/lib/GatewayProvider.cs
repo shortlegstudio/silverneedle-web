@@ -8,6 +8,7 @@ namespace SilverNeedle
     using SilverNeedle.Characters;
     using SilverNeedle.Equipment;
     using SilverNeedle.Names;
+    using SilverNeedle.Utility;
     public class GatewayProvider
     {
         public GatewayProvider()
@@ -32,7 +33,7 @@ namespace SilverNeedle
         public void SetAllYaml() {
             Armors = new ArmorGateway();
             Weapons = new WeaponGateway();
-            Skills = new SkillGateway();
+            Skills = new EntityGateway<Skill>();
             Classes = new ClassGateway();
             Maturity = new RaceMaturityGateway();
             Races = new RaceGateway();

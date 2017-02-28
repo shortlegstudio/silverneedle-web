@@ -1,4 +1,4 @@
---- !<skill>
+--- !<SilverNeedle.Characters.Skill>
 - skill:
   name: Acrobatics
   ability: Dexterity
