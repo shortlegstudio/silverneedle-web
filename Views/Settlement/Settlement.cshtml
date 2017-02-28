@@ -1,5 +1,6 @@
 @{
-    var characters = (SilverNeedle.Characters.CharacterSheetTextView[])ViewData["Characters"];
+    var settlement = (SilverNeedle.Groups.SettlementTextView)ViewData["settlement"];
+    var characters = settlement.Inhabitants;
     ViewData["Title"] = "NPC Group";
     
 }
@@ -7,7 +8,7 @@
 <div class="character-list">
     <h1>
         <span>NPC Group</span>
-        <a asp-area="" asp-controller="Character" asp-action="CharacterGroup" asp-route-strategy="@ViewData["strategy"]" asp-route-number="@ViewData["number"]" class="btn btn-lg btn-primary pull-right" role="button">Regenerate</a>
+        <a asp-area="" asp-controller="Settlement" asp-action="Settlement" asp-route-strategy="@ViewData["strategy"]" asp-route-number="@ViewData["number"]" class="btn btn-lg btn-primary pull-right" role="button">Regenerate</a>
     </h1>
     <div class="row">
         @for(int i = 0; i < characters.Length; i++)
@@ -15,8 +16,6 @@
             var c = characters[i]; 
             var collapseID = string.Format("collapse{0}", i);
             var headingID = string.Format("header{0}", i);
-
-           
 
             <div class="col-md-4">                
                 <div class="panel panel-default">

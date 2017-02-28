@@ -1,14 +1,14 @@
 @{
-    ViewData["Title"] = "Group Generator";
+    ViewData["Title"] = "Settlement Generator";
     var strategies = (string[])ViewData["Strategies"];
 }
-<h1>Generate Group NPC</h1>
+<h1>Generate NPC's for a Settlement</h1>
 This will generate a village, inn, or other group of NPC's.
 <div class="row">
     <div class="col-md-12">
-        <form asp-controller="Character" asp-action="CharacterGroup" method="POST">
+        <form asp-controller="Settlement" asp-action="Settlement" method="POST">
             <fieldset class="form-group">
-                <legend>Character Options</legend>
+                <legend>Settlement Options</legend>
                 <div class="form-group">
                     <label for="strategy">Type</label>
                     <select name="strategy" id="strategy" class="form-control">
@@ -19,7 +19,7 @@ This will generate a village, inn, or other group of NPC's.
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="number">Number of Characters</label>
+                    <label for="number">Population</label>
                     <input type="text" value="1" name="number" id="number" class="form-control" />
                 </div>
             </fieldset>
