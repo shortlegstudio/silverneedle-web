@@ -50,21 +50,29 @@ namespace SilverNeedle
             var files = System.IO.Directory.EnumerateFiles(dataDirectory, "*.yml", System.IO.SearchOption.AllDirectories);
             foreach(var f in files)
             {
-                var yaml = FileHelper.OpenYaml(f);
-                var type = GuessFileType(yaml);
-                ShortLog.DebugFormat("FILE: {0}, TYPE: {1}", f, type);
-
-                if(string.IsNullOrEmpty(type) == false)
+                try
                 {
-                    IList<IObjectStore> dataFiles;
-                    if (fileListMap.ContainsKey(type)) {
-                        dataFiles = fileListMap[type];
-                    } else {
-                        dataFiles = new List<IObjectStore>();
-                        fileListMap.Add(type, dataFiles);
-                    }
+                    var yaml = FileHelper.OpenYaml(f);
+                    var type = GuessFileType(yaml);
+                    ShortLog.DebugFormat("FILE: {0}, TYPE: {1}", f, type);
 
-                    dataFiles.Add(yaml);
+                    if(string.IsNullOrEmpty(type) == false)
+                    {
+                        IList<IObjectStore> dataFiles;
+                        if (fileListMap.ContainsKey(type)) {
+                            dataFiles = fileListMap[type];
+                        } else {
+                            dataFiles = new List<IObjectStore>();
+                            fileListMap.Add(type, dataFiles);
+                        }
+
+                        dataFiles.Add(yaml);
+                    }
+                }
+                catch(Exception e)
+                {
+                    ShortLog.ErrorFormat("FILE: {0} Failed to load", f);
+                    ShortLog.Error(e.ToString());
                 }
             }
         }

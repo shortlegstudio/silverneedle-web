@@ -8,16 +8,22 @@ namespace Characters
     using System.Linq;
     using NUnit.Framework;
     using SilverNeedle.Characters;
-    using SilverNeedle.Yaml;
+    using SilverNeedle.Utility;
 
     [TestFixture]
     public class CharacterBuildStrategyTests
     {
         [Test]
-        public void AnEmptyStrategyJustRepresentsDoEverythingRandomly()
+        public void AnEmptyStrategySelectsAllAttributesEvenly()
         {
             var strategy = new CharacterBuildStrategy();
-            
+            Assert.AreEqual(6, strategy.FavoredAbilities.All().Count());
+        }
+
+        [Test]
+        public void CanLoadFromObjectStore()
+        {
+            Assert.Ignore("Not built yet");
         }
     }
 }

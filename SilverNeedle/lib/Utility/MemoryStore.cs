@@ -129,6 +129,11 @@ namespace SilverNeedle.Utility
             dataStore.Add(key, data);
         }
 
+        public void SetValue(string key, float value)
+        {
+            SetValue(key, value.ToString());
+        }
+
         private Dictionary<string, IObjectStore> dataStore;
     }
 }
