@@ -1,0 +1,12 @@
+--- !<SilverNeedle.Characters.Occupation>
+- name: Bricklayer
+  class: Commoner
+- name: Cook
+  class: Commoner
+- name: Cottar
+  class: Commoner
+- name: Ditcher
+  class: Commoner
+- name: Ewerer
+  class: Commoner
+  

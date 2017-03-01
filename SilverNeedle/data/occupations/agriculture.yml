@@ -1,0 +1,12 @@
+--- !<SilverNeedle.Characters.Occupation>
+- name: Animal Breeder
+  class: Commoner
+- name: Butcher
+  class: Commoner
+- name: Falconer
+  class: Expert
+- name: Furrier
+  class: Expert
+- name: Gardnerer
+  class: Commoner
+  

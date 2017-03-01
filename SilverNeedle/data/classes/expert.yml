@@ -1,0 +1,23 @@
+--- !<class>
+- class:
+  name: Expert
+  skillpoints: 6
+  skills:
+  - Climb
+  - Craft
+  - Handle Animal
+  - Heal
+  - Knowledge Engineering
+  - Knowledge Local
+  - Perception
+  - Profession
+  - Ride
+  - Swim
+  hitdice: d8
+  baseattackbonus: 0.667
+  fortitude: 0.334
+  reflex: 0.334
+  will: 0.667
+  weaponproficiencies: simple
+  armorproficiencies: light
+  developedage: Young

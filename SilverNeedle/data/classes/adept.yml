@@ -1,0 +1,28 @@
+--- !<class>
+- class:
+  name: Adept
+  skillpoints: 2
+  skills:
+    - Craft
+    - Handle Animal
+    - Heal
+    - Knowledge Arcana
+    - Knowledge Dungeoneering
+    - Knowledge Engineering
+    - Knowledge Geography
+    - Knowledge History
+    - Knowledge Local
+    - Knowledge Nature
+    - Knowledge Nobility
+    - Knowledge Planes
+    - Knowledge Religion
+    - Profession
+    - Spellcraft
+    - Survival
+  hitdice: d6
+  baseattackbonus: 0.5
+  fortitude: 0.334
+  reflex: 0.334
+  will: 0.667
+  weaponproficiencies: simple
+  developedage: Trained

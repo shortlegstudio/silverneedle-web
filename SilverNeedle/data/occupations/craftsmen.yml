@@ -1,0 +1,38 @@
+--- !<SilverNeedle.Characters.Occupation>
+- name: Apothecary
+  class: Expert
+- name: Armorer
+  class: Commoner
+- name: Artist
+  class: Expert
+- name: Atilliator
+  class: Commoner
+- name: Basketmaker
+  class: Commoner
+- name: Black Smith
+  class: Commoner
+- name: Bowyer
+  class: Commoner
+- name: Brewer
+  class: Commoner
+- name: Brush Maker
+  class: Commoner
+- name: Candlemaker
+  class: Commoner
+- name: Carpenter
+  class: Commoner
+- name: Cartwright
+  class: Commoner
+- name: Clothier
+  class: Commoner
+- name: Cooper
+  class: Commoner
+- name: Cordwainer
+  class: Commoner
+- name: Fletcher
+  class: Commoner
+- name: Gold Smith
+  class: Commoner
+- name: Thatcher
+  class: Commoner
+

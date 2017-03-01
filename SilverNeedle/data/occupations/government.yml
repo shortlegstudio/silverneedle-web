@@ -1,0 +1,18 @@
+--- !<SilverNeedle.Characters.Occupation>
+- name: Bailiff
+  class: Warrior
+- name: Catchpole
+  class: Warrior
+- name: Chamberlain
+  class: Expert
+- name: Chancellor
+  class: Expert
+- name: Clerk
+  class: Commoner
+- name: Constable
+  class: Commoner
+- name: Diplomat
+  class: Expert
+- name: Reeve
+  class: Expert
+  

@@ -1,0 +1,38 @@
+--- !<class>
+- class:
+  name: Aristocrat
+  skillpoints: 4
+  skills:
+    - Appraise
+    - Bluff
+    - Craft
+    - Diplomacy
+    - Disguise
+    - Handle Animal
+    - Intimidate
+    - Knowledge Arcana
+    - Knowledge Dungeoneering
+    - Knowledge Engineering
+    - Knowledge Geography
+    - Knowledge History
+    - Knowledge Local
+    - Knowledge Nature
+    - Knowledge Nobility
+    - Knowledge Planes
+    - Knowledge Religion
+    - Linguistics
+    - Perception
+    - Perform
+    - Profession
+    - Ride
+    - Sense Motive
+    - Swim
+    - Survival
+  hitdice: d8
+  baseattackbonus: 0.667
+  fortitude: 0.334
+  reflex: 0.334
+  will: 0.667
+  weaponproficiencies: simple, martial
+  armorproficiencies: light, medium, heavy
+  developedage: Trained

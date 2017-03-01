@@ -1,0 +1,15 @@
+--- !<SilverNeedle.Characters.Occupation>
+- name: Baker
+  class: Commoner
+- name: Barber
+  class: Commoner
+- name: Bottler
+  class: Commoner
+- name: Draper
+  class: Commoner
+- name: Fish Monger
+  class: Commoner
+- name: Grocer
+  class: Commoner
+- name: Innkeeper
+  class: Commoner

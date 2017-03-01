@@ -1,0 +1,20 @@
+--- !<class>
+- class:
+  name: Warrior
+  skillpoints: 2
+  skills:
+  - Climb
+  - Craft
+  - Handle Animal
+  - Intimidate
+  - Profession
+  - Ride
+  - Swim
+  hitdice: d10
+  baseattackbonus: 1
+  fortitude: 0.667
+  reflex: 0.334
+  will: 0.334
+  weaponproficiencies: simple, martial
+  armorproficiencies: light, medium, heavy
+  developedage: Young

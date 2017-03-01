@@ -1,0 +1,55 @@
+--- !<characterbuilds>
+- characterbuild:
+  name: Inhabitant
+  classskillmultiplier: 5
+  baseskillweight: 1
+  classes:
+    - name: commoner
+      weight: 50
+    - name: expert
+      weight: 10
+    - name: warrior
+      weight: 15
+  races:
+    - name: human
+      weight: 90
+    - name: half-orc
+      weight: 10
+    - name: half-elf 
+      weight: 5     
+  skills:
+    - name: survival
+      weight: 20
+    - name: swim
+      weight: 10
+    - name: climb
+      weight: 10
+    - name: ride
+      weight: 2
+  feats:
+    - name: Animal Affinity
+      weight: 10
+    - name: Athletic
+      weight: 12
+    - name: Brew Potion
+      weight: 20
+    - name: Craft Magic Arms and Armor
+      weight: 20
+    - name: Craft Rod
+      weight: 20
+    - name: Craft Staff
+      weight: 20
+    - name: Craft Wand
+      weight: 20
+    - name: Craft Wondrous Item
+      weight: 20
+  abilities:
+    - name: strength
+      weight: 10
+    - name: dexterity
+      weight: 8
+    - name: constitution
+      weight: 8
+    - name: wisdom
+      weight: 6
+      
