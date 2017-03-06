@@ -10,5 +10,12 @@ namespace SilverNeedle.Utility {
         {
             return (T)Activator.CreateInstance(type, constructor);
         }
+
+        public static T Instantiate<T>(this string typeName, params IObjectStore[] constructor)
+        {
+            var type = System.Type.GetType(typeName);
+            ShortLog.DebugFormat("Type is: {0}", type.ToString());
+            return type.Instantiate<T>(constructor);
+        }
     }
 }

@@ -16,18 +16,19 @@ namespace SilverNeedle.Utility
         }
 
         public IEnumerable<IObjectStore> Children { 
-            get { throw new NotImplementedException(); }
+            get { return childList; }
         }
 
         public bool HasChildren {
             get {
-                throw new NotImplementedException();
+                return childList.Count > 0;
             }
         } 
 
         public MemoryStore()
         {
             dataStore = new Dictionary<string, IObjectStore>();
+            childList = new List<IObjectStore>();
         }
 
         public MemoryStore(string key, string value) : base()
@@ -88,7 +89,7 @@ namespace SilverNeedle.Utility
 
         public IObjectStore GetObject(string key)
         {
-            throw new NotImplementedException();
+            return dataStore[key];
         }
 
         public IObjectStore GetObjectOptional(string key)
@@ -138,6 +139,14 @@ namespace SilverNeedle.Utility
         {
             SetValue(key, boolean.ToString());
         }
+
+        public void AddListItem(IObjectStore childItem)
+        {
+            childList.Add(childItem);
+        }
+
         private Dictionary<string, IObjectStore> dataStore;
+        private IList<IObjectStore> childList;
+
     }
 }
