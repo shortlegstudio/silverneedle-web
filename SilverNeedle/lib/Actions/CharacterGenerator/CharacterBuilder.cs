@@ -121,6 +121,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
 
         private void AssignSkillPoints(CharacterSheet character, CharacterBuildStrategy strategy)
         {
+            ShortLog.Debug("Assigning Skill Points");
             // Assign Skill Points
             var skillGen = new SkillPointDistributor();
             skillGen.AssignSkillPoints(character.SkillRanks, strategy.FavoredSkills, character.GetSkillPointsPerLevel(), character.Level);
@@ -133,6 +134,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
         /// <returns>The level0.</returns>
         private CharacterSheet AssignAttributes(CharacterSheet character, CharacterBuildStrategy strategy)
         {
+            ShortLog.Debug("Assigning Attributes");
             character.Gender = EnumHelpers.ChooseOne<Gender>();
             character.Alignment = EnumHelpers.ChooseOne<CharacterAlignment>();
             this.abilityGenerator.StrategyScores(character.AbilityScores, strategy.FavoredAbilities);
@@ -142,6 +144,8 @@ namespace SilverNeedle.Actions.CharacterGenerator
 
         private void GenerateHistory(CharacterSheet character)
         {
+            ShortLog.Debug("Creating History");
+            
             var history = new History();
 
             //Homeland
@@ -165,18 +169,24 @@ namespace SilverNeedle.Actions.CharacterGenerator
         /// <param name="character">Character to assign class to.</param>
         private void SelectClass(CharacterSheet character, CharacterBuildStrategy strategy)
         {
+            ShortLog.Debug("Selecting Class");
+            
             var classSelector = new ClassSelector(gateways.Classes);
             classSelector.ChooseClass(character, strategy.Classes);
         }
 
         private void AddHitPoints(CharacterSheet character) 
         {
+            ShortLog.Debug("Adding Hit Points");
+            
             var hp = new HitPointRoller();
             hp.AddMaxHitPoints(character);
         }
 
         private void CalculateAge(CharacterSheet character)
         {
+            ShortLog.Debug("Calculating Age");
+            
             // Assign Age based on class
             var assignAge = new AssignAge();
             assignAge.RandomAge(character.Class.ClassDevelopmentAge, gateways.Maturity.Get(character.Race));
@@ -184,6 +194,8 @@ namespace SilverNeedle.Actions.CharacterGenerator
 
         private void GenerateBackground(CharacterSheet character)
         {
+            ShortLog.Debug("Generating Background");
+            
             // Figure out how this class came about
             var classOrigin = new ClassOriginStoryCreator(new ClassOriginGateway());
             character.History.ClassOriginStory = classOrigin.CreateStory(character.Class.Name);
@@ -191,6 +203,8 @@ namespace SilverNeedle.Actions.CharacterGenerator
 
         private void ChooseLanguages(CharacterSheet character)
         {
+            ShortLog.Debug("Choosing Languages");
+            
             character.Languages.Add(
                 this.languageSelector.PickLanguages(
                     character.Race, 
@@ -199,11 +213,15 @@ namespace SilverNeedle.Actions.CharacterGenerator
 
         private void ChooseFeats(CharacterSheet character, CharacterBuildStrategy strategy)
         {
+            ShortLog.Debug("Choosing Feats");
+            
             featSelector.SelectFeats(character, strategy.FavoredFeats);
         }
 
         private void EquipWeapons(CharacterSheet character)
         {
+            ShortLog.Debug("Equiping Weapons");
+            
             // Get some gear!
             var equip = new EquipMeleeAndRangedWeapon(this.gateways.Weapons);
             equip.AssignWeapons(character.Inventory, character.Offense.WeaponProficiencies);
@@ -211,12 +229,16 @@ namespace SilverNeedle.Actions.CharacterGenerator
 
         private void EquipArmor(CharacterSheet character)
         {
+            ShortLog.Debug("Equiping Armor");
+            
             var equipArmor = new PurchaseInitialArmor(this.gateways.Armors);
             equipArmor.PurchaseArmorAndShield(character.Inventory, character.Defense.ArmorProficiencies);
         }
 
         private void ChooseRace(CharacterSheet character, CharacterBuildStrategy strategy)
         {
+            ShortLog.Debug("Choosing Race");
+            
             this.raceAssigner.ChooseRace(character, strategy.Races);
             
             // Assign Age to adult
@@ -225,6 +247,8 @@ namespace SilverNeedle.Actions.CharacterGenerator
 
         private void CreateDescription(CharacterSheet character)
         {
+            ShortLog.Debug("Creating Description");
+            
             //Generate a facial description
             var facials = new CreateFacialFeatures();
             character.FacialDescription = facials.CreateFace(character.Gender);
@@ -232,24 +256,32 @@ namespace SilverNeedle.Actions.CharacterGenerator
 
         private void CreateName(CharacterSheet character)
         {
+            ShortLog.Debug("Creating Name");
+            
             // Names come last
             character.Name = this.nameGenerator.CreateFullName(character.Gender, character.Race.Name);
         }
 
         private void LevelUp(CharacterSheet character, CharacterBuildStrategy strategy)
         {
+            ShortLog.Debug("Leveling Up");
+            
             var levelUp = new LevelUpCharacter(new HitPointRoller());
             levelUp.LevelUp(character);
         }
 
         private void AssignAbilityPoints(CharacterSheet character, CharacterBuildStrategy strategy)
         {
+            ShortLog.Debug("Assigning Ability Points");
+            
             var abilityAssigner = new AbilityPointAssigner();
             abilityAssigner.AssignByStrategy(character, strategy.FavoredAbilities);
         }
 
         private void CreatePersonality(CharacterSheet character, CharacterBuildStrategy strategy)
         {
+            ShortLog.Debug("Creating Personality");
+            
             var builder = new PersonalityBuilder();
             builder.Random(character);
         }

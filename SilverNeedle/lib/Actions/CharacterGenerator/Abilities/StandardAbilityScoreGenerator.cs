@@ -50,7 +50,6 @@ namespace SilverNeedle.Actions.CharacterGenerator.Abilities
 
             for(int i = 0; i < 6; i++)
             {
-                ShortLog.DebugFormat("i: {0}", i.ToString());
                 var ability = weightedAbilities.ElementAt(i);
                 var score = scores.ElementAt(5 - i);
                 abilities.SetScore(ability, score);
