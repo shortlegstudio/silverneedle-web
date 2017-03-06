@@ -5,9 +5,10 @@
 
 namespace SilverNeedle.Actions
 {
-    public interface IBuildStep
-    {
-        
-    }
+    using SilverNeedle.Characters;
 
+    public interface ICharacterBuildStep
+    {
+        void ProcessFirstLevel(CharacterSheet character, CharacterBuildStrategy strategy);
+    }
 }

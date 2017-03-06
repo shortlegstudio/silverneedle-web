@@ -5,17 +5,21 @@
 
 namespace Tests.Actions.CharacterGenerator
 {
+    using System;
     using System.Linq;
     using NUnit.Framework;
     using SilverNeedle.Actions;
     using SilverNeedle.Actions.CharacterGenerator;
+    using SilverNeedle.Characters;
     using SilverNeedle.Utility;
 
     [TestFixture]
     public class CharacterCreatorTests
     {
-        [Test]
-        public void CharacterCreatorLoadsFromYamlStepsNecessary()
+        CharacterCreator subject;
+        
+        [SetUp]
+        public void SetUpCharacterCreator()
         {
             var data = new MemoryStore();
             data.SetValue("name", "Test One");
@@ -24,19 +28,40 @@ namespace Tests.Actions.CharacterGenerator
             steps.AddListItem(new MemoryStore("step", "Tests.Actions.CharacterGenerator.DummyStepTwo"));
             data.SetValue("level-one-steps", steps);
 
-            var subject = new CharacterCreator(data);
+            subject = new CharacterCreator(data);
+        }
+
+        [Test]
+        public void CharacterCreatorLoadsFromYamlStepsNecessary()
+        {           
             Assert.AreEqual("Test One", subject.Name);
             Assert.AreEqual(2, subject.FirstLevelSteps.Count());
         }
+
+        [Test]
+        public void CharacterCreatorExecutesEachBuildStepInSequence()
+        {
+            var characterSheet = new CharacterSheet();
+            var strategy = new CharacterBuildStrategy();
+            subject.ProcessFirstLevel(characterSheet, strategy);
+            Assert.AreEqual("Dummy One", characterSheet.Name);
+            Assert.AreEqual(16, characterSheet.AbilityScores.GetScore(AbilityScoreTypes.Strength));
+        }
     }
 
-    public class DummyStepOne : IBuildStep
+    public class DummyStepOne : ICharacterBuildStep
     {
-        
+        public void ProcessFirstLevel(CharacterSheet character, CharacterBuildStrategy strategy)
+        {
+            character.Name = "Dummy One";
+        }
     }
 
-    public class DummyStepTwo : IBuildStep
+    public class DummyStepTwo : ICharacterBuildStep
     {
-
+        public void ProcessFirstLevel(CharacterSheet character, CharacterBuildStrategy strategy)
+        {
+            character.AbilityScores.SetScore(AbilityScoreTypes.Strength, 16);
+        }
     }
 }
