@@ -3,6 +3,7 @@
   name: Inhabitant
   classskillmultiplier: 5
   baseskillweight: 1
+  charactercreator: default
   classes:
     - name: commoner
       weight: 50

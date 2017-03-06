@@ -28,6 +28,10 @@ namespace Tests.Actions.CharacterGenerator
             steps.AddListItem(new MemoryStore("step", "Tests.Actions.CharacterGenerator.DummyStepTwo"));
             data.SetValue("level-one-steps", steps);
 
+            var levelupSteps = new MemoryStore();
+            levelupSteps.AddListItem(new MemoryStore("step", "Tests.Actions.CharacterGenerator.DummyStepThree"));
+            data.SetValue("level-up-steps", levelupSteps);
+
             subject = new CharacterCreator(data);
         }
 
@@ -47,6 +51,20 @@ namespace Tests.Actions.CharacterGenerator
             Assert.AreEqual("Dummy One", characterSheet.Name);
             Assert.AreEqual(16, characterSheet.AbilityScores.GetScore(AbilityScoreTypes.Strength));
         }
+
+        [Test]
+        public void ProcessLevelUpExecutesSpecialSteps()
+        {
+            var characterSheet = new CharacterSheet();
+            var strategy = new CharacterBuildStrategy();
+            subject.ProcessLevelUp(characterSheet, strategy);
+            
+            //Does not run first level steps
+            Assert.AreNotEqual("Dummy One", characterSheet.Name);
+
+            //Runs level up
+            Assert.AreEqual(20, characterSheet.MaxHitPoints);
+        }
     }
 
     public class DummyStepOne : ICharacterBuildStep
@@ -55,6 +73,11 @@ namespace Tests.Actions.CharacterGenerator
         {
             character.Name = "Dummy One";
         }
+
+        public void ProcessLevelUp(CharacterSheet character, CharacterBuildStrategy strategy)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public class DummyStepTwo : ICharacterBuildStep
@@ -62,6 +85,24 @@ namespace Tests.Actions.CharacterGenerator
         public void ProcessFirstLevel(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             character.AbilityScores.SetScore(AbilityScoreTypes.Strength, 16);
+        }
+
+        public void ProcessLevelUp(CharacterSheet character, CharacterBuildStrategy strategy)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class DummyStepThree : ICharacterBuildStep
+    {
+        public void ProcessFirstLevel(CharacterSheet character, CharacterBuildStrategy strategy)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ProcessLevelUp(CharacterSheet character, CharacterBuildStrategy strategy)
+        {
+            character.IncreaseHitPoints(20);
         }
     }
 }

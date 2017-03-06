@@ -3,6 +3,7 @@
   name: Archer
   classskillmultiplier: 2.5
   baseskillweight: 1
+  charactercreator: default
   classes:
     - name: fighter
       weight: 10

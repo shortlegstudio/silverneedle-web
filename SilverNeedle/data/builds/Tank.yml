@@ -3,6 +3,7 @@
   name: Tank
   classskillmultiplier: 3  
   baseskillweight: 1
+  charactercreator: default
   classes:
     - name: fighter
       weight: 10

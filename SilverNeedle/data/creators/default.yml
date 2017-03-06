@@ -1,6 +1,6 @@
 --- !<SilverNeedle.Actions.CharacterGenerator.CharacterCreator>
 - build-steps:
-  name: Basic Background
+  name: default
   level-one-steps: 
     - step: SilverNeedle.Actions.CharacterGenerator.Abilities.StandardAbilityScoreGenerator
     - step: SilverNeedle.Actions.CharacterGenerator.RaceSelector
@@ -20,3 +20,9 @@
     - step: SilverNeedle.Actions.CharacterGenerator.SkillPointDistributor
     - step: SilverNeedle.Actions.CharacterGenerator.EquipMeleeAndRangedWeapon
     - step: SilverNeedle.Actions.CharacterGenerator.PurchaseInitialArmor
+  level-up-steps:
+    - step: SilverNeedle.Actions.CharacterGenerator.LevelUpCharacter
+    - step: SilverNeedle.Actions.CharacterGenerator.HitPointRoller
+    - step: SilverNeedle.Actions.CharacterGenerator.AbilityPointAssigner
+    - step: SilverNeedle.Actions.CharacterGenerator.SkillPointDistributor
+    - step: SilverNeedle.Actions.CharacterGenerator.FeatSelector
