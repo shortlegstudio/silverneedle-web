@@ -18,6 +18,11 @@ namespace SilverNeedle.Utility
             return dataStore;
         }
 
+        public int Count()
+        {
+            return dataStore.Count;
+        }
+
         public IEnumerable<T> Where(Func<T, bool> predicate) 
         {
             return dataStore.Where(predicate);

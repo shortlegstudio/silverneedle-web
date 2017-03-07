@@ -40,5 +40,10 @@ namespace SilverNeedle
             Names = new CharacterNamesGateway();
             Feats = new FeatGateway();
         }
+
+        public EntityGateway<T> Get<T>()
+        {
+            return new EntityGateway<T>();
+        }
     }
 }

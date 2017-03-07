@@ -59,7 +59,7 @@ namespace silverneedleweb.Controllers
         public IActionResult CharacterGroup(string strategy, int number)
         {
             var gateways = new GatewayProvider();
-            
+               
             var gen = new CharacterBuilder(
                 new StandardAbilityScoreGenerator(),
                 new LanguageSelector(new LanguageGateway()),

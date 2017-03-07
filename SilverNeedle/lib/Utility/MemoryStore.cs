@@ -99,6 +99,9 @@ namespace SilverNeedle.Utility
 
         public string GetString(string key)
         {
+            if(key == Key)
+                return Value;
+                
             return dataStore[key].Value;
         }
 
