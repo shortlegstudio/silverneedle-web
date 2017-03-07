@@ -28,8 +28,7 @@ namespace silverneedleweb.Controllers
 
         public IActionResult Character(string strategy, int level)
         {
-            var gateways = new GatewayProvider();
-            var gen = gateways.Get<CharacterCreator>().All().First();
+            var gen = GatewayProvider.Get<CharacterCreator>().All().First();
             var build = strategyGateway.GetBuild(strategy);
 
             var character = new CharacterSheet();

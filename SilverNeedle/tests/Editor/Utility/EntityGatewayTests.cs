@@ -50,10 +50,26 @@ namespace Utility {
             Assert.IsNotNull(prop1);
         }
 
+        [Test]
+        public void CanForceGatewayToASpecificList()
+        {
+            var list = new List<TestObject>();
+            list.Add(new TestObject("hello1"));
+            list.Add(new TestObject("hello2"));
+            var gateway = new EntityGateway<TestObject>(list);
+            Assert.AreEqual(2, gateway.Count());
+            Assert.IsNotNull(gateway.Find("hello2"));
+        }
+
         public class TestObject : IGatewayObject {
             public string Name { get; private set; }
             public TestObject(IObjectStore data) {
                 Name = data.GetString("name");
+            }
+
+            public TestObject(string name)
+            {
+                Name = name;
             }
 
             public bool Matches(string name)

@@ -6,21 +6,22 @@
 using System;
 using System.Linq;
 using SilverNeedle.Characters;
+using SilverNeedle.Utility;
 
 namespace SilverNeedle.Actions.CharacterGenerator
 {
     public class ClassSelector : ICharacterBuildStep
     {
-        private IClassGateway classes; 
-
-        public ClassSelector (IClassGateway classes)
+        private EntityGateway<Class> classes; 
+        
+        public ClassSelector(EntityGateway<Class> gateway)
         {
-            this.classes = classes;
+            classes = gateway;
         }
-
+        
         public ClassSelector()
         {
-            classes = GatewayProvider.Instance().Classes;
+            classes = GatewayProvider.Get<Class>();
         }
     
         public void ChooseAny(CharacterSheet character)
@@ -37,7 +38,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
             }
             
             var choice = classChoices.ChooseRandomly();
-            var cls = classes.GetByName(choice);
+            var cls = classes.Find(choice);
             AssignClass(character, cls);
         }   
 

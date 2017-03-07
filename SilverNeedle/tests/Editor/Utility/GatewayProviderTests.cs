@@ -15,7 +15,7 @@ namespace Tests
         public void LoadsGatewayForCharacterCreator()
         {
             var subject = new GatewayProvider();
-            var creatorGateway = subject.Get<SilverNeedle.Actions.CharacterGenerator.CharacterCreator>();
+            var creatorGateway = subject.GetImpl<SilverNeedle.Actions.CharacterGenerator.CharacterCreator>();
             Assert.IsNotNull(creatorGateway);
             Assert.Greater(creatorGateway.Count(), 0);
         }

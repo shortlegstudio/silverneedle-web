@@ -16,8 +16,8 @@ namespace SilverNeedle.Actions.CharacterGenerator
 
         public PersonalityBuilder()
         {
-            personalities = GatewayProvider.Instance().Get<PersonalityType>();
-            ideals = GatewayProvider.Instance().Get<Ideal>();
+            personalities = GatewayProvider.Get<PersonalityType>();
+            ideals = GatewayProvider.Get<Ideal>();
         }
 
         public void ProcessFirstLevel(CharacterSheet character, CharacterBuildStrategy strategy)

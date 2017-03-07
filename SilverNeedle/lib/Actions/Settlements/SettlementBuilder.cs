@@ -15,15 +15,9 @@ namespace SilverNeedle.Actions.Settlements
 
     public class SettlementBuilder
     {
-        private GatewayProvider gateways;
-        public SettlementBuilder() 
-        {   
-            gateways = new GatewayProvider();
-        }
-
         public Settlement Create(int population)
         {
-            var characterCreators = gateways.Get<CharacterCreator>();
+            var characterCreators = GatewayProvider.Get<CharacterCreator>();
             var characterBuilder = characterCreators.All().First();
             var stratGateway = new CharacterBuildGateway();
             var strategy = stratGateway.GetBuild("inhabitant");

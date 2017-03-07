@@ -64,6 +64,16 @@ namespace SilverNeedle.Utility
             }
         }
 
+        public EntityGateway(IEnumerable<T> data)
+        {
+            dataStore = new List<T>();
+            objectType = typeof(T);
+            foreach(var obj in data)
+            {
+                dataStore.Add(obj);
+            }
+        }
+
         private void LoadObjects(IEnumerable<IObjectStore> data)
         {
             foreach(var d in data) {

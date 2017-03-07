@@ -10,6 +10,7 @@ using SilverNeedle;
 using SilverNeedle.Actions.CharacterGenerator;
 using SilverNeedle.Characters;
 using SilverNeedle.Dice;
+using SilverNeedle.Utility;
 using Moq;
 
 namespace Actions
@@ -17,11 +18,13 @@ namespace Actions
     [TestFixture]
     public class ClassSelectorTests
     {
-        public IClassGateway classGateway;
+        public EntityGateway<Class> classGateway;
+
+        public ClassSelector subject;
+
         [SetUp]
         public void SetUp()
         {
-            var moq = new Mock<IClassGateway>();
             var classes = new List<Class>();
             var hero = new Class();
             hero.Name = "Fighter";
@@ -33,9 +36,8 @@ namespace Actions
             classes.Add(hero);
             classes.Add(bartender);
 
-            moq.Setup(x => x.All()).Returns(classes);
-            moq.Setup(x => x.GetByName("Fighter")).Returns(hero);
-            classGateway = moq.Object;
+            classGateway = new EntityGateway<Class>(classes);
+            subject = new ClassSelector(classGateway);
         }
 
         [Test]
@@ -44,8 +46,7 @@ namespace Actions
             var character = new CharacterSheet();
             
             Assert.IsNull(character.Class);
-            var selector = new ClassSelector(classGateway);
-            selector.ChooseAny(character);
+            subject.ChooseAny(character);
             Assert.IsNotNull(character.Class);
         }
 
@@ -53,8 +54,7 @@ namespace Actions
         public void ChoosingAClassUpdatesHitPoints()
         {
             var character = new CharacterSheet();
-            var selector = new ClassSelector(classGateway);
-            selector.ChooseAny(character);
+            subject.ChooseAny(character);
 
             Assert.Greater(character.MaxHitPoints, 0);
             Assert.Greater(character.CurrentHitPoints, 0);
@@ -64,11 +64,10 @@ namespace Actions
         public void ChoosingClassFromWeightedOptionTableSelectsFromThoseClasses()
         {
             var character = new CharacterSheet();
-            var selector = new ClassSelector(classGateway);
             var choices = new WeightedOptionTable<string>();
             choices.AddEntry("Fighter", 10);
 
-            selector.ChooseClass(character, choices);
+            subject.ChooseClass(character, choices);
 
             Assert.AreEqual("Fighter", character.Class.Name);
         }
@@ -77,11 +76,10 @@ namespace Actions
         public void EmptyOptionTableChoosesFromAnyOfTheClasses()
         {
             var character = new CharacterSheet();
-            var selector = new ClassSelector(classGateway);
             var choices = new WeightedOptionTable<string>();
             
             Assert.IsNull(character.Class);
-            selector.ChooseClass(character, choices);
+            subject.ChooseClass(character, choices);
             Assert.IsNotNull(character.Class);
         }
 
@@ -95,8 +93,7 @@ namespace Actions
             var cls = new Class();
             cls.AddClassSkill("Climb");
 
-            var selector = new ClassSelector(classGateway);
-            selector.AssignClass(character, cls);
+            subject.AssignClass(character, cls);
 
             Assert.IsTrue(character.GetSkill("Climb").ClassSkill);
 
@@ -107,12 +104,14 @@ namespace Actions
         {
             var cls = new Class();
             cls.Levels.Add(new Level(1, new LevelAbility[] {new LevelAbility("Foo", "vs. Fear", "Feat Token")}));
-            var selector = new ClassSelector(classGateway);
             var character = new CharacterSheet();
-            selector.AssignClass(character, cls);
+            subject.AssignClass(character, cls);
             Assert.AreEqual(1, character.FeatTokens.Count);
         }
 
-        
+        public class MockGateway : EntityGateway<Class>
+        {
+
+        }
     }
 }

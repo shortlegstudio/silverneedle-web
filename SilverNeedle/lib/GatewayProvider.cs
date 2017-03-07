@@ -30,8 +30,6 @@ namespace SilverNeedle
         public IWeaponGateway Weapons { get; set; }
         public IEntityGateway<Skill> Skills { get; set; }
 
-        public IClassGateway Classes { get; set; }
-
         public IRaceMaturityGateway Maturity { get; set; }
 
         public IRaceGateway Races { get; set; }
@@ -54,7 +52,6 @@ namespace SilverNeedle
             Armors = new ArmorGateway();
             Weapons = new WeaponGateway();
             Skills = new EntityGateway<Skill>();
-            Classes = new ClassGateway();
             Maturity = new RaceMaturityGateway();
             Races = new RaceGateway();
             Names = new CharacterNamesGateway();
@@ -66,9 +63,14 @@ namespace SilverNeedle
             ClassOrigins = new ClassOriginGateway();
         }
 
-        public EntityGateway<T> Get<T>() where T : IGatewayObject
+        public EntityGateway<T> GetImpl<T>() where T : IGatewayObject
         {
             return new EntityGateway<T>();
+        }
+
+        public static EntityGateway<T> Get<T>() where T : IGatewayObject
+        {
+            return Instance().GetImpl<T>();
         }
     }
 }
