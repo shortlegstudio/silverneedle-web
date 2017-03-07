@@ -2,6 +2,7 @@
 - build-steps:
   name: default
   level-one-steps: 
+    - step: SilverNeedle.Actions.CharacterGenerator.BuildCharacterSkillList
     - step: SilverNeedle.Actions.CharacterGenerator.Abilities.StandardAbilityScoreGenerator
     - step: SilverNeedle.Actions.CharacterGenerator.RaceSelector
     - step: SilverNeedle.Actions.CharacterGenerator.Appearance.CreateFacialFeatures

@@ -10,13 +10,16 @@ namespace SilverNeedle.Actions.CharacterGenerator
 {
     public class AssignAge : ICharacterBuildStep
     {
+        IRaceMaturityGateway maturityGateway;
+
         public AssignAge()
         {
+            maturityGateway = GatewayProvider.Instance().Maturity;            
         }
 
         public void ProcessFirstLevel(CharacterSheet character, CharacterBuildStrategy strategy)
         {
-            character.Age = RandomAge(character.Class.ClassDevelopmentAge, character.Race.Maturity);
+            character.Age = RandomAge(character.Class.ClassDevelopmentAge, maturityGateway.Get(character.Race));
         }
 
         public void ProcessLevelUp(CharacterSheet character, CharacterBuildStrategy strategy)

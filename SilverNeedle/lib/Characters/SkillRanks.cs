@@ -134,16 +134,19 @@ namespace SilverNeedle.Characters
         /// </summary>
         /// <param name="skills">Skills available.</param>
         /// <param name="scores">Scores to base skill ranks on.</param>
-        private void FillSkills(IEnumerable<Skill> skills, AbilityScores scores)
+        public void FillSkills(IEnumerable<Skill> newSkills, AbilityScores scores)
         {
-            foreach (var s in skills)
+            foreach (var s in newSkills)
             {
-                this.skills.Add(
-                    s.Name, 
-                    new CharacterSkill(
+                if(!this.skills.ContainsKey(s.Name))
+                {
+                    this.skills.Add(
+                        s.Name, 
+                        new CharacterSkill(
                         s,
                         scores.GetAbility(s.Ability),
                         false));
+                }
             }
         }
     }
