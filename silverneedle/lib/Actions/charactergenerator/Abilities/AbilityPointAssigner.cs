@@ -1,9 +1,10 @@
 
 namespace SilverNeedle.Actions.CharacterGenerator
 {
+    using System;
     using SilverNeedle.Characters;
 
-    public class AbilityPointAssigner
+    public class AbilityPointAssigner : ICharacterBuildStep
     {
         public void AssignByStrategy(CharacterSheet character, WeightedOptionTable<AbilityScoreTypes> abilities)
         {
@@ -14,6 +15,16 @@ namespace SilverNeedle.Actions.CharacterGenerator
                 modifier.AbilityName = abilities.ChooseRandomly();
                 character.AbilityScores.AddModifier(modifier);
             }            
+        }
+
+        public void ProcessFirstLevel(CharacterSheet character, CharacterBuildStrategy strategy)
+        {
+            AssignByStrategy(character, strategy.FavoredAbilities);
+        }
+
+        public void ProcessLevelUp(CharacterSheet character, CharacterBuildStrategy strategy)
+        {
+            AssignByStrategy(character, strategy.FavoredAbilities);
         }
     }
 

@@ -3,18 +3,24 @@
 // This software is released under the MIT License.
 // http://opensource.org/licenses/mit-license.php
 
+using System;
 using System.Linq;
 using SilverNeedle.Characters;
 
 namespace SilverNeedle.Actions.CharacterGenerator
 {
-    public class ClassSelector
+    public class ClassSelector : ICharacterBuildStep
     {
         private IClassGateway classes; 
 
         public ClassSelector (IClassGateway classes)
         {
             this.classes = classes;
+        }
+
+        public ClassSelector()
+        {
+            classes = GatewayProvider.Instance().Classes;
         }
     
         public void ChooseAny(CharacterSheet character)
@@ -48,6 +54,16 @@ namespace SilverNeedle.Actions.CharacterGenerator
             }
             var firstClassLevel = cls.GetLevel(1);
             character.AddLevelAbilities(firstClassLevel);            
+        }
+
+        public void ProcessFirstLevel(CharacterSheet character, CharacterBuildStrategy strategy)
+        {
+            ChooseClass(character, strategy.Classes);
+        }
+
+        public void ProcessLevelUp(CharacterSheet character, CharacterBuildStrategy strategy)
+        {
+            throw new NotImplementedException();
         }
     }
 }

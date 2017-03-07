@@ -6,16 +6,17 @@
 
 namespace SilverNeedle.Actions.CharacterGenerator
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using SilverNeedle;
     using SilverNeedle.Characters;
     using SilverNeedle.Equipment;
-    
+
     /// <summary>
     /// Equip melee and ranged weapon selects the weapons for this character to prepare (and purchase)
     /// </summary>
-    public class EquipMeleeAndRangedWeapon
+    public class EquipMeleeAndRangedWeapon : ICharacterBuildStep
     {
         /// <summary>
         /// The weapon gateway.
@@ -32,6 +33,11 @@ namespace SilverNeedle.Actions.CharacterGenerator
             this.weaponGateway = weapons;
         }
 
+        public EquipMeleeAndRangedWeapon()
+        {
+            this.weaponGateway = GatewayProvider.Instance().Weapons;
+        }
+
         /// <summary>
         /// Assigns the weapons.
         /// </summary>
@@ -44,6 +50,16 @@ namespace SilverNeedle.Actions.CharacterGenerator
 
             inv.AddGear(melee.ChooseOne());
             inv.AddGear(ranged.ChooseOne());
+        }
+
+        public void ProcessFirstLevel(CharacterSheet character, CharacterBuildStrategy strategy)
+        {
+            AssignWeapons(character.Inventory, character.Offense.WeaponProficiencies);
+        }
+
+        public void ProcessLevelUp(CharacterSheet character, CharacterBuildStrategy strategy)
+        {
+            throw new NotImplementedException();
         }
     }
 }

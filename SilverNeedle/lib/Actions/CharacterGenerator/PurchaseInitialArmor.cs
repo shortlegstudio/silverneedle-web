@@ -16,7 +16,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
     /// <summary>
     /// Purchase initial armor for a character
     /// </summary>
-    public class PurchaseInitialArmor
+    public class PurchaseInitialArmor : ICharacterBuildStep
     {
         /// <summary>
         /// The armors available
@@ -31,6 +31,11 @@ namespace SilverNeedle.Actions.CharacterGenerator
         public PurchaseInitialArmor(IArmorGateway armorRepo)
         {
             this.armors = armorRepo;
+        }
+
+        public PurchaseInitialArmor()
+        {
+            this.armors = GatewayProvider.Instance().Armors;
         }
 
         /// <summary>
@@ -59,6 +64,16 @@ namespace SilverNeedle.Actions.CharacterGenerator
             {
                 inventory.EquipItem(shield.ChooseOne());
             }
+        }
+
+        public void ProcessFirstLevel(CharacterSheet character, CharacterBuildStrategy strategy)
+        {
+            PurchaseArmorAndShield(character.Inventory, character.Defense.ArmorProficiencies);
+        }
+
+        public void ProcessLevelUp(CharacterSheet character, CharacterBuildStrategy strategy)
+        {
+            throw new NotImplementedException();
         }
     }
 }

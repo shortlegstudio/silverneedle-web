@@ -11,12 +11,8 @@ namespace SilverNeedle.Actions.CharacterGenerator.Appearance
 {
     using SilverNeedle;
 
-    public class CreateFacialFeatures
+    public class CreateFacialFeatures : ICharacterBuildStep
     {
-        public CreateFacialFeatures()
-        {
-        }
-
         public FacialDescription CreateFace(Gender gender)
         {
             var facial = new FacialDescription();
@@ -36,6 +32,15 @@ namespace SilverNeedle.Actions.CharacterGenerator.Appearance
             return facial;
         }
 
+        public void ProcessFirstLevel(CharacterSheet character, CharacterBuildStrategy strategy)
+        {
+            character.FacialDescription = CreateFace(character.Gender);
+        }
+
+        public void ProcessLevelUp(CharacterSheet character, CharacterBuildStrategy strategy)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

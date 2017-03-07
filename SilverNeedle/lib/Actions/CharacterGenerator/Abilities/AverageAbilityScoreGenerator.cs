@@ -12,7 +12,7 @@ namespace SilverNeedle.Actions.CharacterGenerator.Abilities
     /// Generates ability scores with just your basic average score. Useful for a base line or to
     /// make sure things are initialized properly
     /// </summary>
-    public class AverageAbilityScoreGenerator : IAbilityScoreGenerator
+    public class AverageAbilityScoreGenerator 
     {
         /// <summary>
         /// The average score.

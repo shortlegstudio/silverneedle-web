@@ -6,29 +6,15 @@
 
 namespace SilverNeedle.Actions.CharacterGenerator
 {
+    using System;
     using SilverNeedle;
     using SilverNeedle.Characters;
 
     /// <summary>
     /// Level up generator handles adding more levels to a character in a specific class
     /// </summary>
-    public class LevelUpCharacter
+    public class LevelUpCharacter : ICharacterBuildStep
     {
-        /// <summary>
-        /// The HP generator rolls the hit points
-        /// </summary>
-        private HitPointRoller hitPointGenerator;
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SilverNeedle.Actions.CharacterGenerator.LevelUpCharacter"/> class.
-        /// </summary>
-        /// <param name="hitPointGen">Generator for hit points.</param>
-        public LevelUpCharacter(HitPointRoller hitPointGen)
-        {
-            this.hitPointGenerator = hitPointGen;
-        }
-
         /// <summary>
         /// Brings the character to level.
         /// </summary>
@@ -49,7 +35,6 @@ namespace SilverNeedle.Actions.CharacterGenerator
         public void LevelUp(CharacterSheet character)
         {
             character.SetLevel(character.Level + 1);
-            this.hitPointGenerator.AddLevelUpHitPoints(character);
             character.Offense.LevelUp(character.Class);            
             character.Defense.LevelUpDefenseStats(character.Class);
             AddSpecialAbilities(character, character.Class.GetLevel(character.Level));
@@ -68,6 +53,16 @@ namespace SilverNeedle.Actions.CharacterGenerator
                     new AbilityScoreToken(adj)
                 );
             }
+        }
+
+        public void ProcessFirstLevel(CharacterSheet character, CharacterBuildStrategy strategy)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ProcessLevelUp(CharacterSheet character, CharacterBuildStrategy strategy)
+        {
+            LevelUp(character);
         }
 
         private void AddSpecialAbilities(CharacterSheet character, Level level)

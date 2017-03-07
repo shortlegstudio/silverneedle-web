@@ -7,15 +7,21 @@ namespace SilverNeedle.Actions.CharacterGenerator
 {
     using SilverNeedle.Characters;
     using System.Linq;
-    
+    using System;
+
     //TODO: Instead of passing in the gateway and the character sheet just use the token, strategy, and qualifying feats
-    public class FeatSelector
+    public class FeatSelector : ICharacterBuildStep
     {
         IFeatGateway feats;
 
         public FeatSelector(IFeatGateway feats)
         {
             this.feats = feats;
+        }
+
+        public FeatSelector()
+        {
+            feats = GatewayProvider.Instance().Feats;
         }
 
         public void SelectFeats(CharacterSheet character, WeightedOptionTable<string> preferredFeats)
@@ -51,6 +57,15 @@ namespace SilverNeedle.Actions.CharacterGenerator
             character.FeatTokens.Clear();
         }
 
+        public void ProcessFirstLevel(CharacterSheet character, CharacterBuildStrategy strategy)
+        {
+            SelectFeats(character, strategy.FavoredFeats);
+        }
+
+        public void ProcessLevelUp(CharacterSheet character, CharacterBuildStrategy strategy)
+        {
+            SelectFeats(character, strategy.FavoredFeats);
+        }
     }
 
 }

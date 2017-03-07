@@ -6,6 +6,7 @@
 namespace SilverNeedle
 {
     using SilverNeedle.Characters;
+    using SilverNeedle.Characters.Background;
     using SilverNeedle.Equipment;
     using SilverNeedle.Names;
     using SilverNeedle.Utility;
@@ -39,6 +40,16 @@ namespace SilverNeedle
 
         public IFeatGateway Feats { get; set; }
 
+        public IEntityGateway<Trait> Traits  { get; set; }
+
+        public IEntityGateway<Language> Languages { get; set; }
+
+        public IHomelandGateway Homelands { get; set; }
+
+        public IDrawbackGateway Drawbacks { get; set; }
+
+        public IClassOriginGateway ClassOrigins { get; set; }
+
         public void SetAllYaml() {
             Armors = new ArmorGateway();
             Weapons = new WeaponGateway();
@@ -48,6 +59,11 @@ namespace SilverNeedle
             Races = new RaceGateway();
             Names = new CharacterNamesGateway();
             Feats = new FeatGateway();
+            Traits = new TraitGateway();
+            Languages = new LanguageGateway();
+            Homelands = new HomelandGateway();
+            Drawbacks = new DrawbackGateway();
+            ClassOrigins = new ClassOriginGateway();
         }
 
         public EntityGateway<T> Get<T>()

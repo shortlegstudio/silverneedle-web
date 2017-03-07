@@ -24,23 +24,14 @@ namespace Actions {
 
 	    [Test]
 	    public void LevelingUpIncrementsTheLevelNumber() {
-			var levelUp = new LevelUpCharacter (new HitPointRoller());
+			var levelUp = new LevelUpCharacter ();
 			levelUp.LevelUp (character);
 			Assert.AreEqual (2, character.Level);
-	    }
-
-		[Test]
-		public void HitpointsIncreaseWhenYouLevelUp() {
-			var hp = character.MaxHitPoints;
-			var levelUp = new LevelUpCharacter (new HitPointRoller());
-
-			levelUp.LevelUp (character);
-			Assert.Greater (character.MaxHitPoints, hp);
 		}
 
 		[Test]
 		public void EveryFourLevelsYouGetAnExtraAbilityScore() {
-			var levelUp = new LevelUpCharacter (new HitPointRoller());
+			var levelUp = new LevelUpCharacter ();
 
 			levelUp.BringCharacterToLevel (character, 4);
 
@@ -53,14 +44,14 @@ namespace Actions {
 		[Test]
 		public void EveryOtherLevelAddsAFeatToken() {
             //Level one feats are currently handled outside this
-            var levelUp = new LevelUpCharacter(new HitPointRoller());
+            var levelUp = new LevelUpCharacter();
             levelUp.BringCharacterToLevel(character, 3);
             Assert.AreEqual(1, character.FeatTokens.Count);
 		}
 
 		[Test]
 		public void AssignsFeatTokensToCharacters() {
-            var levelUp = new LevelUpCharacter(new HitPointRoller());
+            var levelUp = new LevelUpCharacter();
             var abilities = new LevelAbility[] {
                 new LevelAbility("Bonus Feat", "combat", "Feat Token")
             };
@@ -74,7 +65,7 @@ namespace Actions {
 
         [Test]
         public void IncreasesBaseAttackBonus() {
-            var levelUp = new LevelUpCharacter(new HitPointRoller());
+            var levelUp = new LevelUpCharacter();
             var level = new Level(2);
             character.Class.BaseAttackBonusRate = 1;
             Assert.AreEqual(0, character.Offense.BaseAttackBonus.TotalValue);
@@ -93,7 +84,7 @@ namespace Actions {
             Assert.AreEqual(0, character.Defense.FortitudeSave.TotalValue);
             
             
-            var levelUp = new LevelUpCharacter(new HitPointRoller());
+            var levelUp = new LevelUpCharacter();
             var level = new Level(2);
             levelUp.LevelUp(character);
             Assert.AreEqual(1, character.Defense.WillSave.TotalValue);

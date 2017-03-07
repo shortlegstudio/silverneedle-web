@@ -4,11 +4,12 @@
 // // </copyright>
 // //-----------------------------------------------------------------------
 using System;
+using SilverNeedle.Characters;
 using SilverNeedle.Characters.Background;
 
 namespace SilverNeedle.Actions.CharacterGenerator.Background
 {
-    public class ClassOriginStoryCreator
+    public class ClassOriginStoryCreator : ICharacterBuildStep
     {
         IClassOriginGateway classOrigins;
 
@@ -17,9 +18,24 @@ namespace SilverNeedle.Actions.CharacterGenerator.Background
             this.classOrigins = classOrigins;
         }
 
+        public ClassOriginStoryCreator()
+        {
+            this.classOrigins = GatewayProvider.Instance().ClassOrigins;
+        }
+
         public ClassOrigin CreateStory(string cls)
         {
             return classOrigins.ChooseOne(cls);
+        }
+
+        public void ProcessFirstLevel(CharacterSheet character, CharacterBuildStrategy strategy)
+        {
+            character.History.ClassOriginStory = CreateStory(character.Class.Name);
+        }
+
+        public void ProcessLevelUp(CharacterSheet character, CharacterBuildStrategy strategy)
+        {
+            throw new NotImplementedException();
         }
     }
 }

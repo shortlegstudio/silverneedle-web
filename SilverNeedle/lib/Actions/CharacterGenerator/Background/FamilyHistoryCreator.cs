@@ -10,13 +10,13 @@ using SilverNeedle.Characters.Background;
 
 namespace SilverNeedle.Actions.CharacterGenerator.Background
 {
-    public class FamilyHistoryCreator
+    public class FamilyHistoryCreator : ICharacterBuildStep
     {
-        private INameCharacter namer;
+        private NameCharacter namer;
 
-        public FamilyHistoryCreator(INameCharacter namer)
+        public FamilyHistoryCreator()
         {
-            this.namer = namer;
+            this.namer = new NameCharacter();
         }
 
         public FamilyTree CreateFamilyTree(string race)
@@ -26,6 +26,16 @@ namespace SilverNeedle.Actions.CharacterGenerator.Background
             familyTree.Mother = namer.CreateFullName(Gender.Female, race);
 
             return familyTree;
+        }
+
+        public void ProcessFirstLevel(CharacterSheet character, CharacterBuildStrategy strategy)
+        {
+            character.History.FamilyTree = CreateFamilyTree(character.Race.Name);
+        }
+
+        public void ProcessLevelUp(CharacterSheet character, CharacterBuildStrategy strategy)
+        {
+            throw new NotImplementedException();
         }
     }
 }

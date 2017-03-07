@@ -9,11 +9,12 @@ namespace SilverNeedle.Actions.CharacterGenerator
     using System.Collections.Generic;
     using SilverNeedle.Dice;
     using SilverNeedle.Characters;
+    using System;
 
     /// <summary>
     /// Hit point generator rolls hitpoints for a character
     /// </summary>
-    public class HitPointRoller
+    public class HitPointRoller : ICharacterBuildStep
     {
         /// <summary>
         /// Rolls the hit points.
@@ -41,6 +42,16 @@ namespace SilverNeedle.Actions.CharacterGenerator
             var roll = cup.Roll();
             character.IncreaseHitPoints(roll);
             return roll;
+        }
+
+        public void ProcessFirstLevel(CharacterSheet character, CharacterBuildStrategy strategy)
+        {
+            AddMaxHitPoints(character);
+        }
+
+        public void ProcessLevelUp(CharacterSheet character, CharacterBuildStrategy strategy)
+        {
+            AddLevelUpHitPoints(character);
         }
     }
 }

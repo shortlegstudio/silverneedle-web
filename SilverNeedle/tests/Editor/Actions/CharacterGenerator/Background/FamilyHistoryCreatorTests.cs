@@ -17,21 +17,13 @@ namespace Actions
         [Test]
         public void CanCreateFamilyTreeWithParents()
         {
-            var generator = new FamilyHistoryCreator(new NameTestBuilder());
+            var generator = new FamilyHistoryCreator();
             var familyTree = generator.CreateFamilyTree("Human");
 
             Assert.NotNull(familyTree.Father);
             Assert.NotNull(familyTree.Mother);
             Assert.IsNotEmpty(familyTree.Father);
             Assert.IsNotEmpty(familyTree.Mother);
-        }
-
-        private class NameTestBuilder : INameCharacter
-        {
-            public string CreateFullName(SilverNeedle.Characters.Gender gender, string race)
-            {
-                return "Lucille";
-            }
         }
     }
 }

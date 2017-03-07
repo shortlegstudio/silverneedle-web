@@ -8,11 +8,20 @@ using SilverNeedle.Characters;
 
 namespace SilverNeedle.Actions.CharacterGenerator
 {
-    public class AssignAge
+    public class AssignAge : ICharacterBuildStep
     {
-
         public AssignAge()
         {
+        }
+
+        public void ProcessFirstLevel(CharacterSheet character, CharacterBuildStrategy strategy)
+        {
+            character.Age = RandomAge(character.Class.ClassDevelopmentAge, character.Race.Maturity);
+        }
+
+        public void ProcessLevelUp(CharacterSheet character, CharacterBuildStrategy strategy)
+        {
+            throw new NotImplementedException();
         }
 
         public int RandomAge(ClassDevelopmentAge classDevAge, Maturity maturity)

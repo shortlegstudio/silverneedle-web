@@ -15,7 +15,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
     /// <summary>
     /// Race selector chooses a race for a charactor
     /// </summary>
-    public class RaceSelector
+    public class RaceSelector : ICharacterBuildStep
     {
         /// <summary>
         /// The trait gateway provides access to all traits
@@ -33,6 +33,12 @@ namespace SilverNeedle.Actions.CharacterGenerator
         {
             this.traitGateway = traitGateway;
             this.raceGateway = raceGateway;
+        }
+
+        public RaceSelector()
+        {
+            this.traitGateway = GatewayProvider.Instance().Traits;
+            this.raceGateway = GatewayProvider.Instance().Races;
         }
 
         public void ChooseRace(CharacterSheet character, WeightedOptionTable<string> options)
@@ -124,6 +130,16 @@ namespace SilverNeedle.Actions.CharacterGenerator
         {
             // Update Size
             size.SetSize(race.SizeSetting, race.HeightRange.Roll(), race.WeightRange.Roll());
+        }
+
+        public void ProcessFirstLevel(CharacterSheet character, CharacterBuildStrategy strategy)
+        {
+            ChooseRace(character, strategy.Races);
+        }
+
+        public void ProcessLevelUp(CharacterSheet character, CharacterBuildStrategy strategy)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -6,6 +6,7 @@
 
 namespace SilverNeedle.Actions.CharacterGenerator
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using SilverNeedle;
@@ -14,7 +15,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
     /// <summary>
     /// Skill point generator.
     /// </summary>
-    public class SkillPointDistributor
+    public class SkillPointDistributor : ICharacterBuildStep
     {
         /// <summary>
         /// Assigns the skill points randomly.
@@ -90,6 +91,16 @@ namespace SilverNeedle.Actions.CharacterGenerator
                 }            
             }
             return null;
+        }
+
+        public void ProcessFirstLevel(CharacterSheet character, CharacterBuildStrategy strategy)
+        {
+            AssignSkillPoints(character.SkillRanks, strategy.FavoredSkills, character.GetSkillPointsPerLevel(), character.Level);
+        }
+
+        public void ProcessLevelUp(CharacterSheet character, CharacterBuildStrategy strategy)
+        {
+            AssignSkillPoints(character.SkillRanks, strategy.FavoredSkills, character.GetSkillPointsPerLevel(), character.Level);
         }
     }
 }

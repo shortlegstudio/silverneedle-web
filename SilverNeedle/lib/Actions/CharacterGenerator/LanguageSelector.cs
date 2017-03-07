@@ -5,6 +5,7 @@
 //-----------------------------------------------------------------------
 namespace SilverNeedle.Actions.CharacterGenerator
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using SilverNeedle;
@@ -13,7 +14,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
     /// <summary>
     /// Language selector.
     /// </summary>
-    public class LanguageSelector
+    public class LanguageSelector : ICharacterBuildStep
     {
         /// <summary>
         /// The languages available
@@ -28,6 +29,11 @@ namespace SilverNeedle.Actions.CharacterGenerator
         public LanguageSelector(IEntityGateway<Language> languages)
         {
             this.languages = languages;
+        }
+
+        public LanguageSelector()
+        {
+            this.languages = GatewayProvider.Instance().Languages;
         }
 
         /// <summary>
@@ -59,6 +65,20 @@ namespace SilverNeedle.Actions.CharacterGenerator
             }
 
             return result;
+        }
+
+        public void ProcessFirstLevel(CharacterSheet character, CharacterBuildStrategy strategy)
+        {
+            var languages = PickLanguages(character.Race, character.AbilityScores.GetModifier(AbilityScoreTypes.Intelligence));
+            foreach(var l in languages)
+            {
+                character.Languages.Add(l);
+            }
+        }
+
+        public void ProcessLevelUp(CharacterSheet character, CharacterBuildStrategy strategy)
+        {
+            throw new NotImplementedException();
         }
     }
 }

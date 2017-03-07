@@ -5,19 +5,29 @@
 
 namespace SilverNeedle.Actions.CharacterGenerator
 {
-    using System.Linq;
+    using System;
     using SilverNeedle.Characters;
     using SilverNeedle.Utility;
 
-    public class PersonalityBuilder
+    public class PersonalityBuilder : ICharacterBuildStep
     {
         private EntityGateway<PersonalityType> personalities;
         private EntityGateway<Ideal> ideals;
 
         public PersonalityBuilder()
         {
-            personalities = new EntityGateway<PersonalityType>();
-            ideals = new EntityGateway<Ideal>();
+            personalities = GatewayProvider.Instance().Get<PersonalityType>();
+            ideals = GatewayProvider.Instance().Get<Ideal>();
+        }
+
+        public void ProcessFirstLevel(CharacterSheet character, CharacterBuildStrategy strategy)
+        {
+            Random(character);
+        }
+
+        public void ProcessLevelUp(CharacterSheet character, CharacterBuildStrategy strategy)
+        {
+            throw new NotImplementedException();
         }
 
         public void Random(CharacterSheet character)
