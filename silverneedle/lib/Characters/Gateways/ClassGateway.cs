@@ -75,40 +75,7 @@ namespace SilverNeedle.Characters
 
             foreach (var node in yaml.Children)
             {
-                var cls = new Class();
-                cls.Name = node.GetString("name"); 
-                ShortLog.Debug("Loading Class: " + cls.Name);
-                cls.SkillPoints = node.GetInteger("skillpoints");
-                cls.HitDice = DiceStrings.ParseSides(node.GetString("hitdice"));
-                cls.BaseAttackBonusRate = node.GetFloat("baseattackbonus");
-                cls.FortitudeSaveRate = node.GetFloat("fortitude");
-                cls.ReflexSaveRate = node.GetFloat("reflex");
-                cls.WillSaveRate = node.GetFloat("will");
-                cls.ClassDevelopmentAge = node.GetEnum<ClassDevelopmentAge>("developedage");
-
-                var armor = node.GetListOptional("armorproficiencies");
-                cls.ArmorProficiencies.Add(armor);
-
-                var weapons = node.GetListOptional("weaponproficiencies");
-                cls.WeaponProficiencies.Add(weapons);
-
-                // Get the Skills for this class
-                var skills = node.GetObject("skills").Children;
-                foreach (var s in skills)
-                {
-                    cls.AddClassSkill(s.Value);
-                }
-
-                //Load Levels
-                var levels = node.GetObjectOptional("levels");
-                if (levels != null)
-                {
-                    foreach(var l in levels.Children)
-                    {
-                        var level = new Level(l);
-                        cls.Levels.Add(level);
-                    }
-                }
+                var cls = new Class(node);
                 classes.Add(cls);
             }
 

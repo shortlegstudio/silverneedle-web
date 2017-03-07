@@ -10,6 +10,7 @@ namespace SilverNeedle.Characters
     using System.Text.RegularExpressions;
     using SilverNeedle;
     using SilverNeedle.Dice;
+    using SilverNeedle.Utility;
 
     /// <summary>
     /// Represents a character's Class or profession
@@ -37,6 +38,11 @@ namespace SilverNeedle.Characters
             this.ArmorProficiencies = new List<string>();
             this.WeaponProficiencies = new List<string>();
             this.Levels = new List<Level>();
+        }
+
+        public Class(IObjectStore data) : this()
+        {
+            LoadFromObjectStore(data);
         }
 
         /// <summary>
@@ -173,6 +179,43 @@ namespace SilverNeedle.Characters
                 l = new Level(levelNumber);
             }
             return l;
+        }
+
+        private void LoadFromObjectStore(IObjectStore data)
+        {
+            Name = data.GetString("name"); 
+            ShortLog.Debug("Loading Class: " + Name);
+            SkillPoints = data.GetInteger("skillpoints");
+            HitDice = DiceStrings.ParseSides(data.GetString("hitdice"));
+            BaseAttackBonusRate = data.GetFloat("baseattackbonus");
+            FortitudeSaveRate = data.GetFloat("fortitude");
+            ReflexSaveRate = data.GetFloat("reflex");
+            WillSaveRate = data.GetFloat("will");
+            ClassDevelopmentAge = data.GetEnum<ClassDevelopmentAge>("developedage");
+
+            var armor = data.GetListOptional("armorproficiencies");
+            ArmorProficiencies.Add(armor);
+
+            var weapons = data.GetListOptional("weaponproficiencies");
+            WeaponProficiencies.Add(weapons);
+
+            // Get the Skills for this class
+            var skills = data.GetObject("skills").Children;
+            foreach (var s in skills)
+            {
+                AddClassSkill(s.Value);
+            }
+
+            //Load Levels
+            var levels = data.GetObjectOptional("levels");
+            if (levels != null)
+            {
+                foreach(var l in levels.Children)
+                {
+                    var level = new Level(l);
+                    Levels.Add(level);
+                }
+            }
         }
     }
 }
