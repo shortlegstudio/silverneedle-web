@@ -11,6 +11,15 @@ namespace SilverNeedle
     using SilverNeedle.Utility;
     public class GatewayProvider
     {
+        private static GatewayProvider __instance;
+        public static GatewayProvider Instance() 
+        {
+            if(__instance == null)
+                __instance = new GatewayProvider();
+
+            return __instance;
+        }
+        
         public GatewayProvider()
         {
             SetAllYaml();

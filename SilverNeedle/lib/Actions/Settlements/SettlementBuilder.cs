@@ -5,6 +5,7 @@
 
 namespace SilverNeedle.Actions.Settlements
 {
+    using System.Linq;
     using SilverNeedle.Characters;
     using SilverNeedle.Actions.CharacterGenerator;
     using SilverNeedle.Actions.CharacterGenerator.Abilities;
@@ -22,19 +23,16 @@ namespace SilverNeedle.Actions.Settlements
 
         public Settlement Create(int population)
         {
-            var characterBuilder = new CharacterGenerator.CharacterBuilder(
-                new StandardAbilityScoreGenerator(),
-                new LanguageSelector(new LanguageGateway()),
-                new RaceSelector(gateways.Races, new TraitGateway()),
-                new NameCharacter(new CharacterNamesGateway()),
-                new FeatSelector(gateways.Feats),
-                new GatewayProvider()
-            );
-
+            var characterCreators = gateways.Get<CharacterCreator>();
+            var characterBuilder = characterCreators.All().First();
+            var stratGateway = new CharacterBuildGateway();
+            var strategy = stratGateway.GetBuild("inhabitant");
             var settlement = new Settlement();
             for(int i = 0; i < population; i++)
             {
-                settlement.AddInhabitant(characterBuilder.GenerateRandomCharacter());
+                var character = new CharacterSheet();
+                characterBuilder.ProcessFirstLevel(character, strategy);
+                settlement.AddInhabitant(character);
             }
 
             return settlement;
