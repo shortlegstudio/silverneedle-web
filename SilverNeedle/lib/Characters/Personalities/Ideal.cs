@@ -4,9 +4,10 @@
 // https://opensource.org/licenses/MIT
 
 namespace SilverNeedle.Characters
-{   
+{
+    using System;
     using SilverNeedle.Utility;
-    public class Ideal
+    public class Ideal : IGatewayObject
     {
         public string Name { get; private set; }
         public string Description { get; private set; }
@@ -14,6 +15,11 @@ namespace SilverNeedle.Characters
         {
             Name = data.GetString("name");
             Description = data.GetString("description");
+        }
+
+        public bool Matches(string name)
+        {
+            return Name.EqualsIgnoreCase(name);
         }
     }
 }

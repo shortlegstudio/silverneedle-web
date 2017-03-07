@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace SilverNeedle.Utility 
 {
-    public class EntityGateway<T> : IEntityGateway<T>
+    public class EntityGateway<T> : IEntityGateway<T> where T : IGatewayObject
     {
         private IList<T> dataStore;
         private Type objectType;
@@ -26,6 +26,11 @@ namespace SilverNeedle.Utility
         public IEnumerable<T> Where(Func<T, bool> predicate) 
         {
             return dataStore.Where(predicate);
+        }
+
+        public T Find(string name)
+        {
+            return dataStore.FirstOrDefault(x => x.Matches(name));
         }
 
         public T ChooseOne()
@@ -66,6 +71,8 @@ namespace SilverNeedle.Utility
                 dataStore.Add(obj);
             }
         }
+
+
     }
 
 }

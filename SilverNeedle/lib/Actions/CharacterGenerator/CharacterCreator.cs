@@ -10,7 +10,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
     using SilverNeedle.Characters;
     using SilverNeedle.Utility;
 
-    public class CharacterCreator : ICharacterBuildStep
+    public class CharacterCreator : ICharacterBuildStep, IGatewayObject
     {
         public string Name { get; private set; }
         public IEnumerable<ICharacterBuildStep> FirstLevelSteps { get { return _firstLevelSteps; } }
@@ -56,6 +56,11 @@ namespace SilverNeedle.Actions.CharacterGenerator
             {
                 step.ProcessLevelUp(character, strategy);
             }
+        }
+
+        public bool Matches(string name)
+        {
+            return Name.EqualsIgnoreCase(name);
         }
     }
 }

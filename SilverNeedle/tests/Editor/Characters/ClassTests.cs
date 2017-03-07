@@ -162,6 +162,12 @@ namespace Tests.Characters {
             Assert.AreEqual(5, Monk.Levels.Count);
             Assert.AreEqual(4, Wizard.Levels.Count);
         }
+
+        [Test]
+        public void MatchesOnNameCaseInsensitive()
+        {
+            Assert.IsTrue(Fighter.Matches("fighter"));
+        }
         private const string ClassYamlFile = @"--- 
 - class: 
   name: Fighter

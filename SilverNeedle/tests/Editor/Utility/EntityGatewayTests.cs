@@ -8,13 +8,17 @@ using NUnit.Framework;
 using SilverNeedle.Utility;
 using System.Linq;
 using SilverNeedle.Characters;
+using System;
 
 namespace Utility {
 
     [TestFixture]
     public class EntityGatewayTests {
-        [Test]
-        public void LoadsClassesFromObjectStores() {
+        private EntityGateway<TestObject> subject;
+
+        [SetUp]
+        public void SetUp()
+        {
             var data = new List<IObjectStore>();
             var entity1 = new MemoryStore();
             entity1.SetValue("name", "prop1");
@@ -23,10 +27,13 @@ namespace Utility {
             data.Add(entity1);
             data.Add(entity2);
 
-            var g = new EntityGateway<TestObject>(data);
-            var all = g.All();
-            Assert.AreEqual(1, g.Where(x => x.Name == "prop1").Count());
-            Assert.AreEqual(1, g.Where(x => x.Name == "prop2").Count());
+            subject = new EntityGateway<TestObject>(data);
+        }
+
+        [Test]
+        public void LoadsClassesFromObjectStores() {           
+            Assert.AreEqual(1, subject.Where(x => x.Name == "prop1").Count());
+            Assert.AreEqual(1, subject.Where(x => x.Name == "prop2").Count());
         }
 
         [Test]
@@ -36,10 +43,22 @@ namespace Utility {
             Assert.Greater(gateway.All().Count(), 0);
         }
 
-        public class TestObject {
+        [Test]
+        public void CanReturnASingleEntityThatMatches()
+        {
+            var prop1 = subject.Find("prop1");
+            Assert.IsNotNull(prop1);
+        }
+
+        public class TestObject : IGatewayObject {
             public string Name { get; private set; }
             public TestObject(IObjectStore data) {
                 Name = data.GetString("name");
+            }
+
+            public bool Matches(string name)
+            {
+                return Name == name;
             }
         }
     }

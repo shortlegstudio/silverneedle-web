@@ -12,7 +12,7 @@ namespace SilverNeedle.Characters
     /// <summary>
     /// Represents a skill that a character can perform
     /// </summary>
-    public class Skill
+    public class Skill : IGatewayObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Characters.Skill"/> class.
@@ -82,6 +82,11 @@ namespace SilverNeedle.Characters
                 this.Name, 
                 this.Ability, 
                 this.TrainingRequired);
+        }
+
+        public bool Matches(string name)
+        {
+            return Name.EqualsIgnoreCase(name);
         }
     }
 }

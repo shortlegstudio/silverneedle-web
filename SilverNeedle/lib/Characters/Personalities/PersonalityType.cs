@@ -5,11 +5,12 @@
 
 namespace SilverNeedle.Characters
 {
+    using System;
     using System.Collections.Generic;
     using SilverNeedle.Utility;
 
 
-    public class PersonalityType
+    public class PersonalityType : IGatewayObject
     {
         public PersonalityTypes.Attitude Attitude { get; private set; }
         public PersonalityTypes.Information InformationProcessing { get; private set; }
@@ -18,6 +19,8 @@ namespace SilverNeedle.Characters
         public IEnumerable<string> Descriptors { get; private set; }
 
         public IEnumerable<string> Weaknesses { get; private set; }
+
+        public string Type { get; private set; }
         
         public PersonalityType(string type) {
             ParseType(type);
@@ -35,6 +38,11 @@ namespace SilverNeedle.Characters
             InformationProcessing = (PersonalityTypes.Information)type[1];
             DecisionMaking = (PersonalityTypes.DecisionMaking)type[2];
             Structure = (PersonalityTypes.Structure)type[3];
+        }
+
+        public bool Matches(string name)
+        {
+            return Type.Equals(name);
         }
     }
 }

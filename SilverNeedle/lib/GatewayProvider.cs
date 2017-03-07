@@ -66,7 +66,7 @@ namespace SilverNeedle
             ClassOrigins = new ClassOriginGateway();
         }
 
-        public EntityGateway<T> Get<T>()
+        public EntityGateway<T> Get<T>() where T : IGatewayObject
         {
             return new EntityGateway<T>();
         }

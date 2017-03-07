@@ -5,6 +5,7 @@
 //-----------------------------------------------------------------------
 namespace SilverNeedle.Characters
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text.RegularExpressions;
@@ -15,7 +16,7 @@ namespace SilverNeedle.Characters
     /// <summary>
     /// Represents a character's Class or profession
     /// </summary>
-    public class Class
+    public class Class : IGatewayObject
     {
         /// <summary>
         /// The good save rate. TODO: This should be configurable or moved
@@ -216,6 +217,11 @@ namespace SilverNeedle.Characters
                     Levels.Add(level);
                 }
             }
+        }
+
+        public bool Matches(string name)
+        {
+            return Name.EqualsIgnoreCase(name);
         }
     }
 }
