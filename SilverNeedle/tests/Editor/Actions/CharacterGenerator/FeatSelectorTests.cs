@@ -3,11 +3,12 @@
 // This software is released under the MIT License.
 // http://opensource.org/licenses/mit-license.php
 
-using Moq;
+using System.Collections.Generic;
 using NUnit.Framework;
 using SilverNeedle;
 using SilverNeedle.Actions.CharacterGenerator;
 using SilverNeedle.Characters;
+using SilverNeedle.Utility;
 
 namespace Actions
 {
@@ -19,7 +20,7 @@ namespace Actions
         Feat empowerspell;
 
         FeatSelector selector;
-        Mock<IFeatGateway> gateway;
+        EntityGateway<Feat> gateway;
 
         [SetUp]
         public void SetUp()
@@ -35,12 +36,12 @@ namespace Actions
             empowerspell.Name = "Empower Spell";
             empowerspell.Tags.Add("metamagic");
 
-            gateway = new Mock<IFeatGateway>();
-            gateway.Setup(x => x.GetByName("power attack")).Returns(powerattack);
-            gateway.Setup(x => x.GetByName("cleave")).Returns(cleave);
-            gateway.Setup(x => x.GetByName("empower spell")).Returns(empowerspell);            
-
-            selector = new FeatSelector(gateway.Object);
+            var list = new List<Feat>();
+            list.Add(powerattack);
+            list.Add(cleave);
+            list.Add(empowerspell);
+            gateway = new EntityGateway<Feat>(list);
+            selector = new FeatSelector(gateway);
         }
         [Test]
         public void ChooseFeatBasedOnStrategy()
@@ -125,7 +126,6 @@ namespace Actions
         {
             var strategy = new WeightedOptionTable<string>();
             var character = new CharacterSheet();
-            gateway.Setup(x => x.GetQualifyingFeats(character)).Returns(new Feat[] {powerattack, empowerspell});
             character.FeatTokens.Add(new FeatToken());
             selector.SelectFeats(character, strategy);
             Assert.IsTrue(character.Feats[0] == powerattack || character.Feats[0] == empowerspell);

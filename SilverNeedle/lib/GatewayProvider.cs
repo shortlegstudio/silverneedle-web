@@ -36,8 +36,6 @@ namespace SilverNeedle
 
         public ICharacterNamesGateway Names { get; set; }
 
-        public IFeatGateway Feats { get; set; }
-
         public IEntityGateway<Trait> Traits  { get; set; }
 
         public IEntityGateway<Language> Languages { get; set; }
@@ -55,7 +53,6 @@ namespace SilverNeedle
             Maturity = new RaceMaturityGateway();
             Races = new RaceGateway();
             Names = new CharacterNamesGateway();
-            Feats = new FeatGateway();
             Traits = new TraitGateway();
             Languages = new LanguageGateway();
             Homelands = new HomelandGateway();

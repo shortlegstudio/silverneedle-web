@@ -5,23 +5,23 @@
 
 namespace SilverNeedle.Actions.CharacterGenerator
 {
-    using SilverNeedle.Characters;
     using System.Linq;
-    using System;
+    using SilverNeedle.Characters;
+    using SilverNeedle.Utility;
 
     //TODO: Instead of passing in the gateway and the character sheet just use the token, strategy, and qualifying feats
     public class FeatSelector : ICharacterBuildStep
     {
-        IFeatGateway feats;
+        EntityGateway<Feat> feats;
 
-        public FeatSelector(IFeatGateway feats)
+        public FeatSelector(EntityGateway<Feat> feats)
         {
             this.feats = feats;
         }
 
         public FeatSelector()
         {
-            feats = GatewayProvider.Instance().Feats;
+            feats = GatewayProvider.Get<Feat>();
         }
 
         public void SelectFeats(CharacterSheet character, WeightedOptionTable<string> preferredFeats)
@@ -32,7 +32,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
                 //Enable/Disable options based on whether qualified for feat
                 foreach(var entry in preferredFeats.All())
                 {
-                    var f = feats.GetByName(entry.Option);
+                    var f = feats.Find(entry.Option);
                     if(!f.IsQualified(character)) {
                         ShortLog.DebugFormat("Feat {0} Disabled - Unqualified", f.Name); 
                         preferredFeats.Disable(entry.Option);
@@ -46,11 +46,11 @@ namespace SilverNeedle.Actions.CharacterGenerator
                 }
 
                 if(preferredFeats.IsEmpty) {
-                    var feats = this.feats.GetQualifyingFeats(character).ToList();
+                    var feats = this.feats.Where(x => x.IsQualified(character)).ToList();
                     character.AddFeat(feats.ChooseOne());
                 } else {
                     var selection = preferredFeats.ChooseRandomly();
-                    var feat = feats.GetByName(selection);
+                    var feat = feats.Find(selection);
                     character.AddFeat(feat);
                 }               
             }

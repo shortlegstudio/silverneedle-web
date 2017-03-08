@@ -7,17 +7,15 @@ namespace SilverNeedle.Characters
 {
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text.RegularExpressions;
     using SilverNeedle;
-    using SilverNeedle.Yaml;
+    using SilverNeedle.Utility;
 
     /// <summary>
     /// Represents a feat ability for a character that allows it to perform
     /// special and advanced abilities
     /// </summary>
-    public class Feat : IModifiesStats, IProvidesSpecialAbilities
+    public class Feat : IModifiesStats, IProvidesSpecialAbilities, IGatewayObject
     {
-
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Characters.Feat"/> class.
         /// </summary>
@@ -27,6 +25,11 @@ namespace SilverNeedle.Characters
             this.SpecialAbilities = new List<SpecialAbility>();
             this.Prerequisites = new Prerequisites();
             this.Tags = new List<string>();
+        }
+
+        public Feat(IObjectStore data) : this()
+        {
+            LoadObject(data);
         }
 
         /// <summary>
@@ -102,6 +105,44 @@ namespace SilverNeedle.Characters
         public override string ToString()
         {
             return string.Format("Feat: {0}", Name);
+        }
+
+        public bool Matches(string name)
+        {
+            return Name.EqualsIgnoreCase(name);
+        }
+
+        private void LoadObject(IObjectStore data)
+        {
+            Name = data.GetString("name"); 
+            ShortLog.DebugFormat("Loading Feat: {0}", Name);
+            Description = data.GetString("description");
+
+            // Get Any skill Modifiers if they exist
+            var skills = data.GetObjectOptional("modifiers");
+            if (skills != null)
+            {
+                foreach (var skillAdj in skills.Children)
+                {
+                    var skillName = skillAdj.GetString("stat");
+                    var modifier = skillAdj.GetInteger("modifier");
+                    var type = skillAdj.GetString("type");
+                    Modifiers.Add(new BasicStatModifier(
+                        skillName,
+                        modifier,
+                        type,
+                        string.Format("{0} (feat)", Name)));
+                }
+            }
+
+            // Get any prerequisites
+            var prereq = data.GetObjectOptional("prerequisites");
+            if (prereq != null)
+            {
+                Prerequisites = new Prerequisites(prereq);
+            }
+
+            Tags = data.GetListOptional("tags").ToList();
         }
     }
 }
