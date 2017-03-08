@@ -3,15 +3,25 @@
 // //     Copyright (c) Short Leg Studio, LLC. All rights reserved.
 // // </copyright>
 // //-----------------------------------------------------------------------
-using System;
-using SilverNeedle.Dice;
 
 namespace SilverNeedle.Characters
 {
-    public class Maturity
+    using SilverNeedle.Dice;
+    using SilverNeedle.Utility;
+
+    public class Maturity : IGatewayObject
     {
         public Maturity()
         {
+        }
+
+        public Maturity(IObjectStore data)
+        {
+            Name = data.GetString("race");
+            Adulthood = data.GetInteger("adulthood");
+            Young = DiceStrings.ParseDice(data.GetString("young"));
+            Trained = DiceStrings.ParseDice(data.GetString("trained"));
+            Studied = DiceStrings.ParseDice(data.GetString("studied"));                
         }
 
         public string Name { get; set; }
@@ -19,6 +29,11 @@ namespace SilverNeedle.Characters
         public Cup Young { get; set; }
         public Cup Trained { get; set; }
         public Cup Studied { get; set; } 
+
+        public bool Matches(string name)
+        {
+            return Name.EqualsIgnoreCase(name);
+        }
     }
 }
 

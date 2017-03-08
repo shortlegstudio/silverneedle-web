@@ -30,10 +30,8 @@ namespace SilverNeedle
         public IWeaponGateway Weapons { get; set; }
         public IEntityGateway<Skill> Skills { get; set; }
 
-        public IRaceMaturityGateway Maturity { get; set; }
-
         public ICharacterNamesGateway Names { get; set; }
-        
+
         public IHomelandGateway Homelands { get; set; }
 
         public IDrawbackGateway Drawbacks { get; set; }
@@ -44,7 +42,6 @@ namespace SilverNeedle
             Armors = new ArmorGateway();
             Weapons = new WeaponGateway();
             Skills = new EntityGateway<Skill>();
-            Maturity = new RaceMaturityGateway();
             Names = new CharacterNamesGateway();
             Homelands = new HomelandGateway();
             Drawbacks = new DrawbackGateway();

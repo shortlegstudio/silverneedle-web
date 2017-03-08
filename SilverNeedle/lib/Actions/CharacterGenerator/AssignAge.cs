@@ -5,21 +5,22 @@
 // //-----------------------------------------------------------------------
 using System;
 using SilverNeedle.Characters;
+using SilverNeedle.Utility;
 
 namespace SilverNeedle.Actions.CharacterGenerator
 {
     public class AssignAge : ICharacterBuildStep
     {
-        IRaceMaturityGateway maturityGateway;
+        EntityGateway<Maturity> maturityGateway;
 
         public AssignAge()
         {
-            maturityGateway = GatewayProvider.Instance().Maturity;            
+            maturityGateway = GatewayProvider.Get<Maturity>();            
         }
 
         public void ProcessFirstLevel(CharacterSheet character, CharacterBuildStrategy strategy)
         {
-            character.Age = RandomAge(character.Class.ClassDevelopmentAge, maturityGateway.Get(character.Race));
+            character.Age = RandomAge(character.Class.ClassDevelopmentAge, maturityGateway.Find(character.Race.Name));
         }
 
         public void ProcessLevelUp(CharacterSheet character, CharacterBuildStrategy strategy)

@@ -11,27 +11,18 @@ using System.Linq;
 using SilverNeedle.Dice;
 using SilverNeedle.Yaml;
 
-namespace Characters {
+namespace Tests.Characters {
 
     [TestFixture]
-    public class RaceMaturityGatewayTests {
+    public class MaturityTests {
         Maturity human;
         Maturity dwarf;
-        RaceMaturityGateway gateway;
-
+        
         [SetUp]
         public void SetUp() {
-            gateway = new RaceMaturityGateway (MaturityDataFile.ParseYaml());
-            human = gateway.All().First(x => x.Name == "human");
-            dwarf = gateway.All().First(x => x.Name == "dwarf");
-        }
-
-        [Test]
-        public void CanRetreivewMaturityByRaceClass()
-        {
-            var race = new Race();
-            race.Name = "Human";
-            Assert.AreEqual(human, gateway.Get(race));
+            var list = MaturityDataFile.ParseYaml().Load<Maturity>();
+            human = list.First(x => x.Name == "human");
+            dwarf = list.First(x => x.Name == "dwarf");
         }
 
         [Test]
@@ -42,20 +33,19 @@ namespace Characters {
             Assert.AreEqual(40, dwarf.Adulthood);
         }
 
-
         private const string MaturityDataFile = @"--- 
 - maturity:
-    race: human
-    adulthood: 15
-    young: 1d4
-    trained: 1d6
-    studied: 2d6
+  race: human
+  adulthood: 15
+  young: 1d4
+  trained: 1d6
+  studied: 2d6
 - maturity:
-    race: dwarf
-    adulthood: 40
-    young: 3d6
-    trained: 5d6
-    studied: 7d6
+  race: dwarf
+  adulthood: 40
+  young: 3d6
+  trained: 5d6
+  studied: 7d6
 ...";
     }
 }
