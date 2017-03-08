@@ -336,5 +336,17 @@ namespace SilverNeedle.Yaml
                 this.Key, 
                 this.HasChildren);
         }
+
+        public IList<T> Load<T>()
+        {
+            var type = typeof(T);
+            var list = new List<T>();
+            foreach(var obj in Children)
+            {
+                list.Add(type.Instantiate<T>(obj));
+                
+            }
+            return list;
+        }
     }
 }

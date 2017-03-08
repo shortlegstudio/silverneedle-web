@@ -1,20 +1,20 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
+using System.Collections.Generic;
 using NUnit.Framework;
-using SilverNeedle;
 using SilverNeedle.Characters;
 using SilverNeedle.Yaml;
 
-namespace Characters {
+namespace Tests.Characters {
 	[TestFixture]
-	public class LanguageGatewayTests
+	public class LanguageTests
 	{
 		[Test]
-		public void ParseTheYamlFile() {
-			var gateway = new LanguageGateway (LanguageYamlFile.ParseYaml ());
-			var french = gateway.All().First (x => x.Name == "French");
+		public void ParseTheYamlFile() 
+        {
+            var list = LanguageYamlFile.ParseYaml ().Load<Language>();
+			var french = list.First (x => x.Name == "French");
 			Assert.AreEqual ("C'est la vie", french.Description);
-			var english = gateway.All().First (x => x.Name == "English");
+			var english = list.First (x => x.Name == "English");
 			Assert.AreEqual ("Good day old boy", english.Description);
 		}
 

@@ -5,12 +5,14 @@
 //-----------------------------------------------------------------------
 namespace SilverNeedle.Characters
 {
+    using System;
     using System.Collections.Generic;
+    using SilverNeedle.Utility;
 
     /// <summary>
     /// Languages that a character can learn
     /// </summary>
-    public class Language
+    public class Language : IGatewayObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Characters.Language"/> class.
@@ -21,6 +23,12 @@ namespace SilverNeedle.Characters
         {
             this.Name = name;
             this.Description = desc;
+        }
+
+        public Language(IObjectStore data)
+        {
+            Name = data.GetString("name");
+            Description = data.GetString("description");
         }
 
         /// <summary>
@@ -34,5 +42,10 @@ namespace SilverNeedle.Characters
         /// </summary>
         /// <value>The description of the language.</value>
         public string Description { get; set; }
+
+        public bool Matches(string name)
+        {
+            return Name.EqualsIgnoreCase(name);
+        }
     }
 }

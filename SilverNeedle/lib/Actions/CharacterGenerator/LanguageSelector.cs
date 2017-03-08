@@ -33,7 +33,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
 
         public LanguageSelector()
         {
-            this.languages = GatewayProvider.Instance().Languages;
+            this.languages = GatewayProvider.Get<Language>();
         }
 
         /// <summary>
