@@ -15,8 +15,7 @@ namespace silverneedleweb.Controllers
         
         public IActionResult Index()
         {
-            var gateways = new GatewayProvider();
-            var namer = new NameCharacter(gateways.Names);
+            var namer = new NameCharacter();
             var races = GatewayProvider.Get<Race>().All();
             var number = 5;
             var results = new List<NamesViewModel>();

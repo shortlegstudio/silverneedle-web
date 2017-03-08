@@ -8,7 +8,6 @@ namespace SilverNeedle
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.Background;
     using SilverNeedle.Equipment;
-    using SilverNeedle.Names;
     using SilverNeedle.Utility;
     public class GatewayProvider
     {
@@ -30,8 +29,6 @@ namespace SilverNeedle
         public IWeaponGateway Weapons { get; set; }
         public IEntityGateway<Skill> Skills { get; set; }
 
-        public ICharacterNamesGateway Names { get; set; }
-
         public IHomelandGateway Homelands { get; set; }
 
 
@@ -39,7 +36,6 @@ namespace SilverNeedle
             Armors = new ArmorGateway();
             Weapons = new WeaponGateway();
             Skills = new EntityGateway<Skill>();
-            Names = new CharacterNamesGateway();
             Homelands = new HomelandGateway();
         }
 

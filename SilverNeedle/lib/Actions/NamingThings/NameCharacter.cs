@@ -3,26 +3,26 @@
 // //     Copyright (c) Short Leg Studio, LLC. All rights reserved.
 // // </copyright>
 // //-----------------------------------------------------------------------
-using SilverNeedle.Names;
-using SilverNeedle.Characters;
 
 namespace SilverNeedle.Actions.NamingThings
 {
     using System;
-    using SilverNeedle;
+    using SilverNeedle.Characters;
+    using SilverNeedle.Names;
+    using SilverNeedle.Utility;
 
     public class NameCharacter : ICharacterBuildStep
     {
-        private ICharacterNamesGateway namesGateway;
+        private EntityGateway<NameInformation> namesGateway;
 
-        public NameCharacter(ICharacterNamesGateway namesGateway)
+        public NameCharacter(EntityGateway<NameInformation> namesGateway)
         {
             this.namesGateway = namesGateway;    
         }
 
         public NameCharacter()
         {
-            this.namesGateway = GatewayProvider.Instance().Names;
+            this.namesGateway = GatewayProvider.Get<NameInformation>();
         }
 
         public string CreateFullName(Gender gender, string race)
