@@ -2,21 +2,19 @@
 // 
 // This software is released under the MIT License.
 // http://opensource.org/licenses/mit-license.php
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using SilverNeedle;
 using SilverNeedle.Actions.CharacterGenerator;
-using SilverNeedle.Actions.CharacterGenerator.Abilities;
-using SilverNeedle.Actions.NamingThings;
 using SilverNeedle.Characters;
-using SilverNeedle.Names;
-using System.Linq;
+using SilverNeedle.Utility;
 
 
 namespace silverneedleweb.Controllers
 {
     public class CharacterController : Controller
     {
-        private CharacterBuildGateway strategyGateway = new CharacterBuildGateway();
+        private EntityGateway<CharacterBuildStrategy> strategyGateway = GatewayProvider.Get<CharacterBuildStrategy>();
 
         public IActionResult Index()
         {
@@ -29,7 +27,7 @@ namespace silverneedleweb.Controllers
         public IActionResult Character(string strategy, int level)
         {
             var gen = GatewayProvider.Get<CharacterCreator>().All().First();
-            var build = strategyGateway.GetBuild(strategy);
+            var build = strategyGateway.Find(strategy);
 
             var character = new CharacterSheet();
             gen.ProcessFirstLevel(character, build);

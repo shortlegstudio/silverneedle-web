@@ -1,27 +1,28 @@
 // Copyright (c) 2017 Trevor Redfern
-// 
+//
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using SilverNeedle;
 using SilverNeedle.Actions.Settlements;
 using SilverNeedle.Characters;
 using SilverNeedle.Groups;
-using System.Linq;
+using SilverNeedle.Utility;
 
 
 namespace silverneedleweb.Controllers
 {
     public class SettlementController : Controller
     {
-        private CharacterBuildGateway strategyGateway = new CharacterBuildGateway();
+        private EntityGateway<CharacterBuildStrategy> strategyGateway = GatewayProvider.Get<CharacterBuildStrategy>();
 
         public IActionResult Index()
         {
-            var strategies = strategyGateway.All();
-            ViewData["Strategies"] = strategies.Select(x => x.Name).ToArray();
-            
-            return View();
+            var strategies = this.strategyGateway.All();
+            this.ViewData["Strategies"] = strategies.Select(x => x.Name).ToArray();
+            return this.View();
         }
 
 
@@ -29,16 +30,15 @@ namespace silverneedleweb.Controllers
         {
             var settlementBuilder = new SettlementBuilder();
             var settlement = settlementBuilder.Create(number);
-            
-            ViewData["settlement"] = new SettlementTextView(settlement);
-            ViewData["strategy"] = strategy;
-            ViewData["level"] = 1;
-            return View();
+            this.ViewData["settlement"] = new SettlementTextView(settlement);
+            this.ViewData["strategy"] = strategy;
+            this.ViewData["level"] = 1;
+            return this.View();
         }
 
         public IActionResult Error()
         {
-            return View();
+            return this.View();
         }
     }
 }

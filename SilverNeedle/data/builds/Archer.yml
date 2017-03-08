@@ -1,4 +1,4 @@
---- !<characterbuilds>
+--- !<SilverNeedle.Characters.CharacterBuildStrategy>
 - characterbuild:
   name: Archer
   classskillmultiplier: 2.5

@@ -5,9 +5,10 @@
 
 namespace SilverNeedle.Characters
 {
+    using System;
     using SilverNeedle.Utility;
 
-    public class CharacterBuildStrategy
+    public class CharacterBuildStrategy : IGatewayObject
     {
         public CharacterBuildStrategy()
         {
@@ -71,7 +72,7 @@ namespace SilverNeedle.Characters
                 BuildAbilityTable(FavoredAbilities, abilities);
         }
 
-                private void BuildWeightedTable(WeightedOptionTable<string> tableToBuild, IObjectStore node)
+        private void BuildWeightedTable(WeightedOptionTable<string> tableToBuild, IObjectStore node)
         {
             foreach(var child in node.Children)
             {
@@ -102,6 +103,11 @@ namespace SilverNeedle.Characters
                     abilityTable.AddEntry(a, 1);
                 }
             }
+        }
+
+        public bool Matches(string name)
+        {
+            return Name.EqualsIgnoreCase(name);
         }
     }
 }
