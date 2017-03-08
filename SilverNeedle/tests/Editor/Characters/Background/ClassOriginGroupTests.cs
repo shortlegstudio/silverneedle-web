@@ -9,28 +9,20 @@ using SilverNeedle.Characters.Background;
 using System.Linq;
 using SilverNeedle.Yaml;
 
-namespace Characters
+namespace Tests.Characters.Background
 {
     [TestFixture]
-    public class ClassOriginGatewayTests
+    public class ClassOriginGroupTests
     {
         [Test]
         public void LoadsUpClassOriginFromYamlFileWithExpectedAttributes()
         {
-            var gateway = new ClassOriginGateway(ClassOriginYamlFile.ParseYaml());
-            var bardOriginTable = gateway.GetClassOriginOptions("bard");
+            var list = ClassOriginYamlFile.ParseYaml().Load<ClassOriginGroup>();
+            var bardOriginTable = list.First(x => x.Name.EqualsIgnoreCase("bard")).Origins;
             var entry = bardOriginTable.All().First().Option;
             Assert.AreEqual("Celebrity", entry.Name);
             Assert.AreEqual(10, entry.Weighting);
             Assert.IsTrue(entry.Traits.Contains("Influence"));
-        }
-
-        [Test]
-        public void CaseInsensitiveSearchesForClassOrigins()
-        {
-            var gateway = new ClassOriginGateway(ClassOriginYamlFile.ParseYaml());
-            Assert.Greater(gateway.GetClassOriginOptions("Barbarian").All().Count(), 0);
-            Assert.Greater(gateway.GetClassOriginOptions("BARD").All().Count(), 0);
         }
 
         private const string ClassOriginYamlFile = @"--- 

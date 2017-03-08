@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SilverNeedle
+namespace SilverNeedle.Utility
 {
     /// <summary>
     /// Represents a list of options that each have a different weight to select.
@@ -24,6 +24,16 @@ namespace SilverNeedle
         {
             table = new List<TableEntry>();
             maxValue = 1;
+        }
+
+        public WeightedOptionTable(IEnumerable<T> list) : this()
+        {
+            foreach(var item in list)
+            {
+                var cast = (IWeightedTableObject)item;
+
+                AddEntry(item, cast.Weighting);
+            }
         }
 
         public bool IsEmpty

@@ -6,9 +6,11 @@
 using System;
 using NUnit.Framework;
 using System.Linq;
+using System.Collections.Generic;
 using SilverNeedle;
+using SilverNeedle.Utility;
 
-namespace Utility
+namespace Tests.Utility
 {
     [TestFixture]
     public class WeightedOptionTableTests
@@ -138,6 +140,28 @@ namespace Utility
             var list = table.UniqueList();
             Assert.AreEqual("Bar", list.First());
             Assert.AreEqual("Foo", list.Last());
+        }
+
+        [Test]
+        public void CanInitializeFromAListOfProperObjects()
+        {
+            var list = new List<DummyEntry>();
+            list.Add(new DummyEntry("Foo", 4));
+            list.Add(new DummyEntry("Bar", 2));
+            var table = new WeightedOptionTable<DummyEntry>(list);
+            Assert.AreEqual(2, table.All().Count());
+            
+        }
+
+        public class DummyEntry : IWeightedTableObject
+        {
+            public DummyEntry(string name, int weight)
+            {
+                Name = name;
+                Weighting = weight;
+            }
+            public string Name { get; set; }
+            public int Weighting { get; set; }
         }
     }
 }

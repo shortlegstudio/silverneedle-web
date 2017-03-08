@@ -7,6 +7,7 @@ namespace SilverNeedle.Actions.CharacterGenerator.Abilities
 {
     using SilverNeedle;
     using SilverNeedle.Characters;
+    using SilverNeedle.Utility;
 
     /// <summary>
     /// Generates ability scores with just your basic average score. Useful for a base line or to

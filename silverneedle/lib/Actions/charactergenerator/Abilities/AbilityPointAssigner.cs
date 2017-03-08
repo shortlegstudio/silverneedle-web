@@ -1,8 +1,8 @@
 
 namespace SilverNeedle.Actions.CharacterGenerator
 {
-    using System;
     using SilverNeedle.Characters;
+    using SilverNeedle.Utility;
 
     public class AbilityPointAssigner : ICharacterBuildStep
     {

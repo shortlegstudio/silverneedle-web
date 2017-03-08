@@ -3,11 +3,11 @@
 // //     Copyright (c) Short Leg Studio, LLC. All rights reserved.
 // // </copyright>
 // //-----------------------------------------------------------------------
-using System;
-using System.Collections.Generic;
 
 namespace SilverNeedle.Characters.Background
 {
+    using SilverNeedle.Utility;
+
     public interface IHomelandGateway
     {
         WeightedOptionTable<Homeland> GetRacialOptions(string race);

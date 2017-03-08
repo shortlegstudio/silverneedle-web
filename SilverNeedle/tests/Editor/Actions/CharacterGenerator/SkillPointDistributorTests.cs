@@ -3,15 +3,13 @@
 // This software is released under the MIT License.
 // http://opensource.org/licenses/mit-license.php
 
-using System;
 using NUnit.Framework;
 using SilverNeedle.Characters;
-using SilverNeedle.Dice;
 using System.Linq;
-using SilverNeedle;
+using SilverNeedle.Utility;
 using System.Collections.Generic;
 using SilverNeedle.Actions.CharacterGenerator;
-using Moq;
+
 
 namespace Actions
 {

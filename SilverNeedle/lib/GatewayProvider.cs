@@ -34,9 +34,6 @@ namespace SilverNeedle
 
         public IHomelandGateway Homelands { get; set; }
 
-        public IDrawbackGateway Drawbacks { get; set; }
-
-        public IClassOriginGateway ClassOrigins { get; set; }
 
         public void SetAllYaml() {
             Armors = new ArmorGateway();
@@ -44,8 +41,6 @@ namespace SilverNeedle
             Skills = new EntityGateway<Skill>();
             Names = new CharacterNamesGateway();
             Homelands = new HomelandGateway();
-            Drawbacks = new DrawbackGateway();
-            ClassOrigins = new ClassOriginGateway();
         }
 
         public EntityGateway<T> GetImpl<T>() where T : IGatewayObject

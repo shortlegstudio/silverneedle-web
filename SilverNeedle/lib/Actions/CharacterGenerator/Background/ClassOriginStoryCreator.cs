@@ -3,29 +3,34 @@
 // //     Copyright (c) Short Leg Studio, LLC. All rights reserved.
 // // </copyright>
 // //-----------------------------------------------------------------------
-using System;
-using SilverNeedle.Characters;
-using SilverNeedle.Characters.Background;
 
 namespace SilverNeedle.Actions.CharacterGenerator.Background
 {
+    using System;
+    using SilverNeedle.Characters;
+    using SilverNeedle.Characters.Background;
+    using SilverNeedle.Utility;
+
     public class ClassOriginStoryCreator : ICharacterBuildStep
     {
-        IClassOriginGateway classOrigins;
+        EntityGateway<ClassOriginGroup> classOrigins;
 
-        public ClassOriginStoryCreator(IClassOriginGateway classOrigins)
+        public ClassOriginStoryCreator(EntityGateway<ClassOriginGroup> classOrigins)
         {
             this.classOrigins = classOrigins;
         }
 
         public ClassOriginStoryCreator()
         {
-            this.classOrigins = GatewayProvider.Instance().ClassOrigins;
+            this.classOrigins = GatewayProvider.Get<ClassOriginGroup>();
         }
 
         public ClassOrigin CreateStory(string cls)
         {
-            return classOrigins.ChooseOne(cls);
+            var origins = classOrigins.Find(cls);
+            if(origins == null)
+                return new ClassOrigin();
+            return origins.Origins.ChooseRandomly();            
         }
 
         public void ProcessFirstLevel(CharacterSheet character, CharacterBuildStrategy strategy)

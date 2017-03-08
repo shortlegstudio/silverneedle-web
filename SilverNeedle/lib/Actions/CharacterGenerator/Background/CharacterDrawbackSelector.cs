@@ -6,21 +6,22 @@
 using System;
 using SilverNeedle.Characters;
 using SilverNeedle.Characters.Background;
+using SilverNeedle.Utility;
 
 namespace SilverNeedle.Actions.CharacterGenerator.Background
 {
     public class CharacterDrawbackSelector : ICharacterBuildStep
     {
-        IDrawbackGateway drawbacks;
+        EntityGateway<Drawback> drawbacks;
 
-        public CharacterDrawbackSelector(IDrawbackGateway drawbacks)
+        public CharacterDrawbackSelector(EntityGateway<Drawback> drawbacks)
         {
             this.drawbacks = drawbacks;
         }
 
         public CharacterDrawbackSelector()
         {
-            this.drawbacks = GatewayProvider.Instance().Drawbacks;
+            this.drawbacks = GatewayProvider.Get<Drawback>();
         }
 
         public void ProcessFirstLevel(CharacterSheet character, CharacterBuildStrategy strategy)
@@ -35,7 +36,8 @@ namespace SilverNeedle.Actions.CharacterGenerator.Background
 
         public Drawback SelectDrawback() 
         {
-            return drawbacks.ChooseOne();
+            var table = new WeightedOptionTable<Drawback>(drawbacks.All());
+            return table.ChooseRandomly();
         }
     }
 }

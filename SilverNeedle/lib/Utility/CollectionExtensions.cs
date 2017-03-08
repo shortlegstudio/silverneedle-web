@@ -8,6 +8,7 @@ namespace SilverNeedle
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using SilverNeedle.Utility;
 
     /// <summary>
     /// Provides extension methods to collections and enumerable classes

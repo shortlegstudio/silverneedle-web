@@ -6,11 +6,10 @@
 
 namespace SilverNeedle.Actions.CharacterGenerator
 {
-    using System;
-    using System.Collections.Generic;
     using System.Linq;
     using SilverNeedle;
     using SilverNeedle.Characters;
+    using SilverNeedle.Utility;
 
     /// <summary>
     /// Skill point generator.

@@ -7,8 +7,8 @@
 
 namespace SilverNeedle.Characters.Background
 {
-    using System;
     using System.Collections.Generic;
+    using SilverNeedle.Utility;
 
     public class ClassOrigin
     {
@@ -16,6 +16,15 @@ namespace SilverNeedle.Characters.Background
         {
             Traits = new List<string>();
             Storylines = new List<string>();
+        }
+
+        public ClassOrigin(string cls, IObjectStore data) : this()
+        {
+            Class = cls;
+            Name = data.GetString("name");
+            Weighting = data.GetInteger("weight");
+            Traits.Add(data.GetListOptional("traits"));
+            Storylines.Add(data.GetListOptional("storylines"));
         }
 
         public string Name { get; set; }

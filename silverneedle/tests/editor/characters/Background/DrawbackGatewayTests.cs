@@ -9,18 +9,17 @@ using SilverNeedle.Characters.Background;
 using System.Linq;
 using SilverNeedle.Yaml;
 
-namespace Characters
+namespace Tests.Characters.Background
 {
     [TestFixture]
-    public class DrawbackGatewayTests
+    public class DrawbackTests
     {
         [Test]
         public void MakesAllDrawbacksAvailableUponRequest()
         {
-            var gateway = new DrawbackGateway(DrawbackYamlFile.ParseYaml());
-            var drawbacks = gateway.GetDrawbacks().All();
+            var drawbacks = DrawbackYamlFile.ParseYaml().Load<Drawback>();
             Assert.Greater(drawbacks.Count(), 0);
-            Assert.IsTrue(drawbacks.Any(x => x.Option.Name == "The Future"));
+            Assert.IsTrue(drawbacks.Any(x => x.Name == "The Future"));
         }
 
         private const string DrawbackYamlFile = @"--- 
