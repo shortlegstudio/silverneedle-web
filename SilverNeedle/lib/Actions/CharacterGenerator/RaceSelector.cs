@@ -20,7 +20,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
         /// <summary>
         /// The trait gateway provides access to all traits
         /// </summary>
-        private IEntityGateway<Trait> traitGateway;
+        private EntityGateway<Trait> traitGateway;
 
         private EntityGateway<Race> raceGateway;
 
@@ -29,7 +29,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
         /// </summary>
         /// <param name="races">Races gateway to load from.</param>
         /// <param name="traitGateway">Trait gateway.</param>
-        public RaceSelector(EntityGateway<Race> raceGateway, IEntityGateway<Trait> traitGateway)
+        public RaceSelector(EntityGateway<Race> raceGateway, EntityGateway<Trait> traitGateway)
         {
             this.traitGateway = traitGateway;
             this.raceGateway = raceGateway;
@@ -37,7 +37,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
 
         public RaceSelector()
         {
-            this.traitGateway = GatewayProvider.Instance().Traits;
+            this.traitGateway = GatewayProvider.Get<Trait>();
             this.raceGateway = GatewayProvider.Get<Race>();
         }
 

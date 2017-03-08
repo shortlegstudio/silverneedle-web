@@ -1,4 +1,4 @@
---- !<trait>
+--- !<SilverNeedle.Characters.Trait>
 - trait:
   name: Adaptability
   description: Half-Elves receive Skill Focus as a bonus feat at 1st Level.

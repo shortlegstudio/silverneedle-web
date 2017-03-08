@@ -6,12 +6,14 @@
 
 namespace SilverNeedle.Characters
 {
+    using System;
     using System.Collections.Generic;
+    using SilverNeedle.Utility;
 
     /// <summary>
     /// A trait is some basic innate attribute of the character. Usually positive
     /// </summary>
-    public class Trait : IModifiesStats, IProvidesSpecialAbilities
+    public class Trait : IModifiesStats, IProvidesSpecialAbilities, IGatewayObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Characters.Trait"/> class.
@@ -21,6 +23,11 @@ namespace SilverNeedle.Characters
             this.Modifiers = new List<BasicStatModifier>();
             this.SpecialAbilities = new List<SpecialAbility>();
             this.Tags = new List<string>();
+        }
+
+        public Trait(IObjectStore data) : this()
+        {
+            LoadObject(data);
         }
 
         /// <summary>
@@ -49,5 +56,42 @@ namespace SilverNeedle.Characters
 
 
         public IList<SpecialAbility> SpecialAbilities { get; private set; }
+
+        public bool Matches(string name)
+        {
+            return Name.EqualsIgnoreCase(name);
+        }
+
+        private void LoadObject(IObjectStore data)
+        {
+            Name = data.GetString("name"); 
+            ShortLog.Debug("Loading Trait: " + Name);
+            Description = data.GetString("description");
+            Tags.Add(data.GetListOptional("tags"));
+
+            // Get Any skill Modifiers if they exist
+            var modifiers = data.GetObjectOptional("modifiers");
+            if (modifiers != null)
+            {
+                var mods = ParseStatModifiersYaml.ParseYaml(modifiers, string.Format("{0} (trait)", Name));
+                foreach (var m in mods)
+                {
+                    Modifiers.Add(m);
+                }
+            }
+
+            // Get any special abilities
+            var abilities = data.GetObjectOptional("special");
+            if (abilities != null)
+            {
+                foreach (var spec in abilities.Children)
+                {
+                    var specialAbility = new SpecialAbility(
+                        spec.GetString("condition"),
+                        spec.GetString("type"));
+                    SpecialAbilities.Add(specialAbility);
+                }
+            }
+        }
     }
 }
