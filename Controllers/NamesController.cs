@@ -17,7 +17,7 @@ namespace silverneedleweb.Controllers
         {
             var gateways = new GatewayProvider();
             var namer = new NameCharacter(gateways.Names);
-            var races = gateways.Races.All();
+            var races = GatewayProvider.Get<Race>().All();
             var number = 5;
             var results = new List<NamesViewModel>();
 

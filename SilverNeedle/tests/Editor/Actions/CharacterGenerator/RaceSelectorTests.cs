@@ -1,22 +1,24 @@
-﻿using System;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Moq;
 using NUnit.Framework;
+using SilverNeedle;
+using SilverNeedle.Actions.CharacterGenerator;
 using SilverNeedle.Characters;
 using SilverNeedle.Dice;
-using System.Linq;
-using SilverNeedle;
-using System.Collections.Generic;
-using SilverNeedle.Actions.CharacterGenerator;
-using Moq;
+using SilverNeedle.Utility;
 
 namespace Actions
 {
     [TestFixture]
     public class RaceSelectorTests
     {
-        private Mock<IRaceGateway> raceGateway;
+        private EntityGateway<Race> raceGateway;
         private Mock<IEntityGateway<Trait>> traitGateway;
 
         private Race elf;
+
+        private Race human;
         private Trait elfTrait;
 
         private RaceSelector raceSelectorSubject;
@@ -26,22 +28,32 @@ namespace Actions
         {
             // Create a race
             elf = new Race();
+            elf.Name = "Elfy";
             elf.Traits.Add("Elfy");
             elf.SizeSetting = CharacterSize.Medium;
             elf.HeightRange = DiceStrings.ParseDice("10d6");
             elf.WeightRange = DiceStrings.ParseDice("20d8");
 
+            human = new Race();
+            human.Name = "Human";
+            human.SizeSetting = CharacterSize.Medium;
+            human.HeightRange = DiceStrings.ParseDice("2d8+30");
+            human.WeightRange = DiceStrings.ParseDice("3d6+100");
+
             //Set up the trait
             elfTrait = new Trait();
             elfTrait.Name = "Elfy";
 
+            var list = new List<Race>();
+            list.Add(elf);
+            list.Add(human);
+
             // Configure Gateways
-            raceGateway = new Mock<IRaceGateway>();
-            raceGateway.Setup(x => x.Get("Elfy")).Returns(elf);
+            raceGateway = new EntityGateway<Race>(list);
             traitGateway = new Mock<IEntityGateway<Trait>>();
             traitGateway.Setup(x => x.All()).Returns(new Trait[] { elfTrait });
 
-            raceSelectorSubject = new RaceSelector(raceGateway.Object, traitGateway.Object);
+            raceSelectorSubject = new RaceSelector(raceGateway, traitGateway.Object);
         }
 
         [Test]
@@ -64,7 +76,7 @@ namespace Actions
             smallGuy.HeightRange = DiceStrings.ParseDice("2d4+10");
             smallGuy.WeightRange = DiceStrings.ParseDice("2d4+100");
 
-            var assign = new RaceSelector(raceGateway.Object, traitGateway.Object);
+            var assign = new RaceSelector(raceGateway, traitGateway.Object);
             raceSelectorSubject.SetRace(sheet, smallGuy);
             Assert.AreEqual(CharacterSize.Small, sheet.Size.Size);
             Assert.GreaterOrEqual(sheet.Size.Height, 12);
@@ -89,13 +101,6 @@ namespace Actions
         [Test]
         public void OptionTableLimitsSelectionOfRace()
         {
-            //Add another entry to the gateway
-            var human = new Race();
-            human.SizeSetting = CharacterSize.Medium;
-            human.HeightRange = DiceStrings.ParseDice("2d8+30");
-            human.WeightRange = DiceStrings.ParseDice("3d6+100");
-            raceGateway.Setup(x => x.Get("Human")).Returns(human);
-
             var sheet = new CharacterSheet();
             var options = new WeightedOptionTable<string>();
             options.AddEntry("Human", 12);
@@ -111,13 +116,11 @@ namespace Actions
         [Test]
         public void IfChoiceListIsEmptyChooseAnyRace() 
         {	
-                var sheet = new CharacterSheet();
-                var options = new WeightedOptionTable<string>();
+            var sheet = new CharacterSheet();
+            var options = new WeightedOptionTable<string>();
 
-                raceGateway.Setup(x => x.All()).Returns(new Race[] { elf });
-
-                raceSelectorSubject.ChooseRace(sheet, options);
-                Assert.AreEqual(elf, sheet.Race);
+            raceSelectorSubject.ChooseRace(sheet, options);
+            Assert.AreEqual(elf, sheet.Race);
         }
     }
 

@@ -6,13 +6,14 @@
 namespace SilverNeedle.Characters
 {
     using System.Collections.Generic;
-    using SilverNeedle;
+    using SilverNeedle.Utility;
     using SilverNeedle.Dice;
+    using System;
 
     /// <summary>
     /// Represents a race for a character. This is selected once
     /// </summary>
-    public class Race
+    public class Race : IGatewayObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Characters.Race"/> class.
@@ -23,6 +24,11 @@ namespace SilverNeedle.Characters
             this.Traits = new List<string>();
             this.AvailableLanguages = new List<string>();
             this.KnownLanguages = new List<string>();
+        }
+
+        public Race(IObjectStore data) : this()
+        {
+            LoadObject(data);
         }
 
         /// <summary>
@@ -80,5 +86,52 @@ namespace SilverNeedle.Characters
         public int BaseMovementSpeed { get; set; }
 
         public Maturity Maturity { get; set; }
+
+        public bool Matches(string name)
+        {
+            return Name.EqualsIgnoreCase(name);
+        }
+
+        private void LoadObject(IObjectStore data)
+        {
+            Name = data.GetString("name"); 
+            ShortLog.Debug("Loading Race: " + Name);
+            SizeSetting = (CharacterSize)System.Enum.Parse(typeof(CharacterSize), data.GetString("size"));
+            HeightRange = DiceStrings.ParseDice(data.GetString("height"));
+            WeightRange = DiceStrings.ParseDice(data.GetString("weight"));
+
+            var abilities = data.GetObject("abilities");
+            foreach (var ability in abilities.ChildrenToDictionary())
+            {
+                var modifier = new AbilityScoreAdjustment();
+                modifier.Reason = "Racial Trait";
+                modifier.Modifier = int.Parse(ability.Value);
+
+                // Special case is races that can choose
+                if (string.Compare(ability.Key, "choose", true) == 0)
+                {
+                    modifier.ChooseAny = true;
+                }
+                else
+                {
+                    modifier.AbilityName = AbilityScore.GetType(ability.Key);
+                }
+
+                AbilityModifiers.Add(modifier);
+            }
+
+            var traits = data.GetObject("traits");
+            foreach (var trait in traits.Children)
+            {
+                Traits.Add(trait.Value);
+            }
+
+            var languages = data.GetObject("languages");
+            KnownLanguages.Add(languages.GetListOptional("known"));
+            AvailableLanguages.Add(languages.GetListOptional("available"));
+
+            // Get Speed
+            BaseMovementSpeed = data.GetInteger("basemovementspeed");
+        }
     }
 }
