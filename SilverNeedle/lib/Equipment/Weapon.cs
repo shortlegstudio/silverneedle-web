@@ -5,12 +5,12 @@
 //-----------------------------------------------------------------------
 namespace SilverNeedle.Equipment
 {
-    using SilverNeedle.Characters;
+    using SilverNeedle.Utility;
 
     /// <summary>
     /// Represents a weapon 
     /// </summary>
-    public class Weapon : IEquipment
+    public class Weapon : IEquipment, IGatewayObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Equipment.Weapon"/> class.
@@ -54,6 +54,25 @@ namespace SilverNeedle.Equipment
             this.Type = type;
             this.Group = group;
             this.Level = level;
+        }
+
+        public Weapon(IObjectStore data)
+        {
+            ShortLog.DebugFormat("Loading Weapon: {0}", data.GetString("name"));
+            this.Name = data.GetString("name");
+            this.Weight = data.GetFloat("weight");
+            this.Damage = data.GetString("damage");
+            this.DamageType= data.GetEnum<DamageTypes>("damage_type");
+            this.CriticalThreat = data.GetIntegerOptional("critical_threat");
+            this.CriticalModifier = data.GetIntegerOptional("critical_modifier");
+            this.Range = data.GetIntegerOptional("range");
+            this.Type = data.GetEnum<WeaponType>("type");
+            this.Group = data.GetEnum<WeaponGroup>("group");
+            this.Level = data.GetEnum<WeaponTrainingLevel>("training_level");
+
+            this.CriticalThreat = this.CriticalThreat == 0 ? 20 : this.CriticalThreat;
+            this.CriticalModifier = this.CriticalModifier == 0 ? 2 : this.CriticalModifier; 
+            
         }
 
         /// <summary>
@@ -141,6 +160,11 @@ namespace SilverNeedle.Equipment
         public string GetBasicType()
         {
             return this.Type == WeaponType.Ranged ? "Ranged" : "Melee";
+        }
+
+         public bool Matches(string name)
+        {
+            return this.Name.EqualsIgnoreCase(name);
         }
     }
 }

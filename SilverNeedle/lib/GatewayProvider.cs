@@ -6,7 +6,6 @@
 namespace SilverNeedle
 {
     using SilverNeedle.Characters.Background;
-    using SilverNeedle.Equipment;
     using SilverNeedle.Utility;
     public class GatewayProvider
     {
@@ -24,12 +23,9 @@ namespace SilverNeedle
             SetAllYaml();
         }
 
-        public IWeaponGateway Weapons { get; set; }
-
         public IHomelandGateway Homelands { get; set; }
 
         public void SetAllYaml() {
-            Weapons = new WeaponGateway();
             Homelands = new HomelandGateway();
         }
 

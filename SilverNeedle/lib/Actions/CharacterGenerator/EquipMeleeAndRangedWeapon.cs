@@ -12,6 +12,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
     using SilverNeedle;
     using SilverNeedle.Characters;
     using SilverNeedle.Equipment;
+    using SilverNeedle.Utility;
 
     /// <summary>
     /// Equip melee and ranged weapon selects the weapons for this character to prepare (and purchase)
@@ -21,21 +22,21 @@ namespace SilverNeedle.Actions.CharacterGenerator
         /// <summary>
         /// The weapon gateway.
         /// </summary>
-        private IWeaponGateway weaponGateway;
+        private EntityGateway<Weapon> weaponGateway;
 
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="SilverNeedle.Actions.CharacterGenerator.EquipMeleeAndRangedWeapon"/> class.
         /// </summary>
         /// <param name="weapons">Weapons available for purchase</param>
-        public EquipMeleeAndRangedWeapon(IWeaponGateway weapons)
+        public EquipMeleeAndRangedWeapon(EntityGateway<Weapon> weapons)
         {
             this.weaponGateway = weapons;
         }
 
         public EquipMeleeAndRangedWeapon()
         {
-            this.weaponGateway = GatewayProvider.Instance().Weapons;
+            this.weaponGateway = GatewayProvider.Get<Weapon>();
         }
 
         /// <summary>
