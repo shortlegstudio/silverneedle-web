@@ -12,6 +12,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
     using SilverNeedle;
     using SilverNeedle.Characters;
     using SilverNeedle.Equipment;
+    using SilverNeedle.Utility;
     
     /// <summary>
     /// Purchase initial armor for a character
@@ -21,21 +22,21 @@ namespace SilverNeedle.Actions.CharacterGenerator
         /// <summary>
         /// The armors available
         /// </summary>
-        private IArmorGateway armors;
+        private EntityGateway<Armor> armors;
 
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="SilverNeedle.Actions.CharacterGenerator.PurchaseInitialArmor"/> class.
         /// </summary>
         /// <param name="armorRepo">Armor gateway to load from.</param>
-        public PurchaseInitialArmor(IArmorGateway armorRepo)
+        public PurchaseInitialArmor(EntityGateway<Armor> armorRepo)
         {
             this.armors = armorRepo;
         }
 
         public PurchaseInitialArmor()
         {
-            this.armors = GatewayProvider.Instance().Armors;
+            this.armors = GatewayProvider.Get<Armor>();
         }
 
         /// <summary>

@@ -7,12 +7,12 @@
 namespace SilverNeedle.Equipment
 {
     using System;
-    using SilverNeedle.Equipment;
+    using SilverNeedle.Utility;
 
     /// <summary>
     /// Armor is for protecting the character from damage
     /// </summary>
-    public class Armor : IEquipment
+    public class Armor : IEquipment, IGatewayObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Equipment.Armor"/> class.
@@ -47,6 +47,18 @@ namespace SilverNeedle.Equipment
             this.ArmorCheckPenalty = armorCheckPenalty;
             this.ArcaneSpellFailureChance = arcaneSpell;
             this.ArmorType = armorType;
+        }
+
+        public Armor(IObjectStore data)
+        {
+            ShortLog.DebugFormat("Loading Armor: {0}", data.GetString("name"));
+            this.Name = data.GetString("name");
+            this.ArmorClass = data.GetInteger("armor_class");
+            this.Weight = data.GetFloat("weight");
+            this.MaximumDexterityBonus = data.GetInteger("maximum_dexterity_bonus");
+            this.ArmorCheckPenalty = data.GetInteger("armor_check_penalty");
+            this.ArcaneSpellFailureChance = data.GetInteger("arcane_spell_failure_chance");
+            this.ArmorType = data.GetEnum<ArmorType>("armor_type");
         }
 
         /// <summary>
@@ -101,6 +113,11 @@ namespace SilverNeedle.Equipment
                         return 0;
                 }
             }
+        }
+
+        public bool Matches(string name)
+        {
+            return Name.EqualsIgnoreCase(name);
         }
     }
 }

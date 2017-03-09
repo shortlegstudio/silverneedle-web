@@ -15,14 +15,6 @@ namespace Utility
     public class DatafileLoaderTests
     {
         [Test]
-        public void ProvidesAccessToAListOfFilesThatMatchCriteria()
-        {
-            var datafileLoader = new DatafileLoader();
-            var files = datafileLoader.GetDataFiles("armor");
-            Assert.Greater(files.Count(), 0);
-        }
-
-        [Test]
         public void CanFindFilesOfSpecificObjectType()
         {
             //TODO: It's a bad test because it's dependent on data files. 

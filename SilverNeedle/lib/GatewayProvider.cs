@@ -5,7 +5,6 @@
 
 namespace SilverNeedle
 {
-    using SilverNeedle.Characters;
     using SilverNeedle.Characters.Background;
     using SilverNeedle.Equipment;
     using SilverNeedle.Utility;
@@ -25,17 +24,12 @@ namespace SilverNeedle
             SetAllYaml();
         }
 
-        public IArmorGateway Armors { get; set; }
         public IWeaponGateway Weapons { get; set; }
-        public IEntityGateway<Skill> Skills { get; set; }
 
         public IHomelandGateway Homelands { get; set; }
 
-
         public void SetAllYaml() {
-            Armors = new ArmorGateway();
             Weapons = new WeaponGateway();
-            Skills = new EntityGateway<Skill>();
             Homelands = new HomelandGateway();
         }
 

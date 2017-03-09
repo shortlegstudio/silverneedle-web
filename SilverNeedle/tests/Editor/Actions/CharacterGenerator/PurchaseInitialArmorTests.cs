@@ -5,6 +5,7 @@ using NUnit.Framework;
 using SilverNeedle.Actions.CharacterGenerator;
 using SilverNeedle.Equipment;
 using SilverNeedle.Characters;
+using SilverNeedle.Utility;
 
 
 namespace Actions {
@@ -12,9 +13,25 @@ namespace Actions {
 	[TestFixture]
 	public class PurchaseInitialArmorTests
 	{
+		EntityGateway<Armor> gateway;
+
+		[SetUp]
+		public void SetUp()
+		{
+			var armors = new List<Armor>();
+			var shield = new Armor();
+			shield.ArmorType = ArmorType.Shield;
+
+			var armor = new Armor();
+			armor.ArmorType = ArmorType.Heavy;
+			armors.Add(armor);
+			armors.Add(shield);
+			gateway = new EntityGateway<Armor>(armors);
+		}
+
 		[Test]
 		public void EquipWithArmorAndShield () {
-			var equip = new PurchaseInitialArmor(new TestArmorGateway());
+			var equip = new PurchaseInitialArmor(gateway);
 			var inventory = new Inventory ();
             var armorProficiencies = new List<ArmorProficiency>();
             armorProficiencies.Add(new ArmorProficiency("Heavy"));
@@ -28,7 +45,7 @@ namespace Actions {
         [Test]
         public void DoesNotEquipShieldIfNotProficient()
         {
-            var equip = new PurchaseInitialArmor(new TestArmorGateway());
+            var equip = new PurchaseInitialArmor(gateway);
             var inventory = new Inventory();
             var armorProficiencies = new List<ArmorProficiency>();
             armorProficiencies.Add(new ArmorProficiency("Heavy"));
@@ -40,51 +57,12 @@ namespace Actions {
         [Test]
         public void DoesNotEquipArmorIfNotProficient()
         {
-            var equip = new PurchaseInitialArmor(new TestArmorGateway());
+            var equip = new PurchaseInitialArmor(gateway);
             var inventory = new Inventory();
             var armorProficiencies = new List<ArmorProficiency>();
             equip.PurchaseArmorAndShield(inventory, armorProficiencies);
             Assert.IsTrue(inventory.GearOfType<Armor>().Count() == 0);
         }
-
-		private class TestArmorGateway : IArmorGateway {
-			List<Armor> armors;
-
-			public TestArmorGateway() {
-				armors = new List<Armor>();
-				var shield = new Armor();
-				shield.ArmorType = ArmorType.Shield;
-
-				var armor = new Armor();
-				armor.ArmorType = ArmorType.Heavy;
-				armors.Add(armor);
-				armors.Add(shield);
-			}
-
-			public IEnumerable<Armor> All() {
-				return armors;
-			}
-
-			public SilverNeedle.Equipment.Armor GetByName (string name)
-			{
-				return armors [0];
-			}
-
-			public IEnumerable<Armor> FindByArmorType (ArmorType type)
-			{
-				return armors.Where( x => x.ArmorType == type);
-			}
-
-			public IEnumerable<Armor> FindByArmorTypes (params ArmorType[] types)
-			{
-				return armors.Where (x => types.Contains (x.ArmorType));
-			}
-
-            public IEnumerable<Armor> FindByProficiency(IEnumerable<ArmorProficiency> proficiencies)
-            {
-                return armors.Where(x => proficiencies.IsProficient(x));
-            }
-		}
 	}
 }
 
