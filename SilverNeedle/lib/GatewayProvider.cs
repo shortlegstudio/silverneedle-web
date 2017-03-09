@@ -17,17 +17,6 @@ namespace SilverNeedle
 
             return __instance;
         }
-        
-        public GatewayProvider()
-        {
-            SetAllYaml();
-        }
-
-        public IHomelandGateway Homelands { get; set; }
-
-        public void SetAllYaml() {
-            Homelands = new HomelandGateway();
-        }
 
         public EntityGateway<T> GetImpl<T>() where T : IGatewayObject
         {

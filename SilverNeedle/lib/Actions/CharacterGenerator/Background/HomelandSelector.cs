@@ -7,26 +7,27 @@ using System;
 using SilverNeedle.Characters.Background;
 using System.Linq;
 using SilverNeedle.Characters;
+using SilverNeedle.Utility;
 
 namespace SilverNeedle.Actions.CharacterGenerator.Background
 {
     public class HomelandSelector : ICharacterBuildStep
     {
-        private IHomelandGateway homelands;
+        private EntityGateway<HomelandGroup> homelands;
 
-        public HomelandSelector(IHomelandGateway homelands)
+        public HomelandSelector(EntityGateway<HomelandGroup> homelands)
         {
             this.homelands = homelands;
         }
 
         public HomelandSelector()
         {
-            this.homelands = GatewayProvider.Instance().Homelands;
+            this.homelands = GatewayProvider.Get<HomelandGroup>();
         }
 
         public Homeland SelectHomelandByRace(string race)
         {
-            return this.homelands.GetRacialOptions(race).ChooseRandomly();
+            return this.homelands.Find(race).Homelands.ChooseRandomly();
         }
 
         public void ProcessFirstLevel(CharacterSheet character, CharacterBuildStrategy strategy)
