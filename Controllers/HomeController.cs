@@ -1,14 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using SilverNeedle.Actions.CharacterGenerator;
-using SilverNeedle.Actions.CharacterGenerator.Abilities;
-using SilverNeedle.Actions.NamingThings;
-using SilverNeedle.Characters;
-using SilverNeedle.Names;
-using SilverNeedle;
+
 
 namespace silverneedleweb.Controllers
 {

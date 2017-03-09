@@ -1,23 +1,23 @@
 ﻿
 namespace Tests.Names {
-	using NUnit.Framework;
-	using System.Linq;
-	using SilverNeedle.Characters;
-	using SilverNeedle.Names;
-	using SilverNeedle.Utility;
-	using SilverNeedle.Yaml;
+    using NUnit.Framework;
+    using System.Linq;
+    using SilverNeedle.Characters;
+    using SilverNeedle.Names;
+    using SilverNeedle.Utility;
+    using SilverNeedle.Yaml;
 
 
-	[TestFixture]
-	public class NameInformationTests
+    [TestFixture]
+    public class NameInformationTests
     {
-		private EntityGateway<NameInformation> gateway;
+        private EntityGateway<NameInformation> gateway;
 
-		[SetUp]
-		public void SetUp()
-		{
-			gateway = new EntityGateway<NameInformation>(CharacterNamesTestData.ParseYaml().Load<NameInformation>());
-		}
+        [SetUp]
+        public void SetUp()
+        {
+            gateway = new EntityGateway<NameInformation>(CharacterNamesTestData.ParseYaml().Load<NameInformation>());
+        }
 
         [Test]
         public void CanLoadABunchOfNames()

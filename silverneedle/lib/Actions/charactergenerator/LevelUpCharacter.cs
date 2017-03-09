@@ -1,13 +1,11 @@
-﻿//-----------------------------------------------------------------------
-// <copyright file="LevelUpGenerator.cs" company="Short Leg Studio, LLC">
-//     Copyright (c) Short Leg Studio, LLC. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
+﻿// Copyright (c) 2017 Trevor Redfern
+// 
+// This software is released under the MIT License.
+// https://opensource.org/licenses/MIT
 
 namespace SilverNeedle.Actions.CharacterGenerator
 {
     using System;
-    using SilverNeedle;
     using SilverNeedle.Characters;
 
     /// <summary>

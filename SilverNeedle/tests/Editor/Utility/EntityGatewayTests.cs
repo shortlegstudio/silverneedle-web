@@ -1,16 +1,14 @@
 // Copyright (c) 2017 Trevor Redfern
-// 
+//
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-using System.Collections.Generic;
-using NUnit.Framework;
-using SilverNeedle.Utility;
-using System.Linq;
-using SilverNeedle.Characters;
-using System;
-
-namespace Utility {
+namespace Tests.Utility {
+    using System.Collections.Generic;
+    using NUnit.Framework;
+    using SilverNeedle.Utility;
+    using System.Linq;
+    using SilverNeedle.Characters;
 
     [TestFixture]
     public class EntityGatewayTests {

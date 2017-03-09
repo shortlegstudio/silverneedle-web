@@ -1,10 +1,14 @@
-﻿using System.Linq;
-using System.Collections.Generic;
-using NUnit.Framework;
-using SilverNeedle.Characters;
-using SilverNeedle.Yaml;
+﻿// Copyright (c) 2017 Trevor Redfern
+// 
+// This software is released under the MIT License.
+// https://opensource.org/licenses/MIT
 
 namespace Tests.Characters {
+    using System.Linq;
+    using NUnit.Framework;
+    using SilverNeedle.Characters;
+    using SilverNeedle.Yaml;
+
 	[TestFixture]
 	public class LanguageTests
 	{

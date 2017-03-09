@@ -1,15 +1,19 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Moq;
-using NUnit.Framework;
-using SilverNeedle;
-using SilverNeedle.Actions.CharacterGenerator;
-using SilverNeedle.Characters;
-using SilverNeedle.Dice;
-using SilverNeedle.Utility;
+﻿// Copyright (c) 2017 Trevor Redfern
+// 
+// This software is released under the MIT License.
+// https://opensource.org/licenses/MIT
 
-namespace Actions
+namespace Tests.Actions
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using NUnit.Framework;
+    using SilverNeedle;
+    using SilverNeedle.Actions.CharacterGenerator;
+    using SilverNeedle.Characters;
+    using SilverNeedle.Dice;
+    using SilverNeedle.Utility;
+
     [TestFixture]
     public class RaceSelectorTests
     {

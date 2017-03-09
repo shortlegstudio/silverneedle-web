@@ -5,7 +5,6 @@
 
 namespace SilverNeedle
 {
-    using SilverNeedle.Characters.Background;
     using SilverNeedle.Utility;
     public class GatewayProvider
     {

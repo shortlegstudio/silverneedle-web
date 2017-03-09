@@ -1,16 +1,13 @@
-﻿// //-----------------------------------------------------------------------
-// // <copyright file="FamilyTreeTests.cs" company="Short Leg Studio, LLC">
-// //     Copyright (c) Short Leg Studio, LLC. All rights reserved.
-// // </copyright>
-// //-----------------------------------------------------------------------
-using System;
-using NUnit.Framework;
-using SilverNeedle.Actions.CharacterGenerator.Background;
-using SilverNeedle.Actions.NamingThings;
+﻿// Copyright (c) 2017 Trevor Redfern
+// 
+// This software is released under the MIT License.
+// https://opensource.org/licenses/MIT
 
-
-namespace Actions
+namespace Tests.Actions
 {
+    using NUnit.Framework;
+    using SilverNeedle.Actions.CharacterGenerator.Background;
+
     [TestFixture]
     public class FamilyHistoryCreatorTests
     {

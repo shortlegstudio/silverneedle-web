@@ -1,0 +1,8 @@
+{
+  "settings": {
+    "documentationRules": {
+      "xmlHeader" : false,
+      "copyrightText" : "Copyright (c) 2017 Trevor Redfern"
+    }
+  }
+}

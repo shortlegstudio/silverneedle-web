@@ -1,11 +1,10 @@
-﻿// //-----------------------------------------------------------------------
-// // <copyright file="HomelandSelector.cs" company="Short Leg Studio, LLC">
-// //     Copyright (c) Short Leg Studio, LLC. All rights reserved.
-// // </copyright>
-// //-----------------------------------------------------------------------
+﻿// Copyright (c) 2017 Trevor Redfern
+// 
+// This software is released under the MIT License.
+// https://opensource.org/licenses/MIT
+
 using System;
 using SilverNeedle.Characters.Background;
-using System.Linq;
 using SilverNeedle.Characters;
 using SilverNeedle.Utility;
 

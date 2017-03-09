@@ -1,11 +1,13 @@
-﻿using System.Linq;
-using System.IO;
-using NUnit.Framework;
-using SilverNeedle;
-using SilverNeedle.Characters;
-using SilverNeedle.Equipment;
+﻿// Copyright (c) 2017 Trevor Redfern
+// 
+// This software is released under the MIT License.
+// https://opensource.org/licenses/MIT
 
-namespace Characters {
+namespace Tests.Characters {
+    using System.Linq;
+    using NUnit.Framework;
+    using SilverNeedle.Characters;
+    using SilverNeedle.Equipment;
 
 	[TestFixture]
 	public class InventoryTests {

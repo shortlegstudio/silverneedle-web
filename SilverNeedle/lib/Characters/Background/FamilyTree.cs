@@ -1,9 +1,7 @@
-﻿// //-----------------------------------------------------------------------
-// // <copyright file="FamilyTree.cs" company="Short Leg Studio, LLC">
-// //     Copyright (c) Short Leg Studio, LLC. All rights reserved.
-// // </copyright>
-// //-----------------------------------------------------------------------
-using System;
+﻿// Copyright (c) 2017 Trevor Redfern
+// 
+// This software is released under the MIT License.
+// https://opensource.org/licenses/MIT
 
 namespace SilverNeedle.Characters.Background
 {

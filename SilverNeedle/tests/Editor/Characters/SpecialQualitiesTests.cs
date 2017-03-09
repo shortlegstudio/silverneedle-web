@@ -1,16 +1,15 @@
-﻿// //-----------------------------------------------------------------------
-// // <copyright file="SpecialQualitiesTests.cs" company="Short Leg Studio, LLC">
-// //     Copyright (c) Short Leg Studio, LLC. All rights reserved.
-// // </copyright>
-// //-----------------------------------------------------------------------
-using System.Linq;
-using System.Collections.Generic;
-using NUnit.Framework;
-using SilverNeedle;
-using SilverNeedle.Characters;
+﻿// Copyright (c) 2017 Trevor Redfern
+// 
+// This software is released under the MIT License.
+// https://opensource.org/licenses/MIT
 
-namespace Characters 
+namespace Tests.Characters 
 {
+    using System.Linq;
+    using System.Collections.Generic;
+    using NUnit.Framework;
+    using SilverNeedle.Characters;
+
     [TestFixture]
     public class SpecialQualitiesTests
     {

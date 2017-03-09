@@ -1,15 +1,13 @@
-﻿// //-----------------------------------------------------------------------
-// // <copyright file="FacialDescriptionTests.cs" company="Short Leg Studio, LLC">
-// //     Copyright (c) Short Leg Studio, LLC. All rights reserved.
-// // </copyright>
-// //-----------------------------------------------------------------------
-using System;
-using NUnit.Framework;
-using SilverNeedle.Characters.Appearance;
+﻿// Copyright (c) 2017 Trevor Redfern
+// 
+// This software is released under the MIT License.
+// https://opensource.org/licenses/MIT
 
-
-namespace Characters
+namespace Tests.Characters
 {
+    using NUnit.Framework;
+    using SilverNeedle.Characters.Appearance;
+
     [TestFixture]
     public class FacialDescriptionTests
     {

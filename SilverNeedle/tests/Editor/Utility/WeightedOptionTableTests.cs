@@ -1,13 +1,12 @@
-﻿// //-----------------------------------------------------------------------
-// // <copyright file="WeightedOptionTableTests.cs" company="Short Leg Studio, LLC">
-// //     Copyright (c) Short Leg Studio, LLC. All rights reserved.
-// // </copyright>
-// //-----------------------------------------------------------------------
+﻿//-----------------------------------------------------------------------
+// <copyright file="WeightedOptionTableTests.cs" company="Short Leg Studio, LLC">
+//     Copyright (c) Short Leg Studio, LLC. All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
 using System;
 using NUnit.Framework;
 using System.Linq;
 using System.Collections.Generic;
-using SilverNeedle;
 using SilverNeedle.Utility;
 
 namespace Tests.Utility
@@ -61,6 +60,7 @@ namespace Tests.Utility
 
             var foo = 0;
             var bar = 0;
+
             // Run ten thousand times and it should select FOO a few more times
             for (int i = 0; i < 10000; i++)
             {
@@ -72,8 +72,7 @@ namespace Tests.Utility
                 else
                 {
                     bar++;
-                }
-                    
+                }                    
             }
         }
 
@@ -92,7 +91,7 @@ namespace Tests.Utility
             table.AddEntry("Bar", 100);
 
             table.Disable("Bar");
-            for(int i = 0; i < 1000; i++)
+            for (int i = 0; i < 1000; i++)
             {
                 var result = table.ChooseRandomly();
                 Assert.AreEqual("Foo", result);
@@ -132,7 +131,7 @@ namespace Tests.Utility
         }
 
         [Test]
-        public void ReturnsARandomListBasedOnPreferredOptions() 
+        public void ReturnsARandomListBasedOnPreferredOptions()
         {
             var table = new WeightedOptionTable<string>();
             table.AddEntry("Foo", 1);
@@ -149,10 +148,9 @@ namespace Tests.Utility
             list.Add(new DummyEntry("Foo", 4));
             list.Add(new DummyEntry("Bar", 2));
             var table = new WeightedOptionTable<DummyEntry>(list);
-            Assert.AreEqual(2, table.All().Count());
-            
+            Assert.AreEqual(2, table.All().Count());            
         }
-
+        
         public class DummyEntry : IWeightedTableObject
         {
             public DummyEntry(string name, int weight)
@@ -160,9 +158,9 @@ namespace Tests.Utility
                 Name = name;
                 Weighting = weight;
             }
+
             public string Name { get; set; }
             public int Weighting { get; set; }
         }
     }
 }
-

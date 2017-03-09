@@ -1,12 +1,15 @@
-﻿using System.Collections.Generic;
-using NUnit.Framework;
-using SilverNeedle.Characters;
-using System.Linq;
-using SilverNeedle.Yaml;
-using SilverNeedle.Utility;
+﻿// Copyright (c) 2017 Trevor Redfern
+// 
+// This software is released under the MIT License.
+// https://opensource.org/licenses/MIT
 
-namespace Characters {
-
+namespace Tests.Characters {
+    using System.Collections.Generic;
+    using NUnit.Framework;
+    using SilverNeedle.Characters;
+    using System.Linq;
+    using SilverNeedle.Yaml;
+    
 	[TestFixture]
 	public class FeatTests {
         Feat Acrobatic;

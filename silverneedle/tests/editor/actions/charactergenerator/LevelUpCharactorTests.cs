@@ -1,11 +1,15 @@
-﻿using NUnit.Framework;
-using SilverNeedle.Characters;
-using SilverNeedle.Actions.CharacterGenerator;
-using SilverNeedle.Actions.CharacterGenerator.Abilities;
-using System.Linq;
-using System.Collections.Generic;
+﻿// Copyright (c) 2017 Trevor Redfern
+// 
+// This software is released under the MIT License.
+// https://opensource.org/licenses/MIT
 
-namespace Actions {
+namespace Tests.Actions {
+    using NUnit.Framework;
+    using SilverNeedle.Characters;
+    using SilverNeedle.Actions.CharacterGenerator;
+    using SilverNeedle.Actions.CharacterGenerator.Abilities;
+    using System.Collections.Generic;
+
 	[TestFixture]
 	public class LevelUpCharacterTests {
         //Handles moving characters to Level 2 and beyond

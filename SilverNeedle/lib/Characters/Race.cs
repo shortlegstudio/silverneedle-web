@@ -1,15 +1,14 @@
-﻿//-----------------------------------------------------------------------
-// <copyright file="Race.cs" company="Short Leg Studio, LLC">
-//     Copyright (c) Short Leg Studio, LLC. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
+﻿// Copyright (c) 2017 Trevor Redfern
+// 
+// This software is released under the MIT License.
+// https://opensource.org/licenses/MIT
+
 namespace SilverNeedle.Characters
 {
     using System.Collections.Generic;
     using SilverNeedle.Utility;
     using SilverNeedle.Dice;
-    using System;
-
+    
     /// <summary>
     /// Represents a race for a character. This is selected once
     /// </summary>

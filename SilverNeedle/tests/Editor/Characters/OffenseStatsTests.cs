@@ -1,14 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using NUnit.Framework;
-using SilverNeedle;
-using SilverNeedle.Characters;
-using SilverNeedle.Equipment;
-using SilverNeedle.Dice;
-using System.Collections;
+﻿// Copyright (c) 2017 Trevor Redfern
+// 
+// This software is released under the MIT License.
+// https://opensource.org/licenses/MIT
 
-namespace Characters {
+namespace Tests.Characters {
+    using System.Collections.Generic;
+    using System.Linq;
+    using NUnit.Framework;
+    using SilverNeedle;
+    using SilverNeedle.Characters;
+    using SilverNeedle.Equipment;
+    using SilverNeedle.Dice;
 
 	[TestFixture]
 	public class OffenseStatsTests {

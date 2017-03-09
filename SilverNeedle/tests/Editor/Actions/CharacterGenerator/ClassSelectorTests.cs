@@ -3,18 +3,15 @@
 // This software is released under the MIT License.
 // http://opensource.org/licenses/mit-license.php
 
-using System;
-using System.Collections.Generic;
-using NUnit.Framework;
-using SilverNeedle;
-using SilverNeedle.Actions.CharacterGenerator;
-using SilverNeedle.Characters;
-using SilverNeedle.Dice;
-using SilverNeedle.Utility;
-using Moq;
-
-namespace Actions
+namespace Tests.Actions
 {
+    using System.Collections.Generic;
+    using NUnit.Framework;
+    using SilverNeedle.Actions.CharacterGenerator;
+    using SilverNeedle.Characters;
+    using SilverNeedle.Dice;
+    using SilverNeedle.Utility;
+
     [TestFixture]
     public class ClassSelectorTests
     {

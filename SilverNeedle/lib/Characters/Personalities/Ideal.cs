@@ -5,7 +5,6 @@
 
 namespace SilverNeedle.Characters
 {
-    using System;
     using SilverNeedle.Utility;
     public class Ideal : IGatewayObject
     {

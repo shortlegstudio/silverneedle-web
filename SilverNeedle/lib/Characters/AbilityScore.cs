@@ -1,14 +1,10 @@
-﻿//-----------------------------------------------------------------------
-// <copyright file="AbilityScore.cs" company="Short Leg Studio, LLC">
-//     Copyright (c) Short Leg Studio, LLC. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
+﻿// Copyright (c) 2017 Trevor Redfern
+// 
+// This software is released under the MIT License.
+// https://opensource.org/licenses/MIT
+
 namespace SilverNeedle.Characters
 {
-    using System.Collections.Generic;
-    using System.Linq;
-    using SilverNeedle.Dice;
-
     /// <summary>
     /// An ability score for a character. Examples: Strength, Intelligence, Charisma, ...
     /// </summary>

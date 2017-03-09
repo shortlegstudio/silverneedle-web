@@ -1,12 +1,14 @@
-﻿using NUnit.Framework;
-using SilverNeedle.Characters;
-using System.IO;
-using SilverNeedle;
-using System.Linq;
-using System.Collections.Generic;
-using SilverNeedle.Yaml;
+﻿// Copyright (c) 2017 Trevor Redfern
+// 
+// This software is released under the MIT License.
+// https://opensource.org/licenses/MIT
 
-namespace Characters {
+namespace Tests.Characters {
+    using NUnit.Framework;
+    using SilverNeedle.Characters;
+    using System.Linq;
+    using System.Collections.Generic;
+    using SilverNeedle.Yaml;
 
 	[TestFixture]
 	public class PrerequisiteTests {

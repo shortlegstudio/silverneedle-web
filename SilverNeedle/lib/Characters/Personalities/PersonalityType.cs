@@ -5,10 +5,8 @@
 
 namespace SilverNeedle.Characters
 {
-    using System;
     using System.Collections.Generic;
     using SilverNeedle.Utility;
-
 
     public class PersonalityType : IGatewayObject
     {

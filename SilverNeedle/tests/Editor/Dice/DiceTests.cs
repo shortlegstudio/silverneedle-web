@@ -1,15 +1,17 @@
-﻿using NUnit.Framework;
-using SilverNeedle.Dice;
-using System;
-using System.Linq;
+﻿// Copyright (c) 2017 Trevor Redfern
+// 
+// This software is released under the MIT License.
+// https://opensource.org/licenses/MIT
 
-namespace Dice
+namespace Tests.Dice
 {
+    using NUnit.Framework;
+    using SilverNeedle.Dice;
+    using System.Linq;
     
     [TestFixture]
     public class DiceTests
     {
-
         private void ValidateAllSides(Die die)
         {
             var results = new bool[die.SideCount];

@@ -1,16 +1,12 @@
-// //-----------------------------------------------------------------------
-// // <copyright file="BasicStatModifiedEventArgs.cs" company="Short Leg Studio, LLC">
-// //     Copyright (c) Short Leg Studio, LLC. All rights reserved.
-// // </copyright>
-// //-----------------------------------------------------------------------
+// Copyright (c) 2017 Trevor Redfern
+// 
+// This software is released under the MIT License.
+// https://opensource.org/licenses/MIT
+
 namespace SilverNeedle
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using SilverNeedle.Characters;
-
+    
     /// <summary>
     /// Basic stat modified event arguments.
     /// </summary>

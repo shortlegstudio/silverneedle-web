@@ -5,7 +5,6 @@
 
 namespace SilverNeedle.Actions.CharacterGenerator
 {
-    using System;
     using System.Collections.Generic;
     using SilverNeedle.Characters;
     using SilverNeedle.Utility;

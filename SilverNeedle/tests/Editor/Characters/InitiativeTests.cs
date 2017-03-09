@@ -1,11 +1,11 @@
-﻿using System.Linq;
-using System.IO;
-using NUnit.Framework;
-using SilverNeedle;
-using SilverNeedle.Characters;
-using System.Text;
+﻿// Copyright (c) 2017 Trevor Redfern
+// 
+// This software is released under the MIT License.
+// https://opensource.org/licenses/MIT
 
-namespace Characters {
+namespace Tests.Characters {
+	using NUnit.Framework;
+    using SilverNeedle.Characters;
 
 	[TestFixture]
 	public class InitiativeTests {

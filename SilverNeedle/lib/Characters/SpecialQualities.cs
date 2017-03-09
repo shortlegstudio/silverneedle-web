@@ -1,14 +1,12 @@
-﻿// //-----------------------------------------------------------------------
-// // <copyright file="SpecialQualities.cs" company="Short Leg Studio, LLC">
-// //     Copyright (c) Short Leg Studio, LLC. All rights reserved.
-// // </copyright>
-// //-----------------------------------------------------------------------
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿// Copyright (c) 2017 Trevor Redfern
+// 
+// This software is released under the MIT License.
+// https://opensource.org/licenses/MIT
 
 namespace SilverNeedle.Characters
 {
+    using System.Collections.Generic;
+    using System.Linq;
     public class SpecialQualities
     {
         private const string SpecialAbilityName = "Ability";

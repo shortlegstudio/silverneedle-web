@@ -1,20 +1,27 @@
-﻿using NUnit.Framework;
-using System.Linq;
-using SilverNeedle;
-using SilverNeedle.Characters;
+﻿// Copyright (c) 2017 Trevor Redfern
+// 
+// This software is released under the MIT License.
+// https://opensource.org/licenses/MIT
 
-[TestFixture]
-public class AbilityStatModifierTests
+namespace Tests 
 {
-    [Test]
-    public void AbilityStatModifiersTrackChangesToAbility()
-    {
-        var ability = new AbilityScore();
-        ability.SetValue(10);
+    using NUnit.Framework;
+    using SilverNeedle;
+    using SilverNeedle.Characters;
 
-        var modifier = new AbilityStatModifier(ability);
-        Assert.AreEqual(0, modifier.Modifier);
-        ability.SetValue(20);
-        Assert.AreEqual(05, modifier.Modifier);
+    [TestFixture]
+    public class AbilityStatModifierTests
+    {
+        [Test]
+        public void AbilityStatModifiersTrackChangesToAbility()
+        {
+            var ability = new AbilityScore();
+            ability.SetValue(10);
+
+            var modifier = new AbilityStatModifier(ability);
+            Assert.AreEqual(0, modifier.Modifier);
+            ability.SetValue(20);
+            Assert.AreEqual(05, modifier.Modifier);
+        }
     }
 }

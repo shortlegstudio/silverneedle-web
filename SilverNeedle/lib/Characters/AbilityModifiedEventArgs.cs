@@ -1,14 +1,12 @@
-// //-----------------------------------------------------------------------
-// // <copyright file="AbilityModifiedEventArgs.cs" company="Short Leg Studio, LLC">
-// //     Copyright (c) Short Leg Studio, LLC. All rights reserved.
-// // </copyright>
-// //-----------------------------------------------------------------------
+// Copyright (c) 2017 Trevor Redfern
+// 
+// This software is released under the MIT License.
+// https://opensource.org/licenses/MIT
 
 namespace SilverNeedle.Characters
 {
     using System;
-    using System.Collections.Generic;
-
+    
     /// <summary>
     /// Ability modified event arguments are passed whenever an ability changes.
     /// </summary>

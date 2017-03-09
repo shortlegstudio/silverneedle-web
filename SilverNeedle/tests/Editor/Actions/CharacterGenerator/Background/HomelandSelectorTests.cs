@@ -1,17 +1,12 @@
-﻿// //-----------------------------------------------------------------------
-// // <copyright file="HomelandSelectorTests.cs" company="Short Leg Studio, LLC">
-// //     Copyright (c) Short Leg Studio, LLC. All rights reserved.
-// // </copyright>
-// //-----------------------------------------------------------------------
-using System;
-using NUnit.Framework;
-using SilverNeedle.Characters.Background;
-using System.Collections.Generic;
+﻿// Copyright (c) 2017 Trevor Redfern
+// 
+// This software is released under the MIT License.
+// https://opensource.org/licenses/MIT
 
-
-
-namespace Actions
+namespace Tests.Actions
 {
+    using NUnit.Framework;
+
     [TestFixture]
     public class HomelandSelectorTests
     {

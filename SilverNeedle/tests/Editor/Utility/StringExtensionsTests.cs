@@ -1,15 +1,13 @@
 // Copyright (c) 2016 Trevor Redfern
-// 
+//
 // This software is released under the MIT License.
 // http://opensource.org/licenses/mit-license.php
 
-using System;
-using NUnit.Framework;
-using System.Linq;
-using SilverNeedle;
-
-namespace Utility
+namespace Tests.Utility
 {
+    using NUnit.Framework;
+    using SilverNeedle;
+
     [TestFixture]
     public class StringExtensionsTests
     {

@@ -1,12 +1,15 @@
-﻿using NUnit.Framework;
-using SilverNeedle.Characters;
-using SilverNeedle.Actions.CharacterGenerator;
-using System.Collections.Generic;
-using System.Linq;
-using SilverNeedle;
+﻿// Copyright (c) 2017 Trevor Redfern
+// 
+// This software is released under the MIT License.
+// https://opensource.org/licenses/MIT
 
-namespace Characters
+namespace Tests.Characters
 {
+    using NUnit.Framework;
+    using SilverNeedle.Characters;
+    using System.Collections.Generic;
+    using System.Linq;
+    using SilverNeedle;
 
     [TestFixture]
     public class SkillRanksTests

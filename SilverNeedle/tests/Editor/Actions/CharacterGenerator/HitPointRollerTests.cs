@@ -3,14 +3,13 @@
 // This software is released under the MIT License.
 // http://opensource.org/licenses/mit-license.php
 
-using System;
-using NUnit.Framework;
-using SilverNeedle.Actions.CharacterGenerator;
-using SilverNeedle.Characters;
-using SilverNeedle.Dice;
-
-namespace Actions
+namespace Tests.Actions
 {
+    using NUnit.Framework;
+    using SilverNeedle.Actions.CharacterGenerator;
+    using SilverNeedle.Characters;
+    using SilverNeedle.Dice;
+
     [TestFixture]
     public class HitPointRollerTests
     {

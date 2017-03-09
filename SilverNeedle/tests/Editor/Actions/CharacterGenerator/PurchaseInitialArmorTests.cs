@@ -1,14 +1,16 @@
-﻿using System;
-using System.Linq;
-using System.Collections.Generic;
-using NUnit.Framework;
-using SilverNeedle.Actions.CharacterGenerator;
-using SilverNeedle.Equipment;
-using SilverNeedle.Characters;
-using SilverNeedle.Utility;
+﻿// Copyright (c) 2017 Trevor Redfern
+// 
+// This software is released under the MIT License.
+// https://opensource.org/licenses/MIT
 
-
-namespace Actions {
+namespace Tests.Actions {
+	using System.Linq;
+	using System.Collections.Generic;
+	using NUnit.Framework;
+	using SilverNeedle.Actions.CharacterGenerator;
+	using SilverNeedle.Equipment;
+	using SilverNeedle.Characters;
+	using SilverNeedle.Utility;
 
 	[TestFixture]
 	public class PurchaseInitialArmorTests

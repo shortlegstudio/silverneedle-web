@@ -1,11 +1,14 @@
+// Copyright (c) 2017 Trevor Redfern
+// 
+// This software is released under the MIT License.
+// https://opensource.org/licenses/MIT
 
-using System;
-using NUnit.Framework;
-using System.Linq;
-using SilverNeedle.Utility;
-
-namespace Utility
+namespace Tests.Utility
 {
+    using NUnit.Framework;
+    using System.Linq;
+    using SilverNeedle.Utility;
+
     [TestFixture]
     public class MemoryStoreTests
     {
