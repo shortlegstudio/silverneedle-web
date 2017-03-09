@@ -31,6 +31,12 @@ namespace silverneedleweb.Controllers
 
             var character = new CharacterSheet();
             gen.Process(character, build);
+            
+            for(int i = 1; i < level; i++)
+            {
+                gen.ProcessLevelUp(character, build);
+            }
+
             ViewData["character"] = new CharacterSheetTextView(character);
             ViewData["strategy"] = strategy;
             ViewData["level"] = level;
