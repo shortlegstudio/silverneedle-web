@@ -76,6 +76,14 @@ namespace SilverNeedle.Characters
             PersonalityWeaknesses = character.PersonalityType.Weaknesses.Choose(3).ToArray();
             IdealName = character.Ideal.Name;
             IdealDescription = character.Ideal.Description;
+            HairColor = character.FacialDescription.HairColor.ToString();
+            HairStyle = character.FacialDescription.HairStyle.ToString();
+            FacialHair = character.FacialDescription.FacialHair.ToString();
+            EyeColor = character.FacialDescription.EyeColor.ToString();
+            Age = character.Age.ToString();
+            Height = character.Size.Height.ToInchesAndFeet();
+            Weight = character.Size.Weight.ToPoundsString();
+
         }
 
         public string Name { get; private set; }
@@ -136,6 +144,17 @@ namespace SilverNeedle.Characters
 
         public string IdealName { get; private set; }
         public string IdealDescription { get; private set; }
+
+        public string HairColor { get; private set; }
+        public string HairStyle { get; private set; }
+
+        public string FacialHair { get; private set; }
+        public string EyeColor { get; private set; }
+
+        public string Age { get; private set; }
+        public string Height { get; private set; }
+        public string Weight { get; private set; }
+
         private string FormatSenses(CharacterSheet character)
         {
             string senses = string.Join(

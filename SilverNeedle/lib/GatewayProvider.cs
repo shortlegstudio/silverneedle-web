@@ -5,10 +5,13 @@
 
 namespace SilverNeedle
 {
+    using System.Collections.Generic;
     using SilverNeedle.Utility;
     public class GatewayProvider
     {
         private static GatewayProvider __instance;
+        private Dictionary<System.Type, object> gateways;
+
         public static GatewayProvider Instance() 
         {
             if(__instance == null)
@@ -17,9 +20,20 @@ namespace SilverNeedle
             return __instance;
         }
 
+        public GatewayProvider()
+        {
+            gateways = new Dictionary<System.Type, object>();
+        }
+
         public EntityGateway<T> GetImpl<T>() where T : IGatewayObject
         {
-            return new EntityGateway<T>();
+            var type = typeof(T);
+            if(gateways.ContainsKey(type)) {
+                return (EntityGateway<T>)gateways[type];
+            }
+            var newGateway = new EntityGateway<T>();
+            gateways.Add(type, newGateway);
+            return newGateway;
         }
 
         public static EntityGateway<T> Get<T>() where T : IGatewayObject
