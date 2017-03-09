@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 
-
 namespace silverneedleweb.Controllers
 {
     public class HomeController : Controller
