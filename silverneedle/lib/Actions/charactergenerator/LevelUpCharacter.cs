@@ -11,7 +11,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
     /// <summary>
     /// Level up generator handles adding more levels to a character in a specific class
     /// </summary>
-    public class LevelUpCharacter : ICharacterBuildStep
+    public class LevelUpCharacter : ILevelUpStep
     {
         /// <summary>
         /// Brings the character to level.
@@ -53,12 +53,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
             }
         }
 
-        public void ProcessFirstLevel(CharacterSheet character, CharacterBuildStrategy strategy)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ProcessLevelUp(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             LevelUp(character);
         }

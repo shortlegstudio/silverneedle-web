@@ -8,16 +8,12 @@ using SilverNeedle.Characters;
 
 namespace SilverNeedle.Actions.CharacterGenerator
 {
-    public class AlignmentSelector : ICharacterBuildStep
+    public class AlignmentSelector : ICreateStep
     {
-        public void ProcessFirstLevel(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             character.Alignment = EnumHelpers.ChooseOne<CharacterAlignment>();
         }
 
-        public void ProcessLevelUp(CharacterSheet character, CharacterBuildStrategy strategy)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

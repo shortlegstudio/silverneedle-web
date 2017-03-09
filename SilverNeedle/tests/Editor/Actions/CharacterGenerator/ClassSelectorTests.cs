@@ -48,16 +48,6 @@ namespace Tests.Actions
         }
 
         [Test]
-        public void ChoosingAClassUpdatesHitPoints()
-        {
-            var character = new CharacterSheet();
-            subject.ChooseAny(character);
-
-            Assert.Greater(character.MaxHitPoints, 0);
-            Assert.Greater(character.CurrentHitPoints, 0);
-        }
-
-        [Test]
         public void ChoosingClassFromWeightedOptionTableSelectsFromThoseClasses()
         {
             var character = new CharacterSheet();

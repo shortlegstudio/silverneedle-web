@@ -14,7 +14,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
     /// <summary>
     /// Language selector.
     /// </summary>
-    public class LanguageSelector : ICharacterBuildStep
+    public class LanguageSelector : ICreateStep
     {
         /// <summary>
         /// The languages available
@@ -67,18 +67,13 @@ namespace SilverNeedle.Actions.CharacterGenerator
             return result;
         }
 
-        public void ProcessFirstLevel(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             var languages = PickLanguages(character.Race, character.AbilityScores.GetModifier(AbilityScoreTypes.Intelligence));
             foreach(var l in languages)
             {
                 character.Languages.Add(l);
             }
-        }
-
-        public void ProcessLevelUp(CharacterSheet character, CharacterBuildStrategy strategy)
-        {
-            throw new NotImplementedException();
         }
     }
 }

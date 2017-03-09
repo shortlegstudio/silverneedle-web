@@ -10,7 +10,7 @@ using SilverNeedle.Utility;
 
 namespace SilverNeedle.Actions.CharacterGenerator.Background
 {
-    public class CharacterDrawbackSelector : ICharacterBuildStep
+    public class CharacterDrawbackSelector : ICreateStep
     {
         EntityGateway<Drawback> drawbacks;
 
@@ -24,14 +24,9 @@ namespace SilverNeedle.Actions.CharacterGenerator.Background
             this.drawbacks = GatewayProvider.Get<Drawback>();
         }
 
-        public void ProcessFirstLevel(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             character.History.Drawback = SelectDrawback();
-        }
-
-        public void ProcessLevelUp(CharacterSheet character, CharacterBuildStrategy strategy)
-        {
-            throw new NotImplementedException();
         }
 
         public Drawback SelectDrawback() 

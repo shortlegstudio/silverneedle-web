@@ -9,7 +9,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
     using SilverNeedle.Characters;
     using SilverNeedle.Utility;
 
-    public class PersonalityBuilder : ICharacterBuildStep
+    public class PersonalityBuilder : ICreateStep
     {
         private EntityGateway<PersonalityType> personalities;
         private EntityGateway<Ideal> ideals;
@@ -20,14 +20,9 @@ namespace SilverNeedle.Actions.CharacterGenerator
             ideals = GatewayProvider.Get<Ideal>();
         }
 
-        public void ProcessFirstLevel(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             Random(character);
-        }
-
-        public void ProcessLevelUp(CharacterSheet character, CharacterBuildStrategy strategy)
-        {
-            throw new NotImplementedException();
         }
 
         public void Random(CharacterSheet character)

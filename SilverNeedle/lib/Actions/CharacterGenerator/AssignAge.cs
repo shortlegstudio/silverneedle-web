@@ -9,7 +9,7 @@ using SilverNeedle.Utility;
 
 namespace SilverNeedle.Actions.CharacterGenerator
 {
-    public class AssignAge : ICharacterBuildStep
+    public class AssignAge : ICreateStep
     {
         EntityGateway<Maturity> maturityGateway;
 
@@ -18,14 +18,9 @@ namespace SilverNeedle.Actions.CharacterGenerator
             maturityGateway = GatewayProvider.Get<Maturity>();            
         }
 
-        public void ProcessFirstLevel(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             character.Age = RandomAge(character.Class.ClassDevelopmentAge, maturityGateway.Find(character.Race.Name));
-        }
-
-        public void ProcessLevelUp(CharacterSheet character, CharacterBuildStrategy strategy)
-        {
-            throw new NotImplementedException();
         }
 
         public int RandomAge(ClassDevelopmentAge classDevAge, Maturity maturity)

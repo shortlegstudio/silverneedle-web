@@ -15,7 +15,7 @@ namespace SilverNeedle.Actions.CharacterGenerator.Abilities
     /// <summary>
     /// Generates ability scores by rolling 4d6 for each and selecting the top 3 dice
     /// </summary>
-    public class StandardAbilityScoreGenerator : ICharacterBuildStep
+    public class StandardAbilityScoreGenerator : ICreateStep
     {
         /// <summary>
         /// Initializes a new instance of the
@@ -25,14 +25,9 @@ namespace SilverNeedle.Actions.CharacterGenerator.Abilities
         {
         }
 
-        public void ProcessFirstLevel(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             CreateAndAssignScores(character.AbilityScores, strategy.FavoredAbilities);
-        }
-
-        public void ProcessLevelUp(CharacterSheet character, CharacterBuildStrategy strategy)
-        {
-            throw new NotImplementedException();
         }
         
         private void CreateAndAssignScores(AbilityScores abilities, WeightedOptionTable<AbilityScoreTypes> abilityPref)

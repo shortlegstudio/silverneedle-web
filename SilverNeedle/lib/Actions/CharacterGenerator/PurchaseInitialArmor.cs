@@ -17,7 +17,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
     /// <summary>
     /// Purchase initial armor for a character
     /// </summary>
-    public class PurchaseInitialArmor : ICharacterBuildStep
+    public class PurchaseInitialArmor : ICreateStep
     {
         /// <summary>
         /// The armors available
@@ -67,14 +67,9 @@ namespace SilverNeedle.Actions.CharacterGenerator
             }
         }
 
-        public void ProcessFirstLevel(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             PurchaseArmorAndShield(character.Inventory, character.Defense.ArmorProficiencies);
-        }
-
-        public void ProcessLevelUp(CharacterSheet character, CharacterBuildStrategy strategy)
-        {
-            throw new NotImplementedException();
         }
     }
 }

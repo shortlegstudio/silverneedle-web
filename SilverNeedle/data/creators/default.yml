@@ -16,7 +16,7 @@
     - step: SilverNeedle.Actions.CharacterGenerator.ClassSelector
     - step: SilverNeedle.Actions.CharacterGenerator.AbilityPointAssigner
     - step: SilverNeedle.Actions.CharacterGenerator.FeatSelector
-    - step: SilverNeedle.Actions.CharacterGenerator.HitPointRoller
+    - step: SilverNeedle.Actions.CharacterGenerator.InitialHitPoints
     - step: SilverNeedle.Actions.CharacterGenerator.AssignAge
     - step: SilverNeedle.Actions.CharacterGenerator.Background.ClassOriginStoryCreator
     - step: SilverNeedle.Actions.CharacterGenerator.SkillPointDistributor

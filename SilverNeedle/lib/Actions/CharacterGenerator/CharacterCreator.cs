@@ -9,26 +9,26 @@ namespace SilverNeedle.Actions.CharacterGenerator
     using SilverNeedle.Characters;
     using SilverNeedle.Utility;
 
-    public class CharacterCreator : ICharacterBuildStep, IGatewayObject
+    public class CharacterCreator : IGatewayObject
     {
         public string Name { get; private set; }
-        public IEnumerable<ICharacterBuildStep> FirstLevelSteps { get { return _firstLevelSteps; } }
+        public IEnumerable<ICreateStep> FirstLevelSteps { get { return _firstLevelSteps; } }
 
-        private IList<ICharacterBuildStep> _firstLevelSteps;
-        private IList<ICharacterBuildStep> _levelUpSteps;
+        private IList<ICreateStep> _firstLevelSteps;
+        private IList<ILevelUpStep> _levelUpSteps;
 
         public CharacterCreator(IObjectStore data)
         {
             Name = data.GetString("name");
             ShortLog.DebugFormat("Loading Character Creator: {0}", Name);
-            _firstLevelSteps = new List<ICharacterBuildStep>();
-            _levelUpSteps = new List<ICharacterBuildStep>();
+            _firstLevelSteps = new List<ICreateStep>();
+            _levelUpSteps = new List<ILevelUpStep>();
 
             foreach(var step in data.GetObject("level-one-steps").Children)
             {                
                 var typeName = step.GetString("step");
                 ShortLog.DebugFormat("Adding Build Step: {0}", typeName);
-                var item = typeName.Instantiate<ICharacterBuildStep>();
+                var item = typeName.Instantiate<ICreateStep>();
                 _firstLevelSteps.Add(item);
             }
 
@@ -36,16 +36,16 @@ namespace SilverNeedle.Actions.CharacterGenerator
             {                
                 var typeName = step.GetString("step");
                 ShortLog.DebugFormat("Adding Build Step: {0}", typeName);
-                var item = typeName.Instantiate<ICharacterBuildStep>();
+                var item = typeName.Instantiate<ILevelUpStep>();
                 _levelUpSteps.Add(item);
             }
         }
 
-        public void ProcessFirstLevel(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             foreach(var step in _firstLevelSteps)
             {
-                step.ProcessFirstLevel(character, strategy);
+                step.Process(character, strategy);
             }
         }
 
@@ -53,7 +53,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
         {
             foreach(var step in _levelUpSteps)
             {
-                step.ProcessLevelUp(character, strategy);
+                step.Process(character, strategy);
             }
         }
 

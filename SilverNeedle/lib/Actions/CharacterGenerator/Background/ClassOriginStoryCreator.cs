@@ -11,7 +11,7 @@ namespace SilverNeedle.Actions.CharacterGenerator.Background
     using SilverNeedle.Characters.Background;
     using SilverNeedle.Utility;
 
-    public class ClassOriginStoryCreator : ICharacterBuildStep
+    public class ClassOriginStoryCreator : ICreateStep
     {
         EntityGateway<ClassOriginGroup> classOrigins;
 
@@ -33,14 +33,9 @@ namespace SilverNeedle.Actions.CharacterGenerator.Background
             return origins.Origins.ChooseRandomly();            
         }
 
-        public void ProcessFirstLevel(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             character.History.ClassOriginStory = CreateStory(character.Class.Name);
-        }
-
-        public void ProcessLevelUp(CharacterSheet character, CharacterBuildStrategy strategy)
-        {
-            throw new NotImplementedException();
         }
     }
 }

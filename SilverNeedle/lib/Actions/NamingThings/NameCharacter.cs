@@ -11,7 +11,7 @@ namespace SilverNeedle.Actions.NamingThings
     using SilverNeedle.Names;
     using SilverNeedle.Utility;
 
-    public class NameCharacter : ICharacterBuildStep
+    public class NameCharacter : ICreateStep
     {
         private EntityGateway<NameInformation> namesGateway;
 
@@ -33,14 +33,9 @@ namespace SilverNeedle.Actions.NamingThings
             return string.Format("{0} {1}", firstName, lastName);
         }
 
-        public void ProcessFirstLevel(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             character.Name = CreateFullName(character.Gender, character.Race.Name);
-        }
-
-        public void ProcessLevelUp(CharacterSheet character, CharacterBuildStrategy strategy)
-        {
-            throw new NotImplementedException();
         }
     }
 }

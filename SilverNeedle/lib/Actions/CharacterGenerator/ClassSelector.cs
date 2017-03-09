@@ -10,7 +10,7 @@ using SilverNeedle.Utility;
 
 namespace SilverNeedle.Actions.CharacterGenerator
 {
-    public class ClassSelector : ICharacterBuildStep
+    public class ClassSelector : ICreateStep
     {
         private EntityGateway<Class> classes; 
         
@@ -46,9 +46,6 @@ namespace SilverNeedle.Actions.CharacterGenerator
         {
             character.SetClass(cls);
             
-            var hpRoller = new HitPointRoller();
-            var hp = hpRoller.AddMaxHitPoints(character);
-
             foreach(var skill in cls.ClassSkills)
             {
                 character.SkillRanks.SetClassSkill(skill);
@@ -57,14 +54,9 @@ namespace SilverNeedle.Actions.CharacterGenerator
             character.AddLevelAbilities(firstClassLevel);            
         }
 
-        public void ProcessFirstLevel(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             ChooseClass(character, strategy.Classes);
-        }
-
-        public void ProcessLevelUp(CharacterSheet character, CharacterBuildStrategy strategy)
-        {
-            throw new NotImplementedException();
         }
     }
 }

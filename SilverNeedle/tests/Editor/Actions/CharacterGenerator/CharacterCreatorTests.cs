@@ -5,7 +5,6 @@
 
 namespace Tests.Actions.CharacterGenerator
 {
-    using System;
     using System.Linq;
     using NUnit.Framework;
     using SilverNeedle.Actions;
@@ -47,7 +46,7 @@ namespace Tests.Actions.CharacterGenerator
         {
             var characterSheet = new CharacterSheet();
             var strategy = new CharacterBuildStrategy();
-            subject.ProcessFirstLevel(characterSheet, strategy);
+            subject.Process(characterSheet, strategy);
             Assert.AreEqual("Dummy One", characterSheet.Name);
             Assert.AreEqual(16, characterSheet.AbilityScores.GetScore(AbilityScoreTypes.Strength));
         }
@@ -67,40 +66,25 @@ namespace Tests.Actions.CharacterGenerator
         }
     }
 
-    public class DummyStepOne : ICharacterBuildStep
+    public class DummyStepOne : ICreateStep
     {
-        public void ProcessFirstLevel(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             character.Name = "Dummy One";
         }
-
-        public void ProcessLevelUp(CharacterSheet character, CharacterBuildStrategy strategy)
-        {
-            throw new NotImplementedException();
-        }
     }
 
-    public class DummyStepTwo : ICharacterBuildStep
+    public class DummyStepTwo : ICreateStep
     {
-        public void ProcessFirstLevel(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             character.AbilityScores.SetScore(AbilityScoreTypes.Strength, 16);
         }
-
-        public void ProcessLevelUp(CharacterSheet character, CharacterBuildStrategy strategy)
-        {
-            throw new NotImplementedException();
-        }
     }
 
-    public class DummyStepThree : ICharacterBuildStep
+    public class DummyStepThree : ILevelUpStep
     {
-        public void ProcessFirstLevel(CharacterSheet character, CharacterBuildStrategy strategy)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ProcessLevelUp(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             character.IncreaseHitPoints(20);
         }

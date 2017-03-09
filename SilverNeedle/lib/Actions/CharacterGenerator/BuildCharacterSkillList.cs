@@ -8,7 +8,7 @@ using SilverNeedle.Characters;
 
 namespace SilverNeedle.Actions.CharacterGenerator
 {
-    public class BuildCharacterSkillList : ICharacterBuildStep
+    public class BuildCharacterSkillList : ICreateStep
     {
         IEntityGateway<Skill> skills;
 
@@ -17,14 +17,9 @@ namespace SilverNeedle.Actions.CharacterGenerator
             skills = GatewayProvider.Get<Skill>();
         }
 
-        public void ProcessFirstLevel(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             character.SkillRanks.FillSkills(skills.All(), character.AbilityScores);
-        }
-
-        public void ProcessLevelUp(CharacterSheet character, CharacterBuildStrategy strategy)
-        {
-            throw new NotImplementedException();
         }
     }
 }

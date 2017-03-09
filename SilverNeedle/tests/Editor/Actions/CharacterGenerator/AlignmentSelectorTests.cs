@@ -18,7 +18,7 @@ namespace Tests.Actions.CharacterGenerator
             var selector = new AlignmentSelector();
             var character = new CharacterSheet();
             var strat = new CharacterBuildStrategy();            
-            selector.ProcessFirstLevel(character, strat);
+            selector.Process(character, strat);
             Assert.Ignore();
         }
     }

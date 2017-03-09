@@ -30,7 +30,7 @@ namespace silverneedleweb.Controllers
             var build = strategyGateway.Find(strategy);
 
             var character = new CharacterSheet();
-            gen.ProcessFirstLevel(character, build);
+            gen.Process(character, build);
             ViewData["character"] = new CharacterSheetTextView(character);
             ViewData["strategy"] = strategy;
             ViewData["level"] = level;

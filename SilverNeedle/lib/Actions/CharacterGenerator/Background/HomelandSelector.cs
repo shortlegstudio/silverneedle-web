@@ -10,7 +10,7 @@ using SilverNeedle.Utility;
 
 namespace SilverNeedle.Actions.CharacterGenerator.Background
 {
-    public class HomelandSelector : ICharacterBuildStep
+    public class HomelandSelector : ICreateStep
     {
         private EntityGateway<HomelandGroup> homelands;
 
@@ -29,14 +29,9 @@ namespace SilverNeedle.Actions.CharacterGenerator.Background
             return this.homelands.Find(race).Homelands.ChooseRandomly();
         }
 
-        public void ProcessFirstLevel(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             character.History.Homeland = SelectHomelandByRace(character.Race.Name);
-        }
-
-        public void ProcessLevelUp(CharacterSheet character, CharacterBuildStrategy strategy)
-        {
-            throw new NotImplementedException();
         }
     }
 }
