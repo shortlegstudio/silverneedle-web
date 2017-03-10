@@ -1,12 +1,10 @@
-﻿//-----------------------------------------------------------------------
-// <copyright file="PurchaseInitialArmor.cs" company="Short Leg Studio, LLC">
-//     Copyright (c) Short Leg Studio, LLC. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
+﻿// Copyright (c) 2017 Trevor Redfern
+// 
+// This software is released under the MIT License.
+// https://opensource.org/licenses/MIT
 
 namespace SilverNeedle.Actions.CharacterGenerator
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
     using SilverNeedle;
@@ -55,20 +53,25 @@ namespace SilverNeedle.Actions.CharacterGenerator
 
             if (armors.Count() > 0)
             {
+                var armor = armors.ChooseOne();
+                ShortLog.DebugFormat("Purchasing {0}", armor.Name);
                 inventory.EquipItem(armors.ChooseOne());
             }
-
-            var shield = this.armors.FindByArmorType(ArmorType.Shield)
+            
+            var shields = this.armors.FindByArmorType(ArmorType.Shield)
                 .WhereProficient(proficiencies).ToList();
                 
-            if (shield.Count() > 0)
+            if (shields.Count() > 0)
             {
-                inventory.EquipItem(shield.ChooseOne());
+                var shield = shields.ChooseOne();
+                ShortLog.DebugFormat("Purchasing {0}", shield.Name);
+                inventory.EquipItem(shield);
             }
         }
 
         public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
+            ShortLog.DebugFormat("Purchasing Armor");
             PurchaseArmorAndShield(character.Inventory, character.Defense.ArmorProficiencies);
         }
     }

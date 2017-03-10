@@ -47,6 +47,7 @@
         @RenderBody()
         <hr />
         <footer>
+            <p class="pull-right bg-success">@Microsoft.Extensions.PlatformAbstractions.PlatformServices.Default.Application.ApplicationVersion</p>
             <p>&copy; 2017 - <a href="http://shortlegstudio.com">Short Leg Studio, LLC</a></p>
             <p><a href="https://github.com/shortlegstudio/silverneedle-web">Source Code For this Site on GitHub</a></p>
         </footer>
@@ -79,7 +80,7 @@
     </environment>
 
     @RenderSection("scripts", required: false)
-    @Microsoft.Extensions.PlatformAbstractions.PlatformServices.Default.Application.ApplicationVersion
+    
     
 </body>
 </html>
