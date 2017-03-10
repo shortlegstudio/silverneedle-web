@@ -1,16 +1,16 @@
-﻿//-----------------------------------------------------------------------
-// <copyright file="CharacterSheet.cs" company="Short Leg Studio, LLC">
-//     Copyright (c) Short Leg Studio, LLC. All rights reserved.
-// </copyright>
-//-----------------------------------------------------------------------
-using SilverNeedle.Characters.Appearance;
-using SilverNeedle.Characters.Background;
-
+﻿// Copyright (c) 2017 Trevor Redfern
+// 
+// This software is released under the MIT License.
+// https://opensource.org/licenses/MIT
 
 namespace SilverNeedle.Characters
 {
     using System;
     using System.Collections.Generic;
+    using SilverNeedle.Characters.Appearance;
+    using SilverNeedle.Characters.Background;
+    using SilverNeedle.Treasure;
+
     
     /// <summary>
     /// A character sheet is the object that ties everything together.
@@ -51,6 +51,8 @@ namespace SilverNeedle.Characters
             this.SpecialQualities = new SpecialQualities();
 
             this.LevelAbilities = new List<LevelAbility>();
+
+            this.CoinPurse = new CoinPurse();
 
             this.Level = 1;
         }
@@ -100,6 +102,8 @@ namespace SilverNeedle.Characters
         /// </summary>
         /// <value>The character's class.</value>
         public Class Class { get; set; }
+
+        public CoinPurse CoinPurse { get; protected set; }
 
         /// <summary>
         /// Gets the level.

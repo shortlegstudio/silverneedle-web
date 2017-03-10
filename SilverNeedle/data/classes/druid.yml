@@ -24,3 +24,4 @@
   armorproficiencies: light, medium
   weaponproficiencies: club, dagger, dart, quarterstaff, scimitar, scythe, sickle, shortspear, sling, spear
   developedage: studied
+  startingwealth: 2d6

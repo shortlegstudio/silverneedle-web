@@ -21,3 +21,4 @@
   armorproficiencies: light, medium, heavy
   weaponproficiencies: simple, martial
   developedage: trained
+  startingwealth: 5d6

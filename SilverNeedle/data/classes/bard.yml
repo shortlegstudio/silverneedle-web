@@ -39,3 +39,4 @@
   armorproficiencies: light
   weaponproficiencies: simple, longsword, rapier, sap, short sword, shortbow, whip
   developedage: trained
+  startingwealth: 3d6

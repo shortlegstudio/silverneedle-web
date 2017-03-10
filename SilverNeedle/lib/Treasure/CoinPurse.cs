@@ -51,6 +51,11 @@ namespace SilverNeedle.Treasure
             AddCopper(cp.Pieces);
         }
 
+        public override string ToString()
+        {
+            return string.Format("pp: {0} gp: {1} sp: {2} cp: {3}", Platinum.Pieces, Gold.Pieces, Silver.Pieces, Copper.Pieces);
+        }
+
         private int TotalValue()
         {
             return Platinum.Value +

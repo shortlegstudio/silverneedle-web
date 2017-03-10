@@ -88,9 +88,10 @@
     <p>
         <strong>Gear</strong>
         <ul class="commalist">
-        @foreach(var g in character.Gear)
-        { <li>@g</li> }
+            @foreach(var g in character.Gear)
+            { <li>@g</li> }
         </ul>
+        <p><strong>Money</strong> @character.Money</p>
     </p>
         </div>
         <div class="col-md-6">

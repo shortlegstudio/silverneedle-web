@@ -168,6 +168,13 @@ namespace Tests.Characters {
         {
             Assert.IsTrue(Fighter.Matches("fighter"));
         }
+
+        [Test]
+        public void ClassesCanHaveStartingWealth()
+        {
+            Assert.AreEqual(3, Fighter.StartingWealthDice.Dice.Count);
+            Assert.AreEqual(DiceSides.d6, Fighter.StartingWealthDice.Dice[0].Sides);
+        }
         private const string ClassYamlFile = @"--- 
 - class: 
   name: Fighter
@@ -185,6 +192,7 @@ namespace Tests.Characters {
   armorproficiencies: light, medium, heavy
   weaponproficiencies: simple, martial
   developedage: Trained
+  startingwealth: 3d6
   levels:
     - level: 1      
     - level: 2
@@ -205,6 +213,7 @@ namespace Tests.Characters {
   will: 0.334
   weaponproficiencies: simple, monk
   developedage: Studied
+  startingwealth: 1d6
   levels:
     - level: 1      
     - level: 2
@@ -225,7 +234,7 @@ namespace Tests.Characters {
   fortitude: 0.334
   will: 0.667
   weaponproficiencies: club, dagger, crossbow
-  developedage: Studied
+  developedage: Studied 
   levels:
     - level: 1      
     - level: 2

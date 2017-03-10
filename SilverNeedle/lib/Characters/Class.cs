@@ -110,6 +110,8 @@ namespace SilverNeedle.Characters
 
         public IList<Level> Levels { get; set; }
 
+        public Dice.Cup StartingWealthDice { get; set; }
+
         /// <summary>
         /// Gets a value indicating whether this class has a good fortitude save.
         /// </summary>
@@ -215,6 +217,12 @@ namespace SilverNeedle.Characters
                     var level = new Level(l);
                     Levels.Add(level);
                 }
+            }
+
+            var dice = data.GetStringOptional("startingwealth");
+            if(dice != null)
+            {
+                StartingWealthDice = DiceStrings.ParseDice(dice);
             }
         }
 

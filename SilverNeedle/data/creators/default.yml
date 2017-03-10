@@ -20,6 +20,7 @@
     - step: SilverNeedle.Actions.CharacterGenerator.AssignAge
     - step: SilverNeedle.Actions.CharacterGenerator.Background.ClassOriginStoryCreator
     - step: SilverNeedle.Actions.CharacterGenerator.SkillPointDistributor
+    - step: SilverNeedle.Actions.CharacterGenerator.StartingWealth
     - step: SilverNeedle.Actions.CharacterGenerator.EquipMeleeAndRangedWeapon
     - step: SilverNeedle.Actions.CharacterGenerator.PurchaseInitialArmor
   level-up-steps:

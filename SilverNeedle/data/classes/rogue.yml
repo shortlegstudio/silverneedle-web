@@ -32,3 +32,4 @@
   armorproficiencies: light
   weaponproficiencies: simple, hand crossbow, rapier, sap, shortbow, short sword
   developedage: young
+  startingwealth: 4d6
