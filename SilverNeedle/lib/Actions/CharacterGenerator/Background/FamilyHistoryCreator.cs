@@ -10,7 +10,7 @@ using SilverNeedle.Characters.Background;
 
 namespace SilverNeedle.Actions.CharacterGenerator.Background
 {
-    public class FamilyHistoryCreator : ICreateStep
+    public class FamilyHistoryCreator : ICharacterDesignStep
     {
         private NameCharacter namer;
 

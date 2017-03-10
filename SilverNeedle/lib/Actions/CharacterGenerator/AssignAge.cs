@@ -9,7 +9,7 @@ using SilverNeedle.Utility;
 
 namespace SilverNeedle.Actions.CharacterGenerator
 {
-    public class AssignAge : ICreateStep
+    public class AssignAge : ICharacterDesignStep
     {
         EntityGateway<Maturity> maturityGateway;
 

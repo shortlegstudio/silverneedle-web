@@ -8,7 +8,7 @@ using SilverNeedle.Characters;
 
 namespace SilverNeedle.Actions.CharacterGenerator
 {
-    public class BuildCharacterSkillList : ICreateStep
+    public class BuildCharacterSkillList : ICharacterDesignStep
     {
         IEntityGateway<Skill> skills;
 

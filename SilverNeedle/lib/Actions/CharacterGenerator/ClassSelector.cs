@@ -10,7 +10,7 @@ using SilverNeedle.Utility;
 
 namespace SilverNeedle.Actions.CharacterGenerator
 {
-    public class ClassSelector : ICreateStep
+    public class ClassSelector : ICharacterDesignStep
     {
         private EntityGateway<Class> classes; 
         

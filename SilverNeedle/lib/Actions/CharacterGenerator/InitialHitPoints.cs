@@ -10,7 +10,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
     /// <summary>
     /// Hit point generator rolls hitpoints for a character
     /// </summary>
-    public class InitialHitPoints : ICreateStep
+    public class InitialHitPoints : ICharacterDesignStep
     {
         public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {

@@ -4,7 +4,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
     using SilverNeedle.Characters;
     using SilverNeedle.Utility;
 
-    public class AbilityPointAssigner : ICreateStep, ILevelUpStep
+    public class AbilityPointAssigner : ICharacterDesignStep
     {
         public void AssignByStrategy(CharacterSheet character, WeightedOptionTable<AbilityScoreTypes> abilities)
         {

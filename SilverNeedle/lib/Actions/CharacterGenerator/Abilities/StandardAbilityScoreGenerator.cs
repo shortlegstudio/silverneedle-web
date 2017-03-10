@@ -15,7 +15,7 @@ namespace SilverNeedle.Actions.CharacterGenerator.Abilities
     /// <summary>
     /// Generates ability scores by rolling 4d6 for each and selecting the top 3 dice
     /// </summary>
-    public class StandardAbilityScoreGenerator : ICreateStep
+    public class StandardAbilityScoreGenerator : ICharacterDesignStep
     {
         /// <summary>
         /// Initializes a new instance of the

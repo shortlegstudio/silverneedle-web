@@ -9,7 +9,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
     using SilverNeedle.Characters;
     using SilverNeedle.Utility;
 
-    public class PersonalityBuilder : ICreateStep
+    public class PersonalityBuilder : ICharacterDesignStep
     {
         private EntityGateway<PersonalityType> personalities;
         private EntityGateway<Ideal> ideals;

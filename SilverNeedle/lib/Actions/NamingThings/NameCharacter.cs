@@ -11,7 +11,7 @@ namespace SilverNeedle.Actions.NamingThings
     using SilverNeedle.Names;
     using SilverNeedle.Utility;
 
-    public class NameCharacter : ICreateStep
+    public class NameCharacter : ICharacterDesignStep
     {
         private EntityGateway<NameInformation> namesGateway;
 

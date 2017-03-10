@@ -11,7 +11,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
     /// <summary>
     /// Level up generator handles adding more levels to a character in a specific class
     /// </summary>
-    public class LevelUpCharacter : ILevelUpStep
+    public class LevelUpCharacter : ICharacterDesignStep
     {
         /// <summary>
         /// Brings the character to level.

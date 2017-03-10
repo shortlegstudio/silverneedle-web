@@ -7,7 +7,7 @@ namespace SilverNeedle.Actions
 {
     using SilverNeedle.Characters;
 
-    public interface ICreateStep
+    public interface ICharacterDesignStep
     {
         void Process(CharacterSheet character, CharacterBuildStrategy strategy);
     }

@@ -10,7 +10,7 @@ using SilverNeedle.Utility;
 
 namespace SilverNeedle.Actions.CharacterGenerator.Background
 {
-    public class CharacterDrawbackSelector : ICreateStep
+    public class CharacterDrawbackSelector : ICharacterDesignStep
     {
         EntityGateway<Drawback> drawbacks;
 

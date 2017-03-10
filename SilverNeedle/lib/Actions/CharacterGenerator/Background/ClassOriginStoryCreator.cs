@@ -11,7 +11,7 @@ namespace SilverNeedle.Actions.CharacterGenerator.Background
     using SilverNeedle.Characters.Background;
     using SilverNeedle.Utility;
 
-    public class ClassOriginStoryCreator : ICreateStep
+    public class ClassOriginStoryCreator : ICharacterDesignStep
     {
         EntityGateway<ClassOriginGroup> classOrigins;
 

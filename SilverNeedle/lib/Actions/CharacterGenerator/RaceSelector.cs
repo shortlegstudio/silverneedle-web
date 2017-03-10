@@ -15,7 +15,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
     /// <summary>
     /// Race selector chooses a race for a charactor
     /// </summary>
-    public class RaceSelector : ICreateStep
+    public class RaceSelector : ICharacterDesignStep
     {
         /// <summary>
         /// The trait gateway provides access to all traits

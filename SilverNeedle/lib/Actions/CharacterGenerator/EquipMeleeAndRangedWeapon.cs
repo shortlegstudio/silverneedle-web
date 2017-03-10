@@ -16,7 +16,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
     /// <summary>
     /// Equip melee and ranged weapon selects the weapons for this character to prepare (and purchase)
     /// </summary>
-    public class EquipMeleeAndRangedWeapon : ICreateStep
+    public class EquipMeleeAndRangedWeapon : ICharacterDesignStep
     {
         /// <summary>
         /// The weapon gateway.

@@ -15,7 +15,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
     /// <summary>
     /// Purchase initial armor for a character
     /// </summary>
-    public class PurchaseInitialArmor : ICreateStep
+    public class PurchaseInitialArmor : ICharacterDesignStep
     {
         /// <summary>
         /// The armors available

@@ -14,7 +14,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
     /// <summary>
     /// Language selector.
     /// </summary>
-    public class LanguageSelector : ICreateStep
+    public class LanguageSelector : ICharacterDesignStep
     {
         /// <summary>
         /// The languages available

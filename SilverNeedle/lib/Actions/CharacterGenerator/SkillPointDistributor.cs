@@ -14,7 +14,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
     /// <summary>
     /// Skill point generator.
     /// </summary>
-    public class SkillPointDistributor : ICreateStep, ILevelUpStep
+    public class SkillPointDistributor : ICharacterDesignStep
     {
         /// <summary>
         /// Assigns the skill points randomly.

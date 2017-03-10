@@ -11,7 +11,7 @@ namespace SilverNeedle.Actions.CharacterGenerator.Appearance
 {
     using SilverNeedle;
 
-    public class CreateFacialFeatures : ICreateStep
+    public class CreateFacialFeatures : ICharacterDesignStep
     {
         public FacialDescription CreateFace(Gender gender)
         {

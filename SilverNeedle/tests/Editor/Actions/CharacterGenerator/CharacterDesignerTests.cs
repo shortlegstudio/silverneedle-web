@@ -13,9 +13,9 @@ namespace Tests.Actions.CharacterGenerator
     using SilverNeedle.Utility;
 
     [TestFixture]
-    public class CharacterCreatorTests
+    public class CharacterDesignerTests
     {
-        CharacterCreator subject;
+        CharacterDesigner subject;
         
         [SetUp]
         public void SetUpCharacterCreator()
@@ -25,20 +25,16 @@ namespace Tests.Actions.CharacterGenerator
             var steps = new MemoryStore();
             steps.AddListItem(new MemoryStore("step", "Tests.Actions.CharacterGenerator.DummyStepOne"));
             steps.AddListItem(new MemoryStore("step", "Tests.Actions.CharacterGenerator.DummyStepTwo"));
-            data.SetValue("level-one-steps", steps);
+            data.SetValue("steps", steps);
 
-            var levelupSteps = new MemoryStore();
-            levelupSteps.AddListItem(new MemoryStore("step", "Tests.Actions.CharacterGenerator.DummyStepThree"));
-            data.SetValue("level-up-steps", levelupSteps);
-
-            subject = new CharacterCreator(data);
+            subject = new CharacterDesigner(data);
         }
 
         [Test]
         public void CharacterCreatorLoadsFromYamlStepsNecessary()
         {           
             Assert.AreEqual("Test One", subject.Name);
-            Assert.AreEqual(2, subject.FirstLevelSteps.Count());
+            Assert.AreEqual(2, subject.Steps.Count());
         }
 
         [Test]
@@ -50,23 +46,9 @@ namespace Tests.Actions.CharacterGenerator
             Assert.AreEqual("Dummy One", characterSheet.Name);
             Assert.AreEqual(16, characterSheet.AbilityScores.GetScore(AbilityScoreTypes.Strength));
         }
-
-        [Test]
-        public void ProcessLevelUpExecutesSpecialSteps()
-        {
-            var characterSheet = new CharacterSheet();
-            var strategy = new CharacterBuildStrategy();
-            subject.ProcessLevelUp(characterSheet, strategy);
-            
-            //Does not run first level steps
-            Assert.AreNotEqual("Dummy One", characterSheet.Name);
-
-            //Runs level up
-            Assert.AreEqual(20, characterSheet.MaxHitPoints);
-        }
     }
 
-    public class DummyStepOne : ICreateStep
+    public class DummyStepOne : ICharacterDesignStep
     {
         public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
@@ -74,19 +56,11 @@ namespace Tests.Actions.CharacterGenerator
         }
     }
 
-    public class DummyStepTwo : ICreateStep
+    public class DummyStepTwo : ICharacterDesignStep
     {
         public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             character.AbilityScores.SetScore(AbilityScoreTypes.Strength, 16);
-        }
-    }
-
-    public class DummyStepThree : ILevelUpStep
-    {
-        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
-        {
-            character.IncreaseHitPoints(20);
         }
     }
 }

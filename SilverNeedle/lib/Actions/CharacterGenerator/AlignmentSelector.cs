@@ -8,7 +8,7 @@ using SilverNeedle.Characters;
 
 namespace SilverNeedle.Actions.CharacterGenerator
 {
-    public class AlignmentSelector : ICreateStep
+    public class AlignmentSelector : ICharacterDesignStep
     {
         public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {

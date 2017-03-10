@@ -10,7 +10,7 @@ using SilverNeedle.Utility;
 
 namespace SilverNeedle.Actions.CharacterGenerator.Background
 {
-    public class HomelandSelector : ICreateStep
+    public class HomelandSelector : ICharacterDesignStep
     {
         private EntityGateway<HomelandGroup> homelands;
 
