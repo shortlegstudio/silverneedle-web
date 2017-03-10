@@ -1,0 +1,6 @@
+--- !<SilverNeedle.Actions.CharacterGenerator.CharacterDesigner>
+- build-steps:
+  name: equip-default
+  steps: 
+    - step: SilverNeedle.Actions.CharacterGenerator.EquipMeleeAndRangedWeapon
+    - step: SilverNeedle.Actions.CharacterGenerator.PurchaseInitialArmor

@@ -41,14 +41,24 @@ namespace Tests.Actions {
 			//Bad test, but good enough for now
 			for (int i = 0; i < 1000; i++) {
 				var inventory = new Inventory ();
-				var repo = new EquipMeleeAndRangedWeapon (gateway);
+				var action = new EquipMeleeAndRangedWeapon (gateway);
 				var proficiencies = new WeaponProficiency[] { new WeaponProficiency("simple"), new WeaponProficiency("martial") };
-				repo.AssignWeapons (inventory, proficiencies);
+				action.AssignWeapons (inventory, proficiencies);
 				Assert.AreEqual (inventory.Weapons.Count (), 2);
 				Assert.IsTrue (inventory.Weapons.Any (x => x.Type == WeaponType.Ranged));
 				Assert.IsTrue (inventory.Weapons.Any (x => x.Type != WeaponType.Ranged));
 				Assert.IsFalse(inventory.Weapons.Any(x => x.Level == WeaponTrainingLevel.Exotic));
 			}
 		}
+
+        [Test]
+        public void IfNoAppropriateItemsAreFoundAssignNothing()
+        {
+            var action = new EquipMeleeAndRangedWeapon (gateway);
+            var character = new CharacterSheet();
+            //With no specification nothing should match
+			action.Process(character, new CharacterBuildStrategy());
+            Assert.IsEmpty(character.Inventory.Weapons);
+        }
 	}
 }

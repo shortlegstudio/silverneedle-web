@@ -40,5 +40,10 @@ namespace SilverNeedle
         {
             return Instance().GetImpl<T>();
         }
+
+        public static T Find<T>(string name) where T : IGatewayObject
+        {
+            return Get<T>().Find(name);
+        }
     }
 }

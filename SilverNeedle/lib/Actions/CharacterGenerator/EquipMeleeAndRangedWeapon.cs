@@ -47,9 +47,12 @@ namespace SilverNeedle.Actions.CharacterGenerator
         {
             var melee = this.weaponGateway.FindByProficient(proficiencies).Where(x => x.Type != WeaponType.Ranged).ToList();
             var ranged = this.weaponGateway.FindByProficient(proficiencies).Where(x => x.Type == WeaponType.Ranged).ToList();
-
-            inv.AddGear(melee.ChooseOne());
-            inv.AddGear(ranged.ChooseOne());
+            
+            if(melee.HasChoices())
+                inv.AddGear(melee.ChooseOne());
+            
+            if(ranged.HasChoices())
+                inv.AddGear(ranged.ChooseOne());
         }
 
         public void Process(CharacterSheet character, CharacterBuildStrategy strategy)

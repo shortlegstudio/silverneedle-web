@@ -105,9 +105,10 @@ namespace Characters
         }
 
         [Test]
-        public void CanLoadFromObjectStore()
+        public void ContainsAnEquipmentStrategy()
         {
-            Assert.Ignore("Not built yet");
+            var archer = strategies.Find("archer");
+            Assert.AreEqual("equip-adventurer", archer.EquipmentDesigner);
         }
 
         private const string CharacterBuildYaml = @"--- 
@@ -139,6 +140,7 @@ namespace Characters
       weight: 20
     - name: quick draw
       weight: 10
+  equipment-designer: equip-adventurer
 - build:
   name: Tank
   races:
@@ -176,6 +178,7 @@ namespace Characters
       weight: 100
     - name: dexterity
       weight: 50
+  equipment-designer: equip-adventurer
 ";
     }
 }

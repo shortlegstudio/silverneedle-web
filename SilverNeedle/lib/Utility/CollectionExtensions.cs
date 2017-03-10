@@ -64,6 +64,11 @@ namespace SilverNeedle
             return results;
         }
 
+        public static bool HasChoices<T>(this IEnumerable<T> source)
+        {
+            return source.Count() > 0;
+        }
+
         public static WeightedOptionTable<T> CreateFlatTable<T>(this IEnumerable<T> source) {
             var table = new WeightedOptionTable<T>();
             foreach(var f in source) {

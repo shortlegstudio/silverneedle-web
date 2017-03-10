@@ -42,6 +42,7 @@ namespace SilverNeedle.Characters
 
         public WeightedOptionTable<AbilityScoreTypes> FavoredAbilities { get; set; }
 
+        public string EquipmentDesigner { get; private set; }
         private void ParseObjectStore(IObjectStore data)
         {
             // Basic Properties
@@ -69,6 +70,8 @@ namespace SilverNeedle.Characters
 
                 var abilities = data.GetObjectOptional("abilities");
                 BuildAbilityTable(FavoredAbilities, abilities);
+
+                EquipmentDesigner = data.GetStringOptional("equipment-designer");
         }
 
         private void BuildWeightedTable(WeightedOptionTable<string> tableToBuild, IObjectStore node)
