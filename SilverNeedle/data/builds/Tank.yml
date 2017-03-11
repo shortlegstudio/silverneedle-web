@@ -4,6 +4,7 @@
   classskillmultiplier: 3  
   baseskillweight: 1
   charactercreator: default
+  equipment-designer: equip-adventurer
   classes:
     - name: fighter
       weight: 10

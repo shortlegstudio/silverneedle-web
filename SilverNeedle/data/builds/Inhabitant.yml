@@ -4,6 +4,7 @@
   classskillmultiplier: 5
   baseskillweight: 1
   charactercreator: default
+  equipment-designer: equip-townsfolk
   classes:
     - name: commoner
       weight: 50

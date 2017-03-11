@@ -1,0 +1,5 @@
+--- !<SilverNeedle.Actions.CharacterGenerator.CharacterDesigner>
+- build-steps:
+  name: equip-adventurer
+  steps: 
+    - step: SilverNeedle.Actions.CharacterGenerator.EquipMeleeAndRangedWeapon

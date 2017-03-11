@@ -26,11 +26,18 @@ namespace silverneedleweb.Controllers
 
         public IActionResult Character(string strategy, int level)
         {
-            var gen = GatewayProvider.Get<CharacterDesigner>().Find("create-default");
+            var gen = GatewayProvider.Find<CharacterDesigner>("create-default");
             var build = strategyGateway.Find(strategy);
 
             var character = new CharacterSheet();
             gen.Process(character, build);
+
+            if (level > 1)
+            {
+                var levelUpGen = GatewayProvider.Find<CharacterDesigner>("levelup-default");
+                for(int i = 1; i < level; i++)
+                    levelUpGen.Process(character, build);
+            }
             
             ViewData["character"] = new CharacterSheetTextView(character);
             ViewData["strategy"] = strategy;
