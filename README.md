@@ -35,12 +35,12 @@ more time will be spent tweaking specific weightings to generate better NPCs.
 This weighting/strategy mechanism can be applied to races, feats, ability scores
 and basically anywhere to provide more customization.
 
-# What to do?
-This is a pretty limited implementation at this point and there are many 
-factors not properly tracked. 
+# Building
 
-* Class level abilities are not properly implemented
-* More interesting characteristics: Likes, Dislikes, Quirks, etc...
-* Multiclassing possibilities
-* Generating multiple NPCs depending on a place. For example, create a busy
-tavern of NPCs
+I do not have official build steps as of yet. I am working on Mac for this project
+I would assume with dotnet code on visual studio would be relatively trivial to get
+running.
+
+This project is using dotnet: 1.0.0-preview2-1-003177 for builds and deployments.
+The NET Core projects are all 1.1. Getting a templated ASP.NET MVC project running
+should be enough configuration for this to be restored, built and run on a system.
