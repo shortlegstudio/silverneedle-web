@@ -5,6 +5,7 @@
 
 namespace Tests.Treasure
 {
+    using System;
     using NUnit.Framework;
     using SilverNeedle.Treasure;
 
@@ -39,6 +40,42 @@ namespace Tests.Treasure
             purse.SetValue(58342);
             purse.Spend(7328);
             Assert.AreEqual(51014, purse.Value);            
+        }
+
+        [Test]
+        public void CanInitializePurseToValue()
+        {
+            var purse = new CoinPurse(4824);
+            Assert.AreEqual(4824, purse.Value);
+        }
+
+        [Test]
+        public void IfYouDoNotHaveEnoughMoneyThrowError()
+        {
+            var purse = new CoinPurse(3923);
+            Assert.Throws<InsufficientFundsException>(() => purse.Spend(484234));
+        }
+
+        [Test]
+        public void CanCheckIfYouCanAffordAnItem()
+        {
+            var purse = new CoinPurse(4842);
+            var item = new DummyItem();
+            item.Value = 3293;
+            var expensive = new DummyItem();
+            expensive.Value = 49348;
+
+            Assert.That(purse.CanAfford(item), Is.True);
+            Assert.That(purse.CanAfford(expensive), Is.False);
+        }
+
+        private class DummyItem : SilverNeedle.Equipment.IInventoryItem
+        {
+            public string Name { get; set; }
+
+            public float Weight { get; set; }
+
+            public int Value { get; set; }
         }
     }
 }

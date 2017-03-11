@@ -54,10 +54,10 @@ namespace SilverNeedle.Actions.CharacterGenerator
 
         public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
-            var ranged = this.weaponGateway
-                .FindByProficient(character.Offense.WeaponProficiencies)
-                .Where(x => x.Type == WeaponType.Ranged)
-                .ToList();
+            var ranged = this.weaponGateway.Where(weapon =>
+                character.Offense.IsProficient(weapon) &&
+                weapon.Type == WeaponType.Ranged &&
+                character.Inventory.CoinPurse.CanAfford(weapon));
 
             if(ranged.HasChoices())
                 character.Inventory.Purchase(ranged.ChooseOne());

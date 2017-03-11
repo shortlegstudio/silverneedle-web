@@ -27,7 +27,7 @@ namespace SilverNeedle
         /// <param name="message">Message to log to console</param>
         public static void Error(string message)
         {
-            Console.WriteLine("ERROR: {0}", message);
+            WriteFormat("ERROR", message);
         }
 
         /// <summary>
@@ -37,8 +37,7 @@ namespace SilverNeedle
         /// <param name="args">Arguments that should be included in the formatted string.</param>
         public static void ErrorFormat(string format, params string[] args)
         {
-            var s = string.Format(format, args);
-            Error(s);
+            WriteFormat("ERROR", format, args);
         }
 
         /// <summary>
@@ -47,7 +46,7 @@ namespace SilverNeedle
         /// <param name="message">Message to write to debug output.</param>
         public static void Debug(string message)
         {
-            Console.WriteLine("DEBUG: {0}", message);
+            WriteFormat("DEBUG", message);
         }
 
         /// <summary>
@@ -57,8 +56,24 @@ namespace SilverNeedle
         /// <param name="args">Arguments to be included in the format</param>
         public static void DebugFormat(string format, params string[] args)
         {
-            var s = string.Format(format, args);
-            Debug(s);
+            WriteFormat("DEBUG", format, args);
+        }
+
+        public static void WarnFormat(string format, params string[] args)
+        {
+            WriteFormat("WARN", format, args);
+        }
+
+        public static void Warn(string message)
+        {
+            WriteFormat("WARN", message);
+        }
+
+        private const string log_format = "{0} - {1}: {2}";
+        private static void WriteFormat(string level, string format, params string[] args)
+        {
+            string message = string.Format(format, args);
+            Console.WriteLine(log_format, DateTime.Now.ToString(), level, message);
         }
     }
 }

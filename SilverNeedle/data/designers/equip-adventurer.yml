@@ -4,4 +4,5 @@
   steps: 
     - step: SilverNeedle.Actions.CharacterGenerator.PurchaseMeleeWeapon
     - step: SilverNeedle.Actions.CharacterGenerator.PurchaseRangedWeapon
-    - step: SilverNeedle.Actions.CharacterGenerator.PurchaseInitialArmor
+    - step: SilverNeedle.Actions.CharacterGenerator.PurchaseArmor
+    - step: SilverNeedle.Actions.CharacterGenerator.PurchaseShield

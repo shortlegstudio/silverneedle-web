@@ -40,14 +40,16 @@ namespace SilverNeedle.Actions.CharacterGenerator
 
         public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
-            var melee = this.weaponGateway
-                .FindByProficient(character.Offense.WeaponProficiencies)
-                .Where(x => x.Type != WeaponType.Ranged)
-                .ToList();
+            var validWeapons = this.weaponGateway.Where(
+                weapon => 
+                character.Offense.IsProficient(weapon) &&
+                weapon.Type != WeaponType.Ranged &&
+                character.Inventory.CoinPurse.CanAfford(weapon)
+            );
 
-            if(melee.HasChoices())
+            if(validWeapons.HasChoices())
             {
-                character.Inventory.Purchase(melee.ChooseOne());                
+                character.Inventory.Purchase(validWeapons.ChooseOne());                
             }
         }
     }

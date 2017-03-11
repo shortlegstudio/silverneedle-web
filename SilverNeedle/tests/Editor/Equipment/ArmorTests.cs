@@ -132,6 +132,13 @@ namespace Tests.Equipment {
             var armors = gateway.FindByProficiency(proficiencies);
             Assert.AreEqual(1, armors.Count());
         }
+
+        [Test]
+        public void ArmorHasACost()
+        {
+            var leather = gateway.Find("leather armor");
+            Assert.AreEqual(2500, leather.Value);
+        }
 		const string ArmorYamlFile = @"
 - armor:
   name: Leather Armor
@@ -141,6 +148,7 @@ namespace Tests.Equipment {
   armor_check_penalty: 0
   arcane_spell_failure_chance: 10
   armor_type: Light
+  cost: 25gp
 - armor:
   name: Full Plate
   armor_class: 9
@@ -149,6 +157,7 @@ namespace Tests.Equipment {
   armor_check_penalty: -6
   arcane_spell_failure_chance: 35
   armor_type: Heavy
+  cost: 473gp
 - armor:
   name: Half Plate
   armor_class: 8
@@ -157,6 +166,7 @@ namespace Tests.Equipment {
   armor_check_penalty: -7
   arcane_spell_failure_chance: 40
   armor_type: Heavy
+  cost: 320gp
 ";
 	}
 }

@@ -18,6 +18,11 @@ namespace SilverNeedle.Treasure
             ZeroOutPurse();
         }
 
+        public CoinPurse(int value) : this()
+        {
+            SetValue(value);
+        }
+
         public void AddPlatinum(int pieces)
         {
             Platinum.Pieces += pieces;
@@ -48,12 +53,21 @@ namespace SilverNeedle.Treasure
 
         public void Spend(int value)
         {
+            if(value > this.Value)
+            {
+                throw new InsufficientFundsException();
+            }
             SetValue(Value - value);
         }
 
         public override string ToString()
         {
             return string.Format("pp: {0} gp: {1} sp: {2} cp: {3}", Platinum.Pieces, Gold.Pieces, Silver.Pieces, Copper.Pieces);
+        }
+
+        public bool CanAfford(SilverNeedle.Equipment.IInventoryItem item)
+        {
+            return this.Value >= item.Value;
         }
 
         private int TotalValue()

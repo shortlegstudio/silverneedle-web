@@ -84,5 +84,16 @@ namespace Tests.Actions {
 			action.Process(character, new CharacterBuildStrategy());
             Assert.IsEmpty(character.Inventory.Weapons);
         }
+
+        [Test]
+        public void AvoidTryingToBuyWeaponsIfBroke()
+        {
+            var mace = gateway.Find("mace");
+            mace.Value = 3000;
+            character.Inventory.CoinPurse.SetValue(2999); // Not Enough :'(
+            subject.Process(character, new CharacterBuildStrategy());
+            Assert.AreEqual(2999, character.Inventory.CoinPurse.Value);
+            Assert.That(character.Inventory.Weapons, Has.Exactly(0).Count);
+        }
 	}
 }

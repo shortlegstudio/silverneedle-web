@@ -14,7 +14,10 @@ namespace SilverNeedle.Treasure
         public static CoinsBase ToCoins(this string coinString)
         {
             if(string.IsNullOrEmpty(coinString))
+            {
+                ShortLog.Warn("Cannot parse value. CoinString was null or empty");
                 return new CopperPieces();
+            }
 
             string[] output = Regex.Matches(coinString, "[0-9]+|[A-Za-z]+")
                 .Cast<Match>()

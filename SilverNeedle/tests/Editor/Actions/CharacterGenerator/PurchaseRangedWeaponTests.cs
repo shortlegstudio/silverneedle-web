@@ -16,6 +16,9 @@ namespace Tests.Actions {
 	public class PurchaseRangedWeaponTests 
     {
         EntityGateway<Weapon> gateway;
+        CharacterSheet character;
+        PurchaseRangedWeapon subject;
+
 
         [SetUp]
         public void SetUp()
@@ -37,6 +40,12 @@ namespace Tests.Actions {
             weapons.Add (wpn2);
             weapons.Add (wpn3);
             gateway = new EntityGateway<Weapon>(weapons);
+
+            subject = new PurchaseRangedWeapon (gateway);
+
+            var proficiencies = new string[] { "simple", "martial" };
+            character = new CharacterSheet();                
+            character.Offense.AddWeaponProficiencies(proficiencies);
         }
 
 		[Test]
@@ -65,5 +74,27 @@ namespace Tests.Actions {
 			action.Process(character, new CharacterBuildStrategy());
             Assert.IsEmpty(character.Inventory.Weapons);
         }
+
+         [Test]
+        public void AvoidTryingToBuyWeaponsIfBroke()
+        {
+            var bow = gateway.Find("Bow");
+            bow.Value = 3000;
+            character.Inventory.CoinPurse.SetValue(2999); // Not Enough :'(
+            subject.Process(character, new CharacterBuildStrategy());
+            Assert.AreEqual(2999, character.Inventory.CoinPurse.Value);
+            Assert.That(character.Inventory.Weapons, Has.Exactly(0).Count);
+        }
+
+        [Test]
+        public void PurchasingARangedWeaponSpendsMoney()
+        {
+            var bow = gateway.Find("bow");
+            bow.Value = 3000;
+            character.Inventory.CoinPurse.SetValue(30000);
+            subject.Process(character, new CharacterBuildStrategy());
+            Assert.AreEqual(27000, character.Inventory.CoinPurse.Value);
+        }
+
 	}
 }

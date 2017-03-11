@@ -5,6 +5,7 @@
 
 namespace SilverNeedle.Equipment
 {
+    using SilverNeedle.Treasure;
     using SilverNeedle.Utility;
 
     /// <summary>
@@ -57,6 +58,7 @@ namespace SilverNeedle.Equipment
             this.ArmorCheckPenalty = data.GetInteger("armor_check_penalty");
             this.ArcaneSpellFailureChance = data.GetInteger("arcane_spell_failure_chance");
             this.ArmorType = data.GetEnum<ArmorType>("armor_type");
+            this.Value = data.GetString("cost").ToCoinValue();
         }
 
         /// <summary>
