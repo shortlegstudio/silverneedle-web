@@ -69,6 +69,7 @@ namespace Tests.Equipment {
             Assert.AreEqual(WeaponType.OneHanded, longsword.Type);
             Assert.AreEqual(WeaponGroup.HeavyBlades, longsword.Group);
             Assert.AreEqual(WeaponTrainingLevel.Martial, longsword.Level);
+            Assert.AreEqual(3200, longsword.Value);
         }
 
         [Test]
@@ -85,6 +86,7 @@ namespace Tests.Equipment {
             Assert.AreEqual(WeaponType.Light, dagger.Type);
             Assert.AreEqual(WeaponGroup.LightBlades, dagger.Group);
             Assert.AreEqual(WeaponTrainingLevel.Simple, dagger.Level);
+            Assert.AreEqual(40, dagger.Value);
         }
 
         [Test]
@@ -108,6 +110,7 @@ namespace Tests.Equipment {
   group: HeavyBlades
   type: OneHanded
   training_level: Martial
+  cost: 32gp
 - weapon:
   name: Dagger
   damage: 1d4
@@ -117,6 +120,7 @@ namespace Tests.Equipment {
   group: LightBlades
   type: Light
   training_level: Simple
+  cost: 4sp
 ";
 	}
 }

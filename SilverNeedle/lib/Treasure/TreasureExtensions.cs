@@ -13,6 +13,9 @@ namespace SilverNeedle.Treasure
     {
         public static CoinsBase ToCoins(this string coinString)
         {
+            if(string.IsNullOrEmpty(coinString))
+                return new CopperPieces();
+
             string[] output = Regex.Matches(coinString, "[0-9]+|[A-Za-z]+")
                 .Cast<Match>()
                 .Select(match => match.Value)
@@ -35,6 +38,11 @@ namespace SilverNeedle.Treasure
             }
 
             return null;
+        }
+
+        public static int ToCoinValue(this string coinString)
+        {
+            return coinString.ToCoins().Value;
         }
     }
 }

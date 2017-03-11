@@ -5,6 +5,7 @@
 //-----------------------------------------------------------------------
 namespace SilverNeedle.Equipment
 {
+    using SilverNeedle.Treasure;
     using SilverNeedle.Utility;
 
     /// <summary>
@@ -53,7 +54,7 @@ namespace SilverNeedle.Equipment
             this.Range = range;
             this.Type = type;
             this.Group = group;
-            this.Level = level;
+            this.Level = level;            
         }
 
         public Weapon(IObjectStore data)
@@ -69,10 +70,11 @@ namespace SilverNeedle.Equipment
             this.Type = data.GetEnum<WeaponType>("type");
             this.Group = data.GetEnum<WeaponGroup>("group");
             this.Level = data.GetEnum<WeaponTrainingLevel>("training_level");
-
+            this.Value = data.GetStringOptional("cost").ToCoinValue();
             this.CriticalThreat = this.CriticalThreat == 0 ? 20 : this.CriticalThreat;
             this.CriticalModifier = this.CriticalModifier == 0 ? 2 : this.CriticalModifier; 
             
+
         }
 
         /// <summary>
