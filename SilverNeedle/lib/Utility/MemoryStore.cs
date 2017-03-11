@@ -31,7 +31,7 @@ namespace SilverNeedle.Utility
             childList = new List<IObjectStore>();
         }
 
-        public MemoryStore(string key, string value) : base()
+        public MemoryStore(string key, string value) : this()
         {
             Key = key;
             Value = value;
@@ -115,7 +115,7 @@ namespace SilverNeedle.Utility
 
         public bool HasKey(string key)
         {
-            return dataStore.ContainsKey(key);
+            return dataStore.ContainsKey(key) || string.Equals(this.Key, key);
         }
 
         public void SetValue(string key, string value)

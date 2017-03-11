@@ -11,11 +11,17 @@ namespace SilverNeedle.Actions.CharacterGenerator
 
     public class CharacterDesigner : IGatewayObject, ICharacterDesignStep
     {
-        public string Name { get; private set; }
+        public virtual string Name { get; private set; }
         public IEnumerable<ICharacterDesignStep> Steps { get { return designSteps; } }
 
         private IList<ICharacterDesignStep> designSteps;
         
+        public CharacterDesigner()
+        {
+            Name = "Unset";
+            designSteps = new List<ICharacterDesignStep>();
+        }
+
         public CharacterDesigner(IObjectStore data)
         {
             Name = data.GetString("name");
@@ -24,14 +30,24 @@ namespace SilverNeedle.Actions.CharacterGenerator
             
             foreach(var step in data.GetObject("steps").Children)
             {                
-                var typeName = step.GetString("step");
-                ShortLog.DebugFormat("Adding Build Step: {0}", typeName);
-                var item = typeName.Instantiate<ICharacterDesignStep>();
-                designSteps.Add(item);
+                if(step.HasKey("step"))
+                {
+                    var typeName = step.GetString("step");
+                    ShortLog.DebugFormat("Adding Build Step: {0}", typeName);
+                    var item = typeName.Instantiate<ICharacterDesignStep>();
+                    designSteps.Add(item);
+                } 
+                else if (step.HasKey("designer"))
+                {
+                    var designer = step.GetString("designer");
+                    ShortLog.DebugFormat("Adding Designer: {0}", designer);
+                    var item = new DesignerExecuterStep(designer);
+                    designSteps.Add(item);
+                }
             }
         }
 
-        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
+        public virtual void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             foreach(var step in designSteps)
             {
@@ -39,7 +55,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
             }
         }
 
-        public bool Matches(string name)
+        public virtual bool Matches(string name)
         {
             return Name.EqualsIgnoreCase(name);
         }
