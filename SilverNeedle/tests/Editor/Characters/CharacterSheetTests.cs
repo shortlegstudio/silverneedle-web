@@ -151,6 +151,4 @@ namespace Characters
             Assert.AreEqual("Climb", character.GetSkill("climb").Name);
         }
     }
-
-
 }

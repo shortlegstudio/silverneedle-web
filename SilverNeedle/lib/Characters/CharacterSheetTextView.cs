@@ -83,7 +83,7 @@ namespace SilverNeedle.Characters
             Age = character.Age.ToString();
             Height = character.Size.Height.ToInchesAndFeet();
             Weight = character.Size.Weight.ToPoundsString();
-            Money = character.CoinPurse.ToString();
+            Money = character.Inventory.CoinPurse.ToString();
         }
 
         public string Name { get; private set; }

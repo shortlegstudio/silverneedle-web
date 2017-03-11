@@ -33,8 +33,8 @@ namespace Tests.Actions.CharacterGenerator
             var action = new StartingWealth();
             action.Process(character, new CharacterBuildStrategy());
 
-            Assert.Greater(character.CoinPurse.Gold.Pieces, 19);
-            Assert.Less(character.CoinPurse.Gold.Pieces, 121);
+            Assert.Greater(character.Inventory.CoinPurse.Gold.Pieces, 19);
+            Assert.Less(character.Inventory.CoinPurse.Gold.Pieces, 121);
         }
     }
 }

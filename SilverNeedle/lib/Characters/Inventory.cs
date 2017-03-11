@@ -8,6 +8,7 @@ namespace SilverNeedle.Characters
     using System.Collections.Generic;
     using System.Linq;
     using SilverNeedle.Equipment;
+    using SilverNeedle.Treasure;
 
     /// <summary>
     /// Inventory for a character. This holds all the gear and keeps track
@@ -18,27 +19,30 @@ namespace SilverNeedle.Characters
         /// <summary>
         /// The gear a character has
         /// </summary>
-        private IList<IEquipment> gear;
+        private IList<IInventoryItem> gear;
 
         /// <summary>
         /// The equipped gear.
         /// </summary>
-        private IList<IEquipment> equippedGear;
+        private IList<IInventoryItem> equippedGear;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Characters.Inventory"/> class.
         /// </summary>
         public Inventory()
         {
-            this.gear = new List<IEquipment>();  
-            this.equippedGear = new List<IEquipment>();
+            this.gear = new List<IInventoryItem>();  
+            this.equippedGear = new List<IInventoryItem>();
+            this.CoinPurse = new CoinPurse();
         }
+
+        public CoinPurse CoinPurse { get; private set; }
 
         /// <summary>
         /// Gets all of the gear
         /// </summary>
         /// <value>All of the equipment in inventory.</value>
-        public IEnumerable<IEquipment> All 
+        public IEnumerable<IInventoryItem> All 
         { 
             get { return this.gear; } 
         }
@@ -65,7 +69,7 @@ namespace SilverNeedle.Characters
         /// Gets the equipped items.
         /// </summary>
         /// <value>The equipped items.</value>
-        public IEnumerable<IEquipment> EquippedItems 
+        public IEnumerable<IInventoryItem> EquippedItems 
         { 
             get { return this.equippedGear; } 
         }
@@ -74,7 +78,7 @@ namespace SilverNeedle.Characters
         /// Adds the gear to the character.
         /// </summary>
         /// <param name="equip">Equipment to add.</param>
-        public void AddGear(IEquipment equip)
+        public void AddGear(IInventoryItem equip)
         {
             if (!this.gear.Contains(equip))
             {
@@ -86,7 +90,7 @@ namespace SilverNeedle.Characters
         /// Equips the item.
         /// </summary>
         /// <param name="item">Item to equip. Adds gear if not already added</param>
-        public void EquipItem(IEquipment item)
+        public void EquipItem(IInventoryItem item)
         {
             this.AddGear(item);
             this.equippedGear.Add(item);
@@ -100,6 +104,12 @@ namespace SilverNeedle.Characters
         public IEnumerable<T> GearOfType<T>()
         {
             return this.gear.OfType<T>();
+        }
+
+        public void Purchase(IInventoryItem item)
+        {
+            CoinPurse.Spend(item.Value);
+            AddGear(item);
         }
     }
 }

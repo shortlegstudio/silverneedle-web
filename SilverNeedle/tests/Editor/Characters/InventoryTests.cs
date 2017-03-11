@@ -8,6 +8,7 @@ namespace Tests.Characters {
     using NUnit.Framework;
     using SilverNeedle.Characters;
     using SilverNeedle.Equipment;
+    using SilverNeedle.Treasure;
 
 	[TestFixture]
 	public class InventoryTests {
@@ -74,10 +75,23 @@ namespace Tests.Characters {
 			Assert.AreEqual (1, inv.All.Count ());
 		}
 
+        [Test]
+        public void PurchasingAnItemDeductsTheValueFromPurse()
+        {
+            var inv = new Inventory();
+            var j = new PieceOfJunk();
+            j.Value = 34;
+            inv.CoinPurse.SetValue(40);
+            inv.Purchase(j);
+            Assert.AreEqual(6, inv.CoinPurse.Value);
+            Assert.AreEqual(1, inv.All.Count());
+        }
 
-		class PieceOfJunk : IEquipment {
+		class PieceOfJunk : IInventoryItem {
 			public string Name { get { return "Junk"; } }
 			public float Weight { get { return 0.5f; } }
+
+            public int Value { get; set; }
 		}
 	}
 }

@@ -16,6 +16,8 @@ namespace Tests.Actions {
 	public class PurchaseMeleeWeaponTests 
     {
         EntityGateway<Weapon> gateway;
+        CharacterSheet character;
+        PurchaseMeleeWeapon subject;
 
         [SetUp]
         public void SetUp()
@@ -37,6 +39,13 @@ namespace Tests.Actions {
             weapons.Add (wpn2);
             weapons.Add (wpn3);
             gateway = new EntityGateway<Weapon>(weapons);
+            subject = new PurchaseMeleeWeapon (gateway);
+
+            var proficiencies = new string[] { "simple" };
+            character = new CharacterSheet();                
+            character.Offense.AddWeaponProficiencies(proficiencies);
+
+
         }
 
 		[Test]
@@ -45,7 +54,7 @@ namespace Tests.Actions {
 			for (int i = 0; i < 1000; i++) {
 				var action = new PurchaseMeleeWeapon (gateway);
 				var proficiencies = new string[] { "simple", "martial" };
-                var character = new CharacterSheet();
+                var character = new CharacterSheet();                
                 character.Offense.AddWeaponProficiencies(proficiencies);
 
 				action.Process(character, new CharacterBuildStrategy());
@@ -55,6 +64,16 @@ namespace Tests.Actions {
 				Assert.IsFalse(character.Inventory.Weapons.Any(x => x.Level == WeaponTrainingLevel.Exotic));
 			}
 		}
+
+        [Test]
+        public void PurchasingAMeleeWeaponSpendsMoney()
+        {
+            var mace = gateway.Find("mace");
+            mace.Value = 3000;
+            character.Inventory.CoinPurse.SetValue(30000);
+            subject.Process(character, new CharacterBuildStrategy());
+            Assert.AreEqual(27000, character.Inventory.CoinPurse.Value);
+        }
 
         [Test]
         public void IfNoAppropriateItemsAreFoundAssignNothing()

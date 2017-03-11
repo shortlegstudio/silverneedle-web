@@ -52,8 +52,6 @@ namespace SilverNeedle.Characters
 
             this.LevelAbilities = new List<LevelAbility>();
 
-            this.CoinPurse = new CoinPurse();
-
             this.Level = 1;
         }
 
@@ -102,8 +100,6 @@ namespace SilverNeedle.Characters
         /// </summary>
         /// <value>The character's class.</value>
         public Class Class { get; set; }
-
-        public CoinPurse CoinPurse { get; protected set; }
 
         /// <summary>
         /// Gets the level.

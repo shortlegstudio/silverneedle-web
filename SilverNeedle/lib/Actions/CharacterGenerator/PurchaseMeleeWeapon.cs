@@ -46,7 +46,9 @@ namespace SilverNeedle.Actions.CharacterGenerator
                 .ToList();
 
             if(melee.HasChoices())
-                character.Inventory.AddGear(melee.ChooseOne());
+            {
+                character.Inventory.Purchase(melee.ChooseOne());                
+            }
         }
     }
 }

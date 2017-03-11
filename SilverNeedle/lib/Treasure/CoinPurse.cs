@@ -15,10 +15,7 @@ namespace SilverNeedle.Treasure
 
         public CoinPurse()
         {
-            Platinum = new PlatinumPieces();
-            Gold = new GoldPieces();
-            Silver = new SilverPieces();
-            Copper = new CopperPieces();
+            ZeroOutPurse();
         }
 
         public void AddPlatinum(int pieces)
@@ -43,12 +40,15 @@ namespace SilverNeedle.Treasure
 
         public void SetValue(int value)
         {
-            var gp = new GoldPieces(value / Gold.CoinValue);
-            var sp = new SilverPieces((value - gp.Value) / Silver.CoinValue);
-            var cp = new CopperPieces((value - gp.Value - sp.Value) / Copper.CoinValue);
-            AddGold(gp.Pieces);
-            AddSilver(sp.Pieces);
-            AddCopper(cp.Pieces);
+            ZeroOutPurse();
+            Gold = new GoldPieces(value / GoldPieces.VALUE);
+            Silver = new SilverPieces((value - this.Value) / SilverPieces.VALUE);
+            Copper = new CopperPieces((value - this.Value) / CopperPieces.VALUE);
+        }
+
+        public void Spend(int value)
+        {
+            SetValue(Value - value);
         }
 
         public override string ToString()
@@ -62,6 +62,14 @@ namespace SilverNeedle.Treasure
                 Gold.Value +
                 Silver.Value + 
                 Copper.Value;
+        }
+
+        private void ZeroOutPurse()
+        {
+            Platinum = new PlatinumPieces();
+            Gold = new GoldPieces();
+            Silver = new SilverPieces();
+            Copper = new CopperPieces();
         }
     }
 }

@@ -17,7 +17,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
             if (character.Class.StartingWealthDice != null)
             {
                 var value = character.Class.StartingWealthDice.Roll() * 10;
-                character.CoinPurse.AddGold(value);
+                character.Inventory.CoinPurse.AddGold(value);
             }
         }
     }

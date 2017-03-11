@@ -60,8 +60,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
                 .ToList();
 
             if(ranged.HasChoices())
-                character.Inventory.AddGear(ranged.ChooseOne());
-
+                character.Inventory.Purchase(ranged.ChooseOne());
         }
     }
 }

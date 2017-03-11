@@ -10,7 +10,7 @@ namespace SilverNeedle.Equipment
     /// <summary>
     /// Armor is for protecting the character from damage
     /// </summary>
-    public class Armor : IEquipment, IGatewayObject
+    public class Armor : IInventoryItem, IGatewayObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Equipment.Armor"/> class.
@@ -101,6 +101,8 @@ namespace SilverNeedle.Equipment
         /// <value>The type of the armor.</value>
         public ArmorType ArmorType { get; set; }
 
+        public int Value { get; set; }
+        
         public int MovementSpeedPenalty {
             get {
                 switch(ArmorType) {

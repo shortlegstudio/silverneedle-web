@@ -31,5 +31,14 @@ namespace Tests.Treasure
             Assert.AreEqual(4, purse.Silver.Pieces);
             Assert.AreEqual(3, purse.Copper.Pieces);
         }
+
+        [Test]
+        public void SpendingMoneySubtractsFromThePurse()
+        {
+            var purse = new CoinPurse();
+            purse.SetValue(58342);
+            purse.Spend(7328);
+            Assert.AreEqual(51014, purse.Value);            
+        }
     }
 }

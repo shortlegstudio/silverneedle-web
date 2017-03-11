@@ -8,7 +8,7 @@ namespace SilverNeedle.Equipment
     /// <summary>
     /// Piece of equipment
     /// </summary>
-    public interface IEquipment
+    public interface IInventoryItem
     {
         /// <summary>
         /// Gets the name.
@@ -21,5 +21,7 @@ namespace SilverNeedle.Equipment
         /// </summary>
         /// <value>The weight of the equipment.</value>
         float Weight { get; }
+
+        int Value { get; }
     }
 }

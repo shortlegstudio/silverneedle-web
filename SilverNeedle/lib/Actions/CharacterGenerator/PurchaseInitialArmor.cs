@@ -55,7 +55,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
             {
                 var armor = armors.ChooseOne();
                 ShortLog.DebugFormat("Purchasing {0}", armor.Name);
-                inventory.EquipItem(armors.ChooseOne());
+                inventory.Purchase(armor);
             }
             
             var shields = this.armors.FindByArmorType(ArmorType.Shield)
@@ -65,7 +65,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
             {
                 var shield = shields.ChooseOne();
                 ShortLog.DebugFormat("Purchasing {0}", shield.Name);
-                inventory.EquipItem(shield);
+                inventory.Purchase(shield);
             }
         }
 

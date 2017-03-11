@@ -8,13 +8,13 @@ namespace SilverNeedle.Treasure
 { 
     public class PlatinumPieces : CoinsBase
     {
-        private const int PLATINUM_VALUE = 1000; 
-        public PlatinumPieces() : base(PLATINUM_VALUE)
+        public const int VALUE = 1000; 
+        public PlatinumPieces() : base(VALUE)
         {
 
         }
 
-        public PlatinumPieces(int pieces) : base(pieces, PLATINUM_VALUE)
+        public PlatinumPieces(int pieces) : base(pieces, VALUE)
         {
 
         }
