@@ -1,5 +1,5 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright file="EquipMeleeAndRangedWeapon.cs" company="Short Leg Studio, LLC">
+// <copyright file="PurchaseRangedWeapon.cs" company="Short Leg Studio, LLC">
 //     Copyright (c) Short Leg Studio, LLC. All rights reserved.
 // </copyright>
 //-----------------------------------------------------------------------
@@ -16,7 +16,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
     /// <summary>
     /// Equip melee and ranged weapon selects the weapons for this character to prepare (and purchase)
     /// </summary>
-    public class EquipMeleeAndRangedWeapon : ICharacterDesignStep
+    public class PurchaseRangedWeapon : ICharacterDesignStep
     {
         /// <summary>
         /// The weapon gateway.
@@ -25,15 +25,15 @@ namespace SilverNeedle.Actions.CharacterGenerator
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="SilverNeedle.Actions.CharacterGenerator.EquipMeleeAndRangedWeapon"/> class.
+        /// <see cref="SilverNeedle.Actions.CharacterGenerator.PurchaseRangedWeapon"/> class.
         /// </summary>
         /// <param name="weapons">Weapons available for purchase</param>
-        public EquipMeleeAndRangedWeapon(EntityGateway<Weapon> weapons)
+        public PurchaseRangedWeapon(EntityGateway<Weapon> weapons)
         {
             this.weaponGateway = weapons;
         }
 
-        public EquipMeleeAndRangedWeapon()
+        public PurchaseRangedWeapon()
         {
             this.weaponGateway = GatewayProvider.Get<Weapon>();
         }
@@ -46,18 +46,22 @@ namespace SilverNeedle.Actions.CharacterGenerator
         public void AssignWeapons(Inventory inv, IEnumerable<WeaponProficiency> proficiencies)
         {
             var melee = this.weaponGateway.FindByProficient(proficiencies).Where(x => x.Type != WeaponType.Ranged).ToList();
-            var ranged = this.weaponGateway.FindByProficient(proficiencies).Where(x => x.Type == WeaponType.Ranged).ToList();
             
             if(melee.HasChoices())
                 inv.AddGear(melee.ChooseOne());
             
-            if(ranged.HasChoices())
-                inv.AddGear(ranged.ChooseOne());
         }
 
         public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
-            AssignWeapons(character.Inventory, character.Offense.WeaponProficiencies);
+            var ranged = this.weaponGateway
+                .FindByProficient(character.Offense.WeaponProficiencies)
+                .Where(x => x.Type == WeaponType.Ranged)
+                .ToList();
+
+            if(ranged.HasChoices())
+                character.Inventory.AddGear(ranged.ChooseOne());
+
         }
     }
 }

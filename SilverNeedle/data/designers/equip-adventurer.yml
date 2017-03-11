@@ -2,5 +2,6 @@
 - build-steps:
   name: equip-adventurer
   steps: 
-    - step: SilverNeedle.Actions.CharacterGenerator.EquipMeleeAndRangedWeapon
+    - step: SilverNeedle.Actions.CharacterGenerator.PurchaseMeleeWeapon
+    - step: SilverNeedle.Actions.CharacterGenerator.PurchaseRangedWeapon
     - step: SilverNeedle.Actions.CharacterGenerator.PurchaseInitialArmor

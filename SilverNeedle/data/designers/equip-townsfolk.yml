@@ -1,5 +1,5 @@
 --- !<SilverNeedle.Actions.CharacterGenerator.CharacterDesigner>
 - build-steps:
-  name: equip-adventurer
+  name: equip-townsfolk
   steps: 
-    - step: SilverNeedle.Actions.CharacterGenerator.EquipMeleeAndRangedWeapon
+    - step: SilverNeedle.Actions.CharacterGenerator.PurchaseMeleeWeapon

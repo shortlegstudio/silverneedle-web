@@ -1,4 +1,7 @@
-﻿
+﻿// Copyright (c) 2017 Trevor Redfern
+// 
+// This software is released under the MIT License.
+// https://opensource.org/licenses/MIT
 
 namespace Tests.Actions {
     using NUnit.Framework;
@@ -10,7 +13,7 @@ namespace Tests.Actions {
     using SilverNeedle.Utility;
     
 	[TestFixture]
-	public class EquipMeleeAndRangedWeaponTests 
+	public class PurchaseRangedWeaponTests 
     {
         EntityGateway<Weapon> gateway;
 
@@ -40,21 +43,23 @@ namespace Tests.Actions {
 		public void CharactersGetARangedAndMeleeWeaponTheyAreProficientIn() {
 			//Bad test, but good enough for now
 			for (int i = 0; i < 1000; i++) {
-				var inventory = new Inventory ();
-				var action = new EquipMeleeAndRangedWeapon (gateway);
-				var proficiencies = new WeaponProficiency[] { new WeaponProficiency("simple"), new WeaponProficiency("martial") };
-				action.AssignWeapons (inventory, proficiencies);
-				Assert.AreEqual (inventory.Weapons.Count (), 2);
-				Assert.IsTrue (inventory.Weapons.Any (x => x.Type == WeaponType.Ranged));
-				Assert.IsTrue (inventory.Weapons.Any (x => x.Type != WeaponType.Ranged));
-				Assert.IsFalse(inventory.Weapons.Any(x => x.Level == WeaponTrainingLevel.Exotic));
+                var action = new PurchaseRangedWeapon (gateway);
+				var proficiencies = new string[] { "simple", "martial" };
+                var character = new CharacterSheet();
+                
+                character.Offense.AddWeaponProficiencies(proficiencies);
+                action.Process(character, new CharacterBuildStrategy());
+				Assert.AreEqual(character.Inventory.Weapons.Count (), 1);
+				Assert.IsTrue(character.Inventory.Weapons.Any (x => x.Type == WeaponType.Ranged));
+				Assert.IsFalse(character.Inventory.Weapons.Any (x => x.Type != WeaponType.Ranged));
+				Assert.IsFalse(character.Inventory.Weapons.Any(x => x.Level == WeaponTrainingLevel.Exotic));
 			}
 		}
 
         [Test]
         public void IfNoAppropriateItemsAreFoundAssignNothing()
         {
-            var action = new EquipMeleeAndRangedWeapon (gateway);
+            var action = new PurchaseRangedWeapon (gateway);
             var character = new CharacterSheet();
             //With no specification nothing should match
 			action.Process(character, new CharacterBuildStrategy());
