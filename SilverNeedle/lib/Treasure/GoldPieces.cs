@@ -8,13 +8,15 @@ namespace SilverNeedle.Treasure
 { 
     public class GoldPieces : CoinsBase
     {
-        public const int VALUE = 100; 
-        public GoldPieces() : base(VALUE)
+        public const int VALUE = 100;
+        public const string ABBR = "gp";
+
+        public GoldPieces() : base(VALUE, ABBR)
         {
 
         }
 
-        public GoldPieces(int pieces) : base(pieces, VALUE)
+        public GoldPieces(int pieces) : base(pieces, VALUE, ABBR)
         {
 
         }

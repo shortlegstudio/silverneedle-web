@@ -38,5 +38,42 @@ namespace Tests.Treasure
             var platinum = new PlatinumPieces(5);
             Assert.AreEqual(5000, platinum.Value);
         }
+
+        [Test]
+        public void CanConvertACoinStringIntoGoldCoins()
+        {
+            var gp = "20gp";
+            var coins = gp.ToCoins();
+            Assert.IsInstanceOf(typeof(GoldPieces), coins);
+            Assert.AreEqual(20, coins.Pieces);
+        }
+
+        [Test]
+        public void CanConvertACoinStringIntoPlatinumCoins()
+        {
+            var pp = "12pp";
+            var coins = pp.ToCoins();
+            Assert.IsInstanceOf(typeof(PlatinumPieces), coins);
+            Assert.AreEqual(12, coins.Pieces);
+        }
+
+        [Test]
+        public void CanConvertACoinStringIntoSilverCoins()
+        {
+            var sp = "39sp";
+            var coins = sp.ToCoins();
+            Assert.IsInstanceOf(typeof(SilverPieces), coins);
+            Assert.AreEqual(39, coins.Pieces);
+        }
+
+        [Test]
+        public void CanConvertACoinStringIntoCopperCoins()
+        {
+            var cp = "2cp";
+            var coins = cp.ToCoins();
+            Assert.IsInstanceOf(typeof(CopperPieces), coins);
+            Assert.AreEqual(2, coins.Pieces);
+        }
+
     }
 }

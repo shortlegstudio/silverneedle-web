@@ -10,12 +10,15 @@ namespace SilverNeedle.Treasure
         public int Pieces { get; set; }
         public int CoinValue { get; private set; }
         public int Value { get { return Pieces * CoinValue; } }
-        protected CoinsBase(int coinValue)
+
+        public string Abbreviation { get; private set; }
+        protected CoinsBase(int coinValue, string abbr)
         {
             CoinValue = coinValue;
+            Abbreviation = abbr;
         }
 
-        protected CoinsBase(int pieces, int coinValue): this(coinValue)
+        protected CoinsBase(int pieces, int coinValue, string abbr): this(coinValue, abbr)
         {
             Pieces = pieces;
         }
