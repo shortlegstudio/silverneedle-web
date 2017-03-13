@@ -59,7 +59,7 @@ namespace SilverNeedle.Utility
 
         public float GetFloat(string key)
         {
-            throw new NotImplementedException();
+            return float.Parse(GetString(key));
         }
 
         public float GetFloatOptional(string key)
