@@ -10,7 +10,7 @@ namespace Tests.Equipment
     using SilverNeedle.Utility;
 
     [TestFixture]
-    public class AdventuringGearTests
+    public class GearTests
     {
         [Test]
         public void GearLoadsBasicAttributesForTheItem()
@@ -20,7 +20,7 @@ namespace Tests.Equipment
             data.SetValue("weight", 39.2f);
             data.SetValue("value", "23gp");
 
-            var backpack = new AdventuringGear(data);
+            var backpack = new Gear(data);
             Assert.That(backpack.Name, Is.EqualTo("Backpack"));
             Assert.That(backpack.Weight, Is.EqualTo(39.2f));
             Assert.That(backpack.Value, Is.EqualTo(2300));
