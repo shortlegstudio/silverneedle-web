@@ -25,6 +25,11 @@ namespace SilverNeedle.Actions.CharacterGenerator
         public CharacterDesigner(IObjectStore data)
         {
             Name = data.GetString("name");
+            if (data.HasKey("type"))
+            {
+                DesignerType = data.GetEnum<Type>("type");
+            }
+            
             ShortLog.DebugFormat("Loading Character Creator: {0}", Name);
             designSteps = new List<ICharacterDesignStep>();
             
@@ -47,9 +52,32 @@ namespace SilverNeedle.Actions.CharacterGenerator
             }
         }
 
+        public Type DesignerType { get; private set; }
+
         public virtual void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
-            foreach(var step in designSteps)
+            if (DesignerType == Type.LevelUp)
+                ProcessLevelUp(character, strategy);
+            else    
+                ProcessSteps(character, strategy);
+        }
+
+        private void ProcessLevelUp(CharacterSheet character, CharacterBuildStrategy strategy)
+        {
+            while(character.Level < strategy.TargetLevel)
+            {
+                var currentLevel = character.Level;
+                ProcessSteps(character, strategy);
+                if(character.Level <= currentLevel)
+                {
+                    throw new System.InvalidOperationException("Designer needs a step that increments character level");
+                }
+            }
+        }
+
+        private void ProcessSteps(CharacterSheet character, CharacterBuildStrategy strategy)
+        {
+            foreach (var step in designSteps)
             {
                 step.Process(character, strategy);
             }
@@ -59,5 +87,12 @@ namespace SilverNeedle.Actions.CharacterGenerator
         {
             return Name.EqualsIgnoreCase(name);
         }
+
+        public enum Type 
+        {
+            Normal,
+            LevelUp
+        }
+
     }
 }

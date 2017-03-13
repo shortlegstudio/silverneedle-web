@@ -54,7 +54,7 @@ namespace SilverNeedle.Utility
 
         public T GetEnum<T>(string key)
         {
-            return (T)Enum.Parse(typeof(T), GetString(key));
+            return (T)Enum.Parse(typeof(T), GetString(key), true);
         }
 
         public float GetFloat(string key)

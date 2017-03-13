@@ -1,5 +1,6 @@
 --- !<SilverNeedle.Actions.CharacterGenerator.CharacterDesigner>
 - build-steps:
   name: equip-townsfolk
+  type: normal
   steps: 
     - step: SilverNeedle.Actions.CharacterGenerator.PurchaseMeleeWeapon

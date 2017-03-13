@@ -32,6 +32,12 @@ namespace Tests.Actions.CharacterGenerator
         }
 
         [Test]
+        public void DefaultTypeForDesignerIsNormal()
+        {
+            Assert.AreEqual(CharacterDesigner.Type.Normal, subject.DesignerType);
+        }
+
+        [Test]
         public void CharacterCreatorLoadsFromYamlStepsNecessary()
         {           
             Assert.AreEqual("Test One", subject.Name);
@@ -62,6 +68,45 @@ namespace Tests.Actions.CharacterGenerator
             subject = new CharacterDesigner(data);
             Assert.That(subject.Steps, Has.Exactly(1).TypeOf(typeof(DesignerExecuterStep)));
         }
+
+        [Test]
+        public void CharacterDesignerWillExecuteStepsUntilCharacterIsAtStrategyLevelIfTypeIsLevelUp()
+        {
+            var data = new MemoryStore();
+            data.SetValue("name", "Test One");
+            data.SetValue("type", "levelup");
+            var steps = new MemoryStore();
+            steps.AddListItem(new MemoryStore("step", "Tests.Actions.CharacterGenerator.DummyStepLevelUp"));
+            data.SetValue("steps", steps);
+            
+            var designer = new CharacterDesigner(data);
+            var character = new CharacterSheet();
+            var build = new CharacterBuildStrategy();
+            build.TargetLevel = 5;
+
+            designer.Process(character, build);
+            Assert.That(designer.DesignerType, Is.EqualTo(CharacterDesigner.Type.LevelUp));
+            Assert.That(character.Level, Is.EqualTo(5));
+            Assert.That(character.Age, Is.EqualTo(4));
+        }
+
+        public void IfLevelUpDoesNotIncrementLevelThrowException()
+        {
+            var data = new MemoryStore();
+            data.SetValue("name", "Test One");
+            data.SetValue("type", "levelup");
+
+            //Does now steps that increment level
+            var steps = new MemoryStore();
+            data.SetValue("steps", steps);
+
+            var character = new CharacterSheet();
+            var build = new CharacterBuildStrategy();
+            build.TargetLevel = 5;
+
+            var designer = new CharacterDesigner(data);
+            Assert.Throws<System.InvalidOperationException>(() => designer.Process(character, build));
+        }
     }
 
     public class DummyStepOne : ICharacterDesignStep
@@ -77,6 +122,15 @@ namespace Tests.Actions.CharacterGenerator
         public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             character.AbilityScores.SetScore(AbilityScoreTypes.Strength, 16);
+        }
+    }
+
+    public class DummyStepLevelUp : ICharacterDesignStep
+    {
+        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
+        {
+            character.Age += 1;
+            character.SetLevel(character.Level + 1);
         }
     }
 }

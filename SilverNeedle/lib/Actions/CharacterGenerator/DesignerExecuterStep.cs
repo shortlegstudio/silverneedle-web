@@ -17,7 +17,6 @@ namespace SilverNeedle.Actions.CharacterGenerator
         public DesignerExecuterStep(string name)
         {
             designerName = name;
-            gateway = GatewayProvider.Get<CharacterDesigner>();
         }
 
         public DesignerExecuterStep(string name, EntityGateway<CharacterDesigner> gateway)
@@ -28,8 +27,16 @@ namespace SilverNeedle.Actions.CharacterGenerator
 
         public virtual void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
-            var designer = gateway.Find(designerName);
+            var designer = FindDesigner(designerName);
             designer.Process(character, strategy);
+        }
+
+        private CharacterDesigner FindDesigner(string name)
+        { 
+            if(gateway == null)
+                gateway = GatewayProvider.Get<CharacterDesigner>();
+            
+            return gateway.Find(designerName);
         }
     }
 }

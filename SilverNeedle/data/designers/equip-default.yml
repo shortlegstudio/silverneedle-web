@@ -1,6 +1,7 @@
 --- !<SilverNeedle.Actions.CharacterGenerator.CharacterDesigner>
 - build-steps:
   name: equip-default
+  type: normal
   steps: 
     - step: SilverNeedle.Actions.CharacterGenerator.PurchaseMeleeWeapon
     - step: SilverNeedle.Actions.CharacterGenerator.PurchaseArmor

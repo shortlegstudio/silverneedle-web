@@ -1,6 +1,7 @@
 --- !<SilverNeedle.Actions.CharacterGenerator.CharacterDesigner>
 - build-steps:
   name: create-default
+  type: normal
   steps: 
     - step: SilverNeedle.Actions.CharacterGenerator.BuildCharacterSkillList
     - step: SilverNeedle.Actions.CharacterGenerator.Abilities.StandardAbilityScoreGenerator
@@ -21,4 +22,3 @@
     - step: SilverNeedle.Actions.CharacterGenerator.Background.ClassOriginStoryCreator
     - step: SilverNeedle.Actions.CharacterGenerator.SkillPointDistributor
     - step: SilverNeedle.Actions.CharacterGenerator.StartingWealth
-    - step: SilverNeedle.Actions.CharacterGenerator.ShopForCharacter

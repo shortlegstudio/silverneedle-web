@@ -17,10 +17,12 @@ namespace SilverNeedle.Characters
             FavoredFeats = new WeightedOptionTable<string>();
             FavoredAbilities = new WeightedOptionTable<AbilityScoreTypes>();
             FillInMissingAbilities(FavoredAbilities);
+            TargetLevel = 1;
         }
 
-        public CharacterBuildStrategy(IObjectStore data)
+        public CharacterBuildStrategy(IObjectStore data) 
         {
+            TargetLevel = 1;
             Classes = new WeightedOptionTable<string>();
             Races = new WeightedOptionTable<string>();
             FavoredSkills = new WeightedOptionTable<string>();
@@ -42,7 +44,9 @@ namespace SilverNeedle.Characters
 
         public WeightedOptionTable<AbilityScoreTypes> FavoredAbilities { get; set; }
 
-        public string EquipmentDesigner { get; private set; }
+        public string Designer { get; private set; }
+
+        public int TargetLevel { get; set; }
         private void ParseObjectStore(IObjectStore data)
         {
             // Basic Properties
@@ -71,7 +75,7 @@ namespace SilverNeedle.Characters
                 var abilities = data.GetObjectOptional("abilities");
                 BuildAbilityTable(FavoredAbilities, abilities);
 
-                EquipmentDesigner = data.GetStringOptional("equipment-designer");
+                Designer = data.GetStringOptional("designer");
         }
 
         private void BuildWeightedTable(WeightedOptionTable<string> tableToBuild, IObjectStore node)

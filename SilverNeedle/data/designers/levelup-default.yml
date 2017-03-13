@@ -1,6 +1,7 @@
 --- !<SilverNeedle.Actions.CharacterGenerator.CharacterDesigner>
 - build-steps:
   name: levelup-default
+  type: levelup
   steps:
     - step: SilverNeedle.Actions.CharacterGenerator.LevelUpCharacter
     - step: SilverNeedle.Actions.CharacterGenerator.HitPointRoller

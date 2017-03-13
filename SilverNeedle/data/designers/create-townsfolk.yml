@@ -1,0 +1,8 @@
+--- !<SilverNeedle.Actions.CharacterGenerator.CharacterDesigner>
+- build-steps:
+  name: create-townsfolk
+  type: normal
+  steps: 
+    - designer: create-default
+    - designer: levelup-default
+    - designer: equip-townsfolk

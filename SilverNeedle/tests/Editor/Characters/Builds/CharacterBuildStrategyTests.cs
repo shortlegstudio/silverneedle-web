@@ -24,6 +24,13 @@ namespace Characters
         }
 
         [Test]
+        public void DefaultTargetLevelIsOne()
+        {
+            var strat = new CharacterBuildStrategy();
+            Assert.AreEqual(1, strat.TargetLevel);
+        }
+
+        [Test]
         public void LoadsWeightedTablesForRacesAndClasses()
         {
             var archer = strategies.Find("Archer");
@@ -105,10 +112,10 @@ namespace Characters
         }
 
         [Test]
-        public void ContainsAnEquipmentStrategy()
+        public void SpecifiesTheDesignerToUseCreatingCharacter()
         {
             var archer = strategies.Find("archer");
-            Assert.AreEqual("equip-adventurer", archer.EquipmentDesigner);
+            Assert.AreEqual("create-default", archer.Designer);
         }
 
         private const string CharacterBuildYaml = @"--- 
@@ -140,7 +147,7 @@ namespace Characters
       weight: 20
     - name: quick draw
       weight: 10
-  equipment-designer: equip-adventurer
+  designer: create-default
 - build:
   name: Tank
   races:
@@ -178,7 +185,7 @@ namespace Characters
       weight: 100
     - name: dexterity
       weight: 50
-  equipment-designer: equip-adventurer
+  designer: equip-adventurer
 ";
     }
 }
