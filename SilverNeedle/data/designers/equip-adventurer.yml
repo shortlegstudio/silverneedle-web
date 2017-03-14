@@ -3,6 +3,7 @@
   name: equip-adventurer
   type: normal
   steps: 
+    - step: SilverNeedle.Actions.CharacterGenerator.StartingWealth
     - step: SilverNeedle.Actions.CharacterGenerator.PurchaseMeleeWeapon
     - step: SilverNeedle.Actions.CharacterGenerator.PurchaseRangedWeapon
     - step: SilverNeedle.Actions.CharacterGenerator.PurchaseArmor

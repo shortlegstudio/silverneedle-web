@@ -1,0 +1,43 @@
+--- !<SilverNeedle.Characters.CharacterWealth>
+- name: adventurer
+  levels: 
+    - level: 1
+      amount: 0gp
+    - level: 2
+      amount: 1000gp
+    - level: 3
+      amount: 3000gp
+    - level: 4
+      amount: 6000gp
+    - level: 5
+      amount: 10500gp
+    - level: 6
+      amount: 16000gp
+    - level: 7
+      amount: 23500gp
+    - level: 8
+      amount: 33000gp
+    - level: 9
+      amount: 46000gp
+    - level: 10
+      amount: 62000gp
+    - level: 11
+      amount: 82000gp
+    - level: 12
+      amount: 108000gp
+    - level: 13
+      amount: 140000gp
+    - level: 14
+      amount: 185000gp
+    - level: 15
+      amount: 240000gp
+    - level: 16
+      amount: 315000gp
+    - level: 17
+      amount: 410000gp
+    - level: 18
+      amount: 530000gp
+    - level: 19
+      amount: 685000gp
+    - level: 20
+      amount: 880000gp

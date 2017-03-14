@@ -3,4 +3,5 @@
   name: equip-townsfolk
   type: normal
   steps: 
+    - step: SilverNeedle.Actions.CharacterGenerator.StartingWealth
     - step: SilverNeedle.Actions.CharacterGenerator.PurchaseMeleeWeapon
