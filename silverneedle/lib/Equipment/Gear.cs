@@ -18,7 +18,7 @@ namespace SilverNeedle.Equipment
         public Gear(IObjectStore data)
         {
             Name = data.GetString("name");
-            ShortLog.DebugFormat("Loading Gear: {0}", Name);
+            //ShortLog.DebugFormat("Loading Gear: {0}", Name);
             Weight = data.GetFloat("weight");
             Value = data.GetString("value").ToCoinValue();
         }
