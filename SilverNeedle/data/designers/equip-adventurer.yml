@@ -8,3 +8,4 @@
     - step: SilverNeedle.Actions.CharacterGenerator.PurchaseRangedWeapon
     - step: SilverNeedle.Actions.CharacterGenerator.PurchaseArmor
     - step: SilverNeedle.Actions.CharacterGenerator.PurchaseShield
+    - step: SilverNeedle.Actions.CharacterGenerator.PurchaseAdventuringGear

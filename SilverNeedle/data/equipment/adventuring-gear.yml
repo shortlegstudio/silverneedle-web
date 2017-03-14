@@ -1,0 +1,205 @@
+--- !<SilverNeedle.Equipment.Gear>
+- name: Backpack
+  weight: 2
+  value: 2gp
+- name: Barrel (empty)
+  weight: 30
+  value: 2gp
+- name: Basket
+  weight: 1
+  value: 4sp
+- name: Bedroll
+  weight: 5
+  value: 1sp
+- name: Bell
+  weight: 0
+  value: 1gp
+- name: Blanket, winter
+  weight: 3
+  value: 5sp
+- name: Block and tackle
+  weight: 5
+  value: 5gp
+- name: Bottle, glass
+  weight: 1
+  value: 2gp
+- name: Bucket
+  weight: 2
+  value: 5sp
+- name: Caltrops
+  weight: 2
+  value: 1gp
+- name: Candle
+  value: 1cp
+  weight: 0
+- name: Canvas (sq. yd.)
+  weight: 1
+  value: 1sp
+- name: Case, map or scroll	
+  value: 1gp	
+  weight: 0.5
+- name: Chain (10')
+  value: 30gp
+  weight: 2
+- name: Chalk
+  value: 1cp
+  weight: 0
+- name: Chest
+  value: 2gp
+  weight: 25
+- name: Crowbar
+  value: 2gp
+  weight: 5
+- name: Firewood (1 day)
+  weight: 20
+  value: 1cp
+- name: Fishhook
+  value: 1sp
+  weight: 0
+- name: Fishing net, 25 sq. ft.
+  value: 4gp
+  weight: 5
+- name: Flask
+  weight: 1.5
+  value: 3cp
+- name: Flint and steel
+  value: 1gp
+  weight: 0
+- name: Grappling hook
+  value: 1gp
+  weight: 4
+- name: Hammer
+  value: 5sp
+  weight: 2
+- name: Hourglass
+  weight: 1
+  value: 25gp
+- name: Ink (1 oz. vial)
+  weight: 0
+  value: 8gp
+- name: Inkpen
+  value: 1sp
+  weight: 0
+- name: Jug, clay
+  weight: 9
+  value: 3cp
+- name: Ladder, 10'
+  weight: 20 
+  value: 2sp
+- name: Lamp, common
+  weight: 1
+  value: 1sp
+- name: Lantern, bullseye
+  weight: 3
+  value: 12gp
+- name: Lantern, hooded
+  weight: 2
+  value: 7gp
+- name: Lock, simple
+  weight: 1
+  value: 20gp
+- name: Lock, average
+  weight: 1
+  value: 40gp
+- name: Lock, good
+  weight: 1
+  value: 80gp
+- name: Lock, superior
+  weight: 1
+  value: 150gp
+- name: Manacles
+  weight: 2
+  value: 15gp
+- name: Manacles, masterwork
+  weight: 2
+  value: 50gp
+- name: Mirror, small
+  weight: 0.5
+  value: 10gp
+- name: Mug, clay
+  weight: 1
+  value: 2cp
+- name: Oil (flask)
+  value: 1sp
+  weight: 1
+- name: Paper (sheet)
+  value: 4sp
+  weight: 0
+- name: Parchment (sheet)
+  value: 2sp
+  weight: 0
+- name: Pick, miner's 
+  weight: 10
+  value: 3gp
+- name: Pitcher, clay
+  weight: 5
+  value: 2cp
+- name: Piton
+  value: 1sp
+  weight: 0.5
+- name: Pole, 10'
+  value: 5cp
+  weight: 8
+- name: Pot, iron
+  value: 8sp
+  weight: 4
+- name: Belt pouch
+  value: 1gp
+  weight: 0.5
+- name: Ram, portable
+  value: 10gp
+  weight: 20
+- name: Rations, trail (1 day)
+  value: 5sp
+  weight: 1
+- name: Rope, hemp (50')
+  value: 1gp
+  weight: 10
+- name: Rope, silk (50')
+  value: 10gp
+  weight: 5
+- name: Sack
+  value: 1sp
+  weight: 0.5
+- name: Sealing wax
+  value: 1gp
+  weight: 1
+- name: Sewing needle
+  value: 5sp
+  weight: 0
+- name: Shovel
+  value: 2gp
+  weight: 8
+- name: Signal whistle
+  value: 8sp
+  weight: 0
+- name: Signet ring
+  value: 5gp
+  weight: 0
+- name: Sledge
+  value: 1gp
+  weight: 10
+- name: Soap
+  value: 5sp
+  weight: 1
+- name: Spyglass
+  value: 1000gp
+  weight: 1
+- name: Tent
+  value: 10gp
+  weight: 20
+- name: Torch
+  value: 1cp
+  weight: 1
+- name: Vial
+  value: 1gp
+  weight: 0
+- name: Water clock
+  value: 1000gp
+  weight: 200
+- name: Waterskin
+  value: 1gp
+  weight: 4
+- name: Whetstone
+  value: 2cp
+  weight: 1

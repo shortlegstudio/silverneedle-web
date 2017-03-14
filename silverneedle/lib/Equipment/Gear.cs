@@ -5,10 +5,11 @@
 
 namespace SilverNeedle.Equipment
 {
+    using System;
     using SilverNeedle.Treasure;
     using SilverNeedle.Utility;
-
-    public class Gear : IInventoryItem
+    
+    public class Gear : IInventoryItem, IGatewayObject
     {
         public string Name { get; private set; }
         public float Weight { get; private set; }
@@ -17,8 +18,21 @@ namespace SilverNeedle.Equipment
         public Gear(IObjectStore data)
         {
             Name = data.GetString("name");
+            ShortLog.DebugFormat("Loading Gear: {0}", Name);
             Weight = data.GetFloat("weight");
             Value = data.GetString("value").ToCoinValue();
+        }
+
+        public Gear(string name, int value, float weight)
+        {
+            Name = name;
+            Value = value;
+            Weight = weight;
+        }
+
+        public bool Matches(string name) 
+        {
+            return Name.EqualsIgnoreCase(name);
         }
     }
 }
