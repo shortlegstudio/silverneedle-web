@@ -104,6 +104,8 @@ namespace SilverNeedle.Equipment
         public ArmorType ArmorType { get; set; }
 
         public int Value { get; set; }
+
+        public bool GroupSimilar { get { return false; } }
         
         public int MovementSpeedPenalty {
             get {

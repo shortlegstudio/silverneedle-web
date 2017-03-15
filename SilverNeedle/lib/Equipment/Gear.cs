@@ -15,12 +15,15 @@ namespace SilverNeedle.Equipment
         public float Weight { get; private set; }
         public int Value { get; private set; }
 
+        public bool GroupSimilar { get; private set; }
+
         public Gear(IObjectStore data)
         {
             Name = data.GetString("name");
             //ShortLog.DebugFormat("Loading Gear: {0}", Name);
             Weight = data.GetFloat("weight");
             Value = data.GetString("value").ToCoinValue();
+            GroupSimilar = true;
         }
 
         public Gear(string name, int value, float weight)

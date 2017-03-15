@@ -24,6 +24,7 @@ namespace Tests.Equipment
             Assert.That(backpack.Name, Is.EqualTo("Backpack"));
             Assert.That(backpack.Weight, Is.EqualTo(39.2f));
             Assert.That(backpack.Value, Is.EqualTo(2300));
+            Assert.That(backpack.GroupSimilar, Is.True);
         }
     }
 }

@@ -76,6 +76,8 @@ namespace Tests.Treasure
             public float Weight { get; set; }
 
             public int Value { get; set; }
+
+            public bool GroupSimilar { get; set; }
         }
     }
 }

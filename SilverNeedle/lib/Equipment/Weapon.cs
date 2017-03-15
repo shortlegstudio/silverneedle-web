@@ -139,6 +139,8 @@ namespace SilverNeedle.Equipment
 
         public int Value { get; set; }
 
+        public bool GroupSimilar { get { return false; } }
+
         /// <summary>
         /// Gets a value indicating whether this instance is ranged.
         /// </summary>

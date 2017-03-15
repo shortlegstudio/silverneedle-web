@@ -23,5 +23,7 @@ namespace SilverNeedle.Equipment
         float Weight { get; }
 
         int Value { get; }
+
+        bool GroupSimilar { get; }
     }
 }

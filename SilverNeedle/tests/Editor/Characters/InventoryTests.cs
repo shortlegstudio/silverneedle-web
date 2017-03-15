@@ -92,6 +92,8 @@ namespace Tests.Characters {
 			public float Weight { get { return 0.5f; } }
 
             public int Value { get; set; }
+
+            public bool GroupSimilar { get; set; }
 		}
 	}
 }
