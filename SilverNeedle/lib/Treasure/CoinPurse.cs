@@ -65,7 +65,7 @@ namespace SilverNeedle.Treasure
             return string.Format("pp: {0} gp: {1} sp: {2} cp: {3}", Platinum.Pieces, Gold.Pieces, Silver.Pieces, Copper.Pieces);
         }
 
-        public bool CanAfford(SilverNeedle.Equipment.IInventoryItem item)
+        public bool CanAfford(SilverNeedle.Equipment.IGear item)
         {
             return this.Value >= item.Value;
         }

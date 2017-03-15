@@ -15,7 +15,7 @@ namespace SilverNeedle.Actions.Settlements
         public Settlement Create(int population)
         {
             var characterCreators = GatewayProvider.Get<CharacterDesigner>();
-            var characterBuilder = characterCreators.All().First();
+            var characterBuilder = characterCreators.Find("create-townsfolk");
             var stratGateway = GatewayProvider.Get<CharacterBuildStrategy>();
             var strategy = stratGateway.Find("inhabitant");
             var settlement = new Settlement();

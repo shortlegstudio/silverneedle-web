@@ -11,7 +11,7 @@ namespace SilverNeedle.Equipment
     /// <summary>
     /// Armor is for protecting the character from damage
     /// </summary>
-    public class Armor : IInventoryItem, IGatewayObject
+    public class Armor : IGear, IGatewayObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Equipment.Armor"/> class.

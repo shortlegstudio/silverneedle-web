@@ -46,9 +46,6 @@ namespace SilverNeedle.Actions.CharacterGenerator
 
         private void UseClassWealth(CharacterSheet character)
         {
-            ShortLog.Debug("Starting Wealth");
-            ShortLog.DebugFormat("Class: {0}", character.Class.Name);
-
             if (character.Class.StartingWealthDice != null)
             {
                 var value = character.Class.StartingWealthDice.Roll() * 10;

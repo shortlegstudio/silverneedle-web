@@ -87,7 +87,7 @@ namespace Tests.Characters {
             Assert.AreEqual(1, inv.All.Count());
         }
 
-		class PieceOfJunk : IInventoryItem {
+		class PieceOfJunk : IGear {
 			public string Name { get { return "Junk"; } }
 			public float Weight { get { return 0.5f; } }
 

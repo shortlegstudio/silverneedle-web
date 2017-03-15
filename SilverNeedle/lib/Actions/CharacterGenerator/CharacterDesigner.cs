@@ -56,6 +56,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
 
         public virtual void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
+            ShortLog.DebugFormat("Executing Designer: {0}", Name);
             if (DesignerType == Type.LevelUp)
                 ProcessLevelUp(character, strategy);
             else    

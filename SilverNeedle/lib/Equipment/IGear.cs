@@ -8,7 +8,7 @@ namespace SilverNeedle.Equipment
     /// <summary>
     /// Piece of equipment
     /// </summary>
-    public interface IInventoryItem
+    public interface IGear
     {
         /// <summary>
         /// Gets the name.

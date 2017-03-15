@@ -11,7 +11,7 @@ namespace SilverNeedle.Equipment
     /// <summary>
     /// Represents a weapon 
     /// </summary>
-    public class Weapon : IInventoryItem, IGatewayObject
+    public class Weapon : IGear, IGatewayObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Equipment.Weapon"/> class.

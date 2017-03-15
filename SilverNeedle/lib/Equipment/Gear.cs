@@ -9,7 +9,7 @@ namespace SilverNeedle.Equipment
     using SilverNeedle.Treasure;
     using SilverNeedle.Utility;
     
-    public class Gear : IInventoryItem, IGatewayObject
+    public class Gear : IGear, IGatewayObject
     {
         public string Name { get; private set; }
         public float Weight { get; private set; }

@@ -69,7 +69,7 @@ namespace Tests.Treasure
             Assert.That(purse.CanAfford(expensive), Is.False);
         }
 
-        private class DummyItem : SilverNeedle.Equipment.IInventoryItem
+        private class DummyItem : SilverNeedle.Equipment.IGear
         {
             public string Name { get; set; }
 
