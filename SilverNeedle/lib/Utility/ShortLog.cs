@@ -14,11 +14,23 @@ namespace SilverNeedle
     /// </summary>
     public static class ShortLog
     {
+
+        const string LOG_LEVEL = "LOG";
         /// <summary>
         /// Initializes static members of the <see cref="SilverNeedle.ShortLog"/> class.
         /// </summary>
         static ShortLog()
         {
+        }
+
+        public static LogLevel GetLogLevel()
+        {
+            var env = Environment.GetEnvironmentVariable(LOG_LEVEL);
+            if (env == null)
+            {
+                return LogLevel.DEBUG;
+            }
+            return (LogLevel)Enum.Parse(typeof(LogLevel), env);
         }
 
         /// <summary>
@@ -27,7 +39,7 @@ namespace SilverNeedle
         /// <param name="message">Message to log to console</param>
         public static void Error(string message)
         {
-            WriteFormat("ERROR", message);
+            WriteFormat(LogLevel.ERROR, message);
         }
 
         /// <summary>
@@ -37,7 +49,7 @@ namespace SilverNeedle
         /// <param name="args">Arguments that should be included in the formatted string.</param>
         public static void ErrorFormat(string format, params string[] args)
         {
-            WriteFormat("ERROR", format, args);
+            WriteFormat(LogLevel.ERROR, format, args);
         }
 
         /// <summary>
@@ -46,7 +58,7 @@ namespace SilverNeedle
         /// <param name="message">Message to write to debug output.</param>
         public static void Debug(string message)
         {
-            WriteFormat("DEBUG", message);
+            WriteFormat(LogLevel.DEBUG, message);
         }
 
         /// <summary>
@@ -56,24 +68,34 @@ namespace SilverNeedle
         /// <param name="args">Arguments to be included in the format</param>
         public static void DebugFormat(string format, params string[] args)
         {
-            WriteFormat("DEBUG", format, args);
+            WriteFormat(LogLevel.DEBUG, format, args);
         }
 
         public static void WarnFormat(string format, params string[] args)
         {
-            WriteFormat("WARN", format, args);
+            WriteFormat(LogLevel.WARN, format, args);
         }
 
         public static void Warn(string message)
         {
-            WriteFormat("WARN", message);
+            WriteFormat(LogLevel.WARN, message);
         }
 
         private const string log_format = "{0} - {1}: {2}";
-        private static void WriteFormat(string level, string format, params string[] args)
+        private static void WriteFormat(LogLevel level, string format, params string[] args)
         {
-            string message = string.Format(format, args);
-            Console.WriteLine(log_format, DateTime.Now.ToString(), level, message);
+            if (GetLogLevel() >= level)
+            {
+                string message = string.Format(format, args);
+                Console.WriteLine(log_format, DateTime.Now.ToString(), level, message);
+            }
+        }
+
+        public enum LogLevel
+        {
+            ERROR = 0,
+            WARN = 3,
+            DEBUG = 10
         }
     }
 }
