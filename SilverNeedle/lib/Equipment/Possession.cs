@@ -7,21 +7,23 @@ namespace SilverNeedle.Equipment
 {
     public class Possession : IGear
     {
-        private IGear reference;
+        public IGear ReferenceObject { get; private set; }
 
-        public string Name { get { return reference.Name; } }
+        public string Name { get { return ReferenceObject.Name; } }
 
-        public float Weight { get { return reference.Weight; } }
+        public float Weight { get { return ReferenceObject.Weight; } }
 
-        public int Value { get { return reference.Value; } }
+        public int Value { get { return ReferenceObject.Value; } }
 
-        public bool GroupSimilar { get { return reference.GroupSimilar; } }
+        public bool GroupSimilar { get { return ReferenceObject.GroupSimilar; } }
+
+        public bool IsEquipped { get; set; }
 
         public int Quantity { get; set; }
 
         public Possession(IGear gear)
         {
-            reference = gear;
+            ReferenceObject = gear;
             Quantity = 1;
         } 
 

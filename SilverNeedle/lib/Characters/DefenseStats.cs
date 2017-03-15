@@ -179,7 +179,7 @@ namespace SilverNeedle.Characters
         /// <returns>The armor bonus.</returns>
         public int EquippedArmorBonus()
         {
-            return this.inventory.EquippedItems.OfType<Armor>().Sum(x => x.ArmorClass);
+            return this.inventory.Equipped<Armor>().Sum(x => x.ArmorClass);
         }
 
         /// <summary>

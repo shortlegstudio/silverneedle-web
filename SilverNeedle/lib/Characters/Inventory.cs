@@ -19,20 +19,14 @@ namespace SilverNeedle.Characters
         /// <summary>
         /// The gear a character has
         /// </summary>
-        private IList<IGear> gear;
-
-        /// <summary>
-        /// The equipped gear.
-        /// </summary>
-        private IList<IGear> equippedGear;
+        private IList<Possession> gear;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Characters.Inventory"/> class.
         /// </summary>
         public Inventory()
         {
-            this.gear = new List<IGear>();  
-            this.equippedGear = new List<IGear>();
+            this.gear = new List<Possession>();  
             this.CoinPurse = new CoinPurse();
         }
 
@@ -53,7 +47,10 @@ namespace SilverNeedle.Characters
         /// <value>The weapons.</value>
         public IEnumerable<Weapon> Weapons 
         { 
-            get { return this.gear.OfType<Weapon>(); } 
+            get 
+            { 
+                return this.gear.Select(x => x.ReferenceObject).OfType<Weapon>(); 
+            } 
         }
 
         /// <summary>
@@ -62,28 +59,39 @@ namespace SilverNeedle.Characters
         /// <value>The armor.</value>
         public IEnumerable<Armor> Armor 
         { 
-            get { return this.gear.OfType<Armor>(); } 
+            get 
+            { 
+                
+                return this.gear.Select(x => x.ReferenceObject).OfType<Armor>(); 
+            } 
         }
 
         /// <summary>
         /// Gets the equipped items.
         /// </summary>
         /// <value>The equipped items.</value>
-        public IEnumerable<IGear> EquippedItems 
+        public IEnumerable<Possession> EquippedItems 
         { 
-            get { return this.equippedGear; } 
+            get { return this.gear.Where(x => x.IsEquipped); } 
         }
 
         /// <summary>
         /// Adds the gear to the character.
         /// </summary>
         /// <param name="equip">Equipment to add.</param>
-        public void AddGear(IGear equip)
+        public Possession AddGear(IGear equip)
         {
-            if (!this.gear.Contains(equip))
+            var possession = Find(equip);
+            if(possession == null)
             {
-                this.gear.Add(equip);
+                possession = new Possession(equip);
+                this.gear.Add(possession);
             }
+            else 
+            {
+                possession.IncrementQuantity();
+            }
+            return possession;
         }
 
         /// <summary>
@@ -92,8 +100,15 @@ namespace SilverNeedle.Characters
         /// <param name="item">Item to equip. Adds gear if not already added</param>
         public void EquipItem(IGear item)
         {
-            this.AddGear(item);
-            this.equippedGear.Add(item);
+            var pos = this.AddGear(item);
+            pos.IsEquipped = true;
+        }
+
+        public IEnumerable<T> Equipped<T>() where T : IGear
+        {
+            return this.gear
+                .Where(x => x.IsEquipped && x.ReferenceObject.GetType() == typeof(T))
+                .Select(x => (T)x.ReferenceObject);
         }
 
         /// <summary>
@@ -103,13 +118,18 @@ namespace SilverNeedle.Characters
         /// <typeparam name="T">The 1st type parameter.</typeparam>
         public IEnumerable<T> GearOfType<T>()
         {
-            return this.gear.OfType<T>();
+            return this.gear.Select(x => x.ReferenceObject).OfType<T>();
         }
 
         public void Purchase(IGear item)
         {
             CoinPurse.Spend(item.Value);
             AddGear(item);
+        }
+
+        public Possession Find(IGear item)
+        {
+            return this.gear.FirstOrDefault(x => x.ReferenceObject == item);
         }
     }
 }

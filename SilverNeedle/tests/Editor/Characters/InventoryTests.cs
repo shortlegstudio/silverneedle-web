@@ -36,13 +36,10 @@ namespace Tests.Characters {
 		public void InventoryItemsCanBeMarkedAsEquipped() {
 			var inv = new Inventory ();
 			var armor = new Armor ();
-			var armor2 = new Armor ();
-			inv.AddGear (armor);
-			inv.AddGear (armor2);
 			inv.EquipItem (armor);
 
 			Assert.AreEqual (1, inv.EquippedItems.Count());
-			Assert.AreEqual (armor, inv.EquippedItems.First ());
+
 		}
 
 		[Test]
@@ -63,16 +60,17 @@ namespace Tests.Characters {
 			var inv = new Inventory ();
 			var armor = new Armor ();
 			inv.EquipItem (armor);
-			Assert.AreEqual (armor, inv.All.First ());
+			Assert.AreEqual (armor, inv.Armor.First ());
 		}
 
 		[Test]
-		public void AddingTheSameItemTwiceDoesNotDuplicate() {
+		public void AddingTheSameItemTwiceIncrementsQuantity() {
 			var inv = new Inventory ();
 			var j = new PieceOfJunk ();
 			inv.AddGear (j);
 			inv.AddGear (j);
-			Assert.AreEqual (1, inv.All.Count ());
+            var item = inv.Find(j);
+            Assert.That(item.Quantity, Is.EqualTo(2));
 		}
 
         [Test]
@@ -85,6 +83,18 @@ namespace Tests.Characters {
             inv.Purchase(j);
             Assert.AreEqual(6, inv.CoinPurse.Value);
             Assert.AreEqual(1, inv.All.Count());
+        }
+
+        [Test]
+        public void ProvideMethodForGettingEquippedItemsOfType()
+        {
+            var inv = new Inventory();
+            inv.EquipItem(new Armor());
+            inv.EquipItem(new Weapon());
+            inv.EquipItem(new Weapon());
+
+            var equippedArmors = inv.Equipped<Armor>();
+            Assert.That(equippedArmors.Count(), Is.EqualTo(1));
         }
 
 		class PieceOfJunk : IGear {
