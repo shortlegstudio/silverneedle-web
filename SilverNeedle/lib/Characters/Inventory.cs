@@ -131,5 +131,12 @@ namespace SilverNeedle.Characters
         {
             return this.gear.FirstOrDefault(x => x.ReferenceObject == item);
         }
+
+        public string[] ToStringArray()
+        {
+            return this.gear.Select(
+                x => x.GroupSimilar && (x.Quantity > 1) ? string.Format("{0} ({1})", x.Name, x.Quantity) : x.Name
+            ).ToArray();
+        }
     }
 }

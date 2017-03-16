@@ -65,7 +65,7 @@ namespace SilverNeedle.Characters
             AllSkills = character.SkillRanks.GetSkills().Select(x => x.ToString()).ToArray();
             
             Languages = character.Languages.Select(x => x.Name).ToArray();
-            Gear = character.Inventory.All.Select(x => x.Name).ToArray();
+            Gear = character.Inventory.ToStringArray();
 
             Father = character.History.FamilyTree.Father;
             Mother = character.History.FamilyTree.Mother;

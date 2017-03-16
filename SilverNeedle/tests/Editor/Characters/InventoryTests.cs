@@ -97,6 +97,23 @@ namespace Tests.Characters {
             Assert.That(equippedArmors.Count(), Is.EqualTo(1));
         }
 
+        [Test]
+        public void ToStringArrayCreatesAnArrayOfTheNameAndQuantityIfAppropriate()
+        {
+            var inv = new Inventory();
+            var armor = new Armor();
+            armor.Name = "Leather Armor";
+            inv.AddGear(armor);
+            var junk = new PieceOfJunk();
+            junk.GroupSimilar = true;
+            inv.AddGear(junk);
+            inv.AddGear(junk);
+
+            string[] names = inv.ToStringArray();
+            Assert.That(names, Has.Exactly(1).EqualTo("Leather Armor"));
+            Assert.That(names, Has.Exactly(1).EqualTo("Junk (2)")); 
+        }
+
 		class PieceOfJunk : IGear {
 			public string Name { get { return "Junk"; } }
 			public float Weight { get { return 0.5f; } }
