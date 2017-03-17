@@ -16,5 +16,5 @@
   fortitude: 0.334
   reflex: 0.334
   will: 0.334
-  weaponproficiencies: simple
+  weaponproficiencies: (SilverNeedle.Characters.SpecialProperties.CommonerWeaponProficiency)
   developedage: Young

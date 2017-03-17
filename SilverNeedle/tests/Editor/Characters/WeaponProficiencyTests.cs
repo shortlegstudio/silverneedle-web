@@ -4,11 +4,13 @@
 // https://opensource.org/licenses/MIT
 
 namespace Tests.Characters {
-    using NUnit.Framework;
-    using SilverNeedle.Characters;
-    using SilverNeedle.Equipment;
+  using System;
+  using NUnit.Framework;
+  using SilverNeedle;
+  using SilverNeedle.Characters;
+  using SilverNeedle.Equipment;
 
-	[TestFixture]
+  [TestFixture]
 	public class WeaponProficiencyTests {
 		[Test]
 		public void SimpleWeaponsAreProficientForSimple() {
@@ -42,7 +44,21 @@ namespace Tests.Characters {
         public void NameLooksHumanReadable() {
             var prof = new WeaponProficiency("simple");
             Assert.AreEqual("Simple weapons", prof.Name);
-
         }
+
+		[Test]
+		public void WeaponProficiencySupportsDynamicProperties()
+		{
+			var prof = new WeaponProficiency("(Tests.Characters.DynamicWeaponProf)");
+			Assert.That(prof.Name, Is.EqualTo("Mace"));
+		}
+	}
+
+	public class DynamicWeaponProf : IDynamicPropertyEvaluator
+	{
+		public string GetString()
+		{
+			return "mace";
+		}
 	}
 }

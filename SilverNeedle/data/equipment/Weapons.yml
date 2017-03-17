@@ -48,6 +48,7 @@
   type: OneHanded
   group: Hammers
   training_level: Simple
+  cost: 1cp
 - weapon:
   name: Composite Longbow
   weight: 3
@@ -447,6 +448,7 @@
   type: Light
   group: Hammers
   training_level: Simple
+  cost: 5gp
 - weapon:
   name: Morningstar
   weight: 6
@@ -455,6 +457,7 @@
   type: OneHanded
   group: Flails
   training_level: Simple
+  cost: 8gp
 - weapon:
   name: Nunchaku
   weight: 2
@@ -484,6 +487,7 @@
   type: TwoHanded
   group: Monk
   training_level: Simple
+  cost: 3cp
 - weapon:
   name: Ranseur
   weight: 12
@@ -597,6 +601,7 @@
   type: Ranged
   group: Thrown
   training_level: Simple
+  cost: 1cp
 - weapon:
   name: Spear
   weight: 6
@@ -617,6 +622,7 @@
   type: Light
   group: LightBlades
   training_level: Simple
+  cost: 6gp
 - weapon:
   name: Spiked Chain
   weight: 10
