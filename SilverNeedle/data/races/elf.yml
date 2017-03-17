@@ -1,0 +1,20 @@
+--- !<SilverNeedle.Characters.Race>
+- race:
+  name: Elf
+  size: Medium
+  height: 2d8+64
+  weight: 6d8+100
+  abilities:
+    dexterity: 2
+    intelligence: 2
+    constitution: -2
+  traits:
+    - Low-Light Vision
+    - Elven Immunities
+    - Elven Magic
+    - Keen Senses
+    - Weapon Familiarity
+  languages:
+    known: Common, Elven
+    available: Celestial, Draconic, Gnoll, Gnome, Goblin, Orc, Sylvan
+  basemovementspeed: 30

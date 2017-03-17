@@ -1,0 +1,19 @@
+--- !<SilverNeedle.Characters.Race>
+- race:
+  name: Half-Elf
+  size: Medium
+  height: 2d8+62
+  weight: 10d8+110
+  abilities:
+    choose: 2
+  traits:
+    - Low-Light Vision
+    - Adaptability
+    - Elf Blood
+    - Elven Immunities
+    - Keen Senses
+    - Multitalented
+  languages:
+    known: Common, Elven
+    available: ALL
+  basemovementspeed: 30

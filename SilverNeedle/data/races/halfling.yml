@@ -1,0 +1,21 @@
+--- !<SilverNeedle.Characters.Race>
+- race:
+  name: Halfling
+  size: Small
+  height: 2d4+32
+  weight: 2d4+30
+  abilities:
+    strength: -2
+    dexterity: 2
+    constitution: 2
+  traits:
+    - Halfling Luck
+    - Slow Speed
+    - Fearless
+    - Keen Senses
+    - Sure-Footed
+    - Weapon Familiarity
+  languages:
+    known: Common, Halfling
+    available: Dwarven, Elven, Gnome, Goblin
+  basemovementspeed: 20

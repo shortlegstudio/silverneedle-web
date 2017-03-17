@@ -1,0 +1,18 @@
+--- !<SilverNeedle.Characters.Race>
+- race:
+  name: Half-Orc
+  size: Medium
+  height: 2d12+58
+  weight: 14d12+150
+  abilities:
+    choose: 2
+  traits:
+    - Darkvision
+    - Intimidating
+    - Orc Blood
+    - Orc Ferocity
+    - Weapon Familiarity
+  languages:
+    known: Common, Orc
+    available: Abyssal, Draconic, Giant, Gnoll, Goblin
+  basemovementspeed: 30

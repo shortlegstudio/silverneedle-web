@@ -1,0 +1,15 @@
+--- !<SilverNeedle.Characters.Race>
+- race:
+  name: Human
+  size: Medium
+  height: 2d10+58
+  weight: 10d10+120
+  abilities:
+    choose: 2
+  traits:
+    - Bonus Feat
+    - Skilled
+  languages:
+    known: Common
+    available: ALL
+  basemovementspeed: 30

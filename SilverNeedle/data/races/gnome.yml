@@ -1,0 +1,24 @@
+--- !<SilverNeedle.Characters.Race>
+- race:
+  name: Gnome
+  size: Small
+  height: 2d4+36
+  weight: 2d4+35
+  abilities:
+    strength: -2
+    dexterity: 2
+    charisma: 2
+  traits:
+    - Low-Light Vision
+    - Slow Speed
+    - Defensive Training (Gnomes)
+    - Gnome Magic
+    - Hatred vs Reptilian and Goblins
+    - Illusion Resistance
+    - Keen Senses
+    - Obsessive
+    - Weapon Familiarity
+  languages:
+    known: Common, Gnome, Sylvan
+    available: Draconic, Dwarven, Elven, Giant, Goblin, Orc
+  basemovementspeed: 20
