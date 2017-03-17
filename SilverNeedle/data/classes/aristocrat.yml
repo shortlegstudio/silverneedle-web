@@ -34,5 +34,5 @@
   reflex: 0.334
   will: 0.667
   weaponproficiencies: simple, martial
-  armorproficiencies: light, medium, heavy
+  armorproficiencies: light, medium, heavy, shield, towershield
   developedage: Trained

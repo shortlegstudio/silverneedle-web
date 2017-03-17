@@ -6,10 +6,12 @@
   charactercreator: default
   designer: create-townsfolk
   classes:
+    - name: aristocrat
+      weight: 15
     - name: commoner
-      weight: 50
+      weight: 15
     - name: expert
-      weight: 10
+      weight: 15
     - name: warrior
       weight: 15
   races:

@@ -160,4 +160,4 @@
   armor_check_penalty: -10
   arcane_spell_failure_chance: 50
   weight: 45
-  armor_type: Shield
+  armor_type: TowerShield

@@ -40,7 +40,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
         public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             var shields = this.armors.Where(armor =>
-                armor.ArmorType == ArmorType.Shield &&
+                (armor.ArmorType == ArmorType.Shield || armor.ArmorType == ArmorType.TowerShield) &&
                 character.Defense.IsProficient(armor) &&
                 character.Inventory.CoinPurse.CanAfford(armor));
 

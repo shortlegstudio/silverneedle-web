@@ -33,6 +33,8 @@ namespace SilverNeedle.Equipment
         /// <summary>
         /// Represents shields of all kinds
         /// </summary>
-        Shield
+        Shield,
+
+        TowerShield
     }
 }
