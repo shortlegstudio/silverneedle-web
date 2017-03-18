@@ -21,3 +21,4 @@
   weaponproficiencies: simple
   armorproficiencies: light
   developedage: Young
+  custom-build-step: SilverNeedle.Actions.CharacterGenerator.CustomClassSteps.ExpertCustomSteps

@@ -102,6 +102,7 @@ namespace SilverNeedle.Characters
 
         public void SetClassSkill(string skillName)
         {
+            ShortLog.DebugFormat("Setting Class Skill: {0}", skillName);
             switch(skillName.ToLower())
             {
                 case "craft":
