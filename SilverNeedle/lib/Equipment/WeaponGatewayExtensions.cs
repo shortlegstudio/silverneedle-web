@@ -16,5 +16,10 @@ namespace SilverNeedle.Equipment
         {
             return gateway.Where(x => proficiencies.IsProficient(x));
         }
+
+        public static IEnumerable<Weapon> SimpleWeapons(this EntityGateway<Weapon> gateway)
+        {
+            return gateway.Where(x => x.Level == WeaponTrainingLevel.Simple);
+        }
     }
 }

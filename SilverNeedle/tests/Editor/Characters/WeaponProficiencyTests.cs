@@ -45,20 +45,5 @@ namespace Tests.Characters {
             var prof = new WeaponProficiency("simple");
             Assert.AreEqual("Simple weapons", prof.Name);
         }
-
-		[Test]
-		public void WeaponProficiencySupportsDynamicProperties()
-		{
-			var prof = new WeaponProficiency("(Tests.Characters.DynamicWeaponProf)");
-			Assert.That(prof.Name, Is.EqualTo("Mace"));
-		}
-	}
-
-	public class DynamicWeaponProf : IDynamicPropertyEvaluator
-	{
-		public string GetString()
-		{
-			return "mace";
-		}
 	}
 }

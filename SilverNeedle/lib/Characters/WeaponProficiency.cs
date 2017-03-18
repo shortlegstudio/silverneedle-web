@@ -29,10 +29,8 @@ namespace SilverNeedle.Characters
         /// <param name="proficiency">Proficiency weapon to add</param>
         public WeaponProficiency(string proficiency)
         {
-            var property = new DynamicProperty(proficiency);
-            var value = property.GetString();
-            this.Name = Inflector.Humanize(value);
-            this.isLevel = EnumHelpers.TryParse<WeaponTrainingLevel>(value, true, out this.trainingLevel);
+            this.Name = Inflector.Humanize(proficiency);
+            this.isLevel = EnumHelpers.TryParse<WeaponTrainingLevel>(proficiency, true, out this.trainingLevel);
 
             // Append a descriptive string so we know this is a group of weapons
             if (this.isLevel)
