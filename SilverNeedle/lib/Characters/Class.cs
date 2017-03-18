@@ -112,6 +112,8 @@ namespace SilverNeedle.Characters
 
         public Dice.Cup StartingWealthDice { get; set; }
 
+        public string CustomBuildStep { get; set; }
+
         /// <summary>
         /// Gets a value indicating whether this class has a good fortitude save.
         /// </summary>
@@ -194,6 +196,7 @@ namespace SilverNeedle.Characters
             ReflexSaveRate = data.GetFloat("reflex");
             WillSaveRate = data.GetFloat("will");
             ClassDevelopmentAge = data.GetEnum<ClassDevelopmentAge>("developedage");
+            CustomBuildStep = data.GetStringOptional("custom-build-step");
 
             var armor = data.GetListOptional("armorproficiencies");
             ArmorProficiencies.Add(armor);

@@ -175,6 +175,12 @@ namespace Tests.Characters {
             Assert.AreEqual(3, Fighter.StartingWealthDice.Dice.Count);
             Assert.AreEqual(DiceSides.d6, Fighter.StartingWealthDice.Dice[0].Sides);
         }
+
+        [Test]
+        public void ClassesCanHaveCustomBuildStepsForFurtherSpecialization()
+        {
+            Assert.That(Monk.CustomBuildStep, Is.EqualTo("SilverNeedle.Namespace.ClassName"));
+        }
         private const string ClassYamlFile = @"--- 
 - class: 
   name: Fighter
@@ -214,6 +220,7 @@ namespace Tests.Characters {
   weaponproficiencies: simple, monk
   developedage: Studied
   startingwealth: 1d6
+  custom-build-step: SilverNeedle.Namespace.ClassName
   levels:
     - level: 1      
     - level: 2

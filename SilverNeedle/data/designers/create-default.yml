@@ -14,7 +14,7 @@
     - step: SilverNeedle.Actions.CharacterGenerator.Background.FamilyHistoryCreator
     - step: SilverNeedle.Actions.CharacterGenerator.Background.CharacterDrawbackSelector
     - step: SilverNeedle.Actions.CharacterGenerator.PersonalityBuilder
-    - step: SilverNeedle.Actions.CharacterGenerator.ClassSelector
+    - designer: class-selection
     - step: SilverNeedle.Actions.CharacterGenerator.AbilityPointAssigner
     - step: SilverNeedle.Actions.CharacterGenerator.FeatSelector
     - step: SilverNeedle.Actions.CharacterGenerator.InitialHitPoints

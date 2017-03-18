@@ -1,0 +1,7 @@
+--- !<SilverNeedle.Actions.CharacterGenerator.CharacterDesigner>
+- build-steps:
+  name: class-selection
+  type: normal
+  steps:
+    - step: SilverNeedle.Actions.CharacterGenerator.ClassSelector
+    - step: SilverNeedle.Actions.CharacterGenerator.SetupCustomClassFeatures
