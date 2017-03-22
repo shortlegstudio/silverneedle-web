@@ -21,3 +21,4 @@
     - step: SilverNeedle.Actions.CharacterGenerator.AssignAge
     - step: SilverNeedle.Actions.CharacterGenerator.Background.ClassOriginStoryCreator
     - step: SilverNeedle.Actions.CharacterGenerator.SkillPointDistributor
+    - designer: create-appearance

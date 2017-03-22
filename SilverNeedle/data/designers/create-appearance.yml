@@ -1,0 +1,7 @@
+--- !<SilverNeedle.Actions.CharacterGenerator.CharacterDesigner>
+- build-steps:
+  name: create-appearance
+  type: normal
+  steps: 
+    - step: SilverNeedle.Actions.CharacterGenerator.Appearance.CreateFacialFeatures
+    - step: SilverNeedle.Actions.CharacterGenerator.Appearance.CreateHair
