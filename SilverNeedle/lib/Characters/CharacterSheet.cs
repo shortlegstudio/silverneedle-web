@@ -44,6 +44,8 @@ namespace SilverNeedle.Characters
 
             this.SkillRanks = new SkillRanks(skillList, this.AbilityScores);
             this.SkillRanks.ProcessModifier(this.Size);
+            this.Race = new Race();
+            this.Class = new Class();
 
             this.Traits = new List<Trait>();
             this.Feats = new List<Feat>();
@@ -51,6 +53,9 @@ namespace SilverNeedle.Characters
             this.SpecialQualities = new SpecialQualities();
 
             this.LevelAbilities = new List<LevelAbility>();
+            this.PersonalityType = new PersonalityType("ESTJ");
+            this.Ideal = new Ideal();
+            this.FacialDescription = new FacialDescription();
 
             this.Level = 1;
         }

@@ -14,6 +14,8 @@ namespace SilverNeedle.Characters
         {
             Name = character.Name;
             Gender = character.Gender.ToString();
+            Pronoun = character.Gender.Pronoun();
+            PossessivePronoun = character.Gender.PossessivePronoun();
             Race = character.Race.Name;
             Class = character.Class.Name;
             Alignment = character.Alignment.ShortString();
@@ -72,8 +74,10 @@ namespace SilverNeedle.Characters
             ClassOrigin = character.History.ClassOriginStory.Name;
             Drawback = character.History.Drawback.Name;
             Homeland = character.History.Homeland.Location;
-            Personality = character.PersonalityType.Descriptors.Choose(3).ToArray();
-            PersonalityWeaknesses = character.PersonalityType.Weaknesses.Choose(3).ToArray();
+            if(character.PersonalityType.Descriptors.HasChoices())
+                Personality = character.PersonalityType.Descriptors.Choose(3).ToArray();
+            if(character.PersonalityType.Weaknesses.HasChoices())
+                PersonalityWeaknesses = character.PersonalityType.Weaknesses.Choose(3).ToArray();
             IdealName = character.Ideal.Name;
             IdealDescription = character.Ideal.Description;
             HairColor = character.FacialDescription.HairColor.ToString();
@@ -156,6 +160,9 @@ namespace SilverNeedle.Characters
         public string Weight { get; private set; }
 
         public string Money { get; private set; }
+
+        public string Pronoun { get; private set; }
+        public string PossessivePronoun { get; private set; }
 
         private string FormatSenses(CharacterSheet character)
         {

@@ -41,10 +41,8 @@ namespace Tests.Actions
         public void SelectARandomClassForACharacter()
         {
             var character = new CharacterSheet();
-            
-            Assert.IsNull(character.Class);
             subject.ChooseAny(character);
-            Assert.IsNotNull(character.Class);
+            Assert.That(character.Class.Name, Is.Not.Null);
         }
 
         [Test]
@@ -65,9 +63,9 @@ namespace Tests.Actions
             var character = new CharacterSheet();
             var choices = new WeightedOptionTable<string>();
             
-            Assert.IsNull(character.Class);
+            Assert.That(character.Class.Name, Is.Null);
             subject.ChooseClass(character, choices);
-            Assert.IsNotNull(character.Class);
+            Assert.That(character.Class.Name, Is.Not.Null);
         }
 
         [Test]

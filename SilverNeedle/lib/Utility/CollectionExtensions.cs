@@ -66,7 +66,7 @@ namespace SilverNeedle
 
         public static bool HasChoices<T>(this IEnumerable<T> source)
         {
-            return source.Count() > 0;
+            return source != null && source.Count() > 0;
         }
 
         public static WeightedOptionTable<T> CreateFlatTable<T>(this IEnumerable<T> source) {

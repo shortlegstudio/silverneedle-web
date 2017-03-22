@@ -41,7 +41,10 @@ namespace SilverNeedle.Characters
         /// <param name="skill">Skill to lookup.</param>
         public int GetScore(string skill)
         {
-            return this.skills[skill].Score();
+            if(this.skills.ContainsKey(skill))
+                return this.skills[skill].Score();
+
+            return int.MinValue;
         }
 
         /// <summary>

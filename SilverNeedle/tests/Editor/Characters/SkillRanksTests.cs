@@ -131,6 +131,13 @@ namespace Tests.Characters
             Assert.AreEqual(3, Subject.BonusSkillPointsPerLevel());
         
         }
+
+        [Test]
+        public void ReturnIntMinimumIfTheSkillIsNotFound()
+        {
+            var value = Subject.GetScore("Rippadiddledoo");
+            Assert.That(value, Is.EqualTo(int.MinValue));
+        }
         class MockMod : IModifiesStats
         {
             public IList<BasicStatModifier> Modifiers { get; set; }

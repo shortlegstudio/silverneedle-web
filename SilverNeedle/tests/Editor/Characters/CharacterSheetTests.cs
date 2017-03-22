@@ -150,5 +150,24 @@ namespace Characters
             Assert.AreEqual("Climb", character.GetSkill("Climb").Name);
             Assert.AreEqual("Climb", character.GetSkill("climb").Name);
         }
+
+        [Test]
+        public void EmptyCharacterSheetShouldNotHaveNullsBreakingThings()
+        {
+            var character = new CharacterSheet();
+            Assert.That(character.Race, Is.Not.Null);
+            Assert.That(character.Class, Is.Not.Null);
+            Assert.That(character.AbilityScores, Is.Not.Null);
+            Assert.That(character.AbilityScoreTokens, Is.Not.Null);
+            Assert.That(character.Alignment, Is.Not.Null);
+            Assert.That(character.Defense, Is.Not.Null);
+            Assert.That(character.Offense, Is.Not.Null);
+            Assert.That(character.SkillRanks, Is.Not.Null);
+            Assert.That(character.History, Is.Not.Null);
+            Assert.That(character.PersonalityType, Is.Not.Null);
+            Assert.That(character.Ideal, Is.Not.Null);
+
+            Assert.That(character.FacialDescription, Is.Not.Null);
+        }
     }
 }

@@ -9,6 +9,10 @@ namespace SilverNeedle.Characters.Background
     {
         public History()
         {
+            Homeland = new Homeland();
+            FamilyTree = new FamilyTree();
+            ClassOriginStory = new ClassOrigin();
+            Drawback = new Drawback();
         }
 
         public Homeland Homeland { get; set; }

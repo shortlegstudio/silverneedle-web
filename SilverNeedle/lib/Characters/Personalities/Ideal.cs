@@ -16,6 +16,11 @@ namespace SilverNeedle.Characters
             Description = data.GetString("description");
         }
 
+        public Ideal()
+        {
+
+        }
+
         public bool Matches(string name)
         {
             return Name.EqualsIgnoreCase(name);

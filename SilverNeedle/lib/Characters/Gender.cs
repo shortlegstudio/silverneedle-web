@@ -21,4 +21,17 @@ namespace SilverNeedle.Characters
         /// </summary>
         Female
     }
+
+    public static class GenderExtensions
+    {
+        public static string Pronoun(this Gender gender)
+        {
+            return gender == Gender.Female ? "she" : "he";
+        }
+
+        public static string PossessivePronoun(this Gender gender)
+        {
+            return gender == Gender.Female ? "her" : "his";
+        }
+    }
 }
