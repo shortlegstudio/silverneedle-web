@@ -15,12 +15,22 @@ namespace Tests.Characters
         public void FacialDescriptionsHaveEyeAndHairColors()
         {
             var facial = new FacialDescription();
-            facial.EyeColor = EyeColors.Amber;
-            facial.HairColor = HairColors.Black;
-            facial.HairStyle = HairStyles.Crewcut;
-            facial.FacialHair = FacialHairStyles.Moustache;
+            facial.EyeColor = new EyeColor("Amber");
+            facial.HairColor = new HairColor("Black");
+            facial.HairStyle = new HairStyle("Buzzcut");
+            facial.FacialHair = new FacialHair("Moustache");
 
-            Assert.AreEqual(FacialHairStyles.Moustache, facial.FacialHair);
+            Assert.That(facial.FacialHair.Name, Is.EqualTo("Moustache"));
+        }
+
+        [Test]
+        public void EmptyConstructorInitializesSubclass()
+        {
+            var facial = new FacialDescription();
+            Assert.That(facial.HairStyle, Is.Not.Null);
+            Assert.That(facial.HairColor, Is.Not.Null);
+            Assert.That(facial.FacialHair, Is.Not.Null);
+            Assert.That(facial.EyeColor, Is.Not.Null);
         }
     }
 }

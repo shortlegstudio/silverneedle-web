@@ -9,12 +9,16 @@ namespace SilverNeedle.Characters.Appearance
     {
         public FacialDescription()
         {
+            HairColor = new HairColor("none");
+            HairStyle = new HairStyle("none");
+            FacialHair = new FacialHair("none");
+            EyeColor = new EyeColor("none");
         }
 
-        public EyeColors EyeColor { get; set; }
-        public FacialHairStyles FacialHair { get; set; }
-        public HairColors HairColor { get; set; }
-        public HairStyles HairStyle { get; set; }
+        public EyeColor EyeColor { get; set; }
+        public FacialHair FacialHair { get; set; }
+        public HairColor HairColor { get; set; }
+        public HairStyle HairStyle { get; set; }
     }
 }
 

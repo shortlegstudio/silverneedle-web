@@ -10,23 +10,32 @@ using SilverNeedle.Characters.Appearance;
 namespace SilverNeedle.Actions.CharacterGenerator.Appearance
 {
     using SilverNeedle;
+    using SilverNeedle.Characters.Appearance;
+    using SilverNeedle.Utility;
 
     public class CreateFacialFeatures : ICharacterDesignStep
     {
+        private EntityGateway<HairStyle> hairStyles;
+        private EntityGateway<HairColor> hairColors;
+        private EntityGateway<FacialHair> facialHair;
+        private EntityGateway<EyeColor> eyeColors;
+        public CreateFacialFeatures()
+        {
+            hairStyles = GatewayProvider.Get<HairStyle>();
+            hairColors = GatewayProvider.Get<HairColor>();
+            facialHair = GatewayProvider.Get<FacialHair>();
+            eyeColors = GatewayProvider.Get<EyeColor>();
+        }
         public FacialDescription CreateFace(Gender gender)
         {
             var facial = new FacialDescription();
-            facial.EyeColor = EnumHelpers.ChooseOne<EyeColors>();
-            facial.HairColor = EnumHelpers.ChooseOne<HairColors>();
-            facial.HairStyle = EnumHelpers.ChooseOne<HairStyles>();
+            facial.EyeColor = eyeColors.ChooseOne();
+            facial.HairColor = hairColors.ChooseOne();
+            facial.HairStyle = hairStyles.ChooseOne();
 
             if (gender == Gender.Male)
             {
-                facial.FacialHair = EnumHelpers.ChooseOne<FacialHairStyles>();
-            }
-            else
-            {
-                facial.FacialHair = FacialHairStyles.None;
+                facial.FacialHair = facialHair.ChooseOne();
             }
 
             return facial;
