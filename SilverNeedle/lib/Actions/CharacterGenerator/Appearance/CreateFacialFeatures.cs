@@ -26,9 +26,9 @@ namespace SilverNeedle.Actions.CharacterGenerator.Appearance
             facialHair = GatewayProvider.Get<FacialHair>();
             eyeColors = GatewayProvider.Get<EyeColor>();
         }
-        public FacialDescription CreateFace(Gender gender)
+        public CharacterAppearance CreateFace(Gender gender)
         {
-            var facial = new FacialDescription();
+            var facial = new CharacterAppearance();
             facial.EyeColor = eyeColors.ChooseOne();
             facial.HairColor = hairColors.ChooseOne();
             facial.HairStyle = hairStyles.ChooseOne();
@@ -43,7 +43,7 @@ namespace SilverNeedle.Actions.CharacterGenerator.Appearance
 
         public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
-            character.FacialDescription = CreateFace(character.Gender);
+            character.Appearance = CreateFace(character.Gender);
         }
     }
 }

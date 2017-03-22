@@ -7,29 +7,15 @@ namespace SilverNeedle.Characters.Appearance
 {
     using SilverNeedle.Utility;
 
-    public class HairStyle : IGatewayObject
+    public class HairStyle : DescriptionDetail
     {
 
-        public HairStyle(IObjectStore data)
+        public HairStyle(IObjectStore data) : base(data)
         {
-            Name = data.GetString("name");
         }
 
-        public HairStyle(string name)
+        public HairStyle(string name) : base(name)
         {
-            Name = name;
-        }
-
-        public string Name { get; set; }
-
-        public override string ToString()
-        {
-            return Name;
-        }
-
-        public bool Matches(string name)
-        {
-            return Name.EqualsIgnoreCase(name);
         }
     }
 }

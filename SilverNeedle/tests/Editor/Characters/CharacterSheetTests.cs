@@ -167,7 +167,7 @@ namespace Characters
             Assert.That(character.PersonalityType, Is.Not.Null);
             Assert.That(character.Ideal, Is.Not.Null);
 
-            Assert.That(character.FacialDescription, Is.Not.Null);
+            Assert.That(character.Appearance, Is.Not.Null);
         }
     }
 }

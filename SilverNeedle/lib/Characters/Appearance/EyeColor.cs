@@ -6,28 +6,14 @@
 namespace SilverNeedle.Characters.Appearance
 {
     using SilverNeedle.Utility;
-    public class EyeColor : IGatewayObject
+    public class EyeColor : DescriptionDetail
     {
-        public EyeColor(IObjectStore data)
+        public EyeColor(IObjectStore data) : base(data)
         {
-            Name = data.GetString("name");
         }
 
-        public EyeColor(string name)
+        public EyeColor(string name) : base(name)
         {
-            Name = name;
-        }
-
-        public string Name { get; set; }
-
-        public override string ToString()
-        {
-            return Name;
-        }
-
-        public bool Matches(string name)
-        {
-            return Name.EqualsIgnoreCase(name);
         }
     }
 }

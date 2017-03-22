@@ -6,28 +6,14 @@
 namespace SilverNeedle.Characters.Appearance
 {
     using SilverNeedle.Utility;
-    public class FacialHair : IGatewayObject
+    public class FacialHair : DescriptionDetail
     {
-        public FacialHair(IObjectStore data)
+        public FacialHair(IObjectStore data) : base(data)
         {
-            Name = data.GetString("name");
         }
 
-        public FacialHair(string name)
+        public FacialHair(string name) : base(name)
         {
-            Name = name;
-        }
-
-        public string Name { get; set; }
-
-        public override string ToString()
-        {
-            return Name;
-        }
-
-        public bool Matches(string name)
-        {
-            return Name.EqualsIgnoreCase(name);
         }
     }
 }

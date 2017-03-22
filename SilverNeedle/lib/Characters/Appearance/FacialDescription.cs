@@ -5,9 +5,9 @@
 
 namespace SilverNeedle.Characters.Appearance
 {
-    public class FacialDescription
+    public class CharacterAppearance
     {
-        public FacialDescription()
+        public CharacterAppearance()
         {
             HairColor = new HairColor("none");
             HairStyle = new HairStyle("none");

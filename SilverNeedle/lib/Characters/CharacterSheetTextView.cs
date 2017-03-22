@@ -80,10 +80,10 @@ namespace SilverNeedle.Characters
                 PersonalityWeaknesses = character.PersonalityType.Weaknesses.Choose(3).ToArray();
             IdealName = character.Ideal.Name;
             IdealDescription = character.Ideal.Description;
-            HairColor = character.FacialDescription.HairColor.ToString();
-            HairStyle = character.FacialDescription.HairStyle.ToString();
-            FacialHair = character.FacialDescription.FacialHair.ToString();
-            EyeColor = character.FacialDescription.EyeColor.ToString();
+            HairColor = character.Appearance.HairColor.ToString();
+            HairStyle = character.Appearance.HairStyle.ToString();
+            FacialHair = character.Appearance.FacialHair.ToString();
+            EyeColor = character.Appearance.EyeColor.ToString();
             Age = character.Age.ToString();
             Height = character.Size.Height.ToInchesAndFeet();
             Weight = character.Size.Weight.ToPoundsString();

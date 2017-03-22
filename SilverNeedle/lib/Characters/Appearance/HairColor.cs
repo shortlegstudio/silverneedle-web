@@ -8,29 +8,15 @@ namespace SilverNeedle.Characters.Appearance
 {
     using SilverNeedle.Utility;
 
-    public class HairColor : IGatewayObject
+    public class HairColor : DescriptionDetail
     {
 
-        public HairColor(IObjectStore data)
+        public HairColor(IObjectStore data) : base(data)
         {
-            Name = data.GetString("name");
         }
 
-        public HairColor(string name)
+        public HairColor(string name) : base(name)
         {
-            Name = name;
-        }
-
-        public string Name { get; set; }
-
-        public override string ToString()
-        {
-            return Name;
-        }
-
-        public bool Matches(string name)
-        {
-            return Name.EqualsIgnoreCase(name);
         }
     }
 }

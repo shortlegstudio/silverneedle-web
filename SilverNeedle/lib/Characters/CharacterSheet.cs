@@ -55,7 +55,7 @@ namespace SilverNeedle.Characters
             this.LevelAbilities = new List<LevelAbility>();
             this.PersonalityType = new PersonalityType("ESTJ");
             this.Ideal = new Ideal();
-            this.FacialDescription = new FacialDescription();
+            this.Appearance = new CharacterAppearance();
 
             this.Level = 1;
         }
@@ -195,7 +195,7 @@ namespace SilverNeedle.Characters
         /// <value>The characters movement abilities.</value>
         public MovementStats Movement { get; private set; }
 
-        public FacialDescription FacialDescription { get; set; }
+        public CharacterAppearance Appearance { get; set; }
 
         public History History { get; set; }
 

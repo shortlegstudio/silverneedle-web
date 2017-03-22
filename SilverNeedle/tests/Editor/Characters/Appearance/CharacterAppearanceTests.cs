@@ -9,12 +9,12 @@ namespace Tests.Characters
     using SilverNeedle.Characters.Appearance;
 
     [TestFixture]
-    public class FacialDescriptionTests
+    public class CharacterAppearanceTests
     {
         [Test]
         public void FacialDescriptionsHaveEyeAndHairColors()
         {
-            var facial = new FacialDescription();
+            var facial = new CharacterAppearance();
             facial.EyeColor = new EyeColor("Amber");
             facial.HairColor = new HairColor("Black");
             facial.HairStyle = new HairStyle("Buzzcut");
@@ -26,7 +26,7 @@ namespace Tests.Characters
         [Test]
         public void EmptyConstructorInitializesSubclass()
         {
-            var facial = new FacialDescription();
+            var facial = new CharacterAppearance();
             Assert.That(facial.HairStyle, Is.Not.Null);
             Assert.That(facial.HairColor, Is.Not.Null);
             Assert.That(facial.FacialHair, Is.Not.Null);
