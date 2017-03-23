@@ -80,6 +80,7 @@ namespace SilverNeedle.Characters
                 PersonalityWeaknesses = character.PersonalityType.Weaknesses.Choose(3).ToArray();
             IdealName = character.Ideal.Name;
             IdealDescription = character.Ideal.Description;
+            Hair = character.Appearance.Hair;
             HairColor = character.Appearance.HairColor.ToString();
             HairStyle = character.Appearance.HairStyle.ToString();
             FacialHair = character.Appearance.FacialHair.ToString();
@@ -163,6 +164,8 @@ namespace SilverNeedle.Characters
 
         public string Pronoun { get; private set; }
         public string PossessivePronoun { get; private set; }
+
+        public string Hair { get; private set; }
 
         private string FormatSenses(CharacterSheet character)
         {

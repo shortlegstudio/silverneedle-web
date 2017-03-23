@@ -1,40 +1,67 @@
 --- !<SilverNeedle.Characters.Appearance.HairStyle>
-- name: Afro
-- name: Asymmetric
-- name: Bald
-- name: Beehive
-- name: BigHair
-- name: Blowout
-- name: Bob
-- name: Bouffant
-- name: Bowl
-- name: Braids
-- name: Bun
-- name: Butch
-- name: Buzz
-- name: Caesar
-- name: Chignon
-- name: Chonmage
-- name: Combover
-- name: Crewcut
-- name: Cropped
-- name: Emo
-- name: Fade
-- name: Fauxhawk
-- name: Feathered
-- name: Fingerwave
-- name: Flattop
-- name: FrenchBraid
-- name: Hitop
-- name: Long
-- name: Mohawk
-- name: Mullet
-- name: Pageboy
-- name: Pigtails
-- name: Pompadour
-- name: Ponytail
-- name: Rattail
-- name: Ringlets
-- name: Spiked
-- name: Tonsure
-- name: Updo
+- name: afro
+  descriptors: 
+    - descriptor: bushy, thick, springy, coarse, fine, brushed, flowing, messy, cloudy, dense, bouncy
+    - descriptor: tight, short, trimmed, long, wide, voluminous
+- name: asymmetric cut
+  descriptors:
+    - descriptor: off-center, straight, crooked, spikey, jagged, layered
+- name: bald
+- name: beehive
+  descriptors:
+    - descriptor: thick, springy, coarse, fine, messy
+    - descriptor: tall, short, basic, voluminous, 
+- name: blowout
+  descriptors:
+    - descriptor: bushy, thick, springy, coarse, fine, flowing, messy, cloudy, bouncy
+    - descriptor: tight, short, trimmed, long, wide, voluminous, soft, cropped
+- name: bob
+  descriptors:
+    - descriptor: undercut, cropped, fine, asymmetric 
+- name: bouffant
+  descriptors:
+    - descriptor: bubbly, puffy 
+- name: bowl
+- name: braids
+  descriptors:
+    - descriptor: long, thick, woven, messy, tight, tidy
+- name: bun
+- name: butch
+- name: buzz
+- name: caesar
+- name: chignon
+- name: chonmage
+- name: combover
+  descriptors: 
+    - descriptor: straggly, unkept, messy, effective
+- name: crewcut
+- name: cropped
+- name: emo
+- name: fade
+- name: fauxhawk
+  descriptors: 
+    - descriptor: short, narrow, wide, long, spikey
+- name: feathered
+  descriptors: 
+    - descriptor: bushy, thick, springy, coarse, fine, brushed, flowing, messy, cloudy, dense, bouncy
+- name: fingerwave
+- name: flattop
+- name: french braid
+- name: hitop
+- name: mohawk
+- name: mullet
+- name: pageboy
+- name: parted
+- name: pigtails
+- name: pompadour
+- name: ponytail
+  descriptors:
+    - descriptor: swirly, straight, wavy, shiny, disheveled, messy, simple, thick, braided
+    - descriptor: side, voluminous, long, shoulder-length, high
+- name: rattail
+  descriptors:
+    - descriptor: single, double, braided, messy
+    - descriptor: long, shoulder-length, waist-long, 
+- name: ringlets
+- name: tonsure
+- name: up-do

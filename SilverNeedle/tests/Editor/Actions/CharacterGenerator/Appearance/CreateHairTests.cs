@@ -24,7 +24,7 @@ namespace Tests.Actions.CharacterGenerator.Appearance
             var subject = new CreateHair(new EntityGateway<HairColor>(colors), new EntityGateway<HairStyle>(styles));
             var character = new CharacterSheet();
             subject.Process(character, new CharacterBuildStrategy());
-            Assert.That(character.Appearance.Hair, Is.EqualTo("copper, long ponytail"));
+            Assert.That(character.Appearance.Hair, Is.EqualTo("copper long ponytail"));
         }
     }
 }

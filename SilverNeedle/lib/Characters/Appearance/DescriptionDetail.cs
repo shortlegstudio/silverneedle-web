@@ -6,7 +6,6 @@
 namespace SilverNeedle.Characters.Appearance
 {
     using System.Collections.Generic;
-    using System.Linq;
     using SilverNeedle.Utility;
     public abstract class DescriptionDetail : IGatewayObject
     {

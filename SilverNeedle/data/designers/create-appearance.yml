@@ -5,3 +5,5 @@
   steps: 
     - step: SilverNeedle.Actions.CharacterGenerator.Appearance.CreateFacialFeatures
     - step: SilverNeedle.Actions.CharacterGenerator.Appearance.CreateHair
+    - step: SilverNeedle.Actions.CharacterGenerator.Appearance.CreateScars
+    - step: SilverNeedle.Actions.CharacterGenerator.Appearance.CreateTattoos

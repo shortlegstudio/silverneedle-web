@@ -1,15 +1,48 @@
 --- !<SilverNeedle.Characters.Appearance.HairColor>
-- name: Black
-- name: Brown
-- name: Blonde
-- name: Auburn
-- name: Chestnut
-- name: Red
-- name: Gray
-- name: Purple
-- name: Green
-- name: Pink
-- name: Silver
-- name: Frosted
-- name: Sunbleached
+- name: alabaster
+- name: amber
+- name: ashen
+- name: auburn
+- name: black
+- name: blonde
+  descriptors:
+    - descriptor: dirty, strawberry, honey, platinum, bright
+- name: blue
+  descriptors:
+    - descriptor: bright, dark, deep, navy, sky, light
+- name: bronze
+- name: brown
+  descriptors: 
+    - descriptor: light, medium, dark, ash
+- name: brunette
+- name: chestnut
+- name: copper
+- name: crimson
+- name: ebony
+- name: flaxen
+- name: frosted
+- name: golden
+- name: gray
+- name: green
+- name: inky
+- name: jet
+- name: mahogany
+- name: maroon
+- name: pearly
+- name: pink
+- name: platinum
+- name: powder
+- name: purple
+- name: raven
+- name: red
+- name: russet
+- name: salt and pepper
+- name: sandy
+- name: silver
+- name: snowy
+- name: sunbleached
+- name: tawny
+- name: umber
+- name: wine-colored
+- name: yellow
 

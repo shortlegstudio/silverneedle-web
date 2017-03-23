@@ -21,5 +21,7 @@ namespace SilverNeedle.Characters.Appearance
         public HairStyle HairStyle { get; set; }
 
         public string Hair { get; set; }
+
+        public string Scars { get; set; }
     }
 }
