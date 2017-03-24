@@ -34,7 +34,7 @@ namespace Tests.Characters.Appearance
             var store = new MemoryStore();
             store.SetValue("name", "tattoo");
             var feature = new PhysicalFeature(store);
-            Assert.That(feature.Templates, Has.Exactly(1).EqualTo("{{pronoun}} has a {{feature}}."));
+            Assert.That(feature.Templates, Has.Exactly(1).EqualTo("{{pronoun}} has a {{description}}."));
         }
 
         [Test]
@@ -53,7 +53,7 @@ namespace Tests.Characters.Appearance
             store.SetValue("name", "tattoo");
             store.SetValue("locations", "left arm, right arm");
             var feature = new PhysicalFeature(store);
-            Assert.That(feature.Templates, Has.Exactly(1).EqualTo("{{pronoun}} has a {{feature}} on {{possessivepronoun}} {{location}}."));
+            Assert.That(feature.Templates, Has.Exactly(1).EqualTo("{{pronoun}} has a {{description}} on {{possessivepronoun}} {{location}}."));
         }
     }
 }

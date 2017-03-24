@@ -70,5 +70,35 @@ namespace Tests.Actions.CharacterGenerator.Appearance
 
             Assert.That(character.Appearance.PhysicalAppearance, Is.EqualTo("She has a dragon tattoo."));
         }
+
+        [Test]
+        public void BreaksDescriptionIntoIndividualComponentsForMoreFlexibleDescriptions()
+        {
+            // Set up Descriptors
+            var descs = new MemoryStore();
+            descs.AddListItem(new MemoryStore("pattern", "dragon"));
+            descs.AddListItem(new MemoryStore("color", "black"));
+
+            // Set up Templates 
+            var temps = new MemoryStore();
+            temps.AddListItem(new MemoryStore("template", "{{feature}} of a {{descriptor \"color\"}} {{descriptor \"pattern\"}}."));
+
+            // Set up physical Feature
+            var mem = new MemoryStore();
+            mem.SetValue("name", "tattoo");
+            mem.SetValue("descriptors", descs);
+            mem.SetValue("templates", temps);
+            var phys = new PhysicalFeature(mem);
+
+            var gateway = new EntityGateway<PhysicalFeature>(new PhysicalFeature[] { phys });
+            var subject = new CreatePhysicalFeatures(gateway);
+
+            var character = new CharacterSheet();
+            character.Gender = Gender.Female;
+
+            subject.Process(character, new CharacterBuildStrategy());
+
+            Assert.That(character.Appearance.PhysicalAppearance, Is.EqualTo("Tattoo of a black dragon."));
+        }
     }
 }

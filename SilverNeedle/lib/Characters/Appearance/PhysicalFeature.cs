@@ -15,13 +15,13 @@ namespace SilverNeedle.Characters.Appearance
 
         public PhysicalFeature(IObjectStore data) : base(data)
         {
-            var defaultTemplate = "{{pronoun}} has a {{feature}} on {{possessivepronoun}} {{location}}.";
+            var defaultTemplate = "{{pronoun}} has a {{description}} on {{possessivepronoun}} {{location}}.";
 
             Locations = data.GetListOptional("locations");
             if (Locations == null || Locations.Length == 0)
             {
                 Locations = new string [] { "" };
-                defaultTemplate = "{{pronoun}} has a {{feature}}.";
+                defaultTemplate = "{{pronoun}} has a {{description}}.";
             }
 
             var temps = data.GetObjectOptional("templates");

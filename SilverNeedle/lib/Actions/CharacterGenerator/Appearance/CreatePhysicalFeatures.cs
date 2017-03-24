@@ -26,6 +26,7 @@ namespace SilverNeedle.Actions.CharacterGenerator.Appearance
 
         public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
+            ConfigureHelpers();
             var selected = physical.ChooseOne();
             var template = selected.Templates.ChooseOne();
             var location = selected.Locations.ChooseOne();
@@ -34,12 +35,21 @@ namespace SilverNeedle.Actions.CharacterGenerator.Appearance
                 name = character.Name,
                 pronoun = character.Gender.Pronoun(),
                 possessivepronoun = character.Gender.PossessivePronoun(),
-                feature = selected.CreateDescription(),
-                location = location
+                description = selected.CreateDescription(),
+                location = location,
+                feature = selected.Name,
+                descriptors = selected.Descriptors
             };
             var sentence = compile.Invoke(commonProperties);
             
             character.Appearance.PhysicalAppearance = sentence.Capitalize();
+        }
+
+        private void ConfigureHelpers() {
+            Handlebars.RegisterHelper("descriptor", (writer, context, parameters) => {
+                var value = context.descriptors[parameters[0].ToString()] as string[];
+                writer.Write(value.ChooseOne());
+            });
         }
     }
 }
