@@ -35,6 +35,7 @@ namespace SilverNeedle.Utility
         {
             Key = key;
             Value = value;
+            dataStore[key] = this;
         }
 
         public IDictionary<string, string> ChildrenToDictionary()

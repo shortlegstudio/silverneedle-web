@@ -19,7 +19,7 @@ namespace Tests.Actions.CharacterGenerator.Appearance
         {
             var colors = new HairColor[] { new HairColor("copper") };
             var styles = new HairStyle[] { new HairStyle("ponytail") };
-            styles[0].Descriptors.Add(new string[] { "long" });
+            styles[0].Descriptors.Add("descriptor", new string[] { "long" });
 
             var subject = new CreateHair(new EntityGateway<HairColor>(colors), new EntityGateway<HairStyle>(styles));
             var character = new CharacterSheet();

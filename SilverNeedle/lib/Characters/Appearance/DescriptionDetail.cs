@@ -6,12 +6,13 @@
 namespace SilverNeedle.Characters.Appearance
 {
     using System.Collections.Generic;
+    using System.Linq;
     using SilverNeedle.Utility;
     public abstract class DescriptionDetail : IGatewayObject
     {
         public DescriptionDetail()
         {
-            Descriptors = new List<string[]>();
+            Descriptors = new Dictionary<string, string[]>();
         }
         public DescriptionDetail(IObjectStore data) : this()
         {
@@ -21,8 +22,12 @@ namespace SilverNeedle.Characters.Appearance
             {
                 foreach(var d in descs.Children) 
                 {
-                    var m = d.GetList("descriptor");
-                    Descriptors.Add(m);
+                    var keyName = d.Keys.First();
+                    var m = d.GetList(keyName);
+                    if(Descriptors.ContainsKey(keyName)) {
+                        keyName = string.Format("{0}-{1}", keyName, Descriptors.Count);    
+                    }
+                    Descriptors.Add(keyName, m);
                 }
             }
         }
@@ -34,7 +39,7 @@ namespace SilverNeedle.Characters.Appearance
 
         public string Name { get; set; }
         
-        public IList<string[]> Descriptors { get; set; }
+        public IDictionary<string, string[]> Descriptors { get; set; }
 
         public override string ToString()
         {
@@ -44,7 +49,7 @@ namespace SilverNeedle.Characters.Appearance
         public virtual string CreateDescription()
         {
             var result = "";
-            foreach(var d in Descriptors)
+            foreach(var d in Descriptors.Values)
             {
                 result += string.Format("{0} ", d.ChooseOne());
             }

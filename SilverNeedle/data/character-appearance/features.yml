@@ -2,8 +2,8 @@
 - name: tattoo
   descriptors:
     - descriptor: black, red, blue, small, intricate, large
-    - descriptor: dragon, squid, octopus, quarter moon
-  locations: left calf, right calf, left arm, right arm, right forearm, left forearm, left breast, right breast
+    - descriptor: dragon, squid, octopus, quarter moon, lion, falcon, lightning
+  locations: left calf, right calf, left arm, right arm, right forearm, left forearm, left breast, right breast, back
   templates:
     - template: "{{pronoun}} has a {{feature}} on {{possessivepronoun}} {{location}}."
 - name: facial tattoo of blue dots
@@ -35,8 +35,17 @@
   templates:
     - template: "{{pronoun}} has a {{feature}} from {{possessivepronoun}} {{location}}."
 - name: scars
-  locations: face
+  locations: face, left cheek, right cheek
   descriptors:
-    - descriptor: pox, small
+    - descriptor: pox, small, thin delicate, acne
   templates:
     - template: "{{possessivepronoun}} {{location}} is covered in {{feature}}."
+- name: pierced
+  locations: lip, left ear, right hear, nose
+  templates:
+    - template: "{{pronoun}} has a {{feature}} {{location}}."
+- name: earrings
+  descriptors:
+    - descriptor: pearl, hooped, dangly, studded, silver, dolphin, octopus
+  templates:
+    - template: "{{pronoun}} wears {{feature}}."
