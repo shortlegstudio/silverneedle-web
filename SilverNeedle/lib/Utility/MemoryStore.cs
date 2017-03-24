@@ -84,7 +84,10 @@ namespace SilverNeedle.Utility
 
         public string[] GetListOptional(string key)
         {
-            throw new NotImplementedException();
+            if(HasKey(key))
+                return GetList(key);
+            
+            return new string[] { };
         }
 
         public IObjectStore GetObject(string key)

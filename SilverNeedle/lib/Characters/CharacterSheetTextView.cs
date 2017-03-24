@@ -89,6 +89,7 @@ namespace SilverNeedle.Characters
             Height = character.Size.Height.ToInchesAndFeet();
             Weight = character.Size.Weight.ToPoundsString();
             Money = character.Inventory.CoinPurse.ToString();
+            PhysicalFeatures = character.Appearance.PhysicalAppearance;
         }
 
         public string Name { get; private set; }
@@ -166,6 +167,8 @@ namespace SilverNeedle.Characters
         public string PossessivePronoun { get; private set; }
 
         public string Hair { get; private set; }
+
+        public string PhysicalFeatures { get; private set; }
 
         private string FormatSenses(CharacterSheet character)
         {
