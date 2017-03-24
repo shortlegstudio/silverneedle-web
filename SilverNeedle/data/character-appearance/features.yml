@@ -1,3 +1,42 @@
 --- !<SilverNeedle.Characters.Appearance.PhysicalFeature>
-- name: dragon tattoo
-  locations: left calf, right calf
+- name: tattoo
+  descriptors:
+    - descriptor: black, red, blue, small, intricate, large
+    - descriptor: dragon, squid, octopus, quarter moon
+  locations: left calf, right calf, left arm, right arm, right forearm, left forearm, left breast, right breast
+  templates:
+    - template: "{{pronoun}} has a {{feature}} on {{possessivepronoun}} {{location}}."
+- name: facial tattoo of blue dots
+  locations: forehead, right cheek, left cheek, right jawline, left jawline
+  templates:
+    - template: "{{pronoun}} has a {{feature}} on {{possessivepronoun}} {{location}}."
+- name: missing a pinkie
+  locations: right hand, left hand
+  templates:
+    - template: "{{pronoun}} is {{feature}} on {{possessivepronoun}} {{location}}."
+- name: missing two toes
+  locations: right foot, left foot
+  templates:
+    - template: "{{pronoun}} is {{feature}} on {{possessivepronoun}} {{location}} and walks with a slight limp."
+- name: scar
+  descriptors:
+    - descriptor: small, large, jagged, odd, runic
+  locations: left eyebrow, right eyebrow, left eye, right eye
+  templates:
+    - template: "{{pronoun}} has a {{feature}} above {{possessivepronoun}} {{location}}."
+- name: scar
+  descriptors:
+    - descriptor: small, large, jagged, odd, runic, large red
+  locations: chin, cheek, left hand, right hand, upper right arm, upper left arm, lower left arm, lower right arm, nose
+  templates:
+    - template: "{{pronoun}} has a {{feature}} on {{possessivepronoun}} {{location}}."
+- name: chunk missing
+  locations: left ear, right ear
+  templates:
+    - template: "{{pronoun}} has a {{feature}} from {{possessivepronoun}} {{location}}."
+- name: scars
+  locations: face
+  descriptors:
+    - descriptor: pox, small
+  templates:
+    - template: "{{possessivepronoun}} {{location}} is covered in {{feature}}."

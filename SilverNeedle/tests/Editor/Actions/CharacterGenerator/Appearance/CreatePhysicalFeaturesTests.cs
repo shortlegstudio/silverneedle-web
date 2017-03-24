@@ -48,7 +48,27 @@ namespace Tests.Actions.CharacterGenerator.Appearance
             subject.Process(character, new CharacterBuildStrategy());
 
             Assert.That(character.Appearance.PhysicalAppearance, Is.EqualTo("She has a jagged scar on her left arm."));
+        }
 
+        [Test]
+        public void UsesDescriptorsIfAvailable()
+        {
+            var descs = new MemoryStore();
+            descs.AddListItem(new MemoryStore("descriptor", "dragon"));
+            var mem = new MemoryStore();
+            mem.SetValue("name", "tattoo");
+            mem.SetValue("descriptors", descs);
+            var phys = new PhysicalFeature(mem);
+
+            var gateway = new EntityGateway<PhysicalFeature>(new PhysicalFeature[] { phys });
+            var subject = new CreatePhysicalFeatures(gateway);
+
+            var character = new CharacterSheet();
+            character.Gender = Gender.Female;
+
+            subject.Process(character, new CharacterBuildStrategy());
+
+            Assert.That(character.Appearance.PhysicalAppearance, Is.EqualTo("She has a dragon tattoo."));
         }
     }
 }

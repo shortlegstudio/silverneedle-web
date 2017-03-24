@@ -34,7 +34,7 @@ namespace SilverNeedle.Actions.CharacterGenerator.Appearance
                 name = character.Name,
                 pronoun = character.Gender.Pronoun(),
                 possessivepronoun = character.Gender.PossessivePronoun(),
-                feature = selected.Name,
+                feature = selected.CreateDescription(),
                 location = location
             };
             var sentence = compile.Invoke(commonProperties);

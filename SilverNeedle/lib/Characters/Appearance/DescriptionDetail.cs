@@ -46,12 +46,12 @@ namespace SilverNeedle.Characters.Appearance
             var result = "";
             foreach(var d in Descriptors)
             {
-                result += string.Format("{0}, ", d.ChooseOne());
+                result += string.Format("{0} ", d.ChooseOne());
             }
 
             if(result.Length > 0)
             {
-                result = result.Substring(0, result.Length - 2);
+                result = result.Substring(0, result.Length - 1);
             }
 
             result = string.Format("{0} {1}", result, Name);

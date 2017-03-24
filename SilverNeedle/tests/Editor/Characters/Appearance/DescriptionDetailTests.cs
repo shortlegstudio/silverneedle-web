@@ -40,7 +40,7 @@ namespace Tests.Characters.Appearance
             data.SetValue("descriptors", descriptors);
             var subject = new TestDescription(data); 
             var text = subject.CreateDescription();
-            Assert.That(text, Is.EqualTo("long, braided ponytail"));
+            Assert.That(text, Is.EqualTo("long braided ponytail"));
         }
 
         private class TestDescription : DescriptionDetail
