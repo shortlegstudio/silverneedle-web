@@ -10,6 +10,7 @@ namespace SilverNeedle.Characters.Appearance
     using SilverNeedle.Utility;
     public abstract class DescriptionDetail : IGatewayObject
     {
+        public string[] Templates { get; set; }
         public DescriptionDetail()
         {
             Descriptors = new Dictionary<string, string[]>();
@@ -23,12 +24,19 @@ namespace SilverNeedle.Characters.Appearance
                 foreach(var d in descs.Children) 
                 {
                     var keyName = d.Keys.First();
+                    ShortLog.DebugFormat("KeyName: {0}", keyName);
                     var m = d.GetList(keyName);
                     if(Descriptors.ContainsKey(keyName)) {
                         keyName = string.Format("{0}-{1}", keyName, Descriptors.Count);    
                     }
                     Descriptors.Add(keyName, m);
                 }
+            }
+
+            var temps = data.GetObjectOptional("templates");
+            if(temps != null)
+            {
+                Templates = temps.Children.Select(x => x.GetString("template")).ToArray();
             }
         }
 

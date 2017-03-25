@@ -11,7 +11,6 @@ namespace SilverNeedle.Characters.Appearance
     public class PhysicalFeature : DescriptionDetail
     {
         public string[] Locations { get; set; }
-        public string[] Templates { get; set; }
 
         public PhysicalFeature(IObjectStore data) : base(data)
         {
@@ -24,12 +23,7 @@ namespace SilverNeedle.Characters.Appearance
                 defaultTemplate = "{{pronoun}} has a {{description}}.";
             }
 
-            var temps = data.GetObjectOptional("templates");
-            if(temps != null)
-            {
-                Templates = temps.Children.Select(x => x.GetString("template")).ToArray();
-            }
-            else
+            if(Templates == null)
             {
                 Templates = new string[] {
                     defaultTemplate
