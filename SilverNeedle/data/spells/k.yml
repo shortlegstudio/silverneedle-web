@@ -1,0 +1,7 @@
+--- !<SilverNeedle.Spells.Spell>
+- name: Keen Edge
+  school: transmutation
+- name: Knock
+  school: transmutation
+- name: Know Direction
+  school: divination

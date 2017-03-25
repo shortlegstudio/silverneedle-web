@@ -1,0 +1,111 @@
+--- !<SilverNeedle.Spells.Spell>
+- name: Dancing Lights
+  school: evocation
+- name: Darkness
+  school: evocation
+- name: Darkvision
+  school: transmutation
+- name: Daylight
+  school: evocation
+- name: Daze
+  school: enchantment
+- name: Daze Monster
+  school: enchantment
+- name: Death Knell
+  school: necromancy
+- name: Death Ward
+  school: necromancy
+- name: Deathwatch
+  school: necromancy
+- name: Deep Slumber
+  school: enchantment
+- name: Deeper Darkness
+  school: evocation
+- name: Delay Poison
+  school: conjuration
+- name: Delayed Blast Fireball
+  school: evocation
+- name: Demand
+  school: enchantment
+- name: Desecrate
+  school: evocation
+- name: Destruction
+  school: necromancy
+- name: Detect Animals or Plants
+  school: divination
+- name: Detect Chaos
+  school: divination
+- name: Detect Evil
+  school: divination
+- name: Detect Good
+  school: divination
+- name: Detect Law
+  school: divination
+- name: Detect Magic
+  school: divination
+- name: Detect Poison
+  school: divination
+- name: Detect Scrying
+  school: divination
+- name: Detect Secret Doors
+  school: divination
+- name: Detect Snares and Pits
+  school: divination
+- name: Detect Thoughts
+  school: divination
+- name: Detect Undead
+  school: divination
+- name: Dictum
+  school: evocation
+- name: Dimension Door
+  school: conjuration
+- name: Dimensional Anchor
+  school: abjuration
+- name: Dimensional Lock
+  school: abjuration
+- name: Diminish Plants
+  school: transmutation
+- name: Discern Lies
+  school: divination
+- name: Discern Location
+  school: divination
+- name: Disguise Self
+  school: illusion
+- name: Disintegrate
+  school: transmutation
+- name: Dismissal
+  school: abjuration
+- name: Dispel Chaos
+  school: abjuration
+- name: Dispel Evil
+  school: abjuration
+- name: Dispel Good
+  school: abjuration
+- name: Dispel Law
+  school: abjuration
+- name: Dispel Magic
+  school: abjuration
+- name: Dispel Magic, Greater
+  school: abjuration
+- name: Displacement
+  school: illusion
+- name: Disrupt Undead
+  school: necromancy
+- name: Disrupting Weapon
+  school: transmutation
+- name: Divination
+  school: divination
+- name: Divine Favor
+  school: evocation
+- name: Divine Power
+  school: evocation
+- name: Dominate Animal
+  school: enchantment
+- name: Dominate Monster
+  school: enchantment
+- name: Dominate Person
+  school: enchantment
+- name: Doom
+  school: necromancy
+- name: Dream
+  school: illusion

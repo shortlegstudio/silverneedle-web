@@ -1,0 +1,47 @@
+--- !<SilverNeedle.Spells.Spell>
+- name: Gaseous Form
+  school: transmutation
+- name: Gate
+  school: conjuration
+- name: Geas, Lesser
+  school: enchantment
+- name: Geas/Quest
+  school: enchantment
+- name: Gentle Repose
+  school: necromancy
+- name: Ghost Sound
+  school: illusion
+- name: Ghoul Touch
+  school: necromancy
+- name: Giant Form I
+  school: transmutation
+- name: Giant Form II
+  school: transmutation
+- name: Giant Vermin
+  school: transmutation
+- name: Glibness
+  school: transmutation
+- name: Glitterdust
+  school: conjuration
+- name: Globe of Invulnerability
+  school: abjuration
+- name: Globe of Invulnerability, Lesser
+  school: abjuration
+- name: Glyph of Warding
+  school: abjuration
+- name: Glyph of Warding, Greater
+  school: abjuration
+- name: Good Hope
+  school: enchantment
+- name: Goodberry
+  school: transmutation
+- name: Grasping Hand
+  school: evocation
+- name: Grease
+  school: conjuration
+- name: Guards and Wards
+  school: abjuration
+- name: Guidance
+  school: divination
+- name: Gust of Wind
+  school: evocation

@@ -1,0 +1,209 @@
+--- !<SilverNeedle.Spells.Spell>
+- name: Sanctuary
+  school: abjuration
+- name: Scare
+  school: necromancy
+- name: Scintillating Pattern
+  school: illusion
+- name: Scorching Ray
+  school: evocation
+- name: Screen
+  school: illusion
+- name: Scrying
+  school: divination
+- name: Scrying, Greater
+  school: divination
+- name: Sculpt Sound
+  school: transmutation
+- name: Searing Light
+  school: evocation
+- name: Secret Chest
+  school: conjuration
+- name: Secret Page
+  school: transmutation
+- name: Secure Shelter
+  school: conjuration
+- name: See Invisibility
+  school: divination
+- name: Seeming
+  school: illusion
+- name: Sending
+  school: evocation
+- name: Sepia Snake Sigil
+  school: conjuration
+- name: Sequester
+  school: abjuration
+- name: Shades
+  school: illusion
+- name: Shadow Conjuration
+  school: illusion
+- name: Shadow Conjuration, Greater
+  school: illusion
+- name: Shadow Evocation
+  school: illusion
+- name: Shadow Evocation, Greater
+  school: illusion
+- name: Shadow Walk
+  school: illusion
+- name: Shambler
+  school: conjuration
+- name: Shapechange
+  school: transmutation
+- name: Shatter
+  school: evocation
+- name: Shield
+  school: abjuration
+- name: Shield Other
+  school: abjuration
+- name: Shield of Faith
+  school: abjuration
+- name: Shield of Law
+  school: abjuration
+- name: Shillelagh
+  school: transmutation
+- name: Shocking Grasp
+  school: evocation
+- name: Shout
+  school: evocation
+- name: Shout, Greater
+  school: evocation
+- name: Shrink Item
+  school: transmutation
+- name: Silence
+  school: illusion
+- name: Silent Image
+  school: illusion
+- name: Simulacrum
+  school: illusion
+- name: Slay Living
+  school: necromancy
+- name: Sleep
+  school: enchantment
+- name: Sleet Storm
+  school: conjuration
+- name: Slow
+  school: transmutation
+- name: Snare
+  school: transmutation
+- name: Soften Earth and Stone
+  school: transmutation
+- name: Solid Fog
+  school: conjuration
+- name: Song of Discord
+  school: enchantment
+- name: Soul Bind
+  school: necromancy
+- name: Sound Burst
+  school: evocation
+- name: Speak with Animals
+  school: divination
+- name: Speak with Dead
+  school: necromancy
+- name: Speak with Plants
+  school: divination
+- name: Spectral Hand
+  school: necromancy
+- name: Spell Immunity
+  school: abjuration
+- name: Spell Immunity, Greater
+  school: abjuration
+- name: Spell Resistance
+  school: abjuration
+- name: Spell Turning
+  school: abjuration
+- name: Spellstaff
+  school: transmutation
+- name: Spider Climb
+  school: transmutation
+- name: Spike Growth
+  school: transmutation
+- name: Spike Stones
+  school: transmutation
+- name: Spiritual Weapon
+  school: evocation
+- name: Stabilize
+  school: conjuration
+- name: Statue
+  school: transmutation
+- name: Status
+  school: divination
+- name: Stinking Cloud
+  school: conjuration
+- name: Stone Shape
+  school: transmutation
+- name: Stone Tell
+  school: divination
+- name: Stone to Flesh
+  school: transmutation
+- name: Stoneskin
+  school: abjuration
+- name: Storm of Vengeance
+  school: conjuration
+- name: Suggestion
+  school: enchantment
+- name: Suggestion, Mass
+  school: enchantment
+- name: Summon Instrument
+  school: conjuration
+- name: Summon Monster I
+  school: conjuration
+- name: Summon Monster II
+  school: conjuration
+- name: Summon Monster III
+  school: conjuration
+- name: Summon Monster IV
+  school: conjuration
+- name: Summon Monster V
+  school: conjuration
+- name: Summon Monster VI
+  school: conjuration
+- name: Summon Monster VII
+  school: conjuration
+- name: Summon Monster VIII
+  school: conjuration
+- name: Summon Monster IX
+  school: conjuration
+- name: Summon Nature's Ally I
+  school: conjuration
+- name: Summon Nature's Ally II
+  school: conjuration
+- name: Summon Nature's Ally III
+  school: conjuration
+- name: Summon Nature's Ally IV
+  school: conjuration
+- name: Summon Nature's Ally V
+  school: conjuration
+- name: Summon Nature's Ally VI
+  school: conjuration
+- name: Summon Nature's Ally VII
+  school: conjuration
+- name: Summon Nature's Ally VIII
+  school: conjuration
+- name: Summon Nature's Ally IX
+  school: conjuration
+- name: Summon Swarm
+  school: conjuration
+- name: Sunbeam
+  school: evocation
+- name: Sunburst
+  school: evocation
+- name: Symbol of Death
+  school: necromancy
+- name: Symbol of Fear
+  school: necromancy
+- name: Symbol of Insanity
+  school: enchantment
+- name: Symbol of Pain
+  school: necromancy
+- name: Symbol of Persuasion
+  school: enchantment
+- name: Symbol of Sleep
+  school: enchantment
+- name: Symbol of Stunning
+  school: enchantment
+- name: Symbol of Weakness
+  school: necromancy
+- name: Sympathetic Vibration
+  school: evocation
+- name: Sympathy
+  school: enchantment

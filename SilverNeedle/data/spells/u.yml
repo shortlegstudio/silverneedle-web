@@ -1,0 +1,13 @@
+--- !<SilverNeedle.Spells.Spell>
+- name: Undeath to Death
+  school: necromancy
+- name: Undetectable Alignment
+  school: abjuration
+- name: Unhallow
+  school: evocation
+- name: Unholy Aura
+  school: abjuration
+- name: Unholy Blight
+  school: evocation
+- name: Unseen Servant
+  school: conjuration

@@ -1,0 +1,21 @@
+--- !<SilverNeedle.Spells.Spell>
+- name: Legend Lore
+  school: divination
+- name: Levitate
+  school: transmutation
+- name: Light
+  school: evocation
+- name: Lightning Bolt
+  school: evocation
+- name: Limited Wish
+  school: universal
+- name: Liveoak
+  school: transmutation
+- name: Locate Creature
+  school: divination
+- name: Locate Object
+  school: divination
+- name: Longstrider
+  school: transmutation
+- name: Lullaby
+  school: enchantment

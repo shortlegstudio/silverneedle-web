@@ -1,0 +1,119 @@
+--- !<SilverNeedle.Spells.Spell>
+- name: Call Lightning
+  school: evocation
+- name: Call Lightning Storm
+  school: evocation
+- name: Calm Animals
+  school: enchantment
+- name: Calm Emotions
+  school: enchantment
+- name: Cat's Grace
+  school: transmutation
+- name: Cat's Grace, Mass
+  school: transmutation
+- name: Cause Fear
+  school: necromancy
+- name: Chain Lightning
+  school: evocation
+- name: Changestaff
+  school: transmutation
+- name: Chaos Hammer
+  school: evocation
+- name: Charm Animal
+  school: enchantment
+- name: Charm Monster
+  school: enchantment
+- name: Charm Monster, Mass
+  school: enchantment
+- name: Charm Person
+  school: enchantment
+- name: Chill Metal
+  school: transmutation
+- name: Chill Touch
+  school: necromancy
+- name: Circle of Death
+  school: necromancy
+- name: Clairaudience/Clairvoyance
+  school: divination
+- name: Clenched Fist
+  school: evocation
+- name: Cloak of Chaos
+  school: abjuration
+- name: Clone
+  school: necromancy
+- name: Cloudkill
+  school: conjuration
+- name: Color Spray
+  school: illusion
+- name: Command
+  school: enchantment
+- name: Command Plants
+  school: transmutation
+- name: Command Undead
+  school: necromancy
+- name: Command, Greater
+  school: enchantment
+- name: Commune
+  school: divination
+- name: Commune with Nature
+  school: divination
+- name: Comprehend Languages
+  school: divination
+- name: Cone of Cold
+  school: evocation
+- name: Confusion
+  school: enchantment
+- name: Confusion, Lesser
+  school: enchantment
+- name: Consecrate
+  school: evocation
+- name: Contact Other Plane
+  school: divination
+- name: Contagion
+  school: necromancy
+- name: Contingency
+  school: evocation
+- name: Continual Flame
+  school: evocation
+- name: Control Plants
+  school: transmutation
+- name: Control Undead
+  school: necromancy
+- name: Control Water
+  school: transmutation
+- name: Control Weather
+  school: transmutation
+- name: Control Winds
+  school: transmutation
+- name: Create Food and Water
+  school: conjuration
+- name: Create Greater Undead
+  school: necromancy
+- name: Create Undead
+  school: necromancy
+- name: Create Water
+  school: conjuration
+- name: Creeping Doom
+  school: conjuration
+- name: Crushing Despair
+  school: enchantment
+- name: Crushing Hand
+  school: evocation
+- name: Cure Critical Wounds
+  school: conjuration
+- name: Cure Critical Wounds, Mass
+  school: conjuration
+- name: Cure Light Wounds
+  school: conjuration
+- name: Cure Light Wounds, Mass
+  school: conjuration
+- name: Cure Moderate Wounds
+  school: conjuration
+- name: Cure Moderate Wounds, Mass
+  school: conjuration
+- name: Cure Serious Wounds
+  school: conjuration
+- name: Cure Serious Wounds, Mass
+  school: conjuration
+- name: Curse Water
+  school: necromancy

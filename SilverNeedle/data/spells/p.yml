@@ -1,0 +1,95 @@
+--- !<SilverNeedle.Spells.Spell>
+- name: Pass without Trace
+  school: transmutation
+- name: Passwall
+  school: transmutation
+- name: Permanency
+  school: universal
+- name: Permanent Image
+  school: illusion
+- name: Persistent Image
+  school: illusion
+- name: Phantasmal Killer
+  school: illusion
+- name: Phantom Steed
+  school: conjuration
+- name: Phantom Trap
+  school: illusion
+- name: Phase Door
+  school: conjuration
+- name: Planar Ally
+  school: conjuration
+- name: Planar Ally, Greater
+  school: conjuration
+- name: Planar Ally, Lesser
+  school: conjuration
+- name: Planar Binding
+  school: conjuration
+- name: Planar Binding, Greater
+  school: conjuration
+- name: Planar Binding, Lesser
+  school: conjuration
+- name: Plane Shift
+  school: conjuration
+- name: Plant Growth
+  school: transmutation
+- name: Plant Shape I
+  school: transmutation
+- name: Plant Shape II
+  school: transmutation
+- name: Plant Shape III
+  school: transmutation
+- name: Poison
+  school: necromancy
+- name: Polar Ray
+  school: evocation
+- name: Polymorph
+  school: transmutation
+- name: Polymorph Any Object
+  school: transmutation
+- name: Polymorph, Greater
+  school: transmutation
+- name: Power Word Blind
+  school: enchantment
+- name: Power Word Kill
+  school: enchantment
+- name: Power Word Stun
+  school: enchantment
+- name: Prayer
+  school: enchantment
+- name: Prestidigitation
+  school: universal
+- name: Prismatic Sphere
+  school: abjuration
+- name: Prismatic Spray
+  school: evocation
+- name: Prismatic Wall
+  school: abjuration
+- name: Produce Flame
+  school: evocation
+- name: Programmed Image
+  school: illusion
+- name: Project Image
+  school: illusion
+- name: Protection from Arrows
+  school: abjuration
+- name: Protection from Chaos
+  school: abjuration
+- name: Protection from Energy
+  school: abjuration
+- name: Protection from Evil
+  school: abjuration
+- name: Protection from Good
+  school: abjuration
+- name: Protection from Law
+  school: abjuration
+- name: Protection from Spells
+  school: abjuration
+- name: Prying Eyes
+  school: divination
+- name: Prying Eyes, Greater
+  school: divination
+- name: Purify Food and Drink
+  school: transmutation
+- name: Pyrotechnics
+  school: transmutation

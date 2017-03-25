@@ -1,0 +1,45 @@
+--- !<SilverNeedle.Spells.Spell>
+- name: Wail of the Banshee
+  school: necromancy
+- name: Wall of Fire
+  school: evocation
+- name: Wall of Force
+  school: evocation
+- name: Wall of Ice
+  school: evocation
+- name: Wall of Iron
+  school: conjuration
+- name: Wall of Stone
+  school: conjuration
+- name: Wall of Thorns
+  school: conjuration
+- name: Warp Wood
+  school: transmutation
+- name: Water Breathing
+  school: transmutation
+- name: Water Walk
+  school: transmutation
+- name: Waves of Exhaustion
+  school: necromancy
+- name: Waves of Fatigue
+  school: necromancy
+- name: Web
+  school: conjuration
+- name: Weird
+  school: illusion
+- name: Whirlwind
+  school: evocation
+- name: Whispering Wind
+  school: transmutation
+- name: Wind Walk
+  school: transmutation
+- name: Wind Wall
+  school: evocation
+- name: Wish
+  school: universal
+- name: Wood Shape
+  school: transmutation
+- name: Word of Chaos
+  school: evocation
+- name: Word of Recall
+  school: conjuration

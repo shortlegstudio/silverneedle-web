@@ -1,0 +1,61 @@
+--- !<SilverNeedle.Spells.Spell>
+- name: Acid Arrow
+  school: conjuration
+- name: Acid Fog
+  school: conjuration
+- name: Acid Splash
+  school: conjuration
+- name: Aid
+  school: enchantment
+- name: Air Walk
+  school: transmutation
+- name: Alarm
+  school: abjuration
+- name: Align Weapon
+  school: transmutation
+- name: Alter Self
+  school: transmutation
+- name: Analyze Dweomer
+  school: divination
+- name: Animal Growth
+  school: transmutation
+- name: Animal Messenger
+  school: enchantment
+- name: Animal Shapes
+  school: transmutation
+- name: Animal Trance
+  school: enchantment
+- name: Animate Dead
+  school: necromancy
+- name: Animate Objects
+  school: transmutation
+- name: Animate Plants
+  school: transmutation
+- name: Animate Rope
+  school: transmutation
+- name: Antilife Shell
+  school: abjuration
+- name: Antimagic Field
+  school: abjuration
+- name: Antipathy
+  school: enchantment
+- name: Antiplant Shell
+  school: abjuration
+- name: Arcane Eye
+  school: divination
+- name: Arcane Lock
+  school: abjuration
+- name: Arcane Mark
+  school: universal
+- name: Arcane Sight
+  school: divination
+- name: Arcane Sight, Greater
+  school: divination
+- name: Astral Projection
+  school: necromancy
+- name: Atonement
+  school: abjuration
+- name: Augury
+  school: divination
+- name: Awaken
+  school: transmutation

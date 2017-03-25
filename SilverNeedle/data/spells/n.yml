@@ -1,0 +1,7 @@
+--- !<SilverNeedle.Spells.Spell>
+- name: Neutralize Poison
+  school: conjuration
+- name: Nightmare
+  school: illusion
+- name: Nondetection
+  school: abjuration

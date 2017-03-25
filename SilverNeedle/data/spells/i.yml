@@ -1,0 +1,57 @@
+--- !<SilverNeedle.Spells.Spell>
+- name: Ice Storm
+  school: evocation
+- name: Identify
+  school: divination
+- name: Illusory Script
+  school: illusion
+- name: Illusory Wall
+  school: illusion
+- name: Imbue with Spell Ability
+  school: evocation
+- name: Implosion
+  school: evocation
+- name: Imprisonment
+  school: abjuration
+- name: Incendiary Cloud
+  school: conjuration
+- name: Inflict Critical Wounds
+  school: necromancy
+- name: Inflict Critical Wounds, Mass
+  school: necromancy
+- name: Inflict Light Wounds
+  school: necromancy
+- name: Inflict Light Wounds, Mass
+  school: necromancy
+- name: Inflict Moderate Wounds
+  school: necromancy
+- name: Inflict Moderate Wounds, Mass
+  school: necromancy
+- name: Inflict Serious Wounds
+  school: necromancy
+- name: Inflict Serious Wounds, Mass
+  school: necromancy
+- name: Insanity
+  school: enchantment
+- name: Insect Plague
+  school: conjuration
+- name: Instant Summons
+  school: conjuration
+- name: Interposing Hand
+  school: evocation
+- name: Invisibility
+  school: illusion
+- name: Invisibility Purge
+  school: evocation
+- name: Invisibility Sphere
+  school: illusion
+- name: Invisibility, Greater
+  school: illusion
+- name: Invisibility, Mass
+  school: illusion
+- name: Iron Body
+  school: transmutation
+- name: Ironwood
+  school: transmutation
+- name: Irresistible Dance
+  school: enchantment

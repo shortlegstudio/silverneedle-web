@@ -1,0 +1,15 @@
+--- !<SilverNeedle.Spells.Spell>
+- name: Obscure Object
+  school: abjuration
+- name: Obscuring Mist
+  school: conjuration
+- name: Open/Close
+  school: transmutation
+- name: Order's Wrath
+  school: evocation
+- name: Overland Flight
+  school: transmutation
+- name: Owl's Wisdom
+  school: transmutation
+- name: Owl's Wisdom, Mass
+  school: transmutation

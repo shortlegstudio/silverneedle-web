@@ -1,0 +1,59 @@
+--- !<SilverNeedle.Spells.Spell>
+- name: Hallow
+  school: evocation
+- name: Hallucinatory Terrain
+  school: illusion
+- name: Halt Undead
+  school: necromancy
+- name: Harm
+  school: necromancy
+- name: Haste
+  school: transmutation
+- name: Heal
+  school: conjuration
+- name: Heal Mount
+  school: conjuration
+- name: Heal, Mass
+  school: conjuration
+- name: Heat Metal
+  school: transmutation
+- name: Helping Hand
+  school: evocation
+- name: Heroes' Feast
+  school: conjuration
+- name: Heroism
+  school: enchantment
+- name: Heroism, Greater
+  school: enchantment
+- name: Hide from Animals
+  school: abjuration
+- name: Hide from Undead
+  school: abjuration
+- name: Hideous Laughter
+  school: enchantment
+- name: Hold Animal
+  school: enchantment
+- name: Hold Monster
+  school: enchantment
+- name: Hold Monster, Mass
+  school: enchantment
+- name: Hold Person
+  school: enchantment
+- name: Hold Person, Mass
+  school: enchantment
+- name: Hold Portal
+  school: abjuration
+- name: Holy Aura
+  school: abjuration
+- name: Holy Smite
+  school: evocation
+- name: Holy Sword
+  school: evocation
+- name: Holy Word
+  school: evocation
+- name: Horrid Wilting
+  school: necromancy
+- name: Hypnotic Pattern
+  school: illusion
+- name: Hypnotism
+  school: enchantment

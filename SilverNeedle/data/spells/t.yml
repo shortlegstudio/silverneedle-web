@@ -1,0 +1,49 @@
+--- !<SilverNeedle.Spells.Spell>
+- name: Telekinesis
+  school: transmutation
+- name: Telekinetic Sphere
+  school: evocation
+- name: Telepathic Bond
+  school: divination
+- name: Teleport
+  school: conjuration
+- name: Teleport Object
+  school: conjuration
+- name: Teleport, Greater
+  school: conjuration
+- name: Teleportation Circle
+  school: conjuration
+- name: Temporal Stasis
+  school: transmutation
+- name: Time Stop
+  school: transmutation
+- name: Tiny Hut
+  school: evocation
+- name: Tongues
+  school: divination
+- name: Touch of Fatigue
+  school: necromancy
+- name: Touch of Idiocy
+  school: enchantment
+- name: Transformation
+  school: transmutation
+- name: Transmute Metal to Wood
+  school: transmutation
+- name: Transmute Mud to Rock
+  school: transmutation
+- name: Transmute Rock to Mud
+  school: transmutation
+- name: Transport via Plants
+  school: conjuration
+- name: Trap the Soul
+  school: conjuration
+- name: Tree Shape
+  school: transmutation
+- name: Tree Stride
+  school: conjuration
+- name: True Resurrection
+  school: conjuration
+- name: True Seeing
+  school: divination
+- name: True Strike
+  school: divination

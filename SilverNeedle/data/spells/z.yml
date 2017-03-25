@@ -1,0 +1,5 @@
+--- !<SilverNeedle.Spells.Spell>
+- name: Zone of Silence
+  school: illusion
+- name: Zone of Truth
+  school: enchantment

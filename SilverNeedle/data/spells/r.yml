@@ -1,0 +1,67 @@
+--- !<SilverNeedle.Spells.Spell>
+- name: Rage
+  school: enchantment
+- name: Rainbow Pattern
+  school: illusion
+- name: Raise Dead
+  school: conjuration
+- name: Ray of Enfeeblement
+  school: necromancy
+- name: Ray of Exhaustion
+  school: necromancy
+- name: Ray of Frost
+  school: evocation
+- name: Read Magic
+  school: divination
+- name: Reduce Animal
+  school: transmutation
+- name: Reduce Person
+  school: transmutation
+- name: Reduce Person, Mass
+  school: transmutation
+- name: Refuge
+  school: conjuration
+- name: Regenerate
+  school: conjuration
+- name: Reincarnate
+  school: transmutation
+- name: Remove Blindness/Deafness
+  school: conjuration
+- name: Remove Curse
+  school: abjuration
+- name: Remove Disease
+  school: conjuration
+- name: Remove Fear
+  school: abjuration
+- name: Remove Paralysis
+  school: conjuration
+- name: Repel Metal or Stone
+  school: abjuration
+- name: Repel Vermin
+  school: abjuration
+- name: Repel Wood
+  school: transmutation
+- name: Repulsion
+  school: abjuration
+- name: Resilient Sphere
+  school: evocation
+- name: Resist Energy
+  school: abjuration
+- name: Resistance
+  school: abjuration
+- name: Restoration
+  school: conjuration
+- name: Restoration, Greater
+  school: conjuration
+- name: Restoration, Lesser
+  school: conjuration
+- name: Resurrection
+  school: conjuration
+- name: Reverse Gravity
+  school: transmutation
+- name: Righteous Might
+  school: transmutation
+- name: Rope Trick
+  school: transmutation
+- name: Rusting Grasp
+  school: transmutation

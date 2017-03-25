@@ -1,0 +1,91 @@
+--- !<SilverNeedle.Spells.Spell>
+- name: Mage Armor
+  school: conjuration
+- name: Mage Hand
+  school: transmutation
+- name: Mage's Disjunction
+  school: abjuration
+- name: Mage's Faithful Hound
+  school: conjuration
+- name: Mage's Lucubration
+  school: transmutation
+- name: Mage's Magnificent Mansion
+  school: conjuration
+- name: Mage's Private Sanctum
+  school: abjuration
+- name: Mage's Sword
+  school: evocation
+- name: Magic Aura
+  school: illusion
+- name: Magic Circle against Chaos
+  school: abjuration
+- name: Magic Circle against Evil
+  school: abjuration
+- name: Magic Circle against Good
+  school: abjuration
+- name: Magic Circle against Law
+  school: abjuration
+- name: Magic Fang
+  school: transmutation
+- name: Magic Fang, Greater
+  school: transmutation
+- name: Magic Jar
+  school: necromancy
+- name: Magic Missile
+  school: evocation
+- name: Magic Mouth
+  school: illusion
+- name: Magic Stone
+  school: transmutation
+- name: Magic Vestment
+  school: transmutation
+- name: Magic Weapon
+  school: transmutation
+- name: Magic Weapon, Greater
+  school: transmutation
+- name: Major Creation
+  school: conjuration
+- name: Major Image
+  school: illusion
+- name: Make Whole
+  school: transmutation
+- name: Mark of Justice
+  school: necromancy
+- name: Maze
+  school: conjuration
+- name: Meld into Stone
+  school: transmutation
+- name: Mending
+  school: transmutation
+- name: Message
+  school: transmutation
+- name: Meteor Swarm
+  school: evocation
+- name: Mind Blank
+  school: abjuration
+- name: Mind Fog
+  school: enchantment
+- name: Minor Creation
+  school: conjuration
+- name: Minor Image
+  school: illusion
+- name: Miracle
+  school: evocation
+- name: Mirage Arcana
+  school: illusion
+- name: Mirror Image
+  school: illusion
+- name: Misdirection
+  school: illusion
+- name: Mislead
+  school: illusion
+- name: Mnemonic Enhancer
+  school: transmutation
+- name: Modify Memory
+  school: enchantment
+- name: Moment of Prescience
+  school: divination
+- name: Mount
+  school: conjuration
+- name: Move Earth
+  school: transmutation

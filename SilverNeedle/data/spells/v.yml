@@ -1,0 +1,11 @@
+--- !<SilverNeedle.Spells.Spell>
+- name: Vampiric touch
+  school: necromancy
+- name: Veil
+  school: illusion
+- name: Ventriloquism
+  school: illusion
+- name: Virtue
+  school: transmutation
+- name: Vision
+  school: divination

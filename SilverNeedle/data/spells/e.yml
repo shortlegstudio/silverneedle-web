@@ -1,0 +1,45 @@
+--- !<SilverNeedle.Spells.Spell>
+- name: Eagle's Splendor
+  school: transmutation
+- name: Eagle's Splendor, Mass
+  school: transmutation
+- name: Earthquake
+  school: evocation
+- name: Elemental Body I
+  school: transmutation
+- name: Elemental Body II
+  school: transmutation
+- name: Elemental Body III
+  school: transmutation
+- name: Elemental Body IV
+  school: transmutation
+- name: Elemental Swarm
+  school: conjuration
+- name: Endure Elements
+  school: abjuration
+- name: Energy Drain
+  school: necromancy
+- name: Enervation
+  school: necromancy
+- name: Enlarge Person
+  school: transmutation
+- name: Enlarge Person, Mass
+  school: transmutation
+- name: Entangle
+  school: transmutation
+- name: Enthrall
+  school: enchantment
+- name: Entropic Shield
+  school: abjuration
+- name: Erase
+  school: transmutation
+- name: Ethereal Jaunt
+  school: transmutation
+- name: Etherealness
+  school: transmutation
+- name: Expeditious Retreat
+  school: transmutation
+- name: Explosive Runes
+  school: abjuration
+- name: Eyebite
+  school: necromancy

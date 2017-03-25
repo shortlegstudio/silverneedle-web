@@ -1,0 +1,73 @@
+--- !<SilverNeedle.Spells.Spell>
+- name: Fabricate
+  school: transmutation
+- name: Faerie Fire
+  school: evocation
+- name: False Life
+  school: necromancy
+- name: False Vision
+  school: illusion
+- name: Fear
+  school: necromancy
+- name: Feather Fall
+  school: transmutation
+- name: Feeblemind
+  school: enchantment
+- name: Find Traps
+  school: divination
+- name: Find the Path
+  school: divination
+- name: Finger of Death
+  school: necromancy
+- name: Fire Seeds
+  school: conjuration
+- name: Fire Shield
+  school: evocation
+- name: Fire Storm
+  school: evocation
+- name: Fire Trap
+  school: abjuration
+- name: Fireball
+  school: evocation
+- name: Flame Arrow
+  school: transmutation
+- name: Flame Blade
+  school: evocation
+- name: Flame Strike
+  school: evocation
+- name: Flaming Sphere
+  school: evocation
+- name: Flare
+  school: evocation
+- name: Flesh to Stone
+  school: transmutation
+- name: Floating Disk
+  school: evocation
+- name: Fly
+  school: transmutation
+- name: Fog Cloud
+  school: conjuration
+- name: Forbiddance
+  school: abjuration
+- name: Forcecage
+  school: evocation
+- name: Forceful Hand
+  school: evocation
+- name: Foresight
+  school: divination
+- name: Form of the Dragon I
+  school: transmutation
+- name: Form of the Dragon II
+  school: transmutation
+- name: Form of the Dragon III
+  school: transmutation
+- name: Fox's Cunning
+  school: transmutation
+- name: Fox's Cunning, Mass
+  school: transmutation
+- name: Freedom
+  school: abjuration
+- name: Freedom of Movement
+  school: abjuration
+- name: Freezing Sphere
+  school: evocation
