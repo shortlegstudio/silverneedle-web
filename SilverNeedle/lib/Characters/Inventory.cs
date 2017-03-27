@@ -66,6 +66,14 @@ namespace SilverNeedle.Characters
             } 
         }
 
+        public IEnumerable<Spellbook> Spellbooks
+        {
+            get
+            {
+                return this.gear.Select(x => x.ReferenceObject).OfType<Spellbook>();
+            }
+        }
+
         /// <summary>
         /// Gets the equipped items.
         /// </summary>

@@ -8,13 +8,14 @@ namespace SilverNeedle.Spells
     using System.Collections.Generic;
     using SilverNeedle.Utility;
 
-    public class SpellList
+    public class SpellList : IGatewayObject
     {
-
-
-        public SpellList(IObjectStore data) 
+        public SpellList()
         {
             Levels = new Dictionary<int, string[]>();
+        }
+        public SpellList(IObjectStore data) : this()
+        {
             Class = data.GetString("class");
 
             var levelData = data.GetObject("levels");
@@ -30,5 +31,9 @@ namespace SilverNeedle.Spells
 
         public Dictionary<int, string[]> Levels { get; set; }
 
+        public bool Matches(string cls)
+        {
+            return Class.EqualsIgnoreCase(cls);
+        }
     }
 }

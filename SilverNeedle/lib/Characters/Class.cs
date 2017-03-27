@@ -5,7 +5,6 @@
 
 namespace SilverNeedle.Characters
 {
-  using System;
   using System.Collections.Generic;
   using System.Linq;
   using System.Text.RegularExpressions;
@@ -39,6 +38,7 @@ namespace SilverNeedle.Characters
             this.ArmorProficiencies = new List<string>();
             this.WeaponProficiencies = new List<string>();
             this.Levels = new List<Level>();
+            this.Spells = new SpellRules();
         }
 
         public Class(IObjectStore data) : this()
@@ -244,6 +244,10 @@ namespace SilverNeedle.Characters
 
         public class SpellRules 
         {
+            public SpellRules()
+            {
+
+            }
             public SpellRules(IObjectStore data)
             {
                 List = data.GetString("list");

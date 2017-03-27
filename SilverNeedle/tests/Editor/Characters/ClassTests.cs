@@ -183,6 +183,12 @@ namespace Tests.Characters {
         }
 
         [Test]
+        public void ClassesWithoutSpellsAreMarkedAsSuch()
+        {
+            Assert.That(Monk.HasSpells, Is.False);
+        }
+
+        [Test]
         public void ClassesCanHaveASpellList()
         {
             Assert.That(Wizard.Spells.List, Is.EqualTo("wizard"));

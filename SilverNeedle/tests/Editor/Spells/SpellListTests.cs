@@ -27,6 +27,7 @@ namespace Tests.Spells
             Assert.That(spellList.Levels.Count, Is.EqualTo(2));
             Assert.That(spellList.Levels[0], Is.EquivalentTo(new string[] {"read stuff", "do stuff"}));
             Assert.That(spellList.Levels[1], Is.EquivalentTo(new string[] {"kill", "explosion"}));
+            Assert.That(spellList.Matches("FOO"), Is.True);
         }
     }
 }

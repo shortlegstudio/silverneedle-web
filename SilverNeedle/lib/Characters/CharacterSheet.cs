@@ -201,6 +201,8 @@ namespace SilverNeedle.Characters
 
         public SpecialQualities SpecialQualities { get; private set; }
 
+        public int CasterLevel { get; set; }
+
         /// <summary>
         /// Sets this character to Level 1 in specified class
         /// </summary>

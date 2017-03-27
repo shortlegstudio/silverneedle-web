@@ -114,6 +114,15 @@ namespace Tests.Characters {
             Assert.That(names, Has.Exactly(1).EqualTo("Junk (2)")); 
         }
 
+        [Test]
+        public void CanReturnSpellbooksInInventory()
+        {
+            var inv = new Inventory();
+            var spells = new Spellbook();
+            inv.AddGear(spells);
+            Assert.That(inv.Spellbooks, Is.EquivalentTo(new Spellbook[] { spells }));
+        }
+
 		class PieceOfJunk : IGear {
 			public string Name { get { return "Junk"; } }
 			public float Weight { get { return 0.5f; } }

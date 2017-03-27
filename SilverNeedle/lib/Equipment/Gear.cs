@@ -11,11 +11,11 @@ namespace SilverNeedle.Equipment
     
     public class Gear : IGear, IGatewayObject
     {
-        public string Name { get; private set; }
-        public float Weight { get; private set; }
-        public int Value { get; private set; }
+        public string Name { get; protected set; }
+        public float Weight { get; protected set; }
+        public int Value { get; protected set; }
 
-        public bool GroupSimilar { get; private set; }
+        public bool GroupSimilar { get; protected set; }
 
         public Gear(IObjectStore data)
         {
