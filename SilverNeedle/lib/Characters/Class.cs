@@ -5,17 +5,18 @@
 
 namespace SilverNeedle.Characters
 {
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text.RegularExpressions;
-    using SilverNeedle;
-    using SilverNeedle.Dice;
-    using SilverNeedle.Utility;
+  using System;
+  using System.Collections.Generic;
+  using System.Linq;
+  using System.Text.RegularExpressions;
+  using SilverNeedle;
+  using SilverNeedle.Dice;
+  using SilverNeedle.Utility;
 
-    /// <summary>
-    /// Represents a character's Class or profession
-    /// </summary>
-    public class Class : IGatewayObject
+  /// <summary>
+  /// Represents a character's Class or profession
+  /// </summary>
+  public class Class : IGatewayObject
     {
         /// <summary>
         /// The good save rate. TODO: This should be configurable or moved
@@ -114,6 +115,10 @@ namespace SilverNeedle.Characters
 
         public string CustomBuildStep { get; set; }
 
+        public SpellRules Spells { get; set; }
+
+        public bool HasSpells { get { return Spells != null; } }
+
         /// <summary>
         /// Gets a value indicating whether this class has a good fortitude save.
         /// </summary>
@@ -198,6 +203,7 @@ namespace SilverNeedle.Characters
             ClassDevelopmentAge = data.GetEnum<ClassDevelopmentAge>("developedage");
             CustomBuildStep = data.GetStringOptional("custom-build-step");
 
+
             var armor = data.GetListOptional("armorproficiencies");
             ArmorProficiencies.Add(armor);
 
@@ -227,11 +233,27 @@ namespace SilverNeedle.Characters
             {
                 StartingWealthDice = DiceStrings.ParseDice(dice);
             }
+
+            Spells = data.GetObjectOptional("spells").SafeLoad<SpellRules>();
         }
 
         public bool Matches(string name)
         {
             return Name.EqualsIgnoreCase(name);
+        }
+
+        public class SpellRules 
+        {
+            public SpellRules(IObjectStore data)
+            {
+                List = data.GetString("list");
+                Known = data.GetEnum<SilverNeedle.Spells.SpellsKnown>("known");
+                Type = data.GetEnum<SilverNeedle.Spells.SpellType>("type");
+            }
+
+            public string List { get; set; }
+            public SilverNeedle.Spells.SpellsKnown Known { get; set; }
+            public SilverNeedle.Spells.SpellType Type { get; set; }
         }
     }
 }

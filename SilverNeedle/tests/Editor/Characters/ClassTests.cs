@@ -181,6 +181,15 @@ namespace Tests.Characters {
         {
             Assert.That(Monk.CustomBuildStep, Is.EqualTo("SilverNeedle.Namespace.ClassName"));
         }
+
+        [Test]
+        public void ClassesCanHaveASpellList()
+        {
+            Assert.That(Wizard.Spells.List, Is.EqualTo("wizard"));
+            Assert.That(Wizard.Spells.Known, Is.EqualTo(SilverNeedle.Spells.SpellsKnown.Spellbook));
+            Assert.That(Wizard.Spells.Type, Is.EqualTo(SilverNeedle.Spells.SpellType.Arcane));
+            Assert.That(Wizard.HasSpells, Is.True);
+        }
         private const string ClassYamlFile = @"--- 
 - class: 
   name: Fighter
@@ -242,6 +251,10 @@ namespace Tests.Characters {
   will: 0.667
   weaponproficiencies: club, dagger, crossbow
   developedage: Studied 
+  spells:
+    list: wizard
+    type: arcane
+    known: spellbook
   levels:
     - level: 1      
     - level: 2

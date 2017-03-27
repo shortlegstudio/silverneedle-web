@@ -7,6 +7,12 @@ namespace SilverNeedle.Utility
 {
     public static class CodeReadabilityExtensions
     {
-      
+        public static T SafeLoad<T>(this IObjectStore data)
+        {
+            if(data == null)
+                return default(T);
+
+            return Reflector.Instantiate<T>(typeof(T), data);
+        }
     }
 }

@@ -26,3 +26,7 @@
   will: 0.667
   weaponproficiencies: simple
   developedage: Trained
+  spells:
+    list: adept
+    type: divine
+    known: all
