@@ -189,6 +189,13 @@ namespace Tests.Characters {
         }
 
         [Test]
+        public void DefaultClassHasNoSpells()
+        {
+            var cls = new Class();
+            Assert.That(cls.HasSpells, Is.False);
+        }
+
+        [Test]
         public void ClassesCanHaveASpellList()
         {
             Assert.That(Wizard.Spells.List, Is.EqualTo("wizard"));

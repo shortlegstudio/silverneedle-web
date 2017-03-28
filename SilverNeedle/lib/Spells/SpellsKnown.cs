@@ -7,6 +7,7 @@ namespace SilverNeedle.Spells
 {
     public enum SpellsKnown
     {
+        None,
         All,
         Spellbook,
         Limited

@@ -28,26 +28,39 @@ namespace SilverNeedle.Actions.CharacterGenerator
             if(!character.Class.HasSpells)
                 return;
 
-            switch(character.Class.Spells.Known)
+            character.SpellCasting.SpellsKnown = character.Class.Spells.Known;
+            character.SpellCasting.CasterLevel = 1;
+            var spellList = spellLists.Find(character.Class.Spells.List);
+
+            switch(character.SpellCasting.SpellsKnown)
             {
                 case SpellsKnown.Spellbook:
-                    BuildSpellbook(character, strategy);
+                    BuildSpellbook(character, strategy, spellList);
+                    break;
+
+                case SpellsKnown.All:
+                    AddAllSpells(character, strategy, spellList);
                     break;
             }
         }
 
 
-        private void BuildSpellbook(CharacterSheet character, CharacterBuildStrategy strategy)
+        private void BuildSpellbook(CharacterSheet character, CharacterBuildStrategy strategy, SpellList spellList)
         {
-            character.CasterLevel = 1;
-            var spellList = spellLists.Find(character.Class.Spells.List);
             var spellbook = new Spellbook();
+            
             character.Inventory.AddGear(spellbook);
             //Assign All Zero Level Spells
-            spellbook.Spells.Add(0, spellList.Levels[0]);
+            spellbook.AddSpells(0, spellList.Levels[0]);
 
             // Choose three first level spells
-            spellbook.Spells.Add(1, spellList.Levels[1].Choose(3).ToArray());
+            spellbook.AddSpells(1, spellList.Levels[1].Choose(3).ToArray());
+        }
+
+        private void AddAllSpells(CharacterSheet character, CharacterBuildStrategy strategy, SpellList spellList)
+        {
+            character.SpellCasting.AddSpells(0, spellList.Levels[0]);
+            character.SpellCasting.AddSpells(1, spellList.Levels[1]);
         }
     }
 }

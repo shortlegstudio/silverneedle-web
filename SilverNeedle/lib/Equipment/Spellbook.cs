@@ -15,7 +15,16 @@ namespace SilverNeedle.Equipment
             GroupSimilar = false;
         }
 
+        public void AddSpells(int level, string[] spells)
+        {
+            this.Spells[level] = spells;
+        }
 
-        public IDictionary<int, string[]> Spells { get; set; }
+        public string[] GetSpells(int level)
+        {
+            return Spells[level];
+        }
+
+        private IDictionary<int, string[]> Spells { get; set; }
     }
 }

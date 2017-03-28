@@ -57,6 +57,8 @@ namespace SilverNeedle.Characters
             this.Ideal = new Ideal();
             this.Appearance = new CharacterAppearance();
 
+            this.SpellCasting = new SpellCasting(Inventory);
+
             this.Level = 1;
         }
 
@@ -201,7 +203,7 @@ namespace SilverNeedle.Characters
 
         public SpecialQualities SpecialQualities { get; private set; }
 
-        public int CasterLevel { get; set; }
+        public SpellCasting SpellCasting { get; private set; }
 
         /// <summary>
         /// Sets this character to Level 1 in specified class

@@ -117,7 +117,7 @@ namespace SilverNeedle.Characters
 
         public SpellRules Spells { get; set; }
 
-        public bool HasSpells { get { return Spells != null; } }
+        public bool HasSpells { get { return Spells.Known != SilverNeedle.Spells.SpellsKnown.None; } }
 
         /// <summary>
         /// Gets a value indicating whether this class has a good fortitude save.
@@ -234,7 +234,11 @@ namespace SilverNeedle.Characters
                 StartingWealthDice = DiceStrings.ParseDice(dice);
             }
 
-            Spells = data.GetObjectOptional("spells").SafeLoad<SpellRules>();
+            var spells = data.GetObjectOptional("spells").SafeLoad<SpellRules>();
+            if (spells != null)
+            {
+                this.Spells = spells;
+            }
         }
 
         public bool Matches(string name)
@@ -246,7 +250,7 @@ namespace SilverNeedle.Characters
         {
             public SpellRules()
             {
-
+                Known = SilverNeedle.Spells.SpellsKnown.None;
             }
             public SpellRules(IObjectStore data)
             {
