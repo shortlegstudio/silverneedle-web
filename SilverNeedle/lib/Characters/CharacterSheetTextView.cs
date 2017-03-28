@@ -6,6 +6,8 @@
 namespace SilverNeedle.Characters
 {
     using SilverNeedle;
+    using SilverNeedle.Spells;
+    using System.Collections.Generic;
     using System.Linq;
     
     public class CharacterSheetTextView
@@ -90,6 +92,15 @@ namespace SilverNeedle.Characters
             Weight = character.Size.Weight.ToPoundsString();
             Money = character.Inventory.CoinPurse.ToString();
             PhysicalFeatures = character.Appearance.PhysicalAppearance;
+            SpellsAvailable = new Dictionary<int, string[]>();
+
+            if(character.SpellCasting.SpellsKnown != SpellsKnown.None)
+            {
+                for(int i = 0; i < character.SpellCasting.MaxLevel; i++)
+                {
+                    SpellsAvailable[i] = character.SpellCasting.GetAvailableSpells(i);
+                }
+            }
         }
 
         public string Name { get; private set; }
@@ -169,6 +180,8 @@ namespace SilverNeedle.Characters
         public string Hair { get; private set; }
 
         public string PhysicalFeatures { get; private set; }
+
+        public Dictionary<int, string[]> SpellsAvailable { get; private set; }
 
         private string FormatSenses(CharacterSheet character)
         {

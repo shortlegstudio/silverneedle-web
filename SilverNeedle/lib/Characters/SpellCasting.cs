@@ -16,6 +16,13 @@ namespace SilverNeedle.Characters
         
         public SpellsKnown SpellsKnown { get; set; }
         public int CasterLevel { get; set; }
+        public int MaxLevel 
+        { 
+            get
+            {
+                return knownSpells.Keys.Max(); 
+            }
+        }
         public SpellCasting(Inventory inventory)
         {
             this.knownSpells = new Dictionary<int, string[]>();

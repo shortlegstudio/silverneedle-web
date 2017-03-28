@@ -93,6 +93,23 @@
         </ul>
         <p><strong>Money</strong> @character.Money</p>
     </p>
+    <p>
+        <strong>Spells</strong>
+        @foreach(var spellLevel in character.SpellsAvailable.Keys)
+        {
+            <strong>Level: @spellLevel</strong>
+            <ul class="commalist">
+                @{
+                    var spells = character.SpellsAvailable[spellLevel];
+                }
+                @foreach(var s in spells)
+                {
+                    <li>@s</li>
+                }
+                
+            </ul>
+        }
+
         </div>
         <div class="col-md-6">
             <h5>Description</h5>

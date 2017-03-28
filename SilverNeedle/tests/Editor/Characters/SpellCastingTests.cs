@@ -34,7 +34,18 @@ namespace Tests.Characters
             inventory.AddGear(spellbook);
 
             Assert.That(spellcasting.GetAvailableSpells(0), Is.EquivalentTo(new string[] { "cantrip1", "cantrip2" }));
+        }
 
+        [Test]
+        public void MaxLevelIsSetForNowByTheMaxLevelKnown()
+        {
+            var spells = new SpellCasting(new Inventory()); 
+            spells.SpellsKnown = SpellsKnown.All;
+            spells.AddSpells(0, new string[] { "foo", "bar" });
+            spells.AddSpells(1, new string[] { "foo", "bar" });
+            spells.AddSpells(2, new string[] { "foo", "bar" });
+
+            Assert.That(spells.MaxLevel, Is.EqualTo(2));
         }
     }
 }

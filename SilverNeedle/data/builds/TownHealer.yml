@@ -1,0 +1,60 @@
+--- !<SilverNeedle.Characters.CharacterBuildStrategy>
+- characterbuild:
+  name: Town Healer
+  classskillmultiplier: 5
+  baseskillweight: 1
+  charactercreator: default
+  designer: create-townsfolk
+  classes:
+    - name: adept
+      weight: 1
+  races:
+    - name: human
+      weight: 90
+    - name: half-orc
+      weight: 10
+    - name: half-elf 
+      weight: 5     
+    - name: halfling 
+      weight: 5     
+    - name: gnome 
+      weight: 5     
+  skills:
+    - name: heal
+      weight: 20
+    - name: knowledge nature
+      weight: 10
+    - name: knowledge religion
+      weight: 10
+    - name: knowledge planes
+      weight: 10
+    - name: spellcraft
+      weight: 10
+    - name: survival
+      weight: 10
+  feats:
+    - name: Animal Affinity
+      weight: 10
+    - name: Athletic
+      weight: 12
+    - name: Brew Potion
+      weight: 20
+    - name: Craft Magic Arms and Armor
+      weight: 20
+    - name: Craft Rod
+      weight: 20
+    - name: Craft Staff
+      weight: 20
+    - name: Craft Wand
+      weight: 20
+    - name: Craft Wondrous Item
+      weight: 20
+  abilities:
+    - name: wisdom
+      weight: 18
+    - name: intelligence
+      weight: 8
+    - name: constitution
+      weight: 8
+    - name: charisma
+      weight: 6
