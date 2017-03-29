@@ -11,7 +11,10 @@ namespace SilverNeedle.Characters
 
     public class SpellCasting
     {
+        public const int MAX_SPELL_LEVEL = 9;
         private IDictionary<int, string[]> knownSpells;
+        private IDictionary<int, string[]> preparedSpells;
+        private int[] spellsPerDay;
         private Inventory inventory;
         
         public SpellsKnown SpellsKnown { get; set; }
@@ -26,6 +29,8 @@ namespace SilverNeedle.Characters
         public SpellCasting(Inventory inventory)
         {
             this.knownSpells = new Dictionary<int, string[]>();
+            this.spellsPerDay = new int[MAX_SPELL_LEVEL];
+            this.preparedSpells = new Dictionary<int, string[]>();
             this.inventory = inventory;
             SpellsKnown = SpellsKnown.None;
         }
@@ -42,6 +47,28 @@ namespace SilverNeedle.Characters
         public void AddSpells(int level, string[] list)
         {
             knownSpells[level] = list;
+        }
+
+        public void SetSpellsPerDay(int level, int amount)
+        {
+            spellsPerDay[level] = amount;
+        }
+
+        public int GetSpellsPerDay(int level)
+        {
+            return spellsPerDay[level];
+        }
+
+        public void PrepareSpells(int level, string[] spells)
+        {
+            preparedSpells[level] = spells;
+        }
+
+        public string[] GetPreparedSpells(int level)
+        {
+            if(!preparedSpells.ContainsKey(level))
+                return new string[] { };
+            return preparedSpells[level];
         }
     }
 }

@@ -47,5 +47,26 @@ namespace Tests.Characters
 
             Assert.That(spells.MaxLevel, Is.EqualTo(2));
         }
+
+        [Test]
+        public void CanSpecifyTheNumberOfSpellsPerDay()
+        {
+            var spells = new SpellCasting(new Inventory());
+            spells.SetSpellsPerDay(0, 3);
+            spells.SetSpellsPerDay(1, 1);
+
+            Assert.That(spells.GetSpellsPerDay(0), Is.EqualTo(3));
+            Assert.That(spells.GetSpellsPerDay(1), Is.EqualTo(1));
+            Assert.That(spells.GetSpellsPerDay(2), Is.EqualTo(0));
+        }
+
+        [Test]
+        public void SpellsCanBePrepared()
+        {
+            var spells = new SpellCasting(new Inventory());
+            spells.AddSpells(0, new string[] { "cantrip1", "cantrip2" });
+            spells.PrepareSpells(0, new string[] { "cantrip1" });
+            Assert.That(spells.GetPreparedSpells(0), Is.EquivalentTo(new string[] {"cantrip1"}));
+        }
     }
 }

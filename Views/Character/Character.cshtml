@@ -94,7 +94,24 @@
         <p><strong>Money</strong> @character.Money</p>
     </p>
     <p>
-        <strong>Spells</strong>
+        <strong>Spells Prepared</strong>
+        @foreach(var spellLevel in character.SpellsPrepared.Keys)
+        {
+            <strong>Level: @spellLevel</strong>
+            <ul class="commalist">
+                @{
+                    var spells = character.SpellsPrepared[spellLevel];
+                }
+                @foreach(var s in spells)
+                {
+                    <li>@s</li>
+                }
+                
+            </ul>
+        }
+    </p>
+    <p>
+        <strong>Spells Available</strong>
         @foreach(var spellLevel in character.SpellsAvailable.Keys)
         {
             <strong>Level: @spellLevel</strong>
@@ -109,9 +126,9 @@
                 
             </ul>
         }
-
-        </div>
-        <div class="col-md-6">
+    </p>
+    </div>
+    <div class="col-md-6">
             <h5>Description</h5>
             <ul class="stats">
                 <li><strong>Age</strong> @character.Age</li>

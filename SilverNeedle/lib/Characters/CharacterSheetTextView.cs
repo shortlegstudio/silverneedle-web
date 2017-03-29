@@ -93,12 +93,14 @@ namespace SilverNeedle.Characters
             Money = character.Inventory.CoinPurse.ToString();
             PhysicalFeatures = character.Appearance.PhysicalAppearance;
             SpellsAvailable = new Dictionary<int, string[]>();
+            SpellsPrepared = new Dictionary<int, string[]>();
 
             if(character.SpellCasting.SpellsKnown != SpellsKnown.None)
             {
                 for(int i = 0; i < character.SpellCasting.MaxLevel; i++)
                 {
                     SpellsAvailable[i] = character.SpellCasting.GetAvailableSpells(i);
+                    SpellsPrepared[i] = character.SpellCasting.GetPreparedSpells(i);
                 }
             }
         }
@@ -182,6 +184,7 @@ namespace SilverNeedle.Characters
         public string PhysicalFeatures { get; private set; }
 
         public Dictionary<int, string[]> SpellsAvailable { get; private set; }
+        public Dictionary<int, string[]> SpellsPrepared { get; private set; }
 
         private string FormatSenses(CharacterSheet character)
         {
