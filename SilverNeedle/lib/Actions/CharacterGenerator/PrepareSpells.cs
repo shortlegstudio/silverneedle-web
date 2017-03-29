@@ -16,7 +16,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
             if(character.SpellCasting.SpellsKnown == SpellsKnown.None)
                 return;
 
-            for(int level = 0; level < character.SpellCasting.MaxLevel; level++)
+            for(int level = 0; level <= character.SpellCasting.MaxLevel; level++)
             {
                 int spellCount = character.SpellCasting.GetSpellsPerDay(level);
                 var spells = character.SpellCasting.GetAvailableSpells(level).Choose(spellCount);

@@ -97,7 +97,7 @@ namespace SilverNeedle.Characters
 
             if(character.SpellCasting.SpellsKnown != SpellsKnown.None)
             {
-                for(int i = 0; i < character.SpellCasting.MaxLevel; i++)
+                for(int i = 0; i <= character.SpellCasting.MaxLevel; i++)
                 {
                     SpellsAvailable[i] = character.SpellCasting.GetAvailableSpells(i);
                     SpellsPrepared[i] = character.SpellCasting.GetPreparedSpells(i);

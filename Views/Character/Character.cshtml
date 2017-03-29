@@ -97,34 +97,41 @@
         <strong>Spells Prepared</strong>
         @foreach(var spellLevel in character.SpellsPrepared.Keys)
         {
-            <strong>Level: @spellLevel</strong>
-            <ul class="commalist">
-                @{
-                    var spells = character.SpellsPrepared[spellLevel];
-                }
-                @foreach(var s in spells)
-                {
-                    <li>@s</li>
-                }
+            <p>
+                <strong>Level: @spellLevel</strong>
+                <p>
+                    <ul class="commalist">
+                    @{
+                        var spells = character.SpellsPrepared[spellLevel];
+                    }
+                    @foreach(var s in spells)
+                    {
+                        <li>@s</li>
+                    }
                 
-            </ul>
+                    </ul>
+                </p>
+            </p>
         }
     </p>
     <p>
         <strong>Spells Available</strong>
         @foreach(var spellLevel in character.SpellsAvailable.Keys)
         {
-            <strong>Level: @spellLevel</strong>
-            <ul class="commalist">
-                @{
-                    var spells = character.SpellsAvailable[spellLevel];
-                }
-                @foreach(var s in spells)
-                {
-                    <li>@s</li>
-                }
-                
-            </ul>
+            <p>
+                <strong>Level: @spellLevel</strong>
+                <p>
+                    <ul class="commalist">
+                    @{
+                        var spells = character.SpellsAvailable[spellLevel];
+                    }
+                    @foreach(var s in spells)
+                    {
+                        <li>@s</li>
+                    }
+                </ul>
+                </p>
+            </p>
         }
     </p>
     </div>

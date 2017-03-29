@@ -46,6 +46,7 @@ namespace SilverNeedle.Characters
 
         public void AddSpells(int level, string[] list)
         {
+            ShortLog.DebugFormat("Adding Spells[{0}]: {1}", level.ToString(), list.ToString());
             knownSpells[level] = list;
         }
 
