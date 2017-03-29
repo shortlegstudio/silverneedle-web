@@ -201,6 +201,10 @@ namespace Tests.Characters {
             Assert.That(Wizard.Spells.List, Is.EqualTo("wizard"));
             Assert.That(Wizard.Spells.Known, Is.EqualTo(SilverNeedle.Spells.SpellsKnown.Spellbook));
             Assert.That(Wizard.Spells.Type, Is.EqualTo(SilverNeedle.Spells.SpellType.Arcane));
+            Assert.That(Wizard.Spells.Ability, Is.EqualTo(AbilityScoreTypes.Intelligence));
+            Assert.That(Wizard.Spells.PerDay[1], Is.EqualTo(new int[] { 3, 1 }));
+            Assert.That(Wizard.Spells.PerDay[2], Is.EqualTo(new int[] { 3, 2 }));
+            Assert.That(Wizard.Spells.PerDay[3], Is.EqualTo(new int[] { 4, 2, 1 }));
             Assert.That(Wizard.HasSpells, Is.True);
         }
         private const string ClassYamlFile = @"--- 
@@ -268,6 +272,13 @@ namespace Tests.Characters {
     list: wizard
     type: arcane
     known: spellbook
+    ability: intelligence
+    per-day:
+      1: 3, 1
+      2: 3, 2
+      3: 4, 2, 1
+      4: 4, 3, 2
+      5: 4, 4, 2, 1
   levels:
     - level: 1      
     - level: 2

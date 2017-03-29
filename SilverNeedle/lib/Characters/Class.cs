@@ -251,17 +251,33 @@ namespace SilverNeedle.Characters
             public SpellRules()
             {
                 Known = SilverNeedle.Spells.SpellsKnown.None;
+                PerDay = new Dictionary<int, int[]>();
             }
-            public SpellRules(IObjectStore data)
+            public SpellRules(IObjectStore data) : this()
             {
                 List = data.GetString("list");
                 Known = data.GetEnum<SilverNeedle.Spells.SpellsKnown>("known");
                 Type = data.GetEnum<SilverNeedle.Spells.SpellType>("type");
+                Ability = data.GetEnum<AbilityScoreTypes>("ability");
+                var perdaySpells = data.GetObject("per-day");
+                BuildPerDayTable(perdaySpells);
+            }
+
+            private void BuildPerDayTable(IObjectStore perdaySpells)
+            {
+                foreach(var level in perdaySpells.Keys)
+                {
+                    var spells = perdaySpells.GetList(level).Select(x => int.Parse(x));
+                    PerDay[int.Parse(level)] =  spells.ToArray();
+                }
             }
 
             public string List { get; set; }
             public SilverNeedle.Spells.SpellsKnown Known { get; set; }
             public SilverNeedle.Spells.SpellType Type { get; set; }
+            
+            public AbilityScoreTypes Ability { get; set; }
+            public Dictionary<int, int[]> PerDay { get; set; }
         }
     }
 }
