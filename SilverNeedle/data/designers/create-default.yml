@@ -15,6 +15,7 @@
     - step: SilverNeedle.Actions.CharacterGenerator.Background.CharacterDrawbackSelector
     - step: SilverNeedle.Actions.CharacterGenerator.PersonalityBuilder
     - designer: class-selection
+    - designer: configure-spellcaster
     - step: SilverNeedle.Actions.CharacterGenerator.AbilityPointAssigner
     - step: SilverNeedle.Actions.CharacterGenerator.FeatSelector
     - step: SilverNeedle.Actions.CharacterGenerator.InitialHitPoints

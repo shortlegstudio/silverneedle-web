@@ -70,7 +70,7 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
         [Test]
         public void ChoosesSpellsKnownBasedOnClassRulesIfSpontaneousCaster()
         {
-            Assert.Ignore("Not written");
+            Assert.Ignore("Spontaneous Casters Not Supported");
         }
 
         [Test]
