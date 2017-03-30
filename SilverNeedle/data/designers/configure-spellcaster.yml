@@ -3,6 +3,7 @@
   name: configure-spellcaster
   type: normal
   steps: 
+    - step: SilverNeedle.Actions.CharacterGenerator.SetCastingAbilityScore
     - step: SilverNeedle.Actions.CharacterGenerator.BuildSpellList
     - step: SilverNeedle.Actions.CharacterGenerator.SetSpellsPerDay
     - step: SilverNeedle.Actions.CharacterGenerator.PrepareSpells

@@ -68,5 +68,16 @@ namespace Tests.Characters
             spells.PrepareSpells(0, new string[] { "cantrip1" });
             Assert.That(spells.GetPreparedSpells(0), Is.EquivalentTo(new string[] {"cantrip1"}));
         }
+
+        [Test]
+        public void CalculatesTheDCBasedOnSpellLevelAndAbility()
+        {
+            var spells = new SpellCasting(new Inventory());
+            var abilityScore = new AbilityScore(AbilityScoreTypes.Intelligence, 18);
+            spells.SetCastingAbility(abilityScore);
+            Assert.That(spells.GetDifficultyClass(0), Is.EqualTo(14));
+            Assert.That(spells.GetDifficultyClass(3), Is.EqualTo(17));
+            Assert.That(spells.GetDifficultyClass(9), Is.EqualTo(23));
+        }
     }
 }

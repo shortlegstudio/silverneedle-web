@@ -16,9 +16,11 @@ namespace SilverNeedle.Characters
         private IDictionary<int, string[]> preparedSpells;
         private int[] spellsPerDay;
         private Inventory inventory;
-        
         public SpellsKnown SpellsKnown { get; set; }
         public int CasterLevel { get; set; }
+        public AbilityScore CastingAbility { get; private set; }
+        private BasicStat DifficultyClass { get; set; }
+
         public int MaxLevel 
         { 
             get
@@ -32,8 +34,21 @@ namespace SilverNeedle.Characters
             this.spellsPerDay = new int[MAX_SPELL_LEVEL];
             this.preparedSpells = new Dictionary<int, string[]>();
             this.inventory = inventory;
+            this.DifficultyClass = new BasicStat(10);
             SpellsKnown = SpellsKnown.None;
         }
+
+        public void SetCastingAbility(AbilityScore ability)
+        {
+            CastingAbility = ability;
+            this.DifficultyClass.AddModifier(new AbilityStatModifier(ability));
+        }
+
+        public int GetDifficultyClass(int spellLevel)
+        {
+            return DifficultyClass.TotalValue + spellLevel;
+        }
+
         public string[] GetAvailableSpells(int level)
         {
             if(SpellsKnown == SpellsKnown.Spellbook)

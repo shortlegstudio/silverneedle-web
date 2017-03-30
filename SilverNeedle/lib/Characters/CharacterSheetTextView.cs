@@ -97,10 +97,13 @@ namespace SilverNeedle.Characters
 
             if(character.SpellCasting.SpellsKnown != SpellsKnown.None)
             {
+                IsSpellCaster = true;
+                SpellDC = new int[character.SpellCasting.MaxLevel + 1];
                 for(int i = 0; i <= character.SpellCasting.MaxLevel; i++)
                 {
                     SpellsAvailable[i] = character.SpellCasting.GetAvailableSpells(i);
                     SpellsPrepared[i] = character.SpellCasting.GetPreparedSpells(i);
+                    SpellDC[i] = character.SpellCasting.GetDifficultyClass(i);
                 }
             }
         }
@@ -185,6 +188,8 @@ namespace SilverNeedle.Characters
 
         public Dictionary<int, string[]> SpellsAvailable { get; private set; }
         public Dictionary<int, string[]> SpellsPrepared { get; private set; }
+        public int[] SpellDC { get; private set; }
+        public bool IsSpellCaster { get; private set; }
 
         private string FormatSenses(CharacterSheet character)
         {
