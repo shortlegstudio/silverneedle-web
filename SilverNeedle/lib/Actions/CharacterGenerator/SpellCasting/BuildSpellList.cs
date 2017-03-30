@@ -4,7 +4,7 @@
 // https://opensource.org/licenses/MIT
 
 
-namespace SilverNeedle.Actions.CharacterGenerator
+namespace SilverNeedle.Actions.CharacterGenerator.SpellCasting
 {
     using System.Linq;
     using SilverNeedle.Characters;

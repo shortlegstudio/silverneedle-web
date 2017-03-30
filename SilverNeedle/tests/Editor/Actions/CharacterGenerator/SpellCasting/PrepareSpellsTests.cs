@@ -3,10 +3,10 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-namespace Tests.Actions.CharacterGenerator
+namespace Tests.Actions.CharacterGenerator.SpellCasting
 {
     using NUnit.Framework;
-    using SilverNeedle.Actions.CharacterGenerator;
+    using SilverNeedle.Actions.CharacterGenerator.SpellCasting;
     using SilverNeedle.Characters;
     using SilverNeedle.Spells;
 

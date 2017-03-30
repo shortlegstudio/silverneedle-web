@@ -3,7 +3,7 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-namespace SilverNeedle.Actions.CharacterGenerator
+namespace SilverNeedle.Actions.CharacterGenerator.SpellCasting
 {
     using SilverNeedle.Characters;
 
@@ -18,7 +18,11 @@ namespace SilverNeedle.Actions.CharacterGenerator
             int[] spellsPerDay = character.Class.Spells.PerDay[casterLevel];
             for(int index = 0; index < spellsPerDay.Length; index++)
             {
-                character.SpellCasting.SetSpellsPerDay(index, spellsPerDay[index]);
+                int bonusSpells = (character.SpellCasting.CastingAbility.TotalModifier - index + 4) / 4;
+                // Yeah... except zero level spells
+                if (index == 0)
+                    bonusSpells = 0;
+                character.SpellCasting.SetSpellsPerDay(index, spellsPerDay[index] + bonusSpells);
             }
         }
     }
