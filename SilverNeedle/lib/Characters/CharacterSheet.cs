@@ -357,14 +357,14 @@ namespace SilverNeedle.Characters
         /// TODO: Better mechanism would be a call back whenever a stat modifier is sent to the character sheet
         /// </summary>
         /// <param name="modifier">Modifier that can change stats.</param>
-        private void ProcessStatModifier(IModifiesStats modifier)
+        public void ProcessStatModifier(IModifiesStats modifier)
         {
             SkillRanks.ProcessModifier(modifier);
             this.Defense.ProcessModifier(modifier);
             this.Offense.ProcessModifier(modifier);
         }
 
-        private void ProcessSpecialAbilities(IProvidesSpecialAbilities abilities)
+        public void ProcessSpecialAbilities(IProvidesSpecialAbilities abilities)
         {
             this.Defense.ProcessSpecialAbilities(abilities);
             this.Offense.ProcessSpecialAbilities(abilities);

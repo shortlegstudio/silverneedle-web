@@ -5,9 +5,11 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
+    using System;
+    using System.Collections.Generic;
     using SilverNeedle.Beastiary;
 
-    public class SummonFamiliar : LevelAbility
+    public class SummonFamiliar : LevelAbility, IModifiesStats
     {
         public SummonFamiliar(Familiar familiar) 
         {
@@ -16,5 +18,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
         }
 
         public Familiar Familiar { get; set; }
+
+        public IList<BasicStatModifier> Modifiers { get { return Familiar.Modifiers; } }
     }
 }

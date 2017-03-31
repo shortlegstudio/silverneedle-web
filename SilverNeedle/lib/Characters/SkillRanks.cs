@@ -95,6 +95,7 @@ namespace SilverNeedle.Characters
                 CharacterSkill sk;
                 if (this.skills.TryGetValue(a.StatisticName, out sk))
                 {
+                    ShortLog.DebugFormat("Modifying Skill ({0}) by {1}", a.StatisticName, a.Modifier.ToString());
                     sk.AddModifier(a);
                 }
                 else if(a.StatisticName == "Skill Points") {
