@@ -13,6 +13,15 @@ namespace SilverNeedle.Characters
     /// </summary>
     public static class ParseStatModifiersYaml
     {
+        public static void Load(this IList<BasicStatModifier> list, IObjectStore data, string source)
+        {
+            var loaded = ParseYaml(data, source);
+            foreach(var a in loaded)
+            {
+                list.Add(a);
+            } 
+        }
+
         /// <summary>
         /// Parses the yaml.
         /// </summary>

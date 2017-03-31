@@ -1,0 +1,58 @@
+--- !<SilverNeedle.Beastiary.Familiar>
+- name: Bat
+  modifiers:
+    - stat: Fly
+      type: bonus
+      modifier: 3
+- name: Cat
+  modifiers:
+    - stat: Stealth
+      type: bonus
+      modifier: 3
+- name: Hawk
+  modifiers:
+    - stat: Perception
+      type: bonus
+      modifier: 3
+      condition: bright light
+- name: Lizard
+  modifiers:
+    - stat: Climb
+      type: bonus
+      modifier: 3
+- name: Monkey
+  modifiers:
+    - stat: Acrobatics
+      type: bonus
+      modifier: 3
+- name: Owl
+  modifiers:
+    - stat: Perception
+      type: bonus
+      modifier: 3
+      condition: darkness
+- name: Rat
+  modifiers:
+    - stat: Fortitude
+      type: bonus
+      modifier: 2
+- name: Raven
+  modifiers:
+    - stat: Appraise
+      type: bonus
+      modifier: 3
+- name: Viper
+  modifiers:
+    - stat: Bluff
+      type: bonus
+      modifier: 3
+- name: Toad
+  modifiers:
+    - stat: Hit Points
+      type: bonus
+      modifier: 3
+- name: Weasel
+  modifiers:
+    - stat: Reflex
+      type: bonus
+      modifier: 2
