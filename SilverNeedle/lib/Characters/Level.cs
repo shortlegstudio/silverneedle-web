@@ -6,18 +6,26 @@
 namespace SilverNeedle.Characters
 {
     using System.Collections.Generic;
+    using SilverNeedle.Actions;
     using SilverNeedle.Utility;
 
     public class Level : IProvidesSpecialAbilities, IModifiesStats
     {
         public IList<SpecialAbility> SpecialAbilities { get; private set; }
         public IList<BasicStatModifier> Modifiers { get; private set; }
+
+        public IList<ICharacterDesignStep> Steps { get; private set; }
         public int Number { get; private set; }
 
-        public Level(IObjectStore objectStore)
+        public Level()
         {
             SpecialAbilities = new List<SpecialAbility>();
             Modifiers = new List<BasicStatModifier>();
+            Steps = new List<ICharacterDesignStep>();
+        }
+
+        public Level(IObjectStore objectStore) : this()
+        {
             Load(objectStore);
         }
 
@@ -28,10 +36,8 @@ namespace SilverNeedle.Characters
             }
         }
 
-        public Level(int number)
+        public Level(int number) : this()
         {
-            SpecialAbilities = new List<SpecialAbility>();
-            Modifiers = new List<BasicStatModifier>();
             Number = number;
         }
 
@@ -65,6 +71,16 @@ namespace SilverNeedle.Characters
                 foreach(var m in mods) 
                 {
                     Modifiers.Add(m);
+                }
+            }
+
+            var steps = objectStore.GetObjectOptional("class-feature-steps");
+            if(steps != null)
+            {
+                foreach(var step in steps.Children)
+                {
+                    var stepName = step.GetString("step");
+                    Steps.Add(stepName.Instantiate<ICharacterDesignStep>());
                 }
             }
         }

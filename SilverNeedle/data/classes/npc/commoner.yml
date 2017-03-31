@@ -17,4 +17,7 @@
   reflex: 0.334
   will: 0.334
   developedage: Young
-  custom-build-step: SilverNeedle.Actions.CharacterGenerator.CustomClassSteps.CommonerCustomSteps
+  levels:
+    - level: 1
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.CustomClassSteps.CommonerCustomSteps

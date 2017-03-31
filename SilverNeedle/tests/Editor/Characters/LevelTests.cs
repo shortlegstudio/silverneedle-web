@@ -17,11 +17,13 @@ namespace Tests.Characters
     {
         private IObjectStore fighter;
         private IObjectStore rogue;
+        private IObjectStore adept;
         [SetUp]
         public void SetUp() 
         {
             fighter = fighterLevel.ParseYaml().Children.First();
             rogue = rogueLevel.ParseYaml().Children.First();
+            adept = adeptLevel.ParseYaml().Children.First();
         }
 
         [Test]
@@ -66,6 +68,15 @@ namespace Tests.Characters
             Assert.AreEqual("", talent.Condition);
             Assert.AreEqual("Rogue Talent", talent.Type);
         }
+
+        [Test]
+        public void CanLoadCustomFeatureSteps()
+        {
+            var level = new Level(adept);
+            Assert.AreEqual(1, level.Steps.Count);
+            Assert.That(level.Steps[0], 
+                Is.TypeOf(typeof(SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSummonFamiliar)));
+        }
         const string fighterLevel = @"---
 - level: 2
   special:
@@ -89,5 +100,12 @@ namespace Tests.Characters
       condition:
       level: 1
 ";
+
+        const string adeptLevel = @"---
+- level: 2
+  class-feature-steps:
+    - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSummonFamiliar
+";
+
     }
 }
