@@ -106,6 +106,8 @@ namespace SilverNeedle.Characters
                     SpellDC[i] = character.SpellCasting.GetDifficultyClass(i);
                 }
             }
+
+            SpecialAbilities = character.SpecialQualities.SpecialAbilities.Select(x => x.Name).ToArray();
         }
 
         public string Name { get; private set; }
@@ -190,6 +192,8 @@ namespace SilverNeedle.Characters
         public Dictionary<int, string[]> SpellsPrepared { get; private set; }
         public int[] SpellDC { get; private set; }
         public bool IsSpellCaster { get; private set; }
+
+        public string[] SpecialAbilities { get; private set; }
 
         private string FormatSenses(CharacterSheet character)
         {

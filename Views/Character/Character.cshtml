@@ -81,6 +81,15 @@
                     </tbody>
                 </table>
             }
+            @if(character.SpecialAbilities.Length > 0)
+            {
+                <h5>Special Abilities</h5>
+                <ul class="commalist">
+                    @foreach(var a in character.SpecialAbilities)
+                    { <li>@a</li> }
+                </ul>
+            }
+
             <h5>STATISTICS</h5>
             <p>
                 <strong>Str</strong> @character.Strength (@character.StrengthModifier)
