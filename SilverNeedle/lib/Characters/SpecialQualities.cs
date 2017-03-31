@@ -36,17 +36,16 @@ namespace SilverNeedle.Characters
             }
         }
 
+        public void Add(SpecialAbility ability)
+        {
+            specialAbilities.Add(ability);
+        }
+
         public void ProcessSpecialAbilities(IProvidesSpecialAbilities abilities)
         {
             foreach (var abl in abilities.SpecialAbilities)
             {
-                switch (abl.Type)
-                {
-                    case SpecialAbilityName:
-                    case SightAbilityName:
-                        specialAbilities.Add(abl);
-                        break;
-                }
+                Add(abl);
             }
         }
     }

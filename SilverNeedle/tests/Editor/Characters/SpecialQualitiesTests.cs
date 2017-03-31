@@ -31,6 +31,15 @@ namespace Tests.Characters
             Assert.AreEqual(sq.SightAbilities.First(), abl.SpecialAbilities.Last());
         }
 
+        [Test]
+        public void CanAddSpecialAbilities()
+        {
+            var sq = new SpecialQualities();
+            var ability = new SpecialAbility();
+            sq.Add(ability);
+            Assert.That(sq.SpecialAbilities.First(), Is.EqualTo(ability));
+        }
+
         private class SomeSpecialAbilities : IProvidesSpecialAbilities
         {
             public System.Collections.Generic.IList<SpecialAbility> SpecialAbilities { get; set; }

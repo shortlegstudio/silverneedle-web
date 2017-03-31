@@ -26,6 +26,10 @@
   will: 0.667
   weaponproficiencies: simple
   developedage: Trained
+  levels:
+    - level: 2
+      class-feature-steps: 
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSummonFamiliar
   spells:
     list: adept
     type: divine

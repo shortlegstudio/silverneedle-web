@@ -15,9 +15,18 @@ namespace SilverNeedle.Beastiary
 
         public IList<BasicStatModifier> Modifiers { get; private set; }
 
-        public Familiar(IObjectStore data)
+        public Familiar()
         {
             Modifiers = new List<BasicStatModifier>();
+        }
+
+        public Familiar(string name) : this()
+        {
+            this.Name = name;
+        }
+
+        public Familiar(IObjectStore data) : this()
+        {
             Name = data.GetString("name");
             Modifiers.Load(data.GetObjectOptional("modifiers"), "Familiar");
         } 

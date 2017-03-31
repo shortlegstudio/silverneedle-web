@@ -23,10 +23,5 @@ namespace SilverNeedle.Characters
         {
 
         }
-
-        public static LevelAbility InstatiateFromType(string typeName, IObjectStore data)
-        {
-            return Activator.CreateInstance(System.Type.GetType(typeName), data) as LevelAbility;
-        }
     }
 }

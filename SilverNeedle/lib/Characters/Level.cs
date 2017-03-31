@@ -46,9 +46,7 @@ namespace SilverNeedle.Characters
                     LevelAbility ability;
                     // If a special implementation is available
                     if (s.HasKey("implementation")) {
-                        ability = LevelAbility.InstatiateFromType(
-                            s.GetString("implementation"),
-                        s);                           
+                        ability = s.GetString("implementation").Instantiate<LevelAbility>(s);
                     } else {
                         ability = new LevelAbility(
                         s.GetString("name"),
