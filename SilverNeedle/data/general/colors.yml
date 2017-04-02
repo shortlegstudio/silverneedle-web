@@ -1,0 +1,6028 @@
+--- !<SilverNeedle.Color>
+-
+  id: alice_blue
+  name: 'Alice Blue'
+  hex: '#f0f8ff'
+  red: 240
+  green: 248
+  blue: 255
+-
+  id: alizarin_crimson
+  name: 'Alizarin Crimson'
+  hex: '#e32636'
+  red: 227
+  green: 38
+  blue: 54
+-
+  id: alloy_orange
+  name: 'Alloy Orange'
+  hex: '#c46210'
+  red: 196
+  green: 98
+  blue: 16
+-
+  id: almond
+  name: Almond
+  hex: '#efdecd'
+  red: 239
+  green: 222
+  blue: 205
+-
+  id: amaranth
+  name: Amaranth
+  hex: '#e52b50'
+  red: 229
+  green: 43
+  blue: 80
+-
+  id: amber
+  name: Amber
+  hex: '#ffbf00'
+  red: 255
+  green: 191
+  blue: 0
+-
+  id: amber_sae_ece
+  name: 'Amber (Sae/Ece)'
+  hex: '#ff7e00'
+  red: 255
+  green: 126
+  blue: 0
+-
+  id: american_rose
+  name: 'American Rose'
+  hex: '#ff033e'
+  red: 255
+  green: 3
+  blue: 62
+-
+  id: amethyst
+  name: Amethyst
+  hex: '#96c'
+  red: 153
+  green: 102
+  blue: 204
+-
+  id: android_green
+  name: 'Android Green'
+  hex: '#a4c639'
+  red: 164
+  green: 198
+  blue: 57
+-
+  id: anti_flash_white
+  name: 'Anti-Flash White'
+  hex: '#f2f3f4'
+  red: 242
+  green: 243
+  blue: 244
+-
+  id: antique_brass
+  name: 'Antique Brass'
+  hex: '#cd9575'
+  red: 205
+  green: 149
+  blue: 117
+-
+  id: antique_fuchsia
+  name: 'Antique Fuchsia'
+  hex: '#915c83'
+  red: 145
+  green: 92
+  blue: 131
+-
+  id: antique_ruby
+  name: 'Antique Ruby'
+  hex: '#841b2d'
+  red: 132
+  green: 27
+  blue: 45
+-
+  id: antique_white
+  name: 'Antique White'
+  hex: '#faebd7'
+  red: 250
+  green: 235
+  blue: 215
+-
+  id: ao_english
+  name: 'Ao (English)'
+  hex: '#008000'
+  red: 0
+  green: 128
+  blue: 0
+-
+  id: apple_green
+  name: 'Apple Green'
+  hex: '#8db600'
+  red: 141
+  green: 182
+  blue: 0
+-
+  id: apricot
+  name: Apricot
+  hex: '#fbceb1'
+  red: 251
+  green: 206
+  blue: 177
+-
+  id: aqua
+  name: Aqua
+  hex: '#0ff'
+  red: 0
+  green: 255
+  blue: 255
+-
+  id: aquamarine
+  name: Aquamarine
+  hex: '#7fffd4'
+  red: 127
+  green: 255
+  blue: 212
+-
+  id: army_green
+  name: 'Army Green'
+  hex: '#4b5320'
+  red: 75
+  green: 83
+  blue: 32
+-
+  id: arsenic
+  name: Arsenic
+  hex: '#3b444b'
+  red: 59
+  green: 68
+  blue: 75
+-
+  id: arylide_yellow
+  name: 'Arylide Yellow'
+  hex: '#e9d66b'
+  red: 233
+  green: 214
+  blue: 107
+-
+  id: ash_grey
+  name: 'Ash Grey'
+  hex: '#b2beb5'
+  red: 178
+  green: 190
+  blue: 181
+-
+  id: asparagus
+  name: Asparagus
+  hex: '#87a96b'
+  red: 135
+  green: 169
+  blue: 107
+-
+  id: atomic_tangerine
+  name: 'Atomic Tangerine'
+  hex: '#f96'
+  red: 255
+  green: 153
+  blue: 102
+-
+  id: auburn
+  name: Auburn
+  hex: '#a52a2a'
+  red: 165
+  green: 42
+  blue: 42
+-
+  id: aureolin
+  name: Aureolin
+  hex: '#fdee00'
+  red: 253
+  green: 238
+  blue: 0
+-
+  id: aurometalsaurus
+  name: Aurometalsaurus
+  hex: '#6e7f80'
+  red: 110
+  green: 127
+  blue: 128
+-
+  id: avocado
+  name: Avocado
+  hex: '#568203'
+  red: 86
+  green: 130
+  blue: 3
+-
+  id: azure
+  name: Azure
+  hex: '#007fff'
+  red: 0
+  green: 127
+  blue: 255
+-
+  id: azure_mist_web
+  name: 'Azure Mist/Web'
+  hex: '#f0ffff'
+  red: 240
+  green: 255
+  blue: 255
+-
+  id: baby_blue
+  name: 'Baby Blue'
+  hex: '#89cff0'
+  red: 137
+  green: 207
+  blue: 240
+-
+  id: baby_blue_eyes
+  name: 'Baby Blue Eyes'
+  hex: '#a1caf1'
+  red: 161
+  green: 202
+  blue: 241
+-
+  id: baby_pink
+  name: 'Baby Pink'
+  hex: '#f4c2c2'
+  red: 244
+  green: 194
+  blue: 194
+-
+  id: ball_blue
+  name: 'Ball Blue'
+  hex: '#21abcd'
+  red: 33
+  green: 171
+  blue: 205
+-
+  id: banana_mania
+  name: 'Banana Mania'
+  hex: '#fae7b5'
+  red: 250
+  green: 231
+  blue: 181
+-
+  id: banana_yellow
+  name: 'Banana Yellow'
+  hex: '#ffe135'
+  red: 255
+  green: 225
+  blue: 53
+-
+  id: barn_red
+  name: 'Barn Red'
+  hex: '#7c0a02'
+  red: 124
+  green: 10
+  blue: 2
+-
+  id: battleship_grey
+  name: 'Battleship Grey'
+  hex: '#848482'
+  red: 132
+  green: 132
+  blue: 130
+-
+  id: bazaar
+  name: Bazaar
+  hex: '#98777b'
+  red: 152
+  green: 119
+  blue: 123
+-
+  id: beau_blue
+  name: 'Beau Blue'
+  hex: '#bcd4e6'
+  red: 188
+  green: 212
+  blue: 230
+-
+  id: beaver
+  name: Beaver
+  hex: '#9f8170'
+  red: 159
+  green: 129
+  blue: 112
+-
+  id: beige
+  name: Beige
+  hex: '#f5f5dc'
+  red: 245
+  green: 245
+  blue: 220
+-
+  id: big_dip_o_ruby
+  name: 'Big Dip O’Ruby'
+  hex: '#9c2542'
+  red: 156
+  green: 37
+  blue: 66
+-
+  id: bisque
+  name: Bisque
+  hex: '#ffe4c4'
+  red: 255
+  green: 228
+  blue: 196
+-
+  id: bistre
+  name: Bistre
+  hex: '#3d2b1f'
+  red: 61
+  green: 43
+  blue: 31
+-
+  id: bittersweet
+  name: Bittersweet
+  hex: '#fe6f5e'
+  red: 254
+  green: 111
+  blue: 94
+-
+  id: bittersweet_shimmer
+  name: 'Bittersweet Shimmer'
+  hex: '#bf4f51'
+  red: 191
+  green: 79
+  blue: 81
+-
+  id: black
+  name: Black
+  hex: '#000'
+  red: 0
+  green: 0
+  blue: 0
+-
+  id: black_bean
+  name: 'Black Bean'
+  hex: '#3d0c02'
+  red: 61
+  green: 12
+  blue: 2
+-
+  id: black_leather_jacket
+  name: 'Black Leather Jacket'
+  hex: '#253529'
+  red: 37
+  green: 53
+  blue: 41
+-
+  id: black_olive
+  name: 'Black Olive'
+  hex: '#3b3c36'
+  red: 59
+  green: 60
+  blue: 54
+-
+  id: blanched_almond
+  name: 'Blanched Almond'
+  hex: '#ffebcd'
+  red: 255
+  green: 235
+  blue: 205
+-
+  id: blast_off_bronze
+  name: 'Blast-Off Bronze'
+  hex: '#a57164'
+  red: 165
+  green: 113
+  blue: 100
+-
+  id: bleu_de_france
+  name: 'Bleu De France'
+  hex: '#318ce7'
+  red: 49
+  green: 140
+  blue: 231
+-
+  id: blizzard_blue
+  name: 'Blizzard Blue'
+  hex: '#ace5ee'
+  red: 172
+  green: 229
+  blue: 238
+-
+  id: blond
+  name: Blond
+  hex: '#faf0be'
+  red: 250
+  green: 240
+  blue: 190
+-
+  id: blue
+  name: Blue
+  hex: '#00f'
+  red: 0
+  green: 0
+  blue: 255
+-
+  id: blue_bell
+  name: 'Blue Bell'
+  hex: '#a2a2d0'
+  red: 162
+  green: 162
+  blue: 208
+-
+  id: blue_crayola
+  name: 'Blue (Crayola)'
+  hex: '#1f75fe'
+  red: 31
+  green: 117
+  blue: 254
+-
+  id: blue_gray
+  name: 'Blue Gray'
+  hex: '#69c'
+  red: 102
+  green: 153
+  blue: 204
+-
+  id: blue_green
+  name: Blue-Green
+  hex: '#0d98ba'
+  red: 13
+  green: 152
+  blue: 186
+-
+  id: blue_munsell
+  name: 'Blue (Munsell)'
+  hex: '#0093af'
+  red: 0
+  green: 147
+  blue: 175
+-
+  id: blue_ncs
+  name: 'Blue (Ncs)'
+  hex: '#0087bd'
+  red: 0
+  green: 135
+  blue: 189
+-
+  id: blue_pigment
+  name: 'Blue (Pigment)'
+  hex: '#339'
+  red: 51
+  green: 51
+  blue: 153
+-
+  id: blue_ryb
+  name: 'Blue (Ryb)'
+  hex: '#0247fe'
+  red: 2
+  green: 71
+  blue: 254
+-
+  id: blue_sapphire
+  name: 'Blue Sapphire'
+  hex: '#126180'
+  red: 18
+  green: 97
+  blue: 128
+-
+  id: blue_violet
+  name: Blue-Violet
+  hex: '#8a2be2'
+  red: 138
+  green: 43
+  blue: 226
+-
+  id: blush
+  name: Blush
+  hex: '#de5d83'
+  red: 222
+  green: 93
+  blue: 131
+-
+  id: bole
+  name: Bole
+  hex: '#79443b'
+  red: 121
+  green: 68
+  blue: 59
+-
+  id: bondi_blue
+  name: 'Bondi Blue'
+  hex: '#0095b6'
+  red: 0
+  green: 149
+  blue: 182
+-
+  id: bone
+  name: Bone
+  hex: '#e3dac9'
+  red: 227
+  green: 218
+  blue: 201
+-
+  id: boston_university_red
+  name: 'Boston University Red'
+  hex: '#c00'
+  red: 204
+  green: 0
+  blue: 0
+-
+  id: bottle_green
+  name: 'Bottle Green'
+  hex: '#006a4e'
+  red: 0
+  green: 106
+  blue: 78
+-
+  id: boysenberry
+  name: Boysenberry
+  hex: '#873260'
+  red: 135
+  green: 50
+  blue: 96
+-
+  id: brandeis_blue
+  name: 'Brandeis Blue'
+  hex: '#0070ff'
+  red: 0
+  green: 112
+  blue: 255
+-
+  id: brass
+  name: Brass
+  hex: '#b5a642'
+  red: 181
+  green: 166
+  blue: 66
+-
+  id: brick_red
+  name: 'Brick Red'
+  hex: '#cb4154'
+  red: 203
+  green: 65
+  blue: 84
+-
+  id: bright_cerulean
+  name: 'Bright Cerulean'
+  hex: '#1dacd6'
+  red: 29
+  green: 172
+  blue: 214
+-
+  id: bright_green
+  name: 'Bright Green'
+  hex: '#6f0'
+  red: 102
+  green: 255
+  blue: 0
+-
+  id: bright_lavender
+  name: 'Bright Lavender'
+  hex: '#bf94e4'
+  red: 191
+  green: 148
+  blue: 228
+-
+  id: bright_maroon
+  name: 'Bright Maroon'
+  hex: '#c32148'
+  red: 195
+  green: 33
+  blue: 72
+-
+  id: bright_pink
+  name: 'Bright Pink'
+  hex: '#ff007f'
+  red: 255
+  green: 0
+  blue: 127
+-
+  id: bright_turquoise
+  name: 'Bright Turquoise'
+  hex: '#08e8de'
+  red: 8
+  green: 232
+  blue: 222
+-
+  id: bright_ube
+  name: 'Bright Ube'
+  hex: '#d19fe8'
+  red: 209
+  green: 159
+  blue: 232
+-
+  id: brilliant_lavender
+  name: 'Brilliant Lavender'
+  hex: '#f4bbff'
+  red: 244
+  green: 187
+  blue: 255
+-
+  id: brilliant_rose
+  name: 'Brilliant Rose'
+  hex: '#ff55a3'
+  red: 255
+  green: 85
+  blue: 163
+-
+  id: brink_pink
+  name: 'Brink Pink'
+  hex: '#fb607f'
+  red: 251
+  green: 96
+  blue: 127
+-
+  id: british_racing_green
+  name: 'British Racing Green'
+  hex: '#004225'
+  red: 0
+  green: 66
+  blue: 37
+-
+  id: bronze
+  name: Bronze
+  hex: '#cd7f32'
+  red: 205
+  green: 127
+  blue: 50
+-
+  id: brown_traditional
+  name: 'Brown (Traditional)'
+  hex: '#964b00'
+  red: 150
+  green: 75
+  blue: 0
+-
+  id: brown_web
+  name: 'Brown (Web)'
+  hex: '#a52a2a'
+  red: 165
+  green: 42
+  blue: 42
+-
+  id: bubble_gum
+  name: 'Bubble Gum'
+  hex: '#ffc1cc'
+  red: 255
+  green: 193
+  blue: 204
+-
+  id: bubbles
+  name: Bubbles
+  hex: '#e7feff'
+  red: 231
+  green: 254
+  blue: 255
+-
+  id: buff
+  name: Buff
+  hex: '#f0dc82'
+  red: 240
+  green: 220
+  blue: 130
+-
+  id: bulgarian_rose
+  name: 'Bulgarian Rose'
+  hex: '#480607'
+  red: 72
+  green: 6
+  blue: 7
+-
+  id: burgundy
+  name: Burgundy
+  hex: '#800020'
+  red: 128
+  green: 0
+  blue: 32
+-
+  id: burlywood
+  name: Burlywood
+  hex: '#deb887'
+  red: 222
+  green: 184
+  blue: 135
+-
+  id: burnt_orange
+  name: 'Burnt Orange'
+  hex: '#c50'
+  red: 204
+  green: 85
+  blue: 0
+-
+  id: burnt_sienna
+  name: 'Burnt Sienna'
+  hex: '#e97451'
+  red: 233
+  green: 116
+  blue: 81
+-
+  id: burnt_umber
+  name: 'Burnt Umber'
+  hex: '#8a3324'
+  red: 138
+  green: 51
+  blue: 36
+-
+  id: byzantine
+  name: Byzantine
+  hex: '#bd33a4'
+  red: 189
+  green: 51
+  blue: 164
+-
+  id: byzantium
+  name: Byzantium
+  hex: '#702963'
+  red: 112
+  green: 41
+  blue: 99
+-
+  id: cadet
+  name: Cadet
+  hex: '#536872'
+  red: 83
+  green: 104
+  blue: 114
+-
+  id: cadet_blue
+  name: 'Cadet Blue'
+  hex: '#5f9ea0'
+  red: 95
+  green: 158
+  blue: 160
+-
+  id: cadet_grey
+  name: 'Cadet Grey'
+  hex: '#91a3b0'
+  red: 145
+  green: 163
+  blue: 176
+-
+  id: cadmium_green
+  name: 'Cadmium Green'
+  hex: '#006b3c'
+  red: 0
+  green: 107
+  blue: 60
+-
+  id: cadmium_orange
+  name: 'Cadmium Orange'
+  hex: '#ed872d'
+  red: 237
+  green: 135
+  blue: 45
+-
+  id: cadmium_red
+  name: 'Cadmium Red'
+  hex: '#e30022'
+  red: 227
+  green: 0
+  blue: 34
+-
+  id: cadmium_yellow
+  name: 'Cadmium Yellow'
+  hex: '#fff600'
+  red: 255
+  green: 246
+  blue: 0
+-
+  id: caf_au_lait
+  name: 'Café Au Lait'
+  hex: '#a67b5b'
+  red: 166
+  green: 123
+  blue: 91
+-
+  id: caf_noir
+  name: 'Café Noir'
+  hex: '#4b3621'
+  red: 75
+  green: 54
+  blue: 33
+-
+  id: cal_poly_green
+  name: 'Cal Poly Green'
+  hex: '#1e4d2b'
+  red: 30
+  green: 77
+  blue: 43
+-
+  id: cambridge_blue
+  name: 'Cambridge Blue'
+  hex: '#a3c1ad'
+  red: 163
+  green: 193
+  blue: 173
+-
+  id: camel
+  name: Camel
+  hex: '#c19a6b'
+  red: 193
+  green: 154
+  blue: 107
+-
+  id: cameo_pink
+  name: 'Cameo Pink'
+  hex: '#efbbcc'
+  red: 239
+  green: 187
+  blue: 204
+-
+  id: camouflage_green
+  name: 'Camouflage Green'
+  hex: '#78866b'
+  red: 120
+  green: 134
+  blue: 107
+-
+  id: canary_yellow
+  name: 'Canary Yellow'
+  hex: '#ffef00'
+  red: 255
+  green: 239
+  blue: 0
+-
+  id: candy_apple_red
+  name: 'Candy Apple Red'
+  hex: '#ff0800'
+  red: 255
+  green: 8
+  blue: 0
+-
+  id: candy_pink
+  name: 'Candy Pink'
+  hex: '#e4717a'
+  red: 228
+  green: 113
+  blue: 122
+-
+  id: capri
+  name: Capri
+  hex: '#00bfff'
+  red: 0
+  green: 191
+  blue: 255
+-
+  id: caput_mortuum
+  name: 'Caput Mortuum'
+  hex: '#592720'
+  red: 89
+  green: 39
+  blue: 32
+-
+  id: cardinal
+  name: Cardinal
+  hex: '#c41e3a'
+  red: 196
+  green: 30
+  blue: 58
+-
+  id: caribbean_green
+  name: 'Caribbean Green'
+  hex: '#0c9'
+  red: 0
+  green: 204
+  blue: 153
+-
+  id: carmine
+  name: Carmine
+  hex: '#960018'
+  red: 150
+  green: 0
+  blue: 24
+-
+  id: carmine_m_p
+  name: 'Carmine (M&P)'
+  hex: '#d70040'
+  red: 215
+  green: 0
+  blue: 64
+-
+  id: carmine_pink
+  name: 'Carmine Pink'
+  hex: '#eb4c42'
+  red: 235
+  green: 76
+  blue: 66
+-
+  id: carmine_red
+  name: 'Carmine Red'
+  hex: '#ff0038'
+  red: 255
+  green: 0
+  blue: 56
+-
+  id: carnation_pink
+  name: 'Carnation Pink'
+  hex: '#ffa6c9'
+  red: 255
+  green: 166
+  blue: 201
+-
+  id: carnelian
+  name: Carnelian
+  hex: '#b31b1b'
+  red: 179
+  green: 27
+  blue: 27
+-
+  id: carolina_blue
+  name: 'Carolina Blue'
+  hex: '#99badd'
+  red: 153
+  green: 186
+  blue: 221
+-
+  id: carrot_orange
+  name: 'Carrot Orange'
+  hex: '#ed9121'
+  red: 237
+  green: 145
+  blue: 33
+-
+  id: catalina_blue
+  name: 'Catalina Blue'
+  hex: '#062a78'
+  red: 6
+  green: 42
+  blue: 120
+-
+  id: ceil
+  name: Ceil
+  hex: '#92a1cf'
+  red: 146
+  green: 161
+  blue: 207
+-
+  id: celadon
+  name: Celadon
+  hex: '#ace1af'
+  red: 172
+  green: 225
+  blue: 175
+-
+  id: celadon_blue
+  name: 'Celadon Blue'
+  hex: '#007ba7'
+  red: 0
+  green: 123
+  blue: 167
+-
+  id: celadon_green
+  name: 'Celadon Green'
+  hex: '#2f847c'
+  red: 47
+  green: 132
+  blue: 124
+-
+  id: celeste_colour
+  name: 'Celeste (Colour)'
+  hex: '#b2ffff'
+  red: 178
+  green: 255
+  blue: 255
+-
+  id: celestial_blue
+  name: 'Celestial Blue'
+  hex: '#4997d0'
+  red: 73
+  green: 151
+  blue: 208
+-
+  id: cerise
+  name: Cerise
+  hex: '#de3163'
+  red: 222
+  green: 49
+  blue: 99
+-
+  id: cerise_pink
+  name: 'Cerise Pink'
+  hex: '#ec3b83'
+  red: 236
+  green: 59
+  blue: 131
+-
+  id: cerulean
+  name: Cerulean
+  hex: '#007ba7'
+  red: 0
+  green: 123
+  blue: 167
+-
+  id: cerulean_blue
+  name: 'Cerulean Blue'
+  hex: '#2a52be'
+  red: 42
+  green: 82
+  blue: 190
+-
+  id: cerulean_frost
+  name: 'Cerulean Frost'
+  hex: '#6d9bc3'
+  red: 109
+  green: 155
+  blue: 195
+-
+  id: cg_blue
+  name: 'Cg Blue'
+  hex: '#007aa5'
+  red: 0
+  green: 122
+  blue: 165
+-
+  id: cg_red
+  name: 'Cg Red'
+  hex: '#e03c31'
+  red: 224
+  green: 60
+  blue: 49
+-
+  id: chamoisee
+  name: Chamoisee
+  hex: '#a0785a'
+  red: 160
+  green: 120
+  blue: 90
+-
+  id: champagne
+  name: Champagne
+  hex: '#fad6a5'
+  red: 250
+  green: 214
+  blue: 165
+-
+  id: charcoal
+  name: Charcoal
+  hex: '#36454f'
+  red: 54
+  green: 69
+  blue: 79
+-
+  id: charm_pink
+  name: 'Charm Pink'
+  hex: '#e68fac'
+  red: 230
+  green: 143
+  blue: 172
+-
+  id: chartreuse_traditional
+  name: 'Chartreuse (Traditional)'
+  hex: '#dfff00'
+  red: 223
+  green: 255
+  blue: 0
+-
+  id: chartreuse_web
+  name: 'Chartreuse (Web)'
+  hex: '#7fff00'
+  red: 127
+  green: 255
+  blue: 0
+-
+  id: cherry
+  name: Cherry
+  hex: '#de3163'
+  red: 222
+  green: 49
+  blue: 99
+-
+  id: cherry_blossom_pink
+  name: 'Cherry Blossom Pink'
+  hex: '#ffb7c5'
+  red: 255
+  green: 183
+  blue: 197
+-
+  id: chestnut
+  name: Chestnut
+  hex: '#cd5c5c'
+  red: 205
+  green: 92
+  blue: 92
+-
+  id: china_pink
+  name: 'China Pink'
+  hex: '#de6fa1'
+  red: 222
+  green: 111
+  blue: 161
+-
+  id: china_rose
+  name: 'China Rose'
+  hex: '#a8516e'
+  red: 168
+  green: 81
+  blue: 110
+-
+  id: chinese_red
+  name: 'Chinese Red'
+  hex: '#aa381e'
+  red: 170
+  green: 56
+  blue: 30
+-
+  id: chocolate_traditional
+  name: 'Chocolate (Traditional)'
+  hex: '#7b3f00'
+  red: 123
+  green: 63
+  blue: 0
+-
+  id: chocolate_web
+  name: 'Chocolate (Web)'
+  hex: '#d2691e'
+  red: 210
+  green: 105
+  blue: 30
+-
+  id: chrome_yellow
+  name: 'Chrome Yellow'
+  hex: '#ffa700'
+  red: 255
+  green: 167
+  blue: 0
+-
+  id: cinereous
+  name: Cinereous
+  hex: '#98817b'
+  red: 152
+  green: 129
+  blue: 123
+-
+  id: cinnabar
+  name: Cinnabar
+  hex: '#e34234'
+  red: 227
+  green: 66
+  blue: 52
+-
+  id: cinnamon
+  name: Cinnamon
+  hex: '#d2691e'
+  red: 210
+  green: 105
+  blue: 30
+-
+  id: citrine
+  name: Citrine
+  hex: '#e4d00a'
+  red: 228
+  green: 208
+  blue: 10
+-
+  id: classic_rose
+  name: 'Classic Rose'
+  hex: '#fbcce7'
+  red: 251
+  green: 204
+  blue: 231
+-
+  id: cobalt
+  name: Cobalt
+  hex: '#0047ab'
+  red: 0
+  green: 71
+  blue: 171
+-
+  id: cocoa_brown
+  name: 'Cocoa Brown'
+  hex: '#d2691e'
+  red: 210
+  green: 105
+  blue: 30
+-
+  id: coffee
+  name: Coffee
+  hex: '#6f4e37'
+  red: 111
+  green: 78
+  blue: 55
+-
+  id: columbia_blue
+  name: 'Columbia Blue'
+  hex: '#9bddff'
+  red: 155
+  green: 221
+  blue: 255
+-
+  id: congo_pink
+  name: 'Congo Pink'
+  hex: '#f88379'
+  red: 248
+  green: 131
+  blue: 121
+-
+  id: cool_black
+  name: 'Cool Black'
+  hex: '#002e63'
+  red: 0
+  green: 46
+  blue: 99
+-
+  id: cool_grey
+  name: 'Cool Grey'
+  hex: '#8c92ac'
+  red: 140
+  green: 146
+  blue: 172
+-
+  id: copper
+  name: Copper
+  hex: '#b87333'
+  red: 184
+  green: 115
+  blue: 51
+-
+  id: copper_crayola
+  name: 'Copper (Crayola)'
+  hex: '#da8a67'
+  red: 218
+  green: 138
+  blue: 103
+-
+  id: copper_penny
+  name: 'Copper Penny'
+  hex: '#ad6f69'
+  red: 173
+  green: 111
+  blue: 105
+-
+  id: copper_red
+  name: 'Copper Red'
+  hex: '#cb6d51'
+  red: 203
+  green: 109
+  blue: 81
+-
+  id: copper_rose
+  name: 'Copper Rose'
+  hex: '#966'
+  red: 153
+  green: 102
+  blue: 102
+-
+  id: coquelicot
+  name: Coquelicot
+  hex: '#ff3800'
+  red: 255
+  green: 56
+  blue: 0
+-
+  id: coral
+  name: Coral
+  hex: '#ff7f50'
+  red: 255
+  green: 127
+  blue: 80
+-
+  id: coral_pink
+  name: 'Coral Pink'
+  hex: '#f88379'
+  red: 248
+  green: 131
+  blue: 121
+-
+  id: coral_red
+  name: 'Coral Red'
+  hex: '#ff4040'
+  red: 255
+  green: 64
+  blue: 64
+-
+  id: cordovan
+  name: Cordovan
+  hex: '#893f45'
+  red: 137
+  green: 63
+  blue: 69
+-
+  id: corn
+  name: Corn
+  hex: '#fbec5d'
+  red: 251
+  green: 236
+  blue: 93
+-
+  id: cornell_red
+  name: 'Cornell Red'
+  hex: '#b31b1b'
+  red: 179
+  green: 27
+  blue: 27
+-
+  id: cornflower_blue
+  name: 'Cornflower Blue'
+  hex: '#6495ed'
+  red: 100
+  green: 149
+  blue: 237
+-
+  id: cornsilk
+  name: Cornsilk
+  hex: '#fff8dc'
+  red: 255
+  green: 248
+  blue: 220
+-
+  id: cosmic_latte
+  name: 'Cosmic Latte'
+  hex: '#fff8e7'
+  red: 255
+  green: 248
+  blue: 231
+-
+  id: cotton_candy
+  name: 'Cotton Candy'
+  hex: '#ffbcd9'
+  red: 255
+  green: 188
+  blue: 217
+-
+  id: cream
+  name: Cream
+  hex: '#fffdd0'
+  red: 255
+  green: 253
+  blue: 208
+-
+  id: crimson
+  name: Crimson
+  hex: '#dc143c'
+  red: 220
+  green: 20
+  blue: 60
+-
+  id: crimson_glory
+  name: 'Crimson Glory'
+  hex: '#be0032'
+  red: 190
+  green: 0
+  blue: 50
+-
+  id: cyan
+  name: Cyan
+  hex: '#0ff'
+  red: 0
+  green: 255
+  blue: 255
+-
+  id: cyan_process
+  name: 'Cyan (Process)'
+  hex: '#00b7eb'
+  red: 0
+  green: 183
+  blue: 235
+-
+  id: daffodil
+  name: Daffodil
+  hex: '#ffff31'
+  red: 255
+  green: 255
+  blue: 49
+-
+  id: dandelion
+  name: Dandelion
+  hex: '#f0e130'
+  red: 240
+  green: 225
+  blue: 48
+-
+  id: dark_blue
+  name: 'Dark Blue'
+  hex: '#00008b'
+  red: 0
+  green: 0
+  blue: 139
+-
+  id: dark_brown
+  name: 'Dark Brown'
+  hex: '#654321'
+  red: 101
+  green: 67
+  blue: 33
+-
+  id: dark_byzantium
+  name: 'Dark Byzantium'
+  hex: '#5d3954'
+  red: 93
+  green: 57
+  blue: 84
+-
+  id: dark_candy_apple_red
+  name: 'Dark Candy Apple Red'
+  hex: '#a40000'
+  red: 164
+  green: 0
+  blue: 0
+-
+  id: dark_cerulean
+  name: 'Dark Cerulean'
+  hex: '#08457e'
+  red: 8
+  green: 69
+  blue: 126
+-
+  id: dark_chestnut
+  name: 'Dark Chestnut'
+  hex: '#986960'
+  red: 152
+  green: 105
+  blue: 96
+-
+  id: dark_coral
+  name: 'Dark Coral'
+  hex: '#cd5b45'
+  red: 205
+  green: 91
+  blue: 69
+-
+  id: dark_cyan
+  name: 'Dark Cyan'
+  hex: '#008b8b'
+  red: 0
+  green: 139
+  blue: 139
+-
+  id: dark_electric_blue
+  name: 'Dark Electric Blue'
+  hex: '#536878'
+  red: 83
+  green: 104
+  blue: 120
+-
+  id: dark_goldenrod
+  name: 'Dark Goldenrod'
+  hex: '#b8860b'
+  red: 184
+  green: 134
+  blue: 11
+-
+  id: dark_gray
+  name: 'Dark Gray'
+  hex: '#a9a9a9'
+  red: 169
+  green: 169
+  blue: 169
+-
+  id: dark_green
+  name: 'Dark Green'
+  hex: '#013220'
+  red: 1
+  green: 50
+  blue: 32
+-
+  id: dark_imperial_blue
+  name: 'Dark Imperial Blue'
+  hex: '#00416a'
+  red: 0
+  green: 65
+  blue: 106
+-
+  id: dark_jungle_green
+  name: 'Dark Jungle Green'
+  hex: '#1a2421'
+  red: 26
+  green: 36
+  blue: 33
+-
+  id: dark_khaki
+  name: 'Dark Khaki'
+  hex: '#bdb76b'
+  red: 189
+  green: 183
+  blue: 107
+-
+  id: dark_lava
+  name: 'Dark Lava'
+  hex: '#483c32'
+  red: 72
+  green: 60
+  blue: 50
+-
+  id: dark_lavender
+  name: 'Dark Lavender'
+  hex: '#734f96'
+  red: 115
+  green: 79
+  blue: 150
+-
+  id: dark_magenta
+  name: 'Dark Magenta'
+  hex: '#8b008b'
+  red: 139
+  green: 0
+  blue: 139
+-
+  id: dark_midnight_blue
+  name: 'Dark Midnight Blue'
+  hex: '#036'
+  red: 0
+  green: 51
+  blue: 102
+-
+  id: dark_olive_green
+  name: 'Dark Olive Green'
+  hex: '#556b2f'
+  red: 85
+  green: 107
+  blue: 47
+-
+  id: dark_orange
+  name: 'Dark Orange'
+  hex: '#ff8c00'
+  red: 255
+  green: 140
+  blue: 0
+-
+  id: dark_orchid
+  name: 'Dark Orchid'
+  hex: '#9932cc'
+  red: 153
+  green: 50
+  blue: 204
+-
+  id: dark_pastel_blue
+  name: 'Dark Pastel Blue'
+  hex: '#779ecb'
+  red: 119
+  green: 158
+  blue: 203
+-
+  id: dark_pastel_green
+  name: 'Dark Pastel Green'
+  hex: '#03c03c'
+  red: 3
+  green: 192
+  blue: 60
+-
+  id: dark_pastel_purple
+  name: 'Dark Pastel Purple'
+  hex: '#966fd6'
+  red: 150
+  green: 111
+  blue: 214
+-
+  id: dark_pastel_red
+  name: 'Dark Pastel Red'
+  hex: '#c23b22'
+  red: 194
+  green: 59
+  blue: 34
+-
+  id: dark_pink
+  name: 'Dark Pink'
+  hex: '#e75480'
+  red: 231
+  green: 84
+  blue: 128
+-
+  id: dark_powder_blue
+  name: 'Dark Powder Blue'
+  hex: '#039'
+  red: 0
+  green: 51
+  blue: 153
+-
+  id: dark_raspberry
+  name: 'Dark Raspberry'
+  hex: '#872657'
+  red: 135
+  green: 38
+  blue: 87
+-
+  id: dark_red
+  name: 'Dark Red'
+  hex: '#8b0000'
+  red: 139
+  green: 0
+  blue: 0
+-
+  id: dark_salmon
+  name: 'Dark Salmon'
+  hex: '#e9967a'
+  red: 233
+  green: 150
+  blue: 122
+-
+  id: dark_scarlet
+  name: 'Dark Scarlet'
+  hex: '#560319'
+  red: 86
+  green: 3
+  blue: 25
+-
+  id: dark_sea_green
+  name: 'Dark Sea Green'
+  hex: '#8fbc8f'
+  red: 143
+  green: 188
+  blue: 143
+-
+  id: dark_sienna
+  name: 'Dark Sienna'
+  hex: '#3c1414'
+  red: 60
+  green: 20
+  blue: 20
+-
+  id: dark_slate_blue
+  name: 'Dark Slate Blue'
+  hex: '#483d8b'
+  red: 72
+  green: 61
+  blue: 139
+-
+  id: dark_slate_gray
+  name: 'Dark Slate Gray'
+  hex: '#2f4f4f'
+  red: 47
+  green: 79
+  blue: 79
+-
+  id: dark_spring_green
+  name: 'Dark Spring Green'
+  hex: '#177245'
+  red: 23
+  green: 114
+  blue: 69
+-
+  id: dark_tan
+  name: 'Dark Tan'
+  hex: '#918151'
+  red: 145
+  green: 129
+  blue: 81
+-
+  id: dark_tangerine
+  name: 'Dark Tangerine'
+  hex: '#ffa812'
+  red: 255
+  green: 168
+  blue: 18
+-
+  id: dark_taupe
+  name: 'Dark Taupe'
+  hex: '#483c32'
+  red: 72
+  green: 60
+  blue: 50
+-
+  id: dark_terra_cotta
+  name: 'Dark Terra Cotta'
+  hex: '#cc4e5c'
+  red: 204
+  green: 78
+  blue: 92
+-
+  id: dark_turquoise
+  name: 'Dark Turquoise'
+  hex: '#00ced1'
+  red: 0
+  green: 206
+  blue: 209
+-
+  id: dark_violet
+  name: 'Dark Violet'
+  hex: '#9400d3'
+  red: 148
+  green: 0
+  blue: 211
+-
+  id: dark_yellow
+  name: 'Dark Yellow'
+  hex: '#9b870c'
+  red: 155
+  green: 135
+  blue: 12
+-
+  id: dartmouth_green
+  name: 'Dartmouth Green'
+  hex: '#00703c'
+  red: 0
+  green: 112
+  blue: 60
+-
+  id: davy_s_grey
+  name: 'Davy''S Grey'
+  hex: '#555'
+  red: 85
+  green: 85
+  blue: 85
+-
+  id: debian_red
+  name: 'Debian Red'
+  hex: '#d70a53'
+  red: 215
+  green: 10
+  blue: 83
+-
+  id: deep_carmine
+  name: 'Deep Carmine'
+  hex: '#a9203e'
+  red: 169
+  green: 32
+  blue: 62
+-
+  id: deep_carmine_pink
+  name: 'Deep Carmine Pink'
+  hex: '#ef3038'
+  red: 239
+  green: 48
+  blue: 56
+-
+  id: deep_carrot_orange
+  name: 'Deep Carrot Orange'
+  hex: '#e9692c'
+  red: 233
+  green: 105
+  blue: 44
+-
+  id: deep_cerise
+  name: 'Deep Cerise'
+  hex: '#da3287'
+  red: 218
+  green: 50
+  blue: 135
+-
+  id: deep_champagne
+  name: 'Deep Champagne'
+  hex: '#fad6a5'
+  red: 250
+  green: 214
+  blue: 165
+-
+  id: deep_chestnut
+  name: 'Deep Chestnut'
+  hex: '#b94e48'
+  red: 185
+  green: 78
+  blue: 72
+-
+  id: deep_coffee
+  name: 'Deep Coffee'
+  hex: '#704241'
+  red: 112
+  green: 66
+  blue: 65
+-
+  id: deep_fuchsia
+  name: 'Deep Fuchsia'
+  hex: '#c154c1'
+  red: 193
+  green: 84
+  blue: 193
+-
+  id: deep_jungle_green
+  name: 'Deep Jungle Green'
+  hex: '#004b49'
+  red: 0
+  green: 75
+  blue: 73
+-
+  id: deep_lilac
+  name: 'Deep Lilac'
+  hex: '#95b'
+  red: 153
+  green: 85
+  blue: 187
+-
+  id: deep_magenta
+  name: 'Deep Magenta'
+  hex: '#c0c'
+  red: 204
+  green: 0
+  blue: 204
+-
+  id: deep_peach
+  name: 'Deep Peach'
+  hex: '#ffcba4'
+  red: 255
+  green: 203
+  blue: 164
+-
+  id: deep_pink
+  name: 'Deep Pink'
+  hex: '#ff1493'
+  red: 255
+  green: 20
+  blue: 147
+-
+  id: deep_ruby
+  name: 'Deep Ruby'
+  hex: '#843f5b'
+  red: 132
+  green: 63
+  blue: 91
+-
+  id: deep_saffron
+  name: 'Deep Saffron'
+  hex: '#f93'
+  red: 255
+  green: 153
+  blue: 51
+-
+  id: deep_sky_blue
+  name: 'Deep Sky Blue'
+  hex: '#00bfff'
+  red: 0
+  green: 191
+  blue: 255
+-
+  id: deep_tuscan_red
+  name: 'Deep Tuscan Red'
+  hex: '#66424d'
+  red: 102
+  green: 66
+  blue: 77
+-
+  id: denim
+  name: Denim
+  hex: '#1560bd'
+  red: 21
+  green: 96
+  blue: 189
+-
+  id: desert
+  name: Desert
+  hex: '#c19a6b'
+  red: 193
+  green: 154
+  blue: 107
+-
+  id: desert_sand
+  name: 'Desert Sand'
+  hex: '#edc9af'
+  red: 237
+  green: 201
+  blue: 175
+-
+  id: dim_gray
+  name: 'Dim Gray'
+  hex: '#696969'
+  red: 105
+  green: 105
+  blue: 105
+-
+  id: dodger_blue
+  name: 'Dodger Blue'
+  hex: '#1e90ff'
+  red: 30
+  green: 144
+  blue: 255
+-
+  id: dogwood_rose
+  name: 'Dogwood Rose'
+  hex: '#d71868'
+  red: 215
+  green: 24
+  blue: 104
+-
+  id: dollar_bill
+  name: 'Dollar Bill'
+  hex: '#85bb65'
+  red: 133
+  green: 187
+  blue: 101
+-
+  id: drab
+  name: Drab
+  hex: '#967117'
+  red: 150
+  green: 113
+  blue: 23
+-
+  id: duke_blue
+  name: 'Duke Blue'
+  hex: '#00009c'
+  red: 0
+  green: 0
+  blue: 156
+-
+  id: earth_yellow
+  name: 'Earth Yellow'
+  hex: '#e1a95f'
+  red: 225
+  green: 169
+  blue: 95
+-
+  id: ebony
+  name: Ebony
+  hex: '#555d50'
+  red: 85
+  green: 93
+  blue: 80
+-
+  id: ecru
+  name: Ecru
+  hex: '#c2b280'
+  red: 194
+  green: 178
+  blue: 128
+-
+  id: eggplant
+  name: Eggplant
+  hex: '#614051'
+  red: 97
+  green: 64
+  blue: 81
+-
+  id: eggshell
+  name: Eggshell
+  hex: '#f0ead6'
+  red: 240
+  green: 234
+  blue: 214
+-
+  id: egyptian_blue
+  name: 'Egyptian Blue'
+  hex: '#1034a6'
+  red: 16
+  green: 52
+  blue: 166
+-
+  id: electric_blue
+  name: 'Electric Blue'
+  hex: '#7df9ff'
+  red: 125
+  green: 249
+  blue: 255
+-
+  id: electric_crimson
+  name: 'Electric Crimson'
+  hex: '#ff003f'
+  red: 255
+  green: 0
+  blue: 63
+-
+  id: electric_cyan
+  name: 'Electric Cyan'
+  hex: '#0ff'
+  red: 0
+  green: 255
+  blue: 255
+-
+  id: electric_green
+  name: 'Electric Green'
+  hex: '#0f0'
+  red: 0
+  green: 255
+  blue: 0
+-
+  id: electric_indigo
+  name: 'Electric Indigo'
+  hex: '#6f00ff'
+  red: 111
+  green: 0
+  blue: 255
+-
+  id: electric_lavender
+  name: 'Electric Lavender'
+  hex: '#f4bbff'
+  red: 244
+  green: 187
+  blue: 255
+-
+  id: electric_lime
+  name: 'Electric Lime'
+  hex: '#cf0'
+  red: 204
+  green: 255
+  blue: 0
+-
+  id: electric_purple
+  name: 'Electric Purple'
+  hex: '#bf00ff'
+  red: 191
+  green: 0
+  blue: 255
+-
+  id: electric_ultramarine
+  name: 'Electric Ultramarine'
+  hex: '#3f00ff'
+  red: 63
+  green: 0
+  blue: 255
+-
+  id: electric_violet
+  name: 'Electric Violet'
+  hex: '#8f00ff'
+  red: 143
+  green: 0
+  blue: 255
+-
+  id: electric_yellow
+  name: 'Electric Yellow'
+  hex: '#ff0'
+  red: 255
+  green: 255
+  blue: 0
+-
+  id: emerald
+  name: Emerald
+  hex: '#50c878'
+  red: 80
+  green: 200
+  blue: 120
+-
+  id: english_lavender
+  name: 'English Lavender'
+  hex: '#b48395'
+  red: 180
+  green: 131
+  blue: 149
+-
+  id: eton_blue
+  name: 'Eton Blue'
+  hex: '#96c8a2'
+  red: 150
+  green: 200
+  blue: 162
+-
+  id: fallow
+  name: Fallow
+  hex: '#c19a6b'
+  red: 193
+  green: 154
+  blue: 107
+-
+  id: falu_red
+  name: 'Falu Red'
+  hex: '#801818'
+  red: 128
+  green: 24
+  blue: 24
+-
+  id: fandango
+  name: Fandango
+  hex: '#b53389'
+  red: 181
+  green: 51
+  blue: 137
+-
+  id: fashion_fuchsia
+  name: 'Fashion Fuchsia'
+  hex: '#f400a1'
+  red: 244
+  green: 0
+  blue: 161
+-
+  id: fawn
+  name: Fawn
+  hex: '#e5aa70'
+  red: 229
+  green: 170
+  blue: 112
+-
+  id: feldgrau
+  name: Feldgrau
+  hex: '#4d5d53'
+  red: 77
+  green: 93
+  blue: 83
+-
+  id: fern_green
+  name: 'Fern Green'
+  hex: '#4f7942'
+  red: 79
+  green: 121
+  blue: 66
+-
+  id: ferrari_red
+  name: 'Ferrari Red'
+  hex: '#ff2800'
+  red: 255
+  green: 40
+  blue: 0
+-
+  id: field_drab
+  name: 'Field Drab'
+  hex: '#6c541e'
+  red: 108
+  green: 84
+  blue: 30
+-
+  id: fire_engine_red
+  name: 'Fire Engine Red'
+  hex: '#ce2029'
+  red: 206
+  green: 32
+  blue: 41
+-
+  id: firebrick
+  name: Firebrick
+  hex: '#b22222'
+  red: 178
+  green: 34
+  blue: 34
+-
+  id: flame
+  name: Flame
+  hex: '#e25822'
+  red: 226
+  green: 88
+  blue: 34
+-
+  id: flamingo_pink
+  name: 'Flamingo Pink'
+  hex: '#fc8eac'
+  red: 252
+  green: 142
+  blue: 172
+-
+  id: flavescent
+  name: Flavescent
+  hex: '#f7e98e'
+  red: 247
+  green: 233
+  blue: 142
+-
+  id: flax
+  name: Flax
+  hex: '#eedc82'
+  red: 238
+  green: 220
+  blue: 130
+-
+  id: floral_white
+  name: 'Floral White'
+  hex: '#fffaf0'
+  red: 255
+  green: 250
+  blue: 240
+-
+  id: fluorescent_orange
+  name: 'Fluorescent Orange'
+  hex: '#ffbf00'
+  red: 255
+  green: 191
+  blue: 0
+-
+  id: fluorescent_pink
+  name: 'Fluorescent Pink'
+  hex: '#ff1493'
+  red: 255
+  green: 20
+  blue: 147
+-
+  id: fluorescent_yellow
+  name: 'Fluorescent Yellow'
+  hex: '#cf0'
+  red: 204
+  green: 255
+  blue: 0
+-
+  id: folly
+  name: Folly
+  hex: '#ff004f'
+  red: 255
+  green: 0
+  blue: 79
+-
+  id: forest_green_traditional
+  name: 'Forest Green (Traditional)'
+  hex: '#014421'
+  red: 1
+  green: 68
+  blue: 33
+-
+  id: forest_green_web
+  name: 'Forest Green (Web)'
+  hex: '#228b22'
+  red: 34
+  green: 139
+  blue: 34
+-
+  id: french_beige
+  name: 'French Beige'
+  hex: '#a67b5b'
+  red: 166
+  green: 123
+  blue: 91
+-
+  id: french_blue
+  name: 'French Blue'
+  hex: '#0072bb'
+  red: 0
+  green: 114
+  blue: 187
+-
+  id: french_lilac
+  name: 'French Lilac'
+  hex: '#86608e'
+  red: 134
+  green: 96
+  blue: 142
+-
+  id: french_lime
+  name: 'French Lime'
+  hex: '#cf0'
+  red: 204
+  green: 255
+  blue: 0
+-
+  id: french_raspberry
+  name: 'French Raspberry'
+  hex: '#c72c48'
+  red: 199
+  green: 44
+  blue: 72
+-
+  id: french_rose
+  name: 'French Rose'
+  hex: '#f64a8a'
+  red: 246
+  green: 74
+  blue: 138
+-
+  id: fuchsia
+  name: Fuchsia
+  hex: '#f0f'
+  red: 255
+  green: 0
+  blue: 255
+-
+  id: fuchsia_crayola
+  name: 'Fuchsia (Crayola)'
+  hex: '#c154c1'
+  red: 193
+  green: 84
+  blue: 193
+-
+  id: fuchsia_pink
+  name: 'Fuchsia Pink'
+  hex: '#f7f'
+  red: 255
+  green: 119
+  blue: 255
+-
+  id: fuchsia_rose
+  name: 'Fuchsia Rose'
+  hex: '#c74375'
+  red: 199
+  green: 67
+  blue: 117
+-
+  id: fulvous
+  name: Fulvous
+  hex: '#e48400'
+  red: 228
+  green: 132
+  blue: 0
+-
+  id: fuzzy_wuzzy
+  name: 'Fuzzy Wuzzy'
+  hex: '#c66'
+  red: 204
+  green: 102
+  blue: 102
+-
+  id: gainsboro
+  name: Gainsboro
+  hex: '#dcdcdc'
+  red: 220
+  green: 220
+  blue: 220
+-
+  id: gamboge
+  name: Gamboge
+  hex: '#e49b0f'
+  red: 228
+  green: 155
+  blue: 15
+-
+  id: ghost_white
+  name: 'Ghost White'
+  hex: '#f8f8ff'
+  red: 248
+  green: 248
+  blue: 255
+-
+  id: ginger
+  name: Ginger
+  hex: '#b06500'
+  red: 176
+  green: 101
+  blue: 0
+-
+  id: glaucous
+  name: Glaucous
+  hex: '#6082b6'
+  red: 96
+  green: 130
+  blue: 182
+-
+  id: glitter
+  name: Glitter
+  hex: '#e6e8fa'
+  red: 230
+  green: 232
+  blue: 250
+-
+  id: gold_metallic
+  name: 'Gold (Metallic)'
+  hex: '#d4af37'
+  red: 212
+  green: 175
+  blue: 55
+-
+  id: gold_web_golden
+  name: 'Gold (Web) (Golden)'
+  hex: '#ffd700'
+  red: 255
+  green: 215
+  blue: 0
+-
+  id: golden_brown
+  name: 'Golden Brown'
+  hex: '#996515'
+  red: 153
+  green: 101
+  blue: 21
+-
+  id: golden_poppy
+  name: 'Golden Poppy'
+  hex: '#fcc200'
+  red: 252
+  green: 194
+  blue: 0
+-
+  id: golden_yellow
+  name: 'Golden Yellow'
+  hex: '#ffdf00'
+  red: 255
+  green: 223
+  blue: 0
+-
+  id: goldenrod
+  name: Goldenrod
+  hex: '#daa520'
+  red: 218
+  green: 165
+  blue: 32
+-
+  id: granny_smith_apple
+  name: 'Granny Smith Apple'
+  hex: '#a8e4a0'
+  red: 168
+  green: 228
+  blue: 160
+-
+  id: gray
+  name: Gray
+  hex: '#808080'
+  red: 128
+  green: 128
+  blue: 128
+-
+  id: gray_asparagus
+  name: Gray-Asparagus
+  hex: '#465945'
+  red: 70
+  green: 89
+  blue: 69
+-
+  id: gray_html_css_gray
+  name: 'Gray (Html/Css Gray)'
+  hex: '#808080'
+  red: 128
+  green: 128
+  blue: 128
+-
+  id: gray_x11_gray
+  name: 'Gray (X11 Gray)'
+  hex: '#bebebe'
+  red: 190
+  green: 190
+  blue: 190
+-
+  id: green_color_wheel_x11_green
+  name: 'Green (Color Wheel) (X11 Green)'
+  hex: '#0f0'
+  red: 0
+  green: 255
+  blue: 0
+-
+  id: green_crayola
+  name: 'Green (Crayola)'
+  hex: '#1cac78'
+  red: 28
+  green: 172
+  blue: 120
+-
+  id: green_html_css_green
+  name: 'Green (Html/Css Green)'
+  hex: '#008000'
+  red: 0
+  green: 128
+  blue: 0
+-
+  id: green_munsell
+  name: 'Green (Munsell)'
+  hex: '#00a877'
+  red: 0
+  green: 168
+  blue: 119
+-
+  id: green_ncs
+  name: 'Green (Ncs)'
+  hex: '#009f6b'
+  red: 0
+  green: 159
+  blue: 107
+-
+  id: green_pigment
+  name: 'Green (Pigment)'
+  hex: '#00a550'
+  red: 0
+  green: 165
+  blue: 80
+-
+  id: green_ryb
+  name: 'Green (Ryb)'
+  hex: '#66b032'
+  red: 102
+  green: 176
+  blue: 50
+-
+  id: green_yellow
+  name: Green-Yellow
+  hex: '#adff2f'
+  red: 173
+  green: 255
+  blue: 47
+-
+  id: grullo
+  name: Grullo
+  hex: '#a99a86'
+  red: 169
+  green: 154
+  blue: 134
+-
+  id: guppie_green
+  name: 'Guppie Green'
+  hex: '#00ff7f'
+  red: 0
+  green: 255
+  blue: 127
+-
+  id: halay_be
+  name: 'Halayà úBe'
+  hex: '#663854'
+  red: 102
+  green: 56
+  blue: 84
+-
+  id: han_blue
+  name: 'Han Blue'
+  hex: '#446ccf'
+  red: 68
+  green: 108
+  blue: 207
+-
+  id: han_purple
+  name: 'Han Purple'
+  hex: '#5218fa'
+  red: 82
+  green: 24
+  blue: 250
+-
+  id: hansa_yellow
+  name: 'Hansa Yellow'
+  hex: '#e9d66b'
+  red: 233
+  green: 214
+  blue: 107
+-
+  id: harlequin
+  name: Harlequin
+  hex: '#3fff00'
+  red: 63
+  green: 255
+  blue: 0
+-
+  id: harvard_crimson
+  name: 'Harvard Crimson'
+  hex: '#c90016'
+  red: 201
+  green: 0
+  blue: 22
+-
+  id: harvest_gold
+  name: 'Harvest Gold'
+  hex: '#da9100'
+  red: 218
+  green: 145
+  blue: 0
+-
+  id: heart_gold
+  name: 'Heart Gold'
+  hex: '#808000'
+  red: 128
+  green: 128
+  blue: 0
+-
+  id: heliotrope
+  name: Heliotrope
+  hex: '#df73ff'
+  red: 223
+  green: 115
+  blue: 255
+-
+  id: hollywood_cerise
+  name: 'Hollywood Cerise'
+  hex: '#f400a1'
+  red: 244
+  green: 0
+  blue: 161
+-
+  id: honeydew
+  name: Honeydew
+  hex: '#f0fff0'
+  red: 240
+  green: 255
+  blue: 240
+-
+  id: honolulu_blue
+  name: 'Honolulu Blue'
+  hex: '#007fbf'
+  red: 0
+  green: 127
+  blue: 191
+-
+  id: hooker_s_green
+  name: 'Hooker''S Green'
+  hex: '#49796b'
+  red: 73
+  green: 121
+  blue: 107
+-
+  id: hot_magenta
+  name: 'Hot Magenta'
+  hex: '#ff1dce'
+  red: 255
+  green: 29
+  blue: 206
+-
+  id: hot_pink
+  name: 'Hot Pink'
+  hex: '#ff69b4'
+  red: 255
+  green: 105
+  blue: 180
+-
+  id: hunter_green
+  name: 'Hunter Green'
+  hex: '#355e3b'
+  red: 53
+  green: 94
+  blue: 59
+-
+  id: iceberg
+  name: Iceberg
+  hex: '#71a6d2'
+  red: 113
+  green: 166
+  blue: 210
+-
+  id: icterine
+  name: Icterine
+  hex: '#fcf75e'
+  red: 252
+  green: 247
+  blue: 94
+-
+  id: imperial_blue
+  name: 'Imperial Blue'
+  hex: '#002395'
+  red: 0
+  green: 35
+  blue: 149
+-
+  id: inchworm
+  name: Inchworm
+  hex: '#b2ec5d'
+  red: 178
+  green: 236
+  blue: 93
+-
+  id: india_green
+  name: 'India Green'
+  hex: '#138808'
+  red: 19
+  green: 136
+  blue: 8
+-
+  id: indian_red
+  name: 'Indian Red'
+  hex: '#cd5c5c'
+  red: 205
+  green: 92
+  blue: 92
+-
+  id: indian_yellow
+  name: 'Indian Yellow'
+  hex: '#e3a857'
+  red: 227
+  green: 168
+  blue: 87
+-
+  id: indigo
+  name: Indigo
+  hex: '#6f00ff'
+  red: 111
+  green: 0
+  blue: 255
+-
+  id: indigo_dye
+  name: 'Indigo (Dye)'
+  hex: '#00416a'
+  red: 0
+  green: 65
+  blue: 106
+-
+  id: indigo_web
+  name: 'Indigo (Web)'
+  hex: '#4b0082'
+  red: 75
+  green: 0
+  blue: 130
+-
+  id: international_klein_blue
+  name: 'International Klein Blue'
+  hex: '#002fa7'
+  red: 0
+  green: 47
+  blue: 167
+-
+  id: international_orange_aerospace
+  name: 'International Orange (Aerospace)'
+  hex: '#ff4f00'
+  red: 255
+  green: 79
+  blue: 0
+-
+  id: international_orange_engineering
+  name: 'International Orange (Engineering)'
+  hex: '#ba160c'
+  red: 186
+  green: 22
+  blue: 12
+-
+  id: international_orange_golden_gate_bridge
+  name: 'International Orange (Golden Gate Bridge)'
+  hex: '#c0362c'
+  red: 192
+  green: 54
+  blue: 44
+-
+  id: iris
+  name: Iris
+  hex: '#5a4fcf'
+  red: 90
+  green: 79
+  blue: 207
+-
+  id: isabelline
+  name: Isabelline
+  hex: '#f4f0ec'
+  red: 244
+  green: 240
+  blue: 236
+-
+  id: islamic_green
+  name: 'Islamic Green'
+  hex: '#009000'
+  red: 0
+  green: 144
+  blue: 0
+-
+  id: ivory
+  name: Ivory
+  hex: '#fffff0'
+  red: 255
+  green: 255
+  blue: 240
+-
+  id: jade
+  name: Jade
+  hex: '#00a86b'
+  red: 0
+  green: 168
+  blue: 107
+-
+  id: jasmine
+  name: Jasmine
+  hex: '#f8de7e'
+  red: 248
+  green: 222
+  blue: 126
+-
+  id: jasper
+  name: Jasper
+  hex: '#d73b3e'
+  red: 215
+  green: 59
+  blue: 62
+-
+  id: jazzberry_jam
+  name: 'Jazzberry Jam'
+  hex: '#a50b5e'
+  red: 165
+  green: 11
+  blue: 94
+-
+  id: jet
+  name: Jet
+  hex: '#343434'
+  red: 52
+  green: 52
+  blue: 52
+-
+  id: jonquil
+  name: Jonquil
+  hex: '#fada5e'
+  red: 250
+  green: 218
+  blue: 94
+-
+  id: june_bud
+  name: 'June Bud'
+  hex: '#bdda57'
+  red: 189
+  green: 218
+  blue: 87
+-
+  id: jungle_green
+  name: 'Jungle Green'
+  hex: '#29ab87'
+  red: 41
+  green: 171
+  blue: 135
+-
+  id: kelly_green
+  name: 'Kelly Green'
+  hex: '#4cbb17'
+  red: 76
+  green: 187
+  blue: 23
+-
+  id: kenyan_copper
+  name: 'Kenyan Copper'
+  hex: '#7c1c05'
+  red: 124
+  green: 28
+  blue: 5
+-
+  id: khaki_html_css_khaki
+  name: 'Khaki (Html/Css) (Khaki)'
+  hex: '#c3b091'
+  red: 195
+  green: 176
+  blue: 145
+-
+  id: khaki_x11_light_khaki
+  name: 'Khaki (X11) (Light Khaki)'
+  hex: '#f0e68c'
+  red: 240
+  green: 230
+  blue: 140
+-
+  id: ku_crimson
+  name: 'Ku Crimson'
+  hex: '#e8000d'
+  red: 232
+  green: 0
+  blue: 13
+-
+  id: la_salle_green
+  name: 'La Salle Green'
+  hex: '#087830'
+  red: 8
+  green: 120
+  blue: 48
+-
+  id: languid_lavender
+  name: 'Languid Lavender'
+  hex: '#d6cadd'
+  red: 214
+  green: 202
+  blue: 221
+-
+  id: lapis_lazuli
+  name: 'Lapis Lazuli'
+  hex: '#26619c'
+  red: 38
+  green: 97
+  blue: 156
+-
+  id: laser_lemon
+  name: 'Laser Lemon'
+  hex: '#fefe22'
+  red: 254
+  green: 254
+  blue: 34
+-
+  id: laurel_green
+  name: 'Laurel Green'
+  hex: '#a9ba9d'
+  red: 169
+  green: 186
+  blue: 157
+-
+  id: lava
+  name: Lava
+  hex: '#cf1020'
+  red: 207
+  green: 16
+  blue: 32
+-
+  id: lavender_blue
+  name: 'Lavender Blue'
+  hex: '#ccf'
+  red: 204
+  green: 204
+  blue: 255
+-
+  id: lavender_blush
+  name: 'Lavender Blush'
+  hex: '#fff0f5'
+  red: 255
+  green: 240
+  blue: 245
+-
+  id: lavender_floral
+  name: 'Lavender (Floral)'
+  hex: '#b57edc'
+  red: 181
+  green: 126
+  blue: 220
+-
+  id: lavender_gray
+  name: 'Lavender Gray'
+  hex: '#c4c3d0'
+  red: 196
+  green: 195
+  blue: 208
+-
+  id: lavender_indigo
+  name: 'Lavender Indigo'
+  hex: '#9457eb'
+  red: 148
+  green: 87
+  blue: 235
+-
+  id: lavender_magenta
+  name: 'Lavender Magenta'
+  hex: '#ee82ee'
+  red: 238
+  green: 130
+  blue: 238
+-
+  id: lavender_mist
+  name: 'Lavender Mist'
+  hex: '#e6e6fa'
+  red: 230
+  green: 230
+  blue: 250
+-
+  id: lavender_pink
+  name: 'Lavender Pink'
+  hex: '#fbaed2'
+  red: 251
+  green: 174
+  blue: 210
+-
+  id: lavender_purple
+  name: 'Lavender Purple'
+  hex: '#967bb6'
+  red: 150
+  green: 123
+  blue: 182
+-
+  id: lavender_rose
+  name: 'Lavender Rose'
+  hex: '#fba0e3'
+  red: 251
+  green: 160
+  blue: 227
+-
+  id: lavender_web
+  name: 'Lavender (Web)'
+  hex: '#e6e6fa'
+  red: 230
+  green: 230
+  blue: 250
+-
+  id: lawn_green
+  name: 'Lawn Green'
+  hex: '#7cfc00'
+  red: 124
+  green: 252
+  blue: 0
+-
+  id: lemon
+  name: Lemon
+  hex: '#fff700'
+  red: 255
+  green: 247
+  blue: 0
+-
+  id: lemon_chiffon
+  name: 'Lemon Chiffon'
+  hex: '#fffacd'
+  red: 255
+  green: 250
+  blue: 205
+-
+  id: lemon_lime
+  name: 'Lemon Lime'
+  hex: '#e3ff00'
+  red: 227
+  green: 255
+  blue: 0
+-
+  id: licorice
+  name: Licorice
+  hex: '#1a1110'
+  red: 26
+  green: 17
+  blue: 16
+-
+  id: light_apricot
+  name: 'Light Apricot'
+  hex: '#fdd5b1'
+  red: 253
+  green: 213
+  blue: 177
+-
+  id: light_blue
+  name: 'Light Blue'
+  hex: '#add8e6'
+  red: 173
+  green: 216
+  blue: 230
+-
+  id: light_brown
+  name: 'Light Brown'
+  hex: '#b5651d'
+  red: 181
+  green: 101
+  blue: 29
+-
+  id: light_carmine_pink
+  name: 'Light Carmine Pink'
+  hex: '#e66771'
+  red: 230
+  green: 103
+  blue: 113
+-
+  id: light_coral
+  name: 'Light Coral'
+  hex: '#f08080'
+  red: 240
+  green: 128
+  blue: 128
+-
+  id: light_cornflower_blue
+  name: 'Light Cornflower Blue'
+  hex: '#93ccea'
+  red: 147
+  green: 204
+  blue: 234
+-
+  id: light_crimson
+  name: 'Light Crimson'
+  hex: '#f56991'
+  red: 245
+  green: 105
+  blue: 145
+-
+  id: light_cyan
+  name: 'Light Cyan'
+  hex: '#e0ffff'
+  red: 224
+  green: 255
+  blue: 255
+-
+  id: light_fuchsia_pink
+  name: 'Light Fuchsia Pink'
+  hex: '#f984ef'
+  red: 249
+  green: 132
+  blue: 239
+-
+  id: light_goldenrod_yellow
+  name: 'Light Goldenrod Yellow'
+  hex: '#fafad2'
+  red: 250
+  green: 250
+  blue: 210
+-
+  id: light_gray
+  name: 'Light Gray'
+  hex: '#d3d3d3'
+  red: 211
+  green: 211
+  blue: 211
+-
+  id: light_green
+  name: 'Light Green'
+  hex: '#90ee90'
+  red: 144
+  green: 238
+  blue: 144
+-
+  id: light_khaki
+  name: 'Light Khaki'
+  hex: '#f0e68c'
+  red: 240
+  green: 230
+  blue: 140
+-
+  id: light_pastel_purple
+  name: 'Light Pastel Purple'
+  hex: '#b19cd9'
+  red: 177
+  green: 156
+  blue: 217
+-
+  id: light_pink
+  name: 'Light Pink'
+  hex: '#ffb6c1'
+  red: 255
+  green: 182
+  blue: 193
+-
+  id: light_red_ochre
+  name: 'Light Red Ochre'
+  hex: '#e97451'
+  red: 233
+  green: 116
+  blue: 81
+-
+  id: light_salmon
+  name: 'Light Salmon'
+  hex: '#ffa07a'
+  red: 255
+  green: 160
+  blue: 122
+-
+  id: light_salmon_pink
+  name: 'Light Salmon Pink'
+  hex: '#f99'
+  red: 255
+  green: 153
+  blue: 153
+-
+  id: light_sea_green
+  name: 'Light Sea Green'
+  hex: '#20b2aa'
+  red: 32
+  green: 178
+  blue: 170
+-
+  id: light_sky_blue
+  name: 'Light Sky Blue'
+  hex: '#87cefa'
+  red: 135
+  green: 206
+  blue: 250
+-
+  id: light_slate_gray
+  name: 'Light Slate Gray'
+  hex: '#789'
+  red: 119
+  green: 136
+  blue: 153
+-
+  id: light_taupe
+  name: 'Light Taupe'
+  hex: '#b38b6d'
+  red: 179
+  green: 139
+  blue: 109
+-
+  id: light_thulian_pink
+  name: 'Light Thulian Pink'
+  hex: '#e68fac'
+  red: 230
+  green: 143
+  blue: 172
+-
+  id: light_yellow
+  name: 'Light Yellow'
+  hex: '#ffffe0'
+  red: 255
+  green: 255
+  blue: 224
+-
+  id: lilac
+  name: Lilac
+  hex: '#c8a2c8'
+  red: 200
+  green: 162
+  blue: 200
+-
+  id: lime_color_wheel
+  name: 'Lime (Color Wheel)'
+  hex: '#bfff00'
+  red: 191
+  green: 255
+  blue: 0
+-
+  id: lime_green
+  name: 'Lime Green'
+  hex: '#32cd32'
+  red: 50
+  green: 205
+  blue: 50
+-
+  id: lime_web_x11_green
+  name: 'Lime (Web) (X11 Green)'
+  hex: '#0f0'
+  red: 0
+  green: 255
+  blue: 0
+-
+  id: limerick
+  name: Limerick
+  hex: '#9dc209'
+  red: 157
+  green: 194
+  blue: 9
+-
+  id: lincoln_green
+  name: 'Lincoln Green'
+  hex: '#195905'
+  red: 25
+  green: 89
+  blue: 5
+-
+  id: linen
+  name: Linen
+  hex: '#faf0e6'
+  red: 250
+  green: 240
+  blue: 230
+-
+  id: lion
+  name: Lion
+  hex: '#c19a6b'
+  red: 193
+  green: 154
+  blue: 107
+-
+  id: little_boy_blue
+  name: 'Little Boy Blue'
+  hex: '#6ca0dc'
+  red: 108
+  green: 160
+  blue: 220
+-
+  id: liver
+  name: Liver
+  hex: '#534b4f'
+  red: 83
+  green: 75
+  blue: 79
+-
+  id: lust
+  name: Lust
+  hex: '#e62020'
+  red: 230
+  green: 32
+  blue: 32
+-
+  id: magenta
+  name: Magenta
+  hex: '#f0f'
+  red: 255
+  green: 0
+  blue: 255
+-
+  id: magenta_dye
+  name: 'Magenta (Dye)'
+  hex: '#ca1f7b'
+  red: 202
+  green: 31
+  blue: 123
+-
+  id: magenta_process
+  name: 'Magenta (Process)'
+  hex: '#ff0090'
+  red: 255
+  green: 0
+  blue: 144
+-
+  id: magic_mint
+  name: 'Magic Mint'
+  hex: '#aaf0d1'
+  red: 170
+  green: 240
+  blue: 209
+-
+  id: magnolia
+  name: Magnolia
+  hex: '#f8f4ff'
+  red: 248
+  green: 244
+  blue: 255
+-
+  id: mahogany
+  name: Mahogany
+  hex: '#c04000'
+  red: 192
+  green: 64
+  blue: 0
+-
+  id: maize
+  name: Maize
+  hex: '#fbec5d'
+  red: 251
+  green: 236
+  blue: 93
+-
+  id: majorelle_blue
+  name: 'Majorelle Blue'
+  hex: '#6050dc'
+  red: 96
+  green: 80
+  blue: 220
+-
+  id: malachite
+  name: Malachite
+  hex: '#0bda51'
+  red: 11
+  green: 218
+  blue: 81
+-
+  id: manatee
+  name: Manatee
+  hex: '#979aaa'
+  red: 151
+  green: 154
+  blue: 170
+-
+  id: mango_tango
+  name: 'Mango Tango'
+  hex: '#ff8243'
+  red: 255
+  green: 130
+  blue: 67
+-
+  id: mantis
+  name: Mantis
+  hex: '#74c365'
+  red: 116
+  green: 195
+  blue: 101
+-
+  id: mardi_gras
+  name: 'Mardi Gras'
+  hex: '#880085'
+  red: 136
+  green: 0
+  blue: 133
+-
+  id: maroon_crayola
+  name: 'Maroon (Crayola)'
+  hex: '#c32148'
+  red: 195
+  green: 33
+  blue: 72
+-
+  id: maroon_html_css
+  name: 'Maroon (Html/Css)'
+  hex: '#800000'
+  red: 128
+  green: 0
+  blue: 0
+-
+  id: maroon_x11
+  name: 'Maroon (X11)'
+  hex: '#b03060'
+  red: 176
+  green: 48
+  blue: 96
+-
+  id: mauve
+  name: Mauve
+  hex: '#e0b0ff'
+  red: 224
+  green: 176
+  blue: 255
+-
+  id: mauve_taupe
+  name: 'Mauve Taupe'
+  hex: '#915f6d'
+  red: 145
+  green: 95
+  blue: 109
+-
+  id: mauvelous
+  name: Mauvelous
+  hex: '#ef98aa'
+  red: 239
+  green: 152
+  blue: 170
+-
+  id: maya_blue
+  name: 'Maya Blue'
+  hex: '#73c2fb'
+  red: 115
+  green: 194
+  blue: 251
+-
+  id: meat_brown
+  name: 'Meat Brown'
+  hex: '#e5b73b'
+  red: 229
+  green: 183
+  blue: 59
+-
+  id: medium_aquamarine
+  name: 'Medium Aquamarine'
+  hex: '#6da'
+  red: 102
+  green: 221
+  blue: 170
+-
+  id: medium_blue
+  name: 'Medium Blue'
+  hex: '#0000cd'
+  red: 0
+  green: 0
+  blue: 205
+-
+  id: medium_candy_apple_red
+  name: 'Medium Candy Apple Red'
+  hex: '#e2062c'
+  red: 226
+  green: 6
+  blue: 44
+-
+  id: medium_carmine
+  name: 'Medium Carmine'
+  hex: '#af4035'
+  red: 175
+  green: 64
+  blue: 53
+-
+  id: medium_champagne
+  name: 'Medium Champagne'
+  hex: '#f3e5ab'
+  red: 243
+  green: 229
+  blue: 171
+-
+  id: medium_electric_blue
+  name: 'Medium Electric Blue'
+  hex: '#035096'
+  red: 3
+  green: 80
+  blue: 150
+-
+  id: medium_jungle_green
+  name: 'Medium Jungle Green'
+  hex: '#1c352d'
+  red: 28
+  green: 53
+  blue: 45
+-
+  id: medium_lavender_magenta
+  name: 'Medium Lavender Magenta'
+  hex: '#dda0dd'
+  red: 221
+  green: 160
+  blue: 221
+-
+  id: medium_orchid
+  name: 'Medium Orchid'
+  hex: '#ba55d3'
+  red: 186
+  green: 85
+  blue: 211
+-
+  id: medium_persian_blue
+  name: 'Medium Persian Blue'
+  hex: '#0067a5'
+  red: 0
+  green: 103
+  blue: 165
+-
+  id: medium_purple
+  name: 'Medium Purple'
+  hex: '#9370db'
+  red: 147
+  green: 112
+  blue: 219
+-
+  id: medium_red_violet
+  name: 'Medium Red-Violet'
+  hex: '#bb3385'
+  red: 187
+  green: 51
+  blue: 133
+-
+  id: medium_ruby
+  name: 'Medium Ruby'
+  hex: '#aa4069'
+  red: 170
+  green: 64
+  blue: 105
+-
+  id: medium_sea_green
+  name: 'Medium Sea Green'
+  hex: '#3cb371'
+  red: 60
+  green: 179
+  blue: 113
+-
+  id: medium_slate_blue
+  name: 'Medium Slate Blue'
+  hex: '#7b68ee'
+  red: 123
+  green: 104
+  blue: 238
+-
+  id: medium_spring_bud
+  name: 'Medium Spring Bud'
+  hex: '#c9dc87'
+  red: 201
+  green: 220
+  blue: 135
+-
+  id: medium_spring_green
+  name: 'Medium Spring Green'
+  hex: '#00fa9a'
+  red: 0
+  green: 250
+  blue: 154
+-
+  id: medium_taupe
+  name: 'Medium Taupe'
+  hex: '#674c47'
+  red: 103
+  green: 76
+  blue: 71
+-
+  id: medium_turquoise
+  name: 'Medium Turquoise'
+  hex: '#48d1cc'
+  red: 72
+  green: 209
+  blue: 204
+-
+  id: medium_tuscan_red
+  name: 'Medium Tuscan Red'
+  hex: '#79443b'
+  red: 121
+  green: 68
+  blue: 59
+-
+  id: medium_vermilion
+  name: 'Medium Vermilion'
+  hex: '#d9603b'
+  red: 217
+  green: 96
+  blue: 59
+-
+  id: medium_violet_red
+  name: 'Medium Violet-Red'
+  hex: '#c71585'
+  red: 199
+  green: 21
+  blue: 133
+-
+  id: mellow_apricot
+  name: 'Mellow Apricot'
+  hex: '#f8b878'
+  red: 248
+  green: 184
+  blue: 120
+-
+  id: mellow_yellow
+  name: 'Mellow Yellow'
+  hex: '#f8de7e'
+  red: 248
+  green: 222
+  blue: 126
+-
+  id: melon
+  name: Melon
+  hex: '#fdbcb4'
+  red: 253
+  green: 188
+  blue: 180
+-
+  id: midnight_blue
+  name: 'Midnight Blue'
+  hex: '#191970'
+  red: 25
+  green: 25
+  blue: 112
+-
+  id: midnight_green_eagle_green
+  name: 'Midnight Green (Eagle Green)'
+  hex: '#004953'
+  red: 0
+  green: 73
+  blue: 83
+-
+  id: mikado_yellow
+  name: 'Mikado Yellow'
+  hex: '#ffc40c'
+  red: 255
+  green: 196
+  blue: 12
+-
+  id: mint
+  name: Mint
+  hex: '#3eb489'
+  red: 62
+  green: 180
+  blue: 137
+-
+  id: mint_cream
+  name: 'Mint Cream'
+  hex: '#f5fffa'
+  red: 245
+  green: 255
+  blue: 250
+-
+  id: mint_green
+  name: 'Mint Green'
+  hex: '#98ff98'
+  red: 152
+  green: 255
+  blue: 152
+-
+  id: misty_rose
+  name: 'Misty Rose'
+  hex: '#ffe4e1'
+  red: 255
+  green: 228
+  blue: 225
+-
+  id: moccasin
+  name: Moccasin
+  hex: '#faebd7'
+  red: 250
+  green: 235
+  blue: 215
+-
+  id: mode_beige
+  name: 'Mode Beige'
+  hex: '#967117'
+  red: 150
+  green: 113
+  blue: 23
+-
+  id: moonstone_blue
+  name: 'Moonstone Blue'
+  hex: '#73a9c2'
+  red: 115
+  green: 169
+  blue: 194
+-
+  id: mordant_red_19
+  name: 'Mordant Red 19'
+  hex: '#ae0c00'
+  red: 174
+  green: 12
+  blue: 0
+-
+  id: moss_green
+  name: 'Moss Green'
+  hex: '#addfad'
+  red: 173
+  green: 223
+  blue: 173
+-
+  id: mountain_meadow
+  name: 'Mountain Meadow'
+  hex: '#30ba8f'
+  red: 48
+  green: 186
+  blue: 143
+-
+  id: mountbatten_pink
+  name: 'Mountbatten Pink'
+  hex: '#997a8d'
+  red: 153
+  green: 122
+  blue: 141
+-
+  id: msu_green
+  name: 'Msu Green'
+  hex: '#18453b'
+  red: 24
+  green: 69
+  blue: 59
+-
+  id: mulberry
+  name: Mulberry
+  hex: '#c54b8c'
+  red: 197
+  green: 75
+  blue: 140
+-
+  id: mustard
+  name: Mustard
+  hex: '#ffdb58'
+  red: 255
+  green: 219
+  blue: 88
+-
+  id: myrtle
+  name: Myrtle
+  hex: '#21421e'
+  red: 33
+  green: 66
+  blue: 30
+-
+  id: nadeshiko_pink
+  name: 'Nadeshiko Pink'
+  hex: '#f6adc6'
+  red: 246
+  green: 173
+  blue: 198
+-
+  id: napier_green
+  name: 'Napier Green'
+  hex: '#2a8000'
+  red: 42
+  green: 128
+  blue: 0
+-
+  id: naples_yellow
+  name: 'Naples Yellow'
+  hex: '#fada5e'
+  red: 250
+  green: 218
+  blue: 94
+-
+  id: navajo_white
+  name: 'Navajo White'
+  hex: '#ffdead'
+  red: 255
+  green: 222
+  blue: 173
+-
+  id: navy_blue
+  name: 'Navy Blue'
+  hex: '#000080'
+  red: 0
+  green: 0
+  blue: 128
+-
+  id: neon_carrot
+  name: 'Neon Carrot'
+  hex: '#ffa343'
+  red: 255
+  green: 163
+  blue: 67
+-
+  id: neon_fuchsia
+  name: 'Neon Fuchsia'
+  hex: '#fe4164'
+  red: 254
+  green: 65
+  blue: 100
+-
+  id: neon_green
+  name: 'Neon Green'
+  hex: '#39ff14'
+  red: 57
+  green: 255
+  blue: 20
+-
+  id: new_york_pink
+  name: 'New York Pink'
+  hex: '#d7837f'
+  red: 215
+  green: 131
+  blue: 127
+-
+  id: non_photo_blue
+  name: 'Non-Photo Blue'
+  hex: '#a4dded'
+  red: 164
+  green: 221
+  blue: 237
+-
+  id: north_texas_green
+  name: 'North Texas Green'
+  hex: '#059033'
+  red: 5
+  green: 144
+  blue: 51
+-
+  id: ocean_boat_blue
+  name: 'Ocean Boat Blue'
+  hex: '#0077be'
+  red: 0
+  green: 119
+  blue: 190
+-
+  id: ochre
+  name: Ochre
+  hex: '#c72'
+  red: 204
+  green: 119
+  blue: 34
+-
+  id: office_green
+  name: 'Office Green'
+  hex: '#008000'
+  red: 0
+  green: 128
+  blue: 0
+-
+  id: old_gold
+  name: 'Old Gold'
+  hex: '#cfb53b'
+  red: 207
+  green: 181
+  blue: 59
+-
+  id: old_lace
+  name: 'Old Lace'
+  hex: '#fdf5e6'
+  red: 253
+  green: 245
+  blue: 230
+-
+  id: old_lavender
+  name: 'Old Lavender'
+  hex: '#796878'
+  red: 121
+  green: 104
+  blue: 120
+-
+  id: old_mauve
+  name: 'Old Mauve'
+  hex: '#673147'
+  red: 103
+  green: 49
+  blue: 71
+-
+  id: old_rose
+  name: 'Old Rose'
+  hex: '#c08081'
+  red: 192
+  green: 128
+  blue: 129
+-
+  id: olive
+  name: Olive
+  hex: '#808000'
+  red: 128
+  green: 128
+  blue: 0
+-
+  id: olive_drab_7
+  name: 'Olive Drab #7'
+  hex: '#3c341f'
+  red: 60
+  green: 52
+  blue: 31
+-
+  id: olive_drab_web_olive_drab_3
+  name: 'Olive Drab (Web) (Olive Drab #3)'
+  hex: '#6b8e23'
+  red: 107
+  green: 142
+  blue: 35
+-
+  id: olivine
+  name: Olivine
+  hex: '#9ab973'
+  red: 154
+  green: 185
+  blue: 115
+-
+  id: onyx
+  name: Onyx
+  hex: '#353839'
+  red: 53
+  green: 56
+  blue: 57
+-
+  id: opera_mauve
+  name: 'Opera Mauve'
+  hex: '#b784a7'
+  red: 183
+  green: 132
+  blue: 167
+-
+  id: orange_color_wheel
+  name: 'Orange (Color Wheel)'
+  hex: '#ff7f00'
+  red: 255
+  green: 127
+  blue: 0
+-
+  id: orange_peel
+  name: 'Orange Peel'
+  hex: '#ff9f00'
+  red: 255
+  green: 159
+  blue: 0
+-
+  id: orange_red
+  name: Orange-Red
+  hex: '#ff4500'
+  red: 255
+  green: 69
+  blue: 0
+-
+  id: orange_ryb
+  name: 'Orange (Ryb)'
+  hex: '#fb9902'
+  red: 251
+  green: 153
+  blue: 2
+-
+  id: orange_web_color
+  name: 'Orange (Web Color)'
+  hex: '#ffa500'
+  red: 255
+  green: 165
+  blue: 0
+-
+  id: orchid
+  name: Orchid
+  hex: '#da70d6'
+  red: 218
+  green: 112
+  blue: 214
+-
+  id: otter_brown
+  name: 'Otter Brown'
+  hex: '#654321'
+  red: 101
+  green: 67
+  blue: 33
+-
+  id: ou_crimson_red
+  name: 'Ou Crimson Red'
+  hex: '#900'
+  red: 153
+  green: 0
+  blue: 0
+-
+  id: outer_space
+  name: 'Outer Space'
+  hex: '#414a4c'
+  red: 65
+  green: 74
+  blue: 76
+-
+  id: outrageous_orange
+  name: 'Outrageous Orange'
+  hex: '#ff6e4a'
+  red: 255
+  green: 110
+  blue: 74
+-
+  id: oxford_blue
+  name: 'Oxford Blue'
+  hex: '#002147'
+  red: 0
+  green: 33
+  blue: 71
+-
+  id: pakistan_green
+  name: 'Pakistan Green'
+  hex: '#060'
+  red: 0
+  green: 102
+  blue: 0
+-
+  id: palatinate_blue
+  name: 'Palatinate Blue'
+  hex: '#273be2'
+  red: 39
+  green: 59
+  blue: 226
+-
+  id: palatinate_purple
+  name: 'Palatinate Purple'
+  hex: '#682860'
+  red: 104
+  green: 40
+  blue: 96
+-
+  id: pale_aqua
+  name: 'Pale Aqua'
+  hex: '#bcd4e6'
+  red: 188
+  green: 212
+  blue: 230
+-
+  id: pale_blue
+  name: 'Pale Blue'
+  hex: '#afeeee'
+  red: 175
+  green: 238
+  blue: 238
+-
+  id: pale_brown
+  name: 'Pale Brown'
+  hex: '#987654'
+  red: 152
+  green: 118
+  blue: 84
+-
+  id: pale_carmine
+  name: 'Pale Carmine'
+  hex: '#af4035'
+  red: 175
+  green: 64
+  blue: 53
+-
+  id: pale_cerulean
+  name: 'Pale Cerulean'
+  hex: '#9bc4e2'
+  red: 155
+  green: 196
+  blue: 226
+-
+  id: pale_chestnut
+  name: 'Pale Chestnut'
+  hex: '#ddadaf'
+  red: 221
+  green: 173
+  blue: 175
+-
+  id: pale_copper
+  name: 'Pale Copper'
+  hex: '#da8a67'
+  red: 218
+  green: 138
+  blue: 103
+-
+  id: pale_cornflower_blue
+  name: 'Pale Cornflower Blue'
+  hex: '#abcdef'
+  red: 171
+  green: 205
+  blue: 239
+-
+  id: pale_gold
+  name: 'Pale Gold'
+  hex: '#e6be8a'
+  red: 230
+  green: 190
+  blue: 138
+-
+  id: pale_goldenrod
+  name: 'Pale Goldenrod'
+  hex: '#eee8aa'
+  red: 238
+  green: 232
+  blue: 170
+-
+  id: pale_green
+  name: 'Pale Green'
+  hex: '#98fb98'
+  red: 152
+  green: 251
+  blue: 152
+-
+  id: pale_lavender
+  name: 'Pale Lavender'
+  hex: '#dcd0ff'
+  red: 220
+  green: 208
+  blue: 255
+-
+  id: pale_magenta
+  name: 'Pale Magenta'
+  hex: '#f984e5'
+  red: 249
+  green: 132
+  blue: 229
+-
+  id: pale_pink
+  name: 'Pale Pink'
+  hex: '#fadadd'
+  red: 250
+  green: 218
+  blue: 221
+-
+  id: pale_plum
+  name: 'Pale Plum'
+  hex: '#dda0dd'
+  red: 221
+  green: 160
+  blue: 221
+-
+  id: pale_red_violet
+  name: 'Pale Red-Violet'
+  hex: '#db7093'
+  red: 219
+  green: 112
+  blue: 147
+-
+  id: pale_robin_egg_blue
+  name: 'Pale Robin Egg Blue'
+  hex: '#96ded1'
+  red: 150
+  green: 222
+  blue: 209
+-
+  id: pale_silver
+  name: 'Pale Silver'
+  hex: '#c9c0bb'
+  red: 201
+  green: 192
+  blue: 187
+-
+  id: pale_spring_bud
+  name: 'Pale Spring Bud'
+  hex: '#ecebbd'
+  red: 236
+  green: 235
+  blue: 189
+-
+  id: pale_taupe
+  name: 'Pale Taupe'
+  hex: '#bc987e'
+  red: 188
+  green: 152
+  blue: 126
+-
+  id: pale_violet_red
+  name: 'Pale Violet-Red'
+  hex: '#db7093'
+  red: 219
+  green: 112
+  blue: 147
+-
+  id: pansy_purple
+  name: 'Pansy Purple'
+  hex: '#78184a'
+  red: 120
+  green: 24
+  blue: 74
+-
+  id: papaya_whip
+  name: 'Papaya Whip'
+  hex: '#ffefd5'
+  red: 255
+  green: 239
+  blue: 213
+-
+  id: paris_green
+  name: 'Paris Green'
+  hex: '#50c878'
+  red: 80
+  green: 200
+  blue: 120
+-
+  id: pastel_blue
+  name: 'Pastel Blue'
+  hex: '#aec6cf'
+  red: 174
+  green: 198
+  blue: 207
+-
+  id: pastel_brown
+  name: 'Pastel Brown'
+  hex: '#836953'
+  red: 131
+  green: 105
+  blue: 83
+-
+  id: pastel_gray
+  name: 'Pastel Gray'
+  hex: '#cfcfc4'
+  red: 207
+  green: 207
+  blue: 196
+-
+  id: pastel_green
+  name: 'Pastel Green'
+  hex: '#7d7'
+  red: 119
+  green: 221
+  blue: 119
+-
+  id: pastel_magenta
+  name: 'Pastel Magenta'
+  hex: '#f49ac2'
+  red: 244
+  green: 154
+  blue: 194
+-
+  id: pastel_orange
+  name: 'Pastel Orange'
+  hex: '#ffb347'
+  red: 255
+  green: 179
+  blue: 71
+-
+  id: pastel_pink
+  name: 'Pastel Pink'
+  hex: '#dea5a4'
+  red: 222
+  green: 165
+  blue: 164
+-
+  id: pastel_purple
+  name: 'Pastel Purple'
+  hex: '#b39eb5'
+  red: 179
+  green: 158
+  blue: 181
+-
+  id: pastel_red
+  name: 'Pastel Red'
+  hex: '#ff6961'
+  red: 255
+  green: 105
+  blue: 97
+-
+  id: pastel_violet
+  name: 'Pastel Violet'
+  hex: '#cb99c9'
+  red: 203
+  green: 153
+  blue: 201
+-
+  id: pastel_yellow
+  name: 'Pastel Yellow'
+  hex: '#fdfd96'
+  red: 253
+  green: 253
+  blue: 150
+-
+  id: patriarch
+  name: Patriarch
+  hex: '#800080'
+  red: 128
+  green: 0
+  blue: 128
+-
+  id: payne_s_grey
+  name: 'Payne''S Grey'
+  hex: '#536878'
+  red: 83
+  green: 104
+  blue: 120
+-
+  id: peach
+  name: Peach
+  hex: '#ffe5b4'
+  red: 255
+  green: 229
+  blue: 180
+-
+  id: peach_crayola
+  name: 'Peach (Crayola)'
+  hex: '#ffcba4'
+  red: 255
+  green: 203
+  blue: 164
+-
+  id: peach_orange
+  name: Peach-Orange
+  hex: '#fc9'
+  red: 255
+  green: 204
+  blue: 153
+-
+  id: peach_puff
+  name: 'Peach Puff'
+  hex: '#ffdab9'
+  red: 255
+  green: 218
+  blue: 185
+-
+  id: peach_yellow
+  name: Peach-Yellow
+  hex: '#fadfad'
+  red: 250
+  green: 223
+  blue: 173
+-
+  id: pear
+  name: Pear
+  hex: '#d1e231'
+  red: 209
+  green: 226
+  blue: 49
+-
+  id: pearl
+  name: Pearl
+  hex: '#eae0c8'
+  red: 234
+  green: 224
+  blue: 200
+-
+  id: pearl_aqua
+  name: 'Pearl Aqua'
+  hex: '#88d8c0'
+  red: 136
+  green: 216
+  blue: 192
+-
+  id: pearly_purple
+  name: 'Pearly Purple'
+  hex: '#b768a2'
+  red: 183
+  green: 104
+  blue: 162
+-
+  id: peridot
+  name: Peridot
+  hex: '#e6e200'
+  red: 230
+  green: 226
+  blue: 0
+-
+  id: periwinkle
+  name: Periwinkle
+  hex: '#ccf'
+  red: 204
+  green: 204
+  blue: 255
+-
+  id: persian_blue
+  name: 'Persian Blue'
+  hex: '#1c39bb'
+  red: 28
+  green: 57
+  blue: 187
+-
+  id: persian_green
+  name: 'Persian Green'
+  hex: '#00a693'
+  red: 0
+  green: 166
+  blue: 147
+-
+  id: persian_indigo
+  name: 'Persian Indigo'
+  hex: '#32127a'
+  red: 50
+  green: 18
+  blue: 122
+-
+  id: persian_orange
+  name: 'Persian Orange'
+  hex: '#d99058'
+  red: 217
+  green: 144
+  blue: 88
+-
+  id: persian_pink
+  name: 'Persian Pink'
+  hex: '#f77fbe'
+  red: 247
+  green: 127
+  blue: 190
+-
+  id: persian_plum
+  name: 'Persian Plum'
+  hex: '#701c1c'
+  red: 112
+  green: 28
+  blue: 28
+-
+  id: persian_red
+  name: 'Persian Red'
+  hex: '#c33'
+  red: 204
+  green: 51
+  blue: 51
+-
+  id: persian_rose
+  name: 'Persian Rose'
+  hex: '#fe28a2'
+  red: 254
+  green: 40
+  blue: 162
+-
+  id: persimmon
+  name: Persimmon
+  hex: '#ec5800'
+  red: 236
+  green: 88
+  blue: 0
+-
+  id: peru
+  name: Peru
+  hex: '#cd853f'
+  red: 205
+  green: 133
+  blue: 63
+-
+  id: phlox
+  name: Phlox
+  hex: '#df00ff'
+  red: 223
+  green: 0
+  blue: 255
+-
+  id: phthalo_blue
+  name: 'Phthalo Blue'
+  hex: '#000f89'
+  red: 0
+  green: 15
+  blue: 137
+-
+  id: phthalo_green
+  name: 'Phthalo Green'
+  hex: '#123524'
+  red: 18
+  green: 53
+  blue: 36
+-
+  id: piggy_pink
+  name: 'Piggy Pink'
+  hex: '#fddde6'
+  red: 253
+  green: 221
+  blue: 230
+-
+  id: pine_green
+  name: 'Pine Green'
+  hex: '#01796f'
+  red: 1
+  green: 121
+  blue: 111
+-
+  id: pink
+  name: Pink
+  hex: '#ffc0cb'
+  red: 255
+  green: 192
+  blue: 203
+-
+  id: pink_lace
+  name: 'Pink Lace'
+  hex: '#ffddf4'
+  red: 255
+  green: 221
+  blue: 244
+-
+  id: pink_orange
+  name: Pink-Orange
+  hex: '#f96'
+  red: 255
+  green: 153
+  blue: 102
+-
+  id: pink_pearl
+  name: 'Pink Pearl'
+  hex: '#e7accf'
+  red: 231
+  green: 172
+  blue: 207
+-
+  id: pink_sherbet
+  name: 'Pink Sherbet'
+  hex: '#f78fa7'
+  red: 247
+  green: 143
+  blue: 167
+-
+  id: pistachio
+  name: Pistachio
+  hex: '#93c572'
+  red: 147
+  green: 197
+  blue: 114
+-
+  id: platinum
+  name: Platinum
+  hex: '#e5e4e2'
+  red: 229
+  green: 228
+  blue: 226
+-
+  id: plum_traditional
+  name: 'Plum (Traditional)'
+  hex: '#8e4585'
+  red: 142
+  green: 69
+  blue: 133
+-
+  id: plum_web
+  name: 'Plum (Web)'
+  hex: '#dda0dd'
+  red: 221
+  green: 160
+  blue: 221
+-
+  id: portland_orange
+  name: 'Portland Orange'
+  hex: '#ff5a36'
+  red: 255
+  green: 90
+  blue: 54
+-
+  id: powder_blue_web
+  name: 'Powder Blue (Web)'
+  hex: '#b0e0e6'
+  red: 176
+  green: 224
+  blue: 230
+-
+  id: princeton_orange
+  name: 'Princeton Orange'
+  hex: '#ff8f00'
+  red: 255
+  green: 143
+  blue: 0
+-
+  id: prune
+  name: Prune
+  hex: '#701c1c'
+  red: 112
+  green: 28
+  blue: 28
+-
+  id: prussian_blue
+  name: 'Prussian Blue'
+  hex: '#003153'
+  red: 0
+  green: 49
+  blue: 83
+-
+  id: psychedelic_purple
+  name: 'Psychedelic Purple'
+  hex: '#df00ff'
+  red: 223
+  green: 0
+  blue: 255
+-
+  id: puce
+  name: Puce
+  hex: '#c89'
+  red: 204
+  green: 136
+  blue: 153
+-
+  id: pumpkin
+  name: Pumpkin
+  hex: '#ff7518'
+  red: 255
+  green: 117
+  blue: 24
+-
+  id: purple_heart
+  name: 'Purple Heart'
+  hex: '#69359c'
+  red: 105
+  green: 53
+  blue: 156
+-
+  id: purple_html_css
+  name: 'Purple (Html/Css)'
+  hex: '#800080'
+  red: 128
+  green: 0
+  blue: 128
+-
+  id: purple_mountain_majesty
+  name: 'Purple Mountain Majesty'
+  hex: '#9678b6'
+  red: 150
+  green: 120
+  blue: 182
+-
+  id: purple_munsell
+  name: 'Purple (Munsell)'
+  hex: '#9f00c5'
+  red: 159
+  green: 0
+  blue: 197
+-
+  id: purple_pizzazz
+  name: 'Purple Pizzazz'
+  hex: '#fe4eda'
+  red: 254
+  green: 78
+  blue: 218
+-
+  id: purple_taupe
+  name: 'Purple Taupe'
+  hex: '#50404d'
+  red: 80
+  green: 64
+  blue: 77
+-
+  id: purple_x11
+  name: 'Purple (X11)'
+  hex: '#a020f0'
+  red: 160
+  green: 32
+  blue: 240
+-
+  id: quartz
+  name: Quartz
+  hex: '#51484f'
+  red: 81
+  green: 72
+  blue: 79
+-
+  id: rackley
+  name: Rackley
+  hex: '#5d8aa8'
+  red: 93
+  green: 138
+  blue: 168
+-
+  id: radical_red
+  name: 'Radical Red'
+  hex: '#ff355e'
+  red: 255
+  green: 53
+  blue: 94
+-
+  id: rajah
+  name: Rajah
+  hex: '#fbab60'
+  red: 251
+  green: 171
+  blue: 96
+-
+  id: raspberry
+  name: Raspberry
+  hex: '#e30b5d'
+  red: 227
+  green: 11
+  blue: 93
+-
+  id: raspberry_glace
+  name: 'Raspberry Glace'
+  hex: '#915f6d'
+  red: 145
+  green: 95
+  blue: 109
+-
+  id: raspberry_pink
+  name: 'Raspberry Pink'
+  hex: '#e25098'
+  red: 226
+  green: 80
+  blue: 152
+-
+  id: raspberry_rose
+  name: 'Raspberry Rose'
+  hex: '#b3446c'
+  red: 179
+  green: 68
+  blue: 108
+-
+  id: raw_umber
+  name: 'Raw Umber'
+  hex: '#826644'
+  red: 130
+  green: 102
+  blue: 68
+-
+  id: razzle_dazzle_rose
+  name: 'Razzle Dazzle Rose'
+  hex: '#f3c'
+  red: 255
+  green: 51
+  blue: 204
+-
+  id: razzmatazz
+  name: Razzmatazz
+  hex: '#e3256b'
+  red: 227
+  green: 37
+  blue: 107
+-
+  id: red
+  name: Red
+  hex: '#f00'
+  red: 255
+  green: 0
+  blue: 0
+-
+  id: red_brown
+  name: Red-Brown
+  hex: '#a52a2a'
+  red: 165
+  green: 42
+  blue: 42
+-
+  id: red_devil
+  name: 'Red Devil'
+  hex: '#860111'
+  red: 134
+  green: 1
+  blue: 17
+-
+  id: red_munsell
+  name: 'Red (Munsell)'
+  hex: '#f2003c'
+  red: 242
+  green: 0
+  blue: 60
+-
+  id: red_ncs
+  name: 'Red (Ncs)'
+  hex: '#c40233'
+  red: 196
+  green: 2
+  blue: 51
+-
+  id: red_orange
+  name: Red-Orange
+  hex: '#ff5349'
+  red: 255
+  green: 83
+  blue: 73
+-
+  id: red_pigment
+  name: 'Red (Pigment)'
+  hex: '#ed1c24'
+  red: 237
+  green: 28
+  blue: 36
+-
+  id: red_ryb
+  name: 'Red (Ryb)'
+  hex: '#fe2712'
+  red: 254
+  green: 39
+  blue: 18
+-
+  id: red_violet
+  name: Red-Violet
+  hex: '#c71585'
+  red: 199
+  green: 21
+  blue: 133
+-
+  id: redwood
+  name: Redwood
+  hex: '#ab4e52'
+  red: 171
+  green: 78
+  blue: 82
+-
+  id: regalia
+  name: Regalia
+  hex: '#522d80'
+  red: 82
+  green: 45
+  blue: 128
+-
+  id: resolution_blue
+  name: 'Resolution Blue'
+  hex: '#002387'
+  red: 0
+  green: 35
+  blue: 135
+-
+  id: rich_black
+  name: 'Rich Black'
+  hex: '#004040'
+  red: 0
+  green: 64
+  blue: 64
+-
+  id: rich_brilliant_lavender
+  name: 'Rich Brilliant Lavender'
+  hex: '#f1a7fe'
+  red: 241
+  green: 167
+  blue: 254
+-
+  id: rich_carmine
+  name: 'Rich Carmine'
+  hex: '#d70040'
+  red: 215
+  green: 0
+  blue: 64
+-
+  id: rich_electric_blue
+  name: 'Rich Electric Blue'
+  hex: '#0892d0'
+  red: 8
+  green: 146
+  blue: 208
+-
+  id: rich_lavender
+  name: 'Rich Lavender'
+  hex: '#a76bcf'
+  red: 167
+  green: 107
+  blue: 207
+-
+  id: rich_lilac
+  name: 'Rich Lilac'
+  hex: '#b666d2'
+  red: 182
+  green: 102
+  blue: 210
+-
+  id: rich_maroon
+  name: 'Rich Maroon'
+  hex: '#b03060'
+  red: 176
+  green: 48
+  blue: 96
+-
+  id: rifle_green
+  name: 'Rifle Green'
+  hex: '#414833'
+  red: 65
+  green: 72
+  blue: 51
+-
+  id: robin_egg_blue
+  name: 'Robin Egg Blue'
+  hex: '#0cc'
+  red: 0
+  green: 204
+  blue: 204
+-
+  id: rose
+  name: Rose
+  hex: '#ff007f'
+  red: 255
+  green: 0
+  blue: 127
+-
+  id: rose_bonbon
+  name: 'Rose Bonbon'
+  hex: '#f9429e'
+  red: 249
+  green: 66
+  blue: 158
+-
+  id: rose_ebony
+  name: 'Rose Ebony'
+  hex: '#674846'
+  red: 103
+  green: 72
+  blue: 70
+-
+  id: rose_gold
+  name: 'Rose Gold'
+  hex: '#b76e79'
+  red: 183
+  green: 110
+  blue: 121
+-
+  id: rose_madder
+  name: 'Rose Madder'
+  hex: '#e32636'
+  red: 227
+  green: 38
+  blue: 54
+-
+  id: rose_pink
+  name: 'Rose Pink'
+  hex: '#f6c'
+  red: 255
+  green: 102
+  blue: 204
+-
+  id: rose_quartz
+  name: 'Rose Quartz'
+  hex: '#aa98a9'
+  red: 170
+  green: 152
+  blue: 169
+-
+  id: rose_taupe
+  name: 'Rose Taupe'
+  hex: '#905d5d'
+  red: 144
+  green: 93
+  blue: 93
+-
+  id: rose_vale
+  name: 'Rose Vale'
+  hex: '#ab4e52'
+  red: 171
+  green: 78
+  blue: 82
+-
+  id: rosewood
+  name: Rosewood
+  hex: '#65000b'
+  red: 101
+  green: 0
+  blue: 11
+-
+  id: rosso_corsa
+  name: 'Rosso Corsa'
+  hex: '#d40000'
+  red: 212
+  green: 0
+  blue: 0
+-
+  id: rosy_brown
+  name: 'Rosy Brown'
+  hex: '#bc8f8f'
+  red: 188
+  green: 143
+  blue: 143
+-
+  id: royal_azure
+  name: 'Royal Azure'
+  hex: '#0038a8'
+  red: 0
+  green: 56
+  blue: 168
+-
+  id: royal_blue_traditional
+  name: 'Royal Blue (Traditional)'
+  hex: '#002366'
+  red: 0
+  green: 35
+  blue: 102
+-
+  id: royal_blue_web
+  name: 'Royal Blue (Web)'
+  hex: '#4169e1'
+  red: 65
+  green: 105
+  blue: 225
+-
+  id: royal_fuchsia
+  name: 'Royal Fuchsia'
+  hex: '#ca2c92'
+  red: 202
+  green: 44
+  blue: 146
+-
+  id: royal_purple
+  name: 'Royal Purple'
+  hex: '#7851a9'
+  red: 120
+  green: 81
+  blue: 169
+-
+  id: royal_yellow
+  name: 'Royal Yellow'
+  hex: '#fada5e'
+  red: 250
+  green: 218
+  blue: 94
+-
+  id: rubine_red
+  name: 'Rubine Red'
+  hex: '#d10056'
+  red: 209
+  green: 0
+  blue: 86
+-
+  id: ruby
+  name: Ruby
+  hex: '#e0115f'
+  red: 224
+  green: 17
+  blue: 95
+-
+  id: ruby_red
+  name: 'Ruby Red'
+  hex: '#9b111e'
+  red: 155
+  green: 17
+  blue: 30
+-
+  id: ruddy
+  name: Ruddy
+  hex: '#ff0028'
+  red: 255
+  green: 0
+  blue: 40
+-
+  id: ruddy_brown
+  name: 'Ruddy Brown'
+  hex: '#bb6528'
+  red: 187
+  green: 101
+  blue: 40
+-
+  id: ruddy_pink
+  name: 'Ruddy Pink'
+  hex: '#e18e96'
+  red: 225
+  green: 142
+  blue: 150
+-
+  id: rufous
+  name: Rufous
+  hex: '#a81c07'
+  red: 168
+  green: 28
+  blue: 7
+-
+  id: russet
+  name: Russet
+  hex: '#80461b'
+  red: 128
+  green: 70
+  blue: 27
+-
+  id: rust
+  name: Rust
+  hex: '#b7410e'
+  red: 183
+  green: 65
+  blue: 14
+-
+  id: rusty_red
+  name: 'Rusty Red'
+  hex: '#da2c43'
+  red: 218
+  green: 44
+  blue: 67
+-
+  id: sacramento_state_green
+  name: 'Sacramento State Green'
+  hex: '#00563f'
+  red: 0
+  green: 86
+  blue: 63
+-
+  id: saddle_brown
+  name: 'Saddle Brown'
+  hex: '#8b4513'
+  red: 139
+  green: 69
+  blue: 19
+-
+  id: safety_orange_blaze_orange
+  name: 'Safety Orange (Blaze Orange)'
+  hex: '#ff6700'
+  red: 255
+  green: 103
+  blue: 0
+-
+  id: saffron
+  name: Saffron
+  hex: '#f4c430'
+  red: 244
+  green: 196
+  blue: 48
+-
+  id: salmon
+  name: Salmon
+  hex: '#ff8c69'
+  red: 255
+  green: 140
+  blue: 105
+-
+  id: salmon_pink
+  name: 'Salmon Pink'
+  hex: '#ff91a4'
+  red: 255
+  green: 145
+  blue: 164
+-
+  id: sand
+  name: Sand
+  hex: '#c2b280'
+  red: 194
+  green: 178
+  blue: 128
+-
+  id: sand_dune
+  name: 'Sand Dune'
+  hex: '#967117'
+  red: 150
+  green: 113
+  blue: 23
+-
+  id: sandstorm
+  name: Sandstorm
+  hex: '#ecd540'
+  red: 236
+  green: 213
+  blue: 64
+-
+  id: sandy_brown
+  name: 'Sandy Brown'
+  hex: '#f4a460'
+  red: 244
+  green: 164
+  blue: 96
+-
+  id: sandy_taupe
+  name: 'Sandy Taupe'
+  hex: '#967117'
+  red: 150
+  green: 113
+  blue: 23
+-
+  id: sangria
+  name: Sangria
+  hex: '#92000a'
+  red: 146
+  green: 0
+  blue: 10
+-
+  id: sap_green
+  name: 'Sap Green'
+  hex: '#507d2a'
+  red: 80
+  green: 125
+  blue: 42
+-
+  id: sapphire
+  name: Sapphire
+  hex: '#0f52ba'
+  red: 15
+  green: 82
+  blue: 186
+-
+  id: sapphire_blue
+  name: 'Sapphire Blue'
+  hex: '#0067a5'
+  red: 0
+  green: 103
+  blue: 165
+-
+  id: satin_sheen_gold
+  name: 'Satin Sheen Gold'
+  hex: '#cba135'
+  red: 203
+  green: 161
+  blue: 53
+-
+  id: scarlet
+  name: Scarlet
+  hex: '#ff2400'
+  red: 255
+  green: 36
+  blue: 0
+-
+  id: scarlet_crayola
+  name: 'Scarlet (Crayola)'
+  hex: '#fd0e35'
+  red: 253
+  green: 14
+  blue: 53
+-
+  id: school_bus_yellow
+  name: 'School Bus Yellow'
+  hex: '#ffd800'
+  red: 255
+  green: 216
+  blue: 0
+-
+  id: screamin_green
+  name: 'Screamin'' Green'
+  hex: '#76ff7a'
+  red: 118
+  green: 255
+  blue: 122
+-
+  id: sea_blue
+  name: 'Sea Blue'
+  hex: '#006994'
+  red: 0
+  green: 105
+  blue: 148
+-
+  id: sea_green
+  name: 'Sea Green'
+  hex: '#2e8b57'
+  red: 46
+  green: 139
+  blue: 87
+-
+  id: seal_brown
+  name: 'Seal Brown'
+  hex: '#321414'
+  red: 50
+  green: 20
+  blue: 20
+-
+  id: seashell
+  name: Seashell
+  hex: '#fff5ee'
+  red: 255
+  green: 245
+  blue: 238
+-
+  id: selective_yellow
+  name: 'Selective Yellow'
+  hex: '#ffba00'
+  red: 255
+  green: 186
+  blue: 0
+-
+  id: sepia
+  name: Sepia
+  hex: '#704214'
+  red: 112
+  green: 66
+  blue: 20
+-
+  id: shadow
+  name: Shadow
+  hex: '#8a795d'
+  red: 138
+  green: 121
+  blue: 93
+-
+  id: shamrock_green
+  name: 'Shamrock Green'
+  hex: '#009e60'
+  red: 0
+  green: 158
+  blue: 96
+-
+  id: shocking_pink
+  name: 'Shocking Pink'
+  hex: '#fc0fc0'
+  red: 252
+  green: 15
+  blue: 192
+-
+  id: shocking_pink_crayola
+  name: 'Shocking Pink (Crayola)'
+  hex: '#ff6fff'
+  red: 255
+  green: 111
+  blue: 255
+-
+  id: sienna
+  name: Sienna
+  hex: '#882d17'
+  red: 136
+  green: 45
+  blue: 23
+-
+  id: silver
+  name: Silver
+  hex: '#c0c0c0'
+  red: 192
+  green: 192
+  blue: 192
+-
+  id: sinopia
+  name: Sinopia
+  hex: '#cb410b'
+  red: 203
+  green: 65
+  blue: 11
+-
+  id: skobeloff
+  name: Skobeloff
+  hex: '#007474'
+  red: 0
+  green: 116
+  blue: 116
+-
+  id: sky_blue
+  name: 'Sky Blue'
+  hex: '#87ceeb'
+  red: 135
+  green: 206
+  blue: 235
+-
+  id: sky_magenta
+  name: 'Sky Magenta'
+  hex: '#cf71af'
+  red: 207
+  green: 113
+  blue: 175
+-
+  id: slate_blue
+  name: 'Slate Blue'
+  hex: '#6a5acd'
+  red: 106
+  green: 90
+  blue: 205
+-
+  id: slate_gray
+  name: 'Slate Gray'
+  hex: '#708090'
+  red: 112
+  green: 128
+  blue: 144
+-
+  id: smalt_dark_powder_blue
+  name: 'Smalt (Dark Powder Blue)'
+  hex: '#039'
+  red: 0
+  green: 51
+  blue: 153
+-
+  id: smokey_topaz
+  name: 'Smokey Topaz'
+  hex: '#933d41'
+  red: 147
+  green: 61
+  blue: 65
+-
+  id: smoky_black
+  name: 'Smoky Black'
+  hex: '#100c08'
+  red: 16
+  green: 12
+  blue: 8
+-
+  id: snow
+  name: Snow
+  hex: '#fffafa'
+  red: 255
+  green: 250
+  blue: 250
+-
+  id: spiro_disco_ball
+  name: 'Spiro Disco Ball'
+  hex: '#0fc0fc'
+  red: 15
+  green: 192
+  blue: 252
+-
+  id: spring_bud
+  name: 'Spring Bud'
+  hex: '#a7fc00'
+  red: 167
+  green: 252
+  blue: 0
+-
+  id: spring_green
+  name: 'Spring Green'
+  hex: '#00ff7f'
+  red: 0
+  green: 255
+  blue: 127
+-
+  id: st_patrick_s_blue
+  name: 'St. Patrick''S Blue'
+  hex: '#23297a'
+  red: 35
+  green: 41
+  blue: 122
+-
+  id: steel_blue
+  name: 'Steel Blue'
+  hex: '#4682b4'
+  red: 70
+  green: 130
+  blue: 180
+-
+  id: stil_de_grain_yellow
+  name: 'Stil De Grain Yellow'
+  hex: '#fada5e'
+  red: 250
+  green: 218
+  blue: 94
+-
+  id: stizza
+  name: Stizza
+  hex: '#900'
+  red: 153
+  green: 0
+  blue: 0
+-
+  id: stormcloud
+  name: Stormcloud
+  hex: '#4f666a'
+  red: 79
+  green: 102
+  blue: 106
+-
+  id: straw
+  name: Straw
+  hex: '#e4d96f'
+  red: 228
+  green: 217
+  blue: 111
+-
+  id: sunglow
+  name: Sunglow
+  hex: '#fc3'
+  red: 255
+  green: 204
+  blue: 51
+-
+  id: sunset
+  name: Sunset
+  hex: '#fad6a5'
+  red: 250
+  green: 214
+  blue: 165
+-
+  id: tan
+  name: Tan
+  hex: '#d2b48c'
+  red: 210
+  green: 180
+  blue: 140
+-
+  id: tangelo
+  name: Tangelo
+  hex: '#f94d00'
+  red: 249
+  green: 77
+  blue: 0
+-
+  id: tangerine
+  name: Tangerine
+  hex: '#f28500'
+  red: 242
+  green: 133
+  blue: 0
+-
+  id: tangerine_yellow
+  name: 'Tangerine Yellow'
+  hex: '#fc0'
+  red: 255
+  green: 204
+  blue: 0
+-
+  id: tango_pink
+  name: 'Tango Pink'
+  hex: '#e4717a'
+  red: 228
+  green: 113
+  blue: 122
+-
+  id: taupe
+  name: Taupe
+  hex: '#483c32'
+  red: 72
+  green: 60
+  blue: 50
+-
+  id: taupe_gray
+  name: 'Taupe Gray'
+  hex: '#8b8589'
+  red: 139
+  green: 133
+  blue: 137
+-
+  id: tea_green
+  name: 'Tea Green'
+  hex: '#d0f0c0'
+  red: 208
+  green: 240
+  blue: 192
+-
+  id: tea_rose_orange
+  name: 'Tea Rose (Orange)'
+  hex: '#f88379'
+  red: 248
+  green: 131
+  blue: 121
+-
+  id: tea_rose_rose
+  name: 'Tea Rose (Rose)'
+  hex: '#f4c2c2'
+  red: 244
+  green: 194
+  blue: 194
+-
+  id: teal
+  name: Teal
+  hex: '#008080'
+  red: 0
+  green: 128
+  blue: 128
+-
+  id: teal_blue
+  name: 'Teal Blue'
+  hex: '#367588'
+  red: 54
+  green: 117
+  blue: 136
+-
+  id: teal_green
+  name: 'Teal Green'
+  hex: '#00827f'
+  red: 0
+  green: 130
+  blue: 127
+-
+  id: telemagenta
+  name: Telemagenta
+  hex: '#cf3476'
+  red: 207
+  green: 52
+  blue: 118
+-
+  id: tenn_tawny
+  name: 'Tenné (Tawny)'
+  hex: '#cd5700'
+  red: 205
+  green: 87
+  blue: 0
+-
+  id: terra_cotta
+  name: 'Terra Cotta'
+  hex: '#e2725b'
+  red: 226
+  green: 114
+  blue: 91
+-
+  id: thistle
+  name: Thistle
+  hex: '#d8bfd8'
+  red: 216
+  green: 191
+  blue: 216
+-
+  id: thulian_pink
+  name: 'Thulian Pink'
+  hex: '#de6fa1'
+  red: 222
+  green: 111
+  blue: 161
+-
+  id: tickle_me_pink
+  name: 'Tickle Me Pink'
+  hex: '#fc89ac'
+  red: 252
+  green: 137
+  blue: 172
+-
+  id: tiffany_blue
+  name: 'Tiffany Blue'
+  hex: '#0abab5'
+  red: 10
+  green: 186
+  blue: 181
+-
+  id: tiger_s_eye
+  name: 'Tiger''S Eye'
+  hex: '#e08d3c'
+  red: 224
+  green: 141
+  blue: 60
+-
+  id: timberwolf
+  name: Timberwolf
+  hex: '#dbd7d2'
+  red: 219
+  green: 215
+  blue: 210
+-
+  id: titanium_yellow
+  name: 'Titanium Yellow'
+  hex: '#eee600'
+  red: 238
+  green: 230
+  blue: 0
+-
+  id: tomato
+  name: Tomato
+  hex: '#ff6347'
+  red: 255
+  green: 99
+  blue: 71
+-
+  id: toolbox
+  name: Toolbox
+  hex: '#746cc0'
+  red: 116
+  green: 108
+  blue: 192
+-
+  id: topaz
+  name: Topaz
+  hex: '#ffc87c'
+  red: 255
+  green: 200
+  blue: 124
+-
+  id: tractor_red
+  name: 'Tractor Red'
+  hex: '#fd0e35'
+  red: 253
+  green: 14
+  blue: 53
+-
+  id: trolley_grey
+  name: 'Trolley Grey'
+  hex: '#808080'
+  red: 128
+  green: 128
+  blue: 128
+-
+  id: tropical_rain_forest
+  name: 'Tropical Rain Forest'
+  hex: '#00755e'
+  red: 0
+  green: 117
+  blue: 94
+-
+  id: true_blue
+  name: 'True Blue'
+  hex: '#0073cf'
+  red: 0
+  green: 115
+  blue: 207
+-
+  id: tufts_blue
+  name: 'Tufts Blue'
+  hex: '#417dc1'
+  red: 65
+  green: 125
+  blue: 193
+-
+  id: tumbleweed
+  name: Tumbleweed
+  hex: '#deaa88'
+  red: 222
+  green: 170
+  blue: 136
+-
+  id: turkish_rose
+  name: 'Turkish Rose'
+  hex: '#b57281'
+  red: 181
+  green: 114
+  blue: 129
+-
+  id: turquoise
+  name: Turquoise
+  hex: '#30d5c8'
+  red: 48
+  green: 213
+  blue: 200
+-
+  id: turquoise_blue
+  name: 'Turquoise Blue'
+  hex: '#00ffef'
+  red: 0
+  green: 255
+  blue: 239
+-
+  id: turquoise_green
+  name: 'Turquoise Green'
+  hex: '#a0d6b4'
+  red: 160
+  green: 214
+  blue: 180
+-
+  id: tuscan_red
+  name: 'Tuscan Red'
+  hex: '#7c4848'
+  red: 124
+  green: 72
+  blue: 72
+-
+  id: twilight_lavender
+  name: 'Twilight Lavender'
+  hex: '#8a496b'
+  red: 138
+  green: 73
+  blue: 107
+-
+  id: tyrian_purple
+  name: 'Tyrian Purple'
+  hex: '#66023c'
+  red: 102
+  green: 2
+  blue: 60
+-
+  id: ua_blue
+  name: 'Ua Blue'
+  hex: '#03a'
+  red: 0
+  green: 51
+  blue: 170
+-
+  id: ua_red
+  name: 'Ua Red'
+  hex: '#d9004c'
+  red: 217
+  green: 0
+  blue: 76
+-
+  id: ube
+  name: Ube
+  hex: '#8878c3'
+  red: 136
+  green: 120
+  blue: 195
+-
+  id: ucla_blue
+  name: 'Ucla Blue'
+  hex: '#536895'
+  red: 83
+  green: 104
+  blue: 149
+-
+  id: ucla_gold
+  name: 'Ucla Gold'
+  hex: '#ffb300'
+  red: 255
+  green: 179
+  blue: 0
+-
+  id: ufo_green
+  name: 'Ufo Green'
+  hex: '#3cd070'
+  red: 60
+  green: 208
+  blue: 112
+-
+  id: ultra_pink
+  name: 'Ultra Pink'
+  hex: '#ff6fff'
+  red: 255
+  green: 111
+  blue: 255
+-
+  id: ultramarine
+  name: Ultramarine
+  hex: '#120a8f'
+  red: 18
+  green: 10
+  blue: 143
+-
+  id: ultramarine_blue
+  name: 'Ultramarine Blue'
+  hex: '#4166f5'
+  red: 65
+  green: 102
+  blue: 245
+-
+  id: umber
+  name: Umber
+  hex: '#635147'
+  red: 99
+  green: 81
+  blue: 71
+-
+  id: unbleached_silk
+  name: 'Unbleached Silk'
+  hex: '#ffddca'
+  red: 255
+  green: 221
+  blue: 202
+-
+  id: united_nations_blue
+  name: 'United Nations Blue'
+  hex: '#5b92e5'
+  red: 91
+  green: 146
+  blue: 229
+-
+  id: university_of_california_gold
+  name: 'University Of California Gold'
+  hex: '#b78727'
+  red: 183
+  green: 135
+  blue: 39
+-
+  id: unmellow_yellow
+  name: 'Unmellow Yellow'
+  hex: '#ff6'
+  red: 255
+  green: 255
+  blue: 102
+-
+  id: up_forest_green
+  name: 'Up Forest Green'
+  hex: '#014421'
+  red: 1
+  green: 68
+  blue: 33
+-
+  id: up_maroon
+  name: 'Up Maroon'
+  hex: '#7b1113'
+  red: 123
+  green: 17
+  blue: 19
+-
+  id: upsdell_red
+  name: 'Upsdell Red'
+  hex: '#ae2029'
+  red: 174
+  green: 32
+  blue: 41
+-
+  id: urobilin
+  name: Urobilin
+  hex: '#e1ad21'
+  red: 225
+  green: 173
+  blue: 33
+-
+  id: usafa_blue
+  name: 'Usafa Blue'
+  hex: '#004f98'
+  red: 0
+  green: 79
+  blue: 152
+-
+  id: usc_cardinal
+  name: 'Usc Cardinal'
+  hex: '#900'
+  red: 153
+  green: 0
+  blue: 0
+-
+  id: usc_gold
+  name: 'Usc Gold'
+  hex: '#fc0'
+  red: 255
+  green: 204
+  blue: 0
+-
+  id: utah_crimson
+  name: 'Utah Crimson'
+  hex: '#d3003f'
+  red: 211
+  green: 0
+  blue: 63
+-
+  id: vanilla
+  name: Vanilla
+  hex: '#f3e5ab'
+  red: 243
+  green: 229
+  blue: 171
+-
+  id: vegas_gold
+  name: 'Vegas Gold'
+  hex: '#c5b358'
+  red: 197
+  green: 179
+  blue: 88
+-
+  id: venetian_red
+  name: 'Venetian Red'
+  hex: '#c80815'
+  red: 200
+  green: 8
+  blue: 21
+-
+  id: verdigris
+  name: Verdigris
+  hex: '#43b3ae'
+  red: 67
+  green: 179
+  blue: 174
+-
+  id: vermilion_cinnabar
+  name: 'Vermilion (Cinnabar)'
+  hex: '#e34234'
+  red: 227
+  green: 66
+  blue: 52
+-
+  id: vermilion_plochere
+  name: 'Vermilion (Plochere)'
+  hex: '#d9603b'
+  red: 217
+  green: 96
+  blue: 59
+-
+  id: veronica
+  name: Veronica
+  hex: '#a020f0'
+  red: 160
+  green: 32
+  blue: 240
+-
+  id: violet
+  name: Violet
+  hex: '#8f00ff'
+  red: 143
+  green: 0
+  blue: 255
+-
+  id: violet_blue
+  name: Violet-Blue
+  hex: '#324ab2'
+  red: 50
+  green: 74
+  blue: 178
+-
+  id: violet_color_wheel
+  name: 'Violet (Color Wheel)'
+  hex: '#7f00ff'
+  red: 127
+  green: 0
+  blue: 255
+-
+  id: violet_ryb
+  name: 'Violet (Ryb)'
+  hex: '#8601af'
+  red: 134
+  green: 1
+  blue: 175
+-
+  id: violet_web
+  name: 'Violet (Web)'
+  hex: '#ee82ee'
+  red: 238
+  green: 130
+  blue: 238
+-
+  id: viridian
+  name: Viridian
+  hex: '#40826d'
+  red: 64
+  green: 130
+  blue: 109
+-
+  id: vivid_auburn
+  name: 'Vivid Auburn'
+  hex: '#922724'
+  red: 146
+  green: 39
+  blue: 36
+-
+  id: vivid_burgundy
+  name: 'Vivid Burgundy'
+  hex: '#9f1d35'
+  red: 159
+  green: 29
+  blue: 53
+-
+  id: vivid_cerise
+  name: 'Vivid Cerise'
+  hex: '#da1d81'
+  red: 218
+  green: 29
+  blue: 129
+-
+  id: vivid_tangerine
+  name: 'Vivid Tangerine'
+  hex: '#ffa089'
+  red: 255
+  green: 160
+  blue: 137
+-
+  id: vivid_violet
+  name: 'Vivid Violet'
+  hex: '#9f00ff'
+  red: 159
+  green: 0
+  blue: 255
+-
+  id: warm_black
+  name: 'Warm Black'
+  hex: '#004242'
+  red: 0
+  green: 66
+  blue: 66
+-
+  id: waterspout
+  name: Waterspout
+  hex: '#a4f4f9'
+  red: 164
+  green: 244
+  blue: 249
+-
+  id: wenge
+  name: Wenge
+  hex: '#645452'
+  red: 100
+  green: 84
+  blue: 82
+-
+  id: wheat
+  name: Wheat
+  hex: '#f5deb3'
+  red: 245
+  green: 222
+  blue: 179
+-
+  id: white
+  name: White
+  hex: '#fff'
+  red: 255
+  green: 255
+  blue: 255
+-
+  id: white_smoke
+  name: 'White Smoke'
+  hex: '#f5f5f5'
+  red: 245
+  green: 245
+  blue: 245
+-
+  id: wild_blue_yonder
+  name: 'Wild Blue Yonder'
+  hex: '#a2add0'
+  red: 162
+  green: 173
+  blue: 208
+-
+  id: wild_strawberry
+  name: 'Wild Strawberry'
+  hex: '#ff43a4'
+  red: 255
+  green: 67
+  blue: 164
+-
+  id: wild_watermelon
+  name: 'Wild Watermelon'
+  hex: '#fc6c85'
+  red: 252
+  green: 108
+  blue: 133
+-
+  id: wine
+  name: Wine
+  hex: '#722f37'
+  red: 114
+  green: 47
+  blue: 55
+-
+  id: wine_dregs
+  name: 'Wine Dregs'
+  hex: '#673147'
+  red: 103
+  green: 49
+  blue: 71
+-
+  id: wisteria
+  name: Wisteria
+  hex: '#c9a0dc'
+  red: 201
+  green: 160
+  blue: 220
+-
+  id: wood_brown
+  name: 'Wood Brown'
+  hex: '#c19a6b'
+  red: 193
+  green: 154
+  blue: 107
+-
+  id: xanadu
+  name: Xanadu
+  hex: '#738678'
+  red: 115
+  green: 134
+  blue: 120
+-
+  id: yale_blue
+  name: 'Yale Blue'
+  hex: '#0f4d92'
+  red: 15
+  green: 77
+  blue: 146
+-
+  id: yellow
+  name: Yellow
+  hex: '#ff0'
+  red: 255
+  green: 255
+  blue: 0
+-
+  id: yellow_green
+  name: Yellow-Green
+  hex: '#9acd32'
+  red: 154
+  green: 205
+  blue: 50
+-
+  id: yellow_munsell
+  name: 'Yellow (Munsell)'
+  hex: '#efcc00'
+  red: 239
+  green: 204
+  blue: 0
+-
+  id: yellow_ncs
+  name: 'Yellow (Ncs)'
+  hex: '#ffd300'
+  red: 255
+  green: 211
+  blue: 0
+-
+  id: yellow_orange
+  name: 'Yellow Orange'
+  hex: '#ffae42'
+  red: 255
+  green: 174
+  blue: 66
+-
+  id: yellow_process
+  name: 'Yellow (Process)'
+  hex: '#ffef00'
+  red: 255
+  green: 239
+  blue: 0
+-
+  id: yellow_ryb
+  name: 'Yellow (Ryb)'
+  hex: '#fefe33'
+  red: 254
+  green: 254
+  blue: 51
+-
+  id: zaffre
+  name: Zaffre
+  hex: '#0014a8'
+  red: 0
+  green: 20
+  blue: 168
+-
+  id: zinnwaldite_brown
+  name: 'Zinnwaldite Brown'
+  hex: '#2c1608'
+  red: 44
+  green: 22
+  blue: 8
