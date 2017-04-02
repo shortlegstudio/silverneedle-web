@@ -7,6 +7,7 @@ namespace Tests.Groups
 {
     using NUnit.Framework;
     using SilverNeedle.Groups;
+    using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
     [TestFixture]

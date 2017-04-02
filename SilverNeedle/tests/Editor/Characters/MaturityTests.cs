@@ -8,7 +8,7 @@ namespace Tests.Characters {
     using SilverNeedle.Characters;
     using System.Linq;
     using SilverNeedle.Dice;
-    using SilverNeedle.Yaml;
+    using SilverNeedle.Utility;
 
     [TestFixture]
     public class MaturityTests {

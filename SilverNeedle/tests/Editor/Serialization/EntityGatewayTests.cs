@@ -3,10 +3,11 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-namespace Tests.Utility {
+namespace Tests.Serialization 
+{
     using System.Collections.Generic;
     using NUnit.Framework;
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
     using System.Linq;
     using SilverNeedle.Characters;
 

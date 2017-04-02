@@ -7,7 +7,7 @@ namespace SilverNeedle.Characters
 {
     using System.Collections.Generic;
     using System.Linq;
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
 
     /// <summary>
     /// Prerequisites needed to be able to use a feat

@@ -8,7 +8,7 @@ namespace Tests.Characters {
     using NUnit.Framework;
     using SilverNeedle.Characters;
     using System.Linq;
-    using SilverNeedle.Yaml;
+    using SilverNeedle.Utility;
     
 	[TestFixture]
 	public class FeatTests {

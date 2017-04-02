@@ -3,7 +3,7 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-namespace SilverNeedle.Yaml
+namespace SilverNeedle.Serialization
 {
     using System;
     using System.Collections.Generic;
@@ -15,7 +15,7 @@ namespace SilverNeedle.Yaml
     /// <summary>
     /// A wrapper around the YamlNodes that abstracts away complexities of the Yaml format
     /// </summary>
-    public class YamlNodeWrapper : IObjectStore
+    public class YamlObjectStore : IObjectStore
     {
         /// <summary>
         /// Has a value if node is a sequence node
@@ -47,7 +47,7 @@ namespace SilverNeedle.Yaml
         /// Initializes a new instance of the <see cref="SilverNeedle.YamlNodeWrapper"/> class.
         /// </summary>
         /// <param name="wrap">YamlNode to wrap.</param>
-        public YamlNodeWrapper(YamlNode wrap)
+        public YamlObjectStore(YamlNode wrap)
         {
             this.node = wrap;
             this.sequenceNode = this.node as YamlSequenceNode;
@@ -109,7 +109,7 @@ namespace SilverNeedle.Yaml
         {            
             get
             {
-                return this.sequenceNode.Children.Select(x => new YamlNodeWrapper(x)).ToList();
+                return this.sequenceNode.Children.Select(x => new YamlObjectStore(x)).ToList();
             }
         }
 
@@ -273,7 +273,7 @@ namespace SilverNeedle.Yaml
             try
             {
                 var item = this.mappingNode.Children[new YamlScalarNode(key)];
-                return new YamlNodeWrapper(item);
+                return new YamlObjectStore(item);
             }
             catch
             {
@@ -293,7 +293,7 @@ namespace SilverNeedle.Yaml
                 return null;
                 
             var item = this.mappingNode.Children[new YamlScalarNode(key)];
-            return new YamlNodeWrapper(item);        
+            return new YamlObjectStore(item);        
         }
 
         /// <summary>

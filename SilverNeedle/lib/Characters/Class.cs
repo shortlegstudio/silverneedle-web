@@ -10,6 +10,7 @@ namespace SilverNeedle.Characters
   using System.Text.RegularExpressions;
   using SilverNeedle;
   using SilverNeedle.Dice;
+  using SilverNeedle.Serialization;
   using SilverNeedle.Utility;
 
   /// <summary>

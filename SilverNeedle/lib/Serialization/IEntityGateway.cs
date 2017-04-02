@@ -3,7 +3,7 @@
 //     Copyright (c) Short Leg Studio, LLC. All rights reserved.
 // </copyright>
 //-----------------------------------------------------------------------
-namespace SilverNeedle
+namespace SilverNeedle.Serialization
 {
     using System.Collections.Generic;
 

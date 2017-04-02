@@ -7,6 +7,7 @@ namespace SilverNeedle.Characters
 {
     using System.Collections.Generic;
     using SilverNeedle.Actions;
+    using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
     public class Level : IProvidesSpecialAbilities, IModifiesStats

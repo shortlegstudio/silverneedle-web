@@ -7,7 +7,7 @@ namespace SilverNeedle.Actions.CharacterGenerator.SpellCasting
 {
     using SilverNeedle.Characters;
     using SilverNeedle.Spells;
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
 
     public class AddLevelUpSpells : ICharacterDesignStep
     {

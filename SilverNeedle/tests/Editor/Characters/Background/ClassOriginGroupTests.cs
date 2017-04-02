@@ -7,7 +7,7 @@ using NUnit.Framework;
 using SilverNeedle;
 using SilverNeedle.Characters.Background;
 using System.Linq;
-using SilverNeedle.Yaml;
+using SilverNeedle.Utility;
 
 namespace Tests.Characters.Background
 {

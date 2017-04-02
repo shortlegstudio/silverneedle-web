@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace SilverNeedle.Utility
+namespace SilverNeedle.Serialization
 {
     public class MemoryStore : IObjectStore
     {

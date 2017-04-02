@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters.Appearance
 {
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
     public class FacialHair : DescriptionDetail
     {
         public FacialHair(IObjectStore data) : base(data)

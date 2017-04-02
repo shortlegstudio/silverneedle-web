@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters
 {
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
     public class Ideal : IGatewayObject
     {
         public string Name { get; private set; }

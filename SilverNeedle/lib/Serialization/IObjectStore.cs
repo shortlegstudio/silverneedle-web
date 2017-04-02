@@ -1,4 +1,4 @@
-namespace SilverNeedle.Utility
+namespace SilverNeedle.Serialization
 {
     using System.Collections.Generic;
 

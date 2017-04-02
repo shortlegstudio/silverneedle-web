@@ -3,11 +3,11 @@
 // This software is released under the MIT License.
 // http://opensource.org/licenses/mit-license.php
 
-namespace Tests.Utility
+namespace Tests.Serialization
 {
     using NUnit.Framework;
     using System.Linq;
-    using SilverNeedle;
+    using SilverNeedle.Serialization;
 
     [TestFixture]
     public class DatafileLoaderTests

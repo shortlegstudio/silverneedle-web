@@ -9,7 +9,7 @@ namespace SilverNeedle.Actions.CharacterGenerator.Background
     using System;
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.Background;
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
 
     public class ClassOriginStoryCreator : ICharacterDesignStep
     {

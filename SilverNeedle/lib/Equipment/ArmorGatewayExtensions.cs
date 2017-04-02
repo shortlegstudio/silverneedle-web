@@ -8,7 +8,7 @@ namespace SilverNeedle.Equipment
     using System.Collections.Generic;
     using System.Linq;
     using SilverNeedle.Characters;
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
 
     public static class ArmorGatewayExtensions
     {

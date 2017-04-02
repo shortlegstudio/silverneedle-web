@@ -10,7 +10,7 @@ namespace Tests.Actions {
 	using SilverNeedle.Actions.CharacterGenerator;
 	using SilverNeedle.Equipment;
 	using SilverNeedle.Characters;
-	using SilverNeedle.Utility;
+	using SilverNeedle.Serialization;
 
 	[TestFixture]
 	public class PurchaseShieldTests

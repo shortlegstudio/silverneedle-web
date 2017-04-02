@@ -7,7 +7,7 @@ namespace Tests.Beastiary
 {
     using NUnit.Framework;
     using SilverNeedle.Beastiary;
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
     
     [TestFixture]
     public class FamiliarTests

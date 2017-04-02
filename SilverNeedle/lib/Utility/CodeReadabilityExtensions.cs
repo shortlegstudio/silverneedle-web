@@ -5,6 +5,8 @@
 
 namespace SilverNeedle.Utility
 {
+    using SilverNeedle.Serialization;
+
     public static class CodeReadabilityExtensions
     {
         public static T SafeLoad<T>(this IObjectStore data)

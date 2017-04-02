@@ -11,7 +11,7 @@ namespace SilverNeedle.Actions.CharacterGenerator.Appearance
 {
     using SilverNeedle;
     using SilverNeedle.Characters.Appearance;
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
 
     public class CreateFacialFeatures : ICharacterDesignStep
     {

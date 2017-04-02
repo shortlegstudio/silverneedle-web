@@ -5,10 +5,9 @@
 
 namespace SilverNeedle.Beastiary
 {
-    using System;
     using System.Collections.Generic;
     using SilverNeedle.Characters;
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
     public class Familiar : IGatewayObject, IModifiesStats
     {
         public string Name { get; set; }

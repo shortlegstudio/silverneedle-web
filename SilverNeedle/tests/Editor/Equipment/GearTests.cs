@@ -7,6 +7,7 @@ namespace Tests.Equipment
 {
     using NUnit.Framework;
     using SilverNeedle.Equipment;
+    using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
     [TestFixture]

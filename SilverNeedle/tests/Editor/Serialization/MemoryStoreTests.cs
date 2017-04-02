@@ -3,11 +3,11 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-namespace Tests.Utility
+namespace Tests.Serialization
 {
     using NUnit.Framework;
     using System.Linq;
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
 
     [TestFixture]
     public class MemoryStoreTests

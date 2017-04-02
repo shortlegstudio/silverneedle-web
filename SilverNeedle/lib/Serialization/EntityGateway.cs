@@ -6,8 +6,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using SilverNeedle.Utility;
 
-namespace SilverNeedle.Utility 
+namespace SilverNeedle.Serialization 
 {
     public class EntityGateway<T> : IEntityGateway<T> where T : IGatewayObject
     {

@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters
 {
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
 
     /// <summary>
     /// Languages that a character can learn

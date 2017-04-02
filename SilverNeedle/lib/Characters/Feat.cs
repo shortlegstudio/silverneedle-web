@@ -8,7 +8,7 @@ namespace SilverNeedle.Characters
     using System.Collections.Generic;
     using System.Linq;
     using SilverNeedle;
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
 
     /// <summary>
     /// Represents a feat ability for a character that allows it to perform

@@ -3,11 +3,12 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-using System;
-using SilverNeedle.Characters;
 
 namespace SilverNeedle.Actions.CharacterGenerator
 {
+    using SilverNeedle.Characters;
+    using SilverNeedle.Serialization;
+
     public class BuildCharacterSkillList : ICharacterDesignStep
     {
         IEntityGateway<Skill> skills;

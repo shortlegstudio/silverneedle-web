@@ -6,7 +6,7 @@
 namespace SilverNeedle.Characters
 {
     using System.Collections.Generic;
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
 
     /// <summary>
     /// Parse stat modifiers yaml.

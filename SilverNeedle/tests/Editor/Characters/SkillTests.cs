@@ -7,7 +7,7 @@
 namespace Characters {
     using NUnit.Framework;
     using SilverNeedle.Characters;
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
 
     [TestFixture]
     public class SkillTests {

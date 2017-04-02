@@ -2,7 +2,8 @@
 using System.Linq;
 using NUnit.Framework;
 using SilverNeedle.Characters;
-using SilverNeedle.Yaml;
+using SilverNeedle.Serialization;
+using SilverNeedle.Utility;
 
 namespace Tests.Characters {
 

@@ -10,6 +10,7 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
     using SilverNeedle.Actions.CharacterGenerator.SpellCasting;
     using SilverNeedle.Characters;
     using SilverNeedle.Spells;
+    using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
 

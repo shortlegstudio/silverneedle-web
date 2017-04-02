@@ -3,8 +3,10 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-namespace SilverNeedle.Utility {
+namespace SilverNeedle.Utility 
+{
     using System;
+    using SilverNeedle.Serialization;
     public static class Reflector {
         public static T Instantiate<T>(this System.Type type, params IObjectStore[] constructor) 
         {

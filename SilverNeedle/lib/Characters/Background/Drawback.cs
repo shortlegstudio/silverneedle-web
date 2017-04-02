@@ -7,6 +7,7 @@
 namespace SilverNeedle.Characters.Background
 {
     using System.Collections.Generic;
+    using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
     public class Drawback : IGatewayObject, IWeightedTableObject

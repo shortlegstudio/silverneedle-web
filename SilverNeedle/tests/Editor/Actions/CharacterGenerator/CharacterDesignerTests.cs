@@ -6,11 +6,11 @@
 namespace Tests.Actions.CharacterGenerator
 {
     using System.Linq;
-    using Moq;
     using NUnit.Framework;
     using SilverNeedle.Actions;
     using SilverNeedle.Actions.CharacterGenerator;
     using SilverNeedle.Characters;
+    using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
     [TestFixture]

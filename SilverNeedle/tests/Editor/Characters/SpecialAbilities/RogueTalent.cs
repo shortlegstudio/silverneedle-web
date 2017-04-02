@@ -1,6 +1,6 @@
 namespace SilverNeedle.Characters
 {
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
 
     public class RogueTalent : LevelAbility
     {

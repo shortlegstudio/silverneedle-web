@@ -6,12 +6,10 @@
 
 namespace SilverNeedle.Actions.CharacterGenerator
 {
-    using System.Collections.Generic;
-    using System.Linq;
     using SilverNeedle;
     using SilverNeedle.Characters;
     using SilverNeedle.Equipment;
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
 
     /// <summary>
     /// Equip melee and ranged weapon selects the weapons for this character to prepare (and purchase)

@@ -6,7 +6,7 @@
 namespace SilverNeedle.Characters
 {
     using System.Collections.Generic;
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
 
     /// <summary>
     /// A trait is some basic innate attribute of the character. Usually positive

@@ -3,12 +3,11 @@
 // //     Copyright (c) Short Leg Studio, LLC. All rights reserved.
 // // </copyright>
 // //-----------------------------------------------------------------------
-using System;
-using SilverNeedle.Characters;
-using SilverNeedle.Utility;
 
 namespace SilverNeedle.Actions.CharacterGenerator
 {
+    using SilverNeedle.Characters;
+    using SilverNeedle.Serialization;
     public class AssignAge : ICharacterDesignStep
     {
         EntityGateway<Maturity> maturityGateway;

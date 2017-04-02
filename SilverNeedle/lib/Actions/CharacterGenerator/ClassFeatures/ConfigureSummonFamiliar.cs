@@ -9,7 +9,7 @@ namespace SilverNeedle.Actions.CharacterGenerator.ClassFeatures
     using SilverNeedle.Beastiary;
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.SpecialAbilities;
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
 
     public class ConfigureSummonFamiliar : ICharacterDesignStep
     {

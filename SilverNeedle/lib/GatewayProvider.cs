@@ -6,7 +6,7 @@
 namespace SilverNeedle
 {
     using System.Collections.Generic;
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
     public class GatewayProvider
     {
         private static GatewayProvider __instance;

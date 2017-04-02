@@ -9,7 +9,7 @@ namespace Tests.Actions.CharacterGenerator
     using System.Collections.Generic;
     using SilverNeedle.Actions.CharacterGenerator;
     using SilverNeedle.Characters;
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
     
     [TestFixture]
     public class StartingWealthTests 

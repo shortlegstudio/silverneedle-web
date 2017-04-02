@@ -5,6 +5,7 @@
 
 namespace SilverNeedle.Characters.Background
 {
+    using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
     public class HomelandGroup : IGatewayObject

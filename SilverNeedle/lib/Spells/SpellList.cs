@@ -6,7 +6,7 @@
 namespace SilverNeedle.Spells
 {
     using System.Collections.Generic;
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
 
     public class SpellList : IGatewayObject
     {

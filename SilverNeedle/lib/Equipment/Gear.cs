@@ -5,9 +5,8 @@
 
 namespace SilverNeedle.Equipment
 {
-    using System;
     using SilverNeedle.Treasure;
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
     
     public class Gear : IGear, IGatewayObject
     {

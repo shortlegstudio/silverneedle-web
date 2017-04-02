@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters.Appearance
 {
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
 
     public class FaceShape : DescriptionDetail
     {

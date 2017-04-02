@@ -9,7 +9,7 @@ namespace SilverNeedle.Actions.NamingThings
     using System;
     using SilverNeedle.Characters;
     using SilverNeedle.Names;
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
 
     public class NameCharacter : ICharacterDesignStep
     {

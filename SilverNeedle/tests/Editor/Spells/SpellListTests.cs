@@ -7,6 +7,7 @@ namespace Tests.Spells
 {
     using NUnit.Framework;
     using SilverNeedle.Spells;
+    using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
     [TestFixture]

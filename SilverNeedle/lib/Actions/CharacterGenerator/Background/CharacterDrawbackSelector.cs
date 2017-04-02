@@ -3,13 +3,13 @@
 // //     Copyright (c) Short Leg Studio, LLC. All rights reserved.
 // // </copyright>
 // //-----------------------------------------------------------------------
-using System;
-using SilverNeedle.Characters;
-using SilverNeedle.Characters.Background;
-using SilverNeedle.Utility;
 
 namespace SilverNeedle.Actions.CharacterGenerator.Background
 {
+    using SilverNeedle.Characters;
+    using SilverNeedle.Characters.Background;
+    using SilverNeedle.Serialization;
+    using SilverNeedle.Utility;
     public class CharacterDrawbackSelector : ICharacterDesignStep
     {
         EntityGateway<Drawback> drawbacks;

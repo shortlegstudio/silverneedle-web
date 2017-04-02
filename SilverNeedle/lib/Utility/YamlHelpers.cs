@@ -3,10 +3,11 @@
 //     Copyright (c) Short Leg Studio, LLC. All rights reserved.
 // </copyright>
 //-----------------------------------------------------------------------
-namespace SilverNeedle.Yaml
+namespace SilverNeedle.Utility
 {
     using System.IO;
     using YamlDotNet.RepresentationModel;
+    using SilverNeedle.Serialization;
 
     /// <summary>
     /// Helper methods for dealing with Yaml
@@ -18,12 +19,12 @@ namespace SilverNeedle.Yaml
         /// </summary>
         /// <returns>The yaml parsed into an accessible class</returns>
         /// <param name="yamlString">Yaml string to parse out</param>
-        public static YamlNodeWrapper ParseYaml(this string yamlString)
+        public static YamlObjectStore ParseYaml(this string yamlString)
         {
             var input = new StringReader(yamlString);
             var yaml = new YamlStream();
             yaml.Load(input);
-            return new YamlNodeWrapper(yaml.Documents[0].RootNode);
+            return new YamlObjectStore(yaml.Documents[0].RootNode);
         }
     }
 }

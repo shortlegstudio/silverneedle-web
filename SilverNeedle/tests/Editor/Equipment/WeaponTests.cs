@@ -9,7 +9,7 @@ namespace Tests.Equipment {
     using SilverNeedle.Characters;
     using SilverNeedle.Equipment;
     using SilverNeedle.Utility;
-    using SilverNeedle.Yaml;
+    using SilverNeedle.Serialization;
 
     [TestFixture]
     public class WeaponTests {		

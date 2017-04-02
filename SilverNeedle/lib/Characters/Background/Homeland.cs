@@ -7,7 +7,7 @@
 namespace SilverNeedle.Characters.Background
 {
     using System.Collections.Generic;
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
 
     public class Homeland
     {

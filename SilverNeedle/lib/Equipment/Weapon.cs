@@ -6,7 +6,7 @@
 namespace SilverNeedle.Equipment
 {
     using SilverNeedle.Treasure;
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
 
     /// <summary>
     /// Represents a weapon 

@@ -4,6 +4,7 @@ using SilverNeedle.Actions.CharacterGenerator;
 using System.Linq;
 using System.Collections.Generic;
 using SilverNeedle;
+using SilverNeedle.Serialization;
 
 
 namespace Actions {

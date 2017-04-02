@@ -1,7 +1,6 @@
 namespace SilverNeedle.Characters
 {
-    using System;
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
 
     public class LevelAbility : SpecialAbility
     {

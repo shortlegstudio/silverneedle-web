@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Groups
 {
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
 
     public class SettlementType
     {

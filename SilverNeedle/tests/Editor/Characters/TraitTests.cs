@@ -3,7 +3,7 @@ using System.Linq;
 using NUnit.Framework;
 using SilverNeedle;
 using SilverNeedle.Characters;
-using SilverNeedle.Yaml;
+using SilverNeedle.Utility;
 
 namespace Tests.Characters {
 

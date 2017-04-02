@@ -7,6 +7,7 @@ namespace Tests.Characters.Appearance
 {
     using NUnit.Framework;
     using SilverNeedle.Characters.Appearance;
+    using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
     [TestFixture]

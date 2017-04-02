@@ -3,13 +3,12 @@
 // This software is released under the MIT License.
 // http://opensource.org/licenses/mit-license.php
 
-using System;
-using System.Linq;
-using SilverNeedle.Characters;
-using SilverNeedle.Utility;
-
 namespace SilverNeedle.Actions.CharacterGenerator
 {
+    using System.Linq;
+    using SilverNeedle.Characters;
+    using SilverNeedle.Serialization;
+    using SilverNeedle.Utility;
     public class ClassSelector : ICharacterDesignStep
     {
         private EntityGateway<Class> classes; 

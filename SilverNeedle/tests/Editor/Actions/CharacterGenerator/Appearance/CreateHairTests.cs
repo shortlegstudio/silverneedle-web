@@ -9,7 +9,7 @@ namespace Tests.Actions.CharacterGenerator.Appearance
     using SilverNeedle.Actions.CharacterGenerator.Appearance;
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.Appearance;
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
 
     [TestFixture]
     public class CreateHairTests

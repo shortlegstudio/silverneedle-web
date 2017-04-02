@@ -8,7 +8,8 @@ namespace Tests.Characters {
     using SilverNeedle.Characters;
     using System.Linq;
     using System.Collections.Generic;
-    using SilverNeedle.Yaml;
+    using SilverNeedle.Serialization;
+	using SilverNeedle.Utility;
 
 	[TestFixture]
 	public class PrerequisiteTests {

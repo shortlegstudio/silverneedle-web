@@ -3,12 +3,10 @@
 // This software is released under the MIT License.
 // http://opensource.org/licenses/mit-license.php
 
-namespace SilverNeedle
+namespace SilverNeedle.Serialization
 {
     using System;
     using System.Collections.Generic;
-    using SilverNeedle.Utility;
-    using SilverNeedle.Yaml;
 
     public class DatafileLoader
     {
@@ -77,7 +75,7 @@ namespace SilverNeedle
             }
         }
 
-        private string GuessFileType(YamlNodeWrapper yaml)
+        private string GuessFileType(YamlObjectStore yaml)
         {
             return yaml.GetTag();
         }

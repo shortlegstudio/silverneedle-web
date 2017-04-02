@@ -6,7 +6,7 @@
 namespace SilverNeedle.Characters
 {
     using System.Collections.Generic;
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
 
     public class PersonalityType : IGatewayObject
     {

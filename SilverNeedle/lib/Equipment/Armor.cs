@@ -6,7 +6,7 @@
 namespace SilverNeedle.Equipment
 {
     using SilverNeedle.Treasure;
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
 
     /// <summary>
     /// Armor is for protecting the character from damage

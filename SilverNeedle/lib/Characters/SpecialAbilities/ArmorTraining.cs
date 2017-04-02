@@ -1,7 +1,7 @@
 namespace SilverNeedle.Characters
 {
     using SilverNeedle.Equipment;
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
 
     /// <summary>
     /// Provides the ability to move at full speed with heavier armors and 

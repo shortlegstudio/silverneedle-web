@@ -7,7 +7,7 @@ namespace SilverNeedle.Characters.Appearance
 {
     using System.Collections.Generic;
     using System.Linq;
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
     public abstract class DescriptionDetail : IGatewayObject
     {
         public string[] Templates { get; set; }

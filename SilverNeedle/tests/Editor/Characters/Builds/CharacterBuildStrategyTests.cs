@@ -8,8 +8,8 @@ namespace Characters
     using System.Linq;
     using NUnit.Framework;
     using SilverNeedle.Characters;
+    using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
-    using SilverNeedle.Yaml;
 
     [TestFixture]
     public class CharacterBuildStrategyTests

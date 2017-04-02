@@ -7,7 +7,7 @@ namespace SilverNeedle
 {
     using System.IO;
     using YamlDotNet.RepresentationModel;
-    using SilverNeedle.Yaml;
+    using SilverNeedle.Serialization;
 
     /// <summary>
     /// Provides helper methods for loading and accessing files
@@ -21,7 +21,7 @@ namespace SilverNeedle
         /// </summary>
         /// <returns>The YamlDotNet parser</returns>
         /// <param name="fileName">File name to open</param>
-        public static YamlNodeWrapper OpenYamlDataFile(string fileName)
+        public static YamlObjectStore OpenYamlDataFile(string fileName)
         {
             var path = Path.Combine(Configuration.DataPath, fileName);
             ShortLog.DebugFormat("Loading Yaml File: {0}", path);
@@ -31,11 +31,11 @@ namespace SilverNeedle
                 yaml.Load(input);
 
                 // Examine the stream
-                return new YamlNodeWrapper(yaml.Documents[0].RootNode);
+                return new YamlObjectStore(yaml.Documents[0].RootNode);
             }
         }
 
-        public static YamlNodeWrapper OpenYaml(string fileName)
+        public static YamlObjectStore OpenYaml(string fileName)
         {
             ShortLog.DebugFormat("Loading Yaml File: {0}", fileName);
             using(var input = File.OpenText(fileName))
@@ -44,7 +44,7 @@ namespace SilverNeedle
                 yaml.Load(input);
                 
                 // Examine the stream
-                return new YamlNodeWrapper(yaml.Documents[0].RootNode);
+                return new YamlObjectStore(yaml.Documents[0].RootNode);
             }
         }
 

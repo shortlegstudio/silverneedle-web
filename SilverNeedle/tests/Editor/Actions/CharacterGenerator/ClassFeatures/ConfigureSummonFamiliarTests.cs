@@ -13,7 +13,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
     using SilverNeedle.Beastiary;
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.SpecialAbilities;
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
 
     [TestFixture]
     public class ConfigureSummonFamiliarTests

@@ -7,7 +7,7 @@ namespace SilverNeedle.Equipment
 {
     using System.Collections.Generic;
     using SilverNeedle.Characters;
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
 
     public static class WeaponGatewayExtensions
     {

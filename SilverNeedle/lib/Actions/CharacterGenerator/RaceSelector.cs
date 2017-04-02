@@ -6,10 +6,10 @@
 
 namespace SilverNeedle.Actions.CharacterGenerator
 {
-    using System;
     using System.Linq;
     using SilverNeedle;
     using SilverNeedle.Characters;
+    using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
     /// <summary>

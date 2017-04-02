@@ -9,6 +9,7 @@ namespace Tests.Actions
     using NUnit.Framework;
     using SilverNeedle.Actions.CharacterGenerator;
     using SilverNeedle.Characters;
+    using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
     [TestFixture]

@@ -7,7 +7,7 @@
 namespace SilverNeedle.Actions.CharacterGenerator
 {
     using SilverNeedle.Characters;
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
 
     public class DesignerExecuterStep : ICharacterDesignStep
     {

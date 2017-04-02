@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using SilverNeedle.Characters;
 using SilverNeedle.Dice;
-using SilverNeedle.Yaml;
+using SilverNeedle.Utility;
 
 namespace Tests.Characters {
 

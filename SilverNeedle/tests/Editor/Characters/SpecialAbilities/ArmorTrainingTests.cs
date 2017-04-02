@@ -1,9 +1,11 @@
-using NUnit.Framework;
-using SilverNeedle.Characters;
-using SilverNeedle.Equipment;
-using SilverNeedle.Utility;
 
-namespace Characters {
+namespace Tests.Characters 
+{
+    using NUnit.Framework;
+    using SilverNeedle.Characters;
+    using SilverNeedle.Equipment;
+    using SilverNeedle.Serialization;
+
     [TestFixture]
     public class ArmorTrainingTests 
     {

@@ -9,7 +9,7 @@ namespace SilverNeedle.Actions.CharacterGenerator.Appearance
     using SilverNeedle;
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.Appearance;
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
 
     public class CreatePhysicalFeatures : ICharacterDesignStep
     {

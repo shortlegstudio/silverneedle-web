@@ -10,7 +10,7 @@ namespace SilverNeedle.Actions.CharacterGenerator.SpellCasting
     using SilverNeedle.Characters;
     using SilverNeedle.Equipment;
     using SilverNeedle.Spells;
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
 
     public class BuildSpellList : ICharacterDesignStep
     {

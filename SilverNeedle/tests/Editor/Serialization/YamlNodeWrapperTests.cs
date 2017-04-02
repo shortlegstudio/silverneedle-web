@@ -3,11 +3,11 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-namespace Tests.Yaml
+namespace Tests.Serialization
 {
     using System.Linq;
     using NUnit.Framework;
-    using SilverNeedle.Yaml;
+    using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
     [TestFixture]

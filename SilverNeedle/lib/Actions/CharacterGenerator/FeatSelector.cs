@@ -7,6 +7,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
 {
     using System.Linq;
     using SilverNeedle.Characters;
+    using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
     //TODO: Instead of passing in the gateway and the character sheet just use the token, strategy, and qualifying feats

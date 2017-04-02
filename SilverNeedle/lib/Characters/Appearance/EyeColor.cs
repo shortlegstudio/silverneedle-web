@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters.Appearance
 {
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
     public class EyeColor : DescriptionDetail
     {
         public EyeColor(IObjectStore data) : base(data)

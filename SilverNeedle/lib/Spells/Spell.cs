@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Spells
 {
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
 
     public class Spell
     {

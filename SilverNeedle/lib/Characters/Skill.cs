@@ -6,7 +6,7 @@
 namespace SilverNeedle.Characters
 {
     using System;
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
 
     /// <summary>
     /// Represents a skill that a character can perform

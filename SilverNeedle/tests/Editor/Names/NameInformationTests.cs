@@ -5,7 +5,7 @@ namespace Tests.Names {
     using SilverNeedle.Characters;
     using SilverNeedle.Names;
     using SilverNeedle.Utility;
-    using SilverNeedle.Yaml;
+    using SilverNeedle.Serialization;
 
 
     [TestFixture]

@@ -7,7 +7,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
 {
     using System.Linq;
     using SilverNeedle.Characters;
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
     
     /// <summary>
     /// Hit point generator rolls hitpoints for a character

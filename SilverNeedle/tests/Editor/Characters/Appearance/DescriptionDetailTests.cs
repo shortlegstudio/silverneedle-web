@@ -8,7 +8,7 @@ namespace Tests.Characters.Appearance
     using System.Linq;
     using NUnit.Framework;
     using SilverNeedle.Characters.Appearance;
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
 
     [TestFixture]
     public class DescriptionDetailTests

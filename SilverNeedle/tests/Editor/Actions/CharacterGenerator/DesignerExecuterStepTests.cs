@@ -9,7 +9,7 @@ namespace Tests.Actions.CharacterGenerator
     using NUnit.Framework;
     using SilverNeedle.Actions.CharacterGenerator;
     using SilverNeedle.Characters;
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
     
     [TestFixture]
     public class DesignerExecuterStepTests

@@ -7,7 +7,7 @@
 namespace SilverNeedle.Characters
 {
     using SilverNeedle.Dice;
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
 
     public class Maturity : IGatewayObject
     {

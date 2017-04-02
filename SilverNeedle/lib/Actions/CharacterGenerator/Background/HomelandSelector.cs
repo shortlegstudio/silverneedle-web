@@ -3,13 +3,11 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-using System;
-using SilverNeedle.Characters.Background;
-using SilverNeedle.Characters;
-using SilverNeedle.Utility;
-
 namespace SilverNeedle.Actions.CharacterGenerator.Background
 {
+    using SilverNeedle.Characters.Background;
+    using SilverNeedle.Characters;
+    using SilverNeedle.Serialization;
     public class HomelandSelector : ICharacterDesignStep
     {
         private EntityGateway<HomelandGroup> homelands;

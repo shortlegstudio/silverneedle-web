@@ -6,7 +6,7 @@
 
 namespace SilverNeedle.Characters.Appearance
 {
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
 
     public class HairColor : DescriptionDetail
     {

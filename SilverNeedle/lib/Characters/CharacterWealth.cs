@@ -7,7 +7,7 @@ namespace SilverNeedle.Characters
 {
     using System.Collections.Generic;
     using SilverNeedle.Treasure;
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
 
     public class CharacterWealth : IGatewayObject
     {

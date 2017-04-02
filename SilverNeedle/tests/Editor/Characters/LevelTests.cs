@@ -9,7 +9,7 @@ namespace Tests.Characters
     using SilverNeedle.Characters;
     using SilverNeedle;
     using System.Linq;
-    using SilverNeedle.Yaml;
+    using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
     [TestFixture]
