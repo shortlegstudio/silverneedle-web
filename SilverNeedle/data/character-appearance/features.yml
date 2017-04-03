@@ -1,25 +1,23 @@
 --- !<SilverNeedle.Characters.Appearance.PhysicalFeature>
 - name: tattoo
   descriptors:
-    - color: black, red, blue, green, purple, violet
     - animal: dragon, squid, octopus, lion, falcon
     - symbol: quarter moon, half moon, full moon, lightning bolt, star
   locations: left calf, right calf, left arm, right arm, right forearm, left forearm, left breast, right breast, back
   templates:
     - template: "{{pronoun}} has a {{feature}} on {{possessivepronoun}} {{location}}."
-    - template: '{{pronoun}} has a {{feature}} of a {{descriptor "color"}} {{descriptor "animal"}} on {{possessivepronoun}} {{location}}'
+    - template: '{{pronoun}} has a {{feature}} of a {{choose-color}} {{descriptor "animal"}} on {{possessivepronoun}} {{location}}'
     - template: '{{pronoun}} has a {{feature}} of a {{descriptor "animal"}} on {{possessivepronoun}} {{location}}'
-    - template: '{{pronoun}} has a {{descriptor "color"}} {{feature}} of a {{descriptor "symbol"}} on {{possessivepronoun}} {{location}}'
+    - template: '{{pronoun}} has a {{choose-color}} {{feature}} of a {{descriptor "symbol"}} on {{possessivepronoun}} {{location}}'
     - template: '{{pronoun}} has a {{symbol}} offcenter on {{possessivepronoun}} forehead'
 - name: facial tattoo 
   descriptors:
-    - color: blue, green, black, red, purple
     - symbols: dots, stripes
     - number: two, three, four, several, many
   locations: forehead, right cheek, left cheek, right jawline, left jawline
   templates:
-    - template: '{{pronoun}} has a {{feature}} of {{descriptor "color"}} {{descriptor "symbols"}} on {{possessivepronoun}} {{location}}.'
-    - template: '{{pronoun}} has a {{feature}} of {{descriptor "number"}} {{descriptor "color"}} {{descriptor "symbols"}} on {{possessivepronoun}} {{location}}.'
+    - template: '{{pronoun}} has a {{feature}} of {{choose-color}} {{descriptor "symbols"}} on {{possessivepronoun}} {{location}}.'
+    - template: '{{pronoun}} has a {{feature}} of {{descriptor "number"}} {{choose-color}} {{descriptor "symbols"}} on {{possessivepronoun}} {{location}}.'
 - name: missing finger
   descriptors:
     - hand: left, right

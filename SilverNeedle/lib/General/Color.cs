@@ -7,6 +7,7 @@ namespace SilverNeedle.General
 {
     using SilverNeedle.Serialization;
 
+    [ObjectStoreSerializable]
     public class Color : IGatewayObject
     {
         [ObjectStore("id")]
