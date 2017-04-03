@@ -21,6 +21,7 @@ namespace silverneedleweb
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
+            SilverNeedle.Utility.HandlebarsHelpers.ConfigureHelpers();
         }
 
         public IConfigurationRoot Configuration { get; }

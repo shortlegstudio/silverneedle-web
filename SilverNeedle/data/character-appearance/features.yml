@@ -63,3 +63,4 @@
     - descriptor: pearl, hooped, dangly, studded, silver, dolphin, octopus
   templates:
     - template: "{{pronoun}} wears {{description}}."
+    - template: "{{pronoun}} wears {{choose-gem}} {{feature}}."
