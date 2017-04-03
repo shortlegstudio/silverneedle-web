@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using SilverNeedle.Utility;
 
 namespace SilverNeedle.Serialization 
@@ -78,7 +79,14 @@ namespace SilverNeedle.Serialization
         private void LoadObjects(IEnumerable<IObjectStore> data)
         {
             foreach(var d in data) {
-                T obj = objectType.Instantiate<T>(d);
+                var typeInfo = typeof(T).GetTypeInfo();
+                T obj;
+                if(typeInfo.GetCustomAttribute<ObjectStoreSerializableAttribute>() != null)
+                {
+                    obj = d.Deserialize<T>(); 
+                } else {
+                    obj = objectType.Instantiate<T>(d);
+                }
                 dataStore.Add(obj);
             }
         }

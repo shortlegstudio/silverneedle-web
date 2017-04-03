@@ -60,6 +60,28 @@ namespace Tests.Serialization
             Assert.IsNotNull(gateway.Find("hello2"));
         }
 
+        [Test]
+        public void UsesCustomSerializerIfPossible()
+        {
+            var data = new MemoryStore();
+            data.SetValue("name", "Foo");
+            var gateway = new EntityGateway<TestSerialized>(new IObjectStore[] { data });    
+            var first = gateway.All().First();
+            Assert.That(first.Name, Is.EqualTo("Foo"));
+        }
+
+        [ObjectStoreSerializable]
+        public class TestSerialized : IGatewayObject
+        {
+            [ObjectStore("name")]
+            public string Name { get; set; }
+
+            public bool Matches(string name)
+            {
+                return true;
+            }
+        }
+
         public class TestObject : IGatewayObject {
             public string Name { get; private set; }
             public TestObject(IObjectStore data) {

@@ -27,16 +27,6 @@ namespace SilverNeedle.General
         [ObjectStore("blue")]
         public int Blue { get; set; }
 
-        public Color(IObjectStore data)
-        {
-            ID = data.GetString("id");
-            Name = data.GetString("name");
-            Hex = data.GetString("hex");
-            Red = data.GetInteger("red");
-            Green = data.GetInteger("green");
-            Blue = data.GetInteger("blue");
-        }
-
         public bool Matches(string name)
         {
             return this.Name.EqualsIgnoreCase(name);

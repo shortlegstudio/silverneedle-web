@@ -5,15 +5,15 @@
 
 namespace SilverNeedle.Serialization
 {
-    using System.Linq;
     using System.Reflection;
+    using SilverNeedle.Utility;
     public static class ObjectStoreSerializer
     {
-        public static T Deserialize<T>(this IObjectStore data) where T: new()
+        public static T Deserialize<T>(this IObjectStore data)
         {
             var typeInfo = typeof(T).GetTypeInfo();
             var properties = typeInfo.GetProperties();
-            var result = new T();
+            var result = typeof(T).Instantiate<T>();
             foreach(var prop in properties)
             {
                 var attribute = prop.GetCustomAttribute<ObjectStoreAttribute>();
