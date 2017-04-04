@@ -1,66 +1,99 @@
 --- !<SilverNeedle.Characters.Appearance.PhysicalFeature>
-- name: tattoo
+- name: tattoos
   descriptors:
     - animal: dragon, squid, octopus, lion, falcon
-    - symbol: quarter moon, half moon, full moon, lightning bolt, star
-  locations: left calf, right calf, left arm, right arm, right forearm, left forearm, left breast, right breast, back
-  templates:
-    - template: "{{pronoun}} has a {{feature}} on {{possessivepronoun}} {{location}}."
-    - template: '{{pronoun}} has a {{feature}} of a {{choose-color}} {{descriptor "animal"}} on {{possessivepronoun}} {{location}}'
-    - template: '{{pronoun}} has a {{feature}} of a {{descriptor "animal"}} on {{possessivepronoun}} {{location}}'
-    - template: '{{pronoun}} has a {{choose-color}} {{feature}} of a {{descriptor "symbol"}} on {{possessivepronoun}} {{location}}'
-    - template: '{{pronoun}} has a {{symbol}} offcenter on {{possessivepronoun}} forehead'
-- name: facial tattoo 
-  descriptors:
-    - symbols: dots, stripes
+    - whimsical: strawberries
+    - symbol: quarter moon, half moon, full moon, lightning bolt, star, zig-zag, anchor with wings
+    - shapes: dots, stripes
     - number: two, three, four, several, many
-  locations: forehead, right cheek, left cheek, right jawline, left jawline
+    - facial: forehead, right cheek, left cheek, right jawline, left jawline
+    - limbs: left arm, right arm, left leg, right leg
+    - shade: faded, fresh, discolored
+  locations: left calf, right calf, left arm, right arm, right forearm, left forearm, left breast, right breast, back, right ankle, left ankle, left side of neck, right side of neck, right bicep, left bicep
   templates:
-    - template: '{{pronoun}} has a {{feature}} of {{choose-color}} {{descriptor "symbols"}} on {{possessivepronoun}} {{location}}.'
-    - template: '{{pronoun}} has a {{feature}} of {{descriptor "number"}} {{choose-color}} {{descriptor "symbols"}} on {{possessivepronoun}} {{location}}.'
-- name: missing finger
+    - template: "{{pronoun}} has a tattoo on {{possessivepronoun}} {{location}}."
+    - template: '{{pronoun}} has a tattoo of a {{choose-color}} {{descriptor "animal"}} on {{possessivepronoun}} {{location}}'
+    - template: '{{pronoun}} has a {{descriptor "shaded"}} {{descriptor "animal"}} tattoo on {{possessivepronoun}} {{location}}'
+    - template: '{{pronoun}} has a tattoo of a {{descriptor "animal"}} on {{possessivepronoun}} {{location}}'
+    - template: '{{pronoun}} has a {{choose-color}} tattoo of a {{descriptor "symbol"}} on {{possessivepronoun}} {{location}}'
+    - template: '{{pronoun}} has a {{descriptor "number"}} {{choose-color}} tattoos of a {{descriptor "symbol"}} on {{possessivepronoun}} {{location}}'
+    - template: '{{pronoun}} has a {{descriptor "symbol"}} tattoo offcenter on {{possessivepronoun}} forehead'
+    - template: '{{pronoun}} has a facial tattoo of {{choose-color}} {{descriptor "shape"}} on {{possessivepronoun}} {{descriptor "facial"}}.'
+    - template: '{{pronoun}} has a facial tattoo of {{descriptor "number"}} {{choose-color}} {{descriptor "shape"}} on {{possessivepronoun}} {{descriptor "facial"}}.'
+    - template: '{{pronoun}} has a large knotwork tattoo covering {{possessivepronoun}} entire {{descriptor "limbs"}}.'
+    - template: '{{pronoun}} has a knotwork tattoos covering both wrists.'
+    - template: '{{pronoun}} has {{descriptor "number"}} {{descriptor "whimsical"}} tattoos on {{possessivepronoun}} {{location}}'
+- name: missing fingers or toes
   descriptors:
     - hand: left, right
+    - foot: right, left
+    - toes: one toe, two toes
     - finger: pinkie, ring, middle, index
     - reason: birth defect, injury, disease, frostbite
   templates:
     - template: '{{pronoun}} is missing {{possessivepronoun}} {{descriptor "hand"}} {{descriptor "finger"}} finger.'
     - template: '{{pronoun}} is missing {{possessivepronoun}} {{descriptor "hand"}} {{descriptor "finger"}} finger from a {{descriptor "reason"}}.'
-- name: missing toes
-  descriptors:
-    - foot: right, left
-    - toes: one toe, two toes
-  templates:
     - template: '{{pronoun}} is missing {{descriptor "toes"}} on {{possessivepronoun}} {{descriptor "foot"}} foot and walks with a slight limp.'
-- name: scar
+- name: scars
   descriptors:
-    - descriptor: small, large, jagged, odd, runic
-  locations: left eyebrow, right eyebrow, left eye, right eye
+    - size: small, large
+    - shape: jagged, runic, bumpy, arching, odd, red, ragged, zig-zag
+    - eyes: left eyebrow, right eyebrow, left eye, right eye
+    - covering: pox, acne, small, thin delicate, dragon pox
+    - cheek: left, right
+  locations: chin, cheek, left hand, right hand, upper right arm, upper left arm, lower left arm, lower right arm, nose, right bicep, left bicep
   templates:
-    - template: "{{pronoun}} has a {{description}} above {{possessivepronoun}} {{location}}."
-- name: scar
+    - template: '{{pronoun}} has a {{descriptor "size"}} scar above {{possessivepronoun}} {{descriptor "eyes"}}.'
+    - template: '{{pronoun}} has a {{descriptor "shape"}} scar above {{possessivepronoun}} {{descriptor "eyes"}}.'
+    - template: '{{pronoun}} has a {{descriptor "size"}} {{descriptor "shape"}} on {{possessivepronoun}} {{location}}.'
+    - template: '{{possessivepronoun}} {{descriptor "cheek"}} cheek is covered with {{descriptor "covering"}} scars.'
+    - template: '{{pronoun}} has two symmetrical scars. One on each cheek.'
+- name: boils and acne
   descriptors:
-    - descriptor: small, large, jagged, odd, runic, large red, ragged
-  locations: chin, cheek, left hand, right hand, upper right arm, upper left arm, lower left arm, lower right arm, nose
+    - eye: left eye, right eye
   templates:
-    - template: "{{pronoun}} has a {{description}} on {{possessivepronoun}} {{location}}."
+    - template: '{{pronoun}} has a boil on {{possessivepronoun}} face next to {{possessivepronoun}} {{descriptor "eye"}}.'
 - name: chunk missing
   locations: left ear, right ear
   templates:
     - template: "{{pronoun}} has a {{description}} from {{possessivepronoun}} {{location}}."
-- name: scars
-  locations: face, left cheek, right cheek
+- name: piercings
   descriptors:
-    - scar: pox, small, thin delicate, acne
+    - times: two, three, four, five
+  locations: lip, left ear, right hear, nose, both ears
   templates:
-    - template: "{{possessivepronoun}} {{location}} is covered with {{description}}."
-- name: pierced
-  locations: lip, left ear, right hear, nose
-  templates:
-    - template: "{{pronoun}} has a {{description}} {{location}}."
-- name: earrings
+    - template: '{{pronoun}} has {{descriptor "times"}} {{feature}} in {{possessivepronoun}} {{location}}.'
+- name: jewelry
   descriptors:
-    - descriptor: pearl, hooped, dangly, studded, silver, dolphin, octopus
+    - earrings: pearl, hooped, dangly, studded, silver, dolphin, octopus
   templates:
-    - template: "{{pronoun}} wears {{description}}."
-    - template: "{{pronoun}} wears {{choose-gem}} {{feature}}."
+    - template: '{{pronoun}} wears {{descriptor "earrings"}} earrings.'
+    - template: '{{pronoun}} wears {{choose-gem}} earrings..'
+- name: eyes
+  locations: left, right
+  templates:
+    - template: "{{pronoun}} has a lazy {{location}} eye."
+    - template: '{{pronoun}} wears a patch over {{possessivepronoun}} missing {{location}} eye.'
+    - template: '{{pronoun}} wears a {{choose-color}} leather eye patch over {{possessivepronoun}} {{location}} eye.'
+    - template: '{{pronoun}} replaced {{possessivepronoun}} missing {{location}} eye with a glass one.'
+- name: nose
+  descriptors:
+    - shape: bulbous, crooked
+  templates:
+    - template: '{{pronoun}} has a {{descriptor "shape"}} {{feature}}.'
+- name: teeth
+  descriptors:
+    - health: blackened, wooden, broken, sharp and jagged, crooked, bucktooth front, very straight, shiny white
+  templates:
+    - template: '{{pronoun}} is missing several front teeth.'
+    - template: '{{pronoun}} has {{descriptor "health"}} teeth.'
+- name: ears
+  descriptors:
+    - ear: left, right
+  templates:
+    - template: '{{pronoun}} is missing {{possessivepronoun}} {{descriptor "ear"}} ear.'
+- name: skin
+  descriptors:
+    - shade: pale, tan, dark, light, blotchy, rough, smooth
+  templates:
+    - template: '{{pronoun}} has {{descriptor "shade"}} skin.'
