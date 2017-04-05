@@ -420,13 +420,6 @@
   green: 162
   blue: 208
 -
-  id: blue_crayola
-  name: 'Blue (Crayola)'
-  hex: '#1f75fe'
-  red: 31
-  green: 117
-  blue: 254
--
   id: blue_gray
   name: 'Blue Gray'
   hex: '#69c'
@@ -1224,13 +1217,6 @@
   red: 184
   green: 115
   blue: 51
--
-  id: copper_crayola
-  name: 'Copper (Crayola)'
-  hex: '#da8a67'
-  red: 218
-  green: 138
-  blue: 103
 -
   id: copper_penny
   name: 'Copper Penny'
@@ -2232,14 +2218,6 @@
   red: 255
   green: 0
   blue: 255
--
-  id: fuchsia_crayola
-  name: 'Fuchsia (Crayola)'
-  hex: '#c154c1'
-  red: 193
-  green: 84
-  blue: 193
--
   id: fuchsia_pink
   name: 'Fuchsia Pink'
   hex: '#f7f'
@@ -2372,41 +2350,6 @@
   red: 70
   green: 89
   blue: 69
--
-  id: gray_html_css_gray
-  name: 'Gray (Html/Css Gray)'
-  hex: '#808080'
-  red: 128
-  green: 128
-  blue: 128
--
-  id: gray_x11_gray
-  name: 'Gray (X11 Gray)'
-  hex: '#bebebe'
-  red: 190
-  green: 190
-  blue: 190
--
-  id: green_color_wheel_x11_green
-  name: 'Green (Color Wheel) (X11 Green)'
-  hex: '#0f0'
-  red: 0
-  green: 255
-  blue: 0
--
-  id: green_crayola
-  name: 'Green (Crayola)'
-  hex: '#1cac78'
-  red: 28
-  green: 172
-  blue: 120
--
-  id: green_html_css_green
-  name: 'Green (Html/Css Green)'
-  hex: '#008000'
-  red: 0
-  green: 128
-  blue: 0
 -
   id: green_munsell
   name: 'Green (Munsell)'
@@ -2764,20 +2707,6 @@
   red: 124
   green: 28
   blue: 5
--
-  id: khaki_html_css_khaki
-  name: 'Khaki (Html/Css) (Khaki)'
-  hex: '#c3b091'
-  red: 195
-  green: 176
-  blue: 145
--
-  id: khaki_x11_light_khaki
-  name: 'Khaki (X11) (Light Khaki)'
-  hex: '#f0e68c'
-  red: 240
-  green: 230
-  blue: 140
 -
   id: ku_crimson
   name: 'Ku Crimson'
@@ -3275,27 +3204,6 @@
   red: 136
   green: 0
   blue: 133
--
-  id: maroon_crayola
-  name: 'Maroon (Crayola)'
-  hex: '#c32148'
-  red: 195
-  green: 33
-  blue: 72
--
-  id: maroon_html_css
-  name: 'Maroon (Html/Css)'
-  hex: '#800000'
-  red: 128
-  green: 0
-  blue: 0
--
-  id: maroon_x11
-  name: 'Maroon (X11)'
-  hex: '#b03060'
-  red: 176
-  green: 48
-  blue: 96
 -
   id: mauve
   name: Mauve
@@ -4172,13 +4080,6 @@
   green: 229
   blue: 180
 -
-  id: peach_crayola
-  name: 'Peach (Crayola)'
-  hex: '#ffcba4'
-  red: 255
-  green: 203
-  blue: 164
--
   id: peach_orange
   name: Peach-Orange
   hex: '#fc9'
@@ -4473,13 +4374,6 @@
   green: 53
   blue: 156
 -
-  id: purple_html_css
-  name: 'Purple (Html/Css)'
-  hex: '#800080'
-  red: 128
-  green: 0
-  blue: 128
--
   id: purple_mountain_majesty
   name: 'Purple Mountain Majesty'
   hex: '#9678b6'
@@ -4507,13 +4401,6 @@
   red: 80
   green: 64
   blue: 77
--
-  id: purple_x11
-  name: 'Purple (X11)'
-  hex: '#a020f0'
-  red: 160
-  green: 32
-  blue: 240
 -
   id: quartz
   name: Quartz
@@ -5054,13 +4941,6 @@
   green: 36
   blue: 0
 -
-  id: scarlet_crayola
-  name: 'Scarlet (Crayola)'
-  hex: '#fd0e35'
-  red: 253
-  green: 14
-  blue: 53
--
   id: school_bus_yellow
   name: 'School Bus Yellow'
   hex: '#ffd800'
@@ -5137,13 +5017,6 @@
   red: 252
   green: 15
   blue: 192
--
-  id: shocking_pink_crayola
-  name: 'Shocking Pink (Crayola)'
-  hex: '#ff6fff'
-  red: 255
-  green: 111
-  blue: 255
 -
   id: sienna
   name: Sienna

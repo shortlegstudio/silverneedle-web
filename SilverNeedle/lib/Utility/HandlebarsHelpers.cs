@@ -13,6 +13,7 @@ namespace SilverNeedle.Utility
     {
         public static void ConfigureHelpers() {
             Handlebars.RegisterHelper("descriptor", (writer, context, parameters) => {
+                ShortLog.DebugFormat("Getting descriptor: {0}", parameters[0].ToString());
                 var value = context.descriptors[parameters[0].ToString()] as string[];
                 writer.Write(value.ChooseOne());
             });
