@@ -1,0 +1,7 @@
+---!<SilverNeedle.Characters.Personalities.Quirk>
+- name: names
+  templates:
+    - template: '{{pronoun}} was named after a relative they despise.'
+- name: clothing
+  templates:
+    - template: '{{pronoun}} always wears {{choose-color}} boots.'
