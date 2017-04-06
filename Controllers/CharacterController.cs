@@ -19,7 +19,7 @@ namespace silverneedleweb.Controllers
         public IActionResult Index()
         {
             var strategies = strategyGateway.All();
-            ViewData["Strategies"] = strategies.Select(x => x.Name).ToArray();
+            ViewData["Strategies"] = strategies.ToArray();
             
             return View();
         }

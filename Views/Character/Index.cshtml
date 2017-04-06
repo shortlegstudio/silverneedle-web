@@ -1,6 +1,6 @@
 @{
     ViewData["Title"] = "Character Creator";
-    var strategies = (string[])ViewData["Strategies"];
+    var strategies = (SilverNeedle.Characters.CharacterBuildStrategy[])ViewData["Strategies"];
 }
 <h1>Generate NPC</h1>
 
@@ -14,7 +14,7 @@
                     <select name="strategy" id="strategy" class="form-control">
                         @foreach(var s in strategies)
                         {
-                            <option>@s</option>
+                            <option>@s.Name</option>
                         }
                     </select>
                 </div>
