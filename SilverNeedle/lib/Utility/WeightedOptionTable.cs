@@ -41,9 +41,9 @@ namespace SilverNeedle.Utility
             get { return table.Count == 0 || maxValue == 1; }
         }
 
-        public IEnumerable<TableEntry> All()
+        public IEnumerable<TableEntry> All
         {
-            return table;
+            get { return table; }
         }
 
         public void AddEntry(T option, int weight)
@@ -91,7 +91,7 @@ namespace SilverNeedle.Utility
 
         public bool HasOption(T option)
         {
-            return All().Any(x => x.Option.Equals(option));
+            return All.Any(x => x.Option.Equals(option));
         }
 
         public IEnumerable<T> UniqueList()
@@ -116,7 +116,7 @@ namespace SilverNeedle.Utility
         {
             //Create temp enabled Table
             var tempTable = new WeightedOptionTable<T>();
-            foreach(var a in All())
+            foreach(var a in All)
             {
                 if(!a.Disabled) {
                     tempTable.AddEntry(a.Option, a.Weight);
@@ -133,7 +133,7 @@ namespace SilverNeedle.Utility
         private void RecalculateTable()
         {
             maxValue = 1;
-            foreach(var entry in All())
+            foreach(var entry in All)
             {
                 if (!entry.Disabled)
                 {                    

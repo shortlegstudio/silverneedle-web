@@ -34,10 +34,10 @@ namespace Characters
         public void LoadsWeightedTablesForRacesAndClasses()
         {
             var archer = strategies.Find("Archer");
-            Assert.AreEqual(10, archer.Races.All().First().MaximumValue);
-            Assert.AreEqual("elf", archer.Races.All().First().Option);
-            Assert.AreEqual(10, archer.Classes.All().First().MaximumValue);
-            Assert.AreEqual("Fighter", archer.Classes.All().First().Option);
+            Assert.AreEqual(10, archer.Races.All.First().MaximumValue);
+            Assert.AreEqual("elf", archer.Races.All.First().Option);
+            Assert.AreEqual(10, archer.Classes.All.First().MaximumValue);
+            Assert.AreEqual("Fighter", archer.Classes.All.First().Option);
         }  
         
         [Test]
@@ -66,15 +66,15 @@ namespace Characters
         {
             var archer = strategies.Find("archer");
             Assert.IsNotNull(archer.FavoredSkills);
-            Assert.AreEqual("survival", archer.FavoredSkills.All().First().Option);
-            Assert.AreEqual(20, archer.FavoredSkills.All().First().MaximumValue);
+            Assert.AreEqual("survival", archer.FavoredSkills.All.First().Option);
+            Assert.AreEqual(20, archer.FavoredSkills.All.First().MaximumValue);
         }
 
         [Test]
         public void StrategyProvidesRecommendationsOnFeats()
         {
             var tank = strategies.Find("tank");
-            var feats = tank.FavoredFeats.All();
+            var feats = tank.FavoredFeats.All;
             
             Assert.AreEqual("power attack", feats.First().Option);
             Assert.AreEqual(100, feats.First().MaximumValue);
@@ -86,7 +86,7 @@ namespace Characters
         public void StrategyFavorsSomeAttributesAheadOfOthers() 
         {
             var tank = strategies.Find("tank");
-            var abilities = tank.FavoredAbilities.All();
+            var abilities = tank.FavoredAbilities.All;
             Assert.AreEqual(AbilityScoreTypes.Strength, abilities.First().Option);
             Assert.AreEqual(100, abilities.First().MaximumValue);
             Assert.AreEqual(6, abilities.Count());
@@ -96,7 +96,7 @@ namespace Characters
         public void StrategyProvidesDefaultsToAbilitiesNotSpecifiedOfOne()
         {
             var archer = strategies.Find("archer");
-            var abilities = archer.FavoredAbilities.All();
+            var abilities = archer.FavoredAbilities.All;
             Assert.AreEqual(AbilityScoreTypes.Strength, abilities.First().Option);
             Assert.AreEqual(AbilityScoreTypes.Charisma, abilities.Last().Option);
             Assert.AreEqual(1, abilities.First().MaximumValue);
@@ -108,7 +108,7 @@ namespace Characters
         public void AnEmptyStrategySelectsAllAttributesEvenly()
         {
             var strategy = new CharacterBuildStrategy();
-            Assert.AreEqual(6, strategy.FavoredAbilities.All().Count());
+            Assert.AreEqual(6, strategy.FavoredAbilities.All.Count());
         }
 
         [Test]

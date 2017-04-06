@@ -31,7 +31,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
             {
                 
                 //Enable/Disable options based on whether qualified for feat
-                foreach(var entry in preferredFeats.All())
+                foreach(var entry in preferredFeats.All)
                 {
                     var f = feats.Find(entry.Option);
                     if(!f.IsQualified(character)) {

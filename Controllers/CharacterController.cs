@@ -48,6 +48,17 @@ namespace silverneedleweb.Controllers
             return View();
         }
 
+        public IActionResult Strategy(string strategyName)
+        {
+            var strat = strategyGateway.Find(strategyName);
+            if(strat == null)
+            {
+                strat = new CharacterBuildStrategy();
+                strat.Name = "Not Found!";
+            }
+            return Json(strat);
+        }
+
         public IActionResult Error()
         {
             return View();

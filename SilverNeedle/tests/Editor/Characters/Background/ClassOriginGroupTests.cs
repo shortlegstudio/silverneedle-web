@@ -19,7 +19,7 @@ namespace Tests.Characters.Background
         {
             var list = ClassOriginYamlFile.ParseYaml().Load<ClassOriginGroup>();
             var bardOriginTable = list.First(x => x.Name.EqualsIgnoreCase("bard")).Origins;
-            var entry = bardOriginTable.All().First().Option;
+            var entry = bardOriginTable.All.First().Option;
             Assert.AreEqual("Celebrity", entry.Name);
             Assert.AreEqual(10, entry.Weighting);
             Assert.IsTrue(entry.Traits.Contains("Influence"));

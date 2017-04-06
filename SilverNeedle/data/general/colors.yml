@@ -2218,6 +2218,7 @@
   red: 255
   green: 0
   blue: 255
+-
   id: fuchsia_pink
   name: 'Fuchsia Pink'
   hex: '#f7f'

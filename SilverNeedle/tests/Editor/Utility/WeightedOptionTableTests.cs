@@ -22,7 +22,7 @@ namespace Tests.Utility
             table.AddEntry("Bar", 20);
             table.AddEntry("Woo", 3);
 
-            var options = table.All().ToArray();
+            var options = table.All.ToArray();
             Assert.AreEqual(3, options.Count());
             Assert.AreEqual(30, options[0].MaximumValue);
             Assert.AreEqual(50, options[1].MaximumValue);
@@ -103,7 +103,7 @@ namespace Tests.Utility
         {
             var table = new WeightedOptionTable<string>();
             table.AddEntry("Foo", 483);
-            var entry = table.All().First();
+            var entry = table.All.First();
             var originalMax = entry.MaximumValue;
             table.Disable("Foo");
             Assert.IsTrue(entry.Disabled);
@@ -148,7 +148,7 @@ namespace Tests.Utility
             list.Add(new DummyEntry("Foo", 4));
             list.Add(new DummyEntry("Bar", 2));
             var table = new WeightedOptionTable<DummyEntry>(list);
-            Assert.AreEqual(2, table.All().Count());            
+            Assert.AreEqual(2, table.All.Count());            
         }
         
         public class DummyEntry : IWeightedTableObject

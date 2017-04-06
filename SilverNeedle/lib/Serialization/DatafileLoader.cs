@@ -39,6 +39,10 @@ namespace SilverNeedle.Serialization
         public IEnumerable<IObjectStore> GetDataFiles<T>()
         {
             var type = typeof(T);
+            if (!fileListMap.ContainsKey(type.FullName))
+            {
+                ShortLog.ErrorFormat("Could not find data file of type: {0}", type.FullName);
+            }
             return fileListMap[type.FullName];
         }
 
