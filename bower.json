@@ -6,6 +6,7 @@
     "jquery": "2.2.3",
     "jquery-validation": "1.15.0",
     "jquery-validation-unobtrusive": "3.2.6",
-    "bootstrap-table": "^1.11.1"
+    "bootstrap-table": "^1.11.1",
+    "font-awesome": "fontawesome#^4.7.0"
   }
 }

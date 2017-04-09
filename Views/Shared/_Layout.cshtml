@@ -8,6 +8,7 @@
     <environment names="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/lib/bootstrap-table/dist/bootstrap-table.css" />
+        <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.css" />
         <link rel="stylesheet" href="~/css/site.css" />
         <link rel="stylesheet" href="~/css/charactersheet.css" />
     </environment>
@@ -17,6 +18,7 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.css" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.min.css" />
     </environment>
 </head>
 <body>
@@ -40,7 +42,12 @@
                     <li><a href="http://shortlegstudio.com/contact-1/">Contact</a></li>
                 </ul>
                  <ul class="nav navbar-nav navbar-right">
-                    <li><p><a class="btn btn-info navbar-btn" href="https://github.com/shortlegstudio/silverneedle-web">Fork Me</a></p></li>                    
+                    <li><p>
+                        <a class="btn btn-info navbar-btn" href="https://github.com/shortlegstudio/silverneedle-web">
+                            <i class="fa fa-github" aria-hidden="true"></i>
+                            Fork Me
+                        </a>
+                    </p></li>                    
                 </ul>
             </div>            
         </div>
