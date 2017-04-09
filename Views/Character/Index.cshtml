@@ -28,6 +28,33 @@
     </div>
     <div class="col-md-6">
         <h4 id="strategyName">Strategy</h4>
+        <h5>Classes</h5>
+        <table id="classes" class='table table-striped'>
+            <thead>
+                <tr>
+                    <th data-field="option">Class</th>
+                    <th data-field="weight">Weighting</th>
+                </tr>
+            </thead>
+        </table>
+        <h5>Feats</h5>
+        <table id="feats" class='table table-striped'>
+            <thead>
+                <tr>
+                    <th data-field="option">Feat</th>
+                    <th data-field="weight">Weighting</th>
+                </tr>
+            </thead>
+        </table>
+        <h5>Skills</h5>
+        <table id="skills" class='table table-striped'>
+            <thead>
+                <tr>
+                    <th data-field="option">Skill</th>
+                    <th data-field="weight">Weighting</th>
+                </tr>
+            </thead>
+        </table>
     </div>
 </div>
 
@@ -36,7 +63,16 @@
         $('select#strategy').change(function() {
             $.getJSON("@Url.Action("Strategy")", {"strategyName": $(this).val()}, function(data) {
                 $("#strategyName").text(data.name);
+                $('table#classes').bootstrapTable('load', data.classes.all );
+                $('table#skills').bootstrapTable('load', data.favoredSkills.all );
+                $('table#feats').bootstrapTable('load', data.favoredFeats.all );
             });
+        });
+        $(function() { 
+            $('table#classes').bootstrapTable({ data: [] });
+            $('table#skills').bootstrapTable({ data: [] });
+            $('table#feats').bootstrapTable({ data: [] });
+            $('select#strategy').change(); 
         });
     </script>
 }
