@@ -18,9 +18,6 @@ namespace SilverNeedle.Characters
             Level = data.GetInteger("level");
         }
 
-        
-
-
         public int GetMaximumDexterityBonus(Armor armor)
         {
             return armor.MaximumDexterityBonus + Level;

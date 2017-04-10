@@ -37,10 +37,17 @@ namespace Tests.Characters {
 			var inv = new Inventory ();
 			var armor = new Armor ();
 			inv.EquipItem (armor);
-
 			Assert.AreEqual (1, inv.EquippedItems.Count());
-
 		}
+
+        [Test]
+        public void CanGetEquippedArmor()
+        {
+            var inv = new Inventory();
+            var armor = new Armor();
+            inv.EquipItem(armor);
+            Assert.That(inv.Equipped<Armor>(), Is.EquivalentTo(new Armor[] { armor }));
+        }
 
 		[Test]
 		public void CanGetItemOfSpecificType() {

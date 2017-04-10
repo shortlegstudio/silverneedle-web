@@ -37,7 +37,7 @@ namespace SilverNeedle.Characters
             this.Initiative = new Initiative(this.AbilityScores);
             this.Offense = new OffenseStats(this.AbilityScores, this.Size, this.Inventory);
             this.Defense = new DefenseStats(this.AbilityScores, this.Size, this.Inventory);
-            this.Movement = new MovementStats();
+            this.Movement = new MovementStats(this.Inventory);
             this.Languages = new List<Language>();
             this.History = new History();
            
