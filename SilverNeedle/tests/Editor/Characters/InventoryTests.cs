@@ -130,6 +130,19 @@ namespace Tests.Characters {
             Assert.That(inv.Spellbooks, Is.EquivalentTo(new Spellbook[] { spells }));
         }
 
+        [Test]
+        public void RaiseAnEventWhenItemsAreAddedToInventory()
+        {
+            var inv = new Inventory();
+            var gear = new Armor();
+            var called = false;
+            inv.ItemAdded += delegate(object o, InventoryEventArgs args) {
+                called = args.Item == gear;
+            };
+            inv.AddGear(gear);
+            Assert.That(called, Is.True);
+        }
+
 		class PieceOfJunk : IGear {
 			public string Name { get { return "Junk"; } }
 			public float Weight { get { return 0.5f; } }

@@ -16,6 +16,7 @@ namespace SilverNeedle.Characters
     /// </summary>
     public class Inventory
     {
+        public event System.EventHandler<InventoryEventArgs> ItemAdded;
         /// <summary>
         /// The gear a character has
         /// </summary>
@@ -99,6 +100,8 @@ namespace SilverNeedle.Characters
             {
                 possession.IncrementQuantity();
             }
+
+            OnItemAdded(equip);
             return possession;
         }
 
@@ -145,6 +148,12 @@ namespace SilverNeedle.Characters
             return this.gear.Select(
                 x => x.GroupSimilar && (x.Quantity > 1) ? string.Format("{0} ({1})", x.Name, x.Quantity) : x.Name
             ).ToArray();
+        }
+
+        private void OnItemAdded(IGear item)
+        {
+            if(ItemAdded != null)
+                ItemAdded(this, new InventoryEventArgs(item, this));
         }
     }
 }
