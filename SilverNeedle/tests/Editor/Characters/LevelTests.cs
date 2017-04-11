@@ -18,12 +18,15 @@ namespace Tests.Characters
         private IObjectStore fighter;
         private IObjectStore rogue;
         private IObjectStore adept;
+
+        private IObjectStore fighter3;
         [SetUp]
         public void SetUp() 
         {
             fighter = fighterLevel.ParseYaml().Children.First();
             rogue = rogueLevel.ParseYaml().Children.First();
             adept = adeptLevel.ParseYaml().Children.First();
+            fighter3 = fighterLevel3.ParseYaml().Children.First();
         }
 
         [Test]
@@ -77,6 +80,15 @@ namespace Tests.Characters
             Assert.That(level.Steps[0], 
                 Is.TypeOf(typeof(SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSummonFamiliar)));
         }
+
+        [Test]
+        public void CustomFeatureStepsCanSupportExtraData()
+        {
+            var level = new Level(fighter3);
+            Assert.That(level.Steps.Count, Is.EqualTo(1));
+            var step = level.Steps[0] as SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureArmorTraining;
+            Assert.That(step.ArmorTrainingLevel, Is.EqualTo(1));
+        }
         const string fighterLevel = @"---
 - level: 2
   special:
@@ -107,5 +119,11 @@ namespace Tests.Characters
     - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSummonFamiliar
 ";
 
+        const string fighterLevel3 = @"---
+- level: 3
+  class-feature-steps:
+    - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureArmorTraining
+      level: 1
+";
     }
 }

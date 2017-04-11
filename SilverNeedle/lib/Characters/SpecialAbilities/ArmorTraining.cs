@@ -1,4 +1,4 @@
-namespace SilverNeedle.Characters
+namespace SilverNeedle.Characters.SpecialAbilities
 {
     using SilverNeedle.Equipment;
     using SilverNeedle.Serialization;
@@ -13,9 +13,10 @@ namespace SilverNeedle.Characters
         {
         }
 
-        public ArmorTraining(IObjectStore data) : base(data)
+        public ArmorTraining(int level) : this()
         {
-            Level = data.GetInteger("level");
+            Level = level;
+            this.Name = string.Format("Armor Training {0}", level);
         }
 
         public int GetMaximumDexterityBonus(Armor armor)

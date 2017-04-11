@@ -40,12 +40,9 @@
           type: bonus
           condition: fear
     - level: 3
-      special:
-        - name: Armor Training 1
-          type: Armor Training
-          implementation: SilverNeedle.Characters.ArmorTraining          
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureArmorTraining
           level: 1
-          condition:
     - level: 4
       special:
         - name: Bonus Feat
@@ -69,12 +66,9 @@
           type: bonus
           condition: fear
     - level: 7
-      special:
-        - name: Armor Training 2
-          type: Armor Training
-          implementation: SilverNeedle.Characters.ArmorTraining          
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureArmorTraining
           level: 2
-          condition:
     - level: 8
       special:
         - name: Bonus Feat
@@ -98,12 +92,9 @@
           type: bonus
           condition: fear
     - level: 11
-      special:
-        - name: Armor Training 3
-          type: Armor Training
-          implementation: SilverNeedle.Characters.ArmorTraining          
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureArmorTraining
           level: 3
-          condition:
     - level: 12
       special:
         - name: Bonus Feat
@@ -127,12 +118,9 @@
           type: bonus
           condition: fear
     - level: 15
-      special:
-        - name: Armor Training 4
-          type: Armor Training
-          implementation: SilverNeedle.Characters.ArmorTraining
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureArmorTraining
           level: 4
-          condition:
     - level: 16
       special:
         - name: Bonus Feat

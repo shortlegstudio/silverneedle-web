@@ -81,7 +81,7 @@ namespace SilverNeedle.Characters
                 foreach(var step in steps.Children)
                 {
                     var stepName = step.GetString("step");
-                    Steps.Add(stepName.Instantiate<ICharacterDesignStep>());
+                    Steps.Add(stepName.Instantiate<ICharacterDesignStep>(step));
                 }
             }
         }

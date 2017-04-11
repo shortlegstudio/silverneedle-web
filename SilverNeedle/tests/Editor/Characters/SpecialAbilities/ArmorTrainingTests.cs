@@ -2,28 +2,17 @@
 namespace Tests.Characters 
 {
     using NUnit.Framework;
-    using SilverNeedle.Characters;
+    using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Equipment;
     using SilverNeedle.Serialization;
 
     [TestFixture]
     public class ArmorTrainingTests 
     {
-        MemoryStore baseValues;
-
-        [SetUp]
-        public void SetUp()
-        {
-            baseValues = new MemoryStore();
-            baseValues.SetValue("name", "Armor Training");
-            baseValues.SetValue("type", "ArmorTraining");            
-        }
-
         [Test]
         public void ArmorTrainingImprovesMaximumDexterityBonus()
         {
-            baseValues.SetValue("level", 2);
-            var training = new ArmorTraining(baseValues);
+            var training = new ArmorTraining(2);
             var heavyArmor = new Armor();
             heavyArmor.MaximumDexterityBonus = 1;
             Assert.AreEqual(3, training.GetMaximumDexterityBonus(heavyArmor));
@@ -32,8 +21,7 @@ namespace Tests.Characters
         [Test]
         public void AtLevelOneAllowsMaximumMovementSpeedInMediumArmor()
         {
-            baseValues.SetValue("level", 1);
-            var training = new ArmorTraining(baseValues);
+            var training = new ArmorTraining(1);
             var medArmor = new Armor();
             medArmor.ArmorType = ArmorType.Medium;
             var heavyArmor = new Armor();
@@ -46,9 +34,7 @@ namespace Tests.Characters
         [Test]
         public void AtLevelTwoAllowsMaximumMovementSpeedInHeavyArmorAndMediumArmor()
         {
-            baseValues.SetValue("level", 2);
-            
-            var training = new ArmorTraining(baseValues);
+            var training = new ArmorTraining(2);
             var medArmor = new Armor();
             medArmor.ArmorType = ArmorType.Medium;
             var heavyArmor = new Armor();
@@ -61,9 +47,7 @@ namespace Tests.Characters
         [Test]
         public void ReducesArmorCheckPenaltyOnePointEveryLevel()
         {
-            baseValues.SetValue("level", 3);
-            
-            var train = new ArmorTraining(baseValues);
+            var train = new ArmorTraining(3);
             var armor = new Armor();
             armor.ArmorCheckPenalty = 5;
             Assert.AreEqual(2, train.GetArmorCheckPenalty(armor));
@@ -72,9 +56,7 @@ namespace Tests.Characters
         [Test]
         public void ArmorCheckPenaltyNeverGoesBelowZero()
         {
-            baseValues.SetValue("level", 3);
-            
-            var train = new ArmorTraining(baseValues);
+            var train = new ArmorTraining(3);
             var armor = new Armor();
             Assert.AreEqual(0, train.GetArmorCheckPenalty(armor));
         }

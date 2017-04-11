@@ -351,6 +351,11 @@ namespace SilverNeedle.Characters
             ProcessStatModifier(level);
             ProcessSpecialAbilities(level);
         }
+
+        public void AddLevelAbility(LevelAbility ability)
+        {
+            this.SpecialQualities.Add(ability);
+        }
             
         /// <summary>
         /// Processes the stat modifier. This takes anything that modifies stats and relays it to interested classes that might want to monitor for it
