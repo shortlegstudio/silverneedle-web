@@ -213,6 +213,12 @@ namespace Tests.Characters {
             Assert.AreEqual("Evasion", def.DefensiveAbilities.First().Condition);
         }
 
+        [Test]
+        public void ArmorCanLimitTheMaxDexterityBonus()
+        {
+            Assert.Ignore("Max Dexterity Bonus Is Not Calculated Yet");
+        }
+
 		class MockMod : IModifiesStats {
 			public IList<BasicStatModifier> Modifiers { get; set;  }
 

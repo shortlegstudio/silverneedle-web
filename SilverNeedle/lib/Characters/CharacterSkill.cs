@@ -118,7 +118,7 @@ namespace SilverNeedle.Characters
             }
 
             // Other Bonuses
-            val += this.skillStats.SumBasicModifiers;
+            val += this.skillStats.SumBasicModifiers();
             return val;
         }
 

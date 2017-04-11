@@ -68,7 +68,7 @@ namespace SilverNeedle
         { 
             get 
             {
-                return this.BaseValue + this.SumBasicModifiers; 
+                return CalculateTotalValue();
             } 
         }
 
@@ -88,12 +88,9 @@ namespace SilverNeedle
         /// Gets the sum basic modifiers. These are modifiers without a conditional element
         /// </summary>
         /// <value>The sum basic modifiers.</value>
-        public int SumBasicModifiers
-        { 
-            get
-            { 
-                return this.statModifiers.Sum(x => x.Modifier).FloorToInt(); 
-            }
+        public virtual int SumBasicModifiers()
+        {
+            return this.statModifiers.Sum(x => x.Modifier).FloorToInt(); 
         }
 
         /// <summary>
@@ -218,5 +215,10 @@ namespace SilverNeedle
                         this.TotalValue));
             }
         }       
+
+        protected virtual int CalculateTotalValue()
+        {
+            return this.BaseValue + this.SumBasicModifiers(); 
+        }
     }
 }

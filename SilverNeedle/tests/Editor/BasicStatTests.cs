@@ -103,7 +103,7 @@ public class BasicStatTests {
         var stat = new BasicStat(2);
         stat.AddModifier(new BasicStatModifier(-1, "Food"));
         stat.AddModifier(new BasicStatModifier(0.667f, "Because"));
-        Assert.AreEqual(-1, stat.SumBasicModifiers);
+        Assert.AreEqual(-1, stat.SumBasicModifiers());
         Assert.AreEqual(1, stat.TotalValue);
     }
 }

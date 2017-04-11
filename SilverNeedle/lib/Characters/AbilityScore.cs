@@ -93,7 +93,7 @@ namespace SilverNeedle.Characters
                 this.BaseModifier, 
                 this.TotalValue, 
                 this.TotalModifier, 
-                this.SumBasicModifiers);
+                this.SumBasicModifiers());
         }
     }
 }
