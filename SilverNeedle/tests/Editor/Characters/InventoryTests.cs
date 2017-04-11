@@ -143,6 +143,26 @@ namespace Tests.Characters {
             Assert.That(called, Is.True);
         }
 
+        [Test]
+        public void ItemsInInventoryShouldBeModifiableWithCharacterStatAdjustments()
+        {
+            var inv = new Inventory();
+            inv.ItemAdded += delegate(object o, InventoryEventArgs args)
+            {
+                if(args.GearType == typeof(Armor))
+                {
+                    var armor = args.Item as Armor;
+                    armor.ArmorCheckPenalty = 4;
+                }
+            };
+            var gear = new Armor();
+            gear.ArmorCheckPenalty = 5;
+            inv.AddGear(gear);
+
+            var item = inv.GearOfType<Armor>().First();
+            Assert.That(item.ArmorCheckPenalty, Is.EqualTo(4));
+        }
+
 		class PieceOfJunk : IGear {
 			public string Name { get { return "Junk"; } }
 			public float Weight { get { return 0.5f; } }

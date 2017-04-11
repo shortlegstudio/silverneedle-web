@@ -12,11 +12,14 @@ namespace SilverNeedle.Characters
     {
         public IGear Item { get; set; }
         public Inventory Inventory { get; set; }
+        
+        public System.Type GearType { get; set; }
 
         public InventoryEventArgs(IGear item, Inventory inventory)
         {
             this.Item = item;
             this.Inventory = inventory;
+            this.GearType = item.GetType();
         }
     }
 }
