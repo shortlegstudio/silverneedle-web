@@ -9,7 +9,7 @@ namespace SilverNeedle.Characters
     using System.Collections.Generic;
     using SilverNeedle.Characters.Appearance;
     using SilverNeedle.Characters.Background;
-    using SilverNeedle.Treasure;
+    using SilverNeedle.Utility;
 
     
     /// <summary>
@@ -29,36 +29,28 @@ namespace SilverNeedle.Characters
         /// <param name="skillList">Skill list of available skills</param>
         public CharacterSheet(IEnumerable<Skill> skillList)
         {
-            // TODO: Figure out if skillList is a logical dependency for the character sheet
-            this.AbilityScores = new AbilityScores();
-            this.AbilityScoreTokens = new Queue<AbilityScoreToken>();
-            this.Size = new SizeStats();
-            this.Inventory = new Inventory();
+            this.Components = new ComponentBag();
+            this.Components.Add(new AbilityScores());
+            this.Components.Add(new SizeStats());
+            this.Components.Add(new Inventory());
+            this.Components.Add(new List<Language>());
+            this.Components.Add(new SpecialQualities());
+            this.Components.Add(new List<LevelAbility>());
+            this.Components.Add(new History());
+            this.Components.Add(new PersonalityType("ESTJ"));
+            this.Components.Add(new Queue<AbilityScoreToken>());
+            this.Components.Add(new List<FeatToken>());
+            this.Components.Add(new Ideal());
+            this.Components.Add(new OffenseStats(this.AbilityScores, this.Size, this.Inventory));
+            this.Components.Add(new DefenseStats(this.AbilityScores, this.Size, this.Inventory));
+            this.Components.Add(new MovementStats(this.Inventory));
+            this.Components.Add(new CharacterAppearance());
             this.Initiative = new Initiative(this.AbilityScores);
-            this.Offense = new OffenseStats(this.AbilityScores, this.Size, this.Inventory);
-            this.Defense = new DefenseStats(this.AbilityScores, this.Size, this.Inventory);
-            this.Movement = new MovementStats(this.Inventory);
-            this.Languages = new List<Language>();
-            this.History = new History();
-           
-
             this.SkillRanks = new SkillRanks(skillList, this.AbilityScores);
+
+            // TODO: This is interesting...
             this.SkillRanks.ProcessModifier(this.Size);
-            this.Race = new Race();
-            this.Class = new Class();
-
-            this.Traits = new List<Trait>();
-            this.Feats = new List<Feat>();
-            this.FeatTokens = new List<FeatToken>();            
-            this.SpecialQualities = new SpecialQualities();
-
-            this.LevelAbilities = new List<LevelAbility>();
-            this.PersonalityType = new PersonalityType("ESTJ");
-            this.Ideal = new Ideal();
-            this.Appearance = new CharacterAppearance();
-
             this.SpellCasting = new SpellCasting(Inventory);
-
             this.Level = 1;
         }
 
@@ -66,6 +58,8 @@ namespace SilverNeedle.Characters
         /// Occurs when modified.
         /// </summary>
         public event EventHandler<CharacterSheetEventArgs> Modified;
+
+        public ComponentBag Components { get; private set; }
 
         /// <summary>
         /// Gets or sets the name.
@@ -87,26 +81,43 @@ namespace SilverNeedle.Characters
         /// <value>The character's gender.</value>
         public Gender Gender { get; set; }
 
-        public PersonalityType PersonalityType { get; set; }
+        public PersonalityType PersonalityType { 
+            get { return this.Components.Get<PersonalityType>(); }
+            set { this.Components.Replace<PersonalityType>(value); }
+        }
 
-        public Ideal Ideal { get; set; }
+        public Ideal Ideal { 
+            get { return this.Components.Get<Ideal>(); }
+            set { this.Components.Replace<Ideal>(value); }
+        }
         /// <summary>
         /// Gets or sets the size.
         /// </summary>
         /// <value>The character's size information.</value>
-        public SizeStats Size { get; set; }
+        public SizeStats Size 
+        { 
+            get { return this.Components.Get<SizeStats>(); }
+        }
 
         /// <summary>
         /// Gets or sets the race.
         /// </summary>
         /// <value>The character's race.</value>
-        public Race Race { get; protected set; }
+        public Race Race 
+        { 
+            get { return this.Components.Get<Race>(); }
+        }
 
         /// <summary>
         /// Gets or sets the class. TODO: Handle multiclassing
         /// </summary>
         /// <value>The character's class.</value>
-        public Class Class { get; set; }
+        public Class Class { 
+            get 
+            { 
+                return this.Components.Get<Class>();
+            } 
+        }
 
         /// <summary>
         /// Gets the level.
@@ -114,15 +125,23 @@ namespace SilverNeedle.Characters
         /// <value>The character's level.</value>
         public int Level { get; private set; }
 
-        public IList<LevelAbility> LevelAbilities { get; private set; }
+        public IList<LevelAbility> LevelAbilities 
+        { 
+            get { return this.Components.Get<List<LevelAbility>>(); }
+        }
 
         /// <summary>
         /// Gets the ability scores
         /// </summary>
         /// <value>The character's ability scores.</value>
-        public AbilityScores AbilityScores { get; private set; }
+        public AbilityScores AbilityScores { 
+            get { return this.Components.Get<AbilityScores>(); } 
+        }
 
-        public Queue<AbilityScoreToken> AbilityScoreTokens { get; private set; }
+        public Queue<AbilityScoreToken> AbilityScoreTokens 
+        { 
+            get { return this.Components.Get<Queue<AbilityScoreToken>>(); }
+        }
 
         /// <summary>
         /// Gets the skill ranks.
@@ -134,20 +153,20 @@ namespace SilverNeedle.Characters
         /// Gets the traits.
         /// </summary>
         /// <value>The character's traits.</value>
-        public IList<Trait> Traits { get; private set; }
+        public IEnumerable<Trait> Traits { get { return this.Components.GetAll<Trait>(); } }
 
         /// <summary>
         /// Gets the feats.
         /// </summary>
         /// <value>The character's feats.</value>
-        public IList<Feat> Feats { get; private set; }
+        public IEnumerable<Feat> Feats { get { return this.Components.GetAll<Feat>(); } }
 
         /// <summary>
         /// Represents an available feat chose the generator may make. Could be triggered
         /// by a racial trait, level up, or class bonus for example
         /// </summary>
         /// <returns>Any feat tokens available</returns>
-        public IList<FeatToken> FeatTokens { get; private set; }
+        public IList<FeatToken> FeatTokens { get { return this.Components.Get<List<FeatToken>>(); } }
 
         /// <summary>
         /// Gets the initiative modifier.
@@ -159,13 +178,15 @@ namespace SilverNeedle.Characters
         /// Gets the inventory.
         /// </summary>
         /// <value>The character's inventory.</value>
-        public Inventory Inventory { get; private set; }
+        public Inventory Inventory { 
+            get { return this.Components.Get<Inventory>(); }
+        }
 
         /// <summary>
         /// Gets the languages.
         /// </summary>
         /// <value>The character's languages.</value>
-        public IList<Language> Languages { get; private set; }
+        public IEnumerable<Language> Languages { get { return this.Components.GetAll<Language>(); } }
 
         /// <summary>
         /// Gets or sets the max hit points.
@@ -183,25 +204,25 @@ namespace SilverNeedle.Characters
         /// Gets the offense stats.
         /// </summary>
         /// <value>The character's offensive abilities.</value>
-        public OffenseStats Offense { get; private set; }
+        public OffenseStats Offense { get { return this.Components.Get<OffenseStats>(); } }
 
         /// <summary>
         /// Gets the defense stats.
         /// </summary>
         /// <value>The character's defense abilities.</value>
-        public DefenseStats Defense { get; private set; }
+        public DefenseStats Defense { get { return this.Components.Get<DefenseStats>(); } }
 
         /// <summary>
         /// Gets the movement speeds.
         /// </summary>
         /// <value>The characters movement abilities.</value>
-        public MovementStats Movement { get; private set; }
+        public MovementStats Movement { get { return this.Components.Get<MovementStats>(); } }
 
-        public CharacterAppearance Appearance { get; set; }
+        public CharacterAppearance Appearance { get { return this.Components.Get<CharacterAppearance>(); } }
 
-        public History History { get; set; }
+        public History History { get { return this.Components.Get<History>(); } }
 
-        public SpecialQualities SpecialQualities { get; private set; }
+        public SpecialQualities SpecialQualities { get { return this.Components.Get<SpecialQualities>(); } }
 
         public SpellCasting SpellCasting { get; private set; }
 
@@ -212,7 +233,7 @@ namespace SilverNeedle.Characters
         public void SetClass(Class cls)
         {
             // TODO: Offense and defense have very different behaviors
-            this.Class = cls;
+            this.Components.Add(cls);
             
             // Add Weapon Proficiencies
             this.Offense.AddWeaponProficiencies(cls.WeaponProficiencies);
@@ -231,7 +252,7 @@ namespace SilverNeedle.Characters
         /// <param name="race">The race for the character.</param>
         public void SetRace(Race race)
         {
-            Race = race;
+            this.Components.Add(race);
         }
 
         /// <summary>
@@ -250,7 +271,7 @@ namespace SilverNeedle.Characters
         /// <param name="notify">If set to <c>true</c> notify.</param>
         public void AddTrait(Trait trait, bool notify = true)
         {
-            this.Traits.Add(trait);
+            this.Components.Add(trait);
             this.ProcessStatModifier(trait);
             this.ProcessSpecialAbilities(trait);
 
@@ -267,7 +288,7 @@ namespace SilverNeedle.Characters
         /// <param name="notify">If set to <c>true</c> notify.</param>
         public void AddFeat(Feat feat, bool notify = true)
         {
-            this.Feats.Add(feat);
+            this.Components.Add(feat);
 
             // TODO: This is very similar to traits but slightly different. Should be able to standardize the behavior
             this.ProcessStatModifier(feat);
@@ -380,11 +401,16 @@ namespace SilverNeedle.Characters
                 if(mod.Type == "Feat Token")
                 {
                     var token = new FeatToken(mod.Condition);
-                    FeatTokens.Add(token);
+                    this.FeatTokens.Add(token);
                 }
 
             }
 
+        }
+
+        public void Add<T>(T feature)
+        {
+            this.Components.Add(feature);
         }
     }
 }

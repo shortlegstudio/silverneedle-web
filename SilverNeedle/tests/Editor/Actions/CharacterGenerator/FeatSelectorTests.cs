@@ -6,6 +6,7 @@
 namespace Tests.Actions
 {
     using System.Collections.Generic;
+    using System.Linq;
     using NUnit.Framework;
     using SilverNeedle.Actions.CharacterGenerator;
     using SilverNeedle.Characters;
@@ -54,7 +55,7 @@ namespace Tests.Actions
             character.FeatTokens.Add(new FeatToken());
             
             selector.SelectFeats(character, strategy);
-            Assert.AreEqual(powerattack, character.Feats[0]); 
+            Assert.AreEqual(powerattack, character.Feats.First()); 
 
         }
 
@@ -71,7 +72,7 @@ namespace Tests.Actions
                 character.FeatTokens.Add(new FeatToken());
 
                 selector.SelectFeats(character, strategy);
-                Assert.AreEqual(powerattack, character.Feats[0]);
+                Assert.AreEqual(powerattack, character.Feats.First());
             }            
         } 
 
@@ -89,7 +90,7 @@ namespace Tests.Actions
                 character.FeatTokens.Add(new FeatToken("metamagic"));
 
                 selector.SelectFeats(character, strategy);
-                Assert.AreEqual(empowerspell, character.Feats[0]);
+                Assert.AreEqual(empowerspell, character.Feats.First());
             }            
         }
 
@@ -128,7 +129,7 @@ namespace Tests.Actions
             var character = new CharacterSheet();
             character.FeatTokens.Add(new FeatToken());
             selector.SelectFeats(character, strategy);
-            Assert.IsTrue(character.Feats[0] == powerattack || character.Feats[0] == empowerspell);
+            Assert.IsTrue(character.Feats.First() == powerattack || character.Feats.First() == empowerspell);
         }
     }
 }

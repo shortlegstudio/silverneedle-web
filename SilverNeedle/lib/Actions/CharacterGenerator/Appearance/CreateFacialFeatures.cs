@@ -26,24 +26,18 @@ namespace SilverNeedle.Actions.CharacterGenerator.Appearance
             facialHair = GatewayProvider.Get<FacialHair>();
             eyeColors = GatewayProvider.Get<EyeColor>();
         }
-        public CharacterAppearance CreateFace(Gender gender)
+
+        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
-            var facial = new CharacterAppearance();
+            var facial = character.Appearance;
             facial.EyeColor = eyeColors.ChooseOne();
             facial.HairColor = hairColors.ChooseOne();
             facial.HairStyle = hairStyles.ChooseOne();
 
-            if (gender == Gender.Male)
+            if (character.Gender == Gender.Male)
             {
                 facial.FacialHair = facialHair.ChooseOne();
             }
-
-            return facial;
-        }
-
-        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
-        {
-            character.Appearance = CreateFace(character.Gender);
         }
     }
 }

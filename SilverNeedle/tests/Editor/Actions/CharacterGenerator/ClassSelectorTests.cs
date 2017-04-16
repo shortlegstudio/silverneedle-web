@@ -64,7 +64,7 @@ namespace Tests.Actions
             var character = new CharacterSheet();
             var choices = new WeightedOptionTable<string>();
             
-            Assert.That(character.Class.Name, Is.Null);
+            Assert.That(character.Class, Is.Null);
             subject.ChooseClass(character, choices);
             Assert.That(character.Class.Name, Is.Not.Null);
         }

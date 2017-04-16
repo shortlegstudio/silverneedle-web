@@ -34,7 +34,9 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
         public void AddAllSpellsIfAccessToNextLevelIsAvailable()
         {
             var character = new CharacterSheet();
-            character.Class.Spells.List = "wizard";
+            var cls = new Class();
+            cls.Spells.List = "wizard";
+            character.SetClass(cls);
             var spellCasting = character.SpellCasting;
             spellCasting.SpellsKnown = SpellsKnown.All;
             spellCasting.CasterLevel = 3;

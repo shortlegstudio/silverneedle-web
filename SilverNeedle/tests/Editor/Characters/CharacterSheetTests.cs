@@ -29,7 +29,7 @@ namespace Characters
             var fighter = new Class();
             fighter.SkillPoints = 2;
             sheet.AbilityScores.SetScore(AbilityScoreTypes.Intelligence, 14);
-            sheet.Class = fighter;
+            sheet.SetClass(fighter);
             Assert.AreEqual(4, sheet.GetSkillPointsPerLevel());
         }
 
@@ -149,25 +149,6 @@ namespace Characters
             Assert.IsNotNull(character.GetSkill("Climb"));
             Assert.AreEqual("Climb", character.GetSkill("Climb").Name);
             Assert.AreEqual("Climb", character.GetSkill("climb").Name);
-        }
-
-        [Test]
-        public void EmptyCharacterSheetShouldNotHaveNullsBreakingThings()
-        {
-            var character = new CharacterSheet();
-            Assert.That(character.Race, Is.Not.Null);
-            Assert.That(character.Class, Is.Not.Null);
-            Assert.That(character.AbilityScores, Is.Not.Null);
-            Assert.That(character.AbilityScoreTokens, Is.Not.Null);
-            Assert.That(character.Alignment, Is.Not.Null);
-            Assert.That(character.Defense, Is.Not.Null);
-            Assert.That(character.Offense, Is.Not.Null);
-            Assert.That(character.SkillRanks, Is.Not.Null);
-            Assert.That(character.History, Is.Not.Null);
-            Assert.That(character.PersonalityType, Is.Not.Null);
-            Assert.That(character.Ideal, Is.Not.Null);
-
-            Assert.That(character.Appearance, Is.Not.Null);
         }
     }
 }

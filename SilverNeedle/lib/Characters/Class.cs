@@ -16,8 +16,10 @@ namespace SilverNeedle.Characters
   /// <summary>
   /// Represents a character's Class or profession
   /// </summary>
-  public class Class : IGatewayObject
+    public class Class : IGatewayObject
     {
+        public static Class None { get { return new Class(); } }
+
         /// <summary>
         /// The good save rate. TODO: This should be configurable or moved
         /// somewhere closer to saves

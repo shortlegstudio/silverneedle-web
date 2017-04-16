@@ -14,6 +14,7 @@ namespace SilverNeedle.Characters
     /// </summary>
     public class Race : IGatewayObject
     {
+        public static Race None { get { return new Race(); } }
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Characters.Race"/> class.
         /// </summary>

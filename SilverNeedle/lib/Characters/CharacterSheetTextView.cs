@@ -18,8 +18,8 @@ namespace SilverNeedle.Characters
             Gender = character.Gender.ToString();
             Pronoun = character.Gender.Pronoun();
             PossessivePronoun = character.Gender.PossessivePronoun();
-            Race = character.Race.Name;
-            Class = character.Class.Name;
+            this.Race = Default(character.Race, SilverNeedle.Characters.Race.None).Name;
+            this.Class = Default(character.Class, SilverNeedle.Characters.Class.None).Name;
             Alignment = character.Alignment.ShortString();
             Initiative = character.Initiative.TotalValue.ToModifierString();
             Senses = FormatSenses(character);
@@ -202,7 +202,10 @@ namespace SilverNeedle.Characters
                 character.SpecialQualities.SightAbilities.Select(x => x.Condition).ToArray());
             return senses;
         }
-    }
 
-    
+        private T Default<T>(T value, T def)
+        {
+            return value == null ? def : value;
+        }
+    }
 }

@@ -16,6 +16,7 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
         public void IfNotACasterDoNothing()
         {
             var character = new CharacterSheet();
+            character.SetClass(Class.None);
             var subject = new SetCastingAbilityScore();
             subject.Process(character, new CharacterBuildStrategy());
             Assert.That(character.SpellCasting.CastingAbility, Is.Null);

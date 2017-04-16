@@ -72,7 +72,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
             var languages = PickLanguages(character.Race, character.AbilityScores.GetModifier(AbilityScoreTypes.Intelligence));
             foreach(var l in languages)
             {
-                character.Languages.Add(l);
+                character.Add<Language>(l);
             }
         }
     }

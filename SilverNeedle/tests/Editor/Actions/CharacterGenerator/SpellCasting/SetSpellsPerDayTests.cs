@@ -32,7 +32,10 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
         public void SetSpellsAvailableForThatDayForFirstLevel()
         {
             var character = new CharacterSheet();
-            character.Class.Spells.PerDay[1] = new int[] { 3, 1 };
+            var cls = new Class();
+            cls.Spells.PerDay[1] = new int[] { 3, 1 };
+            character.SetClass(cls);
+            
             character.SpellCasting.CasterLevel = 1;
             character.SpellCasting.SetCastingAbility(new AbilityScore(AbilityScoreTypes.Wisdom, 10));
 
@@ -46,8 +49,10 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
         public void GrantBonusSpellsPerDayForAbilityScore()
         {
             var character = new CharacterSheet();
+            var cls = new Class();
+            cls.Spells.PerDay[1] = new int[] { 3, 2, 1 };
+            character.SetClass(cls);
             var abilityScore = new AbilityScore(AbilityScoreTypes.Charisma, 13);
-            character.Class.Spells.PerDay[1] = new int[] { 3, 2, 1 };
             character.SpellCasting.CasterLevel = 1;
             character.SpellCasting.SetCastingAbility(abilityScore);
 
@@ -66,7 +71,9 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
         {
             var character = new CharacterSheet();
             var abilityScore = new AbilityScore(AbilityScoreTypes.Charisma, 45);
-            character.Class.Spells.PerDay[1] = new int[] { 3, 2, 1 };
+            var cls = new Class();
+            cls.Spells.PerDay[1] = new int[] { 3, 2, 1 };
+            character.SetClass(cls);
             character.SpellCasting.CasterLevel = 1;
             character.SpellCasting.SetCastingAbility(abilityScore);
 
