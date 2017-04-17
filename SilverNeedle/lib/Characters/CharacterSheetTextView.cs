@@ -80,8 +80,11 @@ namespace SilverNeedle.Characters
                 Personality = character.PersonalityType.Descriptors.Choose(3).ToArray();
             if(character.PersonalityType.Weaknesses.HasChoices())
                 PersonalityWeaknesses = character.PersonalityType.Weaknesses.Choose(3).ToArray();
-            IdealName = character.Ideal.Name;
-            IdealDescription = character.Ideal.Description;
+            if(character.Ideal != null)
+            {
+                IdealName = character.Ideal.Name;
+                IdealDescription = character.Ideal.Description;
+            }
             Hair = character.Appearance.Hair;
             HairColor = character.Appearance.HairColor.ToString();
             HairStyle = character.Appearance.HairStyle.ToString();

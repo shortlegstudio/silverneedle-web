@@ -40,7 +40,6 @@ namespace SilverNeedle.Characters
             this.Components.Add(new PersonalityType("ESTJ"));
             this.Components.Add(new Queue<AbilityScoreToken>());
             this.Components.Add(new List<FeatToken>());
-            this.Components.Add(new Ideal());
             this.Components.Add(new OffenseStats(this.AbilityScores, this.Size, this.Inventory));
             this.Components.Add(new DefenseStats(this.AbilityScores, this.Size, this.Inventory));
             this.Components.Add(new MovementStats(this.Inventory));
