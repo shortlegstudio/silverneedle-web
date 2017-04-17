@@ -20,7 +20,7 @@ namespace SilverNeedle.Characters
         /// </summary>
         private IDictionary<string, CharacterSkill> skills;
 
-        private BasicStat BonusSkillPoints = new BasicStat();
+        private BasicStat BonusSkillPoints = new BasicStat(StatNames.BonusSkillPoints);
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Characters.SkillRanks"/> class.

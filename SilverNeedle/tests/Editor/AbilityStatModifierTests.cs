@@ -15,8 +15,7 @@ namespace Tests
         [Test]
         public void AbilityStatModifiersTrackChangesToAbility()
         {
-            var ability = new AbilityScore();
-            ability.SetValue(10);
+            var ability = new AbilityScore(AbilityScoreTypes.Strength, 10);
 
             var modifier = new AbilityStatModifier(ability);
             Assert.AreEqual(0, modifier.Modifier);

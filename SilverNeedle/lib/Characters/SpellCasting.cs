@@ -34,7 +34,7 @@ namespace SilverNeedle.Characters
             this.spellsPerDay = new int[MAX_SPELL_LEVEL];
             this.preparedSpells = new Dictionary<int, string[]>();
             this.inventory = inventory;
-            this.DifficultyClass = new BasicStat(10);
+            this.DifficultyClass = new BasicStat(StatNames.SpellcastingDC, 10);
             SpellsKnown = SpellsKnown.None;
         }
 

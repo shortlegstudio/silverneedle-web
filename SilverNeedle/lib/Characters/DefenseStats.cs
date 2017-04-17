@@ -107,19 +107,19 @@ namespace SilverNeedle.Characters
             this.size = size;
             this.inventory = inv;
 
-            this.fortitudeSave = new BasicStat();
+            this.fortitudeSave = new BasicStat(StatNames.FortitudeSave);
             this.fortitudeSave.AddModifier(
                 new AbilityStatModifier(abilityScores.GetAbility(AbilityScoreTypes.Constitution)));
             
-            this.reflexSave = new BasicStat();
+            this.reflexSave = new BasicStat(StatNames.ReflexSave);
             this.reflexSave.AddModifier(
                 new AbilityStatModifier(abilityScores.GetAbility(AbilityScoreTypes.Dexterity)));
             
-            this.willSave = new BasicStat();
+            this.willSave = new BasicStat(StatNames.WillSave);
             this.willSave.AddModifier(
                 new AbilityStatModifier(abilityScores.GetAbility(AbilityScoreTypes.Wisdom)));
             
-            this.armor = new BasicStat(BaseArmorClass);
+            this.armor = new BasicStat(StatNames.ArmorClass, BaseArmorClass);
 
             this.specialAbilities = new List<SpecialAbility>();
         }

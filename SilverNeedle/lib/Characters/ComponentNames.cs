@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters
 {
-    public static class StatisticNames
+    public static class ComponentNames
     {
         public const string AbilityScores = "Ability Scores";
         public const string Size = "Size";

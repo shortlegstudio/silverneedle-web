@@ -132,7 +132,7 @@ namespace SilverNeedle.Characters
         {
             foreach (var e in scores.Abilities)
             {
-                this.SetScore(e.Name, e.BaseValue);
+                this.SetScore(e.Ability, e.BaseValue);
             }
         }
 

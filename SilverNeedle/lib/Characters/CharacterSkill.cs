@@ -36,7 +36,7 @@ namespace SilverNeedle.Characters
             Skill = baseSkill;
             this.baseAbilityScore = baseScore;
             this.ClassSkill = isClassSkill;
-            this.skillStats = new BasicStat();
+            this.skillStats = new BasicStat(baseSkill.Name);
         }
 
         /// <summary>

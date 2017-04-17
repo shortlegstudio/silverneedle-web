@@ -150,5 +150,19 @@ namespace Characters
             Assert.AreEqual("Climb", character.GetSkill("Climb").Name);
             Assert.AreEqual("Climb", character.GetSkill("climb").Name);
         }
+
+        [Test]
+        public void ExposeAllStats()
+        {
+            Assert.Ignore("Exposing all statistics is not implemented.");
+            var character = new CharacterSheet();
+            var ac = character.FindStat("Armor Class");
+            var str = character.FindStat("Strength");
+            var willSave = character.FindStat("Will");
+
+            Assert.That(ac.Name, Is.EqualTo("Armor Class"));
+            Assert.That(str.Name, Is.EqualTo("Strength"));
+            Assert.That(willSave.Name, Is.EqualTo("Will"));
+        }
     }
 }

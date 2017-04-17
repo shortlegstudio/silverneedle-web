@@ -19,6 +19,7 @@ namespace SilverNeedle
     /// </summary>
     public class BasicStat
     {
+        public string Name { get; private set; }
         /// <summary>
         /// Tracks all modifiers associated with this stat
         /// </summary>
@@ -32,8 +33,9 @@ namespace SilverNeedle
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.BasicStat"/> class.
         /// </summary>
-        public BasicStat()
+        public BasicStat(string name)
         {
+            this.Name = name; 
             this.statModifiers = new List<BasicStatModifier>();
             this.conditionalModifiers = new List<ConditionalStatModifier>();
         }
@@ -42,8 +44,8 @@ namespace SilverNeedle
         /// Initializes a new instance of the <see cref="SilverNeedle.BasicStat"/> class.
         /// </summary>
         /// <param name="baseValue">Base value of the stat</param>
-        public BasicStat(int baseValue)
-            : this()
+        public BasicStat(string name, int baseValue)
+            : this(name)
         {
             this.BaseValue = baseValue;
         }

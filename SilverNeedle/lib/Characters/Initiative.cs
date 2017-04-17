@@ -20,7 +20,7 @@ namespace SilverNeedle.Characters
         /// </summary>
         /// <param name="abilities">Abilities scores for the character.</param>
         public Initiative(AbilityScores abilities)
-            : base()
+            : base(StatNames.Initiative)
         {
             this.abilities = abilities;
             this.AddModifier(new AbilityStatModifier(abilities.GetAbility(AbilityScoreTypes.Dexterity)));

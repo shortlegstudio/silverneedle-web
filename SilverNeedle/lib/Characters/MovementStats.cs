@@ -35,7 +35,7 @@ namespace SilverNeedle.Characters
         public MovementStats(int baseSpeed, Inventory inventory)
         {
             this.inventory = inventory;
-            this.BaseMovement = new BasicStat(baseSpeed);
+            this.BaseMovement = new BasicStat(StatNames.BaseMovementSpeed, baseSpeed);
         }
 
         /// <summary>

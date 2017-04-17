@@ -411,5 +411,10 @@ namespace SilverNeedle.Characters
         {
             this.Components.Add(feature);
         }
+
+        public BasicStat FindStat(string name)
+        {
+            return null;
+        }
     }
 }

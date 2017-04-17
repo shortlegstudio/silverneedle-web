@@ -13,27 +13,19 @@ namespace SilverNeedle.Characters
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Characters.AbilityScore"/> class.
         /// </summary>
-        public AbilityScore()
-            : base()
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SilverNeedle.Characters.AbilityScore"/> class.
-        /// </summary>
         /// <param name="type">Ability type</param>
         /// <param name="val">Value for the ability</param>
         public AbilityScore(AbilityScoreTypes type, int val)
-            : base(val)
+            : base(type.ToString(), val)
         {
-            this.Name = type;
+            this.Ability = type;
         }
 
         /// <summary>
         /// Gets or sets the name. Synonomous with AbilityScoreTypes
         /// </summary>
         /// <value>The name of the ability</value>
-        public AbilityScoreTypes Name { get; set; }
+        public AbilityScoreTypes Ability { get; private set; }
 
         /// <summary>
         /// Gets the base modifier. The modifier is the ability score modifier applied to other statistics
@@ -87,7 +79,7 @@ namespace SilverNeedle.Characters
         {
             return string.Format(
                 "[AbilityScore: Name={0}, Adjustments={1}, BaseValue={2}, BaseModifier={3}, TotalValue={4}, TotalModifier={5}, SumAdjustments={6}]", 
-                this.Name, 
+                this.Ability, 
                 this.Modifiers, 
                 this.BaseValue, 
                 this.BaseModifier, 

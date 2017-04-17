@@ -37,7 +37,7 @@ namespace Characters {
 			bool modified = false;
 
 			Subject.Modified += (object sender, AbilityModifiedEventArgs e) =>  {
-				Assert.AreEqual(AbilityScoreTypes.Intelligence, e.Ability.Name);
+				Assert.AreEqual(AbilityScoreTypes.Intelligence, e.Ability.Ability);
 				modified = true;
 			};
 		
@@ -57,7 +57,7 @@ namespace Characters {
 			abilityScores.Copy (copyFrom);
 
 			foreach (var e in abilityScores.Abilities) {
-				Assert.AreEqual (e.TotalValue, copyFrom.GetScore (e.Name));
+				Assert.AreEqual (e.TotalValue, copyFrom.GetScore (e.Ability));
 			}
 		}
 	}
