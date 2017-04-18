@@ -12,7 +12,7 @@ namespace SilverNeedle.Characters
     /// <summary>
     /// A container that manages all the ability scores for a character
     /// </summary>
-    public class AbilityScores : IAbilityScores
+    public class AbilityScores : IAbilityScores, IStatTracker
     {
         /// <summary>
         /// The abilities for this character
@@ -39,6 +39,11 @@ namespace SilverNeedle.Characters
         public IEnumerable<AbilityScore> Abilities 
         {
             get { return this.abilities.Values; }
+        }
+
+        public IEnumerable<BasicStat> Statistics
+        {
+            get { return Abilities; }
         }
 
         /// <summary>
@@ -140,6 +145,11 @@ namespace SilverNeedle.Characters
         {
             var a = GetAbility(adj.AbilityName);
             a.AddModifier(adj);
+        }
+
+        public void ProcessModifier(IModifiesStats modifier)
+        {
+            throw new NotImplementedException();
         }
 
         /// <summary>

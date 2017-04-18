@@ -154,15 +154,14 @@ namespace Characters
         [Test]
         public void ExposeAllStats()
         {
-            Assert.Ignore("Not fully implemented stat trackers");
             var character = new CharacterSheet();
             var ac = character.FindStat("Armor Class");
             var str = character.FindStat("Strength");
-            var willSave = character.FindStat("Will");
+            var willSave = character.FindStat("Will Save");
 
             Assert.That(ac.Name, Is.EqualTo("Armor Class"));
             Assert.That(str.Name, Is.EqualTo("Strength"));
-            Assert.That(willSave.Name, Is.EqualTo("Will"));
+            Assert.That(willSave.Name, Is.EqualTo("Will Save"));
         }
     }
 }

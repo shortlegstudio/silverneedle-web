@@ -3,20 +3,22 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-namespace Tests.Characters {
-	using NUnit.Framework;
-	using SilverNeedle.Characters;
-	using SilverNeedle.Equipment;
+namespace Tests.Characters 
+{
+    using System.Linq;
+    using NUnit.Framework;
+    using SilverNeedle.Characters;
+    using SilverNeedle.Equipment;
 
-	[TestFixture]
-	public class MovementStatsTests {
-		[Test]
-		public void CalculatesSquaresBasedOnMovementValue() {
-			var move = new MovementStats(30, new Inventory());
-			Assert.AreEqual(6, move.BaseSquares);
-			move = new MovementStats(20, new Inventory());
-			Assert.AreEqual(4, move.BaseSquares);
-		}
+    [TestFixture]
+    public class MovementStatsTests {
+        [Test]
+        public void CalculatesSquaresBasedOnMovementValue() {
+            var move = new MovementStats(30, new Inventory());
+            Assert.AreEqual(6, move.BaseSquares);
+            move = new MovementStats(20, new Inventory());
+            Assert.AreEqual(4, move.BaseSquares);
+        }
 
         [Test]
         public void ActualMoveSpeedCanBeImpactedByArmor()
@@ -27,6 +29,14 @@ namespace Tests.Characters {
             inventory.EquipItem(heavyArmor);
             var move = new MovementStats(30,inventory);
             Assert.That(move.MovementSpeed, Is.EqualTo(20));
+        }
+
+        [Test]
+        public void ExposeMovementStatistics()
+        {
+            var move = new MovementStats(30, new Inventory());
+            var stats = move.Statistics.Select(x => x.Name);
+            Assert.That(stats, Is.EquivalentTo(new string[] { "Base Movement Speed" }));
         }
     }
 }

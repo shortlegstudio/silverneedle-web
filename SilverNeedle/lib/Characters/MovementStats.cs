@@ -39,7 +39,13 @@ namespace SilverNeedle.Characters
             this.BaseMovement = new BasicStat(StatNames.BaseMovementSpeed, baseSpeed);
         }
 
-        public IEnumerable<BasicStat> Statistics { get { throw new NotImplementedException();  } }
+        public IEnumerable<BasicStat> Statistics 
+        { 
+            get 
+            { 
+                return new BasicStat[] { BaseMovement };
+            } 
+        }
 
         /// <summary>
         /// Gets the base movement.
