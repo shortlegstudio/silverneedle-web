@@ -33,15 +33,23 @@ namespace SilverNeedle.Characters
 
         private const string OffensiveAbilitiesName = "Offensive";
 
+        public IEnumerable<BasicStat> Statistics
+        {
+            get 
+            {
+                return new BasicStat[] { BaseAttackBonus, combatManeuverDefense, combatManeuverOffense };
+            }
+        }
+
         /// <summary>
         /// Gets or sets the CombatManeuverDefense.
         /// </summary>
-        private BasicStat combatManeuverDefense;
+        public BasicStat combatManeuverDefense { get; private set; }
 
         /// <summary>
         /// Gets or sets the combat maneuver bonus.
         /// </summary>
-        private BasicStat combatManeuverOffense;
+        public BasicStat combatManeuverOffense { get; private set; }
 
         /// <summary>
         /// The inventory for the character.

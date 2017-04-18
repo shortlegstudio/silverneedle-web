@@ -5,6 +5,7 @@
 
 namespace SilverNeedle.Characters
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using SilverNeedle.Equipment;
@@ -14,6 +15,13 @@ namespace SilverNeedle.Characters
     /// </summary>
     public class DefenseStats : IStatTracker
     {
+        public IEnumerable<BasicStat> Statistics 
+        { 
+            get 
+            { 
+                return new BasicStat[] { armorClass, fortitudeSave, reflexSave, willSave }; 
+            } 
+        }
         /// <summary>
         /// The base armor class.
         /// </summary>
@@ -91,7 +99,7 @@ namespace SilverNeedle.Characters
         /// Gets or sets the armor being worn
         /// </summary>
         /// <value>The armor of the character.</value>
-        private BasicStat armor;
+        private BasicStat armorClass;
 
         private IList<SpecialAbility> specialAbilities;
 
@@ -119,7 +127,7 @@ namespace SilverNeedle.Characters
             this.willSave.AddModifier(
                 new AbilityStatModifier(abilityScores.GetAbility(AbilityScoreTypes.Wisdom)));
             
-            this.armor = new BasicStat(StatNames.ArmorClass, BaseArmorClass);
+            this.armorClass = new BasicStat(StatNames.ArmorClass, BaseArmorClass);
 
             this.specialAbilities = new List<SpecialAbility>();
         }
@@ -188,7 +196,7 @@ namespace SilverNeedle.Characters
         /// <returns>The armor class for the character.</returns>
         public int ArmorClass()
         {
-            return this.armor.TotalValue
+            return this.armorClass.TotalValue
             + this.abilities.GetModifier(AbilityScoreTypes.Dexterity)
             + this.size.SizeModifier
             + this.EquippedArmorBonus();
@@ -281,7 +289,7 @@ namespace SilverNeedle.Characters
                 switch (s.StatisticName)
                 {
                     case ArmorClassStatName:
-                        this.armor.AddModifier(s);
+                        this.armorClass.AddModifier(s);
                         break;
                     case FortitudeSaveStatName:
                         this.fortitudeSave.AddModifier(s);

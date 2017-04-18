@@ -154,7 +154,7 @@ namespace Characters
         [Test]
         public void ExposeAllStats()
         {
-            Assert.Ignore("Exposing all statistics is not implemented.");
+            Assert.Ignore("Not fully implemented stat trackers");
             var character = new CharacterSheet();
             var ac = character.FindStat("Armor Class");
             var str = character.FindStat("Strength");

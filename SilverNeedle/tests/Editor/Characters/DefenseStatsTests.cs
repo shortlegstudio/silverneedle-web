@@ -219,6 +219,16 @@ namespace Tests.Characters {
             Assert.Ignore("Max Dexterity Bonus Is Not Calculated Yet");
         }
 
+		[Test]
+		public void ReturnStatisticsTracked()
+		{
+			var stats = smallStats.Statistics;
+            var statNames = stats.Select(x => x.Name);
+			Assert.That(statNames, Is.EquivalentTo(
+				new string[] { "Armor Class", "Fortitude Save", "Will Save", "Reflex Save" }
+			));
+		}
+
 		class MockMod : IModifiesStats {
 			public IList<BasicStatModifier> Modifiers { get; set;  }
 

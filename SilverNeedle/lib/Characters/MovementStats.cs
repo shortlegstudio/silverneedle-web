@@ -6,6 +6,7 @@
 namespace SilverNeedle.Characters
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using SilverNeedle.Equipment;
 
@@ -37,6 +38,8 @@ namespace SilverNeedle.Characters
             this.inventory = inventory;
             this.BaseMovement = new BasicStat(StatNames.BaseMovementSpeed, baseSpeed);
         }
+
+        public IEnumerable<BasicStat> Statistics { get { throw new NotImplementedException();  } }
 
         /// <summary>
         /// Gets the base movement.

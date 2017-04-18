@@ -157,6 +157,14 @@ namespace Tests.Characters {
             Assert.AreEqual(2, smallStats.BaseAttackBonus.TotalValue);            
         }
 
+		[Test]
+		public void ReturnsStatsForCombat()
+		{
+			var stats = smallStats.Statistics;
+			Assert.That(stats.Count(), Is.EqualTo(3));
+			Assert.That(stats, Is.EquivalentTo(new BasicStat[] { smallStats.BaseAttackBonus, smallStats.combatManeuverOffense, smallStats.combatManeuverDefense }));
+		}
+
 		private Weapon Longsword() {
 			return new Weapon("Longsword", 0, "1d8", DamageTypes.Slashing, 19, 2, 0, WeaponType.OneHanded, WeaponGroup.HeavyBlades, WeaponTrainingLevel.Martial);
 		}

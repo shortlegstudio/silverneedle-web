@@ -4,7 +4,7 @@
 // </copyright>
 //-----------------------------------------------------------------------
 
-namespace SilverNeedle.Characters
+namespace SilverNeedle
 {
     using System.Collections.Generic;
 

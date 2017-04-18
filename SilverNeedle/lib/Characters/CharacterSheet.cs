@@ -7,6 +7,7 @@ namespace SilverNeedle.Characters
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using SilverNeedle.Characters.Appearance;
     using SilverNeedle.Characters.Background;
     using SilverNeedle.Utility;
@@ -414,7 +415,12 @@ namespace SilverNeedle.Characters
 
         public BasicStat FindStat(string name)
         {
-            return null;
+            return GetAllStats().First(x => x.Name.EqualsIgnoreCase(name));
+        }
+
+        public IEnumerable<BasicStat> GetAllStats()
+        {
+            return this.Components.GetAll<IStatTracker>().SelectMany(x => x.Statistics);
         }
     }
 }

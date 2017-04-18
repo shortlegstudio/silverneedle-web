@@ -5,7 +5,7 @@
 //-----------------------------------------------------------------------
 namespace SilverNeedle
 {
-    using SilverNeedle.Characters;
+    using System.Collections.Generic;
 
     /// <summary>
     /// Interface that represents a class that handles some character stats
@@ -17,5 +17,7 @@ namespace SilverNeedle
         /// </summary>
         /// <param name="modifier">Modifier for stats</param>
         void ProcessModifier(IModifiesStats modifier);
+
+        IEnumerable<BasicStat> Statistics { get; }
     }
 }
