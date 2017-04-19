@@ -33,20 +33,6 @@ namespace Characters {
 		}
 
 		[Test]
-		public void WhenAbilityIsModifiedAnEventIsRaised() {
-			bool modified = false;
-
-			Subject.Modified += (object sender, AbilityModifiedEventArgs e) =>  {
-				Assert.AreEqual(AbilityScoreTypes.Intelligence, e.Ability.Ability);
-				modified = true;
-			};
-		
-			Subject.SetScore (AbilityScoreTypes.Intelligence, 19);
-
-			Assert.IsTrue (modified);
-		}
-
-		[Test]
 		public void YouCanCopyOneSetOfAbilityScoresToAnother() {
 			var abilityScores = new AbilityScores ();
 			var copyFrom = new AbilityScores ();

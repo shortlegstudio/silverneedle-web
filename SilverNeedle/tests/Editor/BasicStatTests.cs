@@ -5,72 +5,33 @@ using SilverNeedle;
 
 [TestFixture]
 public class BasicStatTests {
+  [Test]
+  public void StatsTotalUpAdjustments() {
+    var stat = new BasicStat ("TestStat", 10);
+    stat.AddModifier (new BasicStatModifier (5, "Foo"));
+    Assert.AreEqual (15, stat.TotalValue);
+  }
 
-    [Test]
-    public void StatsRaiseModifiedEventWhenValueSet() {
-		var stat = new BasicStat ("TestStat", 20);
-		var changeCalled = false;
-		stat.Modified += (object sender, BasicStatModifiedEventArgs e) => {
-			changeCalled = true;
-		};
+  [Test]
+  public void StatModifiersCanHaveConditionalModifiers() {
+    var stat = new BasicStat("TestStat", 10);
+    var mod = new ConditionalStatModifier("vs. Giants", "Skill", 5, "bonus", "Feat");
+    stat.AddModifier(mod);
+    Assert.AreEqual(10, stat.TotalValue);
+    Assert.AreEqual(15, stat.GetConditionalValue("vs. Giants"));
+    Assert.AreEqual(1, stat.GetConditions().Count());
+    Assert.AreEqual("vs. Giants", stat.GetConditions().First());
+  }
 
-		stat.SetValue (21);
-		Assert.True (changeCalled);
-    }
-
-	[Test]
-	public void StatsRaiseModifiedEventWhenAdjustmentAdded() {
-		var stat = new BasicStat ("TestStat", 20);
-		var changeCalled = false;
-		stat.Modified += (object sender, BasicStatModifiedEventArgs e) => {
-			changeCalled = true;
-		};
-		stat.AddModifier (new BasicStatModifier ());
-
-		Assert.True (changeCalled);
-	}
-
-	[Test]
-	public void StatsRaiseTheOldValueAndNewValue() {
-		var stat = new BasicStat ("TestStat", 10);
-		bool mod = false;
-		stat.Modified += (object sender, BasicStatModifiedEventArgs e) => {
-			Assert.AreEqual(10, e.OldBaseValue);
-			Assert.AreEqual(14, e.NewBaseValue);
-			mod = true;
-		};
-		stat.SetValue (14);
-
-		Assert.IsTrue (mod);
-	}
-
-	[Test]
-	public void StatsTotalUpAdjustments() {
-		var stat = new BasicStat ("TestStat", 10);
-		stat.AddModifier (new BasicStatModifier (5, "Foo"));
-		Assert.AreEqual (15, stat.TotalValue);
-	}
-
-	[Test]
-	public void StatModifiersCanHaveConditionalModifiers() {
-		var stat = new BasicStat("TestStat", 10);
-		var mod = new ConditionalStatModifier("vs. Giants", "Skill", 5, "bonus", "Feat");
-		stat.AddModifier(mod);
-		Assert.AreEqual(10, stat.TotalValue);
-		Assert.AreEqual(15, stat.GetConditionalValue("vs. Giants"));
-		Assert.AreEqual(1, stat.GetConditions().Count());
-		Assert.AreEqual("vs. Giants", stat.GetConditions().First());
-	}
-
-	[Test]
-	public void StatsCanHaveAListOfConditionalModifiers() {
-		var stat = new BasicStat("TestStat", 10);
-		stat.AddModifier(
-			new ConditionalStatModifier("vs. Corgis", "Skill", 3, "bonus", "Trait")
-		);
-		stat.AddModifier(
-			new ConditionalStatModifier("vs. Corgis", "Skill", 3, "bonus", "Trait")
-		);
+  [Test]
+  public void StatsCanHaveAListOfConditionalModifiers() {
+    var stat = new BasicStat("TestStat", 10);
+    stat.AddModifier(
+      new ConditionalStatModifier("vs. Corgis", "Skill", 3, "bonus", "Trait")
+    );
+    stat.AddModifier(
+      new ConditionalStatModifier("vs. Corgis", "Skill", 3, "bonus", "Trait")
+);
 		stat.AddModifier(
 			new ConditionalStatModifier("Trapfinding", "Skill", 3, "bonus", "Trait")
 		);

@@ -12,7 +12,7 @@ namespace SilverNeedle.Characters
     /// <summary>
     /// A container that manages all the ability scores for a character
     /// </summary>
-    public class AbilityScores : IAbilityScores, IStatTracker
+    public class AbilityScores : IStatTracker
     {
         /// <summary>
         /// The abilities for this character
@@ -26,11 +26,6 @@ namespace SilverNeedle.Characters
         {
             this.FillAbilities();
         }
-
-        /// <summary>
-        /// Occurs when any of the abilities are modified.
-        /// </summary>
-        public event EventHandler<AbilityModifiedEventArgs> Modified;
 
         /// <summary>
         /// Gets the abilities.
@@ -96,7 +91,6 @@ namespace SilverNeedle.Characters
         public void SetScore(AbilityScoreTypes ability, int val)
         {
             this.abilities[ability].SetValue(val);
-            this.OnModified(this.abilities[ability]);
         }
 
         /// <summary>
@@ -153,30 +147,6 @@ namespace SilverNeedle.Characters
         }
 
         /// <summary>
-        /// Tracks when abilities are modified by registering for their events
-        /// </summary>
-        /// <param name="source">Source ability</param>
-        /// <param name="args">The arguments for the event</param>
-        private void AbilityModified(object source, EventArgs args)
-        {
-            this.OnModified((AbilityScore)source);
-        }
-
-        /// <summary>
-        /// Raises the modified event.
-        /// </summary>
-        /// <param name="changed">The ability score that changed</param>
-        private void OnModified(AbilityScore changed)
-        {
-            if (this.Modified != null)
-            {
-                var args = new AbilityModifiedEventArgs();
-                args.Ability = changed;
-                this.Modified(this, args);
-            }
-        }
-
-        /// <summary>
         /// Fills the abilities collection with zeroed out scores
         /// </summary>
         private void FillAbilities()
@@ -185,7 +155,6 @@ namespace SilverNeedle.Characters
             foreach (var v in EnumHelpers.GetValues<AbilityScoreTypes>())
             {
                 var ability = new AbilityScore(v, 0);
-                ability.Modified += this.AbilityModified;
                 this.abilities.Add(v, ability);
             }
         }

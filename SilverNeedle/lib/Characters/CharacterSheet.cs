@@ -57,7 +57,6 @@ namespace SilverNeedle.Characters
         /// <summary>
         /// Occurs when modified.
         /// </summary>
-        public event EventHandler<CharacterSheetEventArgs> Modified;
 
         public ComponentBag Components { get; private set; }
 
@@ -269,16 +268,11 @@ namespace SilverNeedle.Characters
         /// </summary>
         /// <param name="trait">Trait to add.</param>
         /// <param name="notify">If set to <c>true</c> notify.</param>
-        public void AddTrait(Trait trait, bool notify = true)
+        public void AddTrait(Trait trait)
         {
             this.Components.Add(trait);
             this.ProcessStatModifier(trait);
             this.ProcessSpecialAbilities(trait);
-
-            if (notify)
-            {
-                this.OnModified();
-            }
         }
 
         /// <summary>
@@ -286,18 +280,13 @@ namespace SilverNeedle.Characters
         /// </summary>
         /// <param name="feat">Feat to add.</param>
         /// <param name="notify">If set to <c>true</c> notify.</param>
-        public void AddFeat(Feat feat, bool notify = true)
+        public void AddFeat(Feat feat)
         {
             this.Components.Add(feat);
 
             // TODO: This is very similar to traits but slightly different. Should be able to standardize the behavior
             this.ProcessStatModifier(feat);
             this.ProcessSpecialAbilities(feat);
-
-            if (notify)
-            {
-                this.OnModified();
-            }
         }
 
         /// <summary>
@@ -352,19 +341,6 @@ namespace SilverNeedle.Characters
         {
             this.MaxHitPoints += hp;
             this.CurrentHitPoints += hp;
-        }
-
-        /// <summary>
-        /// Raises the modified event. TODO: Should be private
-        /// </summary>
-        public void OnModified()
-        {
-            if (this.Modified != null)
-            { 
-                var args = new CharacterSheetEventArgs();
-                args.Sheet = this;
-                this.Modified(this, args);
-            }
         }
 
         public void AddLevelAbilities(Level level)

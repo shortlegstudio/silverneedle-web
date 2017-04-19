@@ -67,9 +67,6 @@ namespace SilverNeedle.Actions.CharacterGenerator
             this.SetTraitsForRace(character, race);
             this.SetAbilityScoresForRace(character, race);
             this.SetSizeForRace(character.Size, race);
-
-            // TODO: Should not trigger events from here, that should be handled by the data object
-            character.OnModified();
         }
 
         /// <summary>
@@ -94,7 +91,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
             foreach (var trait in race.Traits)
             {
                 var t = this.traitGateway.All().First(x => x.Name == trait);
-                character.AddTrait(t, false);
+                character.AddTrait(t);
             }
         }
 

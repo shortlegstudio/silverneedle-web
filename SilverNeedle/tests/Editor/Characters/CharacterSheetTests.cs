@@ -74,28 +74,6 @@ namespace Characters
             Assert.IsTrue(sheet.Defense.IsProficient(armor));
         }
 
-
-        [Test]
-        public void AddTraitTriggersModifiedEvent()
-        {
-            bool called = false;
-
-            CharacterSheet sheet = new CharacterSheet(_testSkills);
-            sheet.Modified += (object sender, CharacterSheetEventArgs e) =>
-            {
-                called = true;
-            };
-
-            //Set up the trait
-            var trait = new Trait();
-            trait.Name = "Elfy";
-
-            sheet.AddTrait(trait, true);
-
-            //Make sure the event was called
-            Assert.IsTrue(called);
-        }
-
         [Test]
         public void AddingATraitToWillSaveBoostsDefense()
         {

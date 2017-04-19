@@ -51,11 +51,6 @@ namespace SilverNeedle
         }
 
         /// <summary>
-        /// Occurs when the stat is modified.
-        /// </summary>
-        public event EventHandler<BasicStatModifiedEventArgs> Modified;
-
-        /// <summary>
         /// Gets or sets the base value of the stat
         /// </summary>
         /// <value>The base value.</value>
@@ -109,10 +104,7 @@ namespace SilverNeedle
                 return;
             }
 
-            var oldBase = this.BaseValue;
-            var oldTotal = this.TotalValue;
             this.statModifiers.Add(modifier);
-            this.Refresh(oldBase, oldTotal);
         }
 
         /// <summary>
@@ -130,10 +122,7 @@ namespace SilverNeedle
         /// <param name="val">New base value</param>
         public void SetValue(int val)
         {
-            var oldBase = this.BaseValue;
-            var oldTotal = this.TotalValue;
             this.BaseValue = val;
-            this.Refresh(oldBase, oldTotal);
         }
 
         /// <summary>
@@ -187,36 +176,6 @@ namespace SilverNeedle
         {
             return this.ToString(string.Empty);
         }
-
-        /// <summary>
-        /// Provides an interface for subclasses to perform extra operations in the event they need
-        /// to refresh or recalculate based on changes that occur. 
-        /// </summary>
-        /// <param name="oldBase">Old base.</param>
-        /// <param name="oldTotal">Old total.</param>
-        protected virtual void Refresh(int oldBase, int oldTotal)
-        {
-            this.OnModified(oldBase, oldTotal);
-        }
-
-        /// <summary>
-        /// Raises the modified event.
-        /// </summary>
-        /// <param name="oldBase">Old base.</param>
-        /// <param name="oldTotal">Old total.</param>
-        protected void OnModified(int oldBase, int oldTotal)
-        {
-            if (this.Modified != null)
-            {
-                this.Modified(
-                    this, 
-                    new BasicStatModifiedEventArgs(
-                        oldBase,
-                        this.BaseValue,
-                        oldTotal,
-                        this.TotalValue));
-            }
-        }       
 
         protected virtual int CalculateTotalValue()
         {
