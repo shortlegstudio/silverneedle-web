@@ -42,7 +42,7 @@ namespace SilverNeedle.Characters
             this.Components.Add(new Queue<AbilityScoreToken>());
             this.Components.Add(new List<FeatToken>());
             this.Components.Add(new OffenseStats(this.AbilityScores, this.Size, this.Inventory));
-            this.Components.Add(new DefenseStats(this.AbilityScores, this.Size, this.Inventory));
+            this.Components.Add(new DefenseStats());
             this.Components.Add(new MovementStats(this.Inventory));
             this.Components.Add(new CharacterAppearance());
             this.Initiative = new Initiative(this.AbilityScores);
@@ -52,6 +52,17 @@ namespace SilverNeedle.Characters
             this.SkillRanks.ProcessModifier(this.Size);
             this.SpellCasting = new SpellCasting(Inventory);
             this.Level = 1;
+
+            InitializeComponents();
+        }
+
+        private void InitializeComponents()
+        {
+            var components = this.Components.GetAll<IComponent>();
+            foreach(var c in components)
+            {
+                c.Initialize(this.Components);
+            }
         }
 
         /// <summary>

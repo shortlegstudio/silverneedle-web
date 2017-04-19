@@ -16,6 +16,8 @@ namespace SilverNeedle.Characters
         public const string Initiative = "Initiative";
 
         public const string ArmorClass = "Armor Class";
+        public const string TouchArmorClass = "Touch Armor Class";
+        public const string FlatFootedArmorClass = "Flat Footed Armor Class";
 
         public const string WillSave = "Will Save";
         public const string ReflexSave = "Reflex Save";

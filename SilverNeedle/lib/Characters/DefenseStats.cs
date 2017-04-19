@@ -9,17 +9,18 @@ namespace SilverNeedle.Characters
     using System.Collections.Generic;
     using System.Linq;
     using SilverNeedle.Equipment;
+    using SilverNeedle.Utility;
 
     /// <summary>
     /// Defense stats manage everything a character does to defend herself.
     /// </summary>
-    public class DefenseStats : IStatTracker
+    public class DefenseStats : IStatTracker, IComponent
     {
         public IEnumerable<BasicStat> Statistics 
         { 
             get 
             { 
-                return new BasicStat[] { armorClass, fortitudeSave, reflexSave, willSave }; 
+                return new BasicStat[] { armorClass, touchArmorClass, flatfootedArmorClass, fortitudeSave, reflexSave, willSave }; 
             } 
         }
         /// <summary>
@@ -57,16 +58,6 @@ namespace SilverNeedle.Characters
         private const string DefensiveAbilitiesName = "Defensive";
 
         /// <summary>
-        /// The ability scores to base defense stats off of
-        /// </summary>
-        private AbilityScores abilities;
-
-        /// <summary>
-        /// The size stats of the character
-        /// </summary>
-        private SizeStats size;
-
-        /// <summary>
         /// The armor proficiencies of the character
         /// </summary>
         private List<ArmorProficiency> armorProficiencies = new List<ArmorProficiency>();
@@ -90,18 +81,16 @@ namespace SilverNeedle.Characters
         private BasicStat willSave;
 
         /// <summary>
-        /// Gets or sets the inventory of the character to find defensive items
-        /// </summary>
-        /// <value>The inventory of the character.</value>
-        private Inventory inventory;
-
-        /// <summary>
         /// Gets or sets the armor being worn
         /// </summary>
         /// <value>The armor of the character.</value>
         private BasicStat armorClass;
+        private BasicStat touchArmorClass;
+        private BasicStat flatfootedArmorClass;
 
         private IList<SpecialAbility> specialAbilities;
+
+        private Inventory inventory;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Characters.DefenseStats"/> class.
@@ -109,27 +98,49 @@ namespace SilverNeedle.Characters
         /// <param name="abilityScores">Ability scores of the character.</param>
         /// <param name="size">Size of the character.</param>
         /// <param name="inv">Inventory of the character.</param>
-        public DefenseStats(AbilityScores abilityScores, SizeStats size, Inventory inv)
+        public DefenseStats()
         {
-            this.abilities = abilityScores; 
-            this.size = size;
-            this.inventory = inv;
-
             this.fortitudeSave = new BasicStat(StatNames.FortitudeSave);
-            this.fortitudeSave.AddModifier(
-                new AbilityStatModifier(abilityScores.GetAbility(AbilityScoreTypes.Constitution)));
-            
             this.reflexSave = new BasicStat(StatNames.ReflexSave);
-            this.reflexSave.AddModifier(
-                new AbilityStatModifier(abilityScores.GetAbility(AbilityScoreTypes.Dexterity)));
-            
             this.willSave = new BasicStat(StatNames.WillSave);
-            this.willSave.AddModifier(
-                new AbilityStatModifier(abilityScores.GetAbility(AbilityScoreTypes.Wisdom)));
-            
             this.armorClass = new BasicStat(StatNames.ArmorClass, BaseArmorClass);
-
+            this.touchArmorClass = new BasicStat(StatNames.TouchArmorClass, BaseArmorClass);
+            this.flatfootedArmorClass = new BasicStat(StatNames.FlatFootedArmorClass, BaseArmorClass);
             this.specialAbilities = new List<SpecialAbility>();
+        }
+
+        public void Initialize(ComponentBag components)
+        {
+            var abilities = components.Get<AbilityScores>(); 
+            var size = components.Get<SizeStats>();
+            this.inventory = components.Get<Inventory>();
+
+            this.fortitudeSave.AddModifier(
+                new AbilityStatModifier(abilities.GetAbility(AbilityScoreTypes.Constitution)));
+            
+            this.reflexSave.AddModifier(
+                new AbilityStatModifier(abilities.GetAbility(AbilityScoreTypes.Dexterity)));
+            
+            this.willSave.AddModifier(
+                new AbilityStatModifier(abilities.GetAbility(AbilityScoreTypes.Wisdom)));
+            
+            this.armorClass.AddModifier(
+                new AbilityStatModifier(abilities.GetAbility(AbilityScoreTypes.Dexterity))
+            );
+            this.armorClass.AddModifier(
+                new BasicStatModifier(size.SizeModifier, "Size")
+            );
+
+            this.touchArmorClass.AddModifier(
+                new AbilityStatModifier(abilities.GetAbility(AbilityScoreTypes.Dexterity))
+            );
+            this.touchArmorClass.AddModifier(
+                new BasicStatModifier(size.SizeModifier, "Size")
+            );
+
+            this.flatfootedArmorClass.AddModifier(
+                new BasicStatModifier(size.SizeModifier, "Size")
+            );
         }
 
         /// <summary>
@@ -197,8 +208,6 @@ namespace SilverNeedle.Characters
         public int ArmorClass()
         {
             return this.armorClass.TotalValue
-            + this.abilities.GetModifier(AbilityScoreTypes.Dexterity)
-            + this.size.SizeModifier
             + this.EquippedArmorBonus();
         }
 
@@ -208,9 +217,7 @@ namespace SilverNeedle.Characters
         /// <returns>The touch armor class.</returns>
         public int TouchArmorClass()
         {
-            return BaseArmorClass
-            + this.abilities.GetModifier(AbilityScoreTypes.Dexterity)
-            + this.size.SizeModifier;
+            return touchArmorClass.TotalValue;
         }
 
         /// <summary>
@@ -219,8 +226,7 @@ namespace SilverNeedle.Characters
         /// <returns>The flat footed armor class.</returns>
         public int FlatFootedArmorClass()
         {
-            return BaseArmorClass
-            + this.size.SizeModifier
+            return flatfootedArmorClass.TotalValue
             + this.EquippedArmorBonus();
         }
 
