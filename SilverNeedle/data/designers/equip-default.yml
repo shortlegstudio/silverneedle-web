@@ -6,3 +6,4 @@
     - step: SilverNeedle.Actions.CharacterGenerator.StartingWealth
     - step: SilverNeedle.Actions.CharacterGenerator.PurchaseMeleeWeapon
     - step: SilverNeedle.Actions.CharacterGenerator.PurchaseArmor
+    - step: SilverNeedle.Actions.CharacterGenerator.EquipArmor

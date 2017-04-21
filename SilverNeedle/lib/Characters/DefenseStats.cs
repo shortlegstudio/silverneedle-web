@@ -130,6 +130,9 @@ namespace SilverNeedle.Characters
             this.armorClass.AddModifier(
                 new BasicStatModifier(size.SizeModifier, "Size")
             );
+            this.armorClass.AddModifier(
+                new EquippedArmorClassModifier(components)
+            );
 
             this.touchArmorClass.AddModifier(
                 new AbilityStatModifier(abilities.GetAbility(AbilityScoreTypes.Dexterity))
@@ -140,6 +143,9 @@ namespace SilverNeedle.Characters
 
             this.flatfootedArmorClass.AddModifier(
                 new BasicStatModifier(size.SizeModifier, "Size")
+            );
+            this.flatfootedArmorClass.AddModifier(
+                new EquippedArmorClassModifier(components)
             );
         }
 
@@ -193,22 +199,12 @@ namespace SilverNeedle.Characters
         }
 
         /// <summary>
-        /// Get the equipped armor bonus.
-        /// </summary>
-        /// <returns>The armor bonus.</returns>
-        public int EquippedArmorBonus()
-        {
-            return this.inventory.Equipped<Armor>().Sum(x => x.ArmorClass);
-        }
-
-        /// <summary>
         /// Gets the Armors class.
         /// </summary>
         /// <returns>The armor class for the character.</returns>
         public int ArmorClass()
         {
-            return this.armorClass.TotalValue
-            + this.EquippedArmorBonus();
+            return this.armorClass.TotalValue;
         }
 
         /// <summary>
@@ -226,8 +222,7 @@ namespace SilverNeedle.Characters
         /// <returns>The flat footed armor class.</returns>
         public int FlatFootedArmorClass()
         {
-            return flatfootedArmorClass.TotalValue
-            + this.EquippedArmorBonus();
+            return flatfootedArmorClass.TotalValue;
         }
 
         /// <summary>

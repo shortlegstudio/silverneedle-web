@@ -23,7 +23,7 @@ namespace SilverNeedle
         /// <summary>
         /// Tracks all modifiers associated with this stat
         /// </summary>
-        private IList<BasicStatModifier> statModifiers;
+        private IList<IStatModifier> statModifiers;
 
         /// <summary>
         /// The conditional modifiers. This is a HACK and should be handled more gracefully
@@ -36,7 +36,7 @@ namespace SilverNeedle
         public BasicStat(string name)
         {
             this.Name = name; 
-            this.statModifiers = new List<BasicStatModifier>();
+            this.statModifiers = new List<IStatModifier>();
             this.conditionalModifiers = new List<ConditionalStatModifier>();
         }
 
@@ -73,7 +73,7 @@ namespace SilverNeedle
         /// Gets an enumerable list of modifiers associated with this stat
         /// </summary>
         /// <value>The modifiers.</value>
-        public IEnumerable<BasicStatModifier> Modifiers 
+        public IEnumerable<IStatModifier> Modifiers 
         { 
             get 
             { 
@@ -95,7 +95,7 @@ namespace SilverNeedle
         /// </summary>
         /// <param name="modifier">Modifier for the stat.</param>
         /// <remarks>Triggers a modified event even if the Total Value does not change</remarks>
-        public void AddModifier(BasicStatModifier modifier)
+        public void AddModifier(IStatModifier modifier)
         {
             // HACK: This is a hack job I think. Shouldn't check type to get proper behavior
             if (modifier is ConditionalStatModifier)

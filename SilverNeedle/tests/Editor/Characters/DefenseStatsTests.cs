@@ -141,29 +141,11 @@ namespace Tests.Characters {
 
             inventory.AddGear (armor);
             inventory.EquipItem (armor);
-            Assert.AreEqual (10, def.EquippedArmorBonus ());
             Assert.AreEqual (startAC + 10, def.ArmorClass());
             Assert.AreEqual (startFlat + 10, def.FlatFootedArmorClass ());
             Assert.AreEqual (startTouch, def.TouchArmorClass ());
         }
 
-        [Test]
-        public void UnEquippedArmorMakesNoDifference() {
-            var bag = new ComponentBag(); 
-            bag.Add(new AbilityScores());
-            bag.Add(new SizeStats());
-            var inv = new Inventory ();
-            bag.Add(inv);
-            var def = new DefenseStats ();
-            def.Initialize(bag);
-
-            var armor = new Armor ();
-            armor.ArmorClass = 12;
-            inv.AddGear (armor);
-
-            Assert.AreEqual (0, def.EquippedArmorBonus ());
-
-        }
 
         [Test]
         public void ModifiersCanBeAppliedToArmorClass() {

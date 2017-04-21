@@ -9,3 +9,4 @@
     - step: SilverNeedle.Actions.CharacterGenerator.PurchaseArmor
     - step: SilverNeedle.Actions.CharacterGenerator.PurchaseShield
     - step: SilverNeedle.Actions.CharacterGenerator.PurchaseAdventuringGear
+    - step: SilverNeedle.Actions.CharacterGenerator.EquipArmor
