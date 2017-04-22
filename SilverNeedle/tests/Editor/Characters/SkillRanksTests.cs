@@ -164,6 +164,7 @@ namespace Tests.Characters
             Assert.That(Subject.ArmorCheckPenalty.Maximum, Is.EqualTo(0));
         }
 
+        [Test]
         public void ProvidesAccessToTheStatisticsItProvides()
         {
             var stats = Subject.Statistics.Select(x => x.Name);

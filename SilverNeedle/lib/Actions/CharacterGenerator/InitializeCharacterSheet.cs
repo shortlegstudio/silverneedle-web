@@ -9,11 +9,11 @@ namespace SilverNeedle.Actions.CharacterGenerator
     using SilverNeedle.Characters;
     using SilverNeedle.Serialization;
 
-    public class BuildCharacterSkillList : ICharacterDesignStep
+    public class InitializeCharacterSheet : ICharacterDesignStep
     {
         IEntityGateway<Skill> skills;
 
-        public BuildCharacterSkillList()
+        public InitializeCharacterSheet()
         {
             skills = GatewayProvider.Get<Skill>();
         }
@@ -21,6 +21,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
         public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             character.SkillRanks.FillSkills(skills.All(), character.AbilityScores);
+            character.InitializeComponents();
         }
     }
 }

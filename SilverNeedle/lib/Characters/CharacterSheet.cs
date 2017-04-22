@@ -45,24 +45,21 @@ namespace SilverNeedle.Characters
             this.Components.Add(new DefenseStats());
             this.Components.Add(new MovementStats(this.Inventory));
             this.Components.Add(new CharacterAppearance());
-            this.Initiative = new Initiative(this.AbilityScores);
-            this.SkillRanks = new SkillRanks(skillList, this.AbilityScores);
-
-            // TODO: This is interesting...
-            this.SkillRanks.ProcessModifier(this.Size);
-            this.SpellCasting = new SpellCasting(Inventory);
+            this.Components.Add(new SkillRanks(skillList, this.AbilityScores));
+            this.Components.Add(new Initiative(this.AbilityScores));
+            this.Components.Add(new SpellCasting(this.Inventory));
             this.Level = 1;
-
-            InitializeComponents();
         }
 
-        private void InitializeComponents()
+        public void InitializeComponents()
         {
             var components = this.Components.GetAll<IComponent>();
             foreach(var c in components)
             {
                 c.Initialize(this.Components);
             }
+            // TODO: This is interesting...
+            this.SkillRanks.ProcessModifier(this.Size);
         }
 
         /// <summary>
@@ -157,7 +154,7 @@ namespace SilverNeedle.Characters
         /// Gets the skill ranks.
         /// </summary>
         /// <value>The character's skill ranks.</value>
-        public SkillRanks SkillRanks { get; private set; }
+        public SkillRanks SkillRanks { get { return this.Components.Get<SkillRanks>(); } }
 
         /// <summary>
         /// Gets the traits.
@@ -182,7 +179,7 @@ namespace SilverNeedle.Characters
         /// Gets the initiative modifier.
         /// </summary>
         /// <value>The characters initiative modifier.</value>
-        public Initiative Initiative { get; private set; }
+        public Initiative Initiative { get { return this.Components.Get<Initiative>(); } }
 
         /// <summary>
         /// Gets the inventory.
@@ -234,7 +231,7 @@ namespace SilverNeedle.Characters
 
         public SpecialQualities SpecialQualities { get { return this.Components.Get<SpecialQualities>(); } }
 
-        public SpellCasting SpellCasting { get; private set; }
+        public SpellCasting SpellCasting { get { return this.Components.Get<SpellCasting>(); } }
 
         /// <summary>
         /// Sets this character to Level 1 in specified class

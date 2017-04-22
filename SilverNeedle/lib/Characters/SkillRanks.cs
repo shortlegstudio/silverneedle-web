@@ -16,7 +16,7 @@ namespace SilverNeedle.Characters
     /// </summary>
     public class SkillRanks : ISkillRanks, IStatTracker, IComponent
     {
-        public IEnumerable<BasicStat> Statistics { get { throw new NotImplementedException();  } }
+        public IEnumerable<BasicStat> Statistics { get { return new BasicStat[] { BonusSkillPoints, ArmorCheckPenalty }; } }
         /// <summary>
         /// The skills available
         /// </summary>

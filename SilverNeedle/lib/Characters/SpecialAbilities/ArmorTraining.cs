@@ -17,14 +17,24 @@ namespace SilverNeedle.Characters.SpecialAbilities
                 "Ability", 
                 "Armor Training",
                 () => {return this.Level; }
-                );
+            );
+
+            ArmorCheckBonusModifier = new DelegateStatModifier(
+                StatNames.ArmorCheckPenalty,
+                "Ability",
+                "Armor Training",
+                () => { return this.Level; }
+            );
         }
 
         public IStatModifier MaxDexBonusModifier { get; private set; }
 
+        public IStatModifier ArmorCheckBonusModifier { get; private set; }
+
         public void Initialize(ComponentBag components)
         {
             components.ApplyStatModifier(MaxDexBonusModifier);
+            components.ApplyStatModifier(ArmorCheckBonusModifier);
         }
     }    
 }

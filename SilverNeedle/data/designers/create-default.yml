@@ -3,7 +3,7 @@
   name: create-default
   type: normal
   steps: 
-    - step: SilverNeedle.Actions.CharacterGenerator.BuildCharacterSkillList
+    - step: SilverNeedle.Actions.CharacterGenerator.InitializeCharacterSheet
     - step: SilverNeedle.Actions.CharacterGenerator.Abilities.StandardAbilityScoreGenerator
     - step: SilverNeedle.Actions.CharacterGenerator.RaceSelector
     - step: SilverNeedle.Actions.CharacterGenerator.AlignmentSelector

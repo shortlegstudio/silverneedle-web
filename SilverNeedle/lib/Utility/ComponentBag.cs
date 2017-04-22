@@ -44,7 +44,12 @@ namespace SilverNeedle.Utility
         public void ApplyStatModifier(IStatModifier statModifier)
         {
             var stat = FindStat(statModifier.StatisticName);
-            stat.AddModifier(statModifier);
+            if(stat != null)
+            {
+                stat.AddModifier(statModifier);
+            } else {
+                ShortLog.ErrorFormat("Could Not Apply Modifier to Statistic: {0}", statModifier.StatisticName);
+            }
         }
 
         public IEnumerable<BasicStat> GetAllStats()
