@@ -33,7 +33,7 @@ namespace SilverNeedle.Characters
             FortitudeSave = character.Defense.FortitudeSave.ToString();
             ReflexSave = character.Defense.ReflexSave.ToString();
             WillSave = character.Defense.WillSave.ToString();
-            MovementSpeed = character.Movement.BaseMovement.TotalValue.ToString();
+            MovementSpeed = character.Movement.MovementSpeed.ToString();
             MovementSquares = character.Movement.BaseSquares.ToString();
             AttackTypes = character.Offense.Attacks().Select(x => x.AttackType.ToString()).ToArray();
             Attacks = character.Offense.Attacks().Select(x => string.Format("{0} {1} ({2}) {3}", 

@@ -9,34 +9,65 @@ namespace Tests.Characters
     using NUnit.Framework;
     using SilverNeedle.Characters;
     using SilverNeedle.Equipment;
+    using SilverNeedle.Utility;
 
     [TestFixture]
     public class MovementStatsTests {
+        MovementStats move30;
+        MovementStats move20;
+        Inventory inventory;
+
+        [SetUp]
+        public void Configure()
+        {
+            var bag30 = new ComponentBag();
+            inventory = new Inventory();
+            bag30.Add(inventory);
+            move30 = new MovementStats();
+            bag30.Add(move30);
+            move30.Initialize(bag30);
+            move30.SetBaseSpeed(30);
+
+            var bag20 = new ComponentBag();
+            bag20.Add(inventory);
+            move20 = new MovementStats();
+            bag20.Add(move20);
+            move20.Initialize(bag20);
+            move20.SetBaseSpeed(20);
+        }
+
         [Test]
         public void CalculatesSquaresBasedOnMovementValue() {
-            var move = new MovementStats(30, new Inventory());
-            Assert.AreEqual(6, move.BaseSquares);
-            move = new MovementStats(20, new Inventory());
-            Assert.AreEqual(4, move.BaseSquares);
+            Assert.AreEqual(6, move30.BaseSquares);
+            Assert.AreEqual(4, move20.BaseSquares);
         }
 
         [Test]
         public void ActualMoveSpeedCanBeImpactedByArmor()
         {
-            var inventory = new Inventory();
             var heavyArmor = new Armor();
             heavyArmor.ArmorType = ArmorType.Heavy;
             inventory.EquipItem(heavyArmor);
-            var move = new MovementStats(30,inventory);
-            Assert.That(move.MovementSpeed, Is.EqualTo(20));
+            Assert.That(move30.MovementSpeed, Is.EqualTo(20));
         }
 
         [Test]
         public void ExposeMovementStatistics()
         {
-            var move = new MovementStats(30, new Inventory());
-            var stats = move.Statistics.Select(x => x.Name);
-            Assert.That(stats, Is.EquivalentTo(new string[] { "Base Movement Speed" }));
+            var stats = move30.Statistics.Select(x => x.Name);
+            Assert.That(stats, Is.EquivalentTo(new string[] { StatNames.BaseMovementSpeed }));
+        }
+
+        [Test]
+        public void ArmorMovementPenaltyIsAStatThatCanBeCalculated()
+        {
+            var armor = new Armor();
+            armor.ArmorType = ArmorType.Heavy;
+            inventory.EquipItem(armor);
+            var penalty = move30.ArmorMovementPenalty;
+            Assert.That(penalty.TotalValue, Is.EqualTo(-10));
+            var penalty20 = move20.ArmorMovementPenalty;
+            Assert.That(penalty20.TotalValue, Is.EqualTo(-5));
         }
     }
 }

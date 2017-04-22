@@ -43,7 +43,7 @@ namespace SilverNeedle.Characters
             this.Components.Add(new List<FeatToken>());
             this.Components.Add(new OffenseStats(this.AbilityScores, this.Size, this.Inventory));
             this.Components.Add(new DefenseStats());
-            this.Components.Add(new MovementStats(this.Inventory));
+            this.Components.Add(new MovementStats());
             this.Components.Add(new CharacterAppearance());
             this.Components.Add(new SkillRanks(skillList, this.AbilityScores));
             this.Components.Add(new Initiative(this.AbilityScores));

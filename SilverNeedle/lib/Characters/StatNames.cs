@@ -12,6 +12,7 @@ namespace SilverNeedle.Characters
         public const string CMB = "CMB"; 
 
         public const string BaseMovementSpeed = "Base Movement Speed";
+        public const string ArmorMovementPenalty = "Armor Movement Penalty";
 
         public const string Initiative = "Initiative";
 

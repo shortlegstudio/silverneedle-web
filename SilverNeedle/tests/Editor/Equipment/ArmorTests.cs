@@ -22,7 +22,7 @@ namespace Tests.Equipment {
         {
             var armor = new Armor();
             armor.ArmorType = ArmorType.None;
-            Assert.AreEqual(0, armor.MovementSpeedPenalty);            
+            Assert.AreEqual(0, armor.MovementSpeedPenalty30);            
         }
 
         [Test]
@@ -30,7 +30,7 @@ namespace Tests.Equipment {
         {
             var armor = new Armor();
             armor.ArmorType = ArmorType.Light;
-            Assert.AreEqual(0, armor.MovementSpeedPenalty);
+            Assert.AreEqual(0, armor.MovementSpeedPenalty30);
         }
 
         [Test]
@@ -38,7 +38,8 @@ namespace Tests.Equipment {
         {
             var armor = new Armor();
             armor.ArmorType = ArmorType.Medium;
-            Assert.AreEqual(10, armor.MovementSpeedPenalty);            
+            Assert.AreEqual(-10, armor.MovementSpeedPenalty30);            
+            Assert.That(armor.MovementSpeedPenalty20, Is.EqualTo(-5));
         }
 
         [Test]
@@ -46,7 +47,8 @@ namespace Tests.Equipment {
         {
             var armor = new Armor();
             armor.ArmorType = ArmorType.Heavy;
-            Assert.AreEqual(10, armor.MovementSpeedPenalty);            
+            Assert.AreEqual(-10, armor.MovementSpeedPenalty30);            
+            Assert.That(armor.MovementSpeedPenalty20, Is.EqualTo(-5));
         }
 
 

@@ -107,12 +107,25 @@ namespace SilverNeedle.Equipment
 
         public bool GroupSimilar { get { return false; } }
         
-        public int MovementSpeedPenalty {
+        public int MovementSpeedPenalty30 {
             get {
                 switch(ArmorType) {
                     case ArmorType.Medium:
                     case ArmorType.Heavy:
-                        return 10;
+                        return -10;
+                    default: 
+                        return 0;
+                }
+            }
+        }
+
+        public int MovementSpeedPenalty20 
+        {
+            get {
+                switch(ArmorType) {
+                    case ArmorType.Medium:
+                    case ArmorType.Heavy:
+                        return -5;
                     default: 
                         return 0;
                 }

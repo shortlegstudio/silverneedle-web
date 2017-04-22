@@ -7,13 +7,12 @@ namespace SilverNeedle.Characters
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using SilverNeedle.Equipment;
+    using SilverNeedle.Utility;
 
     /// <summary>
     /// Handles movement stats like how to work with armor or flying etc...
     /// </summary>
-    public class MovementStats : IStatTracker
+    public class MovementStats : IStatTracker, IComponent
     {
         /// <summary>
         /// The size of a square
@@ -24,8 +23,8 @@ namespace SilverNeedle.Characters
         /// Initializes a new instance of the <see cref="SilverNeedle.Characters.MovementStats"/> class.
         /// Defaults to 30' speed
         /// </summary>
-        public MovementStats(Inventory inventory)
-            : this(30, inventory)
+        public MovementStats()
+            : this(30)
         {
         }
 
@@ -33,10 +32,16 @@ namespace SilverNeedle.Characters
         /// Initializes a new instance of the <see cref="SilverNeedle.Characters.MovementStats"/> class.
         /// </summary>
         /// <param name="baseSpeed">Base speed for the character.</param>
-        public MovementStats(int baseSpeed, Inventory inventory)
+        public MovementStats(int baseSpeed)
         {
-            this.inventory = inventory;
             this.BaseMovement = new BasicStat(StatNames.BaseMovementSpeed, baseSpeed);
+            this.ArmorMovementPenalty = new BasicStat(StatNames.ArmorMovementPenalty, 0);
+            this.ArmorMovementPenalty.Maximum = 0;
+        }
+
+        public void Initialize(ComponentBag components)
+        {
+            this.ArmorMovementPenalty.AddModifier(new EquippedArmorMovementModifier(components));
         }
 
         public IEnumerable<BasicStat> Statistics 
@@ -52,6 +57,7 @@ namespace SilverNeedle.Characters
         /// </summary>
         /// <value>The base movement.</value>
         public BasicStat BaseMovement { get; private set; }
+        public BasicStat ArmorMovementPenalty { get; private set; }
         public int MovementSpeed { get { return CalculateMovementSpeed(); } }
 
         /// <summary>
@@ -81,13 +87,9 @@ namespace SilverNeedle.Characters
             this.BaseMovement.SetValue(speed);
         }
 
-        private Inventory inventory;
-
         private int CalculateMovementSpeed()
         {
-            var armors = this.inventory.Equipped<Armor>();
-            var totalMod = armors.Sum(x => x.MovementSpeedPenalty);
-            return BaseMovement.TotalValue - totalMod;
+            return BaseMovement.TotalValue + ArmorMovementPenalty.TotalValue;
         }
 
     }
