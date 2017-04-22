@@ -45,16 +45,16 @@ namespace Tests.Characters {
 
         [Test]
         public void ACIsBasedOnDexterityAndSize() {
-            Assert.AreEqual (14, basicStats.ArmorClass());
+            Assert.AreEqual (14, basicStats.ArmorClass.TotalValue);
         }
 
         [Test]
         public void TouchACIsBasedOnDexterityAndSize() {
-            Assert.AreEqual (14, basicStats.TouchArmorClass ()); }
+            Assert.AreEqual (14, basicStats.TouchArmorClass.TotalValue); }
 
         [Test]
         public void FlatFootedACIsBaseACAndSize() {
-            Assert.AreEqual (11, basicStats.FlatFootedArmorClass ()); }
+            Assert.AreEqual (11, basicStats.FlatFootedArmorClass.TotalValue); }
 
         [Test]
         public void ReflexSavingThrowIsBasedOnDexterity() {
@@ -132,26 +132,26 @@ namespace Tests.Characters {
             bag.Add(new SizeStats());
             var def = new DefenseStats ();
             def.Initialize(bag);
-            var startAC = def.ArmorClass();
-            var startFlat = def.FlatFootedArmorClass ();
-            var startTouch = def.TouchArmorClass ();
+            var startAC = def.ArmorClass.TotalValue;
+            var startFlat = def.FlatFootedArmorClass.TotalValue; 
+            var startTouch = def.TouchArmorClass.TotalValue; 
 
             var armor = new Armor ();
             armor.ArmorClass = 10;
 
             inventory.AddGear (armor);
             inventory.EquipItem (armor);
-            Assert.AreEqual (startAC + 10, def.ArmorClass());
-            Assert.AreEqual (startFlat + 10, def.FlatFootedArmorClass ());
-            Assert.AreEqual (startTouch, def.TouchArmorClass ());
+            Assert.AreEqual (startAC + 10, def.ArmorClass.TotalValue);
+            Assert.AreEqual (startFlat + 10, def.FlatFootedArmorClass.TotalValue);
+            Assert.AreEqual (startTouch, def.TouchArmorClass.TotalValue);
         }
 
 
         [Test]
         public void ModifiersCanBeAppliedToArmorClass() {
-            var ac = emptyStats.ArmorClass();
+            var ac = emptyStats.ArmorClass.TotalValue;
             emptyStats.ProcessModifier(new MockMod());
-            Assert.AreEqual(ac + 1, emptyStats.ArmorClass());
+            Assert.AreEqual(ac + 1, emptyStats.ArmorClass.TotalValue);
         }
 
         [Test]
@@ -204,7 +204,7 @@ namespace Tests.Characters {
             inventory.EquipItem(armor);
 
             Assert.That(def.MaxDexterityBonus.TotalValue, Is.EqualTo(1));
-            Assert.That(def.ArmorClass(), Is.EqualTo(11));
+            Assert.That(def.ArmorClass.TotalValue, Is.EqualTo(11));
         }
 
         [Test]

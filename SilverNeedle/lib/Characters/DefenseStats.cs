@@ -21,12 +21,12 @@ namespace SilverNeedle.Characters
             get 
             { 
                 return new BasicStat[] { 
-                    armorClass, 
-                    touchArmorClass, 
-                    flatfootedArmorClass, 
-                    fortitudeSave, 
-                    reflexSave, 
-                    willSave, 
+                    ArmorClass, 
+                    TouchArmorClass, 
+                    FlatFootedArmorClass, 
+                    FortitudeSave, 
+                    ReflexSave, 
+                    WillSave, 
                     MaxDexterityBonus 
                 }; 
             } 
@@ -70,32 +70,6 @@ namespace SilverNeedle.Characters
         /// </summary>
         private List<ArmorProficiency> armorProficiencies = new List<ArmorProficiency>();
 
-        /// <summary>
-        /// Gets or sets the fortitude save.
-        /// </summary>
-        /// <value>The fortitude save value.</value>
-        private BasicStat fortitudeSave;
-
-        /// <summary>
-        /// Gets or sets the reflex save stat.
-        /// </summary>
-        /// <value>The reflex save value.</value>
-        private BasicStat reflexSave;
-
-        /// <summary>
-        /// Gets or sets the will save.
-        /// </summary>
-        /// <value>The will save vlue.</value>
-        private BasicStat willSave;
-
-        /// <summary>
-        /// Gets or sets the armor being worn
-        /// </summary>
-        /// <value>The armor of the character.</value>
-        private BasicStat armorClass;
-        private BasicStat touchArmorClass;
-        private BasicStat flatfootedArmorClass;
-
         private IList<SpecialAbility> specialAbilities;
 
         private Inventory inventory;
@@ -108,12 +82,12 @@ namespace SilverNeedle.Characters
         /// <param name="inv">Inventory of the character.</param>
         public DefenseStats()
         {
-            this.fortitudeSave = new BasicStat(StatNames.FortitudeSave);
-            this.reflexSave = new BasicStat(StatNames.ReflexSave);
-            this.willSave = new BasicStat(StatNames.WillSave);
-            this.armorClass = new BasicStat(StatNames.ArmorClass, BaseArmorClass);
-            this.touchArmorClass = new BasicStat(StatNames.TouchArmorClass, BaseArmorClass);
-            this.flatfootedArmorClass = new BasicStat(StatNames.FlatFootedArmorClass, BaseArmorClass);
+            this.FortitudeSave = new BasicStat(StatNames.FortitudeSave);
+            this.ReflexSave = new BasicStat(StatNames.ReflexSave);
+            this.WillSave = new BasicStat(StatNames.WillSave);
+            this.ArmorClass = new BasicStat(StatNames.ArmorClass, BaseArmorClass);
+            this.TouchArmorClass = new BasicStat(StatNames.TouchArmorClass, BaseArmorClass);
+            this.FlatFootedArmorClass = new BasicStat(StatNames.FlatFootedArmorClass, BaseArmorClass);
             this.MaxDexterityBonus = new BasicStat(StatNames.MaxDexterityBonus);
             this.specialAbilities = new List<SpecialAbility>();
         }
@@ -124,40 +98,40 @@ namespace SilverNeedle.Characters
             var size = components.Get<SizeStats>();
             this.inventory = components.Get<Inventory>();
 
-            this.fortitudeSave.AddModifier(
+            this.FortitudeSave.AddModifier(
                 new AbilityStatModifier(abilities.GetAbility(AbilityScoreTypes.Constitution)));
             
-            this.reflexSave.AddModifier(
+            this.ReflexSave.AddModifier(
                 new AbilityStatModifier(abilities.GetAbility(AbilityScoreTypes.Dexterity)));
             
-            this.willSave.AddModifier(
+            this.WillSave.AddModifier(
                 new AbilityStatModifier(abilities.GetAbility(AbilityScoreTypes.Wisdom)));
 
             this.MaxDexterityBonus.AddModifier(
                 new EquippedArmorMaxDexBonuxModifier(components)
             );
             
-            this.armorClass.AddModifier(
+            this.ArmorClass.AddModifier(
                 new LimitStatModifier(abilities.GetAbility(AbilityScoreTypes.Dexterity), this.MaxDexterityBonus)
             );
-            this.armorClass.AddModifier(
+            this.ArmorClass.AddModifier(
                 new BasicStatModifier(size.SizeModifier, "Size")
             );
-            this.armorClass.AddModifier(
+            this.ArmorClass.AddModifier(
                 new EquippedArmorClassModifier(components)
             );
 
-            this.touchArmorClass.AddModifier(
+            this.TouchArmorClass.AddModifier(
                 new LimitStatModifier(abilities.GetAbility(AbilityScoreTypes.Dexterity), this.MaxDexterityBonus)
             );
-            this.touchArmorClass.AddModifier(
+            this.TouchArmorClass.AddModifier(
                 new BasicStatModifier(size.SizeModifier, "Size")
             );
 
-            this.flatfootedArmorClass.AddModifier(
+            this.FlatFootedArmorClass.AddModifier(
                 new BasicStatModifier(size.SizeModifier, "Size")
             );
-            this.flatfootedArmorClass.AddModifier(
+            this.FlatFootedArmorClass.AddModifier(
                 new EquippedArmorClassModifier(components)
             );
         }
@@ -175,29 +149,19 @@ namespace SilverNeedle.Characters
         /// Gets the fortitude save
         /// </summary>
         /// <returns>The fortitude save.</returns>
-        public BasicStat FortitudeSave
-        {
-            get { return this.fortitudeSave; }
-        }
+        public BasicStat FortitudeSave { get; private set; }
 
         /// <summary>
         /// Gets the reflexs save.
         /// </summary>
         /// <returns>The reflex save.</returns>
-        public BasicStat ReflexSave
-        {
-            get { return this.reflexSave; }
-        }
+        public BasicStat ReflexSave { get; private set; }
 
         /// <summary>
         /// Gets the will save.
         /// </summary>
         /// <returns>The will save.</returns>
-        public BasicStat WillSave
-        {
-            get { return this.willSave; }
-        }
-
+        public BasicStat WillSave { get; private set; }
         public BasicStat MaxDexterityBonus { get; private set; }
 
         public IEnumerable<SpecialAbility> Immunities
@@ -217,35 +181,26 @@ namespace SilverNeedle.Characters
         /// Gets the Armors class.
         /// </summary>
         /// <returns>The armor class for the character.</returns>
-        public int ArmorClass()
-        {
-            return this.armorClass.TotalValue;
-        }
+        public BasicStat ArmorClass { get; private set; }
 
         /// <summary>
         /// Return the touch armor class.
         /// </summary>
         /// <returns>The touch armor class.</returns>
-        public int TouchArmorClass()
-        {
-            return touchArmorClass.TotalValue;
-        }
+        public BasicStat TouchArmorClass { get; private set; }
 
         /// <summary>
         /// The Flat footed armor class.
         /// </summary>
         /// <returns>The flat footed armor class.</returns>
-        public int FlatFootedArmorClass()
-        {
-            return flatfootedArmorClass.TotalValue;
-        }
+        public BasicStat FlatFootedArmorClass { get; private set; }
 
         /// <summary>
         /// Sets the fortitude save is a good save.
         /// </summary>
         public void SetFortitudeGoodSave()
         {
-            this.fortitudeSave.SetValue(GoodSaveBaseValue);
+            this.FortitudeSave.SetValue(GoodSaveBaseValue);
         }
 
         /// <summary>
@@ -253,7 +208,7 @@ namespace SilverNeedle.Characters
         /// </summary>
         public void SetReflexGoodSave()
         {
-            this.reflexSave.SetValue(GoodSaveBaseValue);
+            this.ReflexSave.SetValue(GoodSaveBaseValue);
         }
 
         /// <summary>
@@ -261,7 +216,7 @@ namespace SilverNeedle.Characters
         /// </summary>
         public void SetWillGoodSave()
         {
-            this.willSave.SetValue(GoodSaveBaseValue);
+            this.WillSave.SetValue(GoodSaveBaseValue);
         }
             
         /// <summary>
@@ -289,9 +244,9 @@ namespace SilverNeedle.Characters
             var reason = string.Format("LEVEL UP ({0})", cls.Name);
 
             // Add Adjustment for each level
-            this.fortitudeSave.AddModifier(new BasicStatModifier(cls.FortitudeSaveRate, reason));
-            this.reflexSave.AddModifier(new BasicStatModifier(cls.ReflexSaveRate, reason));
-            this.willSave.AddModifier(new BasicStatModifier(cls.WillSaveRate, reason));
+            this.FortitudeSave.AddModifier(new BasicStatModifier(cls.FortitudeSaveRate, reason));
+            this.ReflexSave.AddModifier(new BasicStatModifier(cls.ReflexSaveRate, reason));
+            this.WillSave.AddModifier(new BasicStatModifier(cls.WillSaveRate, reason));
         }
 
         /// <summary>
@@ -305,16 +260,16 @@ namespace SilverNeedle.Characters
                 switch (s.StatisticName)
                 {
                     case ArmorClassStatName:
-                        this.armorClass.AddModifier(s);
+                        this.ArmorClass.AddModifier(s);
                         break;
                     case FortitudeSaveStatName:
-                        this.fortitudeSave.AddModifier(s);
+                        this.FortitudeSave.AddModifier(s);
                         break;
                     case ReflexSaveStatName:
-                        this.reflexSave.AddModifier(s);
+                        this.ReflexSave.AddModifier(s);
                         break;
                     case WillSaveStatName:
-                        this.willSave.AddModifier(s);
+                        this.WillSave.AddModifier(s);
                         break;
                 }
             }
