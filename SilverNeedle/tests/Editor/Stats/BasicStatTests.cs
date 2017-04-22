@@ -80,5 +80,25 @@ namespace Tests.Stats
             Assert.AreEqual(-1, stat.SumBasicModifiers());
             Assert.AreEqual(1, stat.TotalValue);
         }
+
+        [Test]
+        public void StatsCanHaveMaximumValuesThatClampTheResult()
+        {
+            var stat = new BasicStat("Stat 1");
+            stat.Maximum = 29;
+            var mod = new BasicStatModifier(30, "Because");
+            stat.AddModifier(mod);
+            Assert.That(stat.TotalValue, Is.EqualTo(29));
+        }
+
+        [Test]
+        public void StatsCanHaveAMinimumValueThatClampTheResult() 
+        {
+            var stat = new BasicStat("Stat!");
+            stat.Minimum = 3;
+            var mod = new BasicStatModifier(-20, "Loser");
+            stat.AddModifier(mod);
+            Assert.That(stat.TotalValue, Is.EqualTo(3));
+        }
     }
 }

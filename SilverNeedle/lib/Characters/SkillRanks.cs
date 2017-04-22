@@ -30,6 +30,7 @@ namespace SilverNeedle.Characters
         protected SkillRanks()
         {
             ArmorCheckPenalty = new BasicStat(StatNames.ArmorCheckPenalty);
+            ArmorCheckPenalty.Maximum = 0;
         }
 
         /// <summary>

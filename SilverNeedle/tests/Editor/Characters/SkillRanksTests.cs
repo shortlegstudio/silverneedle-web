@@ -158,6 +158,12 @@ namespace Tests.Characters
             Assert.That(climb.Score(), Is.EqualTo(startScore - 3));
         }
 
+        [Test]
+        public void EnsureThatArmorCheckPenaltyCannotBePositive()
+        {
+            Assert.That(Subject.ArmorCheckPenalty.Maximum, Is.EqualTo(0));
+        }
+
         public void ProvidesAccessToTheStatisticsItProvides()
         {
             var stats = Subject.Statistics.Select(x => x.Name);

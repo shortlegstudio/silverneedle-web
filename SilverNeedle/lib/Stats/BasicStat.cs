@@ -38,6 +38,8 @@ namespace SilverNeedle
             this.Name = name; 
             this.statModifiers = new List<IStatModifier>();
             this.conditionalModifiers = new List<ConditionalStatModifier>();
+            this.Maximum = 123456789; //Set default max to weird number in case it comes into play in the future
+            this.Minimum = -123456789; //Set default max to weird number in case it comes into play in the future
         }
 
         /// <summary>
@@ -68,6 +70,9 @@ namespace SilverNeedle
                 return CalculateTotalValue();
             } 
         }
+
+        public int Maximum { get; set; }
+        public int Minimum { get; set; }
 
         /// <summary>
         /// Gets an enumerable list of modifiers associated with this stat
@@ -179,7 +184,7 @@ namespace SilverNeedle
 
         protected virtual int CalculateTotalValue()
         {
-            return this.BaseValue + this.SumBasicModifiers(); 
+            return Math.Max(Minimum, Math.Min(this.Maximum, this.BaseValue + this.SumBasicModifiers())); 
         }
     }
 }
