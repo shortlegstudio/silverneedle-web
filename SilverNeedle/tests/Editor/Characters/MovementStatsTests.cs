@@ -55,7 +55,7 @@ namespace Tests.Characters
         public void ExposeMovementStatistics()
         {
             var stats = move30.Statistics.Select(x => x.Name);
-            Assert.That(stats, Is.EquivalentTo(new string[] { StatNames.BaseMovementSpeed }));
+            Assert.That(stats, Is.EquivalentTo(new string[] { StatNames.BaseMovementSpeed, StatNames.ArmorMovementPenalty }));
         }
 
         [Test]

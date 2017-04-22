@@ -48,7 +48,7 @@ namespace SilverNeedle.Characters
         { 
             get 
             { 
-                return new BasicStat[] { BaseMovement };
+                return new BasicStat[] { BaseMovement, ArmorMovementPenalty };
             } 
         }
 
