@@ -2,63 +2,31 @@
 namespace Tests.Characters 
 {
     using NUnit.Framework;
+    using SilverNeedle.Characters;
     using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Equipment;
-    using SilverNeedle.Serialization;
+    using SilverNeedle.Utility;
 
     [TestFixture]
     public class ArmorTrainingTests 
     {
         [Test]
-        public void ArmorTrainingImprovesMaximumDexterityBonus()
+        public void RegistersModifiersWithStats()
         {
-            var training = new ArmorTraining(2);
-            var heavyArmor = new Armor();
-            heavyArmor.MaximumDexterityBonus = 1;
-            Assert.AreEqual(3, training.GetMaximumDexterityBonus(heavyArmor));
-        }
+            var defStats = new DefenseStats();
+            var armorTrain = new ArmorTraining();
+            armorTrain.Level = 2;
+            var bag = new ComponentBag();
+            bag.Add(defStats);
+            bag.Add(armorTrain);
 
-        [Test]
-        public void AtLevelOneAllowsMaximumMovementSpeedInMediumArmor()
-        {
-            var training = new ArmorTraining(1);
-            var medArmor = new Armor();
-            medArmor.ArmorType = ArmorType.Medium;
-            var heavyArmor = new Armor();
-            heavyArmor.ArmorType = ArmorType.Heavy;
+            armorTrain.Initialize(bag);
+            var maxDex = defStats.MaxDexterityBonus;
+            Assert.That(maxDex.Modifiers, Contains.Item(armorTrain.MaxDexBonusModifier));
 
-            Assert.AreEqual(25, training.GetMovementSpeed(25, medArmor));
-            Assert.AreEqual(15, training.GetMovementSpeed(25, heavyArmor));
-        }
-
-        [Test]
-        public void AtLevelTwoAllowsMaximumMovementSpeedInHeavyArmorAndMediumArmor()
-        {
-            var training = new ArmorTraining(2);
-            var medArmor = new Armor();
-            medArmor.ArmorType = ArmorType.Medium;
-            var heavyArmor = new Armor();
-            heavyArmor.ArmorType = ArmorType.Heavy;
-
-            Assert.AreEqual(25, training.GetMovementSpeed(25, medArmor));
-            Assert.AreEqual(25, training.GetMovementSpeed(25, heavyArmor));            
-        }
-
-        [Test]
-        public void ReducesArmorCheckPenaltyOnePointEveryLevel()
-        {
-            var train = new ArmorTraining(3);
-            var armor = new Armor();
-            armor.ArmorCheckPenalty = 5;
-            Assert.AreEqual(2, train.GetArmorCheckPenalty(armor));
-        }
-
-        [Test]
-        public void ArmorCheckPenaltyNeverGoesBelowZero()
-        {
-            var train = new ArmorTraining(3);
-            var armor = new Armor();
-            Assert.AreEqual(0, train.GetArmorCheckPenalty(armor));
+            //Increase ArmorTraining Level Improves Modifiers
+            armorTrain.Level = 3;
+            Assert.That(armorTrain.MaxDexBonusModifier.Modifier, Is.EqualTo(3));
         }
     }
 }

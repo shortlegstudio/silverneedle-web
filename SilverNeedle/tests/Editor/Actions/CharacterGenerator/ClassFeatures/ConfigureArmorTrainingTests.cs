@@ -33,7 +33,8 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
             var data = new MemoryStore();
             data.SetValue("level", 3);
             var step = new ConfigureArmorTraining(data);
-            var at = new ArmorTraining(2);
+            var at = new ArmorTraining();
+            at.Level = 2;
             var character = new CharacterSheet();
             character.AddAbility(at);
             step.Process(character, new CharacterBuildStrategy());

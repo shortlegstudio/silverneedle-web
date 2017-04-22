@@ -23,13 +23,12 @@ namespace SilverNeedle.Actions.CharacterGenerator.ClassFeatures
             var armorTraining = character.Components.Get<ArmorTraining>();
             if(armorTraining == null)
             {
-                armorTraining = new ArmorTraining(ArmorTrainingLevel);
+                armorTraining = new ArmorTraining();
                 character.AddAbility(armorTraining);
             } 
-            else
-            {
-                armorTraining.Level = ArmorTrainingLevel;
-            }
+
+            armorTraining.Level = ArmorTrainingLevel;
+            armorTraining.Name = string.Format("Armor Training {0}", armorTraining.Level);
         }
     }
 }

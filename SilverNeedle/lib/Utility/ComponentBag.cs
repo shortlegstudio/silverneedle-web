@@ -40,5 +40,21 @@ namespace SilverNeedle.Utility
             components.Remove(old);
             Add(value);
         }
+
+        public void ApplyStatModifier(IStatModifier statModifier)
+        {
+            var stat = FindStat(statModifier.StatisticName);
+            stat.AddModifier(statModifier);
+        }
+
+        public IEnumerable<BasicStat> GetAllStats()
+        {
+            return GetAll<IStatTracker>().SelectMany(x => x.Statistics);
+        }
+
+        public BasicStat FindStat(string name)
+        {
+            return GetAllStats().FirstOrDefault(x => x.Name.EqualsIgnoreCase(name));
+        }
     }
 }

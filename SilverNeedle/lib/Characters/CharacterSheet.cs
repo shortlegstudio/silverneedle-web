@@ -415,7 +415,7 @@ namespace SilverNeedle.Characters
 
         public IEnumerable<BasicStat> GetAllStats()
         {
-            return this.Components.GetAll<IStatTracker>().SelectMany(x => x.Statistics);
+            return this.Components.GetAllStats();
         }
     }
 }
