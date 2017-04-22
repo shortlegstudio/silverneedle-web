@@ -360,9 +360,17 @@ namespace SilverNeedle.Characters
             ProcessSpecialAbilities(level);
         }
 
-        public void AddLevelAbility(LevelAbility ability)
+        public void AddAbility(SpecialAbility ability)
         {
+            this.Components.Add(ability);
             this.SpecialQualities.Add(ability);
+
+            var component = ability as IComponent;
+            if(component != null)
+            {
+                component.Initialize(this.Components);
+            }
+
         }
             
         /// <summary>

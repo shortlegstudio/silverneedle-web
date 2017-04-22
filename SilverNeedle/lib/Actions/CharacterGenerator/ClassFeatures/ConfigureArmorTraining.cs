@@ -19,8 +19,17 @@ namespace SilverNeedle.Actions.CharacterGenerator.ClassFeatures
         }
         public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
-            var armorTraining = new ArmorTraining(ArmorTrainingLevel);
-            character.AddLevelAbility(armorTraining);
+
+            var armorTraining = character.Components.Get<ArmorTraining>();
+            if(armorTraining == null)
+            {
+                armorTraining = new ArmorTraining(ArmorTrainingLevel);
+                character.AddAbility(armorTraining);
+            } 
+            else
+            {
+                armorTraining.Level = ArmorTrainingLevel;
+            }
         }
     }
 }

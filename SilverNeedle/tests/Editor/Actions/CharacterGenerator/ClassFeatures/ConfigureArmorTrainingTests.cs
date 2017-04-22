@@ -9,6 +9,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
     using NUnit.Framework;
     using SilverNeedle.Actions.CharacterGenerator.ClassFeatures;
     using SilverNeedle.Characters;
+    using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Serialization;
 
     [TestFixture]
@@ -24,7 +25,19 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
             step.Process(character, new CharacterBuildStrategy());
             var ability = character.SpecialQualities.SpecialAbilities.First();
             Assert.That(ability, Is.TypeOf<SilverNeedle.Characters.SpecialAbilities.ArmorTraining>());
+        }
 
+        [Test]
+        public void IncreaseLevelOfArmorTrainingIfChanging()
+        {
+            var data = new MemoryStore();
+            data.SetValue("level", 3);
+            var step = new ConfigureArmorTraining(data);
+            var at = new ArmorTraining(2);
+            var character = new CharacterSheet();
+            character.AddAbility(at);
+            step.Process(character, new CharacterBuildStrategy());
+            Assert.That(at.Level, Is.EqualTo(3));
         }
     }
 }

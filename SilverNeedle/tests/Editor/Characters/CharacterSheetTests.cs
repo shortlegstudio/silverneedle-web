@@ -1,12 +1,18 @@
-﻿using NUnit.Framework;
-using SilverNeedle.Characters;
-using System.Collections.Generic;
-using System.Linq;
-using SilverNeedle;
-using SilverNeedle.Equipment;
+﻿// Copyright (c) 2017 Trevor Redfern
+// 
+// This software is released under the MIT License.
+// https://opensource.org/licenses/MIT
 
-namespace Characters
+
+namespace Tests.Characters
 {
+    using NUnit.Framework;
+    using SilverNeedle.Characters;
+    using System.Collections.Generic;
+    using System.Linq;
+    using SilverNeedle;
+    using SilverNeedle.Equipment;
+    using SilverNeedle.Utility;
 
     [TestFixture]
     public class CharacterSheetTests
@@ -140,6 +146,33 @@ namespace Characters
             Assert.That(ac.Name, Is.EqualTo("Armor Class"));
             Assert.That(str.Name, Is.EqualTo("Strength"));
             Assert.That(willSave.Name, Is.EqualTo("Will Save"));
+        }
+
+        [Test]
+        public void AddingASpecialAbilityAddsToComponentList()
+        {
+            var character = new CharacterSheet();
+            var ability = new LevelAbility();
+            character.AddAbility(ability);
+            Assert.That(character.Components.Get<LevelAbility>(), Is.EqualTo(ability));
+        }
+
+        [Test]
+        public void AddingAnAbilityThatImplementsIComponentWillCallInitialize()
+        {
+            var character = new CharacterSheet();
+            var ability = new CompAbility();
+            character.AddAbility(ability);
+            Assert.That(ability.Called, Is.True);
+        }
+
+        public class CompAbility : SpecialAbility, IComponent
+        {
+            public bool Called { get; private set; }
+            public void Initialize(ComponentBag bag)
+            {
+                Called = true;
+            }
         }
     }
 }
