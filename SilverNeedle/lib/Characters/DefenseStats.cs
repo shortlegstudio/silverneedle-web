@@ -20,7 +20,15 @@ namespace SilverNeedle.Characters
         { 
             get 
             { 
-                return new BasicStat[] { armorClass, touchArmorClass, flatfootedArmorClass, fortitudeSave, reflexSave, willSave }; 
+                return new BasicStat[] { 
+                    armorClass, 
+                    touchArmorClass, 
+                    flatfootedArmorClass, 
+                    fortitudeSave, 
+                    reflexSave, 
+                    willSave, 
+                    MaxDexterityBonus 
+                }; 
             } 
         }
         /// <summary>
@@ -106,6 +114,7 @@ namespace SilverNeedle.Characters
             this.armorClass = new BasicStat(StatNames.ArmorClass, BaseArmorClass);
             this.touchArmorClass = new BasicStat(StatNames.TouchArmorClass, BaseArmorClass);
             this.flatfootedArmorClass = new BasicStat(StatNames.FlatFootedArmorClass, BaseArmorClass);
+            this.MaxDexterityBonus = new BasicStat(StatNames.MaxDexterityBonus);
             this.specialAbilities = new List<SpecialAbility>();
         }
 
@@ -123,9 +132,13 @@ namespace SilverNeedle.Characters
             
             this.willSave.AddModifier(
                 new AbilityStatModifier(abilities.GetAbility(AbilityScoreTypes.Wisdom)));
+
+            this.MaxDexterityBonus.AddModifier(
+                new EquippedArmorMaxDexBonuxModifier(components)
+            );
             
             this.armorClass.AddModifier(
-                new AbilityStatModifier(abilities.GetAbility(AbilityScoreTypes.Dexterity))
+                new LimitStatModifier(abilities.GetAbility(AbilityScoreTypes.Dexterity), this.MaxDexterityBonus)
             );
             this.armorClass.AddModifier(
                 new BasicStatModifier(size.SizeModifier, "Size")
@@ -135,7 +148,7 @@ namespace SilverNeedle.Characters
             );
 
             this.touchArmorClass.AddModifier(
-                new AbilityStatModifier(abilities.GetAbility(AbilityScoreTypes.Dexterity))
+                new LimitStatModifier(abilities.GetAbility(AbilityScoreTypes.Dexterity), this.MaxDexterityBonus)
             );
             this.touchArmorClass.AddModifier(
                 new BasicStatModifier(size.SizeModifier, "Size")
@@ -184,6 +197,8 @@ namespace SilverNeedle.Characters
         {
             get { return this.willSave; }
         }
+
+        public BasicStat MaxDexterityBonus { get; private set; }
 
         public IEnumerable<SpecialAbility> Immunities
         {
