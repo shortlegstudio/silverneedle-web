@@ -20,12 +20,13 @@ namespace SilverNeedle.Characters
         /// <param name="baseAbility">Base ability for the skill.</param>
         /// <param name="trainingRequired">If set to <c>true</c> training required.</param>
         /// <param name="description">Optional description of the skill</param>
-        public Skill(string name, AbilityScoreTypes baseAbility, bool trainingRequired, string description = "")
+        public Skill(string name, AbilityScoreTypes baseAbility, bool trainingRequired, string description = "", bool armorCheck = false)
         {
             this.Name = name;
             this.Ability = baseAbility;
             this.TrainingRequired = trainingRequired;
             this.Description = description;
+            this.UseArmorCheckPenalty = armorCheck;
         }
 
         public Skill(IObjectStore data)

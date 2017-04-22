@@ -134,7 +134,7 @@ namespace SilverNeedle.Characters
         /// Adds a stat modifier to the skill.
         /// </summary>
         /// <param name="modifier">Modifier for the skill.</param>
-        public void AddModifier(BasicStatModifier modifier)
+        public void AddModifier(IStatModifier modifier)
         {
             this.skillStats.AddModifier(modifier);
         }

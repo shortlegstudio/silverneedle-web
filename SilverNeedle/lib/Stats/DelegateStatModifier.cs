@@ -20,11 +20,16 @@ namespace SilverNeedle
         public string StatisticName { get; private set; }
 
         public DelegateStatModifier(string statName, string type, string reason, Func<float> calculation)
+            : this(statName, type, reason)
+        {
+            this.Calculation = calculation;
+        }
+
+        protected DelegateStatModifier(string statName, string type, string reason)
         {
             this.Reason = reason;
             this.Type = type;
             this.StatisticName = statName;
-            this.Calculation = calculation;
         }
     }
 }

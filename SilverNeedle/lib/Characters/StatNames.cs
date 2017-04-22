@@ -25,6 +25,8 @@ namespace SilverNeedle.Characters
 
         public const string BonusSkillPoints = "Bonus Skill Points";
 
+        public const string ArmorCheckPenalty = "Armor Check Penalty";
+
         public const string MaxDexterityBonus = "Max Dex Bonus";
 
         public const string SpellcastingDC = "Spell DC";

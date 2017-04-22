@@ -6,10 +6,12 @@
 namespace Tests.Characters
 {
     using NUnit.Framework;
-    using SilverNeedle.Characters;
     using System.Collections.Generic;
     using System.Linq;
     using SilverNeedle;
+    using SilverNeedle.Characters;
+    using SilverNeedle.Equipment;
+    using SilverNeedle.Utility;
 
     [TestFixture]
     public class SkillRanksTests
@@ -23,7 +25,7 @@ namespace Tests.Characters
         public void SetupCharacter()
         {
             _skillList = new List<Skill>();
-            _skillList.Add(new Skill("Climb", AbilityScoreTypes.Strength, false));
+            _skillList.Add(new Skill("Climb", AbilityScoreTypes.Strength, false, "Climb", true));
             _skillList.Add(new Skill("Disable Device", AbilityScoreTypes.Dexterity, true));
             _skillList.Add(new Skill("Stealth", AbilityScoreTypes.Dexterity, false));
 
@@ -138,6 +140,30 @@ namespace Tests.Characters
             var value = Subject.GetScore("Rippadiddledoo");
             Assert.That(value, Is.EqualTo(int.MinValue));
         }
+
+        [Test]
+        public void WearingArmorIncreasesArmorCheckPenalty()
+        {
+            var climb = Subject.GetSkill("Climb");
+            var startScore = climb.Score();
+            var inventory = new Inventory();
+            var armor = new Armor();
+            armor.ArmorCheckPenalty = -3;
+            inventory.EquipItem(armor);
+            var bag = new ComponentBag();
+            bag.Add(inventory);
+
+            Subject.Initialize(bag);
+            Assert.That(Subject.ArmorCheckPenalty.TotalValue, Is.EqualTo(-3));
+            Assert.That(climb.Score(), Is.EqualTo(startScore - 3));
+        }
+
+        public void ProvidesAccessToTheStatisticsItProvides()
+        {
+            var stats = Subject.Statistics.Select(x => x.Name);
+            Assert.That(stats, Is.EquivalentTo(new string[] { StatNames.BonusSkillPoints, StatNames.ArmorCheckPenalty }));
+        }
+
         class MockMod : IModifiesStats
         {
             public IList<BasicStatModifier> Modifiers { get; set; }

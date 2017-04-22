@@ -127,13 +127,5 @@ namespace Characters {
 			Assert.AreEqual(0, charSkill.Score());
 			Assert.AreEqual("Eat +0 (+3 Celery)", charSkill.ToString());
 		}
-
-
-        [Test]
-        public void WearingArmorNegativelyImpactsDexteritySkills() 
-        {
-            Assert.Ignore("Armor Penalty Check is Not Calculated Yet");
-        }
-
 	}
 }

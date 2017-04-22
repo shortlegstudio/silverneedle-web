@@ -9,11 +9,12 @@ namespace SilverNeedle.Characters
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using SilverNeedle.Utility;
 
     /// <summary>
     /// Skill ranks tracker for the character
     /// </summary>
-    public class SkillRanks : ISkillRanks, IStatTracker
+    public class SkillRanks : ISkillRanks, IStatTracker, IComponent
     {
         public IEnumerable<BasicStat> Statistics { get { throw new NotImplementedException();  } }
         /// <summary>
@@ -23,12 +24,20 @@ namespace SilverNeedle.Characters
 
         private BasicStat BonusSkillPoints = new BasicStat(StatNames.BonusSkillPoints);
 
+        public BasicStat ArmorCheckPenalty { get; private set; }
+
+
+        protected SkillRanks()
+        {
+            ArmorCheckPenalty = new BasicStat(StatNames.ArmorCheckPenalty);
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Characters.SkillRanks"/> class.
         /// </summary>
         /// <param name="skillList">Skills available</param>
         /// <param name="scores">Ability scores for a baseline.</param>
-        public SkillRanks(IEnumerable<Skill> skillList, AbilityScores scores)
+        public SkillRanks(IEnumerable<Skill> skillList, AbilityScores scores) : this()
         {
             this.skills = new Dictionary<string, CharacterSkill>(StringComparer.OrdinalIgnoreCase);
             this.FillSkills(skillList, scores);
@@ -153,6 +162,17 @@ namespace SilverNeedle.Characters
                         scores.GetAbility(s.Ability),
                         false));
                 }
+            }
+        }
+
+        public void Initialize(ComponentBag components)
+        {
+            ArmorCheckPenalty.AddModifier(new EquippedArmorCheckPenaltyModifier(components));
+            var armorCheckSkills = GetSkills().Where(x => x.Skill.UseArmorCheckPenalty);
+            foreach(var skl in armorCheckSkills)
+            {
+                var modifier = new DelegateStatModifier(skl.Name, "Armor", "Armor Check Penalty", () => { return ArmorCheckPenalty.TotalValue; });
+                skl.AddModifier(modifier);
             }
         }
     }
