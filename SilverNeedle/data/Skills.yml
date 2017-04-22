@@ -2,7 +2,8 @@
 - skill:
   name: Acrobatics
   ability: Dexterity
-  trained: no
+  trained: false
+  armor-check-penalty: true
   description: >
     You can keep your balance while traversing narrow or treacherous surfaces.
     You can also dive, flip, jump and roll to avoid attacks and overcome
@@ -10,152 +11,153 @@
 - skill:
   name: Appraise
   ability: Intelligence
-  trained: no
+  trained: false
   description: >
     You can evaluate the monetary value of an object.
 - skill:
   name: Bluff
   ability: Charisma
-  trained: no
+  trained: false
   description: >
     You know how to lie.
 - skill:
   name: Climb
   ability: Strength
-  trained: no
+  trained: false
+  armor-check-penalty: true
   description: >
     You are skilled at scaling vertical surfaces, from smooth city walls to rocky
     cliffs.
 - skill:
   name: Craft (Alchemy)
   ability: Intelligence
-  trained: no
+  trained: false
   description: >
     You are skilled in the creation of a specific group of items.
 - skill:
   name: Craft (Armor)
   ability: Intelligence
-  trained: no
+  trained: false
   description: >
     You are skilled in the creation of a specific group of items.
 - skill:
   name: Craft (Baskets)
   ability: Intelligence
-  trained: no
+  trained: false
   description: >
     You are skilled in the creation of a specific group of items.
 - skill:
   name: Craft (Books)
   ability: Intelligence
-  trained: no
+  trained: false
   description: >
     You are skilled in the creation of a specific group of items.
 - skill:
   name: Craft (Bows)
   ability: Intelligence
-  trained: no
+  trained: false
   description: >
     You are skilled in the creation of a specific group of items.
 - skill:
   name: Craft (Calligraphy)
   ability: Intelligence
-  trained: no
+  trained: false
   description: >
     You are skilled in the creation of a specific group of items.
 - skill:
   name: Craft (Carpentry)
   ability: Intelligence
-  trained: no
+  trained: false
   description: >
     You are skilled in the creation of a specific group of items.
 - skill:
   name: Craft (Cloth)
   ability: Intelligence
-  trained: no
+  trained: false
   description: >
     You are skilled in the creation of a specific group of items.
 - skill:
   name: Craft (Clothing)
   ability: Intelligence
-  trained: no
+  trained: false
   description: >
     You are skilled in the creation of a specific group of items.
 - skill:
   name: Craft (Glass)
   ability: Intelligence
-  trained: no
+  trained: false
   description: >
     You are skilled in the creation of a specific group of items.
 - skill:
   name: Craft (Jewelry)
   ability: Intelligence
-  trained: no
+  trained: false
   description: >
     You are skilled in the creation of a specific group of items.
 - skill:
   name: Craft (Leather)
   ability: Intelligence
-  trained: no
+  trained: false
   description: >
     You are skilled in the creation of a specific group of items.
 - skill:
   name: Craft (Locks)
   ability: Intelligence
-  trained: no
+  trained: false
   description: >
     You are skilled in the creation of a specific group of items.
 - skill:
   name: Craft (Painting)
   ability: Intelligence
-  trained: no
+  trained: false
   description: >
     You are skilled in the creation of a specific group of items.
 - skill:
   name: Craft (Pottery)
   ability: Intelligence
-  trained: no
+  trained: false
   description: >
     You are skilled in the creation of a specific group of items.
 - skill:
   name: Craft (Sculptures)
   ability: Intelligence
-  trained: no
+  trained: false
   description: >
     You are skilled in the creation of a specific group of items.
 - skill:
   name: Craft (Ships)
   ability: Intelligence
-  trained: no
+  trained: false
   description: >
     You are skilled in the creation of a specific group of items.
 - skill:
   name: Craft (Shoes)
   ability: Intelligence
-  trained: no
+  trained: false
   description: >
     You are skilled in the creation of a specific group of items.
 - skill:
   name: Craft (Stonemasonary)
   ability: Intelligence
-  trained: no
+  trained: false
   description: >
     You are skilled in the creation of a specific group of items.
 - skill:
   name: Craft (Traps)
   ability: Intelligence
-  trained: no
+  trained: false
   description: >
     You are skilled in the creation of a specific group of items.
 - skill:
   name: Craft (Weapons)
   ability: Intelligence
-  trained: no
+  trained: false
   description: >
     You are skilled in the creation of a specific group of items.
 - skill:
   name: Diplomacy
   ability: Charisma
-  trained: no
+  trained: false
   description: >
     You can use this skill to persuade others to agree with your arguments,
     to resolve differences, and to gather valuable information or rumors from
@@ -164,7 +166,8 @@
 - skill:
   name: Disable Device
   ability: Dexterity
-  trained: yes
+  trained: true
+  armor-check-penalty: true
   description: >
     You are skilled at disarming traps and opening locks. In additions, this
     skill lets you sabotage simple mechanical devices, such as catapults,
@@ -172,19 +175,21 @@
 - skill:
   name: Disguise
   ability: Charisma
-  trained: no
+  trained: false
   description: >
     You are skilled at changing your appearance.
 - skill:
   name: Escape Artist
   ability: Dexterity
-  trained: no
+  trained: false
+  armor-check-penalty: true
   description: >
     Your training allows you to slip out of bonds and escape from grapples.
 - skill:
   name: Fly
   ability: Dexterity
-  trained: no
+  trained: false
+  armor-check-penalty: true
   description: >
     You are skilled at flying, through either the use of wings or magic, and can
     perform daring or complex maneuvers while airborne. Note that this skill
@@ -192,20 +197,20 @@
 - skill:
   name: Handle Animal
   ability: Charisma
-  trained: yes
+  trained: true
   description: >
     You are trained at working with animals, and can teach them tricks, get
     them to follow your simple commands, or even domesticate them.
 - skill:
   name: Heal
   ability: Wisdom
-  trained: no
+  trained: false
   description: >
     You are skilled at tending to wounds and ailments.
 - skill:
   name: Intimidate
   ability: Charisma
-  trained: no
+  trained: false
   description: >
     You can use this skill to frighten your opponents or to get them to act in a
     way that benefits you. This skill  includes verbal threats and displays of
@@ -213,7 +218,7 @@
 - skill:
   name: Knowledge Arcana
   ability: Intelligence
-  trained: yes
+  trained: true
   description: >
     You are educated in the field of the Arcana and can answer
     both simple and complex questions. Example Jeopardy categories are Ancient
@@ -222,7 +227,7 @@
 - skill:
   name: Knowledge Dungeoneering
   ability: Intelligence
-  trained: yes
+  trained: true
   description: >
     You are educated in the field of Dungeoneering and can answer
     both simple and complex questions. Example Jeopardy categories are aberrations,
@@ -230,7 +235,7 @@
 - skill:
   name: Knowledge Engineering
   ability: Intelligence
-  trained: yes
+  trained: true
   description: >
     You are educated in the field of Enginneering and can answer
     both simple and complex questions. Example Jeopardy categories are Buildings,
@@ -238,7 +243,7 @@
 - skill:
   name: Knowledge Geography
   ability: Intelligence
-  trained: yes
+  trained: true
   description: >
     You are educated in the field of Geography and can answer
     both simple and complex questions. Example Jeopardy categories are Lands,
@@ -246,7 +251,7 @@
 - skill:
   name: Knowledge History
   ability: Intelligence
-  trained: yes
+  trained: true
   description: >
     You are educated in field of history and can answer
     both simple and complex questions. Example Jeopardy categories are Wars,
@@ -254,7 +259,7 @@
 - skill:
   name: Knowledge Local
   ability: Intelligence
-  trained: yes
+  trained: true
   description: >
     You are educated in local knowledge and wisdom and can answer
     both simple and complex questions. Example Jeopardy categories are Legends,
@@ -262,7 +267,7 @@
 - skill:
   name: Knowledge Nature
   ability: Intelligence
-  trained: yes
+  trained: true
   description: >
     You are educated in the field of nature and can answer
     both simple and complex questions. Example Jeopardy categories are Animals,
@@ -270,7 +275,7 @@
 - skill:
   name: Knowledge Nobility
   ability: Intelligence
-  trained: yes
+  trained: true
   description: >
     You are educated in the field of nobility and can answer
     both simple and complex questions. Example Jeopardy categories are Lineages,
@@ -278,7 +283,7 @@
 - skill:
   name: Knowledge Planes
   ability: Intelligence
-  trained: yes
+  trained: true
   description: >
     You are educated in the field of planes of existence and can answer
     both simple and complex questions. Example Jeopardy categories are the Inner
@@ -286,7 +291,7 @@
 - skill:
   name: Knowledge Religion
   ability: Intelligence
-  trained: yes
+  trained: true
   description: >
     You are educated in the field of religion and can answer both simple
     and complex questions. Example Jeopardy categories are Gods and Goddesses,
@@ -294,7 +299,7 @@
 - skill:
   name: Linguistics
   ability: Intelligence
-  trained: yes
+  trained: true
   description: >
     You are skilled at working with language, in both its spoken and written
     forms. You can speak multiple languages, and can decipher nearly any
@@ -303,7 +308,7 @@
 - skill:
   name: Perception
   ability: Wisdom
-  trained: no
+  trained: false
   description: >
     Your senses allow you to notice fine details and alert you to danger.
     Perception covers all five senses, including, sight, hearing, touch, taste,
@@ -311,277 +316,278 @@
 - skill:
   name: Perform (Act)
   ability: Charisma
-  trained: no
+  trained: false
   description: >
     You are skilled at performing acting such as comedies, dramas, or pantomime.
 - skill:
   name: Perform (Comedy)
   ability: Charisma
-  trained: no
+  trained: false
   description: >
     You are skilled at performing comedy such as buffoonery, limericks, or
     joke-telling
 - skill:
   name: Perform (Dance)
   ability: Charisma
-  trained: no
+  trained: false
   description: >
     You are skilled at performing dances such as ballets, waltz, or jigs.
 - skill:
   name: Perform (Keyboard Instruments)
   ability: Charisma
-  trained: no
+  trained: false
   description: >
     You are skilled at performing on the keys like a harpsichord, piano, or organ.
 - skill:
   name: Perform (Oratory)
   ability: Charisma
-  trained: no
+  trained: false
   description: >
     You are skilled at performing public speaking such as epics, speeches, odes,
     or storytelling.
 - skill:
   name: Perform (Percussion Instruments)
   ability: Charisma
-  trained: no
+  trained: false
   description: >
     You are skilled at performing on the drums or other instruments where you hit
     things. Examples are bells, chimes, drums, gong, marimba, and xylophone.
 - skill:
   name: Perform (String Instruments)
   ability: Charisma
-  trained: no
+  trained: false
   description: >
     You are skilled at performing on stringed instruments such as the fiddle,
     guitar, harp, lute, and mandolin.
 - skill:
   name: Perform (Wind Instruments)
   ability: Charisma
-  trained: no
+  trained: false
   description: >
     You are skilled at performing on wind instruments like the flute, pan pipes,
     recorder, trumpet, and tuba.
 - skill:
   name: Perform (Sing)
   ability: Charisma
-  trained: no
+  trained: false
   description: >
     You are skilled at singing songs like ballads, chants, or the greatest pop
     hits of your world.
 - skill:
   name: Profession (Architect)
   ability: Wisdom
-  trained: yes
+  trained: true
   description: >
     You are skilled at the specific job. Profession represents the an aptitude
     in a vocation requiring a broader range of less specific knowledge.
 - skill:
   name: Profession (Baker)
   ability: Wisdom
-  trained: yes
+  trained: true
   description: >
     You are skilled at the specific job. Profession represents the an aptitude
     in a vocation requiring a broader range of less specific knowledge.
 - skill:
   name: Profession (Barrister)
   ability: Wisdom
-  trained: yes
+  trained: true
   description: >
     You are skilled at the specific job. Profession represents the an aptitude
     in a vocation requiring a broader range of less specific knowledge.
 - skill:
   name: Profession (Brewer)
   ability: Wisdom
-  trained: yes
+  trained: true
   description: >
     You are skilled at the specific job. Profession represents the an aptitude
     in a vocation requiring a broader range of less specific knowledge.
 - skill:
   name: Profession (Butcher)
   ability: Wisdom
-  trained: yes
+  trained: true
   description: >
     You are skilled at the specific job. Profession represents the an aptitude
     in a vocation requiring a broader range of less specific knowledge.
 - skill:
   name: Profession (Clerk)
   ability: Wisdom
-  trained: yes
+  trained: true
   description: >
     You are skilled at the specific job. Profession represents the an aptitude
     in a vocation requiring a broader range of less specific knowledge.
 - skill:
   name: Profession (Cook)
   ability: Wisdom
-  trained: yes
+  trained: true
   description: >
     You are skilled at the specific job. Profession represents the an aptitude
     in a vocation requiring a broader range of less specific knowledge.
 - skill:
   name: Profession (Courtesan)
   ability: Wisdom
-  trained: yes
+  trained: true
   description: >
     You are skilled at the specific job. Profession represents the an aptitude
     in a vocation requiring a broader range of less specific knowledge.
 - skill:
   name: Profession (Driver)
   ability: Wisdom
-  trained: yes
+  trained: true
   description: >
     You are skilled at the specific job. Profession represents the an aptitude
     in a vocation requiring a broader range of less specific knowledge.
 - skill:
   name: Profession (Engineer)
   ability: Wisdom
-  trained: yes
+  trained: true
   description: >
     You are skilled at the specific job. Profession represents the an aptitude
     in a vocation requiring a broader range of less specific knowledge.
 - skill:
   name: Profession (Farmer)
   ability: Wisdom
-  trained: yes
+  trained: true
   description: >
     You are skilled at the specific job. Profession represents the an aptitude
     in a vocation requiring a broader range of less specific knowledge.
 - skill:
   name: Profession (Fisherman)
   ability: Wisdom
-  trained: yes
+  trained: true
   description: >
     You are skilled at the specific job. Profession represents the an aptitude
     in a vocation requiring a broader range of less specific knowledge.
 - skill:
   name: Profession (Gambler)
   ability: Wisdom
-  trained: yes
+  trained: true
   description: >
     You are skilled at the specific job. Profession represents the an aptitude
     in a vocation requiring a broader range of less specific knowledge.
 - skill:
   name: Profession (Gardener)
   ability: Wisdom
-  trained: yes
+  trained: true
   description: >
     You are skilled at the specific job. Profession represents the an aptitude
     in a vocation requiring a broader range of less specific knowledge.
 - skill:
   name: Profession (Herbalist)
   ability: Wisdom
-  trained: yes
+  trained: true
   description: >
     You are skilled at the specific job. Profession represents the an aptitude
     in a vocation requiring a broader range of less specific knowledge.
 - skill:
   name: Profession (Innkeeper)
   ability: Wisdom
-  trained: yes
+  trained: true
   description: >
     You are skilled at the specific job. Profession represents the an aptitude
     in a vocation requiring a broader range of less specific knowledge.
 - skill:
   name: Profession (Librarian)
   ability: Wisdom
-  trained: yes
+  trained: true
   description: >
     You are skilled at the specific job. Profession represents the an aptitude
     in a vocation requiring a broader range of less specific knowledge.
 - skill:
   name: Profession (Merchant)
   ability: Wisdom
-  trained: yes
+  trained: true
   description: >
     You are skilled at the specific job. Profession represents the an aptitude
     in a vocation requiring a broader range of less specific knowledge.
 - skill:
   name: Profession (Midwife)
   ability: Wisdom
-  trained: yes
+  trained: true
   description: >
     You are skilled at the specific job. Profession represents the an aptitude
     in a vocation requiring a broader range of less specific knowledge.
 - skill:
   name: Profession (Miller)
   ability: Wisdom
-  trained: yes
+  trained: true
   description: >
     You are skilled at the specific job. Profession represents the an aptitude
     in a vocation requiring a broader range of less specific knowledge.
 - skill:
   name: Profession (Miner)
   ability: Wisdom
-  trained: yes
+  trained: true
   description: >
     You are skilled at the specific job. Profession represents the an aptitude
     in a vocation requiring a broader range of less specific knowledge.
 - skill:
   name: Profession (Porter)
   ability: Wisdom
-  trained: yes
+  trained: true
   description: >
     You are skilled at the specific job. Profession represents the an aptitude
     in a vocation requiring a broader range of less specific knowledge.
 - skill:
   name: Profession (Sailor)
   ability: Wisdom
-  trained: yes
+  trained: true
   description: >
     You are skilled at the specific job. Profession represents the an aptitude
     in a vocation requiring a broader range of less specific knowledge.
 - skill:
   name: Profession (Scribe)
   ability: Wisdom
-  trained: yes
+  trained: true
   description: >
     You are skilled at the specific job. Profession represents the an aptitude
     in a vocation requiring a broader range of less specific knowledge.
 - skill:
   name: Profession (Shepherd)
   ability: Wisdom
-  trained: yes
+  trained: true
   description: >
     You are skilled at the specific job. Profession represents the an aptitude
     in a vocation requiring a broader range of less specific knowledge.
 - skill:
   name: Profession (Stable Master)
   ability: Wisdom
-  trained: yes
+  trained: true
   description: >
     You are skilled at the specific job. Profession represents the an aptitude
     in a vocation requiring a broader range of less specific knowledge.
 - skill:
   name: Profession (Soldier)
   ability: Wisdom
-  trained: yes
+  trained: true
   description: >
     You are skilled at the specific job. Profession represents the an aptitude
     in a vocation requiring a broader range of less specific knowledge.
 - skill:
   name: Profession (Tanner)
   ability: Wisdom
-  trained: yes
+  trained: true
   description: >
     You are skilled at the specific job. Profession represents the an aptitude
     in a vocation requiring a broader range of less specific knowledge.
 - skill:
   name: Profession (Trapper)
   ability: Wisdom
-  trained: yes
+  trained: true
   description: >
     You are skilled at the specific job. Profession represents the an aptitude
     in a vocation requiring a broader range of less specific knowledge.
 - skill:
   name: Profession (Woodcutter)
   ability: Wisdom
-  trained: yes
+  trained: true
   description: >
     You are skilled at the specific job. Profession represents the an aptitude
     in a vocation requiring a broader range of less specific knowledge.
 - skill:
   name: Ride
   ability: Dexterity
-  trained: no
+  trained: false
+  armor-check-penalty: true
   description: >
     You are skilled at riding mounts, usually a horse, but possibly something
     more exotic, like a griffon or pegasus. If you attempt to ride a creature
@@ -589,47 +595,50 @@
 - skill:
   name: Sense Motive
   ability: Wisdom
-  trained: no
+  trained: false
   description: >
     You are skilled at detecting falsehoods and true intentions.
 - skill:
   name: Sleight of Hand
   ability: Dexterity
-  trained: yes
+  trained: true
+  armor-check-penalty: true
   description: >
     Your training allows you to pick pockets, draw hidden weapons, and take a
     variety of actions without being noticed.
 - skill:
   name: Spellcraft
   ability: Intelligence
-  trained: yes
+  trained: true
   description: >
     You are skilled at the art of casting spells, identifying magic items,
     crafting magic items, and identifying spells as they are being cast.
 - skill:
   name: Stealth
   ability: Dexterity
-  trained: no
+  trained: false
+  armor-check-penalty: true
   description: >
     You are skilled at avoiding detection, allowing you to slip past foes or
     strike from an unseen position. This skill covers hiding and moving silently.
 - skill:
   name: Survival
   ability: Wisdom
-  trained: no
+  trained: false
   description: >
     You are skilled at surviving in the wild and at navigating in the wilderness.
     You also excel at following trails and tracks left by others.
 - skill:
   name: Swim
   ability: Strength
-  trained: no
+  trained: false
+  armor-check-penalty: true
   description: >
     You know how to swim and can do so even in stormy water.
 - skill:
   name: Use Magical Device
   ability: Charisma
-  trained: yes
+  trained: true
   description: >
     You are skilled at activating magic items, even if you are otherwise not
     trained in their use.

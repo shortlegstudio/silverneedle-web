@@ -45,12 +45,15 @@ namespace SilverNeedle.Serialization
 
         public bool GetBool(string key)
         {
-            return Boolean.Parse(GetString(key));
+            return Boolean.Parse(this.GetString(key));
         }
 
         public bool GetBoolOptional(string key)
         {
-            throw new NotImplementedException();
+            if(HasKey(key))
+                return GetBool(key);
+
+            return false;
         }
 
         public T GetEnum<T>(string key)

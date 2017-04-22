@@ -34,6 +34,7 @@ namespace SilverNeedle.Characters
             Ability = data.GetEnum<AbilityScoreTypes>("ability");
             TrainingRequired = data.GetBool("trained");
             Description = data.GetStringOptional("description");
+            UseArmorCheckPenalty = data.GetBoolOptional("armor-check-penalty");
         }
 
         /// <summary>
@@ -59,6 +60,8 @@ namespace SilverNeedle.Characters
         /// </summary>
         /// <value>The description.</value>
         public string Description { get; private set; }
+
+        public bool UseArmorCheckPenalty { get; private set; }
 
         public bool IsBackgroundSkill
         {

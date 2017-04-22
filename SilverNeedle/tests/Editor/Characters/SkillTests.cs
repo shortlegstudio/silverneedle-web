@@ -47,5 +47,18 @@ namespace Characters {
             Assert.IsFalse(skill.TrainingRequired);
             Assert.AreEqual("Some text", skill.Description);   
         }
+
+        [Test]
+        public void SkillsDenoteWhetherImpactedByArmor()
+        {
+            var data = new MemoryStore();
+            data.SetValue("name", "Acro");
+            data.SetValue("ability", "Strength");
+            data.SetValue("trained", false);
+            data.SetValue("description", "Some text");
+            data.SetValue("armor-check-penalty", "true");
+            var skill = new Skill(data);
+            Assert.That(skill.UseArmorCheckPenalty, Is.True);
+        }
     }
 }

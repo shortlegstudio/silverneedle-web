@@ -39,11 +39,6 @@ namespace SilverNeedle.Serialization
         private YamlNode node;
 
         /// <summary>
-        /// What to parse for true when looking at text in a YAML document
-        /// </summary>
-        private string booleanTrueString = "yes";
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.YamlNodeWrapper"/> class.
         /// </summary>
         /// <param name="wrap">YamlNode to wrap.</param>
@@ -183,7 +178,7 @@ namespace SilverNeedle.Serialization
 
         public bool GetBool(string key)
         {
-            return this.GetString(key) == this.booleanTrueString;
+            return Boolean.Parse(this.GetString(key));
         }
 
         /// <summary>
@@ -194,7 +189,10 @@ namespace SilverNeedle.Serialization
         /// <param name="key">Key to lookup in YAML node</param>
         public bool GetBoolOptional(string key)
         {
-            return this.GetStringOptional(key) == this.booleanTrueString;
+            if(HasKey(key))
+                return GetBool(key);
+
+            return false;
         }
 
         /// <summary>

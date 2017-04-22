@@ -33,11 +33,11 @@ node4: value
         [Test]
         public void CanGetBooleanValues()
         {
-            string test = "boolean: yes";
+            string test = "boolean: true";
             IObjectStore n = test.ParseYaml();
             Assert.IsTrue(n.GetBool("boolean"));
 
-            string falsies = "boolean: no";
+            string falsies = "boolean: false";
             n = falsies.ParseYaml();
             Assert.IsFalse(n.GetBool("boolean"));
         }
