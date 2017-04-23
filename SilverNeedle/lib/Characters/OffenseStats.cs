@@ -59,6 +59,8 @@ namespace SilverNeedle.Characters
 
         private List<SpecialAbility> offensiveAbilities;
 
+        private List<IWeaponModifier> weaponModifiers;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Characters.OffenseStats"/> class.
         /// </summary>
@@ -77,6 +79,7 @@ namespace SilverNeedle.Characters
             this.offensiveAbilities = new List<SpecialAbility>();
             this.MeleeAttackBonus = new BasicStat(StatNames.MeleeAttackBonus);
             this.RangeAttackBonus = new BasicStat(StatNames.RangeAttackBonus);
+            this.weaponModifiers = new List<IWeaponModifier>();
         }
 
         public void Initialize(ComponentBag components)
@@ -218,6 +221,11 @@ namespace SilverNeedle.Characters
             return this.WeaponProficiencies.IsProficient(weapon);
         }
 
+        public void AddWeaponModifier(IWeaponModifier modifier)
+        {
+            this.weaponModifiers.Add(modifier);
+        }
+
         /// <summary>
         /// Calculates what attacks are available to this instance
         /// </summary>
@@ -270,13 +278,22 @@ namespace SilverNeedle.Characters
             {
                 atk.AttackBonus += UnproficientWeaponModifier;
             }
+
+            foreach(var weaponMod in weaponModifiers)
+            {
+                if(weaponMod.WeaponQualifies(weapon))
+                {
+                    weaponMod.ApplyModifier(atk);
+                }
+            }
+
             return atk;
         }
 
         /// <summary>
         /// Attack statistics for offense
         /// </summary>
-        public struct AttackStatistic
+        public class AttackStatistic
         {
             /// <summary>
             /// Gets or sets the name.
