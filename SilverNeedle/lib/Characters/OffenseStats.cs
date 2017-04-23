@@ -38,19 +38,19 @@ namespace SilverNeedle.Characters
         {
             get 
             {
-                return new BasicStat[] { BaseAttackBonus, combatManeuverDefense, combatManeuverOffense };
+                return new BasicStat[] { BaseAttackBonus, CombatManeuverDefense, CombatManeuverBonus };
             }
         }
 
         /// <summary>
         /// Gets or sets the CombatManeuverDefense.
         /// </summary>
-        public BasicStat combatManeuverDefense { get; private set; }
+        public BasicStat CombatManeuverDefense { get; private set; }
 
         /// <summary>
         /// Gets or sets the combat maneuver bonus.
         /// </summary>
-        public BasicStat combatManeuverOffense { get; private set; }
+        public BasicStat CombatManeuverBonus { get; private set; }
 
         /// <summary>
         /// The inventory for the character.
@@ -68,8 +68,8 @@ namespace SilverNeedle.Characters
         public OffenseStats(AbilityScores scores, SizeStats size, Inventory inventory)
         {
             this.BaseAttackBonus = new BasicStat(StatNames.BaseAttackBonus);
-            this.combatManeuverDefense = new BasicStat(StatNames.CMD, 10);
-            this.combatManeuverOffense = new BasicStat(StatNames.CMB);
+            this.CombatManeuverDefense = new BasicStat(StatNames.CMD, 10);
+            this.CombatManeuverBonus = new BasicStat(StatNames.CMB);
             this.AbilityScores = scores;
             this.Size = size;
             this.inventory = inventory;
@@ -86,13 +86,26 @@ namespace SilverNeedle.Characters
             this.MeleeAttackBonus.AddModifiers(
                 new StatisticStatModifier(StatNames.MeleeAttackBonus, this.BaseAttackBonus),
                 new AbilityStatModifier(abilities.GetAbility(AbilityScoreTypes.Strength)),
-                size.SizeModifier
+                size.PositiveSizeModifier
             );
 
             this.RangeAttackBonus.AddModifiers(
                 new StatisticStatModifier(StatNames.RangeAttackBonus, this.BaseAttackBonus),
                 new AbilityStatModifier(abilities.GetAbility(AbilityScoreTypes.Dexterity)),
-                size.SizeModifier
+                size.PositiveSizeModifier
+            );
+
+            this.CombatManeuverBonus.AddModifiers(
+                new StatisticStatModifier(StatNames.CMB, this.BaseAttackBonus),
+                abilities.GetStatModifier(AbilityScoreTypes.Strength),
+                size.NegativeSizeModifier
+            );
+
+            this.CombatManeuverDefense.AddModifiers(
+                new StatisticStatModifier(StatNames.CMB, this.BaseAttackBonus),
+                abilities.GetStatModifier(AbilityScoreTypes.Strength),
+                abilities.GetStatModifier(AbilityScoreTypes.Dexterity),
+                size.NegativeSizeModifier
             );
         }
 
@@ -141,31 +154,6 @@ namespace SilverNeedle.Characters
         public BasicStat RangeAttackBonus { get; private set; }
 
         /// <summary>
-        /// Calculates the combat manuever bonus.
-        /// </summary>
-        /// <returns>The manuever bonus.</returns>
-        public int CombatManeuverBonus()
-        {
-            return this.combatManeuverOffense.TotalValue + 
-                this.BaseAttackBonus.TotalValue + 
-                this.AbilityScores.GetModifier(AbilityScoreTypes.Strength) - 
-                (int)this.Size.SizeModifier.Modifier;
-        }
-
-        /// <summary>
-        /// Calculate the combats manuever defense.
-        /// </summary>
-        /// <returns>The manuever defense.</returns>
-        public int CombatManeuverDefense()
-        {
-            return this.combatManeuverDefense.TotalValue + 
-                this.BaseAttackBonus.TotalValue + 
-                this.AbilityScores.GetModifier(AbilityScoreTypes.Strength) + 
-                this.AbilityScores.GetModifier(AbilityScoreTypes.Dexterity) - 
-                (int)this.Size.SizeModifier.Modifier;
-        }
-
-        /// <summary>
         /// The implementing class must handle modifiers to stats under its control
         /// </summary>
         /// <param name="modifier">Modifier for stats</param>
@@ -176,10 +164,10 @@ namespace SilverNeedle.Characters
                 switch (m.StatisticName)
                 {
                     case CombatManeuverDefenseStatName:
-                        this.combatManeuverDefense.AddModifier(m);
+                        this.CombatManeuverDefense.AddModifier(m);
                         break;
                     case CombatManeuverBonusStatName:
-                        this.combatManeuverOffense.AddModifier(m);
+                        this.CombatManeuverBonus.AddModifier(m);
                         break;
                 }
             }

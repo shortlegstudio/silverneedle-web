@@ -5,6 +5,7 @@
 
 namespace SilverNeedle.Characters
 {
+    using SilverNeedle;
     /// <summary>
     /// An ability score for a character. Examples: Strength, Intelligence, Charisma, ...
     /// </summary>
@@ -19,9 +20,10 @@ namespace SilverNeedle.Characters
             : base(type.ToString(), val)
         {
             this.Ability = type;
+            this.UniversalStatModifier = new AbilityStatModifier(this);
         }
 
-        /// <summary>
+    /// <summary>
         /// Gets or sets the name. Synonomous with AbilityScoreTypes
         /// </summary>
         /// <value>The name of the ability</value>
@@ -87,5 +89,7 @@ namespace SilverNeedle.Characters
                 this.TotalModifier, 
                 this.SumBasicModifiers());
         }
+
+        public AbilityStatModifier UniversalStatModifier { get; private set; }
     }
 }

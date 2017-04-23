@@ -123,6 +123,11 @@ namespace SilverNeedle.Characters
             return this.GetModifier(AbilityScore.GetType(ability));
         }
 
+        public AbilityStatModifier GetStatModifier(AbilityScoreTypes ability)
+        {
+            return GetAbility(ability).UniversalStatModifier;
+        }
+
         /// <summary>
         /// Copies these ability scores from another container for duplication
         /// </summary>

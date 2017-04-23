@@ -55,29 +55,29 @@ namespace Tests.Characters {
 		[Test]
 		public void CMBIsBABAndStrengthAndSize() {
 			smallStats.BaseAttackBonus.SetValue (3);
-			Assert.AreEqual (5, smallStats.CombatManeuverBonus ());
+			Assert.AreEqual (5, smallStats.CombatManeuverBonus.TotalValue);
 		}
 
 		[Test]
 		public void CMDIsBABStrengthAndDexterityAndSize() {
 			smallStats.BaseAttackBonus.SetValue (3);
-			Assert.AreEqual (18, smallStats.CombatManeuverDefense ());
+			Assert.AreEqual (18, smallStats.CombatManeuverDefense.TotalValue);
 		}
 
 		[Test]
 		public void ModifiersCanBeAppliedToCombatManeuverDefense() {
 			var mods = new MockMod();
-			var oldCMD = smallStats.CombatManeuverDefense();
+			var oldCMD = smallStats.CombatManeuverDefense.TotalValue;
 			smallStats.ProcessModifier(mods);
-			Assert.AreEqual(oldCMD + 1, smallStats.CombatManeuverDefense());
+			Assert.AreEqual(oldCMD + 1, smallStats.CombatManeuverDefense.TotalValue);
 		}
 
 		[Test]
 		public void ModifiersCanBeAppliedToCombatManeuverBonus() {
 			var mods = new MockMod();
-			var oldCMB = smallStats.CombatManeuverBonus();
+			var oldCMB = smallStats.CombatManeuverBonus.TotalValue;
 			smallStats.ProcessModifier(mods);
-			Assert.AreEqual(oldCMB + 1, smallStats.CombatManeuverBonus());
+			Assert.AreEqual(oldCMB + 1, smallStats.CombatManeuverBonus.TotalValue);
 		}
 
 		[Test]
@@ -171,8 +171,8 @@ namespace Tests.Characters {
 			Assert.That(stats.Count(), Is.EqualTo(3));
 			Assert.That(stats, Is.EquivalentTo(new BasicStat[] { 
 				smallStats.BaseAttackBonus, 
-				smallStats.combatManeuverOffense, 
-				smallStats.combatManeuverDefense,
+				smallStats.CombatManeuverBonus, 
+				smallStats.CombatManeuverDefense,
 			}));
 		}
 

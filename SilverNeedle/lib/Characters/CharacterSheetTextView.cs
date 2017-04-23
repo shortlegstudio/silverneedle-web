@@ -61,8 +61,8 @@ namespace SilverNeedle.Characters
             CharismaModifier = character.AbilityScores.GetModifier(AbilityScoreTypes.Charisma).ToModifierString();
 
             BaseAttackBonus = character.Offense.BaseAttackBonus.TotalValue.ToModifierString();
-            CombatManeuverBonus = character.Offense.CombatManeuverBonus().ToModifierString();
-            CombatManeuverDefense = character.Offense.CombatManeuverDefense().ToModifierString();
+            CombatManeuverBonus = character.Offense.CombatManeuverBonus.TotalValue.ToModifierString();
+            CombatManeuverDefense = character.Offense.CombatManeuverDefense.TotalValue.ToModifierString();
 
             Feats = character.Feats.Select(x => x.Name).ToArray();
             CapableSkills = character.SkillRanks.GetRankedSkills().Select(x => x.ToString()).ToArray();

@@ -76,7 +76,8 @@ namespace SilverNeedle.Characters
         /// Gets the size modifier.
         /// </summary>
         /// <value>The size modifier.</value>
-        public ValueStatModifier SizeModifier { get; private set; }
+        public ValueStatModifier PositiveSizeModifier { get; private set; }
+        public ValueStatModifier NegativeSizeModifier { get; private set; }
 
         /// <summary>
         /// Gets the modifiers for the stats that are to be modified.
@@ -110,7 +111,8 @@ namespace SilverNeedle.Characters
             this.Size = size;
             this.Height = height;
             this.Weight = weight;
-            this.SizeModifier.Modifier = (int)size;
+            this.PositiveSizeModifier.Modifier = (int)size;
+            this.NegativeSizeModifier.Modifier = -(int)size;
 
             this.UpdateStealth();
             this.UpdateFly();
@@ -121,7 +123,8 @@ namespace SilverNeedle.Characters
         /// </summary>
         private void SetupSkillModifiers()
         {
-            this.SizeModifier = new ValueStatModifier("Attack and Defense", 0, "size", "Size");
+            this.PositiveSizeModifier = new ValueStatModifier("Attack and Defense", 0, "size", "Size");
+            this.NegativeSizeModifier = new ValueStatModifier("Attack and Defense", 0, "size", "Size");
             this.StealthAdj = new ValueStatModifier("Stealth", 0, "size", "Size");
             this.FlyAdj = new ValueStatModifier("Fly", 0, "size", "Size");
 
@@ -129,7 +132,8 @@ namespace SilverNeedle.Characters
             this.Modifiers = new List<ValueStatModifier>();
             this.Modifiers.Add(this.StealthAdj);
             this.Modifiers.Add(this.FlyAdj);
-            this.Modifiers.Add(this.SizeModifier);
+            this.Modifiers.Add(this.PositiveSizeModifier);
+            this.Modifiers.Add(this.NegativeSizeModifier);
         }
 
         /// <summary>
