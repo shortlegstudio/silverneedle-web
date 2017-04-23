@@ -86,7 +86,7 @@ namespace Tests.Characters
             CharacterSheet sheet = new CharacterSheet(_testSkills);
             var trait = new Trait();
             trait.Modifiers.Add(
-                new BasicStatModifier("Will", 10, "Trait", "Cause")
+                new ValueStatModifier("Will", 10, "Trait", "Cause")
             );
             var oldScore = sheet.Defense.WillSave.TotalValue;
             sheet.AddTrait(trait);

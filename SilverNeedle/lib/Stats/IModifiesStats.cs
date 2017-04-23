@@ -17,6 +17,6 @@ namespace SilverNeedle
         /// Gets the modifiers for the stats that are to be modified.
         /// </summary>
         /// <value>The modifiers for stats effected by this class.</value>
-        IList<BasicStatModifier> Modifiers { get; }
+        IList<ValueStatModifier> Modifiers { get; }
     }
 }

@@ -42,7 +42,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
         [Test]
         public void SummonFamiliarModifiesTheCharacterStats()
         {
-            bat.Modifiers.Add(new BasicStatModifier("Perception", 5, "bonus", "Familiar (Bat)"));
+            bat.Modifiers.Add(new ValueStatModifier("Perception", 5, "bonus", "Familiar (Bat)"));
             var character = new CharacterSheet(new Skill[] { new Skill("Perception", AbilityScoreTypes.Wisdom, false) });
             var baseValue = character.GetSkillValue("Perception");
             subject.Process(character, new CharacterBuildStrategy());

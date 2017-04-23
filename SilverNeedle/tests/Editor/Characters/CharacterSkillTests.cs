@@ -78,7 +78,7 @@ namespace Characters {
 
 		[Test]
 		public void SkillsCanHaveAdjustmentsFromTraitsOrFeats() {
-			var adjust = new BasicStatModifier (
+			var adjust = new ValueStatModifier (
 							"Fly",
 							2,
 							"Bonus",
@@ -108,7 +108,7 @@ namespace Characters {
 			var skill = new Skill ("Chew", AbilityScoreTypes.Strength, false);
 			var ability = new AbilityScore (AbilityScoreTypes.Strength, 10);
 			var charSkill = new CharacterSkill (skill, ability, false);
-			var adj = new BasicStatModifier ("Chew", 0, "Teeth", "Chew");
+			var adj = new ValueStatModifier ("Chew", 0, "Teeth", "Chew");
 			charSkill.AddModifier (adj);
 			Assert.AreEqual (0, charSkill.Score());
 			adj.Modifier = 5;

@@ -13,7 +13,7 @@ namespace SilverNeedle.Characters
     /// Size stats for a character. Provides stats and modifiers
     /// for different sizes
     /// </summary>
-    public class SizeStats : ISizeStats, IModifiesStats
+    public class SizeStats : IModifiesStats
     {
         /// <summary>
         /// The stealth modifier for different sizes
@@ -76,13 +76,13 @@ namespace SilverNeedle.Characters
         /// Gets the size modifier.
         /// </summary>
         /// <value>The size modifier.</value>
-        public int SizeModifier { get; private set; }
+        public ValueStatModifier SizeModifier { get; private set; }
 
         /// <summary>
         /// Gets the modifiers for the stats that are to be modified.
         /// </summary>
         /// <value>The modifiers for stats effected by this class.</value>
-        public IList<BasicStatModifier> Modifiers { get; private set; }
+        public IList<ValueStatModifier> Modifiers { get; private set; }
 
 
         public IList<SpecialAbility> SpecialAbilities { get; private set; }
@@ -91,13 +91,13 @@ namespace SilverNeedle.Characters
         /// Gets or sets the stealth adj.
         /// </summary>
         /// <value>The stealth adj.</value>
-        private BasicStatModifier StealthAdj { get; set; }
+        private ValueStatModifier StealthAdj { get; set; }
 
         /// <summary>
         /// Gets or sets the fly adj.
         /// </summary>
         /// <value>The fly adj.</value>
-        private BasicStatModifier FlyAdj { get; set; }
+        private ValueStatModifier FlyAdj { get; set; }
 
         /// <summary>
         /// Sets the size of the character.
@@ -110,7 +110,7 @@ namespace SilverNeedle.Characters
             this.Size = size;
             this.Height = height;
             this.Weight = weight;
-            this.SizeModifier = (int)size;
+            this.SizeModifier.Modifier = (int)size;
 
             this.UpdateStealth();
             this.UpdateFly();
@@ -121,12 +121,15 @@ namespace SilverNeedle.Characters
         /// </summary>
         private void SetupSkillModifiers()
         {
-            this.StealthAdj = new BasicStatModifier("Stealth", 0, "size", "Size");
-            this.FlyAdj = new BasicStatModifier("Fly", 0, "size", "Size");
+            this.SizeModifier = new ValueStatModifier("Attack and Defense", 0, "size", "Size");
+            this.StealthAdj = new ValueStatModifier("Stealth", 0, "size", "Size");
+            this.FlyAdj = new ValueStatModifier("Fly", 0, "size", "Size");
 
-            this.Modifiers = new List<BasicStatModifier>();
+
+            this.Modifiers = new List<ValueStatModifier>();
             this.Modifiers.Add(this.StealthAdj);
             this.Modifiers.Add(this.FlyAdj);
+            this.Modifiers.Add(this.SizeModifier);
         }
 
         /// <summary>

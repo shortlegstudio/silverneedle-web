@@ -11,6 +11,7 @@ namespace Tests.Characters {
     using SilverNeedle.Characters;
     using SilverNeedle.Equipment;
     using SilverNeedle.Dice;
+	using SilverNeedle.Utility;
 
 	[TestFixture]
 	public class OffenseStatsTests {
@@ -26,6 +27,12 @@ namespace Tests.Characters {
 
 			inventory = new Inventory();
 			smallStats = new OffenseStats (abilities, size, inventory);
+
+			var components = new ComponentBag();
+			components.Add(abilities);
+			components.Add(size);
+			components.Add(smallStats);
+			smallStats.Initialize(components);
 		}
 
 		[Test]
@@ -36,13 +43,13 @@ namespace Tests.Characters {
 		[Test]
 		public void BaseMeleeBonusIsBABAndStrengthAndSize() {
 			smallStats.BaseAttackBonus.SetValue (3);
-			Assert.AreEqual (7, smallStats.MeleeAttackBonus());
+			Assert.AreEqual (7, smallStats.MeleeAttackBonus.TotalValue);
 		}
 
 		[Test]
 		public void BaseRangeBonusIsBABAndDexterityAndSize() {
 			smallStats.BaseAttackBonus.SetValue (3);
-			Assert.AreEqual (7, smallStats.RangeAttackBonus());
+			Assert.AreEqual (7, smallStats.RangeAttackBonus.TotalValue);
 		}
 
 		[Test]
@@ -94,7 +101,7 @@ namespace Tests.Characters {
 
 			//Should convert damage based on size
 			Assert.AreEqual(DiceSides.d6, diceRoll.Dice.First().Sides);
-			Assert.AreEqual(smallStats.MeleeAttackBonus(), atk.AttackBonus);
+			Assert.AreEqual(smallStats.MeleeAttackBonus.TotalValue, atk.AttackBonus);
 		}
 
 		[Test]
@@ -106,7 +113,7 @@ namespace Tests.Characters {
 			var diceRoll = atk.Damage;
 			Assert.AreEqual(0, diceRoll.Modifier);
 			Assert.AreEqual(DiceSides.d4, diceRoll.Dice.First().Sides);
-			Assert.AreEqual(smallStats.RangeAttackBonus(), atk.AttackBonus);
+			Assert.AreEqual(smallStats.RangeAttackBonus.TotalValue, atk.AttackBonus);
 		}
 
 		[Test]
@@ -126,7 +133,7 @@ namespace Tests.Characters {
 			inventory.AddGear(Nunchaku());
 			var atk = smallStats.Attacks().First();
 			Assert.IsNotNull(atk);
-			Assert.AreEqual(smallStats.MeleeAttackBonus() + OffenseStats.UnproficientWeaponModifier, atk.AttackBonus);
+			Assert.AreEqual(smallStats.MeleeAttackBonus.TotalValue + OffenseStats.UnproficientWeaponModifier, atk.AttackBonus);
 		}
 
 		[Test]
@@ -162,7 +169,11 @@ namespace Tests.Characters {
 		{
 			var stats = smallStats.Statistics;
 			Assert.That(stats.Count(), Is.EqualTo(3));
-			Assert.That(stats, Is.EquivalentTo(new BasicStat[] { smallStats.BaseAttackBonus, smallStats.combatManeuverOffense, smallStats.combatManeuverDefense }));
+			Assert.That(stats, Is.EquivalentTo(new BasicStat[] { 
+				smallStats.BaseAttackBonus, 
+				smallStats.combatManeuverOffense, 
+				smallStats.combatManeuverDefense,
+			}));
 		}
 
 		private Weapon Longsword() {
@@ -182,12 +193,12 @@ namespace Tests.Characters {
 		}
 
 		class MockMod : IModifiesStats {
-			public IList<BasicStatModifier> Modifiers { get; set;  }
+			public IList<ValueStatModifier> Modifiers { get; set;  }
 
 			public MockMod() {
-				Modifiers = new List<BasicStatModifier>();
-				Modifiers.Add(new BasicStatModifier("CMD", 1, "racial", "Trait"));
-				Modifiers.Add(new BasicStatModifier("CMB", 1, "racial", "Trait"));
+				Modifiers = new List<ValueStatModifier>();
+				Modifiers.Add(new ValueStatModifier("CMD", 1, "racial", "Trait"));
+				Modifiers.Add(new ValueStatModifier("CMB", 1, "racial", "Trait"));
 			}
 		}
 

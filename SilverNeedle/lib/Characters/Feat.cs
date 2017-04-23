@@ -21,7 +21,7 @@ namespace SilverNeedle.Characters
         /// </summary>
         public Feat()
         {
-            this.Modifiers = new List<BasicStatModifier>();
+            this.Modifiers = new List<ValueStatModifier>();
             this.SpecialAbilities = new List<SpecialAbility>();
             this.Prerequisites = new Prerequisites();
             this.Tags = new List<string>();
@@ -48,7 +48,7 @@ namespace SilverNeedle.Characters
         /// Gets the modifiers for the stats that are to be modified.
         /// </summary>
         /// <value>The modifiers for stats effected by this feat.</value>
-        public IList<BasicStatModifier> Modifiers { get; private set; }
+        public IList<ValueStatModifier> Modifiers { get; private set; }
 
         public IList<SpecialAbility> SpecialAbilities { get; private set; }
 
@@ -127,7 +127,7 @@ namespace SilverNeedle.Characters
                     var skillName = skillAdj.GetString("stat");
                     var modifier = skillAdj.GetInteger("modifier");
                     var type = skillAdj.GetString("type");
-                    Modifiers.Add(new BasicStatModifier(
+                    Modifiers.Add(new ValueStatModifier(
                         skillName,
                         modifier,
                         type,

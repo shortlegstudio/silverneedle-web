@@ -123,7 +123,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
         /// </summary>
         /// <param name="size">Size to assign to.</param>
         /// <param name="race">Race selected.</param>
-        private void SetSizeForRace(ISizeStats size, Race race)
+        private void SetSizeForRace(SizeStats size, Race race)
         {
             // Update Size
             size.SetSize(race.SizeSetting, race.HeightRange.Roll(), race.WeightRange.Roll());

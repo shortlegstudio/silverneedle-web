@@ -121,6 +121,14 @@ namespace SilverNeedle
             this.conditionalModifiers.Add(conditional);
         }
 
+        public void AddModifiers(params IStatModifier[] modifiers)
+        {
+            foreach(var mod in modifiers)
+            {
+                AddModifier(mod);
+            }
+        }
+
         /// <summary>
         /// Sets the Base Value for the stat 
         /// </summary>

@@ -225,14 +225,14 @@ namespace Tests.Characters {
         }
 
         class MockMod : IModifiesStats {
-        public IList<BasicStatModifier> Modifiers { get; set;  }
+        public IList<ValueStatModifier> Modifiers { get; set;  }
 
         public MockMod() {
-            Modifiers = new List<BasicStatModifier>();
-            Modifiers.Add(new BasicStatModifier("Armor Class", 1, "Cause", "Dodge"));
-            Modifiers.Add(new BasicStatModifier("Will", 1, "Halfing Luck", "Trait"));
-            Modifiers.Add(new BasicStatModifier("Reflex", 1, "Halfing Luck", "Trait"));
-            Modifiers.Add(new BasicStatModifier("Fortitude", 1, "Halfing Luck", "Trait"));
+            Modifiers = new List<ValueStatModifier>();
+            Modifiers.Add(new ValueStatModifier("Armor Class", 1, "Cause", "Dodge"));
+            Modifiers.Add(new ValueStatModifier("Will", 1, "Halfing Luck", "Trait"));
+            Modifiers.Add(new ValueStatModifier("Reflex", 1, "Halfing Luck", "Trait"));
+            Modifiers.Add(new ValueStatModifier("Fortitude", 1, "Halfing Luck", "Trait"));
         }
     }
 

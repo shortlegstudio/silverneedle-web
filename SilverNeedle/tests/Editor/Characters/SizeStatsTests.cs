@@ -14,14 +14,14 @@ namespace Tests.Characters {
 		[Test]
 		public void ASmallCreatureAsASizeModifierOfOne() {
 			var smallCreature = new SizeStats (CharacterSize.Small, 36, 36);
-			Assert.AreEqual (1, smallCreature.SizeModifier);
+			Assert.AreEqual (1, smallCreature.SizeModifier.Modifier);
 		}
 
 		[Test]
 		public void UpdatingTheSizeChangesTheModifier() {
 			var smallToStart = new SizeStats (CharacterSize.Small, 32, 28);
 			smallToStart.SetSize (CharacterSize.Large, 89, 283);
-			Assert.AreEqual (-1, smallToStart.SizeModifier);
+			Assert.AreEqual (-1, smallToStart.SizeModifier.Modifier);
 		}
 
 		[Test]

@@ -8,6 +8,8 @@ namespace SilverNeedle.Characters
     public static class StatNames
     {
         public const string BaseAttackBonus = "BAB";
+        public const string MeleeAttackBonus = "Melee Attack Bonus";
+        public const string RangeAttackBonus = "Range Attack Bonus";
         public const string CMD = "CMD";
         public const string CMB = "CMB"; 
 

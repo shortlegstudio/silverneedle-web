@@ -12,11 +12,11 @@ namespace SilverNeedle.Beastiary
     {
         public string Name { get; set; }
 
-        public IList<BasicStatModifier> Modifiers { get; private set; }
+        public IList<ValueStatModifier> Modifiers { get; private set; }
 
         public Familiar()
         {
-            Modifiers = new List<BasicStatModifier>();
+            Modifiers = new List<ValueStatModifier>();
         }
 
         public Familiar(string name) : this()

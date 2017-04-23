@@ -8,7 +8,7 @@ namespace SilverNeedle
     /// <summary>
     /// A Conditional stat modifier only modifies a statistic when a condition is met
     /// </summary>
-    public class ConditionalStatModifier : BasicStatModifier
+    public class ConditionalStatModifier : ValueStatModifier
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.ConditionalStatModifier"/> class.

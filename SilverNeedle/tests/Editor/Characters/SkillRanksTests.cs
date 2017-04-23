@@ -122,7 +122,7 @@ namespace Tests.Characters
             _abilityScores.SetScore(AbilityScoreTypes.Intelligence, 10);
             
             var trait = new Trait();
-            trait.Modifiers.Add(new BasicStatModifier("Skill Points", 1, "bonus", "trait"));
+            trait.Modifiers.Add(new ValueStatModifier("Skill Points", 1, "bonus", "trait"));
             Subject.ProcessModifier(trait);
             Assert.AreEqual(1, Subject.BonusSkillPointsPerLevel());
         }
@@ -173,12 +173,12 @@ namespace Tests.Characters
 
         class MockMod : IModifiesStats
         {
-            public IList<BasicStatModifier> Modifiers { get; set; }
+            public IList<ValueStatModifier> Modifiers { get; set; }
 
             public MockMod()
             {
-                Modifiers = new List<BasicStatModifier>();
-                Modifiers.Add(new BasicStatModifier("Climb", 3, "Cause", "Climb"));
+                Modifiers = new List<ValueStatModifier>();
+                Modifiers.Add(new ValueStatModifier("Climb", 3, "Cause", "Climb"));
             }
         }
     }

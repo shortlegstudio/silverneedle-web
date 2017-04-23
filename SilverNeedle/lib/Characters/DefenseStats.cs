@@ -111,27 +111,19 @@ namespace SilverNeedle.Characters
                 new EquippedArmorMaxDexBonuxModifier(components)
             );
             
-            this.ArmorClass.AddModifier(
-                new LimitStatModifier(abilities.GetAbility(AbilityScoreTypes.Dexterity), this.MaxDexterityBonus)
-            );
-            this.ArmorClass.AddModifier(
-                new BasicStatModifier(size.SizeModifier, "Size")
-            );
-            this.ArmorClass.AddModifier(
+            this.ArmorClass.AddModifiers(
+                new LimitStatModifier(abilities.GetAbility(AbilityScoreTypes.Dexterity), this.MaxDexterityBonus),
+                size.SizeModifier,
                 new EquippedArmorClassModifier(components)
             );
 
-            this.TouchArmorClass.AddModifier(
-                new LimitStatModifier(abilities.GetAbility(AbilityScoreTypes.Dexterity), this.MaxDexterityBonus)
-            );
-            this.TouchArmorClass.AddModifier(
-                new BasicStatModifier(size.SizeModifier, "Size")
+            this.TouchArmorClass.AddModifiers(
+                new LimitStatModifier(abilities.GetAbility(AbilityScoreTypes.Dexterity), this.MaxDexterityBonus),
+                size.SizeModifier
             );
 
-            this.FlatFootedArmorClass.AddModifier(
-                new BasicStatModifier(size.SizeModifier, "Size")
-            );
-            this.FlatFootedArmorClass.AddModifier(
+            this.FlatFootedArmorClass.AddModifiers(
+                size.SizeModifier, 
                 new EquippedArmorClassModifier(components)
             );
         }
@@ -244,9 +236,9 @@ namespace SilverNeedle.Characters
             var reason = string.Format("LEVEL UP ({0})", cls.Name);
 
             // Add Adjustment for each level
-            this.FortitudeSave.AddModifier(new BasicStatModifier(cls.FortitudeSaveRate, reason));
-            this.ReflexSave.AddModifier(new BasicStatModifier(cls.ReflexSaveRate, reason));
-            this.WillSave.AddModifier(new BasicStatModifier(cls.WillSaveRate, reason));
+            this.FortitudeSave.AddModifier(new ValueStatModifier(cls.FortitudeSaveRate, reason));
+            this.ReflexSave.AddModifier(new ValueStatModifier(cls.ReflexSaveRate, reason));
+            this.WillSave.AddModifier(new ValueStatModifier(cls.WillSaveRate, reason));
         }
 
         /// <summary>

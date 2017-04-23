@@ -9,34 +9,34 @@ namespace SilverNeedle
     /// Basic stat modifier provides a method for tracking what modifiers to apply to various statistics
     /// An example of a modifier might be a feat that provides a +1 dodge bonus to AC
     /// </summary>
-    public class BasicStatModifier : IStatModifier
+    public class ValueStatModifier : IStatModifier
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="SilverNeedle.BasicStatModifier"/> class.
+        /// Initializes a new instance of the <see cref="SilverNeedle.ValueStatModifier"/> class.
         /// </summary>
-        public BasicStatModifier()
+        public ValueStatModifier()
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SilverNeedle.BasicStatModifier"/> class.
+        /// Initializes a new instance of the <see cref="SilverNeedle.ValueStatModifier"/> class.
         /// </summary>
         /// <param name="modifier">Modifier amount for the stat</param>
         /// <param name="reason">Reason for this modifier</param>
-        public BasicStatModifier(float modifier, string reason)
+        public ValueStatModifier(float modifier, string reason)
         {
             this.Modifier = modifier;
             this.Reason = reason;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SilverNeedle.BasicStatModifier"/> class.
+        /// Initializes a new instance of the <see cref="SilverNeedle.ValueStatModifier"/> class.
         /// </summary>
         /// <param name="statisticName">Statistic name to modify</param>
         /// <param name="modifier">Modifier amount</param>
         /// <param name="type">Type of modifier (armor, shield, luck, morale, etc...)</param>
         /// <param name="reason">Reason for modifier</param>
-        public BasicStatModifier(string statisticName, float modifier, string type, string reason)
+        public ValueStatModifier(string statisticName, float modifier, string type, string reason)
         {
             this.Modifier = modifier;
             this.StatisticName = statisticName;

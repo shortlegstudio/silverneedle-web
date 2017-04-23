@@ -13,7 +13,7 @@ namespace SilverNeedle
     /// Ability stat modifier will represent the modifiers for a stat that affects
     /// a statistic. For example applying constitution bonus to a fortitude save
     /// </summary>
-    public class AbilityStatModifier : BasicStatModifier
+    public class AbilityStatModifier : ValueStatModifier
     {
         /// <summary>
         /// The ability score to pull the modifier from

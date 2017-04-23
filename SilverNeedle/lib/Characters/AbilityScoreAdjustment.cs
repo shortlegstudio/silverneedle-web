@@ -9,7 +9,7 @@ namespace SilverNeedle.Characters
     /// <summary>
     /// Ability score adjustment.
     /// </summary>
-    public class AbilityScoreAdjustment : BasicStatModifier
+    public class AbilityScoreAdjustment : ValueStatModifier
     {
         /// <summary>
         /// Gets or sets a value indicating whether this modifier was triggered by racial selection
