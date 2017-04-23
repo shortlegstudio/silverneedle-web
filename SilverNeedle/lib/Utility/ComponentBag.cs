@@ -24,6 +24,12 @@ namespace SilverNeedle.Utility
             components.Add(obj);
         }
 
+        public void Add(params object[] objects)
+        {
+            foreach(var o in objects)
+                Add(o);
+        }
+
         public T Get<T>()
         {
             return components.OfType<T>().FirstOrDefault();

@@ -34,7 +34,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
             data.SetValue("level", 3);
             var step = new ConfigureArmorTraining(data);
             var at = new ArmorTraining();
-            at.Level = 2;
+            at.SetLevel(2);
             var character = new CharacterSheet();
             character.AddAbility(at);
             step.Process(character, new CharacterBuildStrategy());

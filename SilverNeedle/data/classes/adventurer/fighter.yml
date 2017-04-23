@@ -49,11 +49,9 @@
           type: Feat Token
           condition: combat
     - level: 5
-      special:
-        - name: Weapon Training 1
-          type: Weapon Training
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureWeaponTraining
           level: 1
-          condition:
     - level: 6
       special:
         - name: Bonus Feat
@@ -75,11 +73,9 @@
           type: Feat Token
           condition: combat
     - level: 9
-      special:
-        - name: Weapon Training 2
-          type: Weapon Training
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureWeaponTraining
           level: 2
-          condition:
     - level: 10
       special:
         - name: Bonus Feat
@@ -101,11 +97,9 @@
           type: Feat Token
           condition: combat
     - level: 13
-      special:
-        - name: Weapon Training 3
-          type: Weapon Training
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureWeaponTraining
           level: 3
-          condition:
     - level: 14
       special:
         - name: Bonus Feat
@@ -127,11 +121,9 @@
           type: Feat Token
           condition: combat
     - level: 17
-      special:
-        - name: Weapon Training 4
-          type: Weapon Training
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureWeaponTraining
           level: 4
-          condition:
     - level: 18
       special:
         - name: Bonus Feat
@@ -156,7 +148,3 @@
         - name: Weapon Mastery
           type: Weapon Mastery
           condition:
-    
-
-    
-

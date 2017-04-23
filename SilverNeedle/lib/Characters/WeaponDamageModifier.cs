@@ -10,7 +10,7 @@ namespace SilverNeedle.Characters
     using SilverNeedle.Equipment;
     public class WeaponDamageModifier : IStatModifier, IWeaponModifier
     {
-        public float Modifier { get; private set; }
+        public float Modifier { get; set; }
 
         public string Reason { get; private set; }
 

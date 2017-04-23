@@ -9,7 +9,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     /// Provides the ability to move at full speed with heavier armors and 
     /// reduces the maximum dex penalty of armor
     /// </summary>
-    public class ArmorTraining : LevelAbility, IComponent
+    public class ArmorTraining : SpecialAbility, IComponent
     {
         public ArmorTraining()
         {
@@ -33,6 +33,14 @@ namespace SilverNeedle.Characters.SpecialAbilities
         public IStatModifier ArmorCheckBonusModifier { get; private set; }
 
         public IStatModifier ArmorMovementBonusModifier { get; private set; }
+
+        public int Level { get; private set; }
+
+        public void SetLevel(int level)
+        {
+            this.Level = level;
+            this.Name = string.Format("Armor Training {0}", this.Level);
+        }
 
         public void Initialize(ComponentBag components)
         {

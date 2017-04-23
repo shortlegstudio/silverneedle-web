@@ -61,6 +61,8 @@ namespace SilverNeedle.Characters
 
         private List<IWeaponModifier> weaponModifiers;
 
+        public IEnumerable<IWeaponModifier> WeaponModifiers { get { return weaponModifiers; } }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Characters.OffenseStats"/> class.
         /// </summary>

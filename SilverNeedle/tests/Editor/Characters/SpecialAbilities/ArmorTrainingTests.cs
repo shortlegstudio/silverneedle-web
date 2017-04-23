@@ -18,7 +18,7 @@ namespace Tests.Characters
             var skillRanks = new SkillRanks(new Skill[] { new Skill("Test", AbilityScoreTypes.Strength, false)},abilityScores);
             var armorTrain = new ArmorTraining();
             var moveStats = new MovementStats();
-            armorTrain.Level = 2;
+            armorTrain.SetLevel(2);
             var bag = new ComponentBag();
             bag.Add(defStats);
             bag.Add(armorTrain);
@@ -41,7 +41,7 @@ namespace Tests.Characters
             Assert.That(armorMove.Modifiers, Contains.Item(armorTrain.ArmorMovementBonusModifier));
 
             //Increase ArmorTraining Level Improves Modifiers
-            armorTrain.Level = 3;
+            armorTrain.SetLevel(3);
             Assert.That(armorTrain.MaxDexBonusModifier.Modifier, Is.EqualTo(3));
             Assert.That(armorTrain.ArmorCheckBonusModifier.Modifier, Is.EqualTo(3));
         }

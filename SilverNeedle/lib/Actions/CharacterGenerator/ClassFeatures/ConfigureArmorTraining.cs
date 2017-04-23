@@ -26,9 +26,8 @@ namespace SilverNeedle.Actions.CharacterGenerator.ClassFeatures
                 armorTraining = new ArmorTraining();
                 character.AddAbility(armorTraining);
             } 
+            armorTraining.SetLevel(ArmorTrainingLevel);
 
-            armorTraining.Level = ArmorTrainingLevel;
-            armorTraining.Name = string.Format("Armor Training {0}", armorTraining.Level);
         }
     }
 }
