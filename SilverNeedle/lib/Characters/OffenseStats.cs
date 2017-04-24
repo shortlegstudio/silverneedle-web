@@ -268,6 +268,7 @@ namespace SilverNeedle.Characters
             atk.Weapon = weapon;
             atk.Damage = DiceStrings.ParseDice(DamageTables.ConvertDamageBySize(weapon.Damage, this.Size.Size));
             atk.AttackBonus = this.MeleeAttackBonus.TotalValue;
+            atk.CriticalModifier = weapon.CriticalModifier;
             
             // Figure out to apply damage modifier
             if (attackType == AttackTypes.Melee)
@@ -322,6 +323,8 @@ namespace SilverNeedle.Characters
 
             public AttackTypes AttackType { get; set; }
 
+            public int CriticalModifier { get; set; }
+
             /// <summary>
             /// Returns a <see cref="System.String"/> that represents the current <see cref="SilverNeedle.Characters.OffenseStats+AttackStatistic"/>.
             /// </summary>
@@ -334,7 +337,7 @@ namespace SilverNeedle.Characters
                     this.AttackBonus.ToModifierString(), 
                     this.Damage, 
                     this.Weapon.CriticalThreat, 
-                    this.Weapon.CriticalModifier);
+                    this.CriticalModifier);
             }
         }
     }

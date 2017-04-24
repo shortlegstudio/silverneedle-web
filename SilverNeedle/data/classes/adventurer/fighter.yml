@@ -123,3 +123,5 @@
     - level: 20
       bonus-feats:
         - tags: combat
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureWeaponMastery
