@@ -23,7 +23,7 @@ namespace SilverNeedle.Actions.CharacterGenerator.ClassFeatures
         public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             var ability = new ArmorMastery(Amount, Type);
-            character.AddAbility(ability);
+            character.Add(ability);
         }
     }
 }

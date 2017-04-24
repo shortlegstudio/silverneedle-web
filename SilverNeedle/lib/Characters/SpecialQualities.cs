@@ -7,24 +7,21 @@ namespace SilverNeedle.Characters
 {
     using System.Collections.Generic;
     using System.Linq;
-    public class SpecialQualities
+    using SilverNeedle.Utility;
+
+    public class SpecialQualities : IComponent
     {
         private const string SpecialAbilityName = "Ability";
 
         private const string SightAbilityName = "Sight";
 
-        private List<SpecialAbility> specialAbilities;
-
-        public SpecialQualities()
-        {
-            specialAbilities = new List<SpecialAbility>();
-        }
+        private ComponentBag components;
 
         public IEnumerable<SpecialAbility> SpecialAbilities
         {
             get
             {
-                return specialAbilities;
+                return components.GetAll<SpecialAbility>();
             }
         }
 
@@ -32,21 +29,13 @@ namespace SilverNeedle.Characters
         {
             get
             {
-                return specialAbilities.Where(x => string.Equals(x.Type, SightAbilityName));
+                return this.SpecialAbilities.Where(x => string.Equals(x.Type, SightAbilityName));
             }
         }
 
-        public void Add(SpecialAbility ability)
+        public void Initialize(ComponentBag components)
         {
-            specialAbilities.Add(ability);
-        }
-
-        public void ProcessSpecialAbilities(IProvidesSpecialAbilities abilities)
-        {
-            foreach (var abl in abilities.SpecialAbilities)
-            {
-                Add(abl);
-            }
+            this.components = components;
         }
     }
 }

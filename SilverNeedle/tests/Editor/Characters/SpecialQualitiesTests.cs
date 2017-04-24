@@ -9,49 +9,31 @@ namespace Tests.Characters
     using System.Collections.Generic;
     using NUnit.Framework;
     using SilverNeedle.Characters;
+    using SilverNeedle.Utility;
 
     [TestFixture]
     public class SpecialQualitiesTests
     {
         [Test]
-        public void ProcessSpecialQualityAbilities()
+        public void TracksAbilities()
         {
+            var bag = new ComponentBag();
             var sq = new SpecialQualities();
-            var abl = new SomeSpecialAbilities();
-            sq.ProcessSpecialAbilities(abl);
-            Assert.AreEqual(sq.SpecialAbilities.First(), abl.SpecialAbilities.First());
+            sq.Initialize(bag);
+            bag.Add(new SpecialAbility());
+            bag.Add(new SpecialAbility());
+            Assert.That(sq.SpecialAbilities.Count(), Is.EqualTo(2));
         }
 
         [Test]
         public void BreaksOutSightBasedAbilities()
         {
+            var bag = new ComponentBag();
             var sq = new SpecialQualities();
-            var abl = new SomeSpecialAbilities();
-            sq.ProcessSpecialAbilities(abl);
-            Assert.AreEqual(sq.SightAbilities.First(), abl.SpecialAbilities.Last());
-        }
-
-        [Test]
-        public void CanAddSpecialAbilities()
-        {
-            var sq = new SpecialQualities();
-            var ability = new SpecialAbility();
-            sq.Add(ability);
-            Assert.That(sq.SpecialAbilities.First(), Is.EqualTo(ability));
-        }
-
-        private class SomeSpecialAbilities : IProvidesSpecialAbilities
-        {
-            public System.Collections.Generic.IList<SpecialAbility> SpecialAbilities { get; set; }
-
-            public SomeSpecialAbilities() 
-            {
-                SpecialAbilities = new List<SpecialAbility>();
-                SpecialAbilities.Add(new SpecialAbility("Trapfinding +1", "Ability"));
-                SpecialAbilities.Add(new SpecialAbility("Darkvision", "Sight"));
-            }
-
+            sq.Initialize(bag);
+            var darkVision = new SpecialAbility("Darkvision", "Sight");
+            bag.Add(darkVision);
+            Assert.That(sq.SightAbilities, Contains.Item(darkVision));
         }
     }
 }
-

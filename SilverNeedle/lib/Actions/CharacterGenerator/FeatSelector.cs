@@ -48,11 +48,11 @@ namespace SilverNeedle.Actions.CharacterGenerator
 
                 if(preferredFeats.IsEmpty) {
                     var feats = this.feats.Where(x => x.IsQualified(character)).ToList();
-                    character.AddFeat(feats.ChooseOne());
+                    character.Add(feats.ChooseOne());
                 } else {
                     var selection = preferredFeats.ChooseRandomly();
                     var feat = feats.Find(selection);
-                    character.AddFeat(feat);
+                    character.Add(feat);
                 }               
             }
             character.FeatTokens.Clear();

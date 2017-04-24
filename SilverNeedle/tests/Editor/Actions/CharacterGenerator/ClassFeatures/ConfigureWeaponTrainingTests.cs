@@ -39,7 +39,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
             var training = new ConfigureWeaponTraining(store);
             var character = new CharacterSheet();
             var wpnTrain1 = new WeaponTraining(WeaponGroup.Axes, 1);
-            character.AddAbility(wpnTrain1);
+            character.Add(wpnTrain1);
             training.Process(character, new CharacterBuildStrategy());
         
             var trainings = character.Components.GetAll<WeaponTraining>();

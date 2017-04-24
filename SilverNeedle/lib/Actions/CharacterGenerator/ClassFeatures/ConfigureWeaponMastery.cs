@@ -17,7 +17,7 @@ namespace SilverNeedle.Actions.CharacterGenerator.ClassFeatures
         {
             var chosenWeapon = GatewayProvider.Get<Weapon>().ChooseOne();
             var mastery = new WeaponMastery(chosenWeapon);
-            character.AddAbility(mastery);
+            character.Add(mastery);
         }
     }
 }

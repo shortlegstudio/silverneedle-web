@@ -33,6 +33,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
         public void ChoosesAFamiliarForTheCharacter()
         {
             var character = new CharacterSheet();
+            character.InitializeComponents();
             subject.Process(character, new CharacterBuildStrategy());
 
             var summon = character.SpecialQualities.SpecialAbilities.First() as SummonFamiliar;
@@ -44,6 +45,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
         {
             bat.Modifiers.Add(new ValueStatModifier("Perception", 5, "bonus", "Familiar (Bat)"));
             var character = new CharacterSheet(new Skill[] { new Skill("Perception", AbilityScoreTypes.Wisdom, false) });
+            character.InitializeComponents();
             var baseValue = character.GetSkillValue("Perception");
             subject.Process(character, new CharacterBuildStrategy());
             Assert.That(character.GetSkillValue("Perception"), Is.EqualTo(baseValue + 5));

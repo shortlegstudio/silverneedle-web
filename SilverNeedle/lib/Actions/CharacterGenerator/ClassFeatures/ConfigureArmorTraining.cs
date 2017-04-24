@@ -24,7 +24,7 @@ namespace SilverNeedle.Actions.CharacterGenerator.ClassFeatures
             if(armorTraining == null)
             {
                 armorTraining = new ArmorTraining();
-                character.AddAbility(armorTraining);
+                character.Add(armorTraining);
             } 
             armorTraining.SetLevel(ArmorTrainingLevel);
 

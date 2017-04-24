@@ -28,8 +28,7 @@ namespace SilverNeedle.Actions.CharacterGenerator.ClassFeatures
         {
             var familiar = familiars.ChooseOne();
             var summon = new SummonFamiliar(familiar);
-            character.SpecialQualities.Add(summon);
-            character.ProcessStatModifier(summon);
+            character.Add(summon);
         }
     }
 }

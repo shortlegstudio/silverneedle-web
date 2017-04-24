@@ -89,7 +89,7 @@ namespace Tests.Characters
                 new ValueStatModifier("Will", 10, "Trait", "Cause")
             );
             var oldScore = sheet.Defense.WillSave.TotalValue;
-            sheet.AddTrait(trait);
+            sheet.Add(trait);
             Assert.AreEqual(oldScore + 10, sheet.Defense.WillSave.TotalValue);
         }
 
@@ -100,7 +100,7 @@ namespace Tests.Characters
             var trait = new Trait();
             trait.SpecialAbilities.Add(
                 new SpecialAbility("vs. Spells", "Immunity"));
-            sheet.AddTrait(trait);
+            sheet.Add(trait);
             Assert.Greater(sheet.Defense.Immunities.Count(), 0);
         }
 
@@ -111,7 +111,7 @@ namespace Tests.Characters
             var feat = new Feat();
             feat.SpecialAbilities.Add(
                 new SpecialAbility("Sneak Attack 1d6", "Offensive"));
-            sheet.AddFeat(feat);
+            sheet.Add(feat);
             Assert.Greater(sheet.Offense.OffensiveAbilities.Count(), 0);
         }
 
@@ -119,10 +119,11 @@ namespace Tests.Characters
         public void AddingTraitsCouldAddSpecialQualities()
         {
             CharacterSheet sheet = new CharacterSheet(_testSkills);
+            sheet.InitializeComponents();
             var trait = new Trait();
             trait.SpecialAbilities.Add(
                 new SpecialAbility("vs. Spells", "Ability"));
-            sheet.AddTrait(trait);
+            sheet.Add(trait);
             Assert.Greater(sheet.SpecialQualities.SpecialAbilities.Count(), 0);
         }
 
@@ -153,7 +154,7 @@ namespace Tests.Characters
         {
             var character = new CharacterSheet();
             var ability = new SpecialAbility();
-            character.AddAbility(ability);
+            character.Add(ability);
             Assert.That(character.Components.Get<SpecialAbility>(), Is.EqualTo(ability));
         }
 
@@ -162,7 +163,7 @@ namespace Tests.Characters
         {
             var character = new CharacterSheet();
             var ability = new CompAbility();
-            character.AddAbility(ability);
+            character.Add(ability);
             Assert.That(ability.Called, Is.True);
         }
 

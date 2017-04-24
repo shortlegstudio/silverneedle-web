@@ -266,32 +266,6 @@ namespace SilverNeedle.Characters
         }
 
         /// <summary>
-        /// Adds a trait to the chraacter
-        /// </summary>
-        /// <param name="trait">Trait to add.</param>
-        /// <param name="notify">If set to <c>true</c> notify.</param>
-        public void AddTrait(Trait trait)
-        {
-            this.Components.Add(trait);
-            this.ProcessStatModifier(trait);
-            this.ProcessSpecialAbilities(trait);
-        }
-
-        /// <summary>
-        /// Adds a feat to the character.
-        /// </summary>
-        /// <param name="feat">Feat to add.</param>
-        /// <param name="notify">If set to <c>true</c> notify.</param>
-        public void AddFeat(Feat feat)
-        {
-            this.Components.Add(feat);
-
-            // TODO: This is very similar to traits but slightly different. Should be able to standardize the behavior
-            this.ProcessStatModifier(feat);
-            this.ProcessSpecialAbilities(feat);
-        }
-
-        /// <summary>
         /// Gets a character skill.
         /// </summary>
         /// <returns>The character's ability with the skill found.</returns>
@@ -345,17 +319,13 @@ namespace SilverNeedle.Characters
             this.CurrentHitPoints += hp;
         }
 
-        public void AddAbility(SpecialAbility ability)
+        private void InitializeComponent(object obj)
         {
-            this.Components.Add(ability);
-            this.SpecialQualities.Add(ability);
-
-            var component = ability as IComponent;
-            if(component != null)
+            var component = obj as IComponent;
+            if (component != null)
             {
                 component.Initialize(this.Components);
             }
-
         }
 
         public void ProcessLevel(Level level)
@@ -380,12 +350,24 @@ namespace SilverNeedle.Characters
         {
             this.Defense.ProcessSpecialAbilities(abilities);
             this.Offense.ProcessSpecialAbilities(abilities);
-            this.SpecialQualities.ProcessSpecialAbilities(abilities);
+            foreach(var abl in abilities.SpecialAbilities)
+            {
+                Add(abl);
+            }
         }
 
         public void Add<T>(T feature)
         {
             this.Components.Add(feature);
+            var statMod = feature as IModifiesStats;
+            if(statMod != null)
+                this.ProcessStatModifier(statMod);
+
+            var abilities = feature as IProvidesSpecialAbilities;
+            if(abilities != null)
+                this.ProcessSpecialAbilities(abilities);
+
+            InitializeComponent(feature);
         }
 
         public BasicStat FindStat(string name)

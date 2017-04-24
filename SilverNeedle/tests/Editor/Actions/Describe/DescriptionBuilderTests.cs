@@ -18,6 +18,7 @@ namespace Tests.Actions.Describe
             var desc = new DescriptionBuilder();
             desc.FormatString = "{{pronoun}} has a long mustache.";
             var character = new CharacterSheet();
+            character.InitializeComponents();
             character.Gender = Gender.Female;
 
             var result = desc.Describe(character);

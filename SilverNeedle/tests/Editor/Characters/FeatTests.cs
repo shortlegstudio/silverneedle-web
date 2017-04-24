@@ -53,7 +53,7 @@ namespace Tests.Characters {
         {
             var character = new CharacterSheet (new List<Skill>());
             var basicFeat = new Feat();
-            character.AddFeat(basicFeat);
+            character.Add(basicFeat);
             Assert.IsFalse(basicFeat.IsQualified(character));
         }
 

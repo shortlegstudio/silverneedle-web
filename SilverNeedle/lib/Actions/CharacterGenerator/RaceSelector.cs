@@ -91,7 +91,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
             foreach (var trait in race.Traits)
             {
                 var t = this.traitGateway.All().First(x => x.Name == trait);
-                character.AddTrait(t);
+                character.Add(t);
             }
         }
 

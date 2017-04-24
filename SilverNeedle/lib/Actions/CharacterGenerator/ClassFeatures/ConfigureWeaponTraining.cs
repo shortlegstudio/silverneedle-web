@@ -31,7 +31,7 @@ namespace SilverNeedle.Actions.CharacterGenerator.ClassFeatures
             // Add a new group
             var group = EnumHelpers.GetValues<WeaponGroup>().Where(grp => !trainings.Any(already => already.Group == grp)).ChooseOne();
             var weaponTraining = new WeaponTraining(group, 1);
-            character.AddAbility(weaponTraining);
+            character.Add(weaponTraining);
         }
     }
 }

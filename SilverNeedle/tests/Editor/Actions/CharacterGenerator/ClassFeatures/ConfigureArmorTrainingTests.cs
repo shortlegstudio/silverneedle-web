@@ -22,6 +22,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
             data.SetValue("level", 1);
             var step = new ConfigureArmorTraining(data);
             var character = new CharacterSheet();
+            character.InitializeComponents();
             step.Process(character, new CharacterBuildStrategy());
             var ability = character.SpecialQualities.SpecialAbilities.First();
             Assert.That(ability, Is.TypeOf<SilverNeedle.Characters.SpecialAbilities.ArmorTraining>());
@@ -36,7 +37,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
             var at = new ArmorTraining();
             at.SetLevel(2);
             var character = new CharacterSheet();
-            character.AddAbility(at);
+            character.Add(at);
             step.Process(character, new CharacterBuildStrategy());
             Assert.That(at.Level, Is.EqualTo(3));
         }
