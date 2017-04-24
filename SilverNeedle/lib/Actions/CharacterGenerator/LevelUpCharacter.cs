@@ -35,7 +35,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
             character.SetLevel(character.Level + 1);
             character.Offense.LevelUp(character.Class);            
             character.Defense.LevelUpDefenseStats(character.Class);
-            AddSpecialAbilities(character, character.Class.GetLevel(character.Level));
+            character.ProcessLevel(character.Class.GetLevel(character.Level));
 
             if(character.Level % 2 == 1) {
                 character.FeatTokens.Add(new FeatToken());
@@ -56,11 +56,6 @@ namespace SilverNeedle.Actions.CharacterGenerator
         public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             LevelUp(character);
-        }
-
-        private void AddSpecialAbilities(CharacterSheet character, Level level)
-        {
-            character.AddLevelAbilities(level);
         }
     }
 }

@@ -10,31 +10,24 @@ namespace SilverNeedle.Characters
     using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
-    public class Level : IProvidesSpecialAbilities, IModifiesStats
+    public class Level 
     {
-        public IList<SpecialAbility> SpecialAbilities { get; private set; }
         public IList<ValueStatModifier> Modifiers { get; private set; }
 
         public IList<ICharacterDesignStep> Steps { get; private set; }
+        public IList<FeatToken> FeatTokens { get; private set; }
         public int Number { get; private set; }
 
         public Level()
         {
-            SpecialAbilities = new List<SpecialAbility>();
             Modifiers = new List<ValueStatModifier>();
             Steps = new List<ICharacterDesignStep>();
+            FeatTokens = new List<FeatToken>();
         }
 
         public Level(IObjectStore objectStore) : this()
         {
             Load(objectStore);
-        }
-
-        public Level(int number, IEnumerable<LevelAbility> abilities) : this(number)
-        {
-            foreach(var a in abilities) {
-                SpecialAbilities.Add(a);
-            }
         }
 
         public Level(int number) : this()
@@ -45,22 +38,13 @@ namespace SilverNeedle.Characters
         private void Load(IObjectStore objectStore)
         {
             Number = objectStore.GetInteger("level");
-            var specials = objectStore.GetObjectOptional("special");
-            if (specials != null)
+            var featTokens = objectStore.GetObjectOptional("bonus-feats");
+            if(featTokens != null)
             {
-                foreach(var s in specials.Children)
+                foreach(var f in featTokens.Children)
                 {
-                    LevelAbility ability;
-                    // If a special implementation is available
-                    if (s.HasKey("implementation")) {
-                        ability = s.GetString("implementation").Instantiate<LevelAbility>(s);
-                    } else {
-                        ability = new LevelAbility(
-                        s.GetString("name"),
-                        s.GetString("condition"),
-                        s.GetString("type"));
-                    }
-                    SpecialAbilities.Add(ability);                    
+                    var tags = f.GetStringOptional("tags");
+                    FeatTokens.Add(new FeatToken(tags));
                 }
             }
 

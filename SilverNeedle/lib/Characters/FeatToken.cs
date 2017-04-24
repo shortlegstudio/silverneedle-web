@@ -18,6 +18,7 @@ namespace SilverNeedle.Characters
         }
 
         public FeatToken() { }
+        public IEnumerable<string> Tags { get { return this.tags; } }
 
         public bool Qualifies(Feat feat) 
         {

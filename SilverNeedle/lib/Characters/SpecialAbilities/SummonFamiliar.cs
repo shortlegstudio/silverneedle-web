@@ -9,7 +9,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using System.Collections.Generic;
     using SilverNeedle.Beastiary;
 
-    public class SummonFamiliar : LevelAbility, IModifiesStats
+    public class SummonFamiliar : SpecialAbility, IModifiesStats
     {
         public SummonFamiliar(Familiar familiar) 
         {

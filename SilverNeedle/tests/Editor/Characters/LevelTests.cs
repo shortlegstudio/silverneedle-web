@@ -38,13 +38,12 @@ namespace Tests.Characters
         }
 
         [Test]
-        public void LevelsCanHaveSpecialAbilities()
+        public void LevelsCanProvideExtraFeats()
         {
             var level = new Level(fighter);
-            Assert.AreEqual(1, level.SpecialAbilities.Count);
-            var special = level.SpecialAbilities.First();
-            Assert.AreEqual("Feat Token", special.Type);
-            Assert.AreEqual("combat", special.Condition); 
+            Assert.AreEqual(1, level.FeatTokens.Count);
+            var token = level.FeatTokens.First();
+            Assert.That(token.Tags, Contains.Item("combat"));
         }
 
         [Test]
@@ -58,18 +57,6 @@ namespace Tests.Characters
             Assert.AreEqual("Level (2) Bravery +2", mod.Reason);
             Assert.AreEqual("bonus", mod.Type);
             Assert.AreEqual("fear", mod.Condition);
-        }
-
-        [Test]
-        public void InstantiatesASpecificTypeIfSpecifiedByImplementationParameter()
-        {
-            var level = new Level(rogue);
-            Assert.AreEqual(1, level.SpecialAbilities.Count);
-            var ability = level.SpecialAbilities.First();
-            Assert.IsInstanceOf(typeof(RogueTalent), ability);
-            var talent = ability as RogueTalent;
-            Assert.AreEqual("", talent.Condition);
-            Assert.AreEqual("Rogue Talent", talent.Type);
         }
 
         [Test]
@@ -91,10 +78,8 @@ namespace Tests.Characters
         }
         const string fighterLevel = @"---
 - level: 2
-  special:
-    - name: Bonus Feat
-      type: Feat Token
-      condition: combat
+  bonus-feats:
+    - tags: combat
   modifiers:
     - name: Bravery +2
       stat: Will

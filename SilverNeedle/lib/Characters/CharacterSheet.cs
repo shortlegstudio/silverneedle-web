@@ -36,7 +36,6 @@ namespace SilverNeedle.Characters
             this.Components.Add(new Inventory());
             this.Components.Add(new List<Language>());
             this.Components.Add(new SpecialQualities());
-            this.Components.Add(new List<LevelAbility>());
             this.Components.Add(new History());
             this.Components.Add(new PersonalityType("ESTJ"));
             this.Components.Add(new Queue<AbilityScoreToken>());
@@ -131,11 +130,6 @@ namespace SilverNeedle.Characters
         /// </summary>
         /// <value>The character's level.</value>
         public int Level { get; private set; }
-
-        public IList<LevelAbility> LevelAbilities 
-        { 
-            get { return this.Components.Get<List<LevelAbility>>(); }
-        }
 
         /// <summary>
         /// Gets the ability scores
@@ -351,12 +345,6 @@ namespace SilverNeedle.Characters
             this.CurrentHitPoints += hp;
         }
 
-        public void AddLevelAbilities(Level level)
-        {
-            ProcessStatModifier(level);
-            ProcessSpecialAbilities(level);
-        }
-
         public void AddAbility(SpecialAbility ability)
         {
             this.Components.Add(ability);
@@ -368,6 +356,12 @@ namespace SilverNeedle.Characters
                 component.Initialize(this.Components);
             }
 
+        }
+
+        public void ProcessLevel(Level level)
+        {
+            this.Components.ApplyStatModifiers(level.Modifiers);
+            this.FeatTokens.Add(level.FeatTokens);
         }
             
         /// <summary>
@@ -395,9 +389,7 @@ namespace SilverNeedle.Characters
                     var token = new FeatToken(mod.Condition);
                     this.FeatTokens.Add(token);
                 }
-
             }
-
         }
 
         public void Add<T>(T feature)

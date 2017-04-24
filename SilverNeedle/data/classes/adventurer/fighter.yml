@@ -24,15 +24,11 @@
   startingwealth: 5d6
   levels:
     - level: 1
-      special:
-        - name: Bonus Feat
-          type: Feat Token
-          condition: combat
+      bonus-feats:
+        - tags: combat
     - level: 2
-      special:
-        - name: Bonus Feat
-          type: Feat Token
-          condition: combat
+      bonus-feats:
+        - tags: combat
       modifiers:      
         - name: Bravery +1
           stat: Will
@@ -44,19 +40,15 @@
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureArmorTraining
           level: 1
     - level: 4
-      special:
-        - name: Bonus Feat
-          type: Feat Token
-          condition: combat
+      bonus-feats:
+        - tags: combat
     - level: 5
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureWeaponTraining
           level: 1
     - level: 6
-      special:
-        - name: Bonus Feat
-          type: Feat Token
-          condition: combat
+      bonus-feats:
+        - tags: combat
       modifiers:
         - name: Bravery +2
           stat: Will
@@ -68,19 +60,15 @@
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureArmorTraining
           level: 2
     - level: 8
-      special:
-        - name: Bonus Feat
-          type: Feat Token
-          condition: combat
+      bonus-feats:
+        - tags: combat
     - level: 9
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureWeaponTraining
           level: 2
     - level: 10
-      special:
-        - name: Bonus Feat
-          type: Feat Token
-          condition: combat
+      bonus-feats:
+        - tags: combat
       modifiers:
         - name: Bravery +3
           stat: Will
@@ -92,19 +80,15 @@
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureArmorTraining
           level: 3
     - level: 12
-      special:
-        - name: Bonus Feat
-          type: Feat Token
-          condition: combat
+      bonus-feats:
+        - tags: combat
     - level: 13
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureWeaponTraining
           level: 3
     - level: 14
-      special:
-        - name: Bonus Feat
-          type: Feat Token
-          condition: combat
+      bonus-feats:
+        - tags: combat
       modifiers:
         - name: Bravery +4
           stat: Will
@@ -116,19 +100,15 @@
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureArmorTraining
           level: 4
     - level: 16
-      special:
-        - name: Bonus Feat
-          type: Feat Token
-          condition: combat
+      bonus-feats:
+        - tags: combat
     - level: 17
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureWeaponTraining
           level: 4
     - level: 18
-      special:
-        - name: Bonus Feat
-          type: Feat Token
-          condition: combat
+      bonus-feats:
+        - tags: combat
       modifiers:
         - name: Bravery +5
           stat: Will
@@ -136,15 +116,6 @@
           type: bonus
           condition: fear
     - level: 19
-      special:
-        - name: Armor Mastery
-          type: Armor Mastery
-          condition:
     - level: 20
-      special:
-        - name: Bonus Feat
-          type: Feat Token
-          condition: combat
-        - name: Weapon Mastery
-          type: Weapon Mastery
-          condition:
+      bonus-feats:
+        - tags: combat

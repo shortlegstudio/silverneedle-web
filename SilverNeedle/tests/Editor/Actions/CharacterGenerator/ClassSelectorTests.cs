@@ -89,15 +89,12 @@ namespace Tests.Actions
         public void AddSpecialAbilitiesFromFirstLevelForClass()
         {
             var cls = new Class();
-            cls.Levels.Add(new Level(1, new LevelAbility[] {new LevelAbility("Foo", "vs. Fear", "Feat Token")}));
+            var lvl1 = new Level(1);
+            lvl1.FeatTokens.Add(new FeatToken());
+            cls.Levels.Add(lvl1);
             var character = new CharacterSheet();
             subject.AssignClass(character, cls);
             Assert.AreEqual(1, character.FeatTokens.Count);
-        }
-
-        public class MockGateway : EntityGateway<Class>
-        {
-
         }
     }
 }

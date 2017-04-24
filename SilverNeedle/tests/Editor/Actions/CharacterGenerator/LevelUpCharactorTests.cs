@@ -56,11 +56,8 @@ namespace Tests.Actions {
 		[Test]
 		public void AssignsFeatTokensToCharacters() {
             var levelUp = new LevelUpCharacter();
-            var abilities = new LevelAbility[] {
-                new LevelAbility("Bonus Feat", "combat", "Feat Token")
-            };
-
-            var levelOne = new Level(2, abilities);
+            var levelOne = new Level(2);
+            levelOne.FeatTokens.Add(new FeatToken());
             character.Class.Levels.Add(levelOne);
 
             levelUp.LevelUp(character);

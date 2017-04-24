@@ -47,6 +47,14 @@ namespace SilverNeedle.Utility
             Add(value);
         }
 
+        public void ApplyStatModifiers(IEnumerable<IStatModifier> statModifiers)
+        {
+            foreach(var mod in statModifiers)
+            {
+                ApplyStatModifier(mod);
+            }
+        }
+
         public void ApplyStatModifier(IStatModifier statModifier)
         {
             var stat = FindStat(statModifier.StatisticName);

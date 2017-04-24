@@ -152,9 +152,9 @@ namespace Tests.Characters
         public void AddingASpecialAbilityAddsToComponentList()
         {
             var character = new CharacterSheet();
-            var ability = new LevelAbility();
+            var ability = new SpecialAbility();
             character.AddAbility(ability);
-            Assert.That(character.Components.Get<LevelAbility>(), Is.EqualTo(ability));
+            Assert.That(character.Components.Get<SpecialAbility>(), Is.EqualTo(ability));
         }
 
         [Test]
