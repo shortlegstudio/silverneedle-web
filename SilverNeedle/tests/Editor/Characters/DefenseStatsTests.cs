@@ -224,6 +224,14 @@ namespace Tests.Characters {
             ));
         }
 
+        [Test]
+        public void CanHaveDamageResistance()
+        {
+            var dr = new DamageResistance(5, "-");
+            basicStats.AddDamageResistance(dr);
+            Assert.That(basicStats.DamageResistance, Contains.Item(dr));
+        }
+
         class MockMod : IModifiesStats {
         public IList<ValueStatModifier> Modifiers { get; set;  }
 

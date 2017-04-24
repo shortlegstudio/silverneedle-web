@@ -32,6 +32,8 @@ namespace SilverNeedle.Characters
 
         public const string MaxDexterityBonus = "Max Dex Bonus";
 
+        public const string DamageResistance = "DR";
+
         public const string SpellcastingDC = "Spell DC";
     }
 }

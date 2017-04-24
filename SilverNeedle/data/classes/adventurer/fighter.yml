@@ -116,6 +116,10 @@
           type: bonus
           condition: fear
     - level: 19
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureArmorMastery
+          amount: 5
+          damage-type: "-"
     - level: 20
       bonus-feats:
         - tags: combat

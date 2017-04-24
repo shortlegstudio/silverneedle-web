@@ -39,6 +39,14 @@
                         <li><strong>Will</strong>@character.WillSave</li>
                     </ul>
                 </li>
+                @if(character.DamageResistance.Length > 0)
+                {
+                    <li>
+                        <strong>DR:</strong> 
+                        @foreach(var dr in character.DamageResistance)
+                        { @dr }
+                    </li>
+                }
             </ul>
             <h5>OFFENSE</h5>
             <ul class="stats">

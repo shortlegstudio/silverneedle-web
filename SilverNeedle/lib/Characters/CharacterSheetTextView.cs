@@ -33,6 +33,7 @@ namespace SilverNeedle.Characters
             FortitudeSave = character.Defense.FortitudeSave.ToString();
             ReflexSave = character.Defense.ReflexSave.ToString();
             WillSave = character.Defense.WillSave.ToString();
+            DamageResistance = character.Defense.DamageResistance.Select(x => x.ToString()).ToArray();
             MovementSpeed = character.Movement.MovementSpeed.ToString();
             MovementSquares = character.Movement.BaseSquares.ToString();
             AttackTypes = character.Offense.Attacks().Select(x => x.AttackType.ToString()).ToArray();
@@ -197,6 +198,8 @@ namespace SilverNeedle.Characters
         public bool IsSpellCaster { get; private set; }
 
         public string[] SpecialAbilities { get; private set; }
+
+        public string[] DamageResistance { get; private set; }
 
         private string FormatSenses(CharacterSheet character)
         {

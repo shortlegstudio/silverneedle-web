@@ -169,6 +169,8 @@ namespace SilverNeedle.Characters
             }
         }
 
+        public IEnumerable<DamageResistance> DamageResistance { get { return specialAbilities.OfType<DamageResistance>(); } }
+
         /// <summary>
         /// Gets the Armors class.
         /// </summary>
@@ -304,6 +306,11 @@ namespace SilverNeedle.Characters
         public void AddArmorProficiency(string prof)
         {
             this.armorProficiencies.Add(new ArmorProficiency(prof));
+        }
+
+        public void AddDamageResistance(DamageResistance dr)
+        {
+            this.specialAbilities.Add(dr);
         }
 
         /// <summary>
