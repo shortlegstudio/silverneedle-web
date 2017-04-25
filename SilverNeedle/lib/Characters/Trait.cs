@@ -7,11 +7,12 @@ namespace SilverNeedle.Characters
 {
     using System.Collections.Generic;
     using SilverNeedle.Serialization;
+    using SilverNeedle.Utility;
 
     /// <summary>
     /// A trait is some basic innate attribute of the character. Usually positive
     /// </summary>
-    public class Trait : IModifiesStats, IProvidesSpecialAbilities, IGatewayObject
+    public class Trait : IModifiesStats, IProvidesSpecialAbilities, IGatewayObject, IComponent
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Characters.Trait"/> class.
@@ -39,6 +40,7 @@ namespace SilverNeedle.Characters
         /// </summary>
         /// <value>The description.</value>
         public string Description { get; set; }
+        public string CustomConfiguration { get; set; }
 
         /// <summary>
         /// Gets the modifiers for the stats that are to be modified.
@@ -64,7 +66,8 @@ namespace SilverNeedle.Characters
         {
             Name = data.GetString("name"); 
             ShortLog.Debug("Loading Trait: " + Name);
-            Description = data.GetString("description");
+            Description = data.GetStringOptional("description");
+            CustomConfiguration = data.GetStringOptional("configure");
             Tags.Add(data.GetListOptional("tags"));
 
             // Get Any skill Modifiers if they exist
@@ -90,6 +93,16 @@ namespace SilverNeedle.Characters
                     SpecialAbilities.Add(specialAbility);
                 }
             }
+        }
+
+        public void Initialize(ComponentBag components)
+        {
+            if(!string.IsNullOrEmpty(CustomConfiguration))
+            {
+                var instance = CustomConfiguration.Instantiate<IComponent>();
+                instance.Initialize(components);
+            }
+
         }
     }
 }

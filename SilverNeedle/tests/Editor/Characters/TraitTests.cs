@@ -7,47 +7,50 @@ using SilverNeedle.Utility;
 
 namespace Tests.Characters {
 
-	[TestFixture]
-	public class TraitTests {
+  [TestFixture]
+  public class TraitTests {
         Trait darkvision;
-		Trait hardy;
-		Trait halflingLuck;
-		Trait stoneCunning;
+    Trait hardy;
+    Trait halflingLuck;
+    Trait stoneCunning;
+        Trait configureTrait;
 
-		[SetUp]
-		public void SetUp() {
-			var traits = new List<Trait>();
+        [SetUp]
+        public void SetUp() 
+        {
+            var traits = new List<Trait>();
             var data = TraitYamlFile.ParseYaml();
             foreach(var obj in data.Children)
             {
                 traits.Add(new Trait(obj));
             }
-			darkvision = traits.First (x => x.Name == "Darkvision");
-			hardy = traits.First (x => x.Name == "Hardy");
-			halflingLuck = traits.First (x => x.Name == "Halfling Luck");
-			stoneCunning = traits.First(x => x.Name == "Stonecunning");
-		}
+            darkvision = traits.First (x => x.Name == "Darkvision");
+            hardy = traits.First (x => x.Name == "Hardy");
+            halflingLuck = traits.First (x => x.Name == "Halfling Luck");
+            stoneCunning = traits.First(x => x.Name == "Stonecunning");
+            configureTrait = traits.First(x => x.Name == "Configure");
+        }
 
-		[Test]
-		public void LoadTraitYamlFile() {
-			Assert.IsNotNull (darkvision);
-			Assert.IsNotNull (hardy);
-			Assert.IsNotNull (halflingLuck);
-		}
+    [Test]
+    public void LoadTraitYamlFile() {
+      Assert.IsNotNull (darkvision);
+      Assert.IsNotNull (hardy);
+      Assert.IsNotNull (halflingLuck);
+    }
 
-		[Test]
-		public void TraitsHaveADescription() {
-			Assert.AreEqual ("See in the dark.", darkvision.Description);
-			Assert.AreEqual ("Really tough", hardy.Description);
-		}
+    [Test]
+    public void TraitsHaveADescription() {
+      Assert.AreEqual ("See in the dark.", darkvision.Description);
+      Assert.AreEqual ("Really tough", hardy.Description);
+    }
 
-		[Test]
-		public void TraitsCanHaveSkillAdjustments() {
-			var modifiers = hardy.Modifiers;
-			Assert.AreEqual (2, modifiers.Count);
-			var skillAdj = modifiers.First ();
-			Assert.AreEqual ("Heal", skillAdj.StatisticName);
-			Assert.AreEqual ("racial", skillAdj.Type);
+    [Test]
+    public void TraitsCanHaveSkillAdjustments() {
+      var modifiers = hardy.Modifiers;
+      Assert.AreEqual (2, modifiers.Count);
+      var skillAdj = modifiers.First ();
+      Assert.AreEqual ("Heal", skillAdj.StatisticName);
+Assert.AreEqual ("racial", skillAdj.Type);
 			Assert.AreEqual ("Hardy (trait)", skillAdj.Reason);
 			Assert.AreEqual (2, skillAdj.Modifier);
 
@@ -82,6 +85,23 @@ namespace Tests.Characters {
             Assert.AreEqual("Sight", darkvision.SpecialAbilities.First().Type);
             Assert.AreEqual("In Dark", darkvision.SpecialAbilities.First().Condition);
         }
+
+        [Test]
+        public void TraitsCanHaveSpecialConfigurationSteps()
+        {
+            Assert.That(configureTrait.CustomConfiguration, Is.EqualTo("SilverNeedle.SomeOtherClass"));
+        }
+
+        [Test]
+        public void InitializingComponentWillCallCustomImplementation() 
+        {
+            var trait = new Trait();
+            trait.CustomConfiguration = "Tests.Characters.CustomConfigurationSteps";
+            var bag = new ComponentBag();
+            trait.Initialize(bag);
+            Assert.That(bag.GetAll<Feat>().Count(), Is.EqualTo(1));
+        }
+
 
 		private const string TraitYamlFile = @"
 - trait: 
@@ -122,6 +142,17 @@ namespace Tests.Characters {
     - type: racial
       stat: Will
       modifier: 1
+- trait: 
+  name: Configure
+  configure: SilverNeedle.SomeOtherClass
 ...";
 	}
+        public class CustomConfigurationSteps : IComponent
+        {
+            public void Initialize(ComponentBag components)
+            {
+                //Add a feat or something
+                components.Add(new Feat());
+            }
+        }
 }
