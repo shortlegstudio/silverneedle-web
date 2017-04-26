@@ -86,8 +86,11 @@ namespace SilverNeedle.Characters
             this.ReflexSave = new BasicStat(StatNames.ReflexSave);
             this.WillSave = new BasicStat(StatNames.WillSave);
             this.ArmorClass = new BasicStat(StatNames.ArmorClass, BaseArmorClass);
+            this.ArmorClass.UseModifierString = false;
             this.TouchArmorClass = new BasicStat(StatNames.TouchArmorClass, BaseArmorClass);
+            this.TouchArmorClass.UseModifierString = false;
             this.FlatFootedArmorClass = new BasicStat(StatNames.FlatFootedArmorClass, BaseArmorClass);
+            this.FlatFootedArmorClass.UseModifierString = false;
             this.MaxDexterityBonus = new BasicStat(StatNames.MaxDexterityBonus);
             this.specialAbilities = new List<SpecialAbility>();
         }

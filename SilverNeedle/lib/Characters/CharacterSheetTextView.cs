@@ -26,7 +26,7 @@ namespace SilverNeedle.Characters
             Perception = character.GetSkillValue("Perception").ToModifierString();
             Size = character.Size.Size.ToString();
             Level = character.Level.ToString();
-            ArmorClass = character.Defense.ArmorClass.TotalValue.ToString();
+            ArmorClass = character.Defense.ArmorClass.ToString();
             TouchArmorClass = character.Defense.TouchArmorClass.TotalValue.ToString();
             FlatFootedArmorClass = character.Defense.FlatFootedArmorClass.TotalValue.ToString();
             HitPoints = character.MaxHitPoints.ToString();

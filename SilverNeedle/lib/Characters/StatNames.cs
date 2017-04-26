@@ -22,9 +22,9 @@ namespace SilverNeedle.Characters
         public const string TouchArmorClass = "Touch Armor Class";
         public const string FlatFootedArmorClass = "Flat Footed Armor Class";
 
-        public const string WillSave = "Will Save";
-        public const string ReflexSave = "Reflex Save";
-        public const string FortitudeSave = "Fortitude Save";
+        public const string WillSave = "Will";
+        public const string ReflexSave = "Reflex";
+        public const string FortitudeSave = "Fortitude";
 
         public const string BonusSkillPoints = "Bonus Skill Points";
 

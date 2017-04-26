@@ -40,6 +40,7 @@ namespace SilverNeedle
             this.conditionalModifiers = new List<ConditionalStatModifier>();
             this.Maximum = 123456789; //Set default max to weird number in case it comes into play in the future
             this.Minimum = -123456789; //Set default max to weird number in case it comes into play in the future
+            this.UseModifierString = true;
         }
 
         /// <summary>
@@ -70,6 +71,8 @@ namespace SilverNeedle
                 return CalculateTotalValue();
             } 
         }
+
+        public bool UseModifierString { get; set; }
 
         public int Maximum { get; set; }
         public int Minimum { get; set; }
@@ -165,11 +168,37 @@ namespace SilverNeedle
         /// <param name="statName">Stat name.</param>
         public string ToString(string statName)
         {
+            if(UseModifierString)
+                return ToStringWithModifier(statName);
+            
+            return ToStringFlat(statName);
+        }
+
+        public string ToStringWithModifier(string statName)
+        {
             var sb = new StringBuilder();
             sb.AppendFormat("{0} {1}", statName, this.TotalValue.ToModifierString());
 
             var mods = this.GetConditions().Select(
                   x => string.Format("{0} {1}", this.GetConditionalValue(x).ToModifierString(), x));
+
+            if (mods.Count() > 0)
+            {
+                sb.AppendFormat(
+                    " ({0})",
+                    string.Join(",", mods.ToArray()));
+            }
+
+            return sb.ToString();
+        }
+
+        public string ToStringFlat(string statName)
+        {
+            var sb = new StringBuilder();
+            sb.AppendFormat("{0} {1}", statName, this.TotalValue);
+
+            var mods = this.GetConditions().Select(
+                  x => string.Format("{0} {1}", this.GetConditionalValue(x), x));
 
             if (mods.Count() > 0)
             {

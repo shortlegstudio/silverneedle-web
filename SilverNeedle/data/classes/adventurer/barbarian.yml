@@ -22,3 +22,77 @@
   weaponproficiencies: simple, martial
   developedage: Young
   startingwealth: 3d6
+  levels:
+    - level: 3
+      modifiers:
+        - name: Trap Sense +1 (Reflex)
+          stat: Reflex
+          modifier: 1
+          type: bonus
+          condition: traps
+        - name: Trap Sense +1 (AC)
+          stat: Armor Class
+          modifier: 1
+          type: bonus
+          condition: traps
+    - level: 6
+      modifiers:
+        - name: Trap Sense +2 (Reflex)
+          stat: Reflex
+          modifier: 1
+          type: bonus
+          condition: traps
+        - name: Trap Sense +2 (AC)
+          stat: Armor Class
+          modifier: 1
+          type: bonus
+          condition: traps
+    - level: 9
+      modifiers:
+        - name: Trap Sense +3 (Reflex)
+          stat: Reflex
+          modifier: 1
+          type: bonus
+          condition: traps
+        - name: Trap Sense +3 (AC)
+          stat: Armor Class
+          modifier: 1
+          type: bonus
+          condition: traps
+    - level: 12
+      modifiers:
+        - name: Trap Sense +4 (Reflex)
+          stat: Reflex
+          modifier: 1
+          type: bonus
+          condition: traps
+        - name: Trap Sense +4 (AC)
+          stat: Armor Class
+          modifier: 1
+          type: bonus
+          condition: traps
+    - level: 15
+      modifiers:
+        - name: Trap Sense +5 (Reflex)
+          stat: Reflex
+          modifier: 1
+          type: bonus
+          condition: traps
+        - name: Trap Sense +5 (AC)
+          stat: Armor Class
+          modifier: 1
+          type: bonus
+          condition: traps
+    - level: 18
+      modifiers:
+        - name: Trap Sense +6 (Reflex)
+          stat: Reflex
+          modifier: 1
+          type: bonus
+          condition: traps
+        - name: Trap Sense +6 (AC)
+          stat: Armor Class
+          modifier: 1
+          type: bonus
+          condition: traps
+
