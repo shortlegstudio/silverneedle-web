@@ -214,12 +214,12 @@ namespace Tests.Characters {
             var statNames = stats.Select(x => x.Name);
             Assert.That(statNames, Is.EquivalentTo(
             new string[] { 
-                "Armor Class", 
-                "Fortitude Save", 
-                "Will Save", 
-                "Reflex Save", 
-                "Touch Armor Class", 
-                "Flat Footed Armor Class",
+                StatNames.ArmorClass,
+                StatNames.FortitudeSave,
+                StatNames.WillSave,
+                StatNames.ReflexSave,
+                StatNames.TouchArmorClass,
+                StatNames.FlatFootedArmorClass,
                 StatNames.MaxDexterityBonus }
             ));
         }

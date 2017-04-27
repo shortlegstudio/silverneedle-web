@@ -142,11 +142,11 @@ namespace Tests.Characters
             var character = new CharacterSheet();
             var ac = character.FindStat("Armor Class");
             var str = character.FindStat("Strength");
-            var willSave = character.FindStat("Will Save");
+            var willSave = character.FindStat(StatNames.WillSave);
 
             Assert.That(ac.Name, Is.EqualTo("Armor Class"));
             Assert.That(str.Name, Is.EqualTo("Strength"));
-            Assert.That(willSave.Name, Is.EqualTo("Will Save"));
+            Assert.That(willSave.Name, Is.EqualTo(StatNames.WillSave));
         }
 
         [Test]

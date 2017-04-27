@@ -23,6 +23,10 @@
   developedage: Young
   startingwealth: 3d6
   levels:
+    - level: 1
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureFastMovement
+          speed: 10
     - level: 3
       modifiers:
         - name: Trap Sense +1 (Reflex)
