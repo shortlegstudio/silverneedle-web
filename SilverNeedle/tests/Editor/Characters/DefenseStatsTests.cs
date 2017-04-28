@@ -214,6 +214,7 @@ namespace Tests.Characters {
             var statNames = stats.Select(x => x.Name);
             Assert.That(statNames, Is.EquivalentTo(
             new string[] { 
+                StatNames.BaseArmorClass,
                 StatNames.ArmorClass,
                 StatNames.FortitudeSave,
                 StatNames.WillSave,

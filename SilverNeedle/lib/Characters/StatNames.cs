@@ -7,6 +7,12 @@ namespace SilverNeedle.Characters
 {
     public static class StatNames
     {
+        public const string Strength = "Strength";
+        public const string Dexterity = "Dexterity";
+        public const string Constitution = "Constitution";
+        public const string Intelligence = "Intelligence";
+        public const string Wisdom = "Wisdom";
+        public const string Charisma = "Charisma";
         public const string BaseAttackBonus = "BAB";
         public const string MeleeAttackBonus = "Melee Attack Bonus";
         public const string RangeAttackBonus = "Range Attack Bonus";
@@ -18,6 +24,7 @@ namespace SilverNeedle.Characters
 
         public const string Initiative = "Initiative";
 
+        public const string BaseArmorClass = "Base Armor Class";
         public const string ArmorClass = "Armor Class";
         public const string TouchArmorClass = "Touch Armor Class";
         public const string FlatFootedArmorClass = "Flat Footed Armor Class";

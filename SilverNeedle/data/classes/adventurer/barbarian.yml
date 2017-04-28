@@ -27,6 +27,12 @@
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureFastMovement
           speed: 10
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureRage
+          name: Rage
+          strength: 4
+          constitution: 4
+          will: 2
+          armor-class: -2
     - level: 3
       modifiers:
         - name: Trap Sense +1 (Reflex)
@@ -63,6 +69,13 @@
           modifier: 1
           type: bonus
           condition: traps
+    - level: 11
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureRage
+          name: Greater Rage
+          strength: 6
+          constitution: 6
+          will: 3
     - level: 12
       modifiers:
         - name: Trap Sense +4 (Reflex)
@@ -99,4 +112,10 @@
           modifier: 1
           type: bonus
           condition: traps
-
+    - level: 20
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureRage
+          name: Mighty Rage
+          strength: 8
+          constitution: 8
+          will: 4

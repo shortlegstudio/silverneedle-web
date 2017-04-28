@@ -21,6 +21,7 @@ namespace SilverNeedle.Characters
             get 
             { 
                 return new BasicStat[] { 
+                    BaseArmorClass,
                     ArmorClass, 
                     TouchArmorClass, 
                     FlatFootedArmorClass, 
@@ -31,10 +32,6 @@ namespace SilverNeedle.Characters
                 }; 
             } 
         }
-        /// <summary>
-        /// The base armor class.
-        /// </summary>
-        private const int BaseArmorClass = 10;
 
         /// <summary>
         /// The good save base value.
@@ -85,11 +82,12 @@ namespace SilverNeedle.Characters
             this.FortitudeSave = new BasicStat(StatNames.FortitudeSave);
             this.ReflexSave = new BasicStat(StatNames.ReflexSave);
             this.WillSave = new BasicStat(StatNames.WillSave);
-            this.ArmorClass = new BasicStat(StatNames.ArmorClass, BaseArmorClass);
+            this.BaseArmorClass = new BasicStat(StatNames.BaseArmorClass, 10);
+            this.ArmorClass = new BasicStat(StatNames.ArmorClass);
             this.ArmorClass.UseModifierString = false;
-            this.TouchArmorClass = new BasicStat(StatNames.TouchArmorClass, BaseArmorClass);
+            this.TouchArmorClass = new BasicStat(StatNames.TouchArmorClass);
             this.TouchArmorClass.UseModifierString = false;
-            this.FlatFootedArmorClass = new BasicStat(StatNames.FlatFootedArmorClass, BaseArmorClass);
+            this.FlatFootedArmorClass = new BasicStat(StatNames.FlatFootedArmorClass);
             this.FlatFootedArmorClass.UseModifierString = false;
             this.MaxDexterityBonus = new BasicStat(StatNames.MaxDexterityBonus);
             this.specialAbilities = new List<SpecialAbility>();
@@ -113,19 +111,22 @@ namespace SilverNeedle.Characters
             this.MaxDexterityBonus.AddModifier(
                 new EquippedArmorMaxDexBonuxModifier(components)
             );
-            
+
             this.ArmorClass.AddModifiers(
+                new StatisticStatModifier(StatNames.ArmorClass, this.BaseArmorClass),
                 new LimitStatModifier(abilities.GetAbility(AbilityScoreTypes.Dexterity), this.MaxDexterityBonus),
                 size.PositiveSizeModifier,
                 new EquippedArmorClassModifier(components)
             );
 
             this.TouchArmorClass.AddModifiers(
+                new StatisticStatModifier(StatNames.TouchArmorClass, this.BaseArmorClass),
                 new LimitStatModifier(abilities.GetAbility(AbilityScoreTypes.Dexterity), this.MaxDexterityBonus),
                 size.PositiveSizeModifier
             );
 
             this.FlatFootedArmorClass.AddModifiers(
+                new StatisticStatModifier(StatNames.FlatFootedArmorClass, this.BaseArmorClass),
                 size.PositiveSizeModifier, 
                 new EquippedArmorClassModifier(components)
             );
@@ -173,6 +174,8 @@ namespace SilverNeedle.Characters
         }
 
         public IEnumerable<DamageResistance> DamageResistance { get { return specialAbilities.OfType<DamageResistance>(); } }
+
+        public BasicStat BaseArmorClass { get; private set; }
 
         /// <summary>
         /// Gets the Armors class.
