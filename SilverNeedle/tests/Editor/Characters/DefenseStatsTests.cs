@@ -233,6 +233,16 @@ namespace Tests.Characters {
             Assert.That(basicStats.DamageResistance, Contains.Item(dr));
         }
 
+        [Test]
+        public void AddingTheSameTypeOfDamageResistanceStacks()
+        {
+            var dr = new DamageResistance(1, "-");
+            basicStats.AddDamageResistance(dr);
+            basicStats.AddDamageResistance(dr);
+            Assert.That(basicStats.DamageResistance.First().Amount, Is.EqualTo(2));
+
+        }
+
         class MockMod : IModifiesStats {
         public IList<ValueStatModifier> Modifiers { get; set;  }
 

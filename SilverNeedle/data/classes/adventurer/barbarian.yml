@@ -63,6 +63,11 @@
           modifier: 1
           type: bonus
           condition: traps
+    - level: 7
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureDamageResistance
+          amount: 1
+          type: "-"
     - level: 9
       modifiers:
         - name: Trap Sense +3 (Reflex)
@@ -75,6 +80,11 @@
           modifier: 1
           type: bonus
           condition: traps
+    - level: 10
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureDamageResistance
+          amount: 1
+          type: "-"
     - level: 11
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureRage
@@ -94,6 +104,11 @@
           modifier: 1
           type: bonus
           condition: traps
+    - level: 13
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureDamageResistance
+          amount: 1
+          type: "-"
     - level: 14
       modifiers:
         - name: Indomitable Will
@@ -113,6 +128,11 @@
           modifier: 1
           type: bonus
           condition: traps
+    - level: 16
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureDamageResistance
+          amount: 1
+          type: "-"
     - level: 17
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.TirelessRage
@@ -128,6 +148,11 @@
           modifier: 1
           type: bonus
           condition: traps
+    - level: 19
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureDamageResistance
+          amount: 1
+          type: "-"
     - level: 20
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureRage

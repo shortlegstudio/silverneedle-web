@@ -316,7 +316,16 @@ namespace SilverNeedle.Characters
 
         public void AddDamageResistance(DamageResistance dr)
         {
-            this.specialAbilities.Add(dr);
+            var current = this.DamageResistance.FirstOrDefault(x => x.DamageType == dr.DamageType);
+            if (current == null)
+            {
+                this.specialAbilities.Add(dr);
+            }
+            else
+            {
+                current.Amount += dr.Amount;
+            }
+        
         }
 
         /// <summary>
