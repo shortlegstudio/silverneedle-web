@@ -76,6 +76,15 @@ namespace Tests.Characters
             var step = level.Steps[0] as SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureArmorTraining;
             Assert.That(step.ArmorTrainingLevel, Is.EqualTo(1));
         }
+
+        [Test]
+        public void CanSupportAbilities()
+        {
+            var barb = barbLevel.ParseYaml().Children.First();
+            var level = new Level(barb);
+            Assert.That(level.Abilities.Count, Is.EqualTo(1));
+            Assert.That(level.Abilities[0], Is.TypeOf(typeof(SilverNeedle.Characters.SpecialAbilities.UncannyDodge)));
+        }
         const string fighterLevel = @"---
 - level: 2
   bonus-feats:
@@ -103,6 +112,10 @@ namespace Tests.Characters
   class-feature-steps:
     - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSummonFamiliar
 ";
+        const string barbLevel = @"---
+- level: 3
+  abilities:
+    - ability: SilverNeedle.Characters.SpecialAbilities.UncannyDodge";
 
         const string fighterLevel3 = @"---
 - level: 3

@@ -33,6 +33,9 @@
           constitution: 4
           will: 2
           armor-class: -2
+    - level: 2
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.UncannyDodge
     - level: 3
       modifiers:
         - name: Trap Sense +1 (Reflex)
@@ -45,6 +48,9 @@
           modifier: 1
           type: bonus
           condition: traps
+    - level: 5
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.ImprovedUncannyDodge
     - level: 6
       modifiers:
         - name: Trap Sense +2 (Reflex)
@@ -88,6 +94,13 @@
           modifier: 1
           type: bonus
           condition: traps
+    - level: 14
+      modifiers:
+        - name: Indomitable Will
+          stat: Will
+          modifier: 4
+          type: bonus
+          condition: vs. Enchantment
     - level: 15
       modifiers:
         - name: Trap Sense +5 (Reflex)
@@ -100,6 +113,9 @@
           modifier: 1
           type: bonus
           condition: traps
+    - level: 17
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.TirelessRage
     - level: 18
       modifiers:
         - name: Trap Sense +6 (Reflex)

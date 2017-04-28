@@ -16,6 +16,7 @@ namespace SilverNeedle.Characters
 
         public IList<ICharacterDesignStep> Steps { get; private set; }
         public IList<FeatToken> FeatTokens { get; private set; }
+        public IList<SpecialAbility> Abilities { get; private set; }
         public int Number { get; private set; }
 
         public Level()
@@ -23,6 +24,7 @@ namespace SilverNeedle.Characters
             Modifiers = new List<ValueStatModifier>();
             Steps = new List<ICharacterDesignStep>();
             FeatTokens = new List<FeatToken>();
+            Abilities = new List<SpecialAbility>();
         }
 
         public Level(IObjectStore objectStore) : this()
@@ -66,6 +68,16 @@ namespace SilverNeedle.Characters
                 {
                     var stepName = step.GetString("step");
                     Steps.Add(stepName.Instantiate<ICharacterDesignStep>(step));
+                }
+            }
+
+            var abilities = objectStore.GetObjectOptional("abilities");
+            if(abilities != null)
+            {
+                foreach(var abl in abilities.Children)
+                {
+                    var abilityName = abl.GetString("ability");
+                    this.Abilities.Add(abilityName.Instantiate<SpecialAbility>(abl));
                 }
             }
         }
