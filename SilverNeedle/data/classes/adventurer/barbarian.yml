@@ -25,6 +25,8 @@
   levels:
     - level: 1
       class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.LimitAlignment
+          deny: LawfulEvil, LawfulNeutral, LawfulGood
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureFastMovement
           speed: 10
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureRage

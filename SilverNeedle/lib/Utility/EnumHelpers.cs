@@ -56,5 +56,10 @@ namespace SilverNeedle
                 return false;
             }
         }
+
+        public static T EnumValue<T>(this string value)
+        {
+            return (T)Enum.Parse(typeof(T), value, true);
+        }
     }
 }

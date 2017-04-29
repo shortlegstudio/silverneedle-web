@@ -7,7 +7,6 @@
     - step: SilverNeedle.Actions.CharacterGenerator.AddUniversalFeatToken
     - step: SilverNeedle.Actions.CharacterGenerator.Abilities.StandardAbilityScoreGenerator
     - step: SilverNeedle.Actions.CharacterGenerator.RaceSelector
-    - step: SilverNeedle.Actions.CharacterGenerator.AlignmentSelector
     - step: SilverNeedle.Actions.CharacterGenerator.GenderSelector
     - step: SilverNeedle.Actions.NamingThings.NameCharacter
     - step: SilverNeedle.Actions.CharacterGenerator.LanguageSelector
@@ -23,4 +22,5 @@
     - step: SilverNeedle.Actions.CharacterGenerator.AssignAge
     - step: SilverNeedle.Actions.CharacterGenerator.Background.ClassOriginStoryCreator
     - step: SilverNeedle.Actions.CharacterGenerator.SkillPointDistributor
+    - step: SilverNeedle.Actions.CharacterGenerator.AlignmentSelector
     - designer: create-appearance

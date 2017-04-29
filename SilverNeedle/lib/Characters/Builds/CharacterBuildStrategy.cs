@@ -17,6 +17,8 @@ namespace SilverNeedle.Characters
             FavoredSkills = new WeightedOptionTable<string>();
             FavoredFeats = new WeightedOptionTable<string>();
             FavoredAbilities = new WeightedOptionTable<AbilityScoreTypes>();
+            FavoredAlignments = new WeightedOptionTable<CharacterAlignment>();
+            BuildAlignmentTable();
             FillInMissingAbilities(FavoredAbilities);
             TargetLevel = 1;
         }
@@ -29,6 +31,7 @@ namespace SilverNeedle.Characters
             FavoredSkills = new WeightedOptionTable<string>();
             FavoredFeats = new WeightedOptionTable<string>();
             FavoredAbilities = new WeightedOptionTable<AbilityScoreTypes>();
+            FavoredAlignments = new WeightedOptionTable<CharacterAlignment>();
             ParseObjectStore(data);                
         }
         
@@ -48,6 +51,8 @@ namespace SilverNeedle.Characters
         public string Designer { get; private set; }
 
         public int TargetLevel { get; set; }
+
+        public WeightedOptionTable<CharacterAlignment> FavoredAlignments { get; set; }
         private void ParseObjectStore(IObjectStore data)
         {
             // Basic Properties
@@ -76,6 +81,8 @@ namespace SilverNeedle.Characters
                 var abilities = data.GetObjectOptional("abilities");
                 BuildAbilityTable(FavoredAbilities, abilities);
 
+                BuildAlignmentTable();
+
                 Designer = data.GetStringOptional("designer");
         }
 
@@ -98,6 +105,17 @@ namespace SilverNeedle.Characters
             }
 
             FillInMissingAbilities(abilityTable);
+        }
+
+        private void BuildAlignmentTable()
+        {
+            foreach(var a in EnumHelpers.GetValues<CharacterAlignment>())
+            {
+                if(!FavoredAlignments.HasOption(a))
+                {
+                    FavoredAlignments.AddEntry(a, 1);
+                }
+            }
         }
 
         private void FillInMissingAbilities(WeightedOptionTable<AbilityScoreTypes> abilityTable)

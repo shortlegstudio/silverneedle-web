@@ -46,6 +46,11 @@ namespace SilverNeedle.Utility
             get { return table; }
         }
 
+        public IEnumerable<TableEntry> Enabled
+        {
+            get { return All.Where(x => x.Disabled == false); }
+        }
+
         public void AddEntry(T option, int weight)
         {
             var entry = new TableEntry();            

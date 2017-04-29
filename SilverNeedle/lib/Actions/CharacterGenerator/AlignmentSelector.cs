@@ -12,8 +12,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
     {
         public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
-            character.Alignment = EnumHelpers.ChooseOne<CharacterAlignment>();
+            character.Alignment = strategy.FavoredAlignments.ChooseRandomly();
         }
-
     }
 }
