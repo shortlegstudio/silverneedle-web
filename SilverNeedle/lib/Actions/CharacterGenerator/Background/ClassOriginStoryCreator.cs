@@ -27,7 +27,7 @@ namespace SilverNeedle.Actions.CharacterGenerator.Background
 
         public ClassOrigin CreateStory(string cls)
         {
-            var origins = classOrigins.Find(cls);
+            var origins = classOrigins.FindOrNull(cls);
             if(origins == null)
                 return new ClassOrigin();
             return origins.Origins.ChooseRandomly();            

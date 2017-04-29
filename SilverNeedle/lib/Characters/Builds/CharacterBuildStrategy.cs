@@ -8,7 +8,7 @@ namespace SilverNeedle.Characters
     using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
-    public class CharacterBuildStrategy : IGatewayObject
+    public class CharacterBuildStrategy : IGatewayObject, IGatewayCopy<CharacterBuildStrategy>
     {
         public CharacterBuildStrategy()
         {
@@ -33,6 +33,21 @@ namespace SilverNeedle.Characters
             FavoredAbilities = new WeightedOptionTable<AbilityScoreTypes>();
             FavoredAlignments = new WeightedOptionTable<CharacterAlignment>();
             ParseObjectStore(data);                
+        }
+
+        public CharacterBuildStrategy(CharacterBuildStrategy copy)
+        {
+            this.Name = copy.Name;
+            this.TargetLevel = copy.TargetLevel;
+            this.Designer = copy.Designer;
+            this.BaseSkillWeight = copy.BaseSkillWeight;
+            this.ClassSkillMultiplier = copy.ClassSkillMultiplier;
+            this.Classes = copy.Classes.Copy();
+            this.Races = copy.Races.Copy();
+            this.FavoredSkills = copy.FavoredSkills.Copy();
+            this.FavoredFeats = copy.FavoredFeats.Copy();
+            this.FavoredAbilities = copy.FavoredAbilities.Copy();
+            this.FavoredAlignments = copy.FavoredAlignments.Copy();
         }
         
         public string Name { get; set; }
@@ -133,6 +148,11 @@ namespace SilverNeedle.Characters
         public bool Matches(string name)
         {
             return Name.EqualsIgnoreCase(name);
+        }
+
+        public CharacterBuildStrategy Copy()
+        {
+            return new CharacterBuildStrategy(this);
         }
     }
 }

@@ -15,9 +15,10 @@ namespace SilverNeedle.Serialization
     {
         private IList<T> dataStore;
         private Type objectType;
+        private bool returnCopies = false;
         public IEnumerable<T> All()
         {
-            return dataStore;
+            return GetDataStore();
         }
 
         public int Count()
@@ -27,22 +28,31 @@ namespace SilverNeedle.Serialization
 
         public IEnumerable<T> Where(Func<T, bool> predicate) 
         {
-            return dataStore.Where(predicate);
+            return GetDataStore().Where(predicate);
+        }
+
+        public T FindOrNull(string name)
+        {
+            return GetDataStore().FirstOrDefault(x => x.Matches(name));
         }
 
         public T Find(string name)
         {
-            return dataStore.FirstOrDefault(x => x.Matches(name));
+            var entry = GetDataStore().FirstOrDefault(x => x.Matches(name));
+            if(entry == null)
+                throw new EntityNotFoundException(string.Format("Could not find '{0}' in types of {1}.", name, typeof(T).Name));
+
+            return entry;
         }
 
         public T ChooseOne()
         {
-            return dataStore.ChooseOne();
+            return GetDataStore().ChooseOne();
         }
 
         public IEnumerable<T> Choose(int number)
         {
-            return dataStore.Choose(number);
+            return GetDataStore().Choose(number);
         }
 
         public EntityGateway(IEnumerable<IObjectStore> data) 
@@ -76,10 +86,21 @@ namespace SilverNeedle.Serialization
             }
         }
 
+        private IList<T> GetDataStore()
+        {
+            if(returnCopies)
+            {
+                return dataStore.Cast<IGatewayCopy<T>>().Select(x => x.Copy()).ToList();
+            }
+
+            return dataStore;
+        }
+
         private void LoadObjects(IEnumerable<IObjectStore> data)
         {
             foreach(var d in data) {
                 var typeInfo = typeof(T).GetTypeInfo();
+                returnCopies = typeInfo.GetInterfaces().Contains(typeof(IGatewayCopy<T>));
                 T obj;
                 if(typeInfo.GetCustomAttribute<ObjectStoreSerializableAttribute>() != null)
                 {
@@ -90,8 +111,5 @@ namespace SilverNeedle.Serialization
                 dataStore.Add(obj);
             }
         }
-
-
     }
-
 }

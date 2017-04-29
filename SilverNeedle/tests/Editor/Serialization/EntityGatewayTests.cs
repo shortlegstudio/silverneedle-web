@@ -10,6 +10,7 @@ namespace Tests.Serialization
     using SilverNeedle.Serialization;
     using System.Linq;
     using SilverNeedle.Characters;
+    using System;
 
     [TestFixture]
     public class EntityGatewayTests {
@@ -68,6 +69,56 @@ namespace Tests.Serialization
             var gateway = new EntityGateway<TestSerialized>(new IObjectStore[] { data });    
             var first = gateway.All().First();
             Assert.That(first.Name, Is.EqualTo("Foo"));
+        }
+
+        [Test]
+        public void ObjectsFlaggedAsAlwaysFreshShouldReloadEveryRequest()
+        {
+            var data = new MemoryStore();
+            data.SetValue("name", "Foo");
+            var data2 = new MemoryStore();
+            data2.SetValue("name", "Bar");
+            var gateway = new EntityGateway<AlwaysFresh>(new IObjectStore[] { data, data2 });
+
+            var item = gateway.Find("Foo");
+            item.SomeValue = false;
+
+            var itemAgain = gateway.Find("Foo");
+            Assert.That(itemAgain.SomeValue, Is.True);
+            
+        }
+
+        [Test]
+        public void ThrowsNotFoundExceptionIfObjectIsnotFound()
+        {
+            var gateway = new EntityGateway<TestObject>(new TestObject[] { new TestObject("Bar") });
+            Assert.Throws(typeof(EntityNotFoundException), () => {gateway.Find("Foo"); });
+        }
+
+        [ObjectStoreSerializable]
+        public class AlwaysFresh : IGatewayObject, IGatewayCopy<AlwaysFresh>
+        {
+            [ObjectStore("name")]
+            public string Name { get; set; }
+
+            public bool SomeValue = true;
+            public bool Matches(string name)
+            {
+                return Name.Equals(name);
+            }
+
+            public AlwaysFresh() { }
+
+            public AlwaysFresh(AlwaysFresh prev)
+            {
+                this.Name = prev.Name;
+                this.SomeValue = prev.SomeValue;
+            }
+
+            public AlwaysFresh Copy()
+            {
+                return new AlwaysFresh(this);
+            }
         }
 
         [ObjectStoreSerializable]

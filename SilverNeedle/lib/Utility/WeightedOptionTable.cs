@@ -101,7 +101,7 @@ namespace SilverNeedle.Utility
 
         public IEnumerable<T> UniqueList()
         {
-            var tempTable = CopyEnabledOptions();
+            var tempTable = Copy(false);
             List<T> list = new List<T>();
             while(!tempTable.IsEmpty) {
                 var opt = tempTable.ChooseRandomly();
@@ -111,23 +111,23 @@ namespace SilverNeedle.Utility
             return list;
         }
 
-        public override string ToString() 
-        {
-            var entries = string.Join("\n", table.Select(x => x.ToString()));
-            return string.Format("-- Weighted Table --\n{0}", entries);
-        }
-
-        public WeightedOptionTable<T> CopyEnabledOptions()
+        public WeightedOptionTable<T> Copy(bool includeDisabled = true)
         {
             //Create temp enabled Table
             var tempTable = new WeightedOptionTable<T>();
             foreach(var a in All)
             {
-                if(!a.Disabled) {
+                if(!a.Disabled || includeDisabled) {
                     tempTable.AddEntry(a.Option, a.Weight);
                 }
             }
             return tempTable;
+        }
+
+        public override string ToString() 
+        {
+            var entries = string.Join("\n", table.Select(x => x.ToString()));
+            return string.Format("-- Weighted Table --\n{0}", entries);
         }
 
         private TableEntry FindEntry(T option) 

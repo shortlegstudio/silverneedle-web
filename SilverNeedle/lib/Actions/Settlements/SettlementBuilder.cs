@@ -17,11 +17,11 @@ namespace SilverNeedle.Actions.Settlements
             var characterCreators = GatewayProvider.Get<CharacterDesigner>();
             var characterBuilder = characterCreators.Find("create-townsfolk");
             var stratGateway = GatewayProvider.Get<CharacterBuildStrategy>();
-            var strategy = stratGateway.Find("inhabitant");
             var settlement = new Settlement();
             for(int i = 0; i < population; i++)
             {
                 var character = new CharacterSheet();
+                var strategy = stratGateway.Find("inhabitant");
                 characterBuilder.Process(character, strategy);
                 settlement.AddInhabitant(character);
             }
