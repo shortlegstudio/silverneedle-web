@@ -10,6 +10,7 @@ namespace Tests.Actions
     using NUnit.Framework;
     using SilverNeedle.Actions.CharacterGenerator;
     using SilverNeedle.Characters;
+    using SilverNeedle.Characters.Prerequisites;
     using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
@@ -31,7 +32,7 @@ namespace Tests.Actions
 
             cleave = new Feat();
             cleave.Name = "Cleave";
-            cleave.Prerequisites.Add(new Prerequisites.FeatPrerequisite("power attack"));
+            cleave.Prerequisites.Add(new FeatPrerequisite("power attack"));
 
             empowerspell = new Feat();
             empowerspell.Name = "Empower Spell";

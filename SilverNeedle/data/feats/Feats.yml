@@ -14,7 +14,7 @@
   description: >
     You can easily move over and through obstacles.
   prerequisites:
-    - ability: Dexterity 15
+    - dexterity: 15
     - feat: Nimble Moves
 - feat:
   name: Agile Maneuvers
@@ -159,7 +159,7 @@
   tags: combat
   prerequisites:
     - feat: Power Attack
-    - ability: Strength 13
+    - strength: 13
     - baseattackbonus: 1
 - feat:
   name: Combat Casting
@@ -168,7 +168,7 @@
   name: Combat Expertise
   description: You can increase your defense at the expense of your accuracy.
   prerequisite:
-    - ability: Intelligence 13
+    intelligence: 13
   tags: combat
 - feat:
   name: Combat Reflexes
@@ -238,7 +238,7 @@
     You can make exceptionally deadly ranged attacks by pinpointing a foe's
     weak spot, at the expense of making the attack less likely to succeed.
   prerequisites:
-    - ability: Dexterity 13
+    - dexterity: 13
     - baseattackbonus: 1
 - feat:
   name: Deadly Strike
@@ -283,7 +283,7 @@
     hitting you.
   tags: combat
   prerequisites:
-    - ability: Dexterity 13
+    - dexterity: 13
     - feat: Improved Unarmed Strike
 - feat:
   name: Deft Hands
@@ -311,7 +311,7 @@
     attacks.
   tags: combat
   prerequisites:
-    - ability: Dexterity 13
+    - dexterity: 13
   modifiers:
     - stat: Armor Class
       modifier: 1
@@ -321,7 +321,7 @@
   description: >
     Your off-hand weapon while dual-wielding strikes with greater power.
   prerequisites:
-    - ability: Dexterity 15
+    - dexterity: 15
     - feat: Two-Weapon Fighting
   tags: combat
 - feat:
@@ -440,7 +440,7 @@
     - feat: Cleave
     - feat: Power Attack
     - baseattackbonus: 4
-    - ability: Strength 13
+    - strength: 13
 - feat:
   name: Great Fortitude
   description: You are resistant to poisons, diseases, and other maladies.
@@ -455,7 +455,7 @@
   prerequisites:
     - feat: Improved Bull Rush
     - feat: Power Attack
-    - ability: Strength 13
+    - strength: 13
     - baseattackbonus: 6
 - feat:
   name: Greater Disarm
@@ -465,7 +465,7 @@
     - feat: Combat Expertise
     - feat: Improved Disarm
     - baseattackbonus: 6
-    - ability: Intelligence 13
+    - intelligence: 13
 - feat:
   name: Greater Feint
   description: You are skilled at making foes overreact to your attacks.
@@ -474,7 +474,7 @@
     - feat: Combat Expertise
     - feat: Improved Feint
     - baseattackbonus: 6
-    - ability: Intelligence 13
+    - intelligence: 13
 - feat:
   name: Greater Grapple
   description: Maintaining a grapple is second nature to you.
@@ -483,7 +483,7 @@
     - feat: Improved Grapple
     - feat: Improved Unarmed Strike
     - baseattackbonus: 6
-    - ability: Dexterity 13
+    - dexterity: 13
 - feat:
   name: Greater Overrun
   tags: combat
@@ -492,7 +492,7 @@
     - feat: Improved Overrun
     - feat: Power Attack
     - baseattackbonus: 6
-    - ability: Strength 13
+    - strength: 13
 - feat:
   name: Greater Penetrating Strike
   tags: combat
@@ -531,7 +531,7 @@
     - feat: Improved Sunder
     - feat: Power Attack
     - baseattackbonus: 6
-    - ability: Strength 13
+    - strength: 13
 - feat:
   name: Greater Trip
   description: You can make free attacks on foes that you knock down.
@@ -540,13 +540,13 @@
     - feat: Combat Expertise
     - feat: Improved Trip
     - baseattackbonus: 6
-    - ability: Intelligence 13
+    - intelligence: 13
 - feat:
   name: Greater Two-Weapon Fighting
   description: >
     You are incredibly skilled at fighting with two weapons at the same time.
   prerequisites:
-    - ability: Dexterity 19
+    - dexterity: 19
     - feat: Improved Two-Weapon Fighting
     - feat: Two-Weapon Fighting
     - baseattackbonus: 11
@@ -594,7 +594,7 @@
   description: You are skilled at pushing your foes around.
   tags: combat
   prerequisites:
-    - ability: Strength 13
+    - strength: 13
     - feat: Power Attack
     - baseattackbonus: 1
 - feat:
@@ -620,7 +620,7 @@
   tags: combat
   prerequisites:
     - feat: Combat Expertise
-    - ability: Intelligence 13
+    - intelligence: 13
 - feat:
   name: Improved Familiar
   description: >
@@ -633,14 +633,14 @@
   description: You are skilled at fooling your opponents in combat.
   tags: combat
   prerequisites:
-    - ability: Intelligence 13
+    - intelligence: 13
     - feat: Combat Expertise
 - feat:
   name: Improved Grapple
   description: You are skilled at grappling opponents.
   tags: combat
   prerequisites:
-    - ability: Dexterity 13
+    - dexterity: 13
     - feat: Improved Unarmed Strike
 - feat:
   name: Improved Great Fortitude
@@ -672,7 +672,7 @@
   description: You are skilled at running down your foes.
   tags: combat
   prerequisites:
-    - ability: Strength 13
+    - strength: 13
     - feat: Power Attack
     - baseattackbonus: 1
 - feat:
@@ -680,7 +680,7 @@
   description: Your ranged attacks ignore anything but total concealment and cover.
   tags: combat
   prerequisites:
-    - ability: Dexterity 19
+    - dexterity: 19
     - feat: Point-Blank Shot
     - feat: Precise Shot
     - baseattackbonus: 11
@@ -695,7 +695,7 @@
   description: You are skilled at damaging your foes' weapons and armor.
   tags: combat
   prerequisites:
-    - ability: Strength 13
+    - strength: 13
     - feat: Power Attack
     - baseattackbonus: 1
 - feat:
@@ -703,14 +703,14 @@
   description: You are skilled at sending your opponents to the ground.
   tags: combat
   prerequisites:
-    - ability: Intelligence 13
+    - intelligence: 13
     - feat: Combat Expertise
 - feat:
   name: Improved Two-Weapon Fighting
   description: You are skilled at fighting with two weapons.
   tags: combat
   prerequisites:
-    - ability: Dexterity 17
+    - dexterity: 17
     - feat: Two-Weapon Fighting
     - baseattackbonus: 6
 - feat:
@@ -758,7 +758,7 @@
     to strike you.
   tags: combat
   prerequisites:
-    - ability: Dexterity 17
+    - dexterity: 17
     - feat: Dodge
     - feat: Wind Stance
     - baseattackbonus: 11
@@ -784,7 +784,7 @@
   description: You can fire multiple arrows at a single target.
   tags: combat
   prerequisites:
-    - ability: Dexterity 17
+    - dexterity: 17
     - feat: Point-Blank Shot
     - feat: Rapid Shot
     - baseattackbonus: 6
@@ -819,7 +819,7 @@
   description: You can easily move through a dangerous melee.
   tags: combat
   prerequisites:
-    - ability: Dexterity 13
+    - dexterity: 13
     - feat: Dodge
 - feat:
   name: Mounted Archery
@@ -839,13 +839,13 @@
   description: >
     You can cast spells even while in a form that cannot normally cast spells.
   prerequisites:
-    - ability: Wisdom 13
+    - wisdom: 13
     - classfeature: Wild Shape
 - feat:
   name: Nimble Moves
   description: You can move across a single obstacle with ease.
   prerequisites:
-    - ability: Dexterity 13
+    - dexterity: 13
 - feat:
   name: Penetrating Strike
   tags: combat
@@ -871,7 +871,7 @@
   description: You can target the weak points in your opponent's armor.
   tags: combat
   prerequisites:
-    - ability: Dexterity 19
+    - dexterity: 19
     - feat: Improved Precise Shot
     - feat: Point-Blank Shot
     - feat: Precise Shot
@@ -888,7 +888,7 @@
     You can make exceptionally deadly melee attacks by sacrificing accuracy
     for strength.
   prerequisites:
-    - ability: Strength 13
+    - strength: 13
     - baseattackbonus: 1
 - feat:
   name: Precise Shot
@@ -919,7 +919,7 @@
   tags: combat
   description: You can make an additional ranged attack
   prerequisites:
-    - ability: Dexterity 13
+    - dexterity: 13
     - feat: Point-Blank Shot
 - feat:
   name: Ride-By Attack
@@ -927,7 +927,7 @@
   description: >
     While mounted and charging, you can move, strike at a foe, and then
     continue moving.
-  prerequistes:
+  prerequisites:
     - skillranks: Ride 1
     - feat: Mounted Combat
 - feat:
@@ -949,7 +949,7 @@
   name: Selective Channeling
   description: You can choose whom to affect when you channel energy
   prerequisites:
-    - ability: Charisma 13
+    - charisma: 13
     - classfeature: Channel Energy
 - feat:
   name: Self Sufficient
@@ -1009,7 +1009,7 @@
   description: >
     You can move, fire a ranged weapon, and move again before your foes can react.
   prerequisites:
-    - ability: Dexterity 13
+    - dexterity: 13
     - feat: Dodge;
     - feat: Mobility
     - feat: Point-Blank Shot
@@ -1041,7 +1041,7 @@
     Instead of knocking an arrow or ranged attack aside, you can catch it in
     mid-flight.
   prerequisites:
-    - ability: Dexterity 15
+    - dexterity: 15
     - feat: Deflect Arrows
     - feat: Improved Unarmed Strike
 - feat:
@@ -1088,7 +1088,7 @@
   description: >
     You can deftly move up to a foe, strike, and withdraw before he can react.
   prerequisites:
-    - ability: Dexterity 13
+    - dexterity: 13
     - feat: Dodge
     - feat: Mobility
     - baseattackbonus: 4
@@ -1148,8 +1148,8 @@
   tags: combat
   description: You know just where to strike to temporarily stun a foe.
   prerequisites:
-    - ability: Dexterity 13
-    - ability: Wisdom 13
+    - dexterity: 13
+    - wisdom: 13
     - feat: Improved Unarmed Strike
     - baseattackbonus: 8
 - feat:
@@ -1190,7 +1190,7 @@
   description: You are skilled at defending yourself while dual-wielding.
   prerequisites:
     - feat: Two-Weapon Fighting
-    - ability: Dexterity 15
+    - dexterity: 15
 - feat:
   name: Two-Weapon Fighting
   tags: combat
@@ -1198,7 +1198,7 @@
     You can fight with a weapon wielded in each of your hands. You can make
     one extra attack each round with the secondary weapon.
   prerequisites:
-    - ability: Dexterity 15
+    - dexterity: 15
 - feat:
   name: Two-Weapon Rend
   tags: combat
@@ -1206,7 +1206,7 @@
     Striking with both of your weapons simultaneously, you can use them to
     deliver devastating wounds.
   prerequisites:
-    - ability: Dexterity 17
+    - dexterity: 17
     - feat: Double Slice
     - feat: Improved Two-Weapon Fighting
     - feat: Two-Weapon Fighting
@@ -1216,7 +1216,7 @@
   tags: combat
   description: You are skilled at unseating your mounted opponents.
   prerequisites:
-    - ability: Strength 13
+    - strength: 13
     - skillranks: Ride 1
     - feat: Mounted Combat
     - feat: Power Attack
@@ -1261,8 +1261,8 @@
   tags: combat
   description: You can strike out at every foe within reach.
   prerequisites:
-    - ability: Dexterity 13
-    - ability: Intelligence 13
+    - dexterity: 13
+    - intelligence: 13
     - feat: Combat Expertise
     - feat: Dodge
     - feat: Mobility
@@ -1280,6 +1280,6 @@
   description: >
     Your erratic movements make it difficult for enemies to pinpoint your location.
   prerequisites:
-    - ability: Dexterity 15
+    - dexterity: 15
     - feat: Dodge
     - baseattackbonus: 6

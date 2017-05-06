@@ -104,6 +104,8 @@ namespace SilverNeedle.Serialization
         {            
             get
             {
+                if(this.sequenceNode == null)
+                    return new List<IObjectStore>();
                 return this.sequenceNode.Children.Select(x => new YamlObjectStore(x)).ToList();
             }
         }

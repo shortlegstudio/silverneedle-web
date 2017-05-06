@@ -8,6 +8,7 @@ namespace SilverNeedle.Characters
     using System.Collections.Generic;
     using System.Linq;
     using SilverNeedle;
+    using SilverNeedle.Characters.Prerequisites;
     using SilverNeedle.Serialization;
 
     /// <summary>
@@ -23,7 +24,7 @@ namespace SilverNeedle.Characters
         {
             this.Modifiers = new List<ValueStatModifier>();
             this.SpecialAbilities = new List<SpecialAbility>();
-            this.Prerequisites = new Prerequisites();
+            this.Prerequisites = new PrerequisiteList();
             this.Tags = new List<string>();
         }
 
@@ -56,7 +57,7 @@ namespace SilverNeedle.Characters
         /// Gets the prerequisites.
         /// </summary>
         /// <value>The prerequisites needed to meet requirements for this feat.</value>
-        public Prerequisites Prerequisites { get; set; }
+        public PrerequisiteList Prerequisites { get; set; }
 
         /// <summary>
         /// Gets a value indicating whether this instance is combat feat.
@@ -139,7 +140,7 @@ namespace SilverNeedle.Characters
             var prereq = data.GetObjectOptional("prerequisites");
             if (prereq != null)
             {
-                Prerequisites = new Prerequisites(prereq);
+                Prerequisites = new PrerequisiteList(prereq);
             }
 
             Tags = data.GetListOptional("tags").ToList();

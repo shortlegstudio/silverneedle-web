@@ -5,21 +5,22 @@
 
 namespace Tests.Characters {
     using System.Collections.Generic;
+    using System.Linq;
     using NUnit.Framework;
     using SilverNeedle.Characters;
-    using System.Linq;
+    using SilverNeedle.Characters.Prerequisites;
     using SilverNeedle.Utility;
     
-	[TestFixture]
-	public class FeatTests {
+    [TestFixture]
+    public class FeatTests {
         Feat Acrobatic;
         Feat CombatExpertise;
         Feat PowerAttack;
         Feat CraftWand;
 
 
-		[SetUp]
-		public void SetUp() {
+        [SetUp]
+        public void SetUp() {
             var data = FeatYamlFile.ParseYaml();
             var list = new List<Feat>();
             foreach(var c in data.Children)
@@ -31,24 +32,24 @@ namespace Tests.Characters {
             CombatExpertise = list.First(x => x.Name == "Combat Expertise");
             PowerAttack = list.First(x => x.Name == "Power Attack");
             CraftWand = list.First(x => x.Name == "Craft Wand");
-		}
-			
+        }
+            
 
-		[Test]
-		public void FeatsKnowWhetherYouQualify() {
-			var smartCharacter = new CharacterSheet (new List<Skill>());
-			smartCharacter.AbilityScores.SetScore (AbilityScoreTypes.Intelligence, 15);
-			var dumbCharacter = new CharacterSheet (new List<Skill>());
-			dumbCharacter.AbilityScores.SetScore (AbilityScoreTypes.Intelligence, 5);
+        [Test]
+        public void FeatsKnowWhetherYouQualify() {
+            var smartCharacter = new CharacterSheet (new List<Skill>());
+            smartCharacter.AbilityScores.SetScore (AbilityScoreTypes.Intelligence, 15);
+            var dumbCharacter = new CharacterSheet (new List<Skill>());
+            dumbCharacter.AbilityScores.SetScore (AbilityScoreTypes.Intelligence, 5);
 
-			var CombatExpertise = new Feat();
-			CombatExpertise.Prerequisites.Add(new Prerequisites.AbilityPrerequisite("Intelligence 13"));
+            var CombatExpertise = new Feat();
+            CombatExpertise.Prerequisites.Add(new AbilityPrerequisite(AbilityScoreTypes.Intelligence, 13));
 
-			Assert.IsTrue (CombatExpertise.IsQualified (smartCharacter));
-			Assert.IsFalse (CombatExpertise.IsQualified (dumbCharacter));
-		}		
+            Assert.IsTrue (CombatExpertise.IsQualified (smartCharacter));
+            Assert.IsFalse (CombatExpertise.IsQualified (dumbCharacter));
+        }		
 
-		[Test]
+        [Test]
         public void IfFeatIsAlreadySelectedItCannotBeSelectedAgain()
         {
             var character = new CharacterSheet (new List<Skill>());
@@ -90,8 +91,8 @@ namespace Tests.Characters {
         [Test]
         public void FeatsCanHaveAbilityPrerequisites() {
             var prereq = CombatExpertise.Prerequisites;
-            var abilityCheck = prereq.First () as Prerequisites.AbilityPrerequisite;
-                  Assert.IsInstanceOf<Prerequisites.AbilityPrerequisite> (abilityCheck);
+            var abilityCheck = prereq.First() as AbilityPrerequisite;
+                  Assert.IsInstanceOf<AbilityPrerequisite> (abilityCheck);
             Assert.AreEqual (AbilityScoreTypes.Intelligence, abilityCheck.Ability);
             Assert.AreEqual (13, abilityCheck.Minimum);
         }
@@ -130,7 +131,7 @@ namespace Tests.Characters {
   description: Dodge stuff better
   tags: combat
   prerequisites:
-    - ability: Intelligence 13
+    - intelligence: 13
 - feat:
   name: Power Attack
   description: Hit Stuff Hard
@@ -140,5 +141,5 @@ namespace Tests.Characters {
   tags: itemcreation
   description: Make Wands
 ...";
-	}
+    }
 }

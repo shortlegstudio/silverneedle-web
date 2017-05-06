@@ -1,0 +1,59 @@
+--- !<SilverNeedle.Characters.SpecialAbilities.RagePower>
+- name: Animal Fury
+- name: Clear Mind
+  prerequisites:
+    - classlevel: Barbarian 8
+- name: Fearless Rage
+  prerequisites:
+    - classlevel: Barbarian 12
+- name: Guarded Stance
+- name: Increased Damage Reduction 1
+  prerequisites:
+    - classlevel: Barbarian 8
+- name: Increased Damage Reduction 2
+  prerequisites:
+    - classlevel: Barbarian 8
+    - ability: Increased Damage Reduction 1
+- name: Increased Damage Reduction 3
+  prerequisites:
+    - classlevel: Barbarian 8
+    - ability: Increased Damage Reduction 1
+    - ability: Increased Damage Reduction 2
+- name: Internal Fortitude
+  prerequisites:
+    - classlevel: Barbarian 8
+- name: Intimidating Glare
+- name: Knockback
+- name: Low-Light Vision
+- name: Mighty Swing
+  prerequisites:
+    - classlevel: Barbarian 12
+- name: Moment of Clarity
+- name: Night Vision
+- name: No Escape
+- name: Powerful Blow
+- name: Quick Reflexes
+- name: Raging Climber
+- name: Raging Leaper
+- name: Raging Swimmer
+- name: Renewed Vigor
+- name: Rolling Dodge
+- name: Roused Anger
+- name: Scent
+- name: Strength Surge
+- name: Superstition
+- name: Surprise Accuracy
+- name: Swift Foot 1
+- name: Swift Foot 2
+  prerequisites:
+    - ability: Swift Foot 1
+- name: Swift Foot 3
+  prerequisites:
+    - ability: Swift Foot 2
+  prerequisites:
+- name: Terrifying Howl
+  prerequisites:
+    - classlevel: Barbarian 8
+- name: Unexpected Strike
+  prerequisites:
+    - classlevel: Barbarian 8

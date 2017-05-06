@@ -3,59 +3,83 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-namespace Tests.Characters {
+namespace Tests.Characters 
+{
+    using System.Collections.Generic;
+    using System.Linq;
     using NUnit.Framework;
     using SilverNeedle.Characters;
-    using System.Linq;
-    using System.Collections.Generic;
+    using SilverNeedle.Characters.Prerequisites;
     using SilverNeedle.Serialization;
-	using SilverNeedle.Utility;
+    using SilverNeedle.Utility;
 
-	[TestFixture]
-	public class PrerequisiteTests {
-		[Test]
-		public void ParseSomeYaml() {
-			var yamlNode = PrerequisitesYaml.ParseYaml();
-			var prereq = yamlNode.GetObject ("prerequisites");
+    [TestFixture]
+    public class PrerequisiteTests {
+        [Test]
+        public void ParseSomeYaml() {
+            var yamlNode = PrerequisitesYaml.ParseYaml();
+            var prereq = yamlNode.GetObject("prerequisites");
 
-			var prereqs = new Prerequisites (prereq);
+            var prereqs = new PrerequisiteList(prereq);
 
-			Assert.AreEqual (4, prereqs.Count);
-            Assert.IsInstanceOf<Prerequisites.AbilityPrerequisite> (prereqs.First ());
-		}
+            Assert.AreEqual (5, prereqs.Count);
+            Assert.IsInstanceOf<AbilityPrerequisite>(prereqs.First());
 
-		[Test]
-		public void AlwaysQualifiedIfNoQualificationsNeeded() {
-			var pre = new Prerequisites ();
-			Assert.IsTrue(pre.IsQualified(new CharacterSheet(new List<Skill>())));
-		}
+        }
 
-		[Test]
-		public void AbilityIsQualifiedIfExceedingScore() {
-            var pre = new Prerequisites.AbilityPrerequisite ("Intelligence 13");
-			var c = new CharacterSheet (new List<Skill>());
-			c.AbilityScores.SetScore (AbilityScoreTypes.Intelligence, 15);
-			Assert.IsTrue (pre.IsQualified (c));
-		}
+        [Test]
+        public void AlwaysQualifiedIfNoQualificationsNeeded() {
+            var pre = new PrerequisiteList();
+            Assert.IsTrue(pre.IsQualified(new CharacterSheet(new List<Skill>())));
+        }
 
-		[Test]
-		public void AbilityIsNotQualifiedIfNotExceedingScore() {
-            var pre = new Prerequisites.AbilityPrerequisite ("Intelligence 13");
-			var c = new CharacterSheet (new List<Skill>());
-			c.AbilityScores.SetScore (AbilityScoreTypes.Intelligence, 11);
-			Assert.IsFalse (pre.IsQualified (c));
-		}
+        [Test]
+        public void AbilityIsQualifiedIfExceedingScore() {
+            var pre = new AbilityPrerequisite (AbilityScoreTypes.Intelligence, 13);
+            var c = new CharacterSheet (new List<Skill>());
+            c.AbilityScores.SetScore (AbilityScoreTypes.Intelligence, 15);
+            Assert.IsTrue (pre.IsQualified (c));
+        }
+
+        [Test]
+        public void AbilityIsNotQualifiedIfNotExceedingScore() {
+            var pre = new AbilityPrerequisite (AbilityScoreTypes.Intelligence, 13);
+            var c = new CharacterSheet (new List<Skill>());
+            c.AbilityScores.SetScore (AbilityScoreTypes.Intelligence, 11);
+            Assert.IsFalse (pre.IsQualified (c));
+        }
+
+        [Test]
+        public void SpecialAbilityPrerequisite() 
+        {
+            var special = new SpecialAbilityPrerequisite("Darkvision");
+            var c = new CharacterSheet();
+            Assert.That(special.IsQualified(c), Is.False);
+            var darkvision = new MemoryStore();
+            darkvision.SetValue("name", "Darkvision");
+            c.Add(new Trait(darkvision));
+            Assert.That(special.IsQualified(c), Is.True);
+        }
+
+        [Test]
+        public void EmptyNodesJustMakeNoPrerequisites()
+        {
+            var data = new MemoryStore();
+            var list = new PrerequisiteList(data);
+            Assert.That(list.Count, Is.EqualTo(0));
+        }
 
 
 
 
-		private const string PrerequisitesYaml = @"--- 
+        private const string PrerequisitesYaml = @"--- 
 prerequisites:
-  - ability: Intelligence 13
+  - intelligence: 13
   - race: Elf
   - feat: Weapon Finesse
   - skillranks: Acrobatics 4
+  - ability: darkvision
 ";
-	}
+    }
 }
 
