@@ -20,6 +20,11 @@ namespace SilverNeedle.Actions.CharacterGenerator
                 {
                     step.Process(character, strategy);
                 }
+
+                foreach(var ability in level.Abilities)
+                {
+                    character.Add(ability);
+                }
             }
         }
     }

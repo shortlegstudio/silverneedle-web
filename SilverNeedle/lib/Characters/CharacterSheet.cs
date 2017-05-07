@@ -358,6 +358,7 @@ namespace SilverNeedle.Characters
 
         public void Add<T>(T feature)
         {
+            ShortLog.DebugFormat("Adding component: {0}", feature.ToString());
             this.Components.Add(feature);
             var statMod = feature as IModifiesStats;
             if(statMod != null)

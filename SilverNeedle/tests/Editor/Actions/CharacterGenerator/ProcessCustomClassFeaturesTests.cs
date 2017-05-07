@@ -28,6 +28,22 @@ namespace Tests.Actions.CharacterGenerator
             Assert.That(character.Name, Is.EqualTo("I Ran!"));
         }
 
+        [Test]
+        public void AssignAbilitiesForThisLevel()
+        {
+            var cls = new Class();
+            var level = new Level(1);
+            var ability = new SpecialAbility();
+            level.Abilities.Add(ability);
+            cls.Levels.Add(level);
+            var character = new CharacterSheet();
+            character.SetClass(cls);
+
+            var subject = new ProcessCustomClassFeatures();
+            subject.Process(character, new CharacterBuildStrategy());
+            Assert.That(character.Components.GetAll<SpecialAbility>(), Contains.Item(ability));
+        }
+
         public class DummyCharacterDesignStep : ICharacterDesignStep
         {
             public void Process(CharacterSheet character, CharacterBuildStrategy strategy)

@@ -22,3 +22,8 @@
   weaponproficiencies: simple, martial
   developedage: trained
   startingwealth: 5d6
+  levels:
+    - level: 1
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.Aura
+          type: Good
