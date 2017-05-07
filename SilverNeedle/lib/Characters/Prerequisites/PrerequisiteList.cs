@@ -60,8 +60,9 @@ namespace SilverNeedle.Characters.Prerequisites
         /// <param name="yaml">Yaml Node to parse </param>
         private void ParseYaml(IObjectStore yaml)
         {
-            if(!yaml.HasChildren)
+            if(yaml == null || !yaml.HasChildren)
                 return;
+                
             foreach (var prereq in yaml.Children)
             {
                 var key = prereq.Keys.First();

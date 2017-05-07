@@ -50,7 +50,6 @@
 - name: Swift Foot 3
   prerequisites:
     - ability: Swift Foot 2
-  prerequisites:
 - name: Terrifying Howl
   prerequisites:
     - classlevel: Barbarian 8

@@ -40,6 +40,13 @@ namespace Tests.Characters.Prerequisites
             var list = new PrerequisiteList(data);
             Assert.That(list.Count, Is.EqualTo(0));
         }
+
+        [Test]
+        public void NullObjectDataHappensWhenNoPrerequisitesJustIgnore()
+        {
+            var list = new PrerequisiteList(null);
+            Assert.That(list.Count, Is.EqualTo(0));
+        }
         private const string PrerequisitesYaml = @"--- 
 prerequisites:
   - intelligence: 13

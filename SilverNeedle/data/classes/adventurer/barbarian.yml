@@ -36,6 +36,8 @@
           will: 2
           armor-class: -2
     - level: 2
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.SelectRagePower
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.UncannyDodge
     - level: 3
@@ -50,10 +52,15 @@
           modifier: 1
           type: bonus
           condition: traps
+    - level: 4
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.SelectRagePower
     - level: 5
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.ImprovedUncannyDodge
     - level: 6
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.SelectRagePower
       modifiers:
         - name: Trap Sense +2 (Reflex)
           stat: Reflex
@@ -70,6 +77,9 @@
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureDamageResistance
           amount: 1
           type: "-"
+    - level: 8
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.SelectRagePower
     - level: 9
       modifiers:
         - name: Trap Sense +3 (Reflex)
@@ -84,6 +94,7 @@
           condition: traps
     - level: 10
       class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.SelectRagePower
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureDamageResistance
           amount: 1
           type: "-"
@@ -95,6 +106,8 @@
           constitution: 6
           will: 3
     - level: 12
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.SelectRagePower
       modifiers:
         - name: Trap Sense +4 (Reflex)
           stat: Reflex
@@ -112,6 +125,8 @@
           amount: 1
           type: "-"
     - level: 14
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.SelectRagePower
       modifiers:
         - name: Indomitable Will
           stat: Will
@@ -132,6 +147,7 @@
           condition: traps
     - level: 16
       class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.SelectRagePower
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureDamageResistance
           amount: 1
           type: "-"
@@ -139,6 +155,8 @@
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.TirelessRage
     - level: 18
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.SelectRagePower
       modifiers:
         - name: Trap Sense +6 (Reflex)
           stat: Reflex
@@ -157,6 +175,7 @@
           type: "-"
     - level: 20
       class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.SelectRagePower
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureRage
           name: Mighty Rage
           strength: 8

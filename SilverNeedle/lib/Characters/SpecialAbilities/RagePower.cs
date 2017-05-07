@@ -8,12 +8,13 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using System;
     using SilverNeedle.Characters.Prerequisites;
     using SilverNeedle.Serialization;
-    public class RagePower : IHasPrerequisites
+    public class RagePower : SpecialAbility, IHasPrerequisites, IGatewayObject
     {
         public RagePower(IObjectStore configuration)
         {
             var prereq = configuration.GetObjectOptional("prerequisites");
             Prerequisites = new PrerequisiteList(prereq);
+            this.Name = configuration.GetString("name");
         }
 
         public PrerequisiteList Prerequisites { get; private set; }
@@ -22,5 +23,11 @@ namespace SilverNeedle.Characters.SpecialAbilities
         {
             return Prerequisites.IsQualified(character);
         }
+
+        public bool Matches(string name)
+        {
+            return this.Name.EqualsIgnoreCase(name);
+        }
+
     }
 }
