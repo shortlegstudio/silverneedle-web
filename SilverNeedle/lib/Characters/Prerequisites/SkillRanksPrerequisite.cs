@@ -3,7 +3,7 @@ namespace SilverNeedle.Characters.Prerequisites
     /// <summary>
     /// Skill rank prerequisite.
     /// </summary>
-    public class SkillRankPrerequisite : Prerequisite
+    public class SkillRankPrerequisite : IPrerequisite
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SkillRankPrerequisite"/> class.
@@ -33,7 +33,7 @@ namespace SilverNeedle.Characters.Prerequisites
         /// </summary>
         /// <returns>true if the character is qualified</returns>
         /// <param name="character">Character to assess qualification.</param>
-        public override bool IsQualified(CharacterSheet character)
+        public bool IsQualified(CharacterSheet character)
         {
             return false;
         }

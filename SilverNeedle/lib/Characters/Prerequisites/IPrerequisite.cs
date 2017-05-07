@@ -8,13 +8,13 @@ namespace SilverNeedle.Characters.Prerequisites
         /// <summary>
         /// Basic prerequisite abstraction
         /// </summary>
-        public abstract class Prerequisite
+        public interface IPrerequisite
         {
             /// <summary>
             /// Determines whether this instance is qualified the specified character.
             /// </summary>
             /// <returns><c>true</c> if this instance is qualified the specified character; otherwise, <c>false</c>.</returns>
             /// <param name="character">Character to assess qualification.</param>
-            public abstract bool IsQualified(CharacterSheet character);
+            bool IsQualified(CharacterSheet character);
         }
 }

@@ -12,7 +12,7 @@ namespace SilverNeedle.Characters.Prerequisites
     /// <summary>
     /// Prerequisites needed to be able to use a feat
     /// </summary>
-    public class PrerequisiteList : List<Prerequisite>
+    public class PrerequisiteList : List<IPrerequisite>
     {
         /// <summary>
         /// The prerequisite key names.
@@ -65,7 +65,7 @@ namespace SilverNeedle.Characters.Prerequisites
             foreach (var prereq in yaml.Children)
             {
                 var key = prereq.Keys.First();
-                Prerequisite newreq = null;
+                IPrerequisite newreq = null;
                 switch (key)
                 {
                     case "strength":

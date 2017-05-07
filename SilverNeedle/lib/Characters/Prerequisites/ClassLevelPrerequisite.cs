@@ -8,7 +8,7 @@ namespace SilverNeedle.Characters.Prerequisites
     /// <summary>
     /// Class level prerequisite.
     /// </summary>
-    public class ClassLevelPrerequisite : Prerequisite
+    public class ClassLevelPrerequisite : IPrerequisite
     {
         /// <summary>
         /// Initializes a new instance of the
@@ -39,11 +39,11 @@ namespace SilverNeedle.Characters.Prerequisites
         /// </summary>
         /// <returns>true if the character is qualified</returns>
         /// <param name="character">Character to assess qualification.</param>
-        public override bool IsQualified(CharacterSheet character)
+        public bool IsQualified(CharacterSheet character)
         {
             if(character.Class == null)
                 return false;
-                
+
             return character.Class.Name.EqualsIgnoreCase(this.Class) &&
                 character.Level >= this.Minimum;
         }

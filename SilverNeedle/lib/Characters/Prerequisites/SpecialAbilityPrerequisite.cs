@@ -6,7 +6,7 @@
 namespace SilverNeedle.Characters.Prerequisites
 {
     using System.Linq;
-    public class SpecialAbilityPrerequisite : Prerequisite
+    public class SpecialAbilityPrerequisite : IPrerequisite
     {
         public string SpecialAbilityName { get; set; }
         public SpecialAbilityPrerequisite(string name)
@@ -19,7 +19,7 @@ namespace SilverNeedle.Characters.Prerequisites
         /// </summary>
         /// <returns>true if the character is qualified</returns>
         /// <param name="character">Character to assess qualification.</param>
-        public override bool IsQualified(CharacterSheet character)
+        public bool IsQualified(CharacterSheet character)
         {
             return 
                 character.Components.GetAll<SpecialAbility>().Any(x => x.Name.EqualsIgnoreCase(SpecialAbilityName))

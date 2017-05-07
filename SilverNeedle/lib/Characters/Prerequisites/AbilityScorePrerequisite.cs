@@ -8,7 +8,7 @@ namespace SilverNeedle.Characters.Prerequisites
     /// <summary>
     /// Ability prerequisite are based on an ability score
     /// </summary>
-    public class AbilityPrerequisite : Prerequisite
+    public class AbilityPrerequisite : IPrerequisite
     {
         /// <summary>
         /// Initializes a new instance of the
@@ -40,7 +40,7 @@ namespace SilverNeedle.Characters.Prerequisites
         /// </summary>
         /// <returns>true if the character is qualified</returns>
         /// <param name="character">Character to assess qualification.</param>
-        public override bool IsQualified(CharacterSheet character)
+        public bool IsQualified(CharacterSheet character)
         {
             return character.AbilityScores.GetScore(this.Ability) >= this.Minimum;
         }
