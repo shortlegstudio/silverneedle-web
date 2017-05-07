@@ -3,7 +3,7 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-namespace Tests.Characters 
+namespace Tests.Characters.Prerequisites
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -34,44 +34,12 @@ namespace Tests.Characters
         }
 
         [Test]
-        public void AbilityIsQualifiedIfExceedingScore() {
-            var pre = new AbilityPrerequisite (AbilityScoreTypes.Intelligence, 13);
-            var c = new CharacterSheet (new List<Skill>());
-            c.AbilityScores.SetScore (AbilityScoreTypes.Intelligence, 15);
-            Assert.IsTrue (pre.IsQualified (c));
-        }
-
-        [Test]
-        public void AbilityIsNotQualifiedIfNotExceedingScore() {
-            var pre = new AbilityPrerequisite (AbilityScoreTypes.Intelligence, 13);
-            var c = new CharacterSheet (new List<Skill>());
-            c.AbilityScores.SetScore (AbilityScoreTypes.Intelligence, 11);
-            Assert.IsFalse (pre.IsQualified (c));
-        }
-
-        [Test]
-        public void SpecialAbilityPrerequisite() 
-        {
-            var special = new SpecialAbilityPrerequisite("Darkvision");
-            var c = new CharacterSheet();
-            Assert.That(special.IsQualified(c), Is.False);
-            var darkvision = new MemoryStore();
-            darkvision.SetValue("name", "Darkvision");
-            c.Add(new Trait(darkvision));
-            Assert.That(special.IsQualified(c), Is.True);
-        }
-
-        [Test]
         public void EmptyNodesJustMakeNoPrerequisites()
         {
             var data = new MemoryStore();
             var list = new PrerequisiteList(data);
             Assert.That(list.Count, Is.EqualTo(0));
         }
-
-
-
-
         private const string PrerequisitesYaml = @"--- 
 prerequisites:
   - intelligence: 13
@@ -82,4 +50,3 @@ prerequisites:
 ";
     }
 }
-

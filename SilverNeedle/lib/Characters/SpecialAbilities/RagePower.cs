@@ -5,9 +5,10 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
+    using System;
     using SilverNeedle.Characters.Prerequisites;
     using SilverNeedle.Serialization;
-    public class RagePower 
+    public class RagePower : IHasPrerequisites
     {
         public RagePower(IObjectStore configuration)
         {
@@ -17,5 +18,9 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
         public PrerequisiteList Prerequisites { get; private set; }
 
+        public bool IsQualified(CharacterSheet character)
+        {
+            return Prerequisites.IsQualified(character);
+        }
     }
 }
