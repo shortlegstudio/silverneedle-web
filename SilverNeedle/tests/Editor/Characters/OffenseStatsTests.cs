@@ -9,6 +9,7 @@ namespace Tests.Characters {
     using NUnit.Framework;
     using SilverNeedle;
     using SilverNeedle.Characters;
+    using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Equipment;
     using SilverNeedle.Dice;
     using SilverNeedle.Utility;

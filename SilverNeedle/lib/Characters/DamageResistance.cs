@@ -5,6 +5,7 @@
 
 namespace SilverNeedle.Characters
 {
+    using SilverNeedle.Characters.SpecialAbilities;
     public class DamageResistance : SpecialAbility
     {
         public DamageResistance(int amnt, string damageType) 

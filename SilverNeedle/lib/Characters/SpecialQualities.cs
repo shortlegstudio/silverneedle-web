@@ -7,6 +7,7 @@ namespace SilverNeedle.Characters
 {
     using System.Collections.Generic;
     using System.Linq;
+    using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Utility;
 
     public class SpecialQualities : IComponent

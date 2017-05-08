@@ -93,19 +93,5 @@ namespace Tests.Actions {
             Assert.AreEqual(1, character.Defense.ReflexSave.TotalValue);
             Assert.AreEqual(1, character.Defense.FortitudeSave.TotalValue);
         }
-
-        [Test]
-        public void AddsAbilitiesToCharacters()
-        {
-            var level = new Level(2);
-            level.Abilities.Add(new UncannyDodge());
-            character.Class.Levels.Add(level);
-
-            var levelUp = new LevelUpCharacter();
-            levelUp.Process(character, new CharacterBuildStrategy());
-
-            Assert.That(character.Components.Get<UncannyDodge>(), Is.Not.Null);
-
-        }
 	}
 }

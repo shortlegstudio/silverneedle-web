@@ -8,6 +8,7 @@ namespace SilverNeedle.Characters
 {
     using System;
     using System.Collections.Generic;
+    using SilverNeedle.Characters.SpecialAbilities;
 
     /// <summary>
     /// Size stats for a character. Provides stats and modifiers

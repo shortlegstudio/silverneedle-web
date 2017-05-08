@@ -8,6 +8,7 @@ namespace SilverNeedle.Characters
     using System.Collections.Generic;
     using System.Linq;
     using SilverNeedle;
+    using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Characters.Prerequisites;
     using SilverNeedle.Serialization;
 

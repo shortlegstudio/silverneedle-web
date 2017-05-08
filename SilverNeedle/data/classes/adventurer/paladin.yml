@@ -31,6 +31,9 @@
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSmiteEvil
           uses-per-day: 1
+    - level: 2
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.DivineGrace
     - level: 4
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSmiteEvil

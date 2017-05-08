@@ -42,11 +42,6 @@ namespace SilverNeedle.Actions.CharacterGenerator
                 character.FeatTokens.Add(new FeatToken());
             }
 
-            foreach(var abl in level.Abilities)
-            {
-                character.Add(abl);
-            }
-            
             // Special Level ups
             if (character.Level % 4 == 0)
             {

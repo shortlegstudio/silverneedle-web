@@ -6,10 +6,11 @@
 
 namespace Tests.Characters
 {
-    using NUnit.Framework;
-    using SilverNeedle.Characters;
     using System.Collections.Generic;
     using System.Linq;
+    using NUnit.Framework;
+    using SilverNeedle.Characters;
+    using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle;
     using SilverNeedle.Equipment;
     using SilverNeedle.Utility;

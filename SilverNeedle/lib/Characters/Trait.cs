@@ -6,6 +6,7 @@
 namespace SilverNeedle.Characters
 {
     using System.Collections.Generic;
+    using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 

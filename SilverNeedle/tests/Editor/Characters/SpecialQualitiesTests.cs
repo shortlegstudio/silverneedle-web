@@ -9,6 +9,7 @@ namespace Tests.Characters
     using System.Collections.Generic;
     using NUnit.Framework;
     using SilverNeedle.Characters;
+    using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Utility;
 
     [TestFixture]

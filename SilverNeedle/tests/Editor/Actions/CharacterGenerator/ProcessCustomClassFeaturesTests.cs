@@ -9,6 +9,7 @@ namespace Tests.Actions.CharacterGenerator
     using SilverNeedle.Actions;
     using SilverNeedle.Actions.CharacterGenerator;
     using SilverNeedle.Characters;
+    using SilverNeedle.Characters.SpecialAbilities;
 
     [TestFixture]
     public class ProcessCustomClassFeaturesTests

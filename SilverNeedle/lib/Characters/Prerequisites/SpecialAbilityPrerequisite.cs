@@ -6,6 +6,7 @@
 namespace SilverNeedle.Characters.Prerequisites
 {
     using System.Linq;
+    using SilverNeedle.Characters.SpecialAbilities;
     public class SpecialAbilityPrerequisite : IPrerequisite
     {
         public string SpecialAbilityName { get; set; }

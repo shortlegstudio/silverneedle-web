@@ -3,15 +3,16 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-namespace SilverNeedle.Characters
+namespace SilverNeedle.Characters.SpecialAbilities
 {
     public class SpecialAbility
     {
         public SpecialAbility()
         {
+            this.Name = Inflector.Inflector.Titleize(this.GetType().Name);
         }
 
-        public SpecialAbility(string condition, string type)
+        public SpecialAbility(string condition, string type) : this()
         {
             this.Condition = condition;
             this.Type = type;
