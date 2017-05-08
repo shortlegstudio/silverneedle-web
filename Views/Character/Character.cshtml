@@ -47,6 +47,16 @@
                         { @dr }
                     </li>
                 }
+                @if(character.Immunities.Length > 0)
+                {
+                    <li>
+                        <strong>Immunities:</strong> 
+                        <ul class="commalist" style="padding: 0">
+                            @foreach(var immune in character.Immunities)
+                            { <li>@immune</li> }
+                        </ul>
+                    </li>
+                }
             </ul>
             <h5>OFFENSE</h5>
             <ul class="stats">

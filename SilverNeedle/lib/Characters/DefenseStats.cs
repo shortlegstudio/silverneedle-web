@@ -338,5 +338,10 @@ namespace SilverNeedle.Characters
         {
             return this.ArmorProficiencies.IsProficient(armor);
         }
+
+        public void AddImmunity(string immunity)
+        {
+            this.specialAbilities.Add(new SpecialAbility(immunity, ImmunitiesName));
+        }
     }
 }

@@ -35,6 +35,10 @@
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.DivineGrace
         - ability: SilverNeedle.Characters.SpecialAbilities.LayOnHands
+    - level: 3
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.AuraOfCourage
+        - ability: SilverNeedle.Characters.SpecialAbilities.DivineHealth
     - level: 4
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSmiteEvil
