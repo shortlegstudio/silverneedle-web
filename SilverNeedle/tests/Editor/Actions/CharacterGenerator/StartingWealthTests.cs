@@ -57,6 +57,7 @@ namespace Tests.Actions.CharacterGenerator
         public void IfAfterFirstLevelPickStartValueFromWealthList()
         {
             var character = new CharacterSheet();
+            character.SetClass(new Class());
             character.SetLevel(2);
             var action = new StartingWealth(wealthGateway);
             action.Process(character, new CharacterBuildStrategy());

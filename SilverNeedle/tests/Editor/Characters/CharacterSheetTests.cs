@@ -48,7 +48,6 @@ namespace Tests.Characters
             sheet.Alignment = CharacterAlignment.LawfulGood;
             Assert.AreEqual("Foobar", sheet.Name);
             Assert.AreEqual(CharacterAlignment.LawfulGood, sheet.Alignment);
-            Assert.AreEqual(1, sheet.Level);
         }
 
         [Test]

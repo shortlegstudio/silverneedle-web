@@ -47,7 +47,6 @@ namespace SilverNeedle.Characters
             this.Components.Add(new SkillRanks(skillList, this.AbilityScores));
             this.Components.Add(new Initiative(this.AbilityScores));
             this.Components.Add(new SpellCasting(this.Inventory));
-            this.Level = 1;
         }
 
         public void InitializeComponents()
@@ -129,7 +128,16 @@ namespace SilverNeedle.Characters
         /// Gets the level.
         /// </summary>
         /// <value>The character's level.</value>
-        public int Level { get; private set; }
+        public int Level { 
+            get 
+            { 
+                var classLevel = this.Components.Get<ClassLevel>();
+                if(classLevel == null)
+                    return 0;
+                
+                return classLevel.Level;
+            }
+        }
 
         /// <summary>
         /// Gets the ability scores
@@ -233,8 +241,10 @@ namespace SilverNeedle.Characters
         /// <param name="cls">Class of the character</param>
         public void SetClass(Class cls)
         {
+            
             // TODO: Offense and defense have very different behaviors
             this.Components.Add(cls);
+            this.Components.Add(new ClassLevel(cls));
             
             // Add Weapon Proficiencies
             this.Offense.AddWeaponProficiencies(cls.WeaponProficiencies);
@@ -262,7 +272,10 @@ namespace SilverNeedle.Characters
         /// <param name="level">Character's level</param>
         public void SetLevel(int level)
         {
-            this.Level = level;
+            var classLevel = this.Components.Get<ClassLevel>();
+            if(classLevel == null)
+                throw new MissingCharacterClassException();
+             classLevel.Level = level;
         }
 
         /// <summary>
