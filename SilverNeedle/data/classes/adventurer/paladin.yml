@@ -27,3 +27,31 @@
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.Aura
           type: Good
+        - ability: SilverNeedle.Characters.SpecialAbilities.DetectEvil
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSmiteEvil
+          uses-per-day: 1
+    - level: 4
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSmiteEvil
+          uses-per-day: 2
+    - level: 7
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSmiteEvil
+          uses-per-day: 3
+    - level: 10
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSmiteEvil
+          uses-per-day: 4
+    - level: 13
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSmiteEvil
+          uses-per-day: 5
+    - level: 16
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSmiteEvil
+          uses-per-day: 6
+    - level: 19
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSmiteEvil
+          uses-per-day: 7

@@ -371,6 +371,11 @@ namespace SilverNeedle.Characters
             InitializeComponent(feature);
         }
 
+        public T Get<T>()
+        {
+            return this.Components.Get<T>();
+        }
+
         public BasicStat FindStat(string name)
         {
             return GetAllStats().First(x => x.Name.EqualsIgnoreCase(name));
