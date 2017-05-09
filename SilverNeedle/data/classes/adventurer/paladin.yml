@@ -40,6 +40,8 @@
         - ability: SilverNeedle.Characters.SpecialAbilities.AuraOfCourage
         - ability: SilverNeedle.Characters.SpecialAbilities.DivineHealth
     - level: 4
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.ChannelEnergy
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSmiteEvil
           uses-per-day: 2

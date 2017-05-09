@@ -9,7 +9,8 @@ namespace SilverNeedle.Characters
     public enum AttackTypes
     {
         Melee,
-        Ranged
+        Ranged,
+        Special
     }
 
 }

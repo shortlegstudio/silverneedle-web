@@ -26,7 +26,7 @@ namespace SilverNeedle.Characters
 
         public Func<Weapon, bool> WeaponQualifies { get; private set; }
 
-        public void ApplyModifier(OffenseStats.AttackStatistic attack)
+        public void ApplyModifier(AttackStatistic attack)
         {
             attack.Damage.Modifier += (int)Modifier;
         }

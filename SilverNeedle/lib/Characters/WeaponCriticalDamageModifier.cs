@@ -27,7 +27,7 @@ namespace SilverNeedle.Characters
 
         public string StatisticName { get { return "Weapon Critical"; } }
 
-        public void ApplyModifier(OffenseStats.AttackStatistic attack)
+        public void ApplyModifier(AttackStatistic attack)
         {
             attack.CriticalModifier += (int)Modifier;
         }

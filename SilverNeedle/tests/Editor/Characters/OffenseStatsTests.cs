@@ -200,6 +200,14 @@ namespace Tests.Characters {
             Assert.That(dAttack.Damage.Modifier, Is.EqualTo(3));
         }
 
+        [Test]
+        public void CanAddSpecialAttacksToStats()
+        {
+            var attack = new AttackStatistic();
+            smallStats.AddAttack(attack);
+            Assert.That(smallStats.Attacks(), Contains.Item(attack));
+        }
+
         private Weapon Longsword() {
             return new Weapon("Longsword", 0, "1d8", DamageTypes.Slashing, 19, 2, 0, WeaponType.OneHanded, WeaponGroup.HeavyBlades, WeaponTrainingLevel.Martial);
         }

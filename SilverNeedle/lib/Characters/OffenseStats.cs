@@ -61,8 +61,11 @@ namespace SilverNeedle.Characters
         private List<SpecialAbility> offensiveAbilities;
 
         private List<IWeaponModifier> weaponModifiers;
+        private List<AttackStatistic> customAttacks;
 
         public IEnumerable<IWeaponModifier> WeaponModifiers { get { return weaponModifiers; } }
+
+        
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Characters.OffenseStats"/> class.
@@ -83,6 +86,7 @@ namespace SilverNeedle.Characters
             this.MeleeAttackBonus = new BasicStat(StatNames.MeleeAttackBonus);
             this.RangeAttackBonus = new BasicStat(StatNames.RangeAttackBonus);
             this.weaponModifiers = new List<IWeaponModifier>();
+            this.customAttacks = new List<AttackStatistic>();
         }
 
         public void Initialize(ComponentBag components)
@@ -253,12 +257,19 @@ namespace SilverNeedle.Characters
                 );
             }
 
+            attacks.AddRange(customAttacks);
+
             return attacks;
         }
 
         public void LevelUp(Class characterClass)
         {
             BaseAttackBonus.AddModifier(new ValueStatModifier(characterClass.BaseAttackBonusRate, string.Format("{0} Level", characterClass.Name)));            
+        }
+
+        public void AddAttack(AttackStatistic newAttack)
+        {
+            this.customAttacks.Add(newAttack);
         }
 
         private AttackStatistic CreateAttack(AttackTypes attackType, Weapon weapon) 
@@ -292,54 +303,6 @@ namespace SilverNeedle.Characters
             }
 
             return atk;
-        }
-
-        /// <summary>
-        /// Attack statistics for offense
-        /// </summary>
-        public class AttackStatistic
-        {
-            /// <summary>
-            /// Gets or sets the name.
-            /// </summary>
-            /// <value>The name.</value>
-            public string Name { get; set; }
-
-            /// <summary>
-            /// Gets or sets the weapon.
-            /// </summary>
-            /// <value>The weapon.</value>
-            public Weapon Weapon { get; set; }
-
-            /// <summary>
-            /// Gets or sets the damage.
-            /// </summary>
-            /// <value>The dice needed to roll damage.</value>
-            public Cup Damage { get; set; }
-
-            /// <summary>
-            /// Gets or sets the attack bonus.
-            /// </summary>
-            public int AttackBonus { get; set; }
-
-            public AttackTypes AttackType { get; set; }
-
-            public int CriticalModifier { get; set; }
-
-            /// <summary>
-            /// Returns a <see cref="System.String"/> that represents the current <see cref="SilverNeedle.Characters.OffenseStats+AttackStatistic"/>.
-            /// </summary>
-            /// <returns>A <see cref="System.String"/> that represents the current <see cref="SilverNeedle.Characters.OffenseStats+AttackStatistic"/>.</returns>
-            public override string ToString()
-            {
-                return string.Format(
-                    "{0} {1} ({2} / {3}x{4})", 
-                    this.Name, 
-                    this.AttackBonus.ToModifierString(), 
-                    this.Damage, 
-                    this.Weapon.CriticalThreat, 
-                    this.CriticalModifier);
-            }
         }
     }
 }
