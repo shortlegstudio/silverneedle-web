@@ -21,6 +21,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
             get 
             { 
                 var cup = new Cup();
+                cup.MaximizeAmount = this.MaximizeAmount;
                 cup.AddDice(Die.GetDice(DiceSides.d6, paladinLevel.Level / 2)); 
                 return cup;
             }
@@ -47,5 +48,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
                 return base.Name;
             }
         }
+
+        public bool MaximizeAmount { get; set; }
     }
 }

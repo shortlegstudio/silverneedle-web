@@ -44,5 +44,14 @@ namespace Tests.Characters.SpecialAbilities
         {
             Assert.That(level4Paladin.Get<LayOnHands>().Name, Is.EqualTo("Lay on Hands (2d6, 4/day)"));
         }
+
+        [Test]
+        public void CanBeSetToAlwaysReturnTheMaximumValue()
+        {
+            var layOn = level4Paladin.Get<LayOnHands>();
+            layOn.MaximizeAmount = true;
+            Assert.That(layOn.HealingDice.Roll(), Is.EqualTo(12));
+            Assert.That(layOn.Name, Is.EqualTo("Lay on Hands (12 points, 4/day)"));
+        }
     }
 }

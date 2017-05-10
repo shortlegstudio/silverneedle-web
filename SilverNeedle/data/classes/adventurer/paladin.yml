@@ -82,6 +82,9 @@
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSmiteEvil
           uses-per-day: 7
+    - level: 20
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.HolyChampion
   spells:
     list: paladin
     type: divine

@@ -100,5 +100,16 @@ namespace Dice
             Assert.AreEqual("2d10+1d6+5", cup.ToString());
 
         }
+
+        [Test]
+        public void CanBeSetToAllowsRollTheMaximumValue()
+        {
+            var cup = new Cup();
+            cup.AddDice(Die.GetDice(DiceSides.d6, 10));
+            cup.MaximizeAmount = true;
+            Assert.That(cup.Roll(), Is.EqualTo(60));
+            Assert.That(cup.Roll(), Is.EqualTo(60));
+            Assert.That(cup.Roll(), Is.EqualTo(60));
+        }
     }
 }

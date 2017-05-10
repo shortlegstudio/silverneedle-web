@@ -68,6 +68,8 @@ namespace SilverNeedle.Dice
         /// <returns>The sum of the roll of the dice</returns>
         public int Roll()
         {
+            if(MaximizeAmount)
+                return this.Dice.Sum(x => x.SideCount);
             int total = 0;
             foreach (Die d in this.Dice)
             {
@@ -76,6 +78,8 @@ namespace SilverNeedle.Dice
 
             return this.Modifier + total;
         }
+
+        public bool MaximizeAmount { get; set; }
 
         /// <summary>
         /// Rolls the dice and selects the top number of dice. Does not apply modifiers
@@ -102,6 +106,9 @@ namespace SilverNeedle.Dice
         /// <returns>A <see cref="System.String"/> that represents the current <see cref="SilverNeedle.Dice.Cup"/>.</returns>
         public override string ToString()
         {
+            if(MaximizeAmount)
+                return string.Format("{0} points", this.Roll());
+
             var diceGroups = this.Dice
                 .GroupBy(die => die.Sides)
                 .Select(group => new 

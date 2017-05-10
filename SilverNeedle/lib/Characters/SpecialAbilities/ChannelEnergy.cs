@@ -9,10 +9,12 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using SilverNeedle.Utility;
     public class ChannelEnergy : SpecialAbility, IComponent
     {
+        public ChannelEnergyAttack ChannelAttack { get; private set; }
         public void Initialize(ComponentBag components)
         {
+            this.ChannelAttack = new ChannelEnergyAttack(components);
             var offense = components.Get<OffenseStats>();
-            offense.AddAttack(new ChannelEnergyAttack(components));
+            offense.AddAttack(ChannelAttack);
         }
 
         public class ChannelEnergyAttack : AttackStatistic
@@ -27,6 +29,8 @@ namespace SilverNeedle.Characters.SpecialAbilities
                 this.AttackType = AttackTypes.Special;
             }
 
+            public bool MaximizeAmount { get; set; }
+
             public override int SaveDC
             {
                 get
@@ -39,7 +43,9 @@ namespace SilverNeedle.Characters.SpecialAbilities
             {
                 get
                 {
-                    return new Cup(Die.GetDice(DiceSides.d6, classLevel.Level / 2));
+                    var cup = new Cup(Die.GetDice(DiceSides.d6, classLevel.Level / 2));
+                    cup.MaximizeAmount = this.MaximizeAmount;
+                    return cup;
                 }
             }
 
