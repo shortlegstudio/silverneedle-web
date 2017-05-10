@@ -1,0 +1,20 @@
+--- !<SilverNeedle.Spells.SpellList>
+- class: Paladin
+  levels:
+    0: 
+    1: >
+      bless, bless water, bless weapon, create water, 
+      cure light wounds, detect poison, detect undead, divine favor,
+      endure elements, magic weapon, protection from evil,
+      protection from chaos, read magic, resistance, lesser restoration, virtue
+    2: >
+      bull's strength, delay poison, eagle's splendor, owl's wisdom,
+      remove paralysis, resist energy, shield other, undetectable alignment,
+      zone of truth
+    3: > 
+      cure moderate wounds, daylight, discern lies, dispel magic, heal mount, 
+      magic circle against evil, magic circle against chaos, magic weapon - greater,
+      prayer, remove blindness/deafness, remove curse
+    4: >
+      break enchantment, cure serious wounds, death ward, dispel chaos, dispel evil, 
+      holy sword, mark of justice, neutralize poison, restoration

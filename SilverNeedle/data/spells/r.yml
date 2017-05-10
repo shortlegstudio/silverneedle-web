@@ -51,9 +51,9 @@
   school: abjuration
 - name: Restoration
   school: conjuration
-- name: Restoration, Greater
+- name: Greater Restoration
   school: conjuration
-- name: Restoration, Lesser
+- name: Lesser Restoration
   school: conjuration
 - name: Resurrection
   school: conjuration

@@ -46,6 +46,10 @@ namespace SilverNeedle
 
         public static IEnumerable<T> Choose<T>(this IEnumerable<T> source, int count) 
         {
+            // If asked for none, just return none
+            if(count == 0)
+                return new List<T>();
+
             if (source == null || source.Count() == 0) 
             {
                 throw new ArgumentException("Cannot choose from an empty list");

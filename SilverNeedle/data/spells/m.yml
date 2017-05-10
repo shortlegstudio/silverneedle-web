@@ -27,7 +27,7 @@
   school: abjuration
 - name: Magic Fang
   school: transmutation
-- name: Magic Fang, Greater
+- name: Magic Fang - Greater
   school: transmutation
 - name: Magic Jar
   school: necromancy
@@ -41,7 +41,7 @@
   school: transmutation
 - name: Magic Weapon
   school: transmutation
-- name: Magic Weapon, Greater
+- name: Magic Weapon - Greater
   school: transmutation
 - name: Major Creation
   school: conjuration
