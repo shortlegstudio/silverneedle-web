@@ -49,18 +49,30 @@
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSmiteEvil
           uses-per-day: 3
+    - level: 8
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.AuraOfResolve
     - level: 10
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSmiteEvil
           uses-per-day: 4
+    - level: 11
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.AuraOfJustice
     - level: 13
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSmiteEvil
           uses-per-day: 5
+    - level: 14
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.AuraOfFaith
     - level: 16
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSmiteEvil
           uses-per-day: 6
+    - level: 17
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.AuraOfRighteousness
     - level: 19
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSmiteEvil
