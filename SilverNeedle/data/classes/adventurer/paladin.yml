@@ -29,6 +29,8 @@
           type: Good
         - ability: SilverNeedle.Characters.SpecialAbilities.DetectEvil
       class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.LimitAlignment
+          deny: LawfulEvil, LawfulNeutral, ChaoticGood, ChaoticNeutral, ChaoticEvil, Neutral, NeutralGood, NeutralEvil
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSmiteEvil
           uses-per-day: 1
     - level: 2
@@ -45,6 +47,9 @@
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSmiteEvil
           uses-per-day: 2
+    - level: 5
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureDivineBond
     - level: 7
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSmiteEvil
