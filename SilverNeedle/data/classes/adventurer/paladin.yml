@@ -41,6 +41,8 @@
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.AuraOfCourage
         - ability: SilverNeedle.Characters.SpecialAbilities.DivineHealth
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.SelectMercy
     - level: 4
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.ChannelEnergy
@@ -50,6 +52,9 @@
     - level: 5
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureDivineBond
+    - level: 6
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.SelectMercy
     - level: 7
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSmiteEvil
@@ -57,6 +62,9 @@
     - level: 8
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.AuraOfResolve
+    - level: 9
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.SelectMercy
     - level: 10
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSmiteEvil
@@ -64,6 +72,9 @@
     - level: 11
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.AuraOfJustice
+    - level: 12
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.SelectMercy
     - level: 13
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSmiteEvil
@@ -71,6 +82,9 @@
     - level: 14
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.AuraOfFaith
+    - level: 15
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.SelectMercy
     - level: 16
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSmiteEvil
@@ -78,6 +92,9 @@
     - level: 17
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.AuraOfRighteousness
+    - level: 18
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.SelectMercy
     - level: 19
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSmiteEvil
