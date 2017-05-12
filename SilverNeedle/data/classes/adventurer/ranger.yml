@@ -27,3 +27,16 @@
   weaponproficiencies: simple, martial
   developedage: trained
   startingwealth: 5d6
+  levels:
+    - level: 8
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.SwiftTracker
+    - level: 11
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.Quarry
+    - level: 12
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.Camouflage
+    - level: 17
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.HideInPlainSight
