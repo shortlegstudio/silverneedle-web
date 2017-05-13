@@ -1,0 +1,53 @@
+--- !<SilverNeedle.Beastiary.CreatureType>
+- type: Aberration
+- type: Animal
+- type: Construct
+- type: Dragon
+- type: Fey
+- type: Humanoid
+  subtype: aquatic
+- type: Humanoid
+  subtype: dwarf
+- type: Humanoid
+  subtype: elf
+- type: Humanoid
+  subtype: giant
+- type: Humanoid
+  subtype: goblinoid
+- type: Humanoid
+  subtype: gnoll
+- type: Humanoid
+  subtype: gnome
+- type: Humanoid
+  subtype: halfling
+- type: Humanoid
+  subtype: human
+- type: Humanoid
+  subtype: orc
+- type: Humanoid
+  subtype: reptilian
+- type: Magical beast
+- type: Monstrous humanoid
+- type: Ooze
+- type: Outsider
+  subtype: air
+- type: Outsider
+  subtype: chaotic
+- type: Outsider
+  subtype: earth
+- type: Outsider
+  subtype: evil
+- type: Outsider
+  subtype: fire
+- type: Outsider
+  subtype: good
+- type: Outsider
+  subtype: lawful
+- type: Outsider
+  subtype: native
+- type: Outsider
+  subtype: water
+- type: Plant
+- type: Undead
+- type: Vermin
+  

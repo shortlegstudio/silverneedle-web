@@ -31,15 +31,26 @@
     - level: 1
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.Track
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ChooseFavoredEnemy
+    - level: 5
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ChooseFavoredEnemy
     - level: 8
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.SwiftTracker
+    - level: 10
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ChooseFavoredEnemy
     - level: 11
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.Quarry
     - level: 12
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.Camouflage
+    - level: 15
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ChooseFavoredEnemy
     - level: 17
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.HideInPlainSight

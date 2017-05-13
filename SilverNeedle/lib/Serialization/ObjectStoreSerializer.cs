@@ -17,6 +17,9 @@ namespace SilverNeedle.Serialization
             foreach(var prop in properties)
             {
                 var attribute = prop.GetCustomAttribute<ObjectStoreAttribute>();
+                if(attribute == null)
+                    continue;
+                    
                 var propType = prop.DeclaringType;
                 object propertyValue = null;
                 switch(prop.PropertyType.Name.ToLower())

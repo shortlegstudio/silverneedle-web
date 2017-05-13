@@ -43,6 +43,8 @@ namespace Tests.Serialization
             [ObjectStore("optional", true)]
             public string Optional { get; set; }
 
+            public string IgnoreMe { get; set; }
+
             public bool Matches(string name)
             {
                 return false;
