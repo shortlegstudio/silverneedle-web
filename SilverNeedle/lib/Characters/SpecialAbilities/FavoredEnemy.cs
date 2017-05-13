@@ -28,6 +28,11 @@ namespace SilverNeedle.Characters.SpecialAbilities
             enemies.Add(additionalType, 2);
         }
 
+        public void EnhanceBonus(CreatureType type)
+        {
+            enemies[type] += 2;
+        }
+
         public override string Name
         {
             get
