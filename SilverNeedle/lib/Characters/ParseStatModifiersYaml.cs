@@ -13,7 +13,7 @@ namespace SilverNeedle.Characters
     /// </summary>
     public static class ParseStatModifiersYaml
     {
-        public static void Load(this IList<ValueStatModifier> list, IObjectStore data, string source)
+        public static void Load(this IList<IStatModifier> list, IObjectStore data, string source)
         {
             var loaded = ParseYaml(data, source);
             foreach(var a in loaded)
@@ -28,9 +28,9 @@ namespace SilverNeedle.Characters
         /// <returns>The yaml.</returns>
         /// <param name="modifierNode">Modifier node.</param>
         /// <param name="source">Source of the modifier.</param>
-        public static IList<ValueStatModifier> ParseYaml(IObjectStore modifierNode, string source)
+        public static IList<IStatModifier> ParseYaml(IObjectStore modifierNode, string source)
         {
-            IList<ValueStatModifier> modifiers = new List<ValueStatModifier>();
+            IList<IStatModifier> modifiers = new List<IStatModifier>();
 
             foreach (var mod in modifierNode.Children)
             {
@@ -47,24 +47,19 @@ namespace SilverNeedle.Characters
                 {
                     name = source;
                 }
-                ValueStatModifier modifier;
+                IStatModifier modifier;
 
+                modifier = new ValueStatModifier(
+                    statName,
+                    amount,
+                    type,
+                    name);
                 if (!string.IsNullOrEmpty(condition))
                 {
                     modifier = new ConditionalStatModifier(
-                        condition,
-                        statName,
-                        amount,
-                        type,
-                        name);
-                }
-                else
-                {
-                    modifier = new ValueStatModifier(
-                        statName,
-                        amount,
-                        type,
-                        name);
+                        modifier,
+                        condition
+                    );
                 }
 
                 modifiers.Add(modifier);

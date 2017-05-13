@@ -19,6 +19,6 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
         public Familiar Familiar { get; set; }
 
-        public IList<ValueStatModifier> Modifiers { get { return Familiar.Modifiers; } }
+        public IList<IStatModifier> Modifiers { get { return Familiar.Modifiers; } }
     }
 }

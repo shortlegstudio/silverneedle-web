@@ -28,6 +28,9 @@
   developedage: trained
   startingwealth: 5d6
   levels:
+    - level: 1
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.Track
     - level: 8
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.SwiftTracker

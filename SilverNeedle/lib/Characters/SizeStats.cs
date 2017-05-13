@@ -84,7 +84,7 @@ namespace SilverNeedle.Characters
         /// Gets the modifiers for the stats that are to be modified.
         /// </summary>
         /// <value>The modifiers for stats effected by this class.</value>
-        public IList<ValueStatModifier> Modifiers { get; private set; }
+        public IList<IStatModifier> Modifiers { get; private set; }
 
 
         public IList<SpecialAbility> SpecialAbilities { get; private set; }
@@ -130,7 +130,7 @@ namespace SilverNeedle.Characters
             this.FlyAdj = new ValueStatModifier("Fly", 0, "size", "Size");
 
 
-            this.Modifiers = new List<ValueStatModifier>();
+            this.Modifiers = new List<IStatModifier>();
             this.Modifiers.Add(this.StealthAdj);
             this.Modifiers.Add(this.FlyAdj);
             this.Modifiers.Add(this.PositiveSizeModifier);

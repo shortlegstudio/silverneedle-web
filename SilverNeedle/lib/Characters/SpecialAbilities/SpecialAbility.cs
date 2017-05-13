@@ -22,11 +22,6 @@ namespace SilverNeedle.Characters.SpecialAbilities
         public string Type { get; set; }
 
         public virtual string Name { get; set; }
-
-        public override string ToString()
-        {
-            return string.Format("{0} : {1}", base.ToString(), Name);
-        }
     }
 }
 

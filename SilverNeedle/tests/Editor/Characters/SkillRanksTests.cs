@@ -173,11 +173,11 @@ namespace Tests.Characters
 
         class MockMod : IModifiesStats
         {
-            public IList<ValueStatModifier> Modifiers { get; set; }
+            public IList<IStatModifier> Modifiers { get; set; }
 
             public MockMod()
             {
-                Modifiers = new List<ValueStatModifier>();
+                Modifiers = new List<IStatModifier>();
                 Modifiers.Add(new ValueStatModifier("Climb", 3, "Cause", "Climb"));
             }
         }

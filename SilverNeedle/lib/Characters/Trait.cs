@@ -20,7 +20,7 @@ namespace SilverNeedle.Characters
         /// </summary>
         public Trait()
         {
-            this.Modifiers = new List<ValueStatModifier>();
+            this.Modifiers = new List<IStatModifier>();
             this.SpecialAbilities = new List<SpecialAbility>();
             this.Tags = new List<string>();
         }
@@ -47,7 +47,7 @@ namespace SilverNeedle.Characters
         /// Gets the modifiers for the stats that are to be modified.
         /// </summary>
         /// <value>The modifiers for stats effected by this class.</value>
-        public IList<ValueStatModifier> Modifiers { get; private set; }
+        public IList<IStatModifier> Modifiers { get; private set; }
 
         /// <summary>
         /// Gets the tags.

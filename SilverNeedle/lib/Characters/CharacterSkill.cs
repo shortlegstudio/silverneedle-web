@@ -102,6 +102,11 @@ namespace SilverNeedle.Characters
         /// <returns>The ability score for this skill.</returns>
         public int Score()
         {
+            return this.Score(string.Empty);
+        }
+
+        private int Score(string condition)
+        {
             // I can't do this...
             if (!this.AbleToUse)
             {
@@ -109,7 +114,6 @@ namespace SilverNeedle.Characters
             }
 
             var val = this.baseAbilityScore.BaseModifier;
-            val += this.Ranks;
 
             // Class Skill
             if (this.Ranks > 0 && this.ClassSkill)
@@ -117,10 +121,11 @@ namespace SilverNeedle.Characters
                 val += 3;
             }
 
-            // Other Bonuses
-            val += this.skillStats.SumBasicModifiers();
+            // Other Bonuses and Ranks
+            val += this.skillStats.GetConditionalValue(condition);
             return val;
         }
+
 
         /// <summary>
         /// Adds a skill rank into this skill.
@@ -146,7 +151,7 @@ namespace SilverNeedle.Characters
         /// <param name="condition">Condition to score the skill in.</param>
         public int GetConditionalScore(string condition)
         {
-            return this.skillStats.GetConditionalValue(condition) + this.Score();
+            return this.Score(condition);
         }
 
         /// <summary>

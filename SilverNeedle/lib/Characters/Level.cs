@@ -13,7 +13,7 @@ namespace SilverNeedle.Characters
 
     public class Level 
     {
-        public IList<ValueStatModifier> Modifiers { get; private set; }
+        public IList<IStatModifier> Modifiers { get; private set; }
 
         public IList<ICharacterDesignStep> Steps { get; private set; }
         public IList<FeatToken> FeatTokens { get; private set; }
@@ -22,7 +22,7 @@ namespace SilverNeedle.Characters
 
         public Level()
         {
-            Modifiers = new List<ValueStatModifier>();
+            Modifiers = new List<IStatModifier>();
             Steps = new List<ICharacterDesignStep>();
             FeatTokens = new List<FeatToken>();
             Abilities = new List<SpecialAbility>();

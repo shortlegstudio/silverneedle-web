@@ -60,6 +60,11 @@ namespace SilverNeedle.Characters
             return value.ToString();
         }
 
+        public static string ToModifierString(this float value)
+        {
+            return ((int)value).ToModifierString();
+        }
+
         public static string ToRangeString(this int value)
         {
             return string.Format("{0}'", value);

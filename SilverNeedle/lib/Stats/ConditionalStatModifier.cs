@@ -3,31 +3,40 @@
 //     Copyright (c) Short Leg Studio, LLC. All rights reserved.
 // </copyright>
 //-----------------------------------------------------------------------
+using System;
+
 namespace SilverNeedle
 {
     /// <summary>
     /// A Conditional stat modifier only modifies a statistic when a condition is met
     /// </summary>
-    public class ConditionalStatModifier : ValueStatModifier
+    public class ConditionalStatModifier : IStatModifier
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.ConditionalStatModifier"/> class.
         /// </summary>
+        /// <param name="baseModifier">Modifier to decorate</param>
         /// <param name="condition">Condition of the modifier.</param>
-        /// <param name="stat">Statistic to modify.</param>
-        /// <param name="modifier">Modifier amount.</param>
-        /// <param name="type">Type of modifier.</param>
-        /// <param name="reason">Reason for the modifier.</param>
-        public ConditionalStatModifier(string condition, string stat, float modifier, string type, string reason)
-            : base(stat, modifier, type, reason)
+        public ConditionalStatModifier(IStatModifier baseModifier, string condition)
         {
+            this.baseModifier = baseModifier;
             this.Condition = condition;
         }
+
+        private IStatModifier baseModifier;
 
         /// <summary>
         /// Gets or sets the condition.
         /// </summary>
         /// <value>The condition name for the modifier.</value>
         public string Condition { get; set; }
+
+        public float Modifier { get { return baseModifier.Modifier; } }
+
+        public string Reason { get { return baseModifier.Reason; } }
+
+        public string Type { get { return baseModifier.Type; } }
+
+        public string StatisticName { get { return baseModifier.StatisticName; } }
     }
 }
