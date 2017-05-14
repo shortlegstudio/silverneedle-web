@@ -30,6 +30,11 @@ namespace SilverNeedle.Utility
                 Add(o);
         }
 
+        public void Remove<T>()
+        {
+            components.RemoveAll(x => x.GetType() == typeof(T));
+        }
+
         public T Get<T>()
         {
             return components.OfType<T>().FirstOrDefault();

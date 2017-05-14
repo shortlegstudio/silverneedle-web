@@ -37,6 +37,10 @@
     - level: 3
       bonus-feats:
         - tags: Endurance
+    - level: 4
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureHuntersBond
+          bonds: companions, badger, bird, cat, camel, dire rat, dog, horse, pony, snake, wolf
     - level: 5
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ChooseFavoredEnemy
@@ -64,9 +68,15 @@
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ChooseFavoredEnemy
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.UpgradeFavoredEnemy
+    - level: 16
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.ImprovedEvasion
     - level: 17
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.HideInPlainSight
+    - level: 19
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.ImprovedQuarry
     - level: 20
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.MasterHunter
