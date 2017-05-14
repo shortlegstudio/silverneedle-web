@@ -2,9 +2,9 @@
 - name: Archery
   bonus-feats:
     - level: 1
-      feats: far shot, focused shot, point blank shot, precise shot, rapid shot
+      feats: far shot, point blank shot, precise shot, rapid shot
     - level: 6
-      feats: crossbow mastery, improved precise shot, parting shot, point blank master, manyshot
+      feats: improved precise shot, manyshot
     - level: 10
       feats: pinpoint targeting, shot on the run
 - name: Two-Weapon Combat
