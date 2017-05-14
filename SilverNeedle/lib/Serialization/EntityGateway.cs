@@ -45,6 +45,11 @@ namespace SilverNeedle.Serialization
             return entry;
         }
 
+        public IEnumerable<T> FindAll(IEnumerable<string> names)
+        {
+            return names.Select(x => Find(x));
+        }
+
         public T ChooseOne()
         {
             return GetDataStore().ChooseOne();

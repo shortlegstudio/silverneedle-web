@@ -34,6 +34,10 @@
         - ability: SilverNeedle.Characters.SpecialAbilities.WildEmpathy
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ChooseFavoredEnemy
+    - level: 2
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ChooseCombatStyle
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.SelectCombatStyleFeat
     - level: 3
       bonus-feats:
         - tags: Endurance
@@ -47,6 +51,9 @@
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ChooseFavoredEnemy
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.UpgradeFavoredEnemy
+    - level: 6
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.SelectCombatStyleFeat
     - level: 7
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.WoodlandStride
@@ -63,6 +70,7 @@
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ChooseFavoredEnemy
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.UpgradeFavoredEnemy
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.SelectCombatStyleFeat
     - level: 11
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.Quarry
@@ -73,6 +81,9 @@
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ChooseFavoredTerrain
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.UpgradeFavoredTerrain
+    - level: 14
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.SelectCombatStyleFeat
     - level: 15
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ChooseFavoredEnemy
@@ -87,6 +98,7 @@
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ChooseFavoredTerrain
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.UpgradeFavoredTerrain
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.SelectCombatStyleFeat
     - level: 19
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.ImprovedQuarry
