@@ -47,7 +47,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
                 }
 
                 if(preferredFeats.IsEmpty) {
-                    var feats = this.feats.Where(x => x.IsQualified(character)).ToList();
+                    var feats = this.feats.Where(x => x.IsQualified(character) && token.Qualifies(x)).ToList();
                     character.Add(feats.ChooseOne());
                 } else {
                     var selection = preferredFeats.ChooseRandomly();

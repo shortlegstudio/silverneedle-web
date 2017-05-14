@@ -31,8 +31,12 @@
     - level: 1
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.Track
+        - ability: SilverNeedle.Characters.SpecialAbilities.WildEmpathy
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ChooseFavoredEnemy
+    - level: 3
+      bonus-feats:
+        - tags: Endurance
     - level: 5
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ChooseFavoredEnemy

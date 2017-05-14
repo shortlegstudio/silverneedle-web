@@ -132,5 +132,16 @@ namespace Tests.Actions
             selector.SelectFeats(character, strategy);
             Assert.IsTrue(character.Feats.First() == powerattack || character.Feats.First() == empowerspell);
         }
+
+        [Test]
+        public void FeatTokensCanSpecifyAFeatByName()
+        {
+            var strategy = new WeightedOptionTable<string>();
+            strategy.AddEntry("power attack", 5000000);
+            var character = new CharacterSheet();
+            character.FeatTokens.Add(new FeatToken("Empower Spell"));
+            selector.SelectFeats(character, strategy);
+            Assert.That(character.Feats, Contains.Item(empowerspell));
+        }
     }
 }
