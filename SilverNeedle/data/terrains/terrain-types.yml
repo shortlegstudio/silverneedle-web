@@ -1,0 +1,12 @@
+--- !<SilverNeedle.Maps.TerrainType>
+- name: Cold
+- name: Desert
+- name: Forest
+- name: Jungle
+- name: Mountains
+- name: Plains
+- name: Planes
+- name: Swamp
+- name: Underground
+- name: Urban
+- name: Water

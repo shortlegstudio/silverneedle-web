@@ -37,6 +37,8 @@
     - level: 3
       bonus-feats:
         - tags: Endurance
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ChooseFavoredTerrain
     - level: 4
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureHuntersBond
@@ -51,6 +53,9 @@
     - level: 8
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.SwiftTracker
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ChooseFavoredTerrain
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.UpgradeFavoredTerrain
     - level: 9
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.Evasion
@@ -64,6 +69,10 @@
     - level: 12
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.Camouflage
+    - level: 13
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ChooseFavoredTerrain
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.UpgradeFavoredTerrain
     - level: 15
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ChooseFavoredEnemy
@@ -74,6 +83,10 @@
     - level: 17
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.HideInPlainSight
+    - level: 18
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ChooseFavoredTerrain
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.UpgradeFavoredTerrain
     - level: 19
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.ImprovedQuarry
