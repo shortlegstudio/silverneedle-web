@@ -41,9 +41,15 @@
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ChooseFavoredEnemy
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.UpgradeFavoredEnemy
+    - level: 7
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.WoodlandStride
     - level: 8
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.SwiftTracker
+    - level: 9
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.Evasion
     - level: 10
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ChooseFavoredEnemy
@@ -62,6 +68,8 @@
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.HideInPlainSight
     - level: 20
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.MasterHunter
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ChooseFavoredEnemy
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.UpgradeFavoredEnemy
