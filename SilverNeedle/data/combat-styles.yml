@@ -2,7 +2,7 @@
 - name: Archery
   bonus-feats:
     - level: 1
-      feats: far shot, point blank shot, precise shot, rapid shot
+      feats: far shot, point-blank shot, precise shot, rapid shot
     - level: 6
       feats: improved precise shot, manyshot
     - level: 10
