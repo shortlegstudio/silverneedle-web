@@ -49,7 +49,7 @@ namespace Tests.Actions.CharacterGenerator
         {
             public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
             {
-                character.Name = "I Ran!";
+                character.FirstName = "I Ran!";
             }
         }
     }

@@ -44,7 +44,7 @@ namespace Tests.Characters
         public void CharactersHaveVitalStats()
         {
             var sheet = new CharacterSheet(_testSkills);
-            sheet.Name = "Foobar";
+            sheet.FirstName = "Foobar";
             sheet.Alignment = CharacterAlignment.LawfulGood;
             Assert.AreEqual("Foobar", sheet.Name);
             Assert.AreEqual(CharacterAlignment.LawfulGood, sheet.Alignment);

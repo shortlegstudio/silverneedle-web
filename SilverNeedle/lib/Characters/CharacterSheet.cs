@@ -70,7 +70,9 @@ namespace SilverNeedle.Characters
         /// Gets or sets the name.
         /// </summary>
         /// <value>The name of the character.</value>
-        public string Name { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Name { get { return string.Format("{0} {1}", FirstName, LastName).Trim(); } }
 
         public int Age { get; set; }
 

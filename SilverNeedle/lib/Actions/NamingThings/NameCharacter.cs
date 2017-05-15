@@ -25,17 +25,29 @@ namespace SilverNeedle.Actions.NamingThings
             this.namesGateway = GatewayProvider.Get<NameInformation>();
         }
 
+        public string GetFirstName(Gender gender, string race)
+        {
+            return namesGateway.GetFirstNames(gender, race).ChooseOne();;
+        }
+
+        public string GetLastName(string race)
+        {
+            return namesGateway.GetLastNames(race).ChooseOne();
+        }
+
         public string CreateFullName(Gender gender, string race)
         {
-            var firstName = namesGateway.GetFirstNames(gender, race).ChooseOne();
-            var lastName = namesGateway.GetLastNames(race).ChooseOne();
-
-            return string.Format("{0} {1}", firstName, lastName);
+            return GetFirstName(gender, race) + " " + GetLastName(race);
+        }
+        public string CreateFullName(Gender gender, string race, string lastName)
+        {
+            return GetFirstName(gender, race) + " " + lastName;
         }
 
         public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
-            character.Name = CreateFullName(character.Gender, character.Race.Name);
+            character.FirstName = GetFirstName(character.Gender, character.Race.Name);
+            character.LastName = GetLastName(character.Race.Name);
         }
     }
 }

@@ -19,18 +19,41 @@ namespace SilverNeedle.Actions.CharacterGenerator.Background
             this.namer = new NameCharacter();
         }
 
-        public FamilyTree CreateFamilyTree(string race)
+        public FamilyTree CreateFamilyTree(string race, string lastName)
         {
             var familyTree = new FamilyTree();
-            familyTree.Father = namer.CreateFullName(Gender.Male, race);
-            familyTree.Mother = namer.CreateFullName(Gender.Female, race);
+            var matcher = EnumHelpers.ChooseOne<SurnameMatcher>();
+
+            if(matcher == SurnameMatcher.BothMatch || matcher == SurnameMatcher.FatherMatch)
+            {
+                familyTree.Father = namer.CreateFullName(Gender.Male, race, lastName);
+            }
+            else
+            {
+                familyTree.Father = namer.CreateFullName(Gender.Male, race);
+            }
+            if(matcher == SurnameMatcher.BothMatch || matcher == SurnameMatcher.MotherMatch)
+            {
+                familyTree.Mother = namer.CreateFullName(Gender.Female, race, lastName);
+            }
+            else
+            {
+                familyTree.Mother = namer.CreateFullName(Gender.Female, race);
+            }
 
             return familyTree;
         }
 
         public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
-            character.History.FamilyTree = CreateFamilyTree(character.Race.Name);
+            character.History.FamilyTree = CreateFamilyTree(character.Race.Name, character.LastName);
+        }
+
+        private enum SurnameMatcher
+        {
+            BothMatch,
+            FatherMatch,
+            MotherMatch
         }
     }
 }
