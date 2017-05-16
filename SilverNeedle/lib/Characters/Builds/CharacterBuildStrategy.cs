@@ -22,6 +22,7 @@ namespace SilverNeedle.Characters
             FillInMissingAbilities(FavoredAbilities);
             TargetLevel = 1;
             QuirkCount = 3;
+            this.AbilityScoreRoller = typeof(SilverNeedle.Actions.CharacterGenerator.Abilities.AverageAbilityScoreGenerator).FullName;
         }
 
         public CharacterBuildStrategy(IObjectStore data) 
@@ -34,7 +35,7 @@ namespace SilverNeedle.Characters
             FavoredFeats = new WeightedOptionTable<string>();
             FavoredAbilities = new WeightedOptionTable<AbilityScoreTypes>();
             FavoredAlignments = new WeightedOptionTable<CharacterAlignment>();
-            ParseObjectStore(data);                
+            ParseObjectStore(data);
         }
 
         public CharacterBuildStrategy(CharacterBuildStrategy copy)
@@ -51,6 +52,7 @@ namespace SilverNeedle.Characters
             this.FavoredAbilities = copy.FavoredAbilities.Copy();
             this.FavoredAlignments = copy.FavoredAlignments.Copy();
             this.QuirkCount = copy.QuirkCount;
+            this.AbilityScoreRoller = copy.AbilityScoreRoller;
         }
         
         public string Name { get; set; }
@@ -67,6 +69,7 @@ namespace SilverNeedle.Characters
         public WeightedOptionTable<AbilityScoreTypes> FavoredAbilities { get; set; }
 
         public string Designer { get; private set; }
+        public string AbilityScoreRoller { get; set; }
 
         public int TargetLevel { get; set; }
         public int QuirkCount { get; set; }
@@ -78,6 +81,11 @@ namespace SilverNeedle.Characters
                 Name = data.GetString("name");
                 ClassSkillMultiplier = data.GetFloat("classskillmultiplier");
                 BaseSkillWeight = data.GetInteger("baseskillweight");
+                AbilityScoreRoller = data.GetStringOptional("ability-score-roller");
+                if (string.IsNullOrEmpty(AbilityScoreRoller)) 
+                {
+                    this.AbilityScoreRoller = typeof(SilverNeedle.Actions.CharacterGenerator.Abilities.AverageAbilityScoreGenerator).FullName;
+                }
                 
                 // Collections
                 //

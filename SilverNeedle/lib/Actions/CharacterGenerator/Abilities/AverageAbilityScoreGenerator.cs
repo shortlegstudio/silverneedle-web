@@ -13,7 +13,7 @@ namespace SilverNeedle.Actions.CharacterGenerator.Abilities
     /// Generates ability scores with just your basic average score. Useful for a base line or to
     /// make sure things are initialized properly
     /// </summary>
-    public class AverageAbilityScoreGenerator 
+    public class AverageAbilityScoreGenerator : ICharacterDesignStep
     {
         /// <summary>
         /// The average score.
@@ -28,22 +28,12 @@ namespace SilverNeedle.Actions.CharacterGenerator.Abilities
         {
         }
 
-        /// <summary>
-        /// Assigns the ability scores to the character
-        /// </summary>
-        /// <param name="abilities">Abilities to assign score to.</param>
-        public void RandomScores(AbilityScores abilities)
+        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             foreach (var e in EnumHelpers.GetValues<AbilityScoreTypes>())
             {
-                abilities.SetScore(e, AverageScore);
+                character.AbilityScores.SetScore(e, AverageScore);
             }
-        }
-
-        public void StrategyScores(AbilityScores abilities, WeightedOptionTable<AbilityScoreTypes> preferred)
-        {
-            //Just makes them average anyway
-            RandomScores(abilities);
         }
     }
 }

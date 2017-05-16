@@ -5,6 +5,7 @@
   baseskillweight: 1
   charactercreator: default
   designer: create-townsfolk
+  ability-score-roller: SilverNeedle.Actions.CharacterGenerator.Abilities.ThreedSixAbilityScoreGenerator
   classes:
     - name: aristocrat
       weight: 15

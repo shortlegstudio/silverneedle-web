@@ -5,7 +5,7 @@
   steps: 
     - step: SilverNeedle.Actions.CharacterGenerator.InitializeCharacterSheet
     - step: SilverNeedle.Actions.CharacterGenerator.AddUniversalFeatToken
-    - step: SilverNeedle.Actions.CharacterGenerator.Abilities.StandardAbilityScoreGenerator
+    - step: SilverNeedle.Actions.CharacterGenerator.Abilities.CreateAbilityScores
     - step: SilverNeedle.Actions.CharacterGenerator.RaceSelector
     - step: SilverNeedle.Actions.CharacterGenerator.GenderSelector
     - step: SilverNeedle.Actions.NamingThings.NameCharacter

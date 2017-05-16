@@ -118,9 +118,24 @@ namespace Characters
             Assert.AreEqual("create-default", archer.Designer);
         }
 
+        [Test]
+        public void DefaultAbilityScoreGeneratorToAverageAbilities()
+        {
+            var strategy = new CharacterBuildStrategy();
+            Assert.That(strategy.AbilityScoreRoller, Contains.Substring("AverageAbilityScore"));
+        }
+
+        [Test]
+        public void CanSpecifyDifferentAbilityScoreGeneratorsInStrategy()
+        {
+            var archer = strategies.Find("archer");
+            Assert.That(archer.AbilityScoreRoller, Contains.Substring("HeroicAbilityScore"));
+        }
+
         private const string CharacterBuildYaml = @"--- 
 - build:
   name: Archer
+  ability-score-roller: SilverNeedle.Actions.CharacterGenerator.Abilities.HeroicAbilityScoreGenerator
   races:
     - name: elf
       weight: 10

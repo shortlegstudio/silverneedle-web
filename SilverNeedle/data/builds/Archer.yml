@@ -5,6 +5,7 @@
   baseskillweight: 1
   charactercreator: default
   designer: create-adventurer
+  ability-score-roller: SilverNeedle.Actions.CharacterGenerator.Abilities.StandardAbilityScoreGenerator
   classes:
     - name: fighter
       weight: 10

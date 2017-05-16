@@ -20,7 +20,7 @@ namespace Tests.Actions {
 		public void SetUp() {
 			character = new CharacterSheet (new List<Skill>());
 			var abGen = new AverageAbilityScoreGenerator ();
-			abGen.RandomScores (character.AbilityScores);
+			abGen.Process (character, new CharacterBuildStrategy());
 			var cls = new Class ();
 			character.SetClass (cls);
 		}
