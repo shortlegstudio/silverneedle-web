@@ -6,7 +6,7 @@
 namespace SilverNeedle.Utility
 {
     using HandlebarsDotNet;
-    using SilverNeedle.General;
+    using SilverNeedle.Lexicon;
     using SilverNeedle.Treasure;
 
     public class HandlebarsHelpers

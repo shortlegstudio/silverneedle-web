@@ -5,6 +5,7 @@
 
 namespace SilverNeedle.Characters.Appearance
 {
+    using SilverNeedle.Lexicon;
     using SilverNeedle.Serialization;
 
     public class PhysicalFeature : DescriptionDetail

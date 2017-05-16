@@ -3,7 +3,7 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-namespace SilverNeedle.Characters.Appearance
+namespace SilverNeedle.Lexicon
 {
     using System.Collections.Generic;
     using System.Linq;

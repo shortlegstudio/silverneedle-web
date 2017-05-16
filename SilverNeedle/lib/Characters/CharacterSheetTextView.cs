@@ -7,6 +7,7 @@ namespace SilverNeedle.Characters
 {
     using SilverNeedle;
     using SilverNeedle.Spells;
+    using SilverNeedle.Characters.Personalities;
     using System.Collections.Generic;
     using System.Linq;
     
@@ -83,6 +84,7 @@ namespace SilverNeedle.Characters
                 IdealName = character.Ideal.Name;
                 IdealDescription = character.Ideal.Description;
             }
+            Quirks = character.Get<Quirks>().Items.ToArray();
             Hair = character.Appearance.Hair;
             HairColor = character.Appearance.HairColor.ToString();
             HairStyle = character.Appearance.HairStyle.ToString();
@@ -198,6 +200,7 @@ namespace SilverNeedle.Characters
 
         public string[] DamageResistance { get; private set; }
         public string[] Immunities { get; private set; }
+        public string[] Quirks { get; private set; }
 
         private string FormatSenses(CharacterSheet character)
         {

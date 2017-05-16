@@ -1,7 +1,18 @@
----!<SilverNeedle.Characters.Personalities.Quirk>
+--- !<SilverNeedle.Characters.Personalities.QuirkTemplate>
 - name: names
   templates:
     - template: '{{pronoun}} was named after a relative they despise.'
 - name: clothing
   templates:
     - template: '{{pronoun}} always wears {{choose-color}} boots.'
+- name: ticks
+  templates:
+    - template: '{{pronoun}} sneezes when looking into a bright light.'
+    - template: '{{pronoun}} blinks frequently.'
+    - template: '{{pronoun}} rubs {{possessive-pronoun}} obsessively.'
+    - template: '{{pronoun}} snorts when laughing.'
+    - template: '{{pronoun}} paces and speaks quietly to self while contemplating.'
+- name: possessions
+  templates:
+    - template: '{{pronoun}} owns a pair of glasses even though {{pronoun}} does not need them'
+    - template: '{{pronoun}} carries a small book and is constantly recording notes in it.'

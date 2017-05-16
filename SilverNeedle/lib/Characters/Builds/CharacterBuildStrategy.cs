@@ -21,10 +21,12 @@ namespace SilverNeedle.Characters
             BuildAlignmentTable();
             FillInMissingAbilities(FavoredAbilities);
             TargetLevel = 1;
+            QuirkCount = 3;
         }
 
         public CharacterBuildStrategy(IObjectStore data) 
         {
+            QuirkCount = 3;
             TargetLevel = 1;
             Classes = new WeightedOptionTable<string>();
             Races = new WeightedOptionTable<string>();
@@ -48,6 +50,7 @@ namespace SilverNeedle.Characters
             this.FavoredFeats = copy.FavoredFeats.Copy();
             this.FavoredAbilities = copy.FavoredAbilities.Copy();
             this.FavoredAlignments = copy.FavoredAlignments.Copy();
+            this.QuirkCount = copy.QuirkCount;
         }
         
         public string Name { get; set; }
@@ -66,6 +69,7 @@ namespace SilverNeedle.Characters
         public string Designer { get; private set; }
 
         public int TargetLevel { get; set; }
+        public int QuirkCount { get; set; }
 
         public WeightedOptionTable<CharacterAlignment> FavoredAlignments { get; set; }
         private void ParseObjectStore(IObjectStore data)

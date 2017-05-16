@@ -3,11 +3,11 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-namespace Tests.Characters.Appearance
+namespace Tests.Lexicon
 {
     using System.Linq;
     using NUnit.Framework;
-    using SilverNeedle.Characters.Appearance;
+    using SilverNeedle.Lexicon;
     using SilverNeedle.Serialization;
 
     [TestFixture]

@@ -1,0 +1,7 @@
+--- !<SilverNeedle.Actions.CharacterGenerator.CharacterDesigner>
+- build-steps:
+  name: create-personality
+  type: normal
+  steps: 
+    - step: SilverNeedle.Actions.CharacterGenerator.PersonalityBuilder
+    - step: SilverNeedle.Actions.CharacterGenerator.Personality.SelectQuirks

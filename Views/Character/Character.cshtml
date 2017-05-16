@@ -164,6 +164,26 @@
                 <li><strong>Description</strong> @character.PhysicalFeatures</li>
 
             </ul>
+            <h5>Personality</h5>
+                <li><strong>Ideal</strong> @character.IdealName - @character.IdealDescription</li>
+                <li><strong>Behaviors</strong>
+                    <ul>
+                        @foreach(var p in character.Personality)
+                        { <li>@p</li> }
+                    </ul>
+                </li>  
+                <li><strong>Weaknesses</strong>
+                    <ul>
+                        @foreach(var p in character.PersonalityWeaknesses)
+                        { <li>@p</li> }
+                    </ul>
+                </li>  
+                <li><strong>Quirks</strong>
+                    <ul>
+                        @foreach(var q in character.Quirks)
+                        { <li>@q</li>}
+                    </ul>
+                </li>
             <h5>History</h5>
             <ul class="stats">
                 <li>
@@ -175,21 +195,6 @@
                 <li><strong>Homeland</strong> @character.Homeland</li>
                 <li><strong>Drawback</strong> @character.Drawback</li>
                 <li><strong>Origins</strong> @character.ClassOrigin</li>
-                <li><strong>Personality</strong>
-                    <ul>
-                        @foreach(var p in character.Personality
-                        )
-                        { <li>@p</li> }
-                    </ul>
-                </li>  
-                <li><strong>Weaknesses</strong>
-                    <ul>
-                        @foreach(var p in character.PersonalityWeaknesses
-                        )
-                        { <li>@p</li> }
-                    </ul>
-                </li>  
-                <li><strong>Ideal</strong> @character.IdealName - @character.IdealDescription</li>
             </ul>
         </div>
     </div>

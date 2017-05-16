@@ -3,18 +3,16 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-namespace SilverNeedle.Characters.Appearance
+
+namespace SilverNeedle.Characters.Personalities
 {
     using SilverNeedle.Lexicon;
     using SilverNeedle.Serialization;
-    public class EyeColor : DescriptionDetail
+    public class QuirkTemplate : DescriptionDetail
     {
-        public EyeColor(IObjectStore data) : base(data)
+        public QuirkTemplate(IObjectStore data) : base(data)
         {
-        }
 
-        public EyeColor(string name) : base(name)
-        {
-        }
+        } 
     }
 }
