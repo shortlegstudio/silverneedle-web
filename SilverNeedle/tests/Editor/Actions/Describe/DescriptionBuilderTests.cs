@@ -7,6 +7,7 @@ namespace Tests.Actions.Describe
 {
     using NUnit.Framework;
     using SilverNeedle.Characters;
+    using SilverNeedle.Characters.Personalities;
     using SilverNeedle.Actions.Describe;
 
     [TestFixture]
@@ -20,6 +21,7 @@ namespace Tests.Actions.Describe
             var character = new CharacterSheet();
             character.InitializeComponents();
             character.Gender = Gender.Female;
+            character.Add(new Quirks());
 
             var result = desc.Describe(character);
             Assert.That(result, Is.EqualTo("She has a long mustache."));
