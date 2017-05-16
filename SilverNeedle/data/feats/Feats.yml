@@ -386,7 +386,7 @@
 - feat:
   name: Extra Ki
   description: You can use your ki pool more times per day than most.
-  prerequisite:
+  prerequisites:
     - classfeature: Ki Pool
 - feat:
   name: Extra Lay On Hands

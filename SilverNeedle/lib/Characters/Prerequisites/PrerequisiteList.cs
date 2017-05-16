@@ -15,15 +15,6 @@ namespace SilverNeedle.Characters.Prerequisites
     public class PrerequisiteList : List<IPrerequisite>
     {
         /// <summary>
-        /// The prerequisite key names.
-        /// </summary>
-        private string[] prerequisiteKeyNames =
-            { 
-                "ability", "race", "feat", "classfeature", "proficiency", 
-                "casterlevel", "baseattackbonus", "classlevel", "skillranks"
-            };
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Characters.Prerequisites"/> class.
         /// </summary>
         public PrerequisiteList()
