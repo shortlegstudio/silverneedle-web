@@ -15,39 +15,17 @@ namespace SilverNeedle.Actions.CharacterGenerator.Abilities
     /// <summary>
     /// Generates ability scores by rolling 4d6 for each and selecting the top 3 dice
     /// </summary>
-    public class StandardAbilityScoreGenerator : ICharacterDesignStep
+    public class StandardAbilityScoreGenerator : IAbilityScoreGenerator
     {
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SilverNeedle.Actions.CharacterGenerator.Abilities.StandardAbilityScoreGenerator"/> class.
-        /// </summary>
-        public StandardAbilityScoreGenerator()
+        public List<int> GetScores()
         {
-        }
-
-        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
-        {
-            CreateAndAssignScores(character.AbilityScores, strategy.FavoredAbilities);
-        }
-        
-        private void CreateAndAssignScores(AbilityScores abilities, WeightedOptionTable<AbilityScoreTypes> abilityPref)
-        {
-            //Roll up 6 scores
             List<int> scores = new List<int>();
-            IEnumerable<AbilityScoreTypes> weightedAbilities = abilityPref.UniqueList();
             
             //Create sorted list of items
             for(int i = 0; i < 6; i++) {
                 scores.Add(Roll4d6());
             }            
-            scores.Sort();
-
-            for(int i = 0; i < 6; i++)
-            {
-                var ability = weightedAbilities.ElementAt(i);
-                var score = scores.ElementAt(5 - i);
-                abilities.SetScore(ability, score);
-            }            
+            return scores;
         }
 
         /// <summary>

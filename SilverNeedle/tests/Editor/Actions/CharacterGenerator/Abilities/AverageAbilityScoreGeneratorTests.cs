@@ -1,24 +1,23 @@
-﻿using NUnit.Framework;
-using SilverNeedle.Actions.CharacterGenerator.Abilities;
-using SilverNeedle.Characters;
+﻿// Copyright (c) 2017 Trevor Redfern
+// 
+// This software is released under the MIT License.
+// https://opensource.org/licenses/MIT
 
-
-namespace Actions {
+namespace Tests.Actions {
+    using NUnit.Framework;
+    using SilverNeedle.Actions.CharacterGenerator.Abilities;
     [TestFixture]
-    public class AverageAbilityScoreGeneratorTests {
+    public class AverageAbilityScoreGeneratorTests 
+    {
         [Test]
-        public void CreateAverageScores() {
+        public void CreateAverageScores() 
+        {
             var roller = new AverageAbilityScoreGenerator ();
-            var character = new CharacterSheet();
-            var abilities = character.AbilityScores;
-            roller.Process (character, new CharacterBuildStrategy());
-            Assert.AreEqual (10, abilities.GetScore (AbilityScoreTypes.Strength));
-            Assert.AreEqual (10, abilities.GetScore (AbilityScoreTypes.Dexterity));
-            Assert.AreEqual (10, abilities.GetScore (AbilityScoreTypes.Constitution));
-            Assert.AreEqual (10, abilities.GetScore (AbilityScoreTypes.Intelligence));
-            Assert.AreEqual (10, abilities.GetScore (AbilityScoreTypes.Wisdom));
-            Assert.AreEqual (10, abilities.GetScore (AbilityScoreTypes.Charisma));
-
+            var scores = roller.GetScores();
+            foreach(var v in scores)
+            {
+                Assert.That(v, Is.EqualTo(10));
+            }
         }
     }
 }

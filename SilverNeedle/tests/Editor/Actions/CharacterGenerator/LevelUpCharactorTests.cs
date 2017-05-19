@@ -19,8 +19,12 @@ namespace Tests.Actions {
 		[SetUp]
 		public void SetUp() {
 			character = new CharacterSheet (new List<Skill>());
-			var abGen = new AverageAbilityScoreGenerator ();
-			abGen.Process (character, new CharacterBuildStrategy());
+            character.AbilityScores.SetScore(AbilityScoreTypes.Strength, 10);
+            character.AbilityScores.SetScore(AbilityScoreTypes.Dexterity, 10);
+            character.AbilityScores.SetScore(AbilityScoreTypes.Constitution, 10);
+            character.AbilityScores.SetScore(AbilityScoreTypes.Intelligence, 10);
+            character.AbilityScores.SetScore(AbilityScoreTypes.Wisdom, 10);
+            character.AbilityScores.SetScore(AbilityScoreTypes.Charisma, 10);
 			var cls = new Class ();
 			character.SetClass (cls);
 		}
