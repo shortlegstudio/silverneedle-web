@@ -36,10 +36,13 @@
   levels:
     - level: 1
       abilities:
-        - ability: SilverNeedle.Characters.SpecialAbilities.Evasion
+        - ability: SilverNeedle.Characters.SpecialAbilities.TrapFinding
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSneakAttack
           damage: 1d6
+    - level: 2
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.Evasion
     - level: 3
       modifiers:
         - name: Trap Sense +1 (Reflex)

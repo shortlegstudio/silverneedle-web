@@ -49,6 +49,11 @@ namespace SilverNeedle.Characters
             LoadFromObjectStore(data);
         }
 
+        public Class(string name) : this()
+        {
+            this.Name = name;
+        }
+
         /// <summary>
         /// Gets or sets the name of the class.
         /// </summary>
