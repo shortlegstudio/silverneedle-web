@@ -33,3 +33,121 @@
   weaponproficiencies: simple, hand crossbow, rapier, sap, shortbow, short sword
   developedage: young
   startingwealth: 4d6
+  levels:
+    - level: 1
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.Evasion
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSneakAttack
+          damage: 1d6
+    - level: 3
+      modifiers:
+        - name: Trap Sense +1 (Reflex)
+          stat: Reflex
+          modifier: 1
+          type: bonus
+          condition: traps
+        - name: Trap Sense +1 (AC)
+          stat: Armor Class
+          modifier: 1
+          type: bonus
+          condition: traps
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSneakAttack
+          damage: 2d6
+    - level: 4
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.UncannyDodge
+    - level: 5
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSneakAttack
+          damage: 3d6
+    - level: 6
+      modifiers:
+        - name: Trap Sense +2 (Reflex)
+          stat: Reflex
+          modifier: 1
+          type: bonus
+          condition: traps
+        - name: Trap Sense +2 (AC)
+          stat: Armor Class
+          modifier: 1
+          type: bonus
+          condition: traps
+    - level: 7
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSneakAttack
+          damage: 4d6
+    - level: 8
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.ImprovedUncannyDodge
+    - level: 9
+      modifiers:
+        - name: Trap Sense +3 (Reflex)
+          stat: Reflex
+          modifier: 1
+          type: bonus
+          condition: traps
+        - name: Trap Sense +3 (AC)
+          stat: Armor Class
+          modifier: 1
+          type: bonus
+          condition: traps
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSneakAttack
+          damage: 5d6
+    - level: 11
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSneakAttack
+          damage: 6d6
+    - level: 12
+      modifiers:
+        - name: Trap Sense +4 (Reflex)
+          stat: Reflex
+          modifier: 1
+          type: bonus
+          condition: traps
+        - name: Trap Sense +4 (AC)
+          stat: Armor Class
+          modifier: 1
+          type: bonus
+          condition: traps
+    - level: 13
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSneakAttack
+          damage: 7d6
+    - level: 15
+      modifiers:
+        - name: Trap Sense +5 (Reflex)
+          stat: Reflex
+          modifier: 1
+          type: bonus
+          condition: traps
+        - name: Trap Sense +5 (AC)
+          stat: Armor Class
+          modifier: 1
+          type: bonus
+          condition: traps
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSneakAttack
+          damage: 8d6
+    - level: 17
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSneakAttack
+          damage: 9d6
+    - level: 18
+      modifiers:
+        - name: Trap Sense +6 (Reflex)
+          stat: Reflex
+          modifier: 1
+          type: bonus
+          condition: traps
+        - name: Trap Sense +6 (AC)
+          stat: Armor Class
+          modifier: 1
+          type: bonus
+          condition: traps
+    - level: 19
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSneakAttack
+          damage: 10d6
