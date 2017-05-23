@@ -20,14 +20,16 @@ namespace silverneedleweb.Controllers
         {
             var strategies = strategyGateway.All();
             ViewData["Strategies"] = strategies.ToArray();
-            
+            ViewData["ScoreGenerators"] = GatewayProvider.All<AbilityScoreGenerator>();
             return View();
         }
 
-        public IActionResult Character(string strategy, int level)
+        public IActionResult Character(string strategy, int level, string scores)
         {
             var build = strategyGateway.Find(strategy);
+            var roller = GatewayProvider.Find<AbilityScoreGenerator>(scores);
             build.TargetLevel = level;
+            build.AbilityScoreRoller = roller.Generator;
 
             var gen = GatewayProvider.Find<CharacterDesigner>(build.Designer);
             

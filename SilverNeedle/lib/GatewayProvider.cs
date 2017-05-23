@@ -45,5 +45,10 @@ namespace SilverNeedle
         {
             return Get<T>().Find(name);
         }
+
+        public static IEnumerable<T> All<T>() where T : IGatewayObject
+        {
+            return Get<T>().All();
+        }
     }
 }

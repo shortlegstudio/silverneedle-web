@@ -1,0 +1,19 @@
+--- !<SilverNeedle.Characters.AbilityScoreGenerator>
+- name: Classic
+  description: 3d6 rolls
+  generator: SilverNeedle.Actions.CharacterGenerator.Abilities.ThreedSixAbilityScoreGenerator
+- name: Standard
+  description: 4d6 and take top 3 rolls
+  generator: SilverNeedle.Actions.CharacterGenerator.Abilities.StandardAbilityScoreGenerator
+- name: Perfectly Average
+  description: 10's across the board
+  generator: SilverNeedle.Actions.CharacterGenerator.Abilities.AverageAbilityScoreGenerator
+- name: 10 Point Buy
+  description: 10 points spent on abilities
+  generator: SilverNeedle.Actions.CharacterGenerator.Abilities.TenPointBuy
+- name: 15 Point Buy
+  description: 15 points spent on abilities
+  generator: SilverNeedle.Actions.CharacterGenerator.Abilities.FifteenPointBuy
+- name: 20 Point Buy
+  description: 20 points spent on abilities
+  generator: SilverNeedle.Actions.CharacterGenerator.Abilities.TwentyPointBuy

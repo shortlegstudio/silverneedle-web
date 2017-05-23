@@ -27,5 +27,10 @@ namespace SilverNeedle
         {
             return (int)Math.Max(val, min);
         }
+
+        public static int Ceiling(this float val)
+        {
+            return (int)Math.Ceiling(val);
+        }
     }
 }

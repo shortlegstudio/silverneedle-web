@@ -5,6 +5,7 @@
 
 namespace SilverNeedle.Characters
 {
+    using System.Linq;
     using System.Collections.Generic;
     using SilverNeedle.Serialization;
 
@@ -30,6 +31,26 @@ namespace SilverNeedle.Characters
         public bool Matches(string name)
         {
             return this.Name.EqualsIgnoreCase(name);
+        }
+
+        public int[] NegativeCosts()
+        {
+            return PointCosts.Keys.Where(point => PointCosts[point] < 0).ToArray();
+        }
+
+        public int[] PositiveCosts()
+        {
+            return PointCosts.Keys.Where(point => PointCosts[point] > 0).ToArray();
+        }
+
+        public int ZeroCost()
+        {
+            return PointCosts.Keys.First(point => PointCosts[point] == 0);
+        }
+
+        public int ClosestValue(int pointsAvailable)
+        {
+            return PointCosts.Keys.Where(point => PointCosts[point] <= pointsAvailable).Last();
         }
     }
 }
