@@ -93,23 +93,12 @@ namespace SilverNeedle
             {
                 source.Add(i);
             }
+
         }
 
-        /// <summary>
-        /// Selects an option in a dropdown: TODO Move this to more appropriate locations
-        /// </summary>
-        /// <param name="dropdown">Dropdown with list of options</param>
-        /// <param name="value">Value to select in dropdown</param>
-        /* public static void SelectOption(this UnityEngine.UI.Dropdown dropdown, string value) 
+        public static bool None<T>(this IEnumerable<T> source, Func<T, bool> predicate)
         {
-            for (var i = 0; i < dropdown.options.Count; i++) 
-            {
-                if (dropdown.options[i].text == value) 
-                {
-                    dropdown.value = i;
-                }
-            }
+            return !source.Any(predicate);
         }
-        */
     }
 }

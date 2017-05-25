@@ -1,0 +1,21 @@
+--- !<SilverNeedle.Characters.SpecialAbilities.RogueTalent>
+- name: Bleeding Attack
+  sneak-attack: true
+- name: Combat Trick
+- name: Fast Stealth
+- name: Finesse Rogue
+- name: Ledge Walker
+- name: Major Magic
+  prerequisites:
+    ability: Minor Magic
+- name: Minor Magic
+- name: Quick Disable
+- name: Resiliency
+- name: Rogue Crawl
+- name: Slow Reactions
+  sneak-attack: true
+- name: Stand Up
+- name: Surprise Attack
+- name: Trap Spotter
+- name: Weapon Training
+

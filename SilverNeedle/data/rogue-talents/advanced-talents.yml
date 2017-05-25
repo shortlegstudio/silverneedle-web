@@ -1,0 +1,19 @@
+--- !<SilverNeedle.Characters.SpecialAbilities.RogueTalent>
+- name: Crippling Strike
+  sneak-attack: true
+  advanced-talent: true
+- name: Defensive Roll
+  advanced-talent: true
+- name: Dispelling Attack
+  sneak-attack: true
+  advanced-talent: true
+- name: Improved Evasion
+  advanced-talent: true
+- name: Opportunist
+  advanced-talent: true
+- name: Skill Mastery
+  advanced-talent: true
+- name: Slippery Mind
+  advanced-talent: true
+- name: Feat
+  advanced-talent: true
