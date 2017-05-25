@@ -181,6 +181,8 @@
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSneakAttack
           damage: 10d6
     - level: 20
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.MasterStrike
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.SelectRogueTalent
           advanced-talents: true
