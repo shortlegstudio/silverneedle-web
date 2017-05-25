@@ -1,0 +1,43 @@
+--- !<SilverNeedle.Characters.CharacterBuildStrategy>
+- characterbuild:
+  name: Criminal
+  classskillmultiplier: 2.5
+  baseskillweight: 1
+  charactercreator: default
+  designer: create-adventurer
+  ability-score-roller: SilverNeedle.Actions.CharacterGenerator.Abilities.StandardAbilityScoreGenerator
+  classes:
+    - name: rogue
+      weight: 20
+    - name: commoner
+      weight: 5
+  races:
+    - name: human
+      weight: 20
+    - name: half-orc
+      weight: 10
+    - name: half-elf
+      weight: 10
+    - name: halfling
+      weight: 6      
+  skills:
+    - name: survival
+      weight: 10
+    - name: perception
+      weight: 24
+    - name: disable device
+      weight: 20
+    - name: sleight of hand
+      weight: 20
+    - name: bluff
+      weight: 20
+    - name: intimidate
+      weight: 15
+    - name: sense motive
+      weight: 10
+  feats:
+  abilities:
+    - name: dexterity
+      weight: 20
+    - name: charisma
+      weight: 15
