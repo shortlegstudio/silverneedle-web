@@ -1,203 +1,284 @@
+@using SilverNeedle.Characters;
 @{
-    var character = (SilverNeedle.Characters.CharacterSheetTextView)ViewData["Character"];
+    var character = (CharacterSheetTextView)ViewData["Character"];
+    var charFull = (CharacterSheet)ViewData["characterFull"];
     ViewData["Title"] = "NPC - " + character.Name;
     
 }
 <div class="charactersheet">
     <h1>
       <span>@character.Name</span>
-      <a asp-area="" asp-controller="Character" asp-action="Character" asp-route-strategy="@ViewData["strategy"]" asp-route-level="@ViewData["level"]" class="btn btn-lg btn-primary pull-right" role="button">Regenerate</a>
+      <a asp-area="" asp-controller="Character" asp-action="Character" asp-route-strategy="@ViewData["strategy"]" asp-route-level="@ViewData["level"]" asp-route-scores="@ViewData["scores"]" class="btn btn-lg btn-primary pull-right" role="button">Regenerate</a>
     </h1>
+    <h4>@character.Alignment @character.Gender @character.Race</h4> 
+    <h5>@character.Class @character.Level</h5>
     <div class="row">
         <div class="col-md-6">
-            <h5>Vitals</h5>
-            <ul class="stats">
-                <li><strong>@character.Gender @character.Race @character.Class @character.Level</strong></li>
-                <li>@character.Alignment @character.Size</li>
-                <li>
-                    <ul class="commalist">
-                        <li><strong>Init</strong> @character.Initiative</li>
-                        <li><strong>Senses</strong> @character.Senses</li>
-                        <li><strong>Perception</strong> @character.Perception</li>
-                    </ul>
-                </li>
-            </ul>
-            <h5>DEFENSE</h5>
-            <ul class="stats">
-                <li>
-                    <ul class="commalist">
-                        <li><strong>AC</strong> @character.ArmorClass</li>
-                        <li><i>touch</i> @character.TouchArmorClass</li>
-                        <li><i>flat-footed</i> @character.FlatFootedArmorClass</li>
-                    </ul>
-                </li>
-                <li><strong>HP</strong> @character.HitPoints</li>
-                <li>
-                    <ul class="commalist">
-                        <li><strong>Fort</strong> @character.FortitudeSave</li>
-                        <li><strong>Reflex</strong>@character.ReflexSave</li>
-                        <li><strong>Will</strong>@character.WillSave</li>
-                    </ul>
-                </li>
-                @if(character.DamageResistance.Length > 0)
-                {
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Statistics</h3>
+                </div>
+                <div class="panel-body">
+                    <p>
+                        <strong>Str</strong> @character.Strength (@character.StrengthModifier)
+                        <strong>Dex</strong> @character.Dexterity (@character.DexterityModifier)
+                        <strong>Con</strong> @character.Constitution (@character.ConstitutionModifier)
+                        <strong>Int</strong> @character.Intelligence (@character.IntelligenceModifier)
+                        <strong>Wis</strong> @character.Wisdom (@character.WisdomModifier)
+                        <strong>Cha</strong> @character.Charisma (@character.CharismaModifier)
+                    </p>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Combat</h3>
+                </div>
+                <div class="panel-body">
+                    <ul class="stats">
+                        <li>
+                            <ul class="commalist">
+                                <li><strong>Init</strong> @character.Initiative</li>
+                                <li><strong>Senses</strong> @character.Senses</li>
+                                <li><strong>Perception</strong> @character.Perception</li>
+                            </ul>
+                        </li>
                     <li>
-                        <strong>DR:</strong> 
-                        @foreach(var dr in character.DamageResistance)
-                        { @dr }
-                    </li>
-                }
-                @if(character.Immunities.Length > 0)
-                {
-                    <li>
-                        <strong>Immunities:</strong> 
-                        <ul class="commalist" style="padding: 0">
-                            @foreach(var immune in character.Immunities)
-                            { <li>@immune</li> }
+                        <ul class="commalist">
+                            <li><strong>AC</strong> @character.ArmorClass</li>
+                            <li><i>touch</i> @character.TouchArmorClass</li>
+                            <li><i>flat-footed</i> @character.FlatFootedArmorClass</li>
                         </ul>
                     </li>
-                }
-            </ul>
-            <h5>OFFENSE</h5>
-            <ul class="stats">
-                <li><strong>Speed</strong> @character.MovementSpeed ft</li>
-                @for(int i = 0; i < character.AttackTypes.Length; i++)
-                    { <li><strong>@character.AttackTypes[i]</strong> @character.Attacks[i]</li>}
-                <li><strong>Special Attacks</strong>
-                @foreach(var spc in @character.SpecialAttacks)
-                    { @spc }
-                </li>
-            </ul>
+                    <li><strong>HP</strong> @character.HitPoints</li>
+                    <li>
+                        <ul class="commalist">
+                            <li><strong>Fort</strong> @character.FortitudeSave</li>
+                            <li><strong>Reflex</strong>@character.ReflexSave</li>
+                            <li><strong>Will</strong>@character.WillSave</li>
+                        </ul>
+                    </li>
+                    @if(character.DamageResistance.Length > 0)
+                    {
+                        <li>
+                            <strong>DR:</strong> 
+                            @foreach(var dr in character.DamageResistance)
+                            { @dr }
+                        </li>
+                    }
+                    @if(character.Immunities.Length > 0)
+                    {
+                        <li>
+                            <strong>Immunities:</strong> 
+                            <ul class="commalist" style="padding: 0">
+                                @foreach(var immune in character.Immunities)
+                                { <li>@immune</li> }
+                            </ul>
+                        </li>
+                    }
+                    </ul>
+                    <ul class="stats">
+                        <li><strong>Speed</strong> @character.MovementSpeed ft</li>
+                        @for(int i = 0; i < character.AttackTypes.Length; i++)
+                            { <li><strong>@character.AttackTypes[i]</strong> @character.Attacks[i]</li>}
+                        <li><strong>Special Attacks</strong>
+                        @foreach(var spc in @character.SpecialAttacks)
+                            { @spc }
+                        </li>
+                    </ul>
+                    <ul class="stats">
+                        <li><strong>Base Atk</strong> @character.BaseAttackBonus</li>
+                        <li><strong>CMB</strong> @character.CombatManeuverBonus</li>
+                        <li><strong>CMD</strong> @character.CombatManeuverDefense</li>
+                    </ul>
+                </div>
+            </div>
             @if(character.IsSpellCaster) 
             {
-                <h5>Spell Casting</h5>
-                <strong>Spells Prepared</strong>
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Level</th>
-                            <th>DC</th>
-                            <th>Spells</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        @foreach(var spellLevel in character.SpellsPrepared.Keys)
-                        {
-                            <tr>
-                                <td>@spellLevel</td>
-                                <td>@character.SpellDC[spellLevel]</td>
-                                <td>
-                                    <ul class="commalist" style="padding: 0">
-                                        @{ var spells = character.SpellsPrepared[spellLevel]; }
-                                        @foreach(var s in spells)
-                                        { <li>@s</li> } 
-                                    </ul>
-                                </td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Spell Casting</h3>
+                    </div>
+                    <div class="panel-table">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Level</th>
+                                    <th>DC</th>
+                                    <th>Spells</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @foreach(var spellLevel in character.SpellsPrepared.Keys)
+                            {
+                                <tr>
+                                    <td>@spellLevel</td>
+                                    <td>@character.SpellDC[spellLevel]</td>
+                                    <td>
+                                        <ul class="commalist" style="padding: 0">
+                                            @{ var spells = character.SpellsPrepared[spellLevel]; }
+                                            @foreach(var s in spells)
+                                            { <li>@s</li> } 
+                                        </ul>
+                                    </td>
+                                </tr>
+                            }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             }
             @if(character.SpecialAbilities.Length > 0)
             {
-                <h5>Special Abilities</h5>
-                <ul class="commalist">
-                    @foreach(var a in character.SpecialAbilities)
-                    { <li>@a</li> }
-                </ul>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Special Abilities</h3>
+                    </div>
+                    <div class="panel-table">
+                        <table class="table table-striped">
+                            <tbody>
+                        @foreach(var a in character.SpecialAbilities)
+                        { <tr><td>@a</td></tr> }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             }
-
-            <h5>STATISTICS</h5>
-            <p>
-                <strong>Str</strong> @character.Strength (@character.StrengthModifier)
-                <strong>Dex</strong> @character.Dexterity (@character.DexterityModifier)
-                <strong>Con</strong> @character.Constitution (@character.ConstitutionModifier)
-                <strong>Int</strong> @character.Intelligence (@character.IntelligenceModifier)
-                <strong>Wis</strong> @character.Wisdom (@character.WisdomModifier)
-                <strong>Cha</strong> @character.Charisma (@character.CharismaModifier)
-            </p>
-            <p>
-                <strong>Base Atk</strong> @character.BaseAttackBonus
-                <strong>CMB</strong> @character.CombatManeuverBonus
-                <strong>CMD</strong> @character.CombatManeuverDefense
-            </p>
-            <p>
-                <strong>Feats</strong>
-                <ul class="commalist">
-                    @foreach(var f in character.Feats)
-                    { <li>@f</li> }
-                </ul>
-            </p>
-            <p>
-                <strong>Skills</strong>
-                <ul class="commalist">
-                    @foreach(var s in character.CapableSkills)
-                    { <li>@s</li> }
-                </ul>
-            </p>
-            <p>
-                <strong>Languages</strong>
-                <ul class="commalist">
-                    @foreach(var l in character.Languages)
-                    { <li>@l</li> }
-                </ul>
-            </p>
-            <p>
-                <strong>Gear</strong>
-                <ul class="commalist">
-                    @foreach(var g in character.Gear)
-                    { <li>@g</li> }
-                </ul>
-                <p><strong>Money</strong> @character.Money </p>
-            </p>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Feats</h3>
+                </div>
+                <div class="panel-table">
+                    <table class="table table-striped">
+                        <tbody>
+                            @foreach(var f in character.Feats)
+                            { <tr><td>@f</td></tr> }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class='panel panel-default'>
+                <div class='panel-heading'>
+                    <h3 class='panel-title'>Skills</h3>
+                </div>
+                <div class="panel-table">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Skill</th>
+                                <th>Ranks</th>
+                                <th>Score</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        @{ var skills = charFull.Get<SkillRanks>(); }
+                        @foreach(var s in skills.GetRankedSkills())
+                        { 
+                            @if(s.AbleToUse && !(s.Skill.IsBackgroundSkill && s.Ranks == 0))
+                            {
+                                <tr>
+                                    <td>@s.Name</td>
+                                    <td>@s.Ranks</td>
+                                    <td class='@(@s.Ranks > 0 ? "success" : "")'> @s.Score()</td>
+                                </tr>
+                            }
+                        }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Languages</h3>
+                </div>
+                <div class="panel-body">
+                    <ul class="commalist">
+                        @foreach(var l in character.Languages)
+                        { <li>@l</li> }
+                    </ul>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Gear</h3>
+                </div>
+                <div class="panel-table">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Quantity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach(var g in charFull.Inventory.All)
+                            { <tr><td>@g.Name</td><td>@g.Quantity</td></tr> }
+                        </tbody>
+                    </table>
+                    <p><strong>Money</strong> @character.Money </p>
+                </div>
+            </div>
         </div>
         <div class="col-md-6">
-            <h5>Description</h5>
-            <ul class="stats">
-                <li><strong>Age</strong> @character.Age</li>
-                <li><strong>Size</strong> @character.Height @character.Weight</li>
-                <li>
-                    <strong>Hair</strong> @character.Hair
-                </li>
-                <li><strong>Eyes</strong> @character.EyeColor</li>
-                <li><strong>Description</strong> @character.PhysicalFeatures</li>
-
-            </ul>
-            <h5>Personality</h5>
-                <ul class="stats">
-                    <li><strong>Ideal</strong> @character.IdealName - @character.IdealDescription</li>
-                    <li><strong>Behaviors</strong>
-                        <ul>
-                            @foreach(var p in character.Personality)
-                            { <li>@p</li> }
-                        </ul>
-                    </li>  
-                    <li><strong>Weaknesses</strong>
-                        <ul>
-                            @foreach(var p in character.PersonalityWeaknesses)
-                            { <li>@p</li> }
-                        </ul>
-                    </li>  
-                    <li><strong>Quirks</strong>
-                        <ul>
-                            @foreach(var q in character.Quirks)
-                            { <li>@q</li>}
-                        </ul>
-                    </li>
-                </ul>
-            <h5>History</h5>
-            <ul class="stats">
-                <li>
-                    <ul class="commalist">
-                        <li><strong>Father</strong> @character.Father</li>
-                        <li><strong>Mother</strong> @character.Mother</li>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Description</h3>
+                </div>
+                <div class="panel-body">
+                    <ul class="stats">
+                        <li><strong>Age</strong> @character.Age</li>
+                        <li><strong>Size</strong> @character.Height @character.Weight</li>
+                        <li> <strong>Hair</strong> @character.Hair </li>
+                        <li><strong>Eyes</strong> @character.EyeColor</li>
+                        <li><strong>Description</strong> @character.PhysicalFeatures</li>
                     </ul>
-                </li>
-                <li><strong>Homeland</strong> @character.Homeland</li>
-                <li><strong>Drawback</strong> @character.Drawback</li>
-                <li><strong>Origins</strong> @character.ClassOrigin</li>
-            </ul>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Personality</h3>
+                </div>
+                <div class="panel-body">
+                    <ul class="stats">
+                        <li><strong>Ideal</strong> @character.IdealName - @character.IdealDescription</li>
+                        <li><strong>Behaviors</strong>
+                            <ul>
+                                @foreach(var p in character.Personality)
+                                { <li>@p</li> }
+                            </ul>
+                        </li>  
+                        <li><strong>Weaknesses</strong>
+                            <ul>
+                                @foreach(var p in character.PersonalityWeaknesses)
+                                { <li>@p</li> }
+                            </ul>
+                        </li>  
+                        <li><strong>Quirks</strong>
+                            <ul>
+                                @foreach(var q in character.Quirks)
+                                { <li>@q</li>}
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">History</h3>
+                </div>
+                <div class="panel-body">
+                    <ul class="stats">
+                        <li>
+                            <ul class="commalist">
+                                <li><strong>Father</strong> @character.Father</li>
+                                <li><strong>Mother</strong> @character.Mother</li>
+                            </ul>
+                        </li>
+                        <li><strong>Homeland</strong> @character.Homeland</li>
+                        <li><strong>Drawback</strong> @character.Drawback</li>
+                        <li><strong>Origins</strong> @character.ClassOrigin</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </div>

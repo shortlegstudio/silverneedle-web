@@ -37,7 +37,7 @@ namespace SilverNeedle.Characters
         /// Gets all of the gear
         /// </summary>
         /// <value>All of the equipment in inventory.</value>
-        public IEnumerable<IGear> All 
+        public IEnumerable<Possession> All 
         { 
             get { return this.gear; } 
         }

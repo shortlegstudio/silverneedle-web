@@ -37,7 +37,9 @@ namespace silverneedleweb.Controllers
             gen.Process(character, build);
             
             ViewData["character"] = new CharacterSheetTextView(character);
+            ViewData["characterFull"] = character;
             ViewData["strategy"] = strategy;
+            ViewData["scores"] = scores;
             ViewData["level"] = level;
             return View();
         }
