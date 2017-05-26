@@ -11,6 +11,8 @@ All notable changes will be tracked in this file. Most likely.
 - Added Criminal Build
 
 ### Changed
+- Layout of HTML has changed. It will provide better flexibility in long run but 
+maybe less readable right now
 
 ### Known Issues
 - Rage Powers and Rogue Talents don't modify stats and are incomplete
