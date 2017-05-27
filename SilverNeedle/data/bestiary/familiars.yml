@@ -1,4 +1,4 @@
---- !<SilverNeedle.Beastiary.Familiar>
+--- !<SilverNeedle.Bestiary.Familiar>
 - name: Bat
   modifiers:
     - stat: Fly

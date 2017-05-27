@@ -6,7 +6,7 @@
 
 namespace SilverNeedle.Actions.CharacterGenerator.ClassFeatures
 {
-    using SilverNeedle.Beastiary;
+    using SilverNeedle.Bestiary;
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Serialization;

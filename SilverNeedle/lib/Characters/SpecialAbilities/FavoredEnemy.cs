@@ -6,7 +6,7 @@
 namespace SilverNeedle.Characters.SpecialAbilities
 {
     using System.Collections.Generic;
-    using SilverNeedle.Beastiary;
+    using SilverNeedle.Bestiary;
     public class FavoredEnemy : SpecialAbility
     {
         private IDictionary<CreatureType, int> enemies;

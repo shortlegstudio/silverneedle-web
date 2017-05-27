@@ -7,7 +7,7 @@ namespace Tests.Characters.SpecialAbilities
 {
     using NUnit.Framework;
     using SilverNeedle.Characters.SpecialAbilities;
-    using SilverNeedle.Beastiary;
+    using SilverNeedle.Bestiary;
 
     [TestFixture]
     public class SummonFamiliarTests
@@ -17,7 +17,7 @@ namespace Tests.Characters.SpecialAbilities
         {
             var familiar = new Familiar("Bat");
             var subject = new SummonFamiliar(familiar);
-            Assert.That(subject.Familiar, Is.TypeOf(typeof(SilverNeedle.Beastiary.Familiar)));
+            Assert.That(subject.Familiar, Is.TypeOf(typeof(Familiar)));
         }
     }
 }

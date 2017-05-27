@@ -3,10 +3,10 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-namespace Tests.Beastiary
+namespace Tests.Bestiary
 {
     using NUnit.Framework;
-    using SilverNeedle.Beastiary;
+    using SilverNeedle.Bestiary;
     using SilverNeedle.Serialization;
     
     [TestFixture]

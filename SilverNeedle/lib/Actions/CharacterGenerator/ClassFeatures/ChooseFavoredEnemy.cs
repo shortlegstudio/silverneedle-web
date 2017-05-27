@@ -8,7 +8,7 @@ namespace SilverNeedle.Actions.CharacterGenerator.ClassFeatures
 {
     using System;
     using System.Linq;
-    using SilverNeedle.Beastiary;
+    using SilverNeedle.Bestiary;
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Serialization;

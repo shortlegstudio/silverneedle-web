@@ -7,7 +7,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 {
     using System;
     using System.Collections.Generic;
-    using SilverNeedle.Beastiary;
+    using SilverNeedle.Bestiary;
 
     public class SummonFamiliar : SpecialAbility, IModifiesStats
     {

@@ -6,7 +6,7 @@
 namespace Tests.Characters.SpecialAbilities
 {
     using NUnit.Framework;
-    using SilverNeedle.Beastiary;
+    using SilverNeedle.Bestiary;
     using SilverNeedle.Characters.SpecialAbilities;
 
     [TestFixture]

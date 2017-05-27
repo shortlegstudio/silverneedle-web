@@ -3,7 +3,7 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-namespace SilverNeedle.Beastiary
+namespace SilverNeedle.Bestiary
 {
     using System.Collections.Generic;
     using SilverNeedle.Characters;
