@@ -31,26 +31,6 @@ namespace Tests.Actions.CharacterGenerator.Appearance
         }
 
         [Test]
-        public void LocationsAreSelectedToMakeItMoreInteresting()
-        {
-            var mem = new MemoryStore();
-            mem.SetValue("name", "jagged scar");
-            mem.SetValue("locations", "left arm");
-            var temps = new MemoryStore();
-            temps.AddListItem(new MemoryStore("template", "{{pronoun}} has a {{feature}} on {{possessivepronoun}} {{location}}."));
-            mem.SetValue("templates", temps);
-            var phys = new PhysicalFeature(mem);
-            var gateway = new EntityGateway<PhysicalFeature>(new PhysicalFeature[] { phys });
-
-            var subject = new CreatePhysicalFeatures(gateway);
-            var character = new CharacterSheet();
-            character.Gender = Gender.Female;
-            subject.Process(character, new CharacterBuildStrategy());
-
-            Assert.That(character.Appearance.PhysicalAppearance, Is.EqualTo("She has a jagged scar on her left arm."));
-        }
-
-        [Test]
         public void UsesDescriptorsIfAvailable()
         {
             var descs = new MemoryStore();

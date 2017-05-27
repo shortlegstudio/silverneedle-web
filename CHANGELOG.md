@@ -16,3 +16,4 @@ maybe less readable right now
 
 ### Known Issues
 - Rage Powers and Rogue Talents don't modify stats and are incomplete
+- In production it can get stuck and generates all the same names. Not able to repro yet.
