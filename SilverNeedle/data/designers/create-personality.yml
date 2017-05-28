@@ -5,3 +5,4 @@
   steps: 
     - step: SilverNeedle.Actions.CharacterGenerator.PersonalityBuilder
     - step: SilverNeedle.Actions.CharacterGenerator.Personality.SelectQuirks
+    - step: SilverNeedle.Actions.CharacterGenerator.Personality.SelectFears

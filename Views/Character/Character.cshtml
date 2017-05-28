@@ -258,6 +258,12 @@
                                 { <li>@q</li>}
                             </ul>
                         </li>
+                        <li><strong>Fears</strong>
+                            <ul>
+                                @foreach(var f in charFull.Get<SilverNeedle.Characters.Personalities.Fears>())
+                                { <li>@f</li>}
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>

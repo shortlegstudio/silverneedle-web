@@ -22,12 +22,14 @@ namespace SilverNeedle.Characters
             FillInMissingAbilities(FavoredAbilities);
             TargetLevel = 1;
             QuirkCount = 3;
+            FearCount = 1;
             this.AbilityScoreRoller = typeof(SilverNeedle.Actions.CharacterGenerator.Abilities.AverageAbilityScoreGenerator).FullName;
         }
 
         public CharacterBuildStrategy(IObjectStore data) 
         {
             QuirkCount = 3;
+            FearCount = 1;
             TargetLevel = 1;
             Classes = new WeightedOptionTable<string>();
             Races = new WeightedOptionTable<string>();
@@ -52,6 +54,7 @@ namespace SilverNeedle.Characters
             this.FavoredAbilities = copy.FavoredAbilities.Copy();
             this.FavoredAlignments = copy.FavoredAlignments.Copy();
             this.QuirkCount = copy.QuirkCount;
+            this.FearCount = copy.FearCount;
             this.AbilityScoreRoller = copy.AbilityScoreRoller;
         }
         
@@ -73,6 +76,7 @@ namespace SilverNeedle.Characters
 
         public int TargetLevel { get; set; }
         public int QuirkCount { get; set; }
+        public int FearCount { get; set; }
 
         public WeightedOptionTable<CharacterAlignment> FavoredAlignments { get; set; }
         private void ParseObjectStore(IObjectStore data)
