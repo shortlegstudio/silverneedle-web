@@ -1,33 +1,10 @@
 @{
     ViewData["Title"] = "Home Page";
 }
-<div class="row">
-<h1>Silver Needle RPG Helper</h1>
-</div>
-
-<div class="row">
-    <div class="col-md-4 text-center panel-top">
-        Generate a bunch of names to choose from. This will generate a few names
-        for all races available in Silver Needle at this time.
-    </div>
-    <div class="col-md-4 text-center panel-top">
-        This generates a settlement of characters that allows you to build out
-        situations like what's going on in a tavern or shops.
-     </div>
-    <div class="col-md-4 text-center panel-top">
-        The advanced character generator makes very robust and detailed characters
-        for filling out the world or when needed because the party went crazy
-        and attacked a bunch of people that was not really expected to happen.
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-4 text-center panel-bottom">
-        <a asp-area="" asp-controller="Names" asp-action="Index" class="btn btn-lg btn-default align-center" role="button">Name Generator</a>
-    </div>
-    <div class="col-md-4 text-center panel-bottom">
-         <a asp-area="" asp-controller="Settlement" asp-action="Index" class="btn btn-lg btn-default" role="button">Settlement Builder</a>
-    </div>
-    <div class="col-md-4 text-center panel-bottom">
-        <a asp-area="" asp-controller="Character" asp-action="Index" class="btn btn-lg btn-default" role="button">Advanced Character</a>
-    </div>
+<div class="jumbotron">
+    <h1>Silver Needle</h1>
+    <h4>NPC Generator</h4>
+    <p>Generates NPC for role playing games with diverse statistics, descriptions,
+        motivations and storylines.</p>
+    <p><a asp-area="" asp-controller="Character" asp-action="Index" class="btn btn-lg btn-primary" role="button">Generate Character</a></p>
 </div>
