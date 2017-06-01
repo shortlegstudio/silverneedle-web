@@ -79,5 +79,13 @@ namespace Tests.Characters
             Assert.That(spells.GetDifficultyClass(3), Is.EqualTo(17));
             Assert.That(spells.GetDifficultyClass(9), Is.EqualTo(23));
         }
+
+        [Test]
+        public void IfAskedForSpellsPastMaxLevelJustReturnZero()
+        {
+            var spells = new SpellCasting(new Inventory());
+            Assert.That(spells.GetSpellsPerDay(200), Is.EqualTo(0));
+
+        }
     }
 }

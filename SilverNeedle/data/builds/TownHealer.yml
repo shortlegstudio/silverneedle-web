@@ -8,7 +8,9 @@
   ability-score-roller: SilverNeedle.Actions.CharacterGenerator.Abilities.ThreedSixAbilityScoreGenerator
   classes:
     - name: adept
-      weight: 1
+      weight: 20
+    - name: cleric
+      weight: 10
   races:
     - name: human
       weight: 90

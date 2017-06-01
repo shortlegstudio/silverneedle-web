@@ -1,0 +1,67 @@
+--- !<SilverNeedle.Spells.SpellList>
+- class: Cleric
+  levels:
+    0: >
+      bleed, create water, detect magic, detect poison, guidance, light, mending, 
+      purify food and drink, read magic, resistance, stabilize, virtue
+    1: >
+      bane, bless, bless water, cause fear, command, comprehend languages, 
+      cure light wounds, deathwatch, detect chaos, detect evil, detect good, detect law, 
+      endure elements, entropic shield, hide from undead, inflict light wounds, 
+      magic stone, magic weapon, obscuring mist, protection from evil,
+      protection from chaos, protection from good, protection from law, remove fear,
+      sanctuary, shield of faith, summon monster i
+    2: >
+      aid, align weapon, augury, bear's endurance, bull's strength, calm emotions,
+      consecrate, cure moderate wounds, darkness, delay poison, desecreate, 
+      eagle's splendor, enthrall, find traps, gentle repose, hold person, 
+      inflict moderate wounds, make whole, owl's wisdom, remove paralysis,
+      resist energy, lesser restoration, shatter, shield other, silence, 
+      sound burst, spirtual weapon, status, summon monster ii, undetectable alignment,
+      zone of truth
+    3: > 
+      animate dead, bestow curse, blindness/deafness, contagion, continual flame, 
+      create food and water, cure serious wounds, daylight, deeper darkness, 
+      dispel magic, glyph of warding, helping hand, inflict serious wounds, 
+      invisibility purge, locate object, magic circle against chaos, 
+      magic circle against evil, magic circle against good, magic circle against law,
+      magic vestment, meld into stone, obscure object, prayer, protection from energy,
+      remove blindness/deafness, remove curse, remove disease, searing light,
+      speak with dead, stone shape, summon monster iii, water breating, water walk,
+      wind wall
+    4: >
+      air walk, chaos hammer, control water, cure critical wounds, death ward, 
+      dimensional anchor, discern lies, dismissal, divination, divine power, 
+      freedome of movement, giant vermin, holy smite, imbue with spell ability
+      inflict critical wounds, greater magic weapon, neutralize poison, 
+      order's wrath, lesser planar ally, poison, repel vermin, restoration,
+      sending, spell immunity, summon monster iv, tongues, unholy blight
+    5: >
+      atonement, break enchantment, breath of life, greater command, commune, 
+      mass cure light wounds, dispel chaos, dispel evil, dispel good, dispel law,
+      disrupting weapon, flame strike, hallow, mass inflict light wounds, 
+      insect plague, mark of justice, plane shift, raise dead, righteous might,
+      scrying, slay living, spell resistance, summon monster v,
+      symbol of pain, symbol of sleep, true seeing, unhallow, wall of stone
+    6: >
+      animate objects, antilife shell, banishment, mass bear's endurance, 
+      blade barrier, mass bull's strength, create undead, mass cure moderate wounds,
+      greater dispel magic, mass eagle's splendor, find the path, forbiddance,
+      geas/quest, greater glyph of warding, harm, heal, heroes' feast, 
+      mass inflict moderate wounds, mass owl's wisdom, planar ally, 
+      summon monster vi, symbol of fear, symbol of persuasion, undeath to death,
+      wind walk, word of recall
+    7: >
+      blasphemy, control weather, mass cure serious wounds, destruction, dictum,
+      ethereal jaunt, holy word, mass inflict serious wounds, refuge, regenerate,
+      repulsion, greater restoration, resurrection, greater scrying, 
+      summon monster vii, symbol of stunning, symbol of weakness, word of chaos
+    8: >
+      antimagic field, cloak of chaos, create greater undead, mass cure critical wounds,
+      dimensional lock, discern location, earthquake, fire storm, holy aura,
+      mass inflict critical wounds, greater planar ally, shield of law,
+      greater spell immunity, summon moster viii, symbol of death, symbol of insanity,
+      unholy aura
+    9: >
+      astral projection, energy drain, etherealness, gate, mass heal, implosion,
+      miracle, soul bind, storm of vengeance, summon monster ix, true resurrection

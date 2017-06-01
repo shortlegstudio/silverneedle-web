@@ -11,7 +11,7 @@ namespace SilverNeedle.Characters
 
     public class SpellCasting
     {
-        public const int MAX_SPELL_LEVEL = 9;
+        public const int MAX_SPELL_LEVEL = 10;
         private IDictionary<int, string[]> knownSpells;
         private IDictionary<int, string[]> preparedSpells;
         private int[] spellsPerDay;
@@ -72,6 +72,8 @@ namespace SilverNeedle.Characters
 
         public int GetSpellsPerDay(int level)
         {
+            if(level >= spellsPerDay.Length)
+                return 0;
             return spellsPerDay[level];
         }
 
