@@ -80,7 +80,11 @@ namespace SilverNeedle.Characters
         /// Gets or sets the alignment.
         /// </summary>
         /// <value>The character's alignment.</value>
-        public CharacterAlignment Alignment { get; set; }
+        public CharacterAlignment Alignment 
+        {
+            get { return Components.Get<CharacterAlignment>(); }
+            set { Components.Replace<CharacterAlignment>(value); }
+        }
 
         /// <summary>
         /// Gets or sets the gender.

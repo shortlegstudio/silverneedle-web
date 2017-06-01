@@ -26,6 +26,11 @@
   developedage: studied
   startingwealth: 4d6
   levels:
+    - level: 1
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.ChannelEnergy
+        - ability: SilverNeedle.Characters.SpecialAbilities.AuraOfAlignment
+        - ability: SilverNeedle.Characters.SpecialAbilities.SpontaneousCastingCleric
   spells:
     list: cleric
     type: divine

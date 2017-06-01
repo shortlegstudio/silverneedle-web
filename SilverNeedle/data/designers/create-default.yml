@@ -9,7 +9,6 @@
     - step: SilverNeedle.Actions.CharacterGenerator.RaceSelector
     - step: SilverNeedle.Actions.CharacterGenerator.GenderSelector
     - step: SilverNeedle.Actions.NamingThings.NameCharacter
-    - step: SilverNeedle.Actions.CharacterGenerator.LanguageSelector
     - step: SilverNeedle.Actions.CharacterGenerator.Background.HomelandSelector
     - step: SilverNeedle.Actions.CharacterGenerator.Background.FamilyHistoryCreator
     - step: SilverNeedle.Actions.CharacterGenerator.Background.CharacterDrawbackSelector
@@ -22,5 +21,6 @@
     - step: SilverNeedle.Actions.CharacterGenerator.Background.ClassOriginStoryCreator
     - step: SilverNeedle.Actions.CharacterGenerator.SkillPointDistributor
     - step: SilverNeedle.Actions.CharacterGenerator.AlignmentSelector
+    - step: SilverNeedle.Actions.CharacterGenerator.LanguageSelector
     - designer: create-appearance
     - designer: create-personality

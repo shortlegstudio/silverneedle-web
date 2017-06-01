@@ -167,6 +167,19 @@ namespace Tests.Characters
             Assert.That(ability.Called, Is.True);
         }
 
+        [Test]
+        public void CanGetAndSetAlignmentAndItShowsUpAsASingleComponent()
+        {
+            var character = new CharacterSheet();
+            character.Alignment = CharacterAlignment.Neutral;
+            Assert.That(character.Alignment, Is.EqualTo(CharacterAlignment.Neutral));
+            character.Alignment = CharacterAlignment.LawfulEvil;
+            Assert.That(character.Alignment, Is.EqualTo(CharacterAlignment.LawfulEvil));
+            var alignment = character.Get<CharacterAlignment>();
+            Assert.That(alignment, Is.EqualTo(CharacterAlignment.LawfulEvil));
+            Assert.That(character.GetAll<CharacterAlignment>().Count(), Is.EqualTo(1));
+        }
+
         public class CompAbility : SpecialAbility, IComponent
         {
             public bool Called { get; private set; }
