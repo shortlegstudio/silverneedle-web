@@ -9,11 +9,10 @@ namespace SilverNeedle.Serialization
     using SilverNeedle.Utility;
     public static class ObjectStoreSerializer
     {
-        public static T Deserialize<T>(this IObjectStore data)
+        public static T Deserialize<T>(this IObjectStore data, T result)
         {
             var typeInfo = typeof(T).GetTypeInfo();
             var properties = typeInfo.GetProperties();
-            var result = typeof(T).Instantiate<T>();
             foreach(var prop in properties)
             {
                 var attribute = prop.GetCustomAttribute<ObjectStoreAttribute>();

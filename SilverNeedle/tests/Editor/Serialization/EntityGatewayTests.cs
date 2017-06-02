@@ -95,6 +95,21 @@ namespace Tests.Serialization
             Assert.Throws(typeof(EntityNotFoundException), () => {gateway.Find("Foo"); });
         }
 
+        [Test]
+        public void CustomImplementationForObjectIsAllowed()
+        {
+            var data = new MemoryStore();
+            data.SetValue("name", "Foo");
+            data.SetValue("custom-implementation", "Tests.Serialization.EntityGatewayTests+TestObjectCustom");
+            var data2 = new MemoryStore();
+            data2.SetValue("name", "Bar");
+            var gateway = new EntityGateway<TestObject>(new IObjectStore[] { data, data2});
+            var one = gateway.Find("Foo");
+            Assert.That(one, Is.InstanceOf(typeof(TestObjectCustom)));
+            var two = gateway.Find("Bar");
+            Assert.That(one, Is.InstanceOf(typeof(TestObject)));
+        }
+
         [ObjectStoreSerializable]
         public class AlwaysFresh : IGatewayObject, IGatewayCopy<AlwaysFresh>
         {
@@ -147,6 +162,14 @@ namespace Tests.Serialization
             public bool Matches(string name)
             {
                 return Name == name;
+            }
+        }
+
+        public class TestObjectCustom : TestObject 
+        { 
+            public TestObjectCustom(IObjectStore data) : base(data)
+            {
+
             }
         }
     }

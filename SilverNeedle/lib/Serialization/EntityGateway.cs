@@ -103,15 +103,22 @@ namespace SilverNeedle.Serialization
 
         private void LoadObjects(IEnumerable<IObjectStore> data)
         {
+            var typeInfo = typeof(T).GetTypeInfo();
+            returnCopies = typeInfo.GetInterfaces().Contains(typeof(IGatewayCopy<T>));
+
             foreach(var d in data) {
-                var typeInfo = typeof(T).GetTypeInfo();
-                returnCopies = typeInfo.GetInterfaces().Contains(typeof(IGatewayCopy<T>));
                 T obj;
-                if(typeInfo.GetCustomAttribute<ObjectStoreSerializableAttribute>() != null)
+                if(d.HasKey("custom-implementation"))
                 {
-                    obj = d.Deserialize<T>(); 
+                    var customtype = Type.GetType(d.GetString("custom-implementation"));
+                    obj = customtype.Instantiate<T>(d);
                 } else {
                     obj = objectType.Instantiate<T>(d);
+                }
+
+                if(typeInfo.GetCustomAttribute<ObjectStoreSerializableAttribute>() != null)
+                {
+                    d.Deserialize<T>(obj); 
                 }
                 dataStore.Add(obj);
             }

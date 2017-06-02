@@ -19,7 +19,8 @@ namespace Tests.Serialization
             store.SetValue("number", 5);
             store.SetValue("float", 37.5f);
             store.SetValue("list", "one, two, three, four");
-            var test = store.Deserialize<TestSimpleObject>();
+            var obj = new TestSimpleObject();
+            var test = store.Deserialize<TestSimpleObject>(obj);
             Assert.That(test.Name, Is.EqualTo("Foo"));
             Assert.That(test.Number, Is.EqualTo(5));
             Assert.That(test.FloatNumber, Is.EqualTo(37.5f));
