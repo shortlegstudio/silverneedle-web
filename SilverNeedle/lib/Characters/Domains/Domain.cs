@@ -20,5 +20,10 @@ namespace SilverNeedle.Characters.Domains
         {
             return this.Name.EqualsIgnoreCase(name);
         }
+
+        public override string ToString()
+        {
+            return string.Format("Domain ({0})", this.GetType().Name);
+        }
     }
 }

@@ -3,6 +3,7 @@
     var character = (CharacterSheetTextView)ViewData["Character"];
     var charFull = (CharacterSheet)ViewData["characterFull"];
     ViewData["Title"] = "NPC - " + character.Name;
+    var domains = charFull.GetAll<SilverNeedle.Characters.Domains.Domain>();
     
 }
 <div class="charactersheet">
@@ -138,6 +139,23 @@
                             <tbody>
                         @foreach(var a in character.SpecialAbilities)
                         { <tr><td>@a</td></tr> }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            }
+
+            @if(domains.Count() > 0)
+            {
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Domains</h3>
+                    </div>
+                    <div class="panel-table">
+                        <table class="table table-striped">
+                            <tbody>
+                        @foreach(var d in domains)
+                        { <tr><td>@d</td></tr> }
                             </tbody>
                         </table>
                     </div>
