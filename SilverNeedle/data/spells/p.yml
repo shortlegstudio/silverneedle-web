@@ -7,56 +7,85 @@
   school: universal
 - name: Permanent Image
   school: illusion
+  subschool: figment
 - name: Persistent Image
   school: illusion
+  subschool: figment
 - name: Phantasmal Killer
   school: illusion
+  subschool: phantasm
+  descriptors: fear, mind-affecting
 - name: Phantom Steed
   school: conjuration
+  subschool: creation
 - name: Phantom Trap
   school: illusion
+  subschool: glamer
 - name: Phase Door
   school: conjuration
+  subschool: creation
 - name: Planar Ally
   school: conjuration
-- name: Planar Ally, Greater
+  subschool: calling
+- name: Planar Ally - Greater
   school: conjuration
+  subschool: calling
 - name: Planar Ally, Lesser
   school: conjuration
+  subschool: calling
 - name: Planar Binding
   school: conjuration
-- name: Planar Binding, Greater
+  subschool: calling
+- name: Planar Binding - Greater
   school: conjuration
-- name: Planar Binding, Lesser
+  subschool: calling
+- name: Planar Binding - Lesser
   school: conjuration
+  subschool: calling
 - name: Plane Shift
   school: conjuration
+  subschool: teleportation
 - name: Plant Growth
   school: transmutation
 - name: Plant Shape I
   school: transmutation
+  subschool: polymorph
 - name: Plant Shape II
   school: transmutation
+  subschool: polymorph
 - name: Plant Shape III
   school: transmutation
+  subschool: polymorph
 - name: Poison
   school: necromancy
 - name: Polar Ray
   school: evocation
+  descriptors: cold
 - name: Polymorph
   school: transmutation
+  subschool: polymorph
 - name: Polymorph Any Object
   school: transmutation
-- name: Polymorph, Greater
+  subschool: polymorph
+- name: Polymorph - Greater
+  subschool: polymorph
   school: transmutation
 - name: Power Word Blind
   school: enchantment
+  subschool: compulsion
+  descriptors: mind-affecting
 - name: Power Word Kill
   school: enchantment
+  subschool: compulsion
+  descriptors: death, mind-affecting
 - name: Power Word Stun
   school: enchantment
+  subschool: compulsion
+  descriptors: mind-affecting
 - name: Prayer
   school: enchantment
+  subschool: compulsion
+  descriptors: mind-affecting
 - name: Prestidigitation
   school: universal
 - name: Prismatic Sphere
@@ -67,22 +96,29 @@
   school: abjuration
 - name: Produce Flame
   school: evocation
+  descriptors: fire
 - name: Programmed Image
   school: illusion
+  subschool: figment
 - name: Project Image
   school: illusion
+  subschool: shadow
 - name: Protection from Arrows
   school: abjuration
 - name: Protection from Chaos
   school: abjuration
+  descriptors: lawful
 - name: Protection from Energy
   school: abjuration
 - name: Protection from Evil
   school: abjuration
+  descriptors: good
 - name: Protection from Good
   school: abjuration
+  descriptors: evil
 - name: Protection from Law
   school: abjuration
+  descriptors: chaotic
 - name: Protection from Spells
   school: abjuration
 - name: Prying Eyes

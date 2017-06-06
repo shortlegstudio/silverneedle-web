@@ -3,102 +3,142 @@
   school: abjuration
 - name: Scare
   school: necromancy
+  descriptors: fear, mind-affecting
 - name: Scintillating Pattern
   school: illusion
+  subschool: pattern
+  descriptors: mind-affecting
 - name: Scorching Ray
   school: evocation
+  descriptors: fire
 - name: Screen
   school: illusion
+  subschool: glamer
 - name: Scrying
   school: divination
-- name: Scrying, Greater
+  subschool: scrying
+- name: Scrying - Greater
   school: divination
+  subschool: scrying
 - name: Sculpt Sound
   school: transmutation
 - name: Searing Light
   school: evocation
 - name: Secret Chest
   school: conjuration
+  subschool: summoning
 - name: Secret Page
   school: transmutation
 - name: Secure Shelter
   school: conjuration
+  subschool: creation
 - name: See Invisibility
   school: divination
 - name: Seeming
   school: illusion
+  subschool: glamer
 - name: Sending
   school: evocation
 - name: Sepia Snake Sigil
   school: conjuration
+  subschool: creation
+  descriptors: force
 - name: Sequester
   school: abjuration
 - name: Shades
   school: illusion
+  subschool: shadow
 - name: Shadow Conjuration
   school: illusion
-- name: Shadow Conjuration, Greater
+  subschool: shadow
+- name: Shadow Conjuration - Greater
   school: illusion
+  subschool: shadow
 - name: Shadow Evocation
   school: illusion
-- name: Shadow Evocation, Greater
+  subschool: shadow
+- name: Shadow Evocation - Greater
   school: illusion
+  subschool: shadow
 - name: Shadow Walk
   school: illusion
+  subschool: shadow
 - name: Shambler
   school: conjuration
+  subschool: creation
 - name: Shapechange
   school: transmutation
+  subschool: polymorph
 - name: Shatter
   school: evocation
+  descriptors: force
 - name: Shield
   school: abjuration
+  descriptors: force
 - name: Shield Other
   school: abjuration
 - name: Shield of Faith
   school: abjuration
 - name: Shield of Law
   school: abjuration
+  descriptors: lawful
 - name: Shillelagh
   school: transmutation
 - name: Shocking Grasp
   school: evocation
+  descriptors: electricity
 - name: Shout
   school: evocation
-- name: Shout, Greater
+  descriptors: sonic
+- name: Shout - Greater
   school: evocation
+  descriptors: sonic
 - name: Shrink Item
   school: transmutation
 - name: Silence
   school: illusion
+  subschool: glamer
 - name: Silent Image
   school: illusion
+  subschool: figment
 - name: Simulacrum
   school: illusion
+  subschool: shadow
 - name: Slay Living
   school: necromancy
+  descriptors: death
 - name: Sleep
   school: enchantment
+  subschool: compulsion
+  descriptors: mind-affecting
 - name: Sleet Storm
   school: conjuration
+  subschool: creation
+  descriptors: cold
 - name: Slow
   school: transmutation
 - name: Snare
   school: transmutation
 - name: Soften Earth and Stone
   school: transmutation
+  descriptors: earth
 - name: Solid Fog
   school: conjuration
+  subschool: creation
 - name: Song of Discord
   school: enchantment
+  subschool: compulsion
+  descriptors: mind-affecting, sonic
 - name: Soul Bind
   school: necromancy
 - name: Sound Burst
   school: evocation
+  descriptors: sonic
 - name: Speak with Animals
   school: divination
 - name: Speak with Dead
   school: necromancy
+  descriptors: language-dependent
 - name: Speak with Plants
   school: divination
 - name: Spectral Hand
@@ -119,18 +159,23 @@
   school: transmutation
 - name: Spike Stones
   school: transmutation
+  descriptors: earth
 - name: Spiritual Weapon
   school: evocation
+  descriptors: force
 - name: Stabilize
   school: conjuration
+  subschool: healing
 - name: Statue
   school: transmutation
 - name: Status
   school: divination
 - name: Stinking Cloud
   school: conjuration
+  subschool: creation
 - name: Stone Shape
   school: transmutation
+  descriptors: earth
 - name: Stone Tell
   school: divination
 - name: Stone to Flesh
@@ -139,71 +184,112 @@
   school: abjuration
 - name: Storm of Vengeance
   school: conjuration
+  subschool: summoning
 - name: Suggestion
   school: enchantment
-- name: Suggestion, Mass
+  subschool: compulsion
+  descriptors: language-dependent, mind-affecting
+- name: Suggestion - Mass
   school: enchantment
+  subschool: compulsion
+  descriptors: language-dependent, mind-affecting
 - name: Summon Instrument
   school: conjuration
+  subschool: summoning
 - name: Summon Monster I
   school: conjuration
+  subschool: summoning
 - name: Summon Monster II
   school: conjuration
+  subschool: summoning
 - name: Summon Monster III
   school: conjuration
+  subschool: summoning
 - name: Summon Monster IV
   school: conjuration
+  subschool: summoning
 - name: Summon Monster V
   school: conjuration
+  subschool: summoning
 - name: Summon Monster VI
   school: conjuration
+  subschool: summoning
 - name: Summon Monster VII
   school: conjuration
+  subschool: summoning
 - name: Summon Monster VIII
   school: conjuration
+  subschool: summoning
 - name: Summon Monster IX
   school: conjuration
+  subschool: summoning
 - name: Summon Nature's Ally I
   school: conjuration
+  subschool: summoning
 - name: Summon Nature's Ally II
   school: conjuration
+  subschool: summoning
 - name: Summon Nature's Ally III
   school: conjuration
+  subschool: summoning
 - name: Summon Nature's Ally IV
   school: conjuration
+  subschool: summoning
 - name: Summon Nature's Ally V
   school: conjuration
+  subschool: summoning
 - name: Summon Nature's Ally VI
   school: conjuration
+  subschool: summoning
 - name: Summon Nature's Ally VII
   school: conjuration
+  subschool: summoning
 - name: Summon Nature's Ally VIII
   school: conjuration
+  subschool: summoning
 - name: Summon Nature's Ally IX
   school: conjuration
+  subschool: summoning
 - name: Summon Swarm
   school: conjuration
+  subschool: summoning
 - name: Sunbeam
   school: evocation
+  descriptors: light
 - name: Sunburst
   school: evocation
+  descriptors: light
 - name: Symbol of Death
   school: necromancy
+  descriptors: death
 - name: Symbol of Fear
   school: necromancy
+  descriptors: fear, mind-affecting
 - name: Symbol of Insanity
   school: enchantment
+  subschool: compulsion
+  descriptors: mind-affecting
 - name: Symbol of Pain
   school: necromancy
+  descriptors: evil
 - name: Symbol of Persuasion
   school: enchantment
+  subschool: charm
+  descriptors: mind-affecting
 - name: Symbol of Sleep
   school: enchantment
+  subschool: compulsion
+  descriptors: mind-affecting
 - name: Symbol of Stunning
   school: enchantment
+  subschool: compulsion
+  descriptors: mind-affecting
 - name: Symbol of Weakness
   school: necromancy
 - name: Sympathetic Vibration
   school: evocation
+  descriptors: sonic
 - name: Sympathy
   school: enchantment
+  subschool: compulsion
+  descriptors: mind-affecting

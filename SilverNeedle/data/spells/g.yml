@@ -3,26 +3,35 @@
   school: transmutation
 - name: Gate
   school: conjuration
+  subschool: creation or calling
 - name: Geas, Lesser
   school: enchantment
+  subschool: compulsion
+  descriptors: language-dependent, mind-affecting
 - name: Geas/Quest
   school: enchantment
+  subschool: compulsion
+  descriptors: language-dependent, mind-affecting
 - name: Gentle Repose
   school: necromancy
 - name: Ghost Sound
   school: illusion
+  subschool: figment
 - name: Ghoul Touch
   school: necromancy
 - name: Giant Form I
   school: transmutation
+  subschool: polymorph
 - name: Giant Form II
   school: transmutation
+  subschool: polymorph
 - name: Giant Vermin
   school: transmutation
 - name: Glibness
   school: transmutation
 - name: Glitterdust
   school: conjuration
+  subschool: creation
 - name: Globe of Invulnerability
   school: abjuration
 - name: Globe of Invulnerability, Lesser
@@ -33,15 +42,20 @@
   school: abjuration
 - name: Good Hope
   school: enchantment
+  subschool: compulsion
+  descriptors: mind-affecting
 - name: Goodberry
   school: transmutation
 - name: Grasping Hand
   school: evocation
+  descriptors: force
 - name: Grease
   school: conjuration
+  subschool: creation
 - name: Guards and Wards
   school: abjuration
 - name: Guidance
   school: divination
 - name: Gust of Wind
   school: evocation
+  descriptors: air

@@ -5,8 +5,10 @@
   school: transmutation
 - name: Light
   school: evocation
+  descriptors: light
 - name: Lightning Bolt
   school: evocation
+  descriptors: electricity
 - name: Limited Wish
   school: universal
 - name: Liveoak
@@ -19,3 +21,5 @@
   school: transmutation
 - name: Lullaby
   school: enchantment
+  subschool: compulsion
+  descriptors: mind-affecting

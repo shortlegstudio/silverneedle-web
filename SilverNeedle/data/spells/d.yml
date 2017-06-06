@@ -1,36 +1,53 @@
 --- !<SilverNeedle.Spells.Spell>
 - name: Dancing Lights
   school: evocation
+  descriptors: light
 - name: Darkness
   school: evocation
+  descriptors: darkness
 - name: Darkvision
   school: transmutation
 - name: Daylight
   school: evocation
+  descriptors: light
 - name: Daze
   school: enchantment
+  subschool: compulsion
+  descriptors: mind-affecting
 - name: Daze Monster
   school: enchantment
+  subschool: compulsion
+  descriptors: mind-affecting
 - name: Death Knell
   school: necromancy
+  descriptors: death, evil
 - name: Death Ward
   school: necromancy
 - name: Deathwatch
   school: necromancy
 - name: Deep Slumber
   school: enchantment
+  subschool: compulsion
+  descriptors: mind-affecting
 - name: Deeper Darkness
   school: evocation
+  descriptors: darkness
 - name: Delay Poison
   school: conjuration
+  descriptors: healing
 - name: Delayed Blast Fireball
   school: evocation
+  descriptors: fire
 - name: Demand
   school: enchantment
+  subschool: compulsion
+  descriptors: mind-affecting
 - name: Desecrate
   school: evocation
+  descriptors: evil
 - name: Destruction
   school: necromancy
+  descriptors: death
 - name: Detect Animals or Plants
   school: divination
 - name: Detect Chaos
@@ -53,12 +70,15 @@
   school: divination
 - name: Detect Thoughts
   school: divination
+  descriptors: mind-affecting
 - name: Detect Undead
   school: divination
 - name: Dictum
   school: evocation
+  descriptors: lawful, sonic
 - name: Dimension Door
   school: conjuration
+  subschool: teleportation
 - name: Dimensional Anchor
   school: abjuration
 - name: Dimensional Lock
@@ -71,24 +91,30 @@
   school: divination
 - name: Disguise Self
   school: illusion
+  subschool: glamer
 - name: Disintegrate
   school: transmutation
 - name: Dismissal
   school: abjuration
 - name: Dispel Chaos
   school: abjuration
+  descriptors: lawful
 - name: Dispel Evil
   school: abjuration
+  descriptors: good
 - name: Dispel Good
   school: abjuration
+  descriptors: evil
 - name: Dispel Law
   school: abjuration
+  descriptors: chaotic
 - name: Dispel Magic
   school: abjuration
 - name: Dispel Magic, Greater
   school: abjuration
 - name: Displacement
   school: illusion
+  subschool: glamer
 - name: Disrupt Undead
   school: necromancy
 - name: Disrupting Weapon
@@ -101,11 +127,20 @@
   school: evocation
 - name: Dominate Animal
   school: enchantment
+  subschool: compulsion
+  descriptors: mind-affecting
 - name: Dominate Monster
   school: enchantment
+  subschool: compulsion
+  descriptors: mind-affecting
 - name: Dominate Person
   school: enchantment
+  subschool: compulsion
+  descriptors: mind-affecting
 - name: Doom
   school: necromancy
+  descriptors: fear, mind-affecting
 - name: Dream
   school: illusion
+  subschool: phantasm
+  descriptors: mind-affecting

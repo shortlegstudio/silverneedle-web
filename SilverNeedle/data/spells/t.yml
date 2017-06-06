@@ -3,46 +3,60 @@
   school: transmutation
 - name: Telekinetic Sphere
   school: evocation
+  descriptors: force
 - name: Telepathic Bond
   school: divination
 - name: Teleport
   school: conjuration
+  subschool: teleportation
 - name: Teleport Object
   school: conjuration
-- name: Teleport, Greater
+  subschool: teleportation
+- name: Teleport - Greater
   school: conjuration
+  subschool: teleportation
 - name: Teleportation Circle
   school: conjuration
+  subschool: teleportation
 - name: Temporal Stasis
   school: transmutation
 - name: Time Stop
   school: transmutation
 - name: Tiny Hut
   school: evocation
+  descriptors: force
 - name: Tongues
   school: divination
 - name: Touch of Fatigue
   school: necromancy
 - name: Touch of Idiocy
   school: enchantment
+  subschool: compulsion
+  descriptors: mind-affecting
 - name: Transformation
   school: transmutation
 - name: Transmute Metal to Wood
   school: transmutation
 - name: Transmute Mud to Rock
   school: transmutation
+  descriptors: earth
 - name: Transmute Rock to Mud
   school: transmutation
+  descriptors: earth
 - name: Transport via Plants
   school: conjuration
+  subschool: teleportation
 - name: Trap the Soul
   school: conjuration
+  subschool: summoning
 - name: Tree Shape
   school: transmutation
 - name: Tree Stride
   school: conjuration
+  subschool: teleportation
 - name: True Resurrection
   school: conjuration
+  subschool: healing
 - name: True Seeing
   school: divination
 - name: True Strike

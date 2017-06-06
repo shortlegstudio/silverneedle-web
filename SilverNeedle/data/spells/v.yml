@@ -3,8 +3,10 @@
   school: necromancy
 - name: Veil
   school: illusion
+  subschool: glamer
 - name: Ventriloquism
   school: illusion
+  subschool: figment
 - name: Virtue
   school: transmutation
 - name: Vision

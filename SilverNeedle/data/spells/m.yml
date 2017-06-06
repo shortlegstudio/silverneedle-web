@@ -1,30 +1,40 @@
 --- !<SilverNeedle.Spells.Spell>
 - name: Mage Armor
   school: conjuration
+  subschool: creation
+  descriptors: force
 - name: Mage Hand
   school: transmutation
 - name: Mage's Disjunction
   school: abjuration
 - name: Mage's Faithful Hound
   school: conjuration
+  subschool: creation
 - name: Mage's Lucubration
   school: transmutation
 - name: Mage's Magnificent Mansion
   school: conjuration
+  subschool: creation
 - name: Mage's Private Sanctum
   school: abjuration
 - name: Mage's Sword
   school: evocation
+  descriptors: force
 - name: Magic Aura
   school: illusion
+  subschool: glamer
 - name: Magic Circle against Chaos
   school: abjuration
+  descriptors: lawful
 - name: Magic Circle against Evil
   school: abjuration
+  descriptors: good
 - name: Magic Circle against Good
   school: abjuration
+  descriptors: evil
 - name: Magic Circle against Law
   school: abjuration
+  descriptors: chaotic
 - name: Magic Fang
   school: transmutation
 - name: Magic Fang - Greater
@@ -33,8 +43,10 @@
   school: necromancy
 - name: Magic Missile
   school: evocation
+  descriptors: force
 - name: Magic Mouth
   school: illusion
+  subschool: glamer
 - name: Magic Stone
   school: transmutation
 - name: Magic Vestment
@@ -45,47 +57,65 @@
   school: transmutation
 - name: Major Creation
   school: conjuration
+  subschool: creation
 - name: Major Image
   school: illusion
+  subschool: figment
 - name: Make Whole
   school: transmutation
 - name: Mark of Justice
   school: necromancy
 - name: Maze
   school: conjuration
+  subschool: teleportation
 - name: Meld into Stone
   school: transmutation
+  descriptors: earth
 - name: Mending
   school: transmutation
 - name: Message
   school: transmutation
+  descriptors: language-dependent
 - name: Meteor Swarm
   school: evocation
+  descriptors: fire
 - name: Mind Blank
   school: abjuration
 - name: Mind Fog
   school: enchantment
+  subschool: compulsion
+  descriptors: mind-affecting
 - name: Minor Creation
   school: conjuration
+  subschool: creation
 - name: Minor Image
   school: illusion
+  subschool: figment
 - name: Miracle
   school: evocation
 - name: Mirage Arcana
   school: illusion
+  subschool: glamer
 - name: Mirror Image
   school: illusion
+  subschool: figment
 - name: Misdirection
   school: illusion
+  subschool: glamer
 - name: Mislead
   school: illusion
+  subschool: figment, glamer
 - name: Mnemonic Enhancer
   school: transmutation
 - name: Modify Memory
   school: enchantment
+  subschool: compulsion
+  descriptors: mind-affecting
 - name: Moment of Prescience
   school: divination
 - name: Mount
   school: conjuration
+  subschool: summoning
 - name: Move Earth
   school: transmutation
+  descriptors: earth

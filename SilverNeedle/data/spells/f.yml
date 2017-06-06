@@ -3,64 +3,88 @@
   school: transmutation
 - name: Faerie Fire
   school: evocation
+  descriptors: light
 - name: False Life
   school: necromancy
 - name: False Vision
   school: illusion
+  subschool: glamer
 - name: Fear
   school: necromancy
+  descriptors: fear, mind-affecting
 - name: Feather Fall
   school: transmutation
 - name: Feeblemind
   school: enchantment
+  subschool: compulsion
+  descriptors: mind-affecting
 - name: Find Traps
   school: divination
 - name: Find the Path
   school: divination
 - name: Finger of Death
   school: necromancy
+  descriptors: death
 - name: Fire Seeds
   school: conjuration
+  subschool: creation
+  descriptors: fire
 - name: Fire Shield
   school: evocation
+  descriptors: fire or cold
 - name: Fire Storm
   school: evocation
+  descriptors: fire
 - name: Fire Trap
   school: abjuration
+  descriptors: fire
 - name: Fireball
   school: evocation
+  descriptors: fire
 - name: Flame Arrow
   school: transmutation
+  descriptors: fire
 - name: Flame Blade
   school: evocation
+  descriptors: fire
 - name: Flame Strike
   school: evocation
+  descriptors: fire
 - name: Flaming Sphere
   school: evocation
+  descriptors: fire
 - name: Flare
   school: evocation
+  descriptors: light
 - name: Flesh to Stone
   school: transmutation
 - name: Floating Disk
   school: evocation
+  descriptors: force
 - name: Fly
   school: transmutation
 - name: Fog Cloud
   school: conjuration
+  subschool: creation
 - name: Forbiddance
   school: abjuration
 - name: Forcecage
   school: evocation
+  descriptors: force
 - name: Forceful Hand
   school: evocation
+  descriptors: force
 - name: Foresight
   school: divination
 - name: Form of the Dragon I
   school: transmutation
+  subschool: polymorph
 - name: Form of the Dragon II
   school: transmutation
+  subschool: polymorph
 - name: Form of the Dragon III
   school: transmutation
+  subschool: polymorph
 - name: Fox's Cunning
   school: transmutation
 - name: Fox's Cunning, Mass
@@ -71,3 +95,4 @@
   school: abjuration
 - name: Freezing Sphere
   school: evocation
+  descriptors: cold

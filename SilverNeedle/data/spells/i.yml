@@ -1,12 +1,16 @@
 --- !<SilverNeedle.Spells.Spell>
 - name: Ice Storm
   school: evocation
+  descriptors: cold
 - name: Identify
   school: divination
 - name: Illusory Script
   school: illusion
+  subschool: phantasm
+  descriptors: mind-affecting
 - name: Illusory Wall
   school: illusion
+  subschool: figment
 - name: Imbue with Spell Ability
   school: evocation
 - name: Implosion
@@ -15,43 +19,56 @@
   school: abjuration
 - name: Incendiary Cloud
   school: conjuration
+  subschool: creation
+  descriptors: fire
 - name: Inflict Critical Wounds
   school: necromancy
-- name: Inflict Critical Wounds, Mass
+- name: Inflict Critical Wounds - Mass
   school: necromancy
 - name: Inflict Light Wounds
   school: necromancy
-- name: Inflict Light Wounds, Mass
+- name: Inflict Light Wounds - Mass
   school: necromancy
 - name: Inflict Moderate Wounds
   school: necromancy
-- name: Inflict Moderate Wounds, Mass
+- name: Inflict Moderate Wounds - Mass
   school: necromancy
 - name: Inflict Serious Wounds
   school: necromancy
-- name: Inflict Serious Wounds, Mass
+- name: Inflict Serious Wounds - Mass
   school: necromancy
 - name: Insanity
   school: enchantment
+  subschool: compulsion
+  descriptors: mind-affecting
 - name: Insect Plague
   school: conjuration
+  subschool: summoning
 - name: Instant Summons
   school: conjuration
+  subschool: summoning
 - name: Interposing Hand
   school: evocation
+  descriptors: force
 - name: Invisibility
   school: illusion
+  subschool: glamer
 - name: Invisibility Purge
   school: evocation
 - name: Invisibility Sphere
   school: illusion
-- name: Invisibility, Greater
+  subschool: glamer
+- name: Invisibility - Greater
   school: illusion
-- name: Invisibility, Mass
+  subschool: glamer
+- name: Invisibility - Mass
   school: illusion
+  subschool: glamer
 - name: Iron Body
   school: transmutation
 - name: Ironwood
   school: transmutation
 - name: Irresistible Dance
   school: enchantment
+  subschool: compulsion
+  descriptors: mind-affecting

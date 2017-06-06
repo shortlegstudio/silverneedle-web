@@ -1,58 +1,88 @@
 --- !<SilverNeedle.Spells.Spell>
 - name: Call Lightning
   school: evocation
+  descriptors: electricity
 - name: Call Lightning Storm
   school: evocation
+  descriptors: electricity
 - name: Calm Animals
   school: enchantment
+  subschool: compulsion
+  descriptors: emotion, mind-affecting
 - name: Calm Emotions
   school: enchantment
+  subschool: compulsion
+  descriptors: emotion, mind-affecting
 - name: Cat's Grace
   school: transmutation
 - name: Cat's Grace, Mass
   school: transmutation
 - name: Cause Fear
   school: necromancy
+  descriptors: emotion, fear, mind-affecting
 - name: Chain Lightning
   school: evocation
+  descriptors: electricity
 - name: Changestaff
   school: transmutation
 - name: Chaos Hammer
   school: evocation
+  descriptors: chaotic
 - name: Charm Animal
   school: enchantment
+  subschool: charm
+  descriptors: mind-affecting
 - name: Charm Monster
   school: enchantment
+  subschool: charm
+  descriptors: mind-affecting
 - name: Charm Monster, Mass
   school: enchantment
+  subschool: charm
+  descriptors: mind-affecting
 - name: Charm Person
   school: enchantment
+  subschool: charm
+  descriptors: mind-affecting
 - name: Chill Metal
   school: transmutation
+  descriptors: cold
 - name: Chill Touch
   school: necromancy
 - name: Circle of Death
   school: necromancy
+  descriptors: death
 - name: Clairaudience/Clairvoyance
   school: divination
+  subschool: scrying
 - name: Clenched Fist
   school: evocation
+  descriptors: force
 - name: Cloak of Chaos
   school: abjuration
+  descriptors: chaotic
 - name: Clone
   school: necromancy
 - name: Cloudkill
   school: conjuration
+  subschool: creation
+  descriptors: poison
 - name: Color Spray
   school: illusion
+  subschool: pattern
+  descriptors: mind-affecting
 - name: Command
   school: enchantment
+  subschool: compulsion
+  descriptors: language-dependent, mind-affecting
 - name: Command Plants
   school: transmutation
 - name: Command Undead
   school: necromancy
 - name: Command, Greater
   school: enchantment
+  subschool: compulsion
+  descriptors: language-dependent, mind-affecting
 - name: Commune
   school: divination
 - name: Commune with Nature
@@ -61,59 +91,87 @@
   school: divination
 - name: Cone of Cold
   school: evocation
+  descriptors: cold
 - name: Confusion
   school: enchantment
+  subschool: compulsion
+  descriptors: mind-affecting
 - name: Confusion, Lesser
   school: enchantment
+  subschool: compulsion
+  descriptors: mind-affecting
 - name: Consecrate
   school: evocation
+  descriptors: good
 - name: Contact Other Plane
   school: divination
 - name: Contagion
   school: necromancy
+  descriptors: disease, evil
 - name: Contingency
   school: evocation
 - name: Continual Flame
   school: evocation
+  descriptors: light
 - name: Control Plants
   school: transmutation
 - name: Control Undead
   school: necromancy
 - name: Control Water
   school: transmutation
+  descriptors: water
 - name: Control Weather
   school: transmutation
 - name: Control Winds
   school: transmutation
+  descriptors: air
 - name: Create Food and Water
   school: conjuration
+  subschool: creation 
 - name: Create Greater Undead
   school: necromancy
+  descriptors: evil
 - name: Create Undead
   school: necromancy
+  descriptors: evil
 - name: Create Water
   school: conjuration
+  subschool: creation
+  descriptors: water
 - name: Creeping Doom
   school: conjuration
+  subshool: summoning
 - name: Crushing Despair
   school: enchantment
+  subschool: compulsion
+  descriptors: emotion, mind-affecting
 - name: Crushing Hand
   school: evocation
+  descriptors: force
 - name: Cure Critical Wounds
   school: conjuration
+  subschool: healing
 - name: Cure Critical Wounds, Mass
   school: conjuration
+  subschool: healing
 - name: Cure Light Wounds
   school: conjuration
+  subschool: healing
 - name: Cure Light Wounds, Mass
   school: conjuration
+  subschool: healing
 - name: Cure Moderate Wounds
   school: conjuration
+  subschool: healing
 - name: Cure Moderate Wounds, Mass
   school: conjuration
+  subschool: healing
 - name: Cure Serious Wounds
   school: conjuration
+  subschool: healing
 - name: Cure Serious Wounds, Mass
   school: conjuration
+  subschool: healing
 - name: Curse Water
   school: necromancy
+  descriptors: evil

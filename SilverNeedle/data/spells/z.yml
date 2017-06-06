@@ -1,5 +1,8 @@
 --- !<SilverNeedle.Spells.Spell>
 - name: Zone of Silence
   school: illusion
+  subschool: glamer
 - name: Zone of Truth
   school: enchantment
+  subschool: compulsion
+  descriptors: mind-affecting

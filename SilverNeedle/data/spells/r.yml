@@ -1,16 +1,22 @@
 --- !<SilverNeedle.Spells.Spell>
 - name: Rage
   school: enchantment
+  subschool: compulsion
+  descriptors: mind-affecting
 - name: Rainbow Pattern
   school: illusion
+  subschool: pattern
+  descriptors: mind-affecting
 - name: Raise Dead
   school: conjuration
+  subschool: healing
 - name: Ray of Enfeeblement
   school: necromancy
 - name: Ray of Exhaustion
   school: necromancy
 - name: Ray of Frost
   school: evocation
+  descriptors: cold
 - name: Read Magic
   school: divination
 - name: Reduce Animal
@@ -21,22 +27,28 @@
   school: transmutation
 - name: Refuge
   school: conjuration
+  subschool: teleportation
 - name: Regenerate
   school: conjuration
+  subschool: healing
 - name: Reincarnate
   school: transmutation
 - name: Remove Blindness/Deafness
   school: conjuration
+  subschool: healing
 - name: Remove Curse
   school: abjuration
 - name: Remove Disease
   school: conjuration
+  subschool: healing
 - name: Remove Fear
   school: abjuration
 - name: Remove Paralysis
   school: conjuration
+  subschool: healing
 - name: Repel Metal or Stone
   school: abjuration
+  descriptors: earth
 - name: Repel Vermin
   school: abjuration
 - name: Repel Wood
@@ -45,18 +57,23 @@
   school: abjuration
 - name: Resilient Sphere
   school: evocation
+  descriptors: force
 - name: Resist Energy
   school: abjuration
 - name: Resistance
   school: abjuration
 - name: Restoration
   school: conjuration
+  subschool: healing
 - name: Greater Restoration
   school: conjuration
+  subschool: healing
 - name: Lesser Restoration
   school: conjuration
+  subschool: healing
 - name: Resurrection
   school: conjuration
+  subschool: healing
 - name: Reverse Gravity
   school: transmutation
 - name: Righteous Might

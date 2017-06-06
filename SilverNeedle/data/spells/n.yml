@@ -1,7 +1,10 @@
 --- !<SilverNeedle.Spells.Spell>
 - name: Neutralize Poison
   school: conjuration
+  subschool: healing
 - name: Nightmare
   school: illusion
+  subschool: phantasm
+  descriptors: evil, mind-affecting
 - name: Nondetection
   school: abjuration

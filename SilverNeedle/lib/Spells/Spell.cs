@@ -13,9 +13,13 @@ namespace SilverNeedle.Spells
         {
             Name = data.GetString("name");
             School = data.GetString("school");
+            Subschool = data.GetStringOptional("subschool");
+            Descriptors = data.GetListOptional("descriptors");
         }
 
         public string Name { get; set; }
         public string School { get; set; }
+        public string Subschool { get; set; }
+        public string[] Descriptors { get; set; }
     }
 }

@@ -3,10 +3,12 @@
   school: abjuration
 - name: Obscuring Mist
   school: conjuration
+  subschool: creation
 - name: Open/Close
   school: transmutation
 - name: Order's Wrath
   school: evocation
+  descriptors: lawful
 - name: Overland Flight
   school: transmutation
 - name: Owl's Wisdom

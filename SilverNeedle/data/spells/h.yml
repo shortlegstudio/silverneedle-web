@@ -1,8 +1,10 @@
 --- !<SilverNeedle.Spells.Spell>
 - name: Hallow
   school: evocation
+  descriptors: good
 - name: Hallucinatory Terrain
   school: illusion
+  subschool: glamer
 - name: Halt Undead
   school: necromancy
 - name: Harm
@@ -11,49 +13,78 @@
   school: transmutation
 - name: Heal
   school: conjuration
+  subschool: healing
 - name: Heal Mount
   school: conjuration
+  subschool: healing
 - name: Heal, Mass
   school: conjuration
+  subschool: healing
 - name: Heat Metal
   school: transmutation
+  descriptors: fire
 - name: Helping Hand
   school: evocation
 - name: Heroes' Feast
   school: conjuration
+  subschool: creation
 - name: Heroism
   school: enchantment
+  subschool: compulsion
+  descriptors: mind-affecting
 - name: Heroism, Greater
   school: enchantment
+  subschool: compulsion
+  descriptors: mind-affecting
 - name: Hide from Animals
   school: abjuration
 - name: Hide from Undead
   school: abjuration
 - name: Hideous Laughter
   school: enchantment
+  subschool: compulsion
+  descriptors: mind-affecting
 - name: Hold Animal
   school: enchantment
+  subschool: compulsion
+  descriptors: mind-affecting
 - name: Hold Monster
   school: enchantment
+  subschool: compulsion
+  descriptors: mind-affecting
 - name: Hold Monster, Mass
   school: enchantment
+  subschool: compulsion
+  descriptors: mind-affecting
 - name: Hold Person
   school: enchantment
+  subschool: compulsion
+  descriptors: mind-affecting
 - name: Hold Person, Mass
   school: enchantment
+  subschool: compulsion
+  descriptors: mind-affecting
 - name: Hold Portal
   school: abjuration
 - name: Holy Aura
   school: abjuration
+  descriptors: good
 - name: Holy Smite
   school: evocation
+  descriptors: good
 - name: Holy Sword
   school: evocation
+  descriptors: good
 - name: Holy Word
   school: evocation
+  descriptors: good, sonic
 - name: Horrid Wilting
   school: necromancy
 - name: Hypnotic Pattern
   school: illusion
+  subschool: pattern
+  descriptors: mind-affecting
 - name: Hypnotism
   school: enchantment
+  subschool: compulsion
+  descriptors: mind-affecting

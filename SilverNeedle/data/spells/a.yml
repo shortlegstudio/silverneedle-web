@@ -1,32 +1,49 @@
 --- !<SilverNeedle.Spells.Spell>
 - name: Acid Arrow
   school: conjuration
+  subschool: creation
+  descriptors: acid
 - name: Acid Fog
   school: conjuration
+  subschool: creation
+  descriptors: acid
 - name: Acid Splash
   school: conjuration
+  subschool: creation
+  descriptors: acid
 - name: Aid
   school: enchantment
+  subschool: compulsion
+  descriptors: mind-affecting
 - name: Air Walk
   school: transmutation
+  descriptors: air
 - name: Alarm
   school: abjuration
 - name: Align Weapon
   school: transmutation
+  descriptors: custom alignment
 - name: Alter Self
   school: transmutation
+  subschool: polymorph
 - name: Analyze Dweomer
   school: divination
 - name: Animal Growth
   school: transmutation
 - name: Animal Messenger
   school: enchantment
+  subschool: compulsion
+  descriptors: mind-affecting
 - name: Animal Shapes
   school: transmutation
+  subschool: polymorph
 - name: Animal Trance
   school: enchantment
+  subschool: compulsion
+  descriptors: mind-affecting, sonic
 - name: Animate Dead
   school: necromancy
+  descriptors: evil
 - name: Animate Objects
   school: transmutation
 - name: Animate Plants
@@ -39,10 +56,13 @@
   school: abjuration
 - name: Antipathy
   school: enchantment
+  subschool: compulsion
+  descriptors: mind-affecting, emotion
 - name: Antiplant Shell
   school: abjuration
 - name: Arcane Eye
   school: divination
+  subschool: scrying
 - name: Arcane Lock
   school: abjuration
 - name: Arcane Mark

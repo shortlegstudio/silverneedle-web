@@ -19,10 +19,14 @@ namespace Tests.Spells
             var data = new MemoryStore();
             data.SetValue("name", "Acid Splash");
             data.SetValue("school", "evocation");
+            data.SetValue("subschool", "smash stuff");
+            data.SetValue("descriptors", "good, conjuration, acid");
 
             var spell = new Spell(data);
             Assert.That(spell.Name, Is.EqualTo("Acid Splash"));
             Assert.That(spell.School, Is.EqualTo("evocation"));
+            Assert.That(spell.Subschool, Is.EqualTo("smash stuff"));
+            Assert.That(spell.Descriptors, Is.EquivalentTo(new string[] {"good", "conjuration", "acid" }));
         }
     }
 }
