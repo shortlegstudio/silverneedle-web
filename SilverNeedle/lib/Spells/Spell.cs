@@ -7,7 +7,7 @@ namespace SilverNeedle.Spells
 {
     using SilverNeedle.Serialization;
 
-    public class Spell
+    public class Spell : IGatewayObject
     {
         public Spell(IObjectStore data)
         {
@@ -17,9 +17,20 @@ namespace SilverNeedle.Spells
             Descriptors = data.GetListOptional("descriptors");
         }
 
+        public Spell(string spellName, string school)
+        {
+            this.Name = spellName;
+            this.School = school;
+        }
+
         public string Name { get; set; }
         public string School { get; set; }
         public string Subschool { get; set; }
         public string[] Descriptors { get; set; }
+
+        public bool Matches(string name)
+        {
+            return this.Name.EqualsIgnoreCase(name);
+        }
     }
 }

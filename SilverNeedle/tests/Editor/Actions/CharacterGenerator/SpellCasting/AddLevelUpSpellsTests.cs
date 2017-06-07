@@ -21,13 +21,21 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
             var wizard = new SpellList();
             wizard.Class = "wizard";
             wizard.Levels.Add(0, new string[] { "cantrip1", "cantrip2" });
-            wizard.Levels.Add(1, new string[] { "level 1-1", "level 1-2", 
-                "level 1-3", "level 1-4", "level 1-5", "level 1-6",
-                "level 1-7", "level 1-8", "level 1-9", "level 1-10"});
-            wizard.Levels.Add(2, new string[] { "level 2-1", "level 2-2",
-                "level 2-3", "level 2-4", "level 2-5", "level 2-6", "level 2-7"});
+            wizard.Levels.Add(1, new string[] { "level 1-1", "level 1-2", "level 1-3", "level 1-4" });
+            wizard.Levels.Add(2, new string[] { "level 2-1", "level 2-2" });
             var spellLists = new EntityGateway<SpellList>(new SpellList[] { wizard });
-            subject = new AddLevelUpSpells(spellLists);
+            var spellDefs = new Spell[] {
+                new Spell("cantrip1", "evocation"),
+                new Spell("cantrip2", "conjuration"),
+                new Spell("level 1-1", "conjuration"),
+                new Spell("level 1-2", "conjuration"),
+                new Spell("level 1-3", "conjuration"),
+                new Spell("level 1-4", "conjuration"),
+                new Spell("level 2-1", "transmutation"),
+                new Spell("level 2-2", "evocation")
+            };
+            var spells = new EntityGateway<Spell>(spellDefs);
+            subject = new AddLevelUpSpells(spellLists, spells);
         }
 
         [Test]
@@ -43,12 +51,12 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
             spellCasting.SetSpellsPerDay(0, 1);
             spellCasting.SetSpellsPerDay(1, 1);
             spellCasting.SetSpellsPerDay(2, 1);
-            spellCasting.AddSpells(0, new string[] {"cantrip1"});
-            spellCasting.AddSpells(1, new string[] {"level 1-1"});
+            spellCasting.AddSpells(0, new Spell[] { new Spell("cantrip1", "evocation") });
+            spellCasting.AddSpells(1, new Spell[] { new Spell("level 1-1", "evocation") });
 
             subject.Process(character, new CharacterBuildStrategy());
 
-            Assert.That(spellCasting.GetAvailableSpells(2).Length, Is.EqualTo(7));
+            Assert.That(spellCasting.GetAvailableSpells(2).Length, Is.EqualTo(2));
         }
     }
 }

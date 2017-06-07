@@ -5,6 +5,7 @@
 
 namespace SilverNeedle.Actions.CharacterGenerator.SpellCasting
 {
+    using System.Linq;
     using SilverNeedle.Characters;
     using SilverNeedle.Spells;
     using SilverNeedle.Serialization;
@@ -12,15 +13,18 @@ namespace SilverNeedle.Actions.CharacterGenerator.SpellCasting
     public class AddLevelUpSpells : ICharacterDesignStep
     {
         EntityGateway<SpellList> spellLists;
+        EntityGateway<Spell> spells;
 
         public AddLevelUpSpells()
         {
             spellLists = GatewayProvider.Get<SpellList>();
+            spells = GatewayProvider.Get<Spell>();
         }
 
-        public AddLevelUpSpells(EntityGateway<SpellList> spellLists)
+        public AddLevelUpSpells(EntityGateway<SpellList> spellLists, EntityGateway<Spell> spells)
         {
             this.spellLists = spellLists;
+            this.spells = spells;
         }
 
         public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
@@ -43,7 +47,7 @@ namespace SilverNeedle.Actions.CharacterGenerator.SpellCasting
             if(spellCasting.GetSpellsPerDay(nextLevel) > 0)
             {
                 var spellList = spellLists.Find(character.Class.Spells.List);    
-                spellCasting.AddSpells(nextLevel, spellList.Levels[nextLevel]);
+                spellCasting.AddSpells(nextLevel, spells.FindAll(spellList.Levels[nextLevel]).ToArray());
             }
         }
     }

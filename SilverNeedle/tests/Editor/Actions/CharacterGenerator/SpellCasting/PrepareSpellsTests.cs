@@ -26,8 +26,8 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
         {
             var character = new CharacterSheet();
             character.SpellCasting.SpellsKnown = SpellsKnown.All;
-            character.SpellCasting.AddSpells(0, new string[] { "cantrip1", "cantrip2", "cantrip3", "cantrip4" });
-            character.SpellCasting.AddSpells(1, new string[] { "level1-1", "level1-2", "level1-3", "level1-4" });
+            character.SpellCasting.AddSpells(0, new Spell[] { new Spell("cantrip1", "conjuration"), new Spell("cantrip2", "evocation"), new Spell("cantrip3", "transmutation"), new Spell("cantrip4", "evocation") });
+            character.SpellCasting.AddSpells(1, new Spell[] { new Spell("level1-1", "evocation"), new Spell("level1-2", "evocation"), new Spell("level1-3", "evocation"), new Spell("level1-4", "transmutation") });
             character.SpellCasting.SetSpellsPerDay(0, 3);
             character.SpellCasting.SetSpellsPerDay(1, 1);
 

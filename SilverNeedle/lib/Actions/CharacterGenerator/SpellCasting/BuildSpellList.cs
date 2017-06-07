@@ -15,13 +15,16 @@ namespace SilverNeedle.Actions.CharacterGenerator.SpellCasting
     public class BuildSpellList : ICharacterDesignStep
     {
         EntityGateway<SpellList> spellLists;
+        EntityGateway<Spell> spells;
         public BuildSpellList()
         {
             spellLists = GatewayProvider.Get<SpellList>();
+            spells = GatewayProvider.Get<Spell>();
         }
-        public BuildSpellList(EntityGateway<SpellList> spellLists)
+        public BuildSpellList(EntityGateway<SpellList> spellLists, EntityGateway<Spell> spells)
         {
             this.spellLists = spellLists;
+            this.spells = spells;
         }
         public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
@@ -59,8 +62,8 @@ namespace SilverNeedle.Actions.CharacterGenerator.SpellCasting
 
         private void AddAllSpells(CharacterSheet character, CharacterBuildStrategy strategy, SpellList spellList)
         {
-            character.SpellCasting.AddSpells(0, spellList.Levels[0]);
-            character.SpellCasting.AddSpells(1, spellList.Levels[1]);
+            character.SpellCasting.AddSpells(0, spells.FindAll(spellList.Levels[0]).ToArray());
+            character.SpellCasting.AddSpells(1, spells.FindAll(spellList.Levels[1]).ToArray());
         }
     }
 }

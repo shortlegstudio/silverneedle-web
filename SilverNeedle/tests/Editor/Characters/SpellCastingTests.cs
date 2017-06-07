@@ -17,7 +17,7 @@ namespace Tests.Characters
         public void TracksAvailableSpellsForTheCharacter()
         {
             var spellcasting = new SpellCasting(new Inventory());
-            spellcasting.AddSpells(0, new string[] { "cantrip1", "cantrip2" });
+            spellcasting.AddSpells(0, new Spell[] { new Spell("cantrip1", "evocation"), new Spell("cantrip2", "evocation") });
             Assert.That(spellcasting.GetAvailableSpells(0), Is.EquivalentTo(new string[] { "cantrip1", "cantrip2" }));
         }
 
@@ -41,9 +41,9 @@ namespace Tests.Characters
         {
             var spells = new SpellCasting(new Inventory()); 
             spells.SpellsKnown = SpellsKnown.All;
-            spells.AddSpells(0, new string[] { "foo", "bar" });
-            spells.AddSpells(1, new string[] { "foo", "bar" });
-            spells.AddSpells(2, new string[] { "foo", "bar" });
+            spells.AddSpells(0, new Spell[] { new Spell("foo", "bar") });
+            spells.AddSpells(1, new Spell[] { new Spell("foo", "bar") });
+            spells.AddSpells(2, new Spell[] { new Spell("foo", "bar") });
 
             Assert.That(spells.MaxLevel, Is.EqualTo(2));
         }
@@ -64,7 +64,7 @@ namespace Tests.Characters
         public void SpellsCanBePrepared()
         {
             var spells = new SpellCasting(new Inventory());
-            spells.AddSpells(0, new string[] { "cantrip1", "cantrip2" });
+            spells.AddSpells(0, new Spell[] { new Spell("cantrip1", "evocation"), new Spell("cantrip2", "evocation") });
             spells.PrepareSpells(0, new string[] { "cantrip1" });
             Assert.That(spells.GetPreparedSpells(0), Is.EquivalentTo(new string[] {"cantrip1"}));
         }

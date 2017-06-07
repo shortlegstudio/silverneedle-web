@@ -12,8 +12,8 @@ namespace SilverNeedle.Characters
     public class SpellCasting
     {
         public const int MAX_SPELL_LEVEL = 10;
-        private IDictionary<int, string[]> knownSpells;
-        private IDictionary<int, string[]> preparedSpells;
+        private IDictionary<int, Spell[]> knownSpells;
+        private IDictionary<int, Spell[]> preparedSpells;
         private int[] spellsPerDay;
         private Inventory inventory;
         public SpellsKnown SpellsKnown { get; set; }
@@ -30,9 +30,9 @@ namespace SilverNeedle.Characters
         }
         public SpellCasting(Inventory inventory)
         {
-            this.knownSpells = new Dictionary<int, string[]>();
+            this.knownSpells = new Dictionary<int, Spell[]>();
             this.spellsPerDay = new int[MAX_SPELL_LEVEL];
-            this.preparedSpells = new Dictionary<int, string[]>();
+            this.preparedSpells = new Dictionary<int, Spell[]>();
             this.inventory = inventory;
             this.DifficultyClass = new BasicStat(StatNames.SpellcastingDC, 10);
             SpellsKnown = SpellsKnown.None;
@@ -56,10 +56,10 @@ namespace SilverNeedle.Characters
                 var spellbook = inventory.Spellbooks.First();
                 return spellbook.GetSpells(level);
             }
-            return knownSpells[level];
+            return knownSpells[level].Select(x => x.Name).ToArray();
         }
 
-        public void AddSpells(int level, string[] list)
+        public void AddSpells(int level, Spell[] list)
         {
             ShortLog.DebugFormat("Adding Spells[{0}]: {1}", level.ToString(), list.ToString());
             knownSpells[level] = list;
@@ -79,14 +79,14 @@ namespace SilverNeedle.Characters
 
         public void PrepareSpells(int level, string[] spells)
         {
-            preparedSpells[level] = spells;
-        }
+            preparedSpells[level] = knownSpells[level].Where(x => spells.Contains(x.Name)).ToArray();
+        } 
 
         public string[] GetPreparedSpells(int level)
         {
             if(!preparedSpells.ContainsKey(level))
                 return new string[] { };
-            return preparedSpells[level];
+            return preparedSpells[level].Select(x => x.Name).ToArray();
         }
     }
 }
