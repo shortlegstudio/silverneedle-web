@@ -37,12 +37,17 @@ namespace Tests.Actions
             elf.SizeSetting = CharacterSize.Medium;
             elf.HeightRange = DiceStrings.ParseDice("10d6");
             elf.WeightRange = DiceStrings.ParseDice("20d8");
+            elf.KnownLanguages.Add("Common");
+            elf.KnownLanguages.Add("Elvish");
+            elf.AvailableLanguages.Add("Draconic");
+            elf.AvailableLanguages.Add("Celestial");
 
             human = new Race();
             human.Name = "Human";
             human.SizeSetting = CharacterSize.Medium;
             human.HeightRange = DiceStrings.ParseDice("2d8+30");
             human.WeightRange = DiceStrings.ParseDice("3d6+100");
+            human.KnownLanguages.Add("Common");
 
 
             var list = new List<Race>();
@@ -109,12 +114,13 @@ namespace Tests.Actions
         {
             var sheet = new CharacterSheet();
             var options = new WeightedOptionTable<string>();
-            options.AddEntry("Human", 12);
+            var strategy = new CharacterBuildStrategy();
+            strategy.Races.AddEntry("Human", 12);
 
             //Run it 1000 times, should always be human
             for (int x = 0; x < 1000; x++)
             {
-                raceSelectorSubject.ChooseRace(sheet, options);
+                raceSelectorSubject.Process(sheet, strategy);
                 Assert.AreEqual(human, sheet.Race);
             }
         }
@@ -123,10 +129,22 @@ namespace Tests.Actions
         public void IfChoiceListIsEmptyChooseAnyRace() 
         {	
             var sheet = new CharacterSheet();
-            var options = new WeightedOptionTable<string>();
+            var strategy = new CharacterBuildStrategy();
 
-            raceSelectorSubject.ChooseRace(sheet, options);
+            raceSelectorSubject.Process(sheet, strategy);
             Assert.IsNotNull(sheet.Race);
+        }
+
+        [Test]
+        public void AddLanguagesKnownToStrategy()
+        {
+            var character = new CharacterSheet();
+            var strategy = new CharacterBuildStrategy();
+            strategy.Races.AddEntry("Elfy", 1000);
+            raceSelectorSubject.Process(character, strategy);
+            Assert.That(character.Race.Name, Is.EqualTo("Elfy"));
+            Assert.That(strategy.LanguagesKnown, Is.EquivalentTo(new string[] {"Common", "Elvish"}));
+            Assert.That(strategy.LanguageChoices, Is.EquivalentTo(new string[] {"Draconic", "Celestial"}));
         }
     }
 

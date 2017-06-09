@@ -19,14 +19,14 @@ namespace SilverNeedle.Actions.CharacterGenerator
         /// <summary>
         /// The languages available
         /// </summary>
-        private IEntityGateway<Language> languages;
+        private EntityGateway<Language> languages;
 
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="SilverNeedle.Actions.CharacterGenerator.LanguageSelector"/> class.
         /// </summary>
         /// <param name="languages">Languages gateway to fetch languages from</param>
-        public LanguageSelector(IEntityGateway<Language> languages)
+        public LanguageSelector(EntityGateway<Language> languages)
         {
             this.languages = languages;
         }
@@ -36,43 +36,36 @@ namespace SilverNeedle.Actions.CharacterGenerator
             this.languages = GatewayProvider.Get<Language>();
         }
 
-        /// <summary>
-        /// Picks the languages.
-        /// </summary>
-        /// <returns>The languages that were selected.</returns>
-        /// <param name="race">Race to provide selection criteria.</param>
-        /// <param name="bonusLanguages">Bonus languages available to select.</param>
-        public IEnumerable<Language> PickLanguages(Race race, int bonusLanguages)
+        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
-            var result = new List<Language>();
-
-            // Assign Known Languages
-            foreach (var l in race.KnownLanguages)
+            var known = this.languages.FindAll(strategy.LanguagesKnown);
+            foreach(var k in known)
             {
-                result.Add(this.languages.All().First(x => x.Name == l));
+                character.Add(k);
+            }
+
+            var bonusLanguages = character.AbilityScores.GetModifier(AbilityScoreTypes.Intelligence);
+
+            IEnumerable<Language> available;
+            if(strategy.LanguageChoices.Contains("ALL"))
+            {
+                available = this.languages.All();
+            } else {
+                available = strategy.LanguageChoices.Select(
+                    option => this.languages.Find(option)
+                );
             }
 
             for (var i = 0; i < bonusLanguages; i++)
             {
-                var available = this.languages.All().Where(
-                        x => !result.Any(r => r.Name == x.Name) && race.AvailableLanguages.Any(avail => x.Name == avail));
+                //Keep trimming down options
+                available = available.Where(x => !character.GetAll<Language>().Contains(x));
 
                 if (available.Count() > 0)
                 {
                     var language = available.ToList().ChooseOne();
-                    result.Add(language);
+                    character.Add(language);
                 }
-            }
-
-            return result;
-        }
-
-        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
-        {
-            var languages = PickLanguages(character.Race, character.AbilityScores.GetModifier(AbilityScoreTypes.Intelligence));
-            foreach(var l in languages)
-            {
-                character.Add<Language>(l);
             }
         }
     }

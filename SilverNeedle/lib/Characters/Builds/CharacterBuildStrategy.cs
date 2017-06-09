@@ -5,6 +5,7 @@
 
 namespace SilverNeedle.Characters
 {
+    using System.Collections.Generic;
     using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
@@ -18,6 +19,8 @@ namespace SilverNeedle.Characters
             FavoredFeats = new WeightedOptionTable<string>();
             FavoredAbilities = new WeightedOptionTable<AbilityScoreTypes>();
             FavoredAlignments = new WeightedOptionTable<CharacterAlignment>();
+            LanguageChoices = new List<string>();
+            LanguagesKnown = new List<string>();
             BuildAlignmentTable();
             FillInMissingAbilities(FavoredAbilities);
             TargetLevel = 1;
@@ -37,6 +40,8 @@ namespace SilverNeedle.Characters
             FavoredFeats = new WeightedOptionTable<string>();
             FavoredAbilities = new WeightedOptionTable<AbilityScoreTypes>();
             FavoredAlignments = new WeightedOptionTable<CharacterAlignment>();
+            LanguageChoices = new List<string>();
+            LanguagesKnown = new List<string>();
             ParseObjectStore(data);
         }
 
@@ -56,6 +61,8 @@ namespace SilverNeedle.Characters
             this.QuirkCount = copy.QuirkCount;
             this.FearCount = copy.FearCount;
             this.AbilityScoreRoller = copy.AbilityScoreRoller;
+            this.LanguageChoices = copy.LanguageChoices;
+            this.LanguagesKnown = copy.LanguagesKnown;
         }
         
         public string Name { get; set; }
@@ -79,6 +86,8 @@ namespace SilverNeedle.Characters
         public int FearCount { get; set; }
 
         public WeightedOptionTable<CharacterAlignment> FavoredAlignments { get; set; }
+        public IList<string> LanguageChoices { get; set; }
+        public IList<string> LanguagesKnown { get; set; }
         private void ParseObjectStore(IObjectStore data)
         {
             // Basic Properties

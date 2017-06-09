@@ -41,7 +41,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
             this.raceGateway = GatewayProvider.Get<Race>();
         }
 
-        public void ChooseRace(CharacterSheet character, WeightedOptionTable<string> options)
+        private void ChooseRace(CharacterSheet character, WeightedOptionTable<string> options)
         {
             if (options.IsEmpty) 
             {
@@ -132,6 +132,8 @@ namespace SilverNeedle.Actions.CharacterGenerator
         public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             ChooseRace(character, strategy.Races);
+            strategy.LanguagesKnown.Add(character.Race.KnownLanguages);
+            strategy.LanguageChoices.Add(character.Race.AvailableLanguages);
         }
 
     }
