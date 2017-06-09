@@ -145,7 +145,7 @@
   school: necromancy
 - name: Spell Immunity
   school: abjuration
-- name: Spell Immunity, Greater
+- name: Spell Immunity - Greater
   school: abjuration
 - name: Spell Resistance
   school: abjuration

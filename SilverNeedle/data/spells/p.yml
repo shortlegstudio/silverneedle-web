@@ -30,7 +30,7 @@
 - name: Planar Ally - Greater
   school: conjuration
   subschool: calling
-- name: Planar Ally, Lesser
+- name: Planar Ally - Lesser
   school: conjuration
   subschool: calling
 - name: Planar Binding
@@ -123,7 +123,7 @@
   school: abjuration
 - name: Prying Eyes
   school: divination
-- name: Prying Eyes, Greater
+- name: Prying Eyes - Greater
   school: divination
 - name: Purify Food and Drink
   school: transmutation

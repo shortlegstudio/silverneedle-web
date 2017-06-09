@@ -1,7 +1,7 @@
 --- !<SilverNeedle.Spells.Spell>
 - name: Eagle's Splendor
   school: transmutation
-- name: Eagle's Splendor, Mass
+- name: Eagle's Splendor - Mass
   school: transmutation
 - name: Earthquake
   school: evocation
@@ -30,7 +30,7 @@
   school: necromancy
 - name: Enlarge Person
   school: transmutation
-- name: Enlarge Person, Mass
+- name: Enlarge Person -  Mass
   school: transmutation
 - name: Entangle
   school: transmutation

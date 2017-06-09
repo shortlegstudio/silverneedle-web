@@ -65,10 +65,10 @@
 - name: Restoration
   school: conjuration
   subschool: healing
-- name: Greater Restoration
+- name: Restoration - Greater
   school: conjuration
   subschool: healing
-- name: Lesser Restoration
+- name: Restoration - Lesser
   school: conjuration
   subschool: healing
 - name: Resurrection

@@ -110,7 +110,7 @@
   descriptors: chaotic
 - name: Dispel Magic
   school: abjuration
-- name: Dispel Magic, Greater
+- name: Dispel Magic - Greater
   school: abjuration
 - name: Displacement
   school: illusion

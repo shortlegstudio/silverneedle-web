@@ -17,7 +17,7 @@
 - name: Heal Mount
   school: conjuration
   subschool: healing
-- name: Heal, Mass
+- name: Heal - Mass
   school: conjuration
   subschool: healing
 - name: Heat Metal
@@ -32,7 +32,7 @@
   school: enchantment
   subschool: compulsion
   descriptors: mind-affecting
-- name: Heroism, Greater
+- name: Heroism - Greater
   school: enchantment
   subschool: compulsion
   descriptors: mind-affecting
@@ -52,7 +52,7 @@
   school: enchantment
   subschool: compulsion
   descriptors: mind-affecting
-- name: Hold Monster, Mass
+- name: Hold Monster - Mass
   school: enchantment
   subschool: compulsion
   descriptors: mind-affecting
@@ -60,7 +60,7 @@
   school: enchantment
   subschool: compulsion
   descriptors: mind-affecting
-- name: Hold Person, Mass
+- name: Hold Person - Mass
   school: enchantment
   subschool: compulsion
   descriptors: mind-affecting

@@ -13,11 +13,11 @@
       sanctuary, shield of faith, summon monster i
     2: >
       aid, align weapon, augury, bear's endurance, bull's strength, calm emotions,
-      consecrate, cure moderate wounds, darkness, delay poison, desecreate, 
+      consecrate, cure moderate wounds, darkness, delay poison, desecrate, 
       eagle's splendor, enthrall, find traps, gentle repose, hold person, 
       inflict moderate wounds, make whole, owl's wisdom, remove paralysis,
-      resist energy, lesser restoration, shatter, shield other, silence, 
-      sound burst, spirtual weapon, status, summon monster ii, undetectable alignment,
+      resist energy, restoration - lesser, shatter, shield other, silence, 
+      sound burst, spiritual weapon, status, summon monster ii, undetectable alignment,
       zone of truth
     3: > 
       animate dead, bestow curse, blindness/deafness, contagion, continual flame, 
@@ -27,41 +27,41 @@
       magic circle against evil, magic circle against good, magic circle against law,
       magic vestment, meld into stone, obscure object, prayer, protection from energy,
       remove blindness/deafness, remove curse, remove disease, searing light,
-      speak with dead, stone shape, summon monster iii, water breating, water walk,
+      speak with dead, stone shape, summon monster iii, water breathing, water walk,
       wind wall
     4: >
       air walk, chaos hammer, control water, cure critical wounds, death ward, 
       dimensional anchor, discern lies, dismissal, divination, divine power, 
-      freedome of movement, giant vermin, holy smite, imbue with spell ability
-      inflict critical wounds, greater magic weapon, neutralize poison, 
-      order's wrath, lesser planar ally, poison, repel vermin, restoration,
+      freedom of movement, giant vermin, holy smite, imbue with spell ability,
+      inflict critical wounds, magic weapon - greater, neutralize poison, 
+      order's wrath, planar ally - lesser, poison, repel vermin, restoration,
       sending, spell immunity, summon monster iv, tongues, unholy blight
     5: >
-      atonement, break enchantment, breath of life, greater command, commune, 
-      mass cure light wounds, dispel chaos, dispel evil, dispel good, dispel law,
-      disrupting weapon, flame strike, hallow, mass inflict light wounds, 
+      atonement, break enchantment, breath of life, command - greater, commune, 
+      cure light wounds - mass, dispel chaos, dispel evil, dispel good, dispel law,
+      disrupting weapon, flame strike, hallow, inflict light wounds - mass, 
       insect plague, mark of justice, plane shift, raise dead, righteous might,
       scrying, slay living, spell resistance, summon monster v,
       symbol of pain, symbol of sleep, true seeing, unhallow, wall of stone
     6: >
-      animate objects, antilife shell, banishment, mass bear's endurance, 
-      blade barrier, mass bull's strength, create undead, mass cure moderate wounds,
-      greater dispel magic, mass eagle's splendor, find the path, forbiddance,
-      geas/quest, greater glyph of warding, harm, heal, heroes' feast, 
-      mass inflict moderate wounds, mass owl's wisdom, planar ally, 
+      animate objects, antilife shell, banishment, bear's endurance - mass, 
+      blade barrier, bull's strength - mass, create undead, cure moderate wounds - mass,
+      dispel magic - greater, eagle's splendor - mass, find the path, forbiddance,
+      geas/quest, glyph of warding - greater, harm, heal, heroes' feast, 
+      inflict moderate wounds - mass, owl's wisdom - mass, planar ally, 
       summon monster vi, symbol of fear, symbol of persuasion, undeath to death,
       wind walk, word of recall
     7: >
-      blasphemy, control weather, mass cure serious wounds, destruction, dictum,
-      ethereal jaunt, holy word, mass inflict serious wounds, refuge, regenerate,
-      repulsion, greater restoration, resurrection, greater scrying, 
+      blasphemy, control weather, cure serious wounds - mass, destruction, dictum,
+      ethereal jaunt, holy word, inflict serious wounds - mass, refuge, regenerate,
+      repulsion, restoration - greater, resurrection, scrying - greater, 
       summon monster vii, symbol of stunning, symbol of weakness, word of chaos
     8: >
-      antimagic field, cloak of chaos, create greater undead, mass cure critical wounds,
+      antimagic field, cloak of chaos, create greater undead, cure critical wounds - mass,
       dimensional lock, discern location, earthquake, fire storm, holy aura,
-      mass inflict critical wounds, greater planar ally, shield of law,
-      greater spell immunity, summon moster viii, symbol of death, symbol of insanity,
+      inflict critical wounds - mass, planar ally - greater, shield of law,
+      spell immunity - greater, summon monster viii, symbol of death, symbol of insanity,
       unholy aura
     9: >
-      astral projection, energy drain, etherealness, gate, mass heal, implosion,
+      astral projection, energy drain, etherealness, gate, heal - mass, implosion,
       miracle, soul bind, storm of vengeance, summon monster ix, true resurrection

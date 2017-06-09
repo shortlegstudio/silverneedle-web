@@ -10,6 +10,7 @@ namespace SilverNeedle.Characters
     using System.Linq;
     using SilverNeedle.Characters.Appearance;
     using SilverNeedle.Characters.Background;
+    using SilverNeedle.Characters.Magic;
     using SilverNeedle.Utility;
 
     

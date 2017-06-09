@@ -3,7 +3,7 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-namespace SilverNeedle.Characters
+namespace SilverNeedle.Characters.Magic
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -20,6 +20,7 @@ namespace SilverNeedle.Characters
         public int CasterLevel { get; set; }
         public AbilityScore CastingAbility { get; private set; }
         private BasicStat DifficultyClass { get; set; }
+        private IList<ISpellCastingRule> castingRules;
 
         public int MaxLevel 
         { 
@@ -36,6 +37,7 @@ namespace SilverNeedle.Characters
             this.inventory = inventory;
             this.DifficultyClass = new BasicStat(StatNames.SpellcastingDC, 10);
             SpellsKnown = SpellsKnown.None;
+            this.castingRules = new List<ISpellCastingRule>();
         }
 
         public void SetCastingAbility(AbilityScore ability)
@@ -56,7 +58,7 @@ namespace SilverNeedle.Characters
                 var spellbook = inventory.Spellbooks.First();
                 return spellbook.GetSpells(level);
             }
-            return knownSpells[level].Select(x => x.Name).ToArray();
+            return GetCastableSpells(level).Select(spell => spell.Name).ToArray();
         }
 
         public void AddSpells(int level, Spell[] list)
@@ -87,6 +89,16 @@ namespace SilverNeedle.Characters
             if(!preparedSpells.ContainsKey(level))
                 return new string[] { };
             return preparedSpells[level].Select(x => x.Name).ToArray();
+        }
+
+        public void AddRule(ISpellCastingRule rule)
+        {
+            this.castingRules.Add(rule);
+        }
+
+        private IEnumerable<Spell> GetCastableSpells(int level)
+        {
+            return knownSpells[level].Where(spell => castingRules.All(rule => rule.CanCastSpell(spell)));
         }
     }
 }

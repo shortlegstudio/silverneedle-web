@@ -79,7 +79,7 @@
   school: transmutation
 - name: Command Undead
   school: necromancy
-- name: Command, Greater
+- name: Command - Greater
   school: enchantment
   subschool: compulsion
   descriptors: language-dependent, mind-affecting
@@ -151,25 +151,25 @@
 - name: Cure Critical Wounds
   school: conjuration
   subschool: healing
-- name: Cure Critical Wounds, Mass
+- name: Cure Critical Wounds - Mass
   school: conjuration
   subschool: healing
 - name: Cure Light Wounds
   school: conjuration
   subschool: healing
-- name: Cure Light Wounds, Mass
+- name: Cure Light Wounds - Mass
   school: conjuration
   subschool: healing
 - name: Cure Moderate Wounds
   school: conjuration
   subschool: healing
-- name: Cure Moderate Wounds, Mass
+- name: Cure Moderate Wounds - Mass
   school: conjuration
   subschool: healing
 - name: Cure Serious Wounds
   school: conjuration
   subschool: healing
-- name: Cure Serious Wounds, Mass
+- name: Cure Serious Wounds - Mass
   school: conjuration
   subschool: healing
 - name: Curse Water

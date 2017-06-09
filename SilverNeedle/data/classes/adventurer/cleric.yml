@@ -31,6 +31,7 @@
         - ability: SilverNeedle.Characters.SpecialAbilities.ChannelEnergy
         - ability: SilverNeedle.Characters.SpecialAbilities.AuraOfAlignment
         - ability: SilverNeedle.Characters.SpecialAbilities.SpontaneousCastingCleric
+        - ability: SilverNeedle.Characters.Magic.CannotCastSpellsOfOpposingAlignment
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.SelectDomains
           count: 2

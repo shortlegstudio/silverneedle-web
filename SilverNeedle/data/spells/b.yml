@@ -12,7 +12,7 @@
   school: transmutation
 - name: Bear's Endurance
   school: transmutation
-- name: Bear's Endurance, Mass
+- name: Bear's Endurance - Mass
   school: transmutation
 - name: Beast Shape I
   school: transmutation
@@ -70,7 +70,7 @@
   descriptors: healing
 - name: Bull's Strength
   school: transmutation
-- name: Bull's Strength, Mass
+- name: Bull's Strength - Mass
   school: transmutation
 - name: Burning Hands
   school: evocation

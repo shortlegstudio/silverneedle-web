@@ -34,11 +34,11 @@
   subschool: creation
 - name: Globe of Invulnerability
   school: abjuration
-- name: Globe of Invulnerability, Lesser
+- name: Globe of Invulnerability - Lesser
   school: abjuration
 - name: Glyph of Warding
   school: abjuration
-- name: Glyph of Warding, Greater
+- name: Glyph of Warding - Greater
   school: abjuration
 - name: Good Hope
   school: enchantment

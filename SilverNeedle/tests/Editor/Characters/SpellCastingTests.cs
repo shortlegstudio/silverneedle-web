@@ -6,9 +6,12 @@
 namespace Tests.Characters
 {
     using NUnit.Framework;
+    using SilverNeedle;
     using SilverNeedle.Characters;
+    using SilverNeedle.Characters.Magic;
     using SilverNeedle.Equipment;
     using SilverNeedle.Spells;
+    using SilverNeedle.Utility;
 
     [TestFixture]
     public class SpellCastingTests
@@ -86,6 +89,26 @@ namespace Tests.Characters
             var spells = new SpellCasting(new Inventory());
             Assert.That(spells.GetSpellsPerDay(200), Is.EqualTo(0));
 
+        }
+
+        [Test]
+        public void RulesCanBeAppliedToSpellCastingThatLimitsAvailableSpells()
+        {
+            var spellcasting = new SpellCasting(new Inventory());
+            spellcasting.AddSpells(0, new Spell[] { new Spell("cantrip1", "conjuration"), new Spell("cantrip2", "evocation") });
+            var cannotCastConjuration = new CannotCastConjuration();
+            spellcasting.AddRule(cannotCastConjuration);
+            Assert.That(spellcasting.GetAvailableSpells(0), Is.EquivalentTo(new string[] { "cantrip2" }));
+
+
+        }
+
+        public class CannotCastConjuration : ISpellCastingRule
+        {
+            public bool CanCastSpell(Spell spell)
+            {
+                return !spell.School.EqualsIgnoreCase("conjuration");
+            }
         }
     }
 }
