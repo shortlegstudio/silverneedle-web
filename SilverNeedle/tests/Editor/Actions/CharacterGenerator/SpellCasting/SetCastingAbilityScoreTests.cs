@@ -8,6 +8,7 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
     using NUnit.Framework;
     using SilverNeedle.Actions.CharacterGenerator.SpellCasting;
     using SilverNeedle.Characters;
+    using SilverNeedle.Characters.Magic;
 
     [TestFixture]
     public class SetCastingAbilityScoreTests
@@ -19,7 +20,7 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
             character.SetClass(Class.None);
             var subject = new SetCastingAbilityScore();
             subject.Process(character, new CharacterBuildStrategy());
-            Assert.That(character.SpellCasting.CastingAbility, Is.Null);
+            Assert.That(character.Get<SpellCasting>().CastingAbility, Is.Null);
         }
     }
 }

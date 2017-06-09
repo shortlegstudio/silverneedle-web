@@ -8,6 +8,7 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
     using NUnit.Framework;
     using SilverNeedle.Actions.CharacterGenerator.SpellCasting;
     using SilverNeedle.Characters;
+    using SilverNeedle.Characters.Magic;
 
     [TestFixture]
     public class SetSpellsPerDayTests
@@ -25,7 +26,7 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
         {
             var character = new CharacterSheet();
             subject.Process(character, new CharacterBuildStrategy());
-            Assert.That(character.SpellCasting.GetSpellsPerDay(0), Is.EqualTo(0));
+            Assert.That(character.Get<SpellCasting>().GetSpellsPerDay(0), Is.EqualTo(0));
         }
 
         [Test]
@@ -36,13 +37,13 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
             cls.Spells.PerDay[1] = new int[] { 3, 1 };
             character.SetClass(cls);
             
-            character.SpellCasting.CasterLevel = 1;
-            character.SpellCasting.SetCastingAbility(new AbilityScore(AbilityScoreTypes.Wisdom, 10));
+            character.Get<SpellCasting>().CasterLevel = 1;
+            character.Get<SpellCasting>().SetCastingAbility(new AbilityScore(AbilityScoreTypes.Wisdom, 10));
 
             subject.Process(character, new CharacterBuildStrategy());
 
-            Assert.That(character.SpellCasting.GetSpellsPerDay(0), Is.EqualTo(3));
-            Assert.That(character.SpellCasting.GetSpellsPerDay(1), Is.EqualTo(1));
+            Assert.That(character.Get<SpellCasting>().GetSpellsPerDay(0), Is.EqualTo(3));
+            Assert.That(character.Get<SpellCasting>().GetSpellsPerDay(1), Is.EqualTo(1));
         }
 
         [Test]
@@ -53,17 +54,17 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
             cls.Spells.PerDay[1] = new int[] { 3, 2, 1 };
             character.SetClass(cls);
             var abilityScore = new AbilityScore(AbilityScoreTypes.Charisma, 13);
-            character.SpellCasting.CasterLevel = 1;
-            character.SpellCasting.SetCastingAbility(abilityScore);
+            character.Get<SpellCasting>().CasterLevel = 1;
+            character.Get<SpellCasting>().SetCastingAbility(abilityScore);
 
             subject.Process(character, new CharacterBuildStrategy());
 
             //Level 0 should not change
-            Assert.That(character.SpellCasting.GetSpellsPerDay(0), Is.EqualTo(3));
+            Assert.That(character.Get<SpellCasting>().GetSpellsPerDay(0), Is.EqualTo(3));
             //Level 1 has a bonus
-            Assert.That(character.SpellCasting.GetSpellsPerDay(1), Is.EqualTo(3));
+            Assert.That(character.Get<SpellCasting>().GetSpellsPerDay(1), Is.EqualTo(3));
             //Level 2 does not
-            Assert.That(character.SpellCasting.GetSpellsPerDay(2), Is.EqualTo(1));
+            Assert.That(character.Get<SpellCasting>().GetSpellsPerDay(2), Is.EqualTo(1));
         }
 
         [Test]
@@ -74,17 +75,17 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
             var cls = new Class();
             cls.Spells.PerDay[1] = new int[] { 3, 2, 1 };
             character.SetClass(cls);
-            character.SpellCasting.CasterLevel = 1;
-            character.SpellCasting.SetCastingAbility(abilityScore);
+            character.Get<SpellCasting>().CasterLevel = 1;
+            character.Get<SpellCasting>().SetCastingAbility(abilityScore);
 
             subject.Process(character, new CharacterBuildStrategy());
 
             //Level 0 should not change
-            Assert.That(character.SpellCasting.GetSpellsPerDay(0), Is.EqualTo(3));
+            Assert.That(character.Get<SpellCasting>().GetSpellsPerDay(0), Is.EqualTo(3));
             //Level 1 has a bonus
-            Assert.That(character.SpellCasting.GetSpellsPerDay(1), Is.EqualTo(7));
+            Assert.That(character.Get<SpellCasting>().GetSpellsPerDay(1), Is.EqualTo(7));
             //Level 2 does not
-            Assert.That(character.SpellCasting.GetSpellsPerDay(2), Is.EqualTo(5));
+            Assert.That(character.Get<SpellCasting>().GetSpellsPerDay(2), Is.EqualTo(5));
         }
     }
 }

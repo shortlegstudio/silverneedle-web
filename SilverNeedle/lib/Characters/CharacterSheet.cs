@@ -240,8 +240,6 @@ namespace SilverNeedle.Characters
 
         public SpecialQualities SpecialQualities { get { return this.Components.Get<SpecialQualities>(); } }
 
-        public SpellCasting SpellCasting { get { return this.Components.Get<SpellCasting>(); } }
-
         /// <summary>
         /// Sets this character to Level 1 in specified class
         /// </summary>

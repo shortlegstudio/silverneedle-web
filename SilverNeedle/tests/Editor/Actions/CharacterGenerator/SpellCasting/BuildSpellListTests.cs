@@ -9,6 +9,7 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
     using NUnit.Framework;
     using SilverNeedle.Actions.CharacterGenerator.SpellCasting;
     using SilverNeedle.Characters;
+    using SilverNeedle.Characters.Magic;
     using SilverNeedle.Spells;
     using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
@@ -52,8 +53,8 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
             character.SetClass(cls);
             subject.Process(character, new CharacterBuildStrategy());
 
-            Assert.That(character.SpellCasting.GetAvailableSpells(0), Is.EquivalentTo(new string [] { "cantrip1", "cantrip2" }));
-            Assert.That(character.SpellCasting.GetAvailableSpells(1), Is.EquivalentTo(
+            Assert.That(character.Get<SpellCasting>().GetAvailableSpells(0), Is.EquivalentTo(new string [] { "cantrip1", "cantrip2" }));
+            Assert.That(character.Get<SpellCasting>().GetAvailableSpells(1), Is.EquivalentTo(
                 new string[] { "level 1-1", "level 1-2", "level 1-3", "level 1-4" }));
         }
 
@@ -72,7 +73,7 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
             var spellbook = character.Inventory.Spellbooks.First();
             Assert.That(spellbook.GetSpells(0), Is.EquivalentTo(new string [] { "cantrip1", "cantrip2" }));
             Assert.That(spellbook.GetSpells(1), Has.Length.EqualTo(3));
-            Assert.That(character.SpellCasting.CasterLevel, Is.EqualTo(1));
+            Assert.That(character.Get<SpellCasting>().CasterLevel, Is.EqualTo(1));
         }
 
         [Test]
@@ -88,7 +89,7 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
             character.SetClass(new Class()); 
             subject.Process(character, new CharacterBuildStrategy());
 
-            Assert.That(character.SpellCasting.CasterLevel, Is.EqualTo(0));
+            Assert.That(character.Get<SpellCasting>().CasterLevel, Is.EqualTo(0));
         }
     }
 }

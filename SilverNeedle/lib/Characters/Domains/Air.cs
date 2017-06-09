@@ -13,5 +13,15 @@ namespace SilverNeedle.Characters.Domains
         {
             
         }
+
+        public void Initialize(ComponentBag components)
+        {
+
+        }
+
+        public void LeveledUp(ComponentBag components)
+        {
+
+        }
     }
 }

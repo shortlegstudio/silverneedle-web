@@ -6,15 +6,16 @@
 namespace SilverNeedle.Actions.CharacterGenerator.SpellCasting
 {
     using SilverNeedle.Characters;
+    using SilverNeedle.Characters.Magic;
     using SilverNeedle.Spells;
 
     public class IncreaseCasterLevel : ICharacterDesignStep
     {
         public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
-            if(character.SpellCasting.SpellsKnown != SpellsKnown.None)
+            if(character.Get<SpellCasting>().SpellsKnown != SpellsKnown.None)
             {
-                character.SpellCasting.CasterLevel++;
+                character.Get<SpellCasting>().CasterLevel++;
             }
         }
     }

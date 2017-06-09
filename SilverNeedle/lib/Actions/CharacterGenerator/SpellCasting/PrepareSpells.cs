@@ -7,20 +7,21 @@ namespace SilverNeedle.Actions.CharacterGenerator.SpellCasting
 {
     using System.Linq;
     using SilverNeedle.Characters;
+    using SilverNeedle.Characters.Magic;
     using SilverNeedle.Spells;
 
     public class PrepareSpells : ICharacterDesignStep
     {
         public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
-            if(character.SpellCasting.SpellsKnown == SpellsKnown.None)
+            if(character.Get<SpellCasting>().SpellsKnown == SpellsKnown.None)
                 return;
 
-            for(int level = 0; level <= character.SpellCasting.MaxLevel; level++)
+            for(int level = 0; level <= character.Get<SpellCasting>().MaxLevel; level++)
             {
-                int spellCount = character.SpellCasting.GetSpellsPerDay(level);
-                var spells = character.SpellCasting.GetAvailableSpells(level).Choose(spellCount);
-                character.SpellCasting.PrepareSpells(level, spells.ToArray());
+                int spellCount = character.Get<SpellCasting>().GetSpellsPerDay(level);
+                var spells = character.Get<SpellCasting>().GetAvailableSpells(level).Choose(spellCount);
+                character.Get<SpellCasting>().PrepareSpells(level, spells.ToArray());
             }
         }
     }

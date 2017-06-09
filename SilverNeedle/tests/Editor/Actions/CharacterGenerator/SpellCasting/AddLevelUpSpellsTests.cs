@@ -8,6 +8,7 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
     using NUnit.Framework;
     using SilverNeedle.Actions.CharacterGenerator.SpellCasting;
     using SilverNeedle.Characters;
+    using SilverNeedle.Characters.Magic;
     using SilverNeedle.Spells;
     using SilverNeedle.Serialization;
 
@@ -45,7 +46,7 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
             var cls = new Class();
             cls.Spells.List = "wizard";
             character.SetClass(cls);
-            var spellCasting = character.SpellCasting;
+            var spellCasting = character.Get<SpellCasting>();
             spellCasting.SpellsKnown = SpellsKnown.All;
             spellCasting.CasterLevel = 3;
             spellCasting.SetSpellsPerDay(0, 1);

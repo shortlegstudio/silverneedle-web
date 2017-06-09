@@ -6,13 +6,14 @@
 namespace SilverNeedle.Actions.CharacterGenerator.SpellCasting
 {
     using SilverNeedle.Characters;
+    using SilverNeedle.Characters.Magic;
 
     public class SetCastingAbilityScore : ICharacterDesignStep
     {
         public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             if(character.Class.HasSpells)
-                character.SpellCasting.SetCastingAbility(character.AbilityScores.GetAbility(character.Class.Spells.Ability));
+                character.Get<SpellCasting>().SetCastingAbility(character.AbilityScores.GetAbility(character.Class.Spells.Ability));
         }
     }
 }

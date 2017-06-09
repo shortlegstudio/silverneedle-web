@@ -7,6 +7,7 @@ namespace SilverNeedle.Characters
 {
     using SilverNeedle;
     using SilverNeedle.Spells;
+    using SilverNeedle.Characters.Magic;
     using SilverNeedle.Characters.Personalities;
     using System.Collections.Generic;
     using System.Linq;
@@ -98,15 +99,15 @@ namespace SilverNeedle.Characters
             SpellsAvailable = new Dictionary<int, string[]>();
             SpellsPrepared = new Dictionary<int, string[]>();
 
-            if(character.SpellCasting.SpellsKnown != SpellsKnown.None)
+            if(character.Get<SpellCasting>().SpellsKnown != SpellsKnown.None)
             {
                 IsSpellCaster = true;
-                SpellDC = new int[character.SpellCasting.MaxLevel + 1];
-                for(int i = 0; i <= character.SpellCasting.MaxLevel; i++)
+                SpellDC = new int[character.Get<SpellCasting>().MaxLevel + 1];
+                for(int i = 0; i <= character.Get<SpellCasting>().MaxLevel; i++)
                 {
-                    SpellsAvailable[i] = character.SpellCasting.GetAvailableSpells(i);
-                    SpellsPrepared[i] = character.SpellCasting.GetPreparedSpells(i);
-                    SpellDC[i] = character.SpellCasting.GetDifficultyClass(i);
+                    SpellsAvailable[i] = character.Get<SpellCasting>().GetAvailableSpells(i);
+                    SpellsPrepared[i] = character.Get<SpellCasting>().GetPreparedSpells(i);
+                    SpellDC[i] = character.Get<SpellCasting>().GetDifficultyClass(i);
                 }
             }
 
