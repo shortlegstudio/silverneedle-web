@@ -21,6 +21,12 @@ namespace SilverNeedle.Utility
 
         public void Add(object obj)
         {
+            var unique = obj as IEnsureUniqueComponent;
+            if(unique != null)
+            {
+                if(components.Contains(unique))
+                    return;
+            }
             components.Add(obj);
         }
 

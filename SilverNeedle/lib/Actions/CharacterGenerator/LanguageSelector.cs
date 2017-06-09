@@ -63,7 +63,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
 
                 if (available.Count() > 0)
                 {
-                    var language = available.ToList().ChooseOne();
+                    var language = available.ChooseOne();
                     character.Add(language);
                 }
             }

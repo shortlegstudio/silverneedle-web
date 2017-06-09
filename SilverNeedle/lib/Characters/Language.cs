@@ -6,11 +6,12 @@
 namespace SilverNeedle.Characters
 {
     using SilverNeedle.Serialization;
+    using SilverNeedle.Utility;
 
     /// <summary>
     /// Languages that a character can learn
     /// </summary>
-    public class Language : IGatewayObject
+    public class Language : IGatewayObject, IEnsureUniqueComponent
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Characters.Language"/> class.
@@ -44,6 +45,11 @@ namespace SilverNeedle.Characters
         public bool Matches(string name)
         {
             return Name.EqualsIgnoreCase(name);
+        }
+
+        public override string ToString()
+        {
+            return string.Format("Language: {0}", this.Name);
         }
     }
 }

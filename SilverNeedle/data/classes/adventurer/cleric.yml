@@ -35,6 +35,8 @@
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.SelectDomains
           count: 2
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.AddBonusLanguages
+          languages: celestial, abyssal, infernal
   spells:
     list: cleric
     type: divine

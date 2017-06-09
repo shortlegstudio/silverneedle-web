@@ -85,5 +85,19 @@ namespace Actions {
                 Assert.That(res, Is.EquivalentTo(new string[] { "Elvish", "Giant", "Corgi", "Boo" }));
             }
         }
+
+        [Test]
+        public void DoNotRepeatedlyAddKnownLanguages()
+        {
+            var strategy = new CharacterBuildStrategy();
+            strategy.LanguagesKnown.Add ("Corgi");
+            strategy.LanguagesKnown.Add ("Corgi");
+            strategy.LanguagesKnown.Add ("Elvish");
+            var subject = new LanguageSelector (languageGateway);
+            var character = new CharacterSheet();
+
+            subject.Process(character, strategy);
+            Assert.That(character.GetAll<Language>().Select(x => x.Name), Is.EquivalentTo(new string[] {"Corgi", "Elvish"}));
+        }
     }
 }
