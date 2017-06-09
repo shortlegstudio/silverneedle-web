@@ -6,7 +6,8 @@
 namespace SilverNeedle.Characters.Domains
 {
     using SilverNeedle.Serialization;
-    public class Air : Domain
+    using SilverNeedle.Utility;
+    public class Air : Domain, IComponent, IImprovesWithLevels
     {
         public Air(IObjectStore data) : base(data)
         {

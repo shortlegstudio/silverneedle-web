@@ -13,3 +13,4 @@
     - step: SilverNeedle.Actions.CharacterGenerator.SpellCasting.AddLevelUpSpells
     - step: SilverNeedle.Actions.CharacterGenerator.SpellCasting.PrepareSpells
     - step: SilverNeedle.Actions.CharacterGenerator.ProcessCustomClassFeatures
+    - step: SilverNeedle.Actions.CharacterGenerator.NotifyComponentsOfLevelUp

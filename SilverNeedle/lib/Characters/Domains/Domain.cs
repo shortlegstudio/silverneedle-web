@@ -14,6 +14,7 @@ namespace SilverNeedle.Characters.Domains
         public Domain(IObjectStore configure)
         {
             this.Name = configure.GetString("name");
+            this.Spells = configure.GetList("spells");
         }
 
         public bool Matches(string name)
@@ -25,5 +26,7 @@ namespace SilverNeedle.Characters.Domains
         {
             return string.Format("Domain ({0})", this.GetType().Name);
         }
+
+        public string[] Spells { get; set; }
     }
 }
