@@ -49,8 +49,10 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
             var character = new CharacterSheet();
             var cls = new Class();
             cls.Spells.List = "wizard";
-            cls.Spells.Known = SpellsKnown.All;
             character.SetClass(cls);
+            var spellcasting = new SpellCasting(character.Inventory, character.Get<ClassLevel>());
+            spellcasting.SpellsKnown = SpellsKnown.All;
+            character.Add(spellcasting);
             subject.Process(character, new CharacterBuildStrategy());
 
             Assert.That(character.Get<SpellCasting>().GetAvailableSpells(0), Is.EquivalentTo(new string [] { "cantrip1", "cantrip2" }));
@@ -58,23 +60,6 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
                 new string[] { "level 1-1", "level 1-2", "level 1-3", "level 1-4" }));
         }
 
-        [Test]
-        public void AddsToSpellBookIfWizard()
-        {
-            var character = new CharacterSheet();
-            character.AbilityScores.SetScore(AbilityScoreTypes.Intelligence, 10);
-            var cls = new Class();
-            cls.Spells.List = "wizard";
-            cls.Spells.Known = SpellsKnown.Spellbook;
-            character.SetClass(cls);
-            subject.Process(character, new CharacterBuildStrategy());
-
-            Assert.That(character.Inventory.Spellbooks.Count(), Is.EqualTo(1));
-            var spellbook = character.Inventory.Spellbooks.First();
-            Assert.That(spellbook.GetSpells(0), Is.EquivalentTo(new string [] { "cantrip1", "cantrip2" }));
-            Assert.That(spellbook.GetSpells(1), Has.Length.EqualTo(3));
-            Assert.That(character.Get<SpellCasting>().CasterLevel, Is.EqualTo(1));
-        }
 
         [Test]
         public void ChoosesSpellsKnownBasedOnClassRulesIfSpontaneousCaster()
@@ -88,8 +73,6 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
             var character = new CharacterSheet();
             character.SetClass(new Class()); 
             subject.Process(character, new CharacterBuildStrategy());
-
-            Assert.That(character.Get<SpellCasting>().CasterLevel, Is.EqualTo(0));
         }
     }
 }

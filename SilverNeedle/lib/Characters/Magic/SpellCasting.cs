@@ -9,7 +9,7 @@ namespace SilverNeedle.Characters.Magic
     using System.Linq;
     using SilverNeedle.Spells;
 
-    public class SpellCasting
+    public class SpellCasting 
     {
         public const int MAX_SPELL_LEVEL = 10;
         private IDictionary<int, Spell[]> knownSpells;
@@ -17,7 +17,8 @@ namespace SilverNeedle.Characters.Magic
         private int[] spellsPerDay;
         private Inventory inventory;
         public SpellsKnown SpellsKnown { get; set; }
-        public int CasterLevel { get; set; }
+        public ClassLevel Class { get; }
+        public int CasterLevel { get { return this.Class.Level; } }
         public AbilityScore CastingAbility { get; private set; }
         private BasicStat DifficultyClass { get; set; }
         private IList<ISpellCastingRule> castingRules;
@@ -29,8 +30,9 @@ namespace SilverNeedle.Characters.Magic
                 return knownSpells.Keys.Max(); 
             }
         }
-        public SpellCasting(Inventory inventory)
+        public SpellCasting(Inventory inventory, ClassLevel sourceClass)
         {
+            this.Class = sourceClass;
             this.knownSpells = new Dictionary<int, Spell[]>();
             this.spellsPerDay = new int[MAX_SPELL_LEVEL];
             this.preparedSpells = new Dictionary<int, Spell[]>();

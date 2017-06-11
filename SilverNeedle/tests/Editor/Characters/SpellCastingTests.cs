@@ -19,7 +19,8 @@ namespace Tests.Characters
         [Test]
         public void TracksAvailableSpellsForTheCharacter()
         {
-            var spellcasting = new SpellCasting(new Inventory());
+            var cls = new ClassLevel(new Class());
+            var spellcasting = new SpellCasting(new Inventory(), cls);
             spellcasting.AddSpells(0, new Spell[] { new Spell("cantrip1", "evocation"), new Spell("cantrip2", "evocation") });
             Assert.That(spellcasting.GetAvailableSpells(0), Is.EquivalentTo(new string[] { "cantrip1", "cantrip2" }));
         }
@@ -28,7 +29,8 @@ namespace Tests.Characters
         public void IfDependentOnSpellbookPullsAvailableFromSpellbook()
         {
             var inventory = new Inventory();
-            var spellcasting = new SpellCasting(inventory);
+            var cls = new ClassLevel(new Class());
+            var spellcasting = new SpellCasting(inventory, cls);
             spellcasting.SpellsKnown = SpellsKnown.Spellbook;
 
             // Make a spellbook
@@ -42,7 +44,8 @@ namespace Tests.Characters
         [Test]
         public void MaxLevelIsSetForNowByTheMaxLevelKnown()
         {
-            var spells = new SpellCasting(new Inventory()); 
+            var cls = new ClassLevel(new Class());
+            var spells = new SpellCasting(new Inventory(), cls); 
             spells.SpellsKnown = SpellsKnown.All;
             spells.AddSpells(0, new Spell[] { new Spell("foo", "bar") });
             spells.AddSpells(1, new Spell[] { new Spell("foo", "bar") });
@@ -54,7 +57,8 @@ namespace Tests.Characters
         [Test]
         public void CanSpecifyTheNumberOfSpellsPerDay()
         {
-            var spells = new SpellCasting(new Inventory());
+            var cls = new ClassLevel(new Class());
+            var spells = new SpellCasting(new Inventory(), cls);
             spells.SetSpellsPerDay(0, 3);
             spells.SetSpellsPerDay(1, 1);
 
@@ -66,7 +70,8 @@ namespace Tests.Characters
         [Test]
         public void SpellsCanBePrepared()
         {
-            var spells = new SpellCasting(new Inventory());
+            var cls = new ClassLevel(new Class());
+            var spells = new SpellCasting(new Inventory(), cls);
             spells.AddSpells(0, new Spell[] { new Spell("cantrip1", "evocation"), new Spell("cantrip2", "evocation") });
             spells.PrepareSpells(0, new string[] { "cantrip1" });
             Assert.That(spells.GetPreparedSpells(0), Is.EquivalentTo(new string[] {"cantrip1"}));
@@ -75,7 +80,8 @@ namespace Tests.Characters
         [Test]
         public void CalculatesTheDCBasedOnSpellLevelAndAbility()
         {
-            var spells = new SpellCasting(new Inventory());
+            var cls = new ClassLevel(new Class());
+            var spells = new SpellCasting(new Inventory(), cls);
             var abilityScore = new AbilityScore(AbilityScoreTypes.Intelligence, 18);
             spells.SetCastingAbility(abilityScore);
             Assert.That(spells.GetDifficultyClass(0), Is.EqualTo(14));
@@ -86,7 +92,8 @@ namespace Tests.Characters
         [Test]
         public void IfAskedForSpellsPastMaxLevelJustReturnZero()
         {
-            var spells = new SpellCasting(new Inventory());
+            var cls = new ClassLevel(new Class());
+            var spells = new SpellCasting(new Inventory(), cls);
             Assert.That(spells.GetSpellsPerDay(200), Is.EqualTo(0));
 
         }
@@ -94,13 +101,12 @@ namespace Tests.Characters
         [Test]
         public void RulesCanBeAppliedToSpellCastingThatLimitsAvailableSpells()
         {
-            var spellcasting = new SpellCasting(new Inventory());
+            var cls = new ClassLevel(new Class());
+            var spellcasting = new SpellCasting(new Inventory(), cls);
             spellcasting.AddSpells(0, new Spell[] { new Spell("cantrip1", "conjuration"), new Spell("cantrip2", "evocation") });
             var cannotCastConjuration = new CannotCastConjuration();
             spellcasting.AddRule(cannotCastConjuration);
             Assert.That(spellcasting.GetAvailableSpells(0), Is.EquivalentTo(new string[] { "cantrip2" }));
-
-
         }
 
         public class CannotCastConjuration : ISpellCastingRule

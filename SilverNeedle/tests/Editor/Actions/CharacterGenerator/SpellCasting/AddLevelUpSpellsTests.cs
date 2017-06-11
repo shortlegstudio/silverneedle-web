@@ -46,9 +46,10 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
             var cls = new Class();
             cls.Spells.List = "wizard";
             character.SetClass(cls);
-            var spellCasting = character.Get<SpellCasting>();
+            var spellCasting = new SpellCasting(character.Get<Inventory>(), character.Get<ClassLevel>());
+            character.SetLevel(3);
+            character.Add(spellCasting);
             spellCasting.SpellsKnown = SpellsKnown.All;
-            spellCasting.CasterLevel = 3;
             spellCasting.SetSpellsPerDay(0, 1);
             spellCasting.SetSpellsPerDay(1, 1);
             spellCasting.SetSpellsPerDay(2, 1);
@@ -59,5 +60,6 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
 
             Assert.That(spellCasting.GetAvailableSpells(2).Length, Is.EqualTo(2));
         }
+
     }
 }

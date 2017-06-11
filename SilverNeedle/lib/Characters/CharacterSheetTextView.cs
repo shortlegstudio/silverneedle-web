@@ -99,7 +99,7 @@ namespace SilverNeedle.Characters
             SpellsAvailable = new Dictionary<int, string[]>();
             SpellsPrepared = new Dictionary<int, string[]>();
 
-            if(character.Get<SpellCasting>().SpellsKnown != SpellsKnown.None)
+            if(character.Contains<SpellCasting>())
             {
                 IsSpellCaster = true;
                 SpellDC = new int[character.Get<SpellCasting>().MaxLevel + 1];

@@ -47,7 +47,6 @@ namespace SilverNeedle.Characters
             this.Components.Add(new CharacterAppearance());
             this.Components.Add(new SkillRanks(skillList, this.AbilityScores));
             this.Components.Add(new Initiative(this.AbilityScores));
-            this.Components.Add(new SpellCasting(this.Inventory));
         }
 
         public void InitializeComponents()
@@ -397,6 +396,11 @@ namespace SilverNeedle.Characters
         public IEnumerable<T> GetAll<T>()
         {
             return this.Components.GetAll<T>();
+        }
+
+        public bool Contains<T>()
+        {
+            return this.Components.Contains<T>();
         }
 
         public BasicStat FindStat(string name)

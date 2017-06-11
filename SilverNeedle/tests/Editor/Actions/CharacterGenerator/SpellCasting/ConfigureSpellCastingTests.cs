@@ -11,16 +11,15 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
     using SilverNeedle.Characters.Magic;
 
     [TestFixture]
-    public class SetCastingAbilityScoreTests
+    public class ConfigureSpellCastingTests
     {
         [Test]
         public void IfNotACasterDoNothing()
         {
             var character = new CharacterSheet();
             character.SetClass(Class.None);
-            var subject = new SetCastingAbilityScore();
+            var subject = new ConfigureSpellCasting();
             subject.Process(character, new CharacterBuildStrategy());
-            Assert.That(character.Get<SpellCasting>().CastingAbility, Is.Null);
         }
     }
 }

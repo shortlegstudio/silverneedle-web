@@ -29,21 +29,20 @@ namespace SilverNeedle.Actions.CharacterGenerator.SpellCasting
         }
         public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
-            if(!character.Class.HasSpells)
+            if(!character.Contains<SpellCasting>())
                 return;
 
-            character.Get<SpellCasting>().SpellsKnown = character.Class.Spells.Known;
-            character.Get<SpellCasting>().CasterLevel = 1;
             var spellList = spellLists.Find(character.Class.Spells.List);
+            var spellcasting = character.Get<SpellCasting>();
 
-            switch(character.Get<SpellCasting>().SpellsKnown)
+            switch(spellcasting.SpellsKnown)
             {
                 case SpellsKnown.Spellbook:
                     BuildSpellbook(character, strategy, spellList);
                     break;
 
                 case SpellsKnown.All:
-                    AddAllSpells(character, strategy, spellList);
+                    AddAllSpells(spellcasting, strategy, spellList);
                     break;
             }
         }
@@ -61,10 +60,10 @@ namespace SilverNeedle.Actions.CharacterGenerator.SpellCasting
             spellbook.AddSpells(1, spellList.Levels[1].Choose(3).ToArray());
         }
 
-        private void AddAllSpells(CharacterSheet character, CharacterBuildStrategy strategy, SpellList spellList)
+        private void AddAllSpells(SpellCasting casting, CharacterBuildStrategy strategy, SpellList spellList)
         {
-            character.Get<SpellCasting>().AddSpells(0, spells.FindAll(spellList.Levels[0]).ToArray());
-            character.Get<SpellCasting>().AddSpells(1, spells.FindAll(spellList.Levels[1]).ToArray());
+            casting.AddSpells(0, spells.FindAll(spellList.Levels[0]).ToArray());
+            casting.AddSpells(1, spells.FindAll(spellList.Levels[1]).ToArray());
         }
     }
 }

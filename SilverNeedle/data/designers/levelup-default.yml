@@ -8,7 +8,6 @@
     - step: SilverNeedle.Actions.CharacterGenerator.AbilityPointAssigner
     - step: SilverNeedle.Actions.CharacterGenerator.SkillPointDistributor
     - step: SilverNeedle.Actions.CharacterGenerator.FeatSelector
-    - step: SilverNeedle.Actions.CharacterGenerator.SpellCasting.IncreaseCasterLevel
     - step: SilverNeedle.Actions.CharacterGenerator.SpellCasting.SetSpellsPerDay
     - step: SilverNeedle.Actions.CharacterGenerator.SpellCasting.AddLevelUpSpells
     - step: SilverNeedle.Actions.CharacterGenerator.SpellCasting.PrepareSpells

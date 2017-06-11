@@ -14,7 +14,7 @@ namespace SilverNeedle.Actions.CharacterGenerator.SpellCasting
     {
         public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
-            if(character.Get<SpellCasting>().SpellsKnown == SpellsKnown.None)
+            if(character.Get<SpellCasting>() == null)
                 return;
 
             for(int level = 0; level <= character.Get<SpellCasting>().MaxLevel; level++)

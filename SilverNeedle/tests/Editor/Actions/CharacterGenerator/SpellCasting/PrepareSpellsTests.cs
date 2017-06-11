@@ -26,11 +26,15 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
         public void SelectsUniqueListOfSpellsDependingOnAvailableSlots()
         {
             var character = new CharacterSheet();
-            character.Get<SpellCasting>().SpellsKnown = SpellsKnown.All;
-            character.Get<SpellCasting>().AddSpells(0, new Spell[] { new Spell("cantrip1", "conjuration"), new Spell("cantrip2", "evocation"), new Spell("cantrip3", "transmutation"), new Spell("cantrip4", "evocation") });
-            character.Get<SpellCasting>().AddSpells(1, new Spell[] { new Spell("level1-1", "evocation"), new Spell("level1-2", "evocation"), new Spell("level1-3", "evocation"), new Spell("level1-4", "transmutation") });
-            character.Get<SpellCasting>().SetSpellsPerDay(0, 3);
-            character.Get<SpellCasting>().SetSpellsPerDay(1, 1);
+            var cls = new Class();
+            character.SetClass(cls);
+            var spellCasting = new SpellCasting(character.Get<Inventory>(), character.Get<ClassLevel>());
+            spellCasting.SpellsKnown = SpellsKnown.All;
+            spellCasting.AddSpells(0, new Spell[] { new Spell("cantrip1", "conjuration"), new Spell("cantrip2", "evocation"), new Spell("cantrip3", "transmutation"), new Spell("cantrip4", "evocation") });
+            spellCasting.AddSpells(1, new Spell[] { new Spell("level1-1", "evocation"), new Spell("level1-2", "evocation"), new Spell("level1-3", "evocation"), new Spell("level1-4", "transmutation") });
+            spellCasting.SetSpellsPerDay(0, 3);
+            spellCasting.SetSpellsPerDay(1, 1);
+            character.Add(spellCasting);
 
             var prepareSpells = new PrepareSpells();
 

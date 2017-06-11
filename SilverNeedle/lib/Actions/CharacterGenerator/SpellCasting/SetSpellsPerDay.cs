@@ -12,6 +12,9 @@ namespace SilverNeedle.Actions.CharacterGenerator.SpellCasting
     {
         public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
+            if(!character.Contains<SpellCasting>())
+                return;
+                
             ShortLog.Debug("-- SetSpellsPerDay --");
             ShortLog.DebugFormat("CasterLevel: {0}", character.Get<SpellCasting>().CasterLevel.ToString());
             int casterLevel = character.Get<SpellCasting>().CasterLevel;

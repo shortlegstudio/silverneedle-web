@@ -26,7 +26,6 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
         {
             var character = new CharacterSheet();
             subject.Process(character, new CharacterBuildStrategy());
-            Assert.That(character.Get<SpellCasting>().GetSpellsPerDay(0), Is.EqualTo(0));
         }
 
         [Test]
@@ -36,9 +35,9 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
             var cls = new Class();
             cls.Spells.PerDay[1] = new int[] { 3, 1 };
             character.SetClass(cls);
-            
-            character.Get<SpellCasting>().CasterLevel = 1;
-            character.Get<SpellCasting>().SetCastingAbility(new AbilityScore(AbilityScoreTypes.Wisdom, 10));
+            var spellCasting = new SpellCasting(character.Get<Inventory>(), character.Get<ClassLevel>());
+            spellCasting.SetCastingAbility(new AbilityScore(AbilityScoreTypes.Wisdom, 10));
+            character.Add(spellCasting);
 
             subject.Process(character, new CharacterBuildStrategy());
 
@@ -54,8 +53,9 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
             cls.Spells.PerDay[1] = new int[] { 3, 2, 1 };
             character.SetClass(cls);
             var abilityScore = new AbilityScore(AbilityScoreTypes.Charisma, 13);
-            character.Get<SpellCasting>().CasterLevel = 1;
-            character.Get<SpellCasting>().SetCastingAbility(abilityScore);
+            var spellCasting = new SpellCasting(character.Get<Inventory>(), character.Get<ClassLevel>());
+            spellCasting.SetCastingAbility(abilityScore);
+            character.Add(spellCasting);
 
             subject.Process(character, new CharacterBuildStrategy());
 
@@ -75,8 +75,9 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
             var cls = new Class();
             cls.Spells.PerDay[1] = new int[] { 3, 2, 1 };
             character.SetClass(cls);
-            character.Get<SpellCasting>().CasterLevel = 1;
-            character.Get<SpellCasting>().SetCastingAbility(abilityScore);
+            var spellCasting = new SpellCasting(character.Get<Inventory>(), character.Get<ClassLevel>());
+            spellCasting.SetCastingAbility(abilityScore);
+            character.Add(spellCasting);
 
             subject.Process(character, new CharacterBuildStrategy());
 
