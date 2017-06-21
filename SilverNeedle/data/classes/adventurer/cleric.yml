@@ -37,6 +37,8 @@
           count: 2
         - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.AddBonusLanguages
           languages: celestial, abyssal, infernal
+        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.AddDomainSpells
+          casting-ability: wisdom
   spells:
     list: cleric
     type: divine

@@ -74,7 +74,7 @@ namespace SilverNeedle.Characters.Magic
             spellsPerDay[level] = amount;
         }
 
-        public int GetSpellsPerDay(int level)
+        public virtual int GetSpellsPerDay(int level)
         {
             if(level >= spellsPerDay.Length)
                 return 0;
