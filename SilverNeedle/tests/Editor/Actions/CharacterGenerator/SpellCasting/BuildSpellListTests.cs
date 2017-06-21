@@ -50,7 +50,7 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
             var cls = new Class();
             cls.Spells.List = "wizard";
             character.SetClass(cls);
-            var spellcasting = new SpellCasting(character.Inventory, character.Get<ClassLevel>());
+            var spellcasting = new SpellCasting(character.Inventory, character.Get<ClassLevel>(), "wizard");
             spellcasting.SpellsKnown = SpellsKnown.All;
             character.Add(spellcasting);
             subject.Process(character, new CharacterBuildStrategy());

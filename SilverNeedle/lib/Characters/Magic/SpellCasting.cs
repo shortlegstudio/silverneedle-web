@@ -20,6 +20,8 @@ namespace SilverNeedle.Characters.Magic
         public ClassLevel Class { get; }
         public int CasterLevel { get { return this.Class.Level; } }
         public AbilityScore CastingAbility { get; private set; }
+
+        public string SpellList { get; private set; }
         private BasicStat DifficultyClass { get; set; }
         private IList<ISpellCastingRule> castingRules;
 
@@ -30,7 +32,7 @@ namespace SilverNeedle.Characters.Magic
                 return knownSpells.Keys.Max(); 
             }
         }
-        public SpellCasting(Inventory inventory, ClassLevel sourceClass)
+        public SpellCasting(Inventory inventory, ClassLevel sourceClass, string spellList)
         {
             this.Class = sourceClass;
             this.knownSpells = new Dictionary<int, Spell[]>();
@@ -40,6 +42,7 @@ namespace SilverNeedle.Characters.Magic
             this.DifficultyClass = new BasicStat(StatNames.SpellcastingDC, 10);
             SpellsKnown = SpellsKnown.None;
             this.castingRules = new List<ISpellCastingRule>();
+            this.SpellList = spellList;
         }
 
         public void SetCastingAbility(AbilityScore ability)
@@ -53,7 +56,7 @@ namespace SilverNeedle.Characters.Magic
             return DifficultyClass.TotalValue + spellLevel;
         }
 
-        public string[] GetAvailableSpells(int level)
+        public virtual string[] GetAvailableSpells(int level)
         {
             if(SpellsKnown == SpellsKnown.Spellbook)
             {

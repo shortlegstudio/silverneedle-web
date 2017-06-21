@@ -35,7 +35,7 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
             var cls = new Class();
             cls.Spells.PerDay[1] = new int[] { 3, 1 };
             character.SetClass(cls);
-            var spellCasting = new SpellCasting(character.Get<Inventory>(), character.Get<ClassLevel>());
+            var spellCasting = new SpellCasting(character.Get<Inventory>(), character.Get<ClassLevel>(), "wizard");
             spellCasting.SetCastingAbility(new AbilityScore(AbilityScoreTypes.Wisdom, 10));
             character.Add(spellCasting);
 
@@ -53,7 +53,7 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
             cls.Spells.PerDay[1] = new int[] { 3, 2, 1 };
             character.SetClass(cls);
             var abilityScore = new AbilityScore(AbilityScoreTypes.Charisma, 13);
-            var spellCasting = new SpellCasting(character.Get<Inventory>(), character.Get<ClassLevel>());
+            var spellCasting = new SpellCasting(character.Get<Inventory>(), character.Get<ClassLevel>(), "wizard");
             spellCasting.SetCastingAbility(abilityScore);
             character.Add(spellCasting);
 
@@ -75,7 +75,7 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
             var cls = new Class();
             cls.Spells.PerDay[1] = new int[] { 3, 2, 1 };
             character.SetClass(cls);
-            var spellCasting = new SpellCasting(character.Get<Inventory>(), character.Get<ClassLevel>());
+            var spellCasting = new SpellCasting(character.Get<Inventory>(), character.Get<ClassLevel>(), "wizard");
             spellCasting.SetCastingAbility(abilityScore);
             character.Add(spellCasting);
 

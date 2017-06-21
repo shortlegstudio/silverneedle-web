@@ -16,7 +16,7 @@ namespace SilverNeedle.Actions.CharacterGenerator.SpellCasting
             {
                 var cls = character.Get<ClassLevel>();
                 var inv = character.Get<Inventory>();
-                var spellcasting = new SpellCasting(inv, cls);
+                var spellcasting = new SpellCasting(inv, cls, cls.Class.Spells.List);
                 spellcasting.SpellsKnown = character.Class.Spells.Known;
                 spellcasting.SetCastingAbility(character.AbilityScores.GetAbility(character.Class.Spells.Ability));
                 character.Add(spellcasting);

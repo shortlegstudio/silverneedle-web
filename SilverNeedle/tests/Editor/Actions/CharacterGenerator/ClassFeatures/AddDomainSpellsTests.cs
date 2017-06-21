@@ -40,7 +40,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
             var spellCasting = character.Get<SpellCasting>();
             Assert.That(spellCasting.CastingAbility, Is.EqualTo(character.AbilityScores.GetAbility(AbilityScoreTypes.Wisdom)));
             Assert.That(spellCasting.GetAvailableSpells(1), Is.EqualTo(new string[] { "air 1"}));
-            Assert.That(spellCasting.GetAvailableSpells(2), Is.EqualTo(new string[] { "air 2"}));
+            Assert.That(spellCasting.GetAvailableSpells(2), Is.EqualTo(new string[] { }));
             Assert.That(spellCasting.GetSpellsPerDay(1), Is.EqualTo(1));
             Assert.That(spellCasting.GetSpellsPerDay(2), Is.EqualTo(0));
 
@@ -48,6 +48,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
 
             Assert.That(spellCasting.GetSpellsPerDay(2), Is.EqualTo(1));
             Assert.That(spellCasting.GetSpellsPerDay(3), Is.EqualTo(0));
+            Assert.That(spellCasting.GetAvailableSpells(2), Is.EqualTo(new string[] { "air 2"}));
         }
     }
 }

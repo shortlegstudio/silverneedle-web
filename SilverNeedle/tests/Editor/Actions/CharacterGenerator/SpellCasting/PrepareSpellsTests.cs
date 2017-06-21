@@ -28,7 +28,7 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
             var character = new CharacterSheet();
             var cls = new Class();
             character.SetClass(cls);
-            var spellCasting = new SpellCasting(character.Get<Inventory>(), character.Get<ClassLevel>());
+            var spellCasting = new SpellCasting(character.Get<Inventory>(), character.Get<ClassLevel>(), "wizard");
             spellCasting.SpellsKnown = SpellsKnown.All;
             spellCasting.AddSpells(0, new Spell[] { new Spell("cantrip1", "conjuration"), new Spell("cantrip2", "evocation"), new Spell("cantrip3", "transmutation"), new Spell("cantrip4", "evocation") });
             spellCasting.AddSpells(1, new Spell[] { new Spell("level1-1", "evocation"), new Spell("level1-2", "evocation"), new Spell("level1-3", "evocation"), new Spell("level1-4", "transmutation") });
