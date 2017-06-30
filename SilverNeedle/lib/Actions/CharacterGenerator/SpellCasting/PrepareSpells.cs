@@ -17,11 +17,20 @@ namespace SilverNeedle.Actions.CharacterGenerator.SpellCasting
             if(character.Get<SpellCasting>() == null)
                 return;
 
-            for(int level = 0; level <= character.Get<SpellCasting>().MaxLevel; level++)
+            var spellCastings = character.GetAll<SpellCasting>();
+            foreach(var sc in spellCastings)
             {
-                int spellCount = character.Get<SpellCasting>().GetSpellsPerDay(level);
-                var spells = character.Get<SpellCasting>().GetAvailableSpells(level).Choose(spellCount);
-                character.Get<SpellCasting>().PrepareSpells(level, spells.ToArray());
+                Prepare(sc);
+            }
+        }
+
+        private void Prepare(SpellCasting spellCasting)
+        {
+            for(int level = 0; level <= spellCasting.MaxLevel; level++)
+            {
+                int spellCount = spellCasting.GetSpellsPerDay(level);
+                var spells = spellCasting.GetAvailableSpells(level).Choose(spellCount);
+                spellCasting.PrepareSpells(level, spells.ToArray());
             }
         }
     }

@@ -5,6 +5,7 @@
 
 namespace SilverNeedle.Actions.CharacterGenerator.SpellCasting
 {
+    using System;
     using System.Linq;
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.Magic;
@@ -30,24 +31,29 @@ namespace SilverNeedle.Actions.CharacterGenerator.SpellCasting
 
         public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
-            switch(character.Get<SpellCasting>().SpellsKnown)
+            var spellCasting = character.GetAll<SpellCasting>();
+            foreach(var sc in spellCasting)
             {
-                case SpellsKnown.All:
-                    HandleALLSpellCaster(character, strategy);
-                    return;
+                switch(sc.SpellsKnown)
+                {
+                    case SpellsKnown.All:
+                        HandleALLSpellCaster(sc);
+                        break;
+                    default:
+                        throw new NotImplementedException();
+                }
             }
         }    
 
 
-        private void HandleALLSpellCaster(CharacterSheet character, CharacterBuildStrategy strategy)
+        private void HandleALLSpellCaster(SpellCasting spellCasting)
         {
             //check if we have spells for the highest Level
-            var spellCasting = character.Get<SpellCasting>();
             int maxLevel = spellCasting.MaxLevel;
             int nextLevel = maxLevel + 1;
             if(spellCasting.GetSpellsPerDay(nextLevel) > 0)
             {
-                var spellList = spellLists.Find(character.Class.Spells.List);    
+                var spellList = spellLists.Find(spellCasting.SpellList);    
                 spellCasting.AddSpells(nextLevel, spells.FindAll(spellList.Levels[nextLevel]).ToArray());
             }
         }

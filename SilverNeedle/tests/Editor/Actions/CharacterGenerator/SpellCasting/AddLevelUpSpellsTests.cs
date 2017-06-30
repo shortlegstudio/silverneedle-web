@@ -61,5 +61,38 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
             Assert.That(spellCasting.GetAvailableSpells(2).Length, Is.EqualTo(2));
         }
 
+        [Test]
+        public void WorksForMultiClassSpellCasters()
+        {
+            var character = new CharacterSheet();
+            var cls = new Class();
+            cls.Spells.List = "wizard";
+            character.SetClass(cls);
+            character.SetLevel(3);
+            var scWizard = new SpellCasting(character.Get<Inventory>(), character.Get<ClassLevel>(), "wizard");
+            scWizard.SpellsKnown = SpellsKnown.All;
+            scWizard.SetSpellsPerDay(0, 1);
+            scWizard.SetSpellsPerDay(1, 1);
+            scWizard.SetSpellsPerDay(2, 1);
+            scWizard.AddSpells(0, new Spell[] { new Spell("cantrip1", "evocation") });
+            scWizard.AddSpells(1, new Spell[] { new Spell("level 1-1", "evocation") });
+
+            var scBard = new SpellCasting(character.Get<Inventory>(), character.Get<ClassLevel>(), "wizard");
+            scBard.SpellsKnown = SpellsKnown.All;
+            scBard.SetSpellsPerDay(0, 1);
+            scBard.SetSpellsPerDay(1, 1);
+            scBard.SetSpellsPerDay(2, 1);
+            scBard.AddSpells(0, new Spell[] { new Spell("cantrip1", "evocation") });
+            scBard.AddSpells(1, new Spell[] { new Spell("level 1-1", "evocation") });
+
+            character.Add(scBard);
+            character.Add(scWizard);
+            Assert.That(character.GetAll<SpellCasting>(), Is.EquivalentTo(new SpellCasting[] { scBard, scWizard }));
+            subject.Process(character, new CharacterBuildStrategy());
+
+            Assert.That(scWizard.GetAvailableSpells(2).Length, Is.EqualTo(2));
+            Assert.That(scBard.GetAvailableSpells(2).Length, Is.EqualTo(2));
+        }
+
     }
 }
