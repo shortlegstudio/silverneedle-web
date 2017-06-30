@@ -13,6 +13,7 @@ namespace SilverNeedle.Characters.Magic
         }
         public override int GetSpellsPerDay(int level)
         {
+            if(level == 0) return 0;
             if(level <= (this.CasterLevel + 1) / 2)
                 return 1;
             return 0;

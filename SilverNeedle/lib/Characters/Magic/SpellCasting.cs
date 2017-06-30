@@ -86,6 +86,8 @@ namespace SilverNeedle.Characters.Magic
 
         public void PrepareSpells(int level, string[] spells)
         {
+            if(spells.Length == 0)
+                return;
             preparedSpells[level] = knownSpells[level].Where(x => spells.Contains(x.Name)).ToArray();
         } 
 
@@ -103,6 +105,8 @@ namespace SilverNeedle.Characters.Magic
 
         private IEnumerable<Spell> GetCastableSpells(int level)
         {
+            if(!knownSpells.ContainsKey(level))
+                return new Spell[] { };
             return knownSpells[level].Where(spell => castingRules.All(rule => rule.CanCastSpell(spell)));
         }
     }

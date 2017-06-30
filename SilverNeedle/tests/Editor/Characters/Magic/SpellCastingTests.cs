@@ -3,7 +3,7 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-namespace Tests.Characters
+namespace Tests.Characters.Magic
 {
     using NUnit.Framework;
     using SilverNeedle;
@@ -107,6 +107,13 @@ namespace Tests.Characters
             var cannotCastConjuration = new CannotCastConjuration();
             spellcasting.AddRule(cannotCastConjuration);
             Assert.That(spellcasting.GetAvailableSpells(0), Is.EquivalentTo(new string[] { "cantrip2" }));
+        }
+
+        [Test]
+        public void IfTryingToPrepareSpellsAndThereAreNoKnownSpellsDoNothing()
+        {
+            var sc = new SpellCasting(new Inventory(), new ClassLevel(new Class()), "wizard");
+            Assert.DoesNotThrow(() => {sc.PrepareSpells(0, new string[] { }); });
         }
 
         public class CannotCastConjuration : ISpellCastingRule

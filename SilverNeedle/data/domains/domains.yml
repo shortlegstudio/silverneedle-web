@@ -33,7 +33,7 @@
 - name: Darkness
   custom-implementation: SilverNeedle.Characters.Domains.Darkness
   spells: > 
-    obscuring mist, blindess/deafness, deeper darkness, shadow conjuration, 
+    obscuring mist, blindness/deafness, deeper darkness, shadow conjuration, 
     summon monster v, shadow walk, power word blind, shadow evocation - greater,
     shades
 - name: Death
