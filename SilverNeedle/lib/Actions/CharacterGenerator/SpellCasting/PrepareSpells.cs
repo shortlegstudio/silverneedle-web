@@ -17,6 +17,7 @@ namespace SilverNeedle.Actions.CharacterGenerator.SpellCasting
             if(character.Get<SpellCasting>() == null)
                 return;
 
+            ShortLog.Debug("-- PrepareSpells --");
             var spellCastings = character.GetAll<SpellCasting>();
             foreach(var sc in spellCastings)
             {
@@ -26,6 +27,7 @@ namespace SilverNeedle.Actions.CharacterGenerator.SpellCasting
 
         private void Prepare(SpellCasting spellCasting)
         {
+            ShortLog.DebugFormat("Preparing spells for list: {0}", spellCasting.ToString());
             for(int level = 0; level <= spellCasting.MaxLevel; level++)
             {
                 int spellCount = spellCasting.GetSpellsPerDay(level);

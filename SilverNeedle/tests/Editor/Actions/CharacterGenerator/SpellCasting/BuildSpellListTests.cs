@@ -74,5 +74,34 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
             character.SetClass(new Class()); 
             subject.Process(character, new CharacterBuildStrategy());
         }
+
+        [Test]
+        public void WorksWithMultiClassedCasters()
+        {
+            var character = new CharacterSheet();
+            var scWizard = new SpellCasting(character.Inventory, new ClassLevel(new Class()), "wizard");
+            scWizard.SpellsKnown = SpellsKnown.All;
+            character.Add(scWizard);
+            var scBard = new SpellCasting(character.Inventory, new ClassLevel(new Class()), "wizard");
+            scBard.SpellsKnown = SpellsKnown.All;
+            character.Add(scBard);
+            subject.Process(character, new CharacterBuildStrategy());
+
+            Assert.That(scWizard.GetAvailableSpells(0), Is.EquivalentTo(new string [] { "cantrip1", "cantrip2" }));
+            Assert.That(scWizard.GetAvailableSpells(1), Is.EquivalentTo(
+                new string[] { "level 1-1", "level 1-2", "level 1-3", "level 1-4" }));
+
+            Assert.That(scBard.GetAvailableSpells(0), Is.EquivalentTo(new string [] { "cantrip1", "cantrip2" }));
+            Assert.That(scBard.GetAvailableSpells(1), Is.EquivalentTo(
+                new string[] { "level 1-1", "level 1-2", "level 1-3", "level 1-4" }));
+        }
+
+        [Test]
+        public void IgnoreDomainSpellCastingSinceThatsHandledDifferently()
+        {
+            var character = new CharacterSheet();
+            character.Add(new DomainSpellCasting(new Inventory(), new ClassLevel(new Class())));
+            Assert.DoesNotThrow(() => { subject.Process(character, new CharacterBuildStrategy()); });
+        }
     }
 }

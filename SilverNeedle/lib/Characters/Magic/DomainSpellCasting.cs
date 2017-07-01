@@ -10,11 +10,12 @@ namespace SilverNeedle.Characters.Magic
 
         public DomainSpellCasting(Inventory inventory, ClassLevel sourceClass) : base(inventory, sourceClass, "domain")
         {
+            this.SpellsKnown = SilverNeedle.Spells.SpellsKnown.Domain;
         }
         public override int GetSpellsPerDay(int level)
         {
             if(level == 0) return 0;
-            if(level <= (this.CasterLevel + 1) / 2)
+            if(level <= MaxLevel)
                 return 1;
             return 0;
         }
@@ -25,6 +26,11 @@ namespace SilverNeedle.Characters.Magic
                 return base.GetAvailableSpells(level); 
 
             return new string[] { };
+        }
+
+        public override int MaxLevel
+        {
+            get { return (this.CasterLevel + 1) / 2; }
         }
     }
 }

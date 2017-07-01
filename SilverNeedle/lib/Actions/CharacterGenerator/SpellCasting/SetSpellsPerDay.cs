@@ -15,20 +15,23 @@ namespace SilverNeedle.Actions.CharacterGenerator.SpellCasting
             if(!character.Contains<SpellCasting>())
                 return;
                 
-            ShortLog.Debug("-- SetSpellsPerDay --");
-            ShortLog.DebugFormat("CasterLevel: {0}", character.Get<SpellCasting>().CasterLevel.ToString());
-            int casterLevel = character.Get<SpellCasting>().CasterLevel;
-            if(casterLevel == 0)
-                return;
-
-            int[] spellsPerDay = character.Class.Spells.PerDay[casterLevel];
-            for(int index = 0; index < spellsPerDay.Length; index++)
+            foreach(var spellcasting in character.GetAll<SpellCasting>())
             {
-                int bonusSpells = (character.Get<SpellCasting>().CastingAbility.TotalModifier - index + 4) / 4;
-                // Yeah... except zero level spells
-                if (index == 0)
-                    bonusSpells = 0;
-                character.Get<SpellCasting>().SetSpellsPerDay(index, spellsPerDay[index] + bonusSpells);
+                ShortLog.Debug("-- SetSpellsPerDay --");
+                ShortLog.DebugFormat("CasterLevel: {0}", spellcasting.CasterLevel.ToString());
+                int casterLevel = spellcasting.CasterLevel;
+                if(casterLevel == 0)
+                    return;
+
+                int[] spellsPerDay = spellcasting.Class.Class.Spells.PerDay[casterLevel];
+                for(int index = 0; index < spellsPerDay.Length; index++)
+                {
+                    int bonusSpells = (spellcasting.CastingAbility.TotalModifier - index + 4) / 4;
+                    // Yeah... except zero level spells
+                    if (index == 0)
+                        bonusSpells = 0;
+                    spellcasting.SetSpellsPerDay(index, spellsPerDay[index] + bonusSpells);
+                }
             }
         }
     }

@@ -32,18 +32,24 @@ namespace SilverNeedle.Actions.CharacterGenerator.SpellCasting
             if(!character.Contains<SpellCasting>())
                 return;
 
-            var spellList = spellLists.Find(character.Class.Spells.List);
-            var spellcasting = character.Get<SpellCasting>();
-
-            switch(spellcasting.SpellsKnown)
+            foreach(var spellcasting in character.GetAll<SpellCasting>())
             {
-                case SpellsKnown.Spellbook:
-                    BuildSpellbook(character, strategy, spellList);
-                    break;
+                SpellList spellList;
+                switch(spellcasting.SpellsKnown)
+                {
+                    case SpellsKnown.Spellbook:
+                        spellList = spellLists.Find(spellcasting.SpellList);
+                        BuildSpellbook(character, strategy, spellList);
+                        break;
 
-                case SpellsKnown.All:
-                    AddAllSpells(spellcasting, strategy, spellList);
-                    break;
+                    case SpellsKnown.All:
+                        spellList = spellLists.Find(spellcasting.SpellList);
+                        AddAllSpells(spellcasting, strategy, spellList);
+                        break;
+                    
+                    case SpellsKnown.Domain:
+                        break;
+                }
             }
         }
 

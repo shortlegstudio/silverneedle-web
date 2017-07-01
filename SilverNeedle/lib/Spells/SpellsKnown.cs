@@ -10,6 +10,7 @@ namespace SilverNeedle.Spells
         None,
         All,
         Spellbook,
-        Limited
+        Limited,
+        Domain
     }
 }

@@ -33,5 +33,14 @@ namespace Tests.Characters.Magic
             var sc = new DomainSpellCasting(new Inventory(), classLevel);
             Assert.That(sc.GetSpellsPerDay(0), Is.EqualTo(0));
         }
+
+        [Test]
+        public void MaxLevelIsSpecifiedByClassLevel()
+        {
+            var classLevel = new ClassLevel(new Class());
+            classLevel.Level = 5;
+            var sc = new DomainSpellCasting(new Inventory(), classLevel);
+            Assert.That(sc.MaxLevel, Is.EqualTo(3));
+        }
     }
 }

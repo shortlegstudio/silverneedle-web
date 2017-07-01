@@ -25,7 +25,7 @@ namespace SilverNeedle.Characters.Magic
         private BasicStat DifficultyClass { get; set; }
         private IList<ISpellCastingRule> castingRules;
 
-        public int MaxLevel 
+        public virtual int MaxLevel 
         { 
             get
             {
@@ -108,6 +108,11 @@ namespace SilverNeedle.Characters.Magic
             if(!knownSpells.ContainsKey(level))
                 return new Spell[] { };
             return knownSpells[level].Where(spell => castingRules.All(rule => rule.CanCastSpell(spell)));
+        }
+
+        public override string ToString()
+        {
+            return string.Format("Spellcasting ({0})", this.SpellList);
         }
     }
 }

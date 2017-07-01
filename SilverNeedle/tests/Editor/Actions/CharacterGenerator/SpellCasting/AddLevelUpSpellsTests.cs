@@ -94,5 +94,13 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
             Assert.That(scBard.GetAvailableSpells(2).Length, Is.EqualTo(2));
         }
 
+        [Test]
+        public void IgnoreDomainSpellCasting()
+        {
+            var character = new CharacterSheet();
+            character.Add(new DomainSpellCasting(new Inventory(), new ClassLevel(new Class())));
+            Assert.DoesNotThrow(() =>  { subject.Process(character, new CharacterBuildStrategy()); });
+        }
+
     }
 }

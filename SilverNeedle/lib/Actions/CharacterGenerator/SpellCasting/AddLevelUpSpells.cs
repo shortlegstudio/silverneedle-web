@@ -39,6 +39,8 @@ namespace SilverNeedle.Actions.CharacterGenerator.SpellCasting
                     case SpellsKnown.All:
                         HandleALLSpellCaster(sc);
                         break;
+                    case SpellsKnown.Domain:
+                        break;
                     default:
                         throw new NotImplementedException();
                 }
