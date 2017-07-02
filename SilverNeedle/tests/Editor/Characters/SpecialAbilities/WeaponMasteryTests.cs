@@ -17,7 +17,7 @@ namespace Tests.Characters.SpecialAbilities
         [Test]
         public void AddsWeaponCriticalDamageModifierToOffenseStats()
         {
-            var offStats = new OffenseStats(new AbilityScores(), new SizeStats(), new Inventory());
+            var offStats = new OffenseStats();
             var components = new ComponentBag();
             components.Add(offStats);
             var weapon = new Weapon();

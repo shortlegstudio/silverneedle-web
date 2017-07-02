@@ -33,6 +33,11 @@ namespace SilverNeedle.Dice
             this.Dice.AddRange(dice);
         }
 
+        public Cup(Die die) : this()
+        {
+            this.AddDie(die);
+        }
+
         /// <summary>
         /// Gets the dice that are within the cup
         /// </summary>

@@ -20,7 +20,7 @@ namespace Tests.Characters.SpecialAbilities
             var abilities = new AbilityScores();
             var size = new SizeStats();
             var inventory = new Inventory();
-            var offStat = new OffenseStats(abilities, size, inventory);
+            var offStat = new OffenseStats();
             var components = new ComponentBag();
             components.Add(abilities, size, inventory, offStat);
 

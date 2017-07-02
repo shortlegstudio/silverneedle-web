@@ -70,17 +70,13 @@ namespace SilverNeedle.Characters
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Characters.OffenseStats"/> class.
         /// </summary>
-        /// <param name="scores">Ability scores of the character.</param>
         /// <param name="size">Size of the character.</param>
         /// <param name="inventory">Inventory and gear of the character.</param>
-        public OffenseStats(AbilityScores scores, SizeStats size, Inventory inventory)
+        public OffenseStats()
         {
             this.BaseAttackBonus = new BasicStat(StatNames.BaseAttackBonus);
             this.CombatManeuverDefense = new BasicStat(StatNames.CMD, 10);
             this.CombatManeuverBonus = new BasicStat(StatNames.CMB);
-            this.AbilityScores = scores;
-            this.Size = size;
-            this.inventory = inventory;
             this.WeaponProficiencies = new List<WeaponProficiency>();
             this.offensiveAbilities = new List<SpecialAbility>();
             this.MeleeAttackBonus = new BasicStat(StatNames.MeleeAttackBonus);
@@ -92,7 +88,10 @@ namespace SilverNeedle.Characters
         public void Initialize(ComponentBag components)
         {
             var abilities = components.Get<AbilityScores>();
+            this.AbilityScores = abilities;
             var size = components.Get<SizeStats>();
+            this.Size = size;
+            this.inventory = components.Get<Inventory>();
             this.MeleeAttackBonus.AddModifiers(
                 new StatisticStatModifier(StatNames.MeleeAttackBonus, this.BaseAttackBonus),
                 new AbilityStatModifier(abilities.GetAbility(AbilityScoreTypes.Strength)),

@@ -18,6 +18,7 @@ namespace Tests.Characters.SpecialAbilities
         {
             var channel = new ChannelEnergy();
             var character = new CharacterSheet();
+            character.InitializeComponents();
             character.AbilityScores.SetScore(AbilityScoreTypes.Charisma, 12);
             var cls = new Class();
             cls.Name = "Cleric";

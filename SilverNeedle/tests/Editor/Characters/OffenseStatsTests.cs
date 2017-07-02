@@ -27,12 +27,13 @@ namespace Tests.Characters {
             var size = new SizeStats (CharacterSize.Small, 1,1);
 
             inventory = new Inventory();
-            smallStats = new OffenseStats (abilities, size, inventory);
+            smallStats = new OffenseStats ();
 
             var components = new ComponentBag();
             components.Add(abilities);
             components.Add(size);
             components.Add(smallStats);
+            components.Add(inventory);
             smallStats.Initialize(components);
         }
 

@@ -17,6 +17,7 @@ namespace Tests.Characters.SpecialAbilities
         public void AddingSneakAttackConfiguresASpecialAttack()
         {
             var character = new CharacterSheet();
+            character.InitializeComponents();
             var sneak = new SneakAttack();
             sneak.SetDamage("1d6");
             character.Add(sneak);

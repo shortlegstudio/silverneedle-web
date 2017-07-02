@@ -40,6 +40,8 @@ namespace SilverNeedle.Characters
         public virtual int CriticalModifier { get; set; }
         public virtual int SaveDC { get; set; }
 
+        public string DamageType { get; set; }
+
         /// <summary>
         /// Returns a <see cref="System.String"/> that represents the current <see cref="SilverNeedle.Characters.OffenseStats+AttackStatistic"/>.
         /// </summary>
