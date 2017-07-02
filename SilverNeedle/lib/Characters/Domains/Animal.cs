@@ -5,12 +5,35 @@
 
 namespace SilverNeedle.Characters.Domains
 {
+    using System;
+    using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Serialization;
-    public class Animal : Domain
+    using SilverNeedle.Utility;
+
+    public class Animal : Domain, IImprovesWithLevels, IComponent
     {
+        private SpeakWithAnimals speakWithAnimals;
+        private AnimalCompanion animalCompanion;
+        private ClassLevel sourceClass;
         public Animal(IObjectStore data) : base(data)
         {
             
+        }
+
+        public void Initialize(ComponentBag components)
+        {
+            sourceClass = components.Get<ClassLevel>();
+            speakWithAnimals = new SpeakWithAnimals();
+            components.Add(speakWithAnimals);
+        }
+
+        public void LeveledUp(ComponentBag components)
+        {
+            if(sourceClass.Level == 4)
+            {
+                animalCompanion = new AnimalCompanion();
+                components.Add(animalCompanion);
+            }
         }
     }
 }
