@@ -45,5 +45,6 @@ namespace SilverNeedle.Characters.Domains
                 acidResistance.Amount = 0;
                 defenseStats.AddImmunity("acid");
             }
-        }}
+        }
+    }
 }
