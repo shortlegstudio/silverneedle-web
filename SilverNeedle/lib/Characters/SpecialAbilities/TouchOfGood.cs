@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class TouchOfGood
+    public class TouchOfGood : SpecialAbility
     {
 
         AbilityScore wisdom;

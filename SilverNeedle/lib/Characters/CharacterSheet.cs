@@ -395,7 +395,7 @@ namespace SilverNeedle.Characters
 
         public IEnumerable<T> GetAll<T>()
         {
-            return this.Components.GetAll<T>();
+            return this.Components.GetAll<T>().ToList();
         }
 
         public bool Contains<T>()
