@@ -30,7 +30,7 @@ namespace SilverNeedle.Characters.Magic
 
         public override int MaxLevel
         {
-            get { return (this.CasterLevel + 1) / 2; }
+            get { return System.Math.Min(9, (this.CasterLevel + 1) / 2); }
         }
     }
 }

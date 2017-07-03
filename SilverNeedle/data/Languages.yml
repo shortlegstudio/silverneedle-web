@@ -32,6 +32,9 @@
 - language:
   name: Giant
   description: Cyclopses, ettins, giants, ogres, trolls
+- language: 
+  name: Gnoll
+  description: Gnolls
 - language:
   name: Gnome
   description: Gnomes

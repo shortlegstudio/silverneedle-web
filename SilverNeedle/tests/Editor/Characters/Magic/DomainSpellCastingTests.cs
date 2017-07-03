@@ -42,5 +42,14 @@ namespace Tests.Characters.Magic
             var sc = new DomainSpellCasting(new Inventory(), classLevel);
             Assert.That(sc.MaxLevel, Is.EqualTo(3));
         }
+
+        [Test]
+        public void IfCharacterLevelIs19Or20Just()
+        {
+            var classLevel = new ClassLevel(new Class());
+            classLevel.Level = 20;
+            var sc = new DomainSpellCasting(new Inventory(), classLevel);
+            Assert.That(sc.MaxLevel, Is.EqualTo(9));
+        }
     }
 }
