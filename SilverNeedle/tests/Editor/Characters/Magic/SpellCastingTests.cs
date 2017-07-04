@@ -116,6 +116,15 @@ namespace Tests.Characters.Magic
             Assert.DoesNotThrow(() => {sc.PrepareSpells(0, new string[] { }); });
         }
 
+        [Test]
+        public void AddingMoreSpellsToTheSpellCasterJustAppendsDoesNotReplace()
+        {
+            var sc = new SpellCasting(new Inventory(), new ClassLevel(new Class()), "wizard");
+            sc.AddSpells(0, new Spell[] { new Spell("cantrip1", "evocation"), new Spell("cantrip2", "evocation") });
+            sc.AddSpells(0, new Spell[] { new Spell("cantrip3", "evocation"), new Spell("cantrip4", "evocation") });
+            Assert.That(sc.GetAvailableSpells(0), Is.EquivalentTo(new string[] { "cantrip1", "cantrip2", "cantrip3", "cantrip4" }));
+        }
+
         public class CannotCastConjuration : ISpellCastingRule
         {
             public bool CanCastSpell(Spell spell)

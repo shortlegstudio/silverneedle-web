@@ -69,7 +69,14 @@ namespace SilverNeedle.Characters.Magic
         public void AddSpells(int level, Spell[] list)
         {
             ShortLog.DebugFormat("Adding Spells[{0}]: {1}", level.ToString(), list.ToString());
-            knownSpells[level] = list;
+            if(knownSpells.ContainsKey(level))
+            {
+                knownSpells[level] = knownSpells[level].Concat(list).ToArray();
+            }
+            else
+            {
+                knownSpells[level] = list;
+            }
         }
 
         public void SetSpellsPerDay(int level, int amount)
