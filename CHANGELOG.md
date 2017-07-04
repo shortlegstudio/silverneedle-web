@@ -3,12 +3,14 @@ All notable changes will be tracked in this file. Most likely.
 
 ## [Unreleased]
 ### Added
-- Added 3d6 Ability Score Generator
-- Added Point Buy Ability Score Generator
-- Added Ability to select generator via UI
-- Added Rogue Talents
-- Added Rogue Class
-- Added Criminal Build
+- Added 3d6 ability score generator
+- Added point buy ability score generator
+- Added ability to select generator via UI
+- Added rogue talents
+- Added rogue class
+- Added criminal build
+- Added cleric class
+- Added domain abilities and spells
 
 ### Changed
 - Layout of HTML has changed. It will provide better flexibility in long run but 
