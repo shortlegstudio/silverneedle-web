@@ -5,12 +5,35 @@
 
 namespace SilverNeedle.Characters.Domains
 {
+    using System;
+    using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Serialization;
-    public class Travel : Domain
+    using SilverNeedle.Utility;
+
+    public class Travel : Domain, IComponent, IImprovesWithLevels
     {
+        private ClassLevel source;
+        private AgileFeet agileFeet;
+        private DimensionalHop dimenHop;
         public Travel(IObjectStore data) : base(data)
         {
             
+        }
+
+        public void Initialize(ComponentBag components)
+        {
+            source = components.Get<ClassLevel>();
+            agileFeet = new AgileFeet(components.Get<AbilityScores>().GetAbility(AbilityScoreTypes.Wisdom));
+            components.Add(agileFeet);
+        }
+
+        public void LeveledUp(ComponentBag components)
+        {
+            if(source.Level == 8)
+            {
+                dimenHop = new DimensionalHop();
+                components.Add(dimenHop);
+            }
         }
     }
 }

@@ -22,7 +22,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
             configure.SetValue("count", "2");
             var selectDomains = new SelectDomains(configure);
 
-            var character = new CharacterSheet();
+            var character = Tests.Characters.CharacterSheetHelpers.CreateBlankStandardOGLSheet();
             selectDomains.Process(character, new CharacterBuildStrategy());
             var domains = character.GetAll<Domain>();
 
