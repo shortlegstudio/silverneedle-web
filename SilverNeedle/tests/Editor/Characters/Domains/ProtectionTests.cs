@@ -11,29 +11,29 @@ namespace Tests.Characters.Domains
     using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Serialization;
 
-    public class PlantTests : DomainTestBase<Plant>
+    public class ProtectionTests : DomainTestBase<Protection>
     {
         [SetUp]
         public void Configure()
         {
-            base.InitializeDomain("plant");
+            base.InitializeDomain("protection");
         }
 
         [Test]
-        public void WoodenFist()
+        public void ResistantTouch()
         {
-            var touch = character.Get<WoodenFist>();
+            var touch = character.Get<ResistantTouch>();
             Assert.That(touch, Is.Not.Null); 
             Assert.That(touch.UsesPerDay, Is.EqualTo(6));
         }
 
         [Test]
-        public void BrambleArmor()
+        public void AuraOfProtection()
         {
-            character.SetLevel(6);
+            character.SetLevel(8);
             domain.LeveledUp(character.Components);
-            var armor = character.Get<BrambleArmor>();
-            Assert.That(armor, Is.Not.Null); 
+            var aura = character.Get<AuraOfProtection>();
+            Assert.That(aura, Is.Not.Null); 
         }
     }
 }
