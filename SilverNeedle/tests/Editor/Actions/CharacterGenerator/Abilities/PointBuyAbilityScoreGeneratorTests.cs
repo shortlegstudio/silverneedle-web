@@ -14,11 +14,9 @@ namespace Tests.Actions.CharacterGenerator.Abilities
     public class PointBuyAbilityScoreGeneratorTests
     {
         [Test]
+        [Repeat(100)]
         public void FifteenGeneratorSpendsAllPointsPossibleToCreateScores()
         {
-            
-            var data = new MemoryStore();
-            data.SetValue("points", 15);
             var gen = new FifteenPointBuy();
             var scores = gen.GetScores();
             var costTotal = 0;
@@ -36,16 +34,16 @@ namespace Tests.Actions.CharacterGenerator.Abilities
         }
 
         [Test]
+        [Repeat(100)]
         public void TwentyPointGeneratorSpendsAllPointsPossibleToCreateScores()
         {
             
-            var data = new MemoryStore();
-            data.SetValue("points", 15);
             var gen = new TwentyPointBuy();
             var scores = gen.GetScores();
             var costTotal = 0;
 
-            Assert.That(scores.Count, Is.EqualTo(6));
+            string scoreString = string.Join(",", scores);
+            Assert.That(scores.Count, Is.EqualTo(6), "Not correct number of scores: " + scoreString);
             
             foreach(var s in scores)
             {
@@ -56,13 +54,21 @@ namespace Tests.Actions.CharacterGenerator.Abilities
             Assert.That(scores, Has.Some.LessThan(10));
             Assert.That(costTotal, Is.EqualTo(20));
         }
+
+        [Test]
+        [Repeat(100)]
+        public void TwentyPointGeneratorOnlyHasASingleScoreBelowTen()
+        {
+
+            var gen = new TwentyPointBuy();
+            var scores = gen.GetScores();
+            Assert.That(scores, Has.Exactly(1).LessThan(10));
+        }
         
         [Test]
+        [Repeat(100)]
         public void TenGeneratorSpendsAllPointsPossibleToCreateScores()
         {
-            
-            var data = new MemoryStore();
-            data.SetValue("points", 15);
             var gen = new TenPointBuy();
             var scores = gen.GetScores();
             var costTotal = 0;

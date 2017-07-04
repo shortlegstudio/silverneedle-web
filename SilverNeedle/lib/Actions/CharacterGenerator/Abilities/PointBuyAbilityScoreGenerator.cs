@@ -13,9 +13,11 @@ namespace SilverNeedle.Actions.CharacterGenerator.Abilities
     {
         public AbilityScoreCosts PointCosts { get; private set; }
         public abstract int Points { get; }
+        public int MaxDumpStats { get; set; }
 
         public PointBuyAbilityScoreGenerator()
         {
+            MaxDumpStats = 3;
             PointCosts = GatewayProvider.Find<AbilityScoreCosts>("standard");
         }
 
@@ -26,7 +28,7 @@ namespace SilverNeedle.Actions.CharacterGenerator.Abilities
 
             List<int> scores = new List<int>();
             // First Identify whether to have zero, one or two stats as dumps
-            int dumps = Randomly.Range(1, 3);
+            int dumps = Randomly.Range(1, this.MaxDumpStats);
             for(int i = 0; i < dumps; i++)
             {
                 var select = this.PointCosts.NegativeCosts().ChooseOne();
@@ -68,6 +70,10 @@ namespace SilverNeedle.Actions.CharacterGenerator.Abilities
     }
     public class TwentyPointBuy : PointBuyAbilityScoreGenerator
     {
+        public TwentyPointBuy() : base()
+        {
+            MaxDumpStats = 1;
+        }
         public override int Points { get { return 20; } }
     }
 }
