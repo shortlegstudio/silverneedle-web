@@ -745,6 +745,9 @@
       modifier: 2
       type: bonus
 - feat:
+  name: Leadership
+  description: You attract followers to your cause.
+- feat:
   name: Lighting Reflexes
   description: You have faster reflexes than normal.
   modifiers:
