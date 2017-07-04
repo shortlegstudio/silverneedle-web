@@ -22,8 +22,7 @@ namespace Tests.Characters.Domains
             data.SetValue("name", name);
             domain = typeof(T).Instantiate<T>(data);
 
-            character = new CharacterSheet();
-            character.InitializeComponents();
+            character = CharacterSheetHelpers.CreateBlankStandardOGLSheet();
             var Class = new Class("cleric");
             character.SetClass(Class);
             character.AbilityScores.SetScore(AbilityScoreTypes.Wisdom, 16);

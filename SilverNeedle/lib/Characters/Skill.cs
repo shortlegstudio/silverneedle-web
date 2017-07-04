@@ -91,5 +91,10 @@ namespace SilverNeedle.Characters
         {
             return Name.EqualsIgnoreCase(name);
         }
+
+        public bool IsKnowledgeSkill
+        {
+            get { return this.Name.Contains("Knowledge"); }
+        }
     }
 }
