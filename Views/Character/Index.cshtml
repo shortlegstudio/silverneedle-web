@@ -75,12 +75,14 @@
 
 @section Scripts {
     <script lang="javascript">
+        var currentStrategy;
         $('select#strategy').change(function() {
             $.getJSON("@Url.Action("Strategy")", {"strategyName": $(this).val()}, function(data) {
                 $("#strategyName").text(data.name);
                 $('table#classes').bootstrapTable('load', data.classes.all );
                 $('table#skills').bootstrapTable('load', data.favoredSkills.all );
                 $('table#feats').bootstrapTable('load', data.favoredFeats.all );
+                currentStrategy = data;
             });
         });
         $(function() { 

@@ -11,7 +11,7 @@ namespace SilverNeedle.Equipment
     /// <summary>
     /// Armor is for protecting the character from damage
     /// </summary>
-    public class Armor : IGear, IGatewayObject
+    public class Armor : IArmor, IGatewayObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Equipment.Armor"/> class.
@@ -65,49 +65,49 @@ namespace SilverNeedle.Equipment
         /// Gets or sets the name.
         /// </summary>
         /// <value>The name of the armor.</value>
-        public string Name { get; set; }
+        public virtual string Name { get; set; }
 
         /// <summary>
         /// Gets or sets the weight.
         /// </summary>
         /// <value>The weight of the armor.</value>
-        public float Weight { get; set; }
+        public virtual float Weight { get; set; }
 
         /// <summary>
         /// Gets or sets the armor class.
         /// </summary>
         /// <value>The armor class of the armor.</value>
-        public int ArmorClass { get; set; }
+        public virtual int ArmorClass { get; set; }
 
         /// <summary>
         /// Gets or sets the maximum dexterity bonus.
         /// </summary>
         /// <value>The maximum dexterity bonus.</value>
-        public int MaximumDexterityBonus { get; set; }
+        public virtual int MaximumDexterityBonus { get; set; }
 
         /// <summary>
         /// Gets or sets the armor check penalty.
         /// </summary>
         /// <value>The armor check penalty.</value>
-        public int ArmorCheckPenalty { get; set; }
+        public virtual int ArmorCheckPenalty { get; set; }
 
         /// <summary>
         /// Gets or sets the arcane spell failure chance.
         /// </summary>
         /// <value>The arcane spell failure chance.</value>
-        public int ArcaneSpellFailureChance { get; set; }
+        public virtual int ArcaneSpellFailureChance { get; set; }
 
         /// <summary>
         /// Gets or sets the type of the armor.
         /// </summary>
         /// <value>The type of the armor.</value>
-        public ArmorType ArmorType { get; set; }
+        public virtual ArmorType ArmorType { get; set; }
 
-        public int Value { get; set; }
+        public virtual int Value { get; set; }
 
-        public bool GroupSimilar { get { return false; } }
+        public virtual bool GroupSimilar { get { return false; } }
         
-        public int MovementSpeedPenalty30 {
+        public virtual int MovementSpeedPenalty30 {
             get {
                 switch(ArmorType) {
                     case ArmorType.Medium:
@@ -119,7 +119,7 @@ namespace SilverNeedle.Equipment
             }
         }
 
-        public int MovementSpeedPenalty20 
+        public virtual int MovementSpeedPenalty20 
         {
             get {
                 switch(ArmorType) {
@@ -132,7 +132,7 @@ namespace SilverNeedle.Equipment
             }
         }
 
-        public bool Matches(string name)
+        public virtual bool Matches(string name)
         {
             return Name.EqualsIgnoreCase(name);
         }
