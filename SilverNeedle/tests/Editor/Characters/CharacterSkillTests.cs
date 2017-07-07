@@ -98,8 +98,10 @@ namespace Characters {
             var charSkill = new CharacterSkill (skill, ability, false);
 
             var oldVal = charSkill.Score();
-            ability.SetValue (16);
-            Assert.Greater (charSkill.Score(), oldVal);
+            var adjustment = new AbilityScoreAdjustment();
+            adjustment.Modifier = 6;
+            ability.AddModifier(adjustment);
+            Assert.That(charSkill.Score(), Is.GreaterThan(oldVal));
 
         }
 

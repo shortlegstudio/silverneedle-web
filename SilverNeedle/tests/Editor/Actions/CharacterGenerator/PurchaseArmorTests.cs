@@ -11,11 +11,12 @@ namespace Tests.Actions {
 	using SilverNeedle.Equipment;
 	using SilverNeedle.Characters;
 	using SilverNeedle.Serialization;
+    using SilverNeedle.Shops;
 
 	[TestFixture]
 	public class PurchaseArmorTests
 	{
-		EntityGateway<Armor> gateway;
+		ArmorShop armorShop;
 
         CharacterSheet proficientCharacter;
 
@@ -33,12 +34,12 @@ namespace Tests.Actions {
             plate.Name = "Full Plate";
 			armors.Add(plate);
 			
-            gateway = new EntityGateway<Armor>(armors);
+            armorShop = new ArmorShop(armors);
             proficientCharacter = new CharacterSheet();
             proficientCharacter.Defense.AddArmorProficiencies(new string[] {"light", "medium", "heavy", "shield"});
             incapableCharacter = new CharacterSheet();
 
-            subject = new PurchaseArmor(gateway);
+            subject = new PurchaseArmor(armorShop);
 		}
 
 		[Test]

@@ -46,7 +46,7 @@ namespace Tests.Characters {
             var inv = new Inventory();
             var armor = new Armor();
             inv.EquipItem(armor);
-            Assert.That(inv.Equipped<Armor>(), Is.EquivalentTo(new Armor[] { armor }));
+            Assert.That(inv.Equipped<IArmor>(), Is.EquivalentTo(new Armor[] { armor }));
         }
 
 		[Test]

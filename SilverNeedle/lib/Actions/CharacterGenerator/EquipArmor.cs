@@ -14,7 +14,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
     {
         public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
-            var armor = character.Inventory.GearOfType<Armor>();
+            var armor = character.Inventory.GearOfType<IArmor>();
             foreach(var a in armor)
             {
                 character.Inventory.EquipItem(a);

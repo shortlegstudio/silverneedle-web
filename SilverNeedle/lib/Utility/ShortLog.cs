@@ -6,6 +6,7 @@
 namespace SilverNeedle
 {
     using System;
+    using System.Linq;
     
     /// <summary>
     /// A wrapper class that provides management of logging output. 
@@ -66,11 +67,10 @@ namespace SilverNeedle
         /// </summary>
         /// <param name="format">Standard format to string</param>
         /// <param name="args">Arguments to be included in the format</param>
-        public static void DebugFormat(string format, params string[] args)
+        public static void DebugFormat(string format, params object[] args)
         {
-            WriteFormat(LogLevel.DEBUG, format, args);
+            WriteFormat(LogLevel.DEBUG, format, args.Select(x => x.ToString()).ToArray());
         }
-
         public static void WarnFormat(string format, params string[] args)
         {
             WriteFormat(LogLevel.WARN, format, args);

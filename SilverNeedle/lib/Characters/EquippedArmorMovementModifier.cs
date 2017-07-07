@@ -25,11 +25,11 @@ namespace SilverNeedle.Characters
         {
             if(movement.BaseMovement.BaseValue == 30)
             {
-                return inventory.Equipped<Armor>().Sum(x => x.MovementSpeedPenalty30);
+                return inventory.Equipped<IArmor>().Sum(x => x.MovementSpeedPenalty30);
             }
             else
             {
-                return inventory.Equipped<Armor>().Sum(x => x.MovementSpeedPenalty20);
+                return inventory.Equipped<IArmor>().Sum(x => x.MovementSpeedPenalty20);
             }
         }
     }

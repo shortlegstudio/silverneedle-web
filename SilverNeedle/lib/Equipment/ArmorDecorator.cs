@@ -27,6 +27,9 @@ namespace SilverNeedle.Equipment
 
         public bool GroupSimilar => baseArmor.GroupSimilar;
 
+        public int MovementSpeedPenalty20 => baseArmor.MovementSpeedPenalty20;
+        public int MovementSpeedPenalty30 => baseArmor.MovementSpeedPenalty30;
+
         public ArmorDecorator(IArmor baseArmor)
         {
             this.baseArmor = baseArmor;

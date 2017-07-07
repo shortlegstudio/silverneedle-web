@@ -20,7 +20,7 @@ namespace SilverNeedle.Characters
         {
             get
             {
-                var armors = inventory.Equipped<Armor>();
+                var armors = inventory.Equipped<IArmor>();
                 if (armors.Count() == 0)
                     return 10000;
                 return armors.Min(x => x.MaximumDexterityBonus);

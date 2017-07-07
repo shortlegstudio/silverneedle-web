@@ -20,7 +20,7 @@ namespace SilverNeedle.Characters
         /// <returns><c>true</c> if is proficient the specified proficiencies armor; otherwise, <c>false</c>.</returns>
         /// <param name="proficiencies">Proficiencies list</param>
         /// <param name="armor">Armor to find proficiency</param>
-        public static bool IsProficient(this IEnumerable<ArmorProficiency> proficiencies, Armor armor)
+        public static bool IsProficient(this IEnumerable<ArmorProficiency> proficiencies, IArmor armor)
         {
             return proficiencies.Any(x => x.IsProficient(armor));
         }
@@ -42,7 +42,7 @@ namespace SilverNeedle.Characters
         /// <returns>The proficient armors.</returns>
         /// <param name="armor">Armor list.</param>
         /// <param name="proficiencies">Proficiency list.</param>
-        public static IEnumerable<Armor> WhereProficient(this IEnumerable<Armor> armor, IEnumerable<ArmorProficiency> proficiencies)
+        public static IEnumerable<IArmor> WhereProficient(this IEnumerable<IArmor> armor, IEnumerable<ArmorProficiency> proficiencies)
         {
             return armor.Where(x => proficiencies.IsProficient(x));
         }

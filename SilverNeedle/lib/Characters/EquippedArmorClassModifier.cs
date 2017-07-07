@@ -23,7 +23,7 @@ namespace SilverNeedle.Characters
         {
             get
             {
-                var armor = inventory.Equipped<Armor>();
+                var armor = inventory.Equipped<IArmor>();
                 if (armor.Count() == 0)
                     return 0;
 

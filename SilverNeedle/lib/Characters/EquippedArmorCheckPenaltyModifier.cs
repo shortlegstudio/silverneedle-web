@@ -21,7 +21,7 @@ namespace SilverNeedle.Characters
 
         public float ArmorCheckPenalty()
         {
-            return inventory.Equipped<Armor>().Sum(x => x.ArmorCheckPenalty);
+            return inventory.Equipped<IArmor>().Sum(x => x.ArmorCheckPenalty);
         }
     }
 }

@@ -44,7 +44,7 @@ namespace SilverNeedle.Characters
         /// </summary>
         /// <returns><c>true</c> if this instance is proficient with the specified armor; otherwise, <c>false</c>.</returns>
         /// <param name="armor">Armor to check proficiency in.</param>
-        public bool IsProficient(Armor armor)
+        public bool IsProficient(IArmor armor)
         {
             if (this.isArmorType)
             {

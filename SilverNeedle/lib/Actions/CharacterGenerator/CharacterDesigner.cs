@@ -81,6 +81,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
         {
             foreach (var step in designSteps)
             {
+                ShortLog.DebugFormat("Executing Step: {0}", step);
                 step.Process(character, strategy);
             }
         }

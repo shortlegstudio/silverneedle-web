@@ -58,12 +58,12 @@ namespace SilverNeedle.Characters
         /// Gets all of the armor
         /// </summary>
         /// <value>The armor.</value>
-        public IEnumerable<Armor> Armor 
+        public IEnumerable<IArmor> Armor 
         { 
             get 
             { 
                 
-                return this.gear.Select(x => x.ReferenceObject).OfType<Armor>(); 
+                return this.gear.Select(x => x.ReferenceObject).OfType<IArmor>(); 
             } 
         }
 
@@ -118,8 +118,10 @@ namespace SilverNeedle.Characters
         public IEnumerable<T> Equipped<T>() where T : IGear
         {
             return this.gear
-                .Where(x => x.IsEquipped && x.ReferenceObject.GetType() == typeof(T))
-                .Select(x => (T)x.ReferenceObject);
+                .Where(x => 
+                    x.IsEquipped && 
+                    x.ReferenceObject is T
+                ).Select(x => (T)x.ReferenceObject);
         }
 
         /// <summary>

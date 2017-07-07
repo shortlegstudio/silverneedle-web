@@ -11,6 +11,8 @@ namespace SilverNeedle.Equipment
         int MaximumDexterityBonus { get; }
         int ArmorCheckPenalty { get; }
         int ArcaneSpellFailureChance { get; }
+        int MovementSpeedPenalty20 { get; }
+        int MovementSpeedPenalty30 { get; }
         ArmorType ArmorType { get; }
     }
 }

@@ -5,35 +5,28 @@
 
 namespace SilverNeedle.Actions.CharacterGenerator
 {
+    using System.Collections.Generic;
     using System.Linq;
     using SilverNeedle;
     using SilverNeedle.Characters;
     using SilverNeedle.Equipment;
     using SilverNeedle.Serialization;
+    using SilverNeedle.Shops;
     
     /// <summary>
     /// Purchase initial armor for a character
     /// </summary>
     public class PurchaseArmor : ICharacterDesignStep
     {
-        /// <summary>
-        /// The armors available
-        /// </summary>
-        private EntityGateway<Armor> armors;
-
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="SilverNeedle.Actions.CharacterGenerator.PurchaseArmor"/> class.
-        /// </summary>
-        /// <param name="armorRepo">Armor gateway to load from.</param>
-        public PurchaseArmor(EntityGateway<Armor> armorRepo)
-        {
-            this.armors = armorRepo;
-        }
-
+        private ArmorShop armorShop;
         public PurchaseArmor()
         {
-            this.armors = GatewayProvider.Get<Armor>();
+            armorShop = new ArmorShop();
+        }
+
+        public PurchaseArmor(ArmorShop armorShop)
+        {
+            this.armorShop = armorShop;
         }
 
         public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
@@ -44,7 +37,7 @@ namespace SilverNeedle.Actions.CharacterGenerator
                 ArmorType.Medium,
                 ArmorType.Heavy
             };
-            var armors = this.armors.Where(armor => 
+            var armors = this.armorShop.GetInventory<IArmor>().Where(armor => 
                 validArmors.Any(x => x == armor.ArmorType) &&
                 character.Defense.IsProficient(armor) &&
                 character.Inventory.CoinPurse.CanAfford(armor)

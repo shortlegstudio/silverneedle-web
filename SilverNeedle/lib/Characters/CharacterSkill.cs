@@ -113,7 +113,7 @@ namespace SilverNeedle.Characters
                 return int.MinValue;
             }
 
-            var val = this.baseAbilityScore.BaseModifier;
+            var val = this.baseAbilityScore.TotalModifier;
 
             // Class Skill
             if (this.Ranks > 0 && this.ClassSkill)
