@@ -11,6 +11,8 @@ All notable changes will be tracked in this file. Most likely.
 - Added criminal build
 - Added cleric class
 - Added domain abilities and spells
+- Added masterwork armor and weapons
+- Added concept of "shops" they are limited right now but room to grow 
 
 ### Changed
 - Layout of HTML has changed. It will provide better flexibility in long run but 
