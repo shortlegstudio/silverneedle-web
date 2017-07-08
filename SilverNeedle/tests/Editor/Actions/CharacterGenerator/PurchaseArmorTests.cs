@@ -80,6 +80,15 @@ namespace Tests.Actions {
             Assert.That(proficientCharacter.Inventory.Armor, Has.Exactly(0).EqualTo(plate));
 
         }
+
+        [Test]
+        public void QuantityShouldBeOne()
+        {
+            subject.Process (proficientCharacter, new CharacterBuildStrategy());
+            Assert.That (proficientCharacter.Inventory.Armor, Has.Exactly(1).EqualTo(plate));
+            var armorPossession = proficientCharacter.Inventory.Find(plate);
+            Assert.That(armorPossession.Quantity, Is.EqualTo(1));
+        }
     }
 }
 

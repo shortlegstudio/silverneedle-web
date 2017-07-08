@@ -11,7 +11,7 @@ namespace SilverNeedle.Equipment
     /// <summary>
     /// Represents a weapon 
     /// </summary>
-    public class Weapon : IGear, IGatewayObject
+    public class Weapon : IWeapon, IGatewayObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Equipment.Weapon"/> class.
@@ -140,6 +140,8 @@ namespace SilverNeedle.Equipment
         public int Value { get; set; }
 
         public bool GroupSimilar { get { return false; } }
+
+        public int AttackModifier { get; set; }
 
         /// <summary>
         /// Gets a value indicating whether this instance is ranged.
