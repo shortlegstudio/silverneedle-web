@@ -11,11 +11,12 @@ namespace Tests.Actions {
     using SilverNeedle.Characters;
     using SilverNeedle.Equipment;
     using SilverNeedle.Serialization;
+    using SilverNeedle.Shops;
     
-	[TestFixture]
-	public class PurchaseRangedWeaponTests 
+    [TestFixture]
+    public class PurchaseRangedWeaponTests 
     {
-        EntityGateway<Weapon> gateway;
+        WeaponShop shop;
         CharacterSheet character;
         PurchaseRangedWeapon subject;
 
@@ -32,6 +33,7 @@ namespace Tests.Actions {
                 DamageTypes.Piercing, 20, 2, 0, 
                 WeaponType.Ranged, WeaponGroup.Bows, 
                 WeaponTrainingLevel.Martial);
+            wpn2.Value = 3000;
             var wpn3 = new Weapon ("Never Pick", 0, "1d6", 
                 DamageTypes.Piercing, 20, 2, 0, 
                 WeaponType.Ranged, WeaponGroup.Bows, 
@@ -39,47 +41,47 @@ namespace Tests.Actions {
             weapons.Add (wpn1);
             weapons.Add (wpn2);
             weapons.Add (wpn3);
-            gateway = new EntityGateway<Weapon>(weapons);
+            shop = new WeaponShop(weapons);
 
-            subject = new PurchaseRangedWeapon (gateway);
+            subject = new PurchaseRangedWeapon (shop);
 
             var proficiencies = new string[] { "simple", "martial" };
             character = new CharacterSheet();                
+            character.Inventory.CoinPurse.SetValue(30000);
             character.Offense.AddWeaponProficiencies(proficiencies);
         }
 
-		[Test]
-		public void CharactersGetARangedAndMeleeWeaponTheyAreProficientIn() {
-			//Bad test, but good enough for now
-			for (int i = 0; i < 1000; i++) {
-                var action = new PurchaseRangedWeapon (gateway);
-				var proficiencies = new string[] { "simple", "martial" };
-                var character = new CharacterSheet();
+        [Test]
+        [Repeat(1000)]
+        public void CharactersGetARangedAndMeleeWeaponTheyAreProficientIn() {
+            //Bad test, but good enough for now
+            var action = new PurchaseRangedWeapon (shop);
+            var proficiencies = new string[] { "simple", "martial" };
+            var character = new CharacterSheet();
+            character.Inventory.CoinPurse.SetValue(30000);
                 
-                character.Offense.AddWeaponProficiencies(proficiencies);
-                action.Process(character, new CharacterBuildStrategy());
-				Assert.AreEqual(character.Inventory.Weapons.Count (), 1);
-				Assert.IsTrue(character.Inventory.Weapons.Any (x => x.Type == WeaponType.Ranged));
-				Assert.IsFalse(character.Inventory.Weapons.Any (x => x.Type != WeaponType.Ranged));
-				Assert.IsFalse(character.Inventory.Weapons.Any(x => x.Level == WeaponTrainingLevel.Exotic));
-			}
-		}
+            character.Offense.AddWeaponProficiencies(proficiencies);
+            action.Process(character, new CharacterBuildStrategy());
+            Assert.AreEqual(character.Inventory.Weapons.Count (), 1);
+            Assert.IsTrue(character.Inventory.Weapons.Any (x => x.Type == WeaponType.Ranged));
+            Assert.IsFalse(character.Inventory.Weapons.Any (x => x.Type != WeaponType.Ranged));
+            Assert.IsFalse(character.Inventory.Weapons.Any(x => x.Level == WeaponTrainingLevel.Exotic));
+        }
 
         [Test]
         public void IfNoAppropriateItemsAreFoundAssignNothing()
         {
-            var action = new PurchaseRangedWeapon (gateway);
+            var action = new PurchaseRangedWeapon (shop);
             var character = new CharacterSheet();
+            character.Inventory.CoinPurse.SetValue(30000);
             //With no specification nothing should match
-			action.Process(character, new CharacterBuildStrategy());
+            action.Process(character, new CharacterBuildStrategy());
             Assert.IsEmpty(character.Inventory.Weapons);
         }
 
          [Test]
         public void AvoidTryingToBuyWeaponsIfBroke()
         {
-            var bow = gateway.Find("Bow");
-            bow.Value = 3000;
             character.Inventory.CoinPurse.SetValue(2999); // Not Enough :'(
             subject.Process(character, new CharacterBuildStrategy());
             Assert.AreEqual(2999, character.Inventory.CoinPurse.Value);
@@ -89,12 +91,9 @@ namespace Tests.Actions {
         [Test]
         public void PurchasingARangedWeaponSpendsMoney()
         {
-            var bow = gateway.Find("bow");
-            bow.Value = 3000;
-            character.Inventory.CoinPurse.SetValue(30000);
             subject.Process(character, new CharacterBuildStrategy());
             Assert.AreEqual(27000, character.Inventory.CoinPurse.Value);
         }
 
-	}
+    }
 }

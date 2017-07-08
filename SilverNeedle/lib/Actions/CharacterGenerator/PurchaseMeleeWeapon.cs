@@ -6,39 +6,38 @@
 
 namespace SilverNeedle.Actions.CharacterGenerator
 {
+    using System.Linq;
     using SilverNeedle;
     using SilverNeedle.Characters;
     using SilverNeedle.Equipment;
     using SilverNeedle.Serialization;
+    using SilverNeedle.Shops;
 
     /// <summary>
     /// Equip melee and ranged weapon selects the weapons for this character to prepare (and purchase)
     /// </summary>
     public class PurchaseMeleeWeapon : ICharacterDesignStep
     {
-        /// <summary>
-        /// The weapon gateway.
-        /// </summary>
-        private EntityGateway<Weapon> weaponGateway;
+        private WeaponShop shop;
 
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="SilverNeedle.Actions.CharacterGenerator.PurchaseMeleeWeapon"/> class.
         /// </summary>
         /// <param name="weapons">Weapons available for purchase</param>
-        public PurchaseMeleeWeapon(EntityGateway<Weapon> weapons)
+        public PurchaseMeleeWeapon(WeaponShop shop)
         {
-            this.weaponGateway = weapons;
+            this.shop = shop;
         }
 
         public PurchaseMeleeWeapon()
         {
-            this.weaponGateway = GatewayProvider.Get<Weapon>();
+            this.shop = new WeaponShop();
         }
 
         public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
-            var validWeapons = this.weaponGateway.Where(
+            var validWeapons = this.shop.GetInventory<IWeapon>().Where(
                 weapon => 
                 character.Offense.IsProficient(weapon) &&
                 weapon.Type != WeaponType.Ranged &&

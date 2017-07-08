@@ -12,49 +12,32 @@ namespace SilverNeedle.Actions.CharacterGenerator
     using SilverNeedle.Characters;
     using SilverNeedle.Equipment;
     using SilverNeedle.Serialization;
+    using SilverNeedle.Shops;
 
     /// <summary>
     /// Equip melee and ranged weapon selects the weapons for this character to prepare (and purchase)
     /// </summary>
     public class PurchaseRangedWeapon : ICharacterDesignStep
     {
-        /// <summary>
-        /// The weapon gateway.
-        /// </summary>
-        private EntityGateway<Weapon> weaponGateway;
+        private WeaponShop shop;
 
         /// <summary>
         /// Initializes a new instance of the
         /// <see cref="SilverNeedle.Actions.CharacterGenerator.PurchaseRangedWeapon"/> class.
         /// </summary>
         /// <param name="weapons">Weapons available for purchase</param>
-        public PurchaseRangedWeapon(EntityGateway<Weapon> weapons)
+        public PurchaseRangedWeapon(WeaponShop shop)
         {
-            this.weaponGateway = weapons;
+            this.shop = shop;
         }
 
         public PurchaseRangedWeapon()
         {
-            this.weaponGateway = GatewayProvider.Get<Weapon>();
+            this.shop = new WeaponShop();
         }
-
-        /// <summary>
-        /// Assigns the weapons.
-        /// </summary>
-        /// <param name="inv">Inventory to assign to.</param>
-        /// <param name="proficiencies">Proficiencies for this character.</param>
-        public void AssignWeapons(Inventory inv, IEnumerable<WeaponProficiency> proficiencies)
-        {
-            var melee = this.weaponGateway.FindByProficient(proficiencies).Where(x => x.Type != WeaponType.Ranged).ToList();
-            
-            if(melee.HasChoices())
-                inv.AddGear(melee.ChooseOne());
-            
-        }
-
         public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
-            var ranged = this.weaponGateway.Where(weapon =>
+            var ranged = this.shop.GetInventory<IWeapon>().Where(weapon =>
                 character.Offense.IsProficient(weapon) &&
                 weapon.Type == WeaponType.Ranged &&
                 character.Inventory.CoinPurse.CanAfford(weapon));

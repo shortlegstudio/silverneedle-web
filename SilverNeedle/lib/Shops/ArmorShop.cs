@@ -10,21 +10,8 @@ namespace SilverNeedle.Shops
     using System.Linq;
     using SilverNeedle.Equipment;
     using SilverNeedle.Serialization;
-    public class ArmorShop
+    public class ArmorShop : Shop
     {
-        public IEnumerable<IGear> GetInventory()
-        {
-            return inventory;
-        }
-
-        public IEnumerable<T> GetInventory<T>()
-        {
-            ShortLog.DebugFormat("Searching shop for {0} type.", typeof(T).FullName);
-            var found = inventory.OfType<T>();
-            ShortLog.DebugFormat("Found {0} items out of {1}.", found.Count(), inventory.Count());
-            return found;
-        }
-
         public ArmorShop()
         {
             StockShop();
@@ -34,8 +21,6 @@ namespace SilverNeedle.Shops
         {
             StockShop(available);
         }
-
-        private List<IGear> inventory = new List<IGear>();
 
         private void StockShop()
         {
