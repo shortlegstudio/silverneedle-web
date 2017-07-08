@@ -261,6 +261,10 @@ namespace SilverNeedle.Characters
             return attacks;
         }
 
+        public AttackStatistic GetAttack(IWeapon weapon)
+        {
+            return Attacks().First(x => x.Weapon == weapon);
+        }
         public void LevelUp(Class characterClass)
         {
             BaseAttackBonus.AddModifier(new ValueStatModifier(characterClass.BaseAttackBonusRate, string.Format("{0} Level", characterClass.Name)));            
@@ -278,7 +282,7 @@ namespace SilverNeedle.Characters
             atk.Name = weapon.Name;
             atk.Weapon = weapon;
             atk.Damage = DiceStrings.ParseDice(DamageTables.ConvertDamageBySize(weapon.Damage, this.Size.Size));
-            atk.AttackBonus = this.MeleeAttackBonus.TotalValue;
+            atk.AttackBonus = this.MeleeAttackBonus.TotalValue + weapon.AttackModifier;
             atk.CriticalModifier = weapon.CriticalModifier;
             
             // Figure out to apply damage modifier

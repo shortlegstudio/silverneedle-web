@@ -209,6 +209,18 @@ namespace Tests.Characters {
             Assert.That(smallStats.Attacks(), Contains.Item(attack));
         }
 
+        [Test]
+        public void MasterworkWeaponsProvideImprovedAttackBonus()
+        {
+            var mwkLongsword = new MasterworkWeapon(Longsword());
+            inventory.AddGear(mwkLongsword);
+            smallStats.AddWeaponProficiency("martial");
+
+            var atk = smallStats.GetAttack(mwkLongsword);
+            // Small Size (1) + Str16 (3) + Mwk (1)
+            Assert.That(atk.AttackBonus, Is.EqualTo(5));
+        }
+
         private Weapon Longsword() {
             return new Weapon("Longsword", 0, "1d8", DamageTypes.Slashing, 19, 2, 0, WeaponType.OneHanded, WeaponGroup.HeavyBlades, WeaponTrainingLevel.Martial);
         }
