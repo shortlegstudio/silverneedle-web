@@ -33,6 +33,9 @@ namespace SilverNeedle.Equipment
         public virtual int AttackModifier => baseWeapon.AttackModifier;
 
         public virtual WeaponGroup Group => baseWeapon.Group;
+        public virtual string ProficiencyName => baseWeapon.ProficiencyName;
+        public virtual bool IsRanged => baseWeapon.IsRanged;
+        public virtual bool IsMelee => baseWeapon.IsMelee;
 
         public WeaponDecorator(IWeapon reference)
         {

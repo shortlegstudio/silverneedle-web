@@ -46,11 +46,11 @@ namespace SilverNeedle.Characters
         /// Gets all of the weapons 
         /// </summary>
         /// <value>The weapons.</value>
-        public IEnumerable<Weapon> Weapons 
+        public IEnumerable<IWeapon> Weapons 
         { 
             get 
             { 
-                return this.gear.Select(x => x.ReferenceObject).OfType<Weapon>(); 
+                return this.gear.Select(x => x.ReferenceObject).OfType<IWeapon>(); 
             } 
         }
 

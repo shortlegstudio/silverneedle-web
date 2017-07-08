@@ -22,7 +22,7 @@ namespace SilverNeedle.Characters
         /// Gets or sets the weapon.
         /// </summary>
         /// <value>The weapon.</value>
-        public virtual Weapon Weapon { get; set; }
+        public virtual IWeapon Weapon { get; set; }
 
         /// <summary>
         /// Gets or sets the damage.

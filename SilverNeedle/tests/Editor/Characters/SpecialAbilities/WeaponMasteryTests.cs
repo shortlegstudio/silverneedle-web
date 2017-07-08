@@ -26,5 +26,19 @@ namespace Tests.Characters.SpecialAbilities
             master.Initialize(components);
             Assert.That(offStats.WeaponModifiers, Contains.Item(master.WeaponCriticalDamageBonus));
         }
+
+        [Test]
+        public void WorksWithMasterworkVersionsOfWeapons()
+        {
+            var offStats = new OffenseStats();
+            var components = new ComponentBag();
+            components.Add(offStats);
+            var weapon = new Weapon();
+            var master = new WeaponMastery(weapon);
+            var masterworkWeapon = new MasterworkWeapon(weapon);
+            master.Initialize(components);
+            Assert.That(offStats.WeaponModifiers, Contains.Item(master.WeaponCriticalDamageBonus));
+            Assert.That(master.WeaponCriticalDamageBonus.WeaponQualifies(masterworkWeapon));
+        }
     }
 }

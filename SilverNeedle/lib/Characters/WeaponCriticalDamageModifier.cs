@@ -11,13 +11,13 @@ namespace SilverNeedle.Characters
     public class WeaponCriticalDamageModifier : IStatModifier, IWeaponModifier
     {
 
-        public WeaponCriticalDamageModifier(string reason, float modifier, Func<Weapon, bool> qualify)
+        public WeaponCriticalDamageModifier(string reason, float modifier, Func<IWeapon, bool> qualify)
         {
             this.Reason = reason;
             this.Modifier = modifier;
             this.WeaponQualifies = qualify;
         }
-        public Func<Weapon, bool> WeaponQualifies { get; private set; }
+        public Func<IWeapon, bool> WeaponQualifies { get; private set; }
 
         public float Modifier { get; set; }
 

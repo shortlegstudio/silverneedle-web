@@ -29,7 +29,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
             );
         }
 
-        Func<Weapon, bool> QualifyCheck;
+        Func<IWeapon, bool> QualifyCheck;
         public WeaponGroup Group { get; private set; }
         public int Level { get; private set; }
 

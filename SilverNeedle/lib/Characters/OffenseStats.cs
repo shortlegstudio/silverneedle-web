@@ -222,7 +222,7 @@ namespace SilverNeedle.Characters
         /// </summary>
         /// <returns><c>true</c> if this instance is proficient in the specified weapon; otherwise, <c>false</c>.</returns>
         /// <param name="weapon">Weapon to check.</param>
-        public bool IsProficient(Weapon weapon)
+        public bool IsProficient(IWeapon weapon)
         {
             return this.WeaponProficiencies.IsProficient(weapon);
         }
@@ -271,7 +271,7 @@ namespace SilverNeedle.Characters
             this.customAttacks.Add(newAttack);
         }
 
-        private AttackStatistic CreateAttack(AttackTypes attackType, Weapon weapon) 
+        private AttackStatistic CreateAttack(AttackTypes attackType, IWeapon weapon) 
         {
             var atk = new AttackStatistic();
             atk.AttackType = attackType;

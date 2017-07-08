@@ -17,5 +17,8 @@ namespace SilverNeedle.Equipment
         int AttackModifier { get; }
 
         WeaponGroup Group { get; }
+        string ProficiencyName { get; }
+        bool IsRanged { get; }
+        bool IsMelee { get; }
     }
 }

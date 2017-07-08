@@ -18,14 +18,14 @@ namespace SilverNeedle.Characters
 
         public string StatisticName { get { return "Weapon Attack"; } }
 
-        public WeaponAttackModifier(string reason, float modifier, Func<Weapon, bool> weaponQualifies)
+        public WeaponAttackModifier(string reason, float modifier, Func<IWeapon, bool> weaponQualifies)
         {
             this.Modifier = modifier;
             this.Reason = reason;
             this.WeaponQualifies = weaponQualifies;
         }
 
-        public Func<Weapon, bool> WeaponQualifies { get; private set; }
+        public Func<IWeapon, bool> WeaponQualifies { get; private set; }
 
         public void ApplyModifier(AttackStatistic attack)
         {

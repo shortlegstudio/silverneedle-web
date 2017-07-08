@@ -14,7 +14,7 @@ namespace SilverNeedle.Actions.CharacterGenerator.CustomClassSteps
         {
             // Select a simple weapon
             var choice = GatewayProvider.Get<Weapon>().SimpleWeapons().ChooseOne();
-            character.Offense.AddWeaponProficiency(choice.Name);
+            character.Offense.AddWeaponProficiency(choice.ProficiencyName);
         }
     }
 }

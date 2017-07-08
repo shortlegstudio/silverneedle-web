@@ -143,6 +143,8 @@ namespace SilverNeedle.Equipment
 
         public int AttackModifier { get; set; }
 
+        public string ProficiencyName { get { return Name; } }
+
         /// <summary>
         /// Gets a value indicating whether this instance is ranged.
         /// </summary>
