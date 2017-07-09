@@ -7,6 +7,7 @@ namespace SilverNeedle.Characters
 {
     using SilverNeedle.Dice;
     using SilverNeedle.Equipment;
+    using SilverNeedle.Utility;
     /// <summary>
     /// Attack statistics for offense
     /// </summary>

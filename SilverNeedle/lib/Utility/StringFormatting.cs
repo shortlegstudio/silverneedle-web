@@ -4,13 +4,14 @@
 // </copyright>
 //-----------------------------------------------------------------------
 
-namespace SilverNeedle.Characters
+namespace SilverNeedle.Utility
 {
+    using SilverNeedle.Characters;
     /// <summary>
     /// Character string formatting provides functionality to make nicer strings for character 
     /// sheet display
     /// </summary>
-    public static class CharacterStringFormatting
+    public static class StringFormatting
     {
         /// <summary>
         /// Shortens the CharacterAlignment string into standard 2 character format

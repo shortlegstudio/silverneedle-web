@@ -10,6 +10,7 @@ namespace SilverNeedle
     using System.Linq;
     using System.Text;
     using SilverNeedle.Characters;
+    using SilverNeedle.Utility;
 
     /// <summary>
     /// Represents any kind of character stat that can be a pure number. It allows

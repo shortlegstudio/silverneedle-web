@@ -1,0 +1,21 @@
+--- !<SilverNeedle.Equipment.MagicWeaponValue>
+- modifier: 1
+  value: 2000gp
+- modifier: 2
+  value: 8000gp
+- modifier: 3
+  value: 18000gp
+- modifier: 4
+  value: 32000gp
+- modifier: 5
+  value: 50000gp
+- modifier: 6
+  value: 72000gp
+- modifier: 7
+  value: 98000gp
+- modifier: 8
+  value: 128000gp
+- modifier: 9
+  value: 162000gp
+- modifier: 10
+  value: 200000gp

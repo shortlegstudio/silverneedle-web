@@ -17,11 +17,10 @@ namespace Tests.Equipment
             var longsword = new Weapon("Longsword", 10, "1d8", DamageTypes.Slashing, 
                 20, 2, 0, WeaponType.OneHanded, WeaponGroup.HeavyBlades, 
                 WeaponTrainingLevel.Martial);
-            longsword.Value = 20;
             var mwkLongsword = new MasterworkWeapon(longsword);
             Assert.That(mwkLongsword.Name, Is.EqualTo("Masterwork Longsword"));
             Assert.That(mwkLongsword.AttackModifier, Is.EqualTo(1));
-            Assert.That(mwkLongsword.Value, Is.EqualTo(320));
+            Assert.That(mwkLongsword.Value, Is.EqualTo(30000)); // Value is copper Based
         }
 
         [Test]
@@ -30,10 +29,9 @@ namespace Tests.Equipment
             var doubleAxe = new Weapon("Double Axe", 10, "1d8", DamageTypes.Slashing, 
                 20, 2, 0, WeaponType.TwoHanded, WeaponGroup.Double, 
                 WeaponTrainingLevel.Martial);
-            doubleAxe.Value = 20;
             var mwkDoubleAxe = new MasterworkWeapon(doubleAxe);
             Assert.That(mwkDoubleAxe.AttackModifier, Is.EqualTo(1));
-            Assert.That(mwkDoubleAxe.Value, Is.EqualTo(620));
+            Assert.That(mwkDoubleAxe.Value, Is.EqualTo(60000)); //Value is copper based
         }
     }
 }

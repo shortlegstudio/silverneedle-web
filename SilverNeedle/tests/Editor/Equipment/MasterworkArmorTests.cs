@@ -15,11 +15,10 @@ namespace Tests.Equipment
         public void MasterworkArmorDecreasesArmorCheckPenaltyByOneAndIncreasesValue()
         {
             var armor = new Armor("Chainmail", 8, 58, 3, -5, 20, ArmorType.Medium);
-            armor.Value = 50;
             var mwkChainmail = new MasterworkArmor(armor);
             Assert.That(mwkChainmail.Name, Is.EqualTo("Masterwork Chainmail"));
             Assert.That(mwkChainmail.ArmorCheckPenalty, Is.EqualTo(-4));
-            Assert.That(mwkChainmail.Value, Is.EqualTo(200));
+            Assert.That(mwkChainmail.Value, Is.EqualTo(15000));
         }
     }
 }

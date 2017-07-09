@@ -11,7 +11,7 @@ namespace SilverNeedle.Equipment
         {
             this.NamePreface = "Masterwork";
             this.ArmorCheckPenaltyModifier = 1;
-            this.AdditionalValue = 150;
+            this.AdditionalValue = 15000;
         }
     }
 }

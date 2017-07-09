@@ -22,8 +22,8 @@ namespace SilverNeedle.Equipment
             get 
             { 
                 if(this.Group == WeaponGroup.Double)
-                    return 600 + base.Value; 
-                return 300 + base.Value; 
+                    return 60000 + base.Value; 
+                return 30000 + base.Value; 
             }
         }
 

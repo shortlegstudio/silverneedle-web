@@ -7,6 +7,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 {
     using System.Collections.Generic;
     using SilverNeedle.Maps;
+    using SilverNeedle.Utility;
     public class FavoredTerrain : SpecialAbility
     {
         private IDictionary<TerrainType, int> terrains;

@@ -5,12 +5,13 @@
 
 namespace SilverNeedle.Characters
 {
+    using System.Collections.Generic;
+    using System.Linq;
     using SilverNeedle;
     using SilverNeedle.Spells;
     using SilverNeedle.Characters.Magic;
     using SilverNeedle.Characters.Personalities;
-    using System.Collections.Generic;
-    using System.Linq;
+    using SilverNeedle.Utility;
     
     public class CharacterSheetTextView
     {

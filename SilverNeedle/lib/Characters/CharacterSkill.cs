@@ -8,6 +8,7 @@ namespace SilverNeedle.Characters
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
+    using SilverNeedle.Utility;
 
     /// <summary>
     /// Character skills represent the character's ability in a specific skill set. This tracks
