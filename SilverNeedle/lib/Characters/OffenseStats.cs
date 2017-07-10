@@ -282,13 +282,18 @@ namespace SilverNeedle.Characters
             atk.Name = weapon.Name;
             atk.Weapon = weapon;
             atk.Damage = DiceStrings.ParseDice(DamageTables.ConvertDamageBySize(weapon.Damage, this.Size.Size));
-            atk.AttackBonus = this.MeleeAttackBonus.TotalValue + weapon.AttackModifier;
+            atk.AttackBonus = weapon.AttackModifier;
             atk.CriticalModifier = weapon.CriticalModifier;
             
             // Figure out to apply damage modifier
             if (attackType == AttackTypes.Melee)
             {
                 atk.Damage.Modifier = AbilityScores.GetModifier(AbilityScoreTypes.Strength);
+                atk.AttackBonus += this.MeleeAttackBonus.TotalValue;
+            }
+            else if(attackType == AttackTypes.Ranged)
+            {
+                atk.AttackBonus += this.RangeAttackBonus.TotalValue;
             }
             
             // If not proficient, add a penalty to the attack bonus

@@ -23,7 +23,7 @@ namespace Tests.Characters {
         public void SetUp() {
             var abilities = new AbilityScores ();
             abilities.SetScore (AbilityScoreTypes.Strength, 16);
-            abilities.SetScore (AbilityScoreTypes.Dexterity, 16);
+            abilities.SetScore (AbilityScoreTypes.Dexterity, 14);
             var size = new SizeStats (CharacterSize.Small, 1,1);
 
             inventory = new Inventory();
@@ -51,7 +51,7 @@ namespace Tests.Characters {
         [Test]
         public void BaseRangeBonusIsBABAndDexterityAndSize() {
             smallStats.BaseAttackBonus.SetValue (3);
-            Assert.AreEqual (7, smallStats.RangeAttackBonus.TotalValue);
+            Assert.AreEqual (6, smallStats.RangeAttackBonus.TotalValue);
         }
 
         [Test]
@@ -63,7 +63,7 @@ namespace Tests.Characters {
         [Test]
         public void CMDIsBABStrengthAndDexterityAndSize() {
             smallStats.BaseAttackBonus.SetValue (3);
-            Assert.AreEqual (18, smallStats.CombatManeuverDefense.TotalValue);
+            Assert.AreEqual (17, smallStats.CombatManeuverDefense.TotalValue);
         }
 
         [Test]

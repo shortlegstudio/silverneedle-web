@@ -27,6 +27,14 @@ namespace Tests.Shops
             var masterwork = shop.GetInventory<MasterworkWeapon>();
             Assert.That(masterwork, Is.Not.Empty);
         }
+
+        [Test]
+        public void AddSomeMagicWeaponsIntoTheMix()
+        {
+            var shop = new WeaponShop();
+            var magical = shop.GetInventory<MagicWeapon>();
+            Assert.That(magical, Is.Not.Empty);
+        }
     }
 
 }

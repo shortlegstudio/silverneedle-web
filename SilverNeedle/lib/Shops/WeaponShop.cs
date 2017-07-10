@@ -24,7 +24,8 @@ namespace SilverNeedle.Shops
         {
             var weapons = GatewayProvider.All<Weapon>();
             var masterwork = weapons.Select(x => new MasterworkWeapon(x));
-            var total = weapons.Concat<IWeapon>(masterwork);
+            var magical = weapons.Select(x => new MagicWeapon(x, Randomly.Range(1,6)));
+            var total = weapons.Concat<IWeapon>(masterwork).Concat<IWeapon>(magical);
             StockShop(total);
         }
 
