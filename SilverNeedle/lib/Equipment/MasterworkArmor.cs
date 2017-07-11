@@ -9,9 +9,31 @@ namespace SilverNeedle.Equipment
     {
         public MasterworkArmor(IArmor armor) : base(armor)
         {
-            this.NamePreface = "Masterwork";
-            this.ArmorCheckPenaltyModifier = 1;
-            this.AdditionalValue = 15000;
+        }
+
+        public override string Name
+        {
+            get
+            {
+                return string.Format("Masterwork {0}", base.Name);
+            }
+        }
+
+        public override int ArmorCheckPenalty
+        {
+            get
+            {
+                // Reduce penalty by one
+                return base.ArmorCheckPenalty + 1;
+            }
+        }
+
+        public override int Value
+        {
+            get
+            {
+                return base.Value + 15000;
+            }
         }
     }
 }

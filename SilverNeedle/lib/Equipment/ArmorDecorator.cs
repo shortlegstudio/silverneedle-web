@@ -9,39 +9,30 @@ namespace SilverNeedle.Equipment
     {
         private IArmor baseArmor;
 
-        public string Name => string.Format("{0} {1} {2}", this.NamePreface, baseArmor.Name, this.NameSuffix).Trim();
+        public virtual string Name => baseArmor.Name;
 
-        public int ArmorClass => baseArmor.ArmorClass + this.ArmorClassModifier;
+        public virtual int ArmorClass => baseArmor.ArmorClass;
 
-        public float Weight => baseArmor.Weight + this.WeightModifier;
+        public virtual float Weight => baseArmor.Weight;
 
-        public int MaximumDexterityBonus => baseArmor.MaximumDexterityBonus + this.MaximumDexterityBonusModifier;
+        public virtual int MaximumDexterityBonus => baseArmor.MaximumDexterityBonus;
 
-        public int ArmorCheckPenalty => baseArmor.ArmorCheckPenalty + this.ArmorCheckPenaltyModifier;
+        public virtual int ArmorCheckPenalty => baseArmor.ArmorCheckPenalty;
 
-        public int ArcaneSpellFailureChance => baseArmor.ArcaneSpellFailureChance + this.ArcaneSpellFailureChanceModifier;
+        public virtual int ArcaneSpellFailureChance => baseArmor.ArcaneSpellFailureChance;
 
-        public ArmorType ArmorType => baseArmor.ArmorType;
+        public virtual ArmorType ArmorType => baseArmor.ArmorType;
 
-        public int Value => baseArmor.Value + AdditionalValue;
+        public virtual int Value => baseArmor.Value;
 
-        public bool GroupSimilar => baseArmor.GroupSimilar;
+        public virtual bool GroupSimilar => baseArmor.GroupSimilar;
 
-        public int MovementSpeedPenalty20 => baseArmor.MovementSpeedPenalty20;
-        public int MovementSpeedPenalty30 => baseArmor.MovementSpeedPenalty30;
+        public virtual int MovementSpeedPenalty20 => baseArmor.MovementSpeedPenalty20;
+        public virtual int MovementSpeedPenalty30 => baseArmor.MovementSpeedPenalty30;
 
         public ArmorDecorator(IArmor baseArmor)
         {
             this.baseArmor = baseArmor;
         }
-
-        protected int AdditionalValue { get; set; }
-        protected string NamePreface { get; set; }
-        protected string NameSuffix { get; set; }
-        protected int ArmorClassModifier { get; set; }
-        protected float WeightModifier { get; set; }
-        protected int MaximumDexterityBonusModifier { get; set; }
-        protected int ArmorCheckPenaltyModifier { get; set; }
-        protected int ArcaneSpellFailureChanceModifier { get; set; }
     }
 }
