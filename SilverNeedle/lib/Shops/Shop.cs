@@ -5,11 +5,12 @@
 
 namespace SilverNeedle.Shops
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using SilverNeedle.Equipment;
-    
-    public class Shop
+
+    public class Shop : IShop
     {
         protected List<IGear> inventory = new List<IGear>();
         public IEnumerable<IGear> GetInventory()
