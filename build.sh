@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-dotnet restore && dotnet build **/project.json
+dotnet restore && dotnet build 
 dotnet test
