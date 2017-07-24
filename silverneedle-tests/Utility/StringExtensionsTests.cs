@@ -5,25 +5,24 @@
 
 namespace Tests.Utility
 {
-    using NUnit.Framework;
+    using Xunit;
     using SilverNeedle;
 
-    [TestFixture]
     public class StringExtensionsTests
     {
-        [Test]
+        [Fact]
         public void EqualsIgnoreCaseTests()
         {
             string foo = "Foo";
-            Assert.IsTrue(foo.EqualsIgnoreCase("foo"));
-            Assert.IsFalse(foo.EqualsIgnoreCase("fu"));
+            Assert.True(foo.EqualsIgnoreCase("foo"));
+            Assert.False(foo.EqualsIgnoreCase("fu"));
         }
 
-        [Test]
+        [Fact]
         public void DropEmptyItems()
         {
             var list = "foo,,".ParseList();
-            Assert.AreEqual(1, list.Length);
+            Assert.Equal(1, list.Length);
         }
     }
 }
