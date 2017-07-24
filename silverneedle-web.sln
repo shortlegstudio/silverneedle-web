@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "silverneedle", "silverneedl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "silverneedle-asp", "silverneedle-asp\silverneedle-asp.csproj", "{DA855D3E-5DED-4120-BFD1-41D9C2BF5D3A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "silverneedle-tests", "silverneedle-tests\silverneedle-tests.csproj", "{32D367C1-CBDA-4BC5-9683-FCC3E08DC625}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,5 +21,9 @@ Global
 		{DA855D3E-5DED-4120-BFD1-41D9C2BF5D3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA855D3E-5DED-4120-BFD1-41D9C2BF5D3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA855D3E-5DED-4120-BFD1-41D9C2BF5D3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32D367C1-CBDA-4BC5-9683-FCC3E08DC625}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32D367C1-CBDA-4BC5-9683-FCC3E08DC625}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32D367C1-CBDA-4BC5-9683-FCC3E08DC625}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32D367C1-CBDA-4BC5-9683-FCC3E08DC625}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
