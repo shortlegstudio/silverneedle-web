@@ -6,24 +6,23 @@
 
 namespace Tests.Stats
 {
-    using NUnit.Framework;
+    using Xunit;
     using SilverNeedle;
     using SilverNeedle.Characters;
 
-    [TestFixture]
     public class PositiveAbilityStatModifierTests
     {
-        [Test]
+        [Fact]
         public void IfAbilityIsNegativeModifierJustUseZero()
         {
             var ability = new AbilityScore(AbilityScoreTypes.Strength, 6);
 
             var modifier = new PositiveAbilityStatModifier(ability);
-            Assert.That(modifier.Modifier, Is.EqualTo(0));
+            Assert.Equal(modifier.Modifier, 0);
 
             //Setting the ability positive generates a good value
             ability.SetValue(20);
-            Assert.That(modifier.Modifier, Is.EqualTo(5));
+            Assert.Equal(modifier.Modifier, 5);
         }
     }
 }

@@ -5,22 +5,21 @@
 
 namespace Tests.Stats
 {
-    using NUnit.Framework;
+    using Xunit;
     using SilverNeedle;
     using SilverNeedle.Characters;
 
-    [TestFixture]
     public class AbilityStatModifierTests
     {
-        [Test]
+        [Fact]
         public void AbilityStatModifiersTrackChangesToAbility()
         {
             var ability = new AbilityScore(AbilityScoreTypes.Strength, 10);
 
             var modifier = new AbilityStatModifier(ability);
-            Assert.AreEqual(0, modifier.Modifier);
+            Assert.Equal(0, modifier.Modifier);
             ability.SetValue(20);
-            Assert.AreEqual(05, modifier.Modifier);
+            Assert.Equal(05, modifier.Modifier);
         }
     }
 }

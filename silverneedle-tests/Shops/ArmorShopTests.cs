@@ -5,29 +5,28 @@
 
 namespace Tests.Shops
 {
-    using NUnit.Framework;
+    using Xunit;
     using SilverNeedle.Equipment;
     using SilverNeedle.Shops;
 
-    [TestFixture]
-    public class ArmorShopTests
+    public class ArmorShopTests : RequiresDataFiles
     {
-        [Test]
+        [Fact]
         public void ProvidesACollectionOfArmor()
         {
             var shop = new ArmorShop();
             var armors = shop.GetInventory<IArmor>();
-            Assert.That(armors, Is.Not.Empty);
+            Assert.NotEmpty(armors);
         }
 
-        [Test]
+        [Fact]
         public void ProvidesSomeMasterworkArmor()
         {
             var shop = new ArmorShop();
             var armors = shop.GetInventory();
             var mwkArmors = shop.GetInventory<MasterworkArmor>();
-            Assert.That(armors, Is.Not.Empty);
-            Assert.That(mwkArmors, Is.Not.Empty);
+            Assert.NotEmpty(armors);
+            Assert.NotEmpty(mwkArmors);
         }
     }
 }

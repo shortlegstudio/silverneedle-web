@@ -5,15 +5,14 @@
 
 namespace Tests.Spells
 {
-    using NUnit.Framework;
+    using Xunit;
     using SilverNeedle.Spells;
     using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
-    [TestFixture]
     public class SpellListTests
     {
-        [Test]
+        [Fact]
         public void SpellListsHaveSpellsForEachLevel()
         {
             var data = new MemoryStore();
@@ -24,11 +23,11 @@ namespace Tests.Spells
             data.SetValue("levels", levels);
             var spellList = new SpellList(data);
 
-            Assert.That(spellList.Class, Is.EqualTo("foo"));
-            Assert.That(spellList.Levels.Count, Is.EqualTo(2));
-            Assert.That(spellList.Levels[0], Is.EquivalentTo(new string[] {"read stuff", "do stuff"}));
-            Assert.That(spellList.Levels[1], Is.EquivalentTo(new string[] {"kill", "explosion"}));
-            Assert.That(spellList.Matches("FOO"), Is.True);
+            Assert.Equal(spellList.Class, "foo");
+            Assert.Equal(spellList.Levels.Count, 2);
+            Assert.NotStrictEqual(spellList.Levels[0], new string[] {"read stuff", "do stuff"});
+            Assert.NotStrictEqual(spellList.Levels[1], new string[] {"kill", "explosion"});
+            Assert.True(spellList.Matches("FOO"));
         }
     }
 }

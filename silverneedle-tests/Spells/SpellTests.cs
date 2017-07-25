@@ -5,15 +5,14 @@
 
 namespace Tests.Spells
 {
-    using NUnit.Framework;
+    using Xunit;
     using SilverNeedle.Spells;
     using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
-    [TestFixture]
     public class SpellTests
     {
-        [Test]
+        [Fact]
         public void LoadingFromObjectStore()
         {
             var data = new MemoryStore();
@@ -23,10 +22,10 @@ namespace Tests.Spells
             data.SetValue("descriptors", "good, conjuration, acid");
 
             var spell = new Spell(data);
-            Assert.That(spell.Name, Is.EqualTo("Acid Splash"));
-            Assert.That(spell.School, Is.EqualTo("evocation"));
-            Assert.That(spell.Subschool, Is.EqualTo("smash stuff"));
-            Assert.That(spell.Descriptors, Is.EquivalentTo(new string[] {"good", "conjuration", "acid" }));
+            Assert.Equal(spell.Name, "Acid Splash");
+            Assert.Equal(spell.School, "evocation");
+            Assert.Equal(spell.Subschool, "smash stuff");
+            Assert.NotStrictEqual(spell.Descriptors, new string[] {"good", "conjuration", "acid" });
         }
     }
 }

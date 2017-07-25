@@ -5,33 +5,32 @@
 
 namespace Tests
 {
-    using NUnit.Framework;
+    using Xunit;
     using SilverNeedle;
     using SilverNeedle.Characters;
 
-    [TestFixture]
     public class LimitStatModifierTests
     {
-        [Test]
+        [Fact]
         public void CanTakeTwoStatsAndReturnValueFromTheLimitingValue()
         {
             var statOne = new BasicStat("Dex", 4);
             var statTwo = new BasicStat("Max", 1);
 
             var mod = new LimitStatModifier(statOne, statTwo);
-            Assert.That(mod.Modifier, Is.EqualTo(1));
-            Assert.That(mod.StatisticName, Is.EqualTo("Dex"));
-            Assert.That(mod.Reason, Is.EqualTo("Max"));
-            Assert.That(mod.Type, Is.EqualTo("Maximum"));
+            Assert.Equal(mod.Modifier, 1);
+            Assert.Equal(mod.StatisticName, "Dex");
+            Assert.Equal(mod.Reason, "Max");
+            Assert.Equal(mod.Type, "Maximum");
         }
 
-        [Test]
+        [Fact]
         public void WorksOffOfTheAbilityModifierIfAbilityScoreIsUsed()
         {
             var ability = new AbilityScore(AbilityScoreTypes.Strength, 18);
             var limit = new BasicStat("Foo", 10);
             var mod = new LimitStatModifier(ability, limit);
-            Assert.That(mod.Modifier, Is.EqualTo(4));
+            Assert.Equal(mod.Modifier, 4);
         }
     }
 }

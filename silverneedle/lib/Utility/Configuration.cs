@@ -4,7 +4,7 @@ namespace SilverNeedle
     {
         static Configuration() 
         {
-            DataPath = "./data";
+            DataPath = "../silverneedle/data";
             if (!string.IsNullOrEmpty(System.Environment.GetEnvironmentVariable("SILVERNEEDLE_DATAFILES")))
             {
                 DataPath = System.Environment.GetEnvironmentVariable("SILVERNEEDLE_DATAFILES");

@@ -17,6 +17,10 @@ All notable changes will be tracked in this file. Most likely.
 ### Changed
 - Layout of HTML has changed. It will provide better flexibility in long run but 
 maybe less readable right now
+- Uses the current LTS 1.0.4 of .NET Core
+- Broke out project into subprojects. This will allow better portability to
+other libraries in the future
+- Supports Visual Studio
 
 ### Known Issues
 - Rage Powers and Rogue Talents don't modify stats and are incomplete

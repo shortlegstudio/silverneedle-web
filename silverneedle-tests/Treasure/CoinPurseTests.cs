@@ -6,13 +6,12 @@
 namespace Tests.Treasure
 {
     using System;
-    using NUnit.Framework;
+    using Xunit;
     using SilverNeedle.Treasure;
 
-    [TestFixture]
     public class CoinPurseTests
     {
-        [Test]
+        [Fact]
         public void CoinPursesCanStoreAllTheCoins()
         {
             var purse = new CoinPurse();
@@ -20,43 +19,43 @@ namespace Tests.Treasure
             purse.AddGold(53);
             purse.AddSilver(85);
             purse.AddCopper(23);
-            Assert.AreEqual(9173, purse.Value);
+            Assert.Equal(9173, purse.Value);
         }
 
-        [Test]
+        [Fact]
         public void SetValueWillFillInWithGoldCoinsToMeetValue()
         {
             var purse = new CoinPurse();
             purse.SetValue(37243);
-            Assert.AreEqual(372, purse.Gold.Pieces);
-            Assert.AreEqual(4, purse.Silver.Pieces);
-            Assert.AreEqual(3, purse.Copper.Pieces);
+            Assert.Equal(372, purse.Gold.Pieces);
+            Assert.Equal(4, purse.Silver.Pieces);
+            Assert.Equal(3, purse.Copper.Pieces);
         }
 
-        [Test]
+        [Fact]
         public void SpendingMoneySubtractsFromThePurse()
         {
             var purse = new CoinPurse();
             purse.SetValue(58342);
             purse.Spend(7328);
-            Assert.AreEqual(51014, purse.Value);            
+            Assert.Equal(51014, purse.Value);            
         }
 
-        [Test]
+        [Fact]
         public void CanInitializePurseToValue()
         {
             var purse = new CoinPurse(4824);
-            Assert.AreEqual(4824, purse.Value);
+            Assert.Equal(4824, purse.Value);
         }
 
-        [Test]
+        [Fact]
         public void IfYouDoNotHaveEnoughMoneyThrowError()
         {
             var purse = new CoinPurse(3923);
             Assert.Throws<InsufficientFundsException>(() => purse.Spend(484234));
         }
 
-        [Test]
+        [Fact]
         public void CanCheckIfYouCanAffordAnItem()
         {
             var purse = new CoinPurse(4842);
@@ -65,8 +64,8 @@ namespace Tests.Treasure
             var expensive = new DummyItem();
             expensive.Value = 49348;
 
-            Assert.That(purse.CanAfford(item), Is.True);
-            Assert.That(purse.CanAfford(expensive), Is.False);
+            Assert.True(purse.CanAfford(item));
+            Assert.False(purse.CanAfford(expensive));
         }
 
         private class DummyItem : SilverNeedle.Equipment.IGear

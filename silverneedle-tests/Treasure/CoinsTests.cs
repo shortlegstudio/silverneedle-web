@@ -5,75 +5,73 @@
 
 namespace Tests.Treasure
 {
-    using NUnit.Framework;
+    using Xunit;
     using SilverNeedle.Treasure;
 
-    [TestFixture]
     public class CoinsTests
     {
-        [Test]
+        [Fact]
         public void GoldIsHundredCopper()
         {
             var goldCoins = new GoldPieces(30);
-            Assert.AreEqual(3000, goldCoins.Value);
+            Assert.Equal(3000, goldCoins.Value);
         }
 
-        [Test]
+        [Fact]
         public void SilverIsTenCopper()
         {
             var silver = new SilverPieces(24);
-            Assert.AreEqual(240, silver.Value);
+            Assert.Equal(240, silver.Value);
         }
 
-        [Test]
+        [Fact]
         public void CopperIsTheBaseOfValues()
         {
             var copper = new CopperPieces(382);
-            Assert.AreEqual(382f, copper.Value);
+            Assert.Equal(382f, copper.Value);
         }
 
-        [Test]
+        [Fact]
         public void PlatinumIsThousandPieces()
         {
             var platinum = new PlatinumPieces(5);
-            Assert.AreEqual(5000, platinum.Value);
+            Assert.Equal(5000, platinum.Value);
         }
 
-        [Test]
+        [Fact]
         public void CanConvertACoinStringIntoGoldCoins()
         {
             var gp = "20gp";
             var coins = gp.ToCoins();
-            Assert.IsInstanceOf(typeof(GoldPieces), coins);
-            Assert.AreEqual(20, coins.Pieces);
+            Assert.IsType(typeof(GoldPieces), coins);
+            Assert.Equal(20, coins.Pieces);
         }
 
-        [Test]
+        [Fact]
         public void CanConvertACoinStringIntoPlatinumCoins()
         {
             var pp = "12pp";
             var coins = pp.ToCoins();
-            Assert.IsInstanceOf(typeof(PlatinumPieces), coins);
-            Assert.AreEqual(12, coins.Pieces);
+            Assert.IsType(typeof(PlatinumPieces), coins);
+            Assert.Equal(12, coins.Pieces);
         }
 
-        [Test]
+        [Fact]
         public void CanConvertACoinStringIntoSilverCoins()
         {
             var sp = "39sp";
             var coins = sp.ToCoins();
-            Assert.IsInstanceOf(typeof(SilverPieces), coins);
-            Assert.AreEqual(39, coins.Pieces);
+            Assert.IsType(typeof(SilverPieces), coins);
+            Assert.Equal(39, coins.Pieces);
         }
 
-        [Test]
+        [Fact]
         public void CanConvertACoinStringIntoCopperCoins()
         {
             var cp = "2cp";
             var coins = cp.ToCoins();
-            Assert.IsInstanceOf(typeof(CopperPieces), coins);
-            Assert.AreEqual(2, coins.Pieces);
+            Assert.IsType(typeof(CopperPieces), coins);
+            Assert.Equal(2, coins.Pieces);
         }
-
     }
 }
