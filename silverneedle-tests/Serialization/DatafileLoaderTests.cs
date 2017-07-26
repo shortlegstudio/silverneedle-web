@@ -9,7 +9,7 @@ namespace Tests.Serialization
     using System.Linq;
     using SilverNeedle.Serialization;
 
-    public class DatafileLoaderTests
+    public class DatafileLoaderTests : RequiresDataFiles
     {
         [Fact]
         public void CanFindFilesOfSpecificObjectType()
