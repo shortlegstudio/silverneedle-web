@@ -111,8 +111,8 @@ namespace SilverNeedle.Serialization
                 T obj;
                 if(d.HasKey("custom-implementation"))
                 {
-                    var customtype = Type.GetType(d.GetString("custom-implementation"));
-                    obj = customtype.Instantiate<T>(d);
+                    var typename = d.GetString("custom-implementation");
+                    obj = typename.Instantiate<T>(d);
                 } else {
                     obj = objectType.Instantiate<T>(d);
                 }

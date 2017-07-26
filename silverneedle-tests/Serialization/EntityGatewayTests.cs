@@ -12,7 +12,8 @@ namespace Tests.Serialization
     using SilverNeedle.Characters;
     using System;
 
-    public class EntityGatewayTests {
+    public class EntityGatewayTests 
+    {
         private EntityGateway<TestObject> subject;
 
         public EntityGatewayTests()
@@ -106,7 +107,7 @@ namespace Tests.Serialization
             var one = gateway.Find("Foo");
             Assert.IsType<TestObjectCustom>(one);
             var two = gateway.Find("Bar");
-            Assert.IsType<TestObject>(one);
+            Assert.IsType<TestObject>(two);
         }
 
         [ObjectStoreSerializable]
