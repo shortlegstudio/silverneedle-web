@@ -14,7 +14,7 @@ namespace Tests.Characters.SpecialAbilities
     [TestFixture]
     public class WeaponMasteryTests
     {
-        [Test]
+        [Fact]
         public void AddsWeaponCriticalDamageModifierToOffenseStats()
         {
             var offStats = new OffenseStats();
@@ -27,7 +27,7 @@ namespace Tests.Characters.SpecialAbilities
             Assert.That(offStats.WeaponModifiers, Contains.Item(master.WeaponCriticalDamageBonus));
         }
 
-        [Test]
+        [Fact]
         public void WorksWithMasterworkVersionsOfWeapons()
         {
             var offStats = new OffenseStats();

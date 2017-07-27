@@ -14,7 +14,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
     [TestFixture]
     public class UpgradeFavoredEnemyTests
     {
-        [Test]
+        [Fact]
         public void SelectsAFavoredEnemyAndAddsTwoToTheBonus()
         {
             var ct = new CreatureType("Dragon");

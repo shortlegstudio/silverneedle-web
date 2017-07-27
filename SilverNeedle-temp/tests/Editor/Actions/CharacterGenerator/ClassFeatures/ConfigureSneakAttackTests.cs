@@ -24,7 +24,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
 
         }
 
-        [Test]
+        [Fact]
         public void AddsSneakAttackIfNotAlreadyConfigured()
         {
             var character = new CharacterSheet();
@@ -32,7 +32,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
             Assert.That(character.Get<SneakAttack>(), Is.Not.Null);
         }
 
-        [Test]
+        [Fact]
         public void UpdatesDamageToSneakAttackIfAlreadyConfigured()
         {
             var character = new CharacterSheet();

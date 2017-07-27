@@ -12,7 +12,7 @@ namespace Tests.Characters.SpecialAbilities
     [TestFixture]
     public class ImprovedQuarryTests
     {
-        [Test]
+        [Fact]
         public void RemovesQuarryAbilityFromCharacter()
         {
             var quarry = new Quarry();

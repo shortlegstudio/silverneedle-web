@@ -14,7 +14,7 @@ namespace Tests.Characters.SpecialAbilities
     [TestFixture]
     public class WeaponTrainingTests
     {
-        [Test]
+        [Fact]
         public void RegisterWeaponModifiersWithOffenseStats()
         {
             var abilities = new AbilityScores();
@@ -34,7 +34,7 @@ namespace Tests.Characters.SpecialAbilities
             Assert.That(weaponTraining.Level, Is.EqualTo(1));
         }
 
-        [Test]
+        [Fact]
         public void CreatesANiceNameForTheAbility()
         {
             var training = new WeaponTraining(WeaponGroup.Axes, 3);

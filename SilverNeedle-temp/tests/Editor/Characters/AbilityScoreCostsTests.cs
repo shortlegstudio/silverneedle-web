@@ -29,25 +29,25 @@ namespace Tests.Characters
 
         }
 
-        [Test]
+        [Fact]
         public void ReturnsTheScoresThatAreNegativeCosts()
         {
             Assert.That(subject.NegativeCosts, Is.EquivalentTo(new int[] { 7, 8, 9}));
         }
 
-        [Test]
+        [Fact]
         public void PositiveCostsReturnValuesThatAreGreaterThanZero()
         {
             Assert.That(subject.PositiveCosts, Is.EquivalentTo(new int[] { 11, 12, 13, 14, 15 }));
         }
 
-        [Test]
+        [Fact]
         public void ZeroCostsReturnsASingleValueThatCostsNothing()
         {
             Assert.That(subject.ZeroCost, Is.EqualTo(10));
         }
 
-        [Test]
+        [Fact]
         public void GetNearestValueReturnsTheHighestWithoutGoingOver()
         {
             Assert.That(subject.ClosestValue(6), Is.EqualTo(14));

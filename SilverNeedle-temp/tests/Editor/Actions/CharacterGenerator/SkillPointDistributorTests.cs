@@ -35,7 +35,7 @@ namespace Actions
             distributor = new SkillPointDistributor();
         }
 
-        [Test]
+        [Fact]
         public void ChoosesSkillsBasedOnTheStrategyRecommendation()
         {
             var strategy = new WeightedOptionTable<string>();
@@ -45,7 +45,7 @@ namespace Actions
             Assert.AreEqual(1, skills.GetSkill("Climb").Ranks);
         }
 
-        [Test]
+        [Fact]
         public void IfSkillHasMaxRanksChooseOtherPreferredSkill()
         {
             var strategy = new WeightedOptionTable<string>();
@@ -57,7 +57,7 @@ namespace Actions
             Assert.AreEqual(1, skills.GetSkill("Acrobatics").Ranks);
         }
 
-        [Test]
+        [Fact]
         public void IfAllPreferredSkillsAreMaxedAssignAPointToRemainingClassSkills()
         {
             var strategy = new WeightedOptionTable<string>();
@@ -71,7 +71,7 @@ namespace Actions
             Assert.AreEqual(1, skills.GetSkill("Knowledge (Arcana)").Ranks);
         }
 
-        [Test]
+        [Fact]
         public void IfAssigningToClassSkillsOnlyUseOneCraftSkill()
         {
             var strategy = new WeightedOptionTable<string>();

@@ -12,7 +12,7 @@ namespace Tests.Characters {
 
   [TestFixture]
     public class WeaponProficiencyTests {
-        [Test]
+        [Fact]
         public void SimpleWeaponsAreProficientForSimple() {
             var prof = new WeaponProficiency("simple");
             var wpn = new Weapon();
@@ -22,7 +22,7 @@ namespace Tests.Characters {
             Assert.IsFalse(prof.IsProficient(wpn));
         }
 
-        [Test]
+        [Fact]
         public void MartialWeaponsAreProficientIfMartiallyTrained() {
             var prof = new WeaponProficiency("martial");
             var wpn = new Weapon();
@@ -30,7 +30,7 @@ namespace Tests.Characters {
             Assert.IsTrue(prof.IsProficient(wpn));
         }
 
-        [Test]
+        [Fact]
         public void MatchesBasedOnNameIfNotTrainingLevel() {
             var prof = new WeaponProficiency("Shortbow");
             var wpn = new Weapon();
@@ -40,13 +40,13 @@ namespace Tests.Characters {
             Assert.IsTrue(prof.IsProficient(wpn));
         }
 
-        [Test]
+        [Fact]
         public void NameLooksHumanReadable() {
             var prof = new WeaponProficiency("simple");
             Assert.AreEqual("Simple weapons", prof.Name);
         }
 
-        [Test]
+        [Fact]
         public void ShouldProperlyRecognizeProficiencyWithMasterworkWeapons()
         {
             var prof = new WeaponProficiency("Shortbow");

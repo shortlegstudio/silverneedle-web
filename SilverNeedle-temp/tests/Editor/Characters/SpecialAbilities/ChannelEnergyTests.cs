@@ -13,7 +13,7 @@ namespace Tests.Characters.SpecialAbilities
     [TestFixture]
     public class ChannelEnergyTests
     {
-        [Test]
+        [Fact]
         public void ChannelEnergyAddsASpecialAttack()
         {
             var channel = new ChannelEnergy();

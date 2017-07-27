@@ -19,14 +19,14 @@ namespace Tests.Characters.Domains
             base.InitializeDomain("sun");
         }
 
-        [Test]
+        [Fact]
         public void SunBlessing()
         {
             var touch = character.Get<SunBlessing>();
             Assert.That(touch, Is.Not.Null); 
         }
 
-        [Test]
+        [Fact]
         public void NimbusOfLight()
         {
             character.SetLevel(8);

@@ -19,7 +19,7 @@ namespace Tests.Characters.Domains
             base.InitializeDomain("chaos");
         }
 
-        [Test]
+        [Fact]
         public void CanTouchOfChaos()
         {
             var touch = character.Get<TouchOfChaos>();
@@ -27,7 +27,7 @@ namespace Tests.Characters.Domains
             Assert.That(touch.UsesPerDay, Is.EqualTo(6));
         }
 
-        [Test]
+        [Fact]
         public void CanMakeWeaponsChaotic()
         {
             character.SetLevel(8);

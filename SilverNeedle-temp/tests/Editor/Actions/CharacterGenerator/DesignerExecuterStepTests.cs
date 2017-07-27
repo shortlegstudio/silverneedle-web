@@ -14,7 +14,7 @@ namespace Tests.Actions.CharacterGenerator
     [TestFixture]
     public class DesignerExecuterStepTests
     {
-        [Test]
+        [Fact]
         public void ExecutesTheDesignerRequested()
         {
             var character = new CharacterSheet();

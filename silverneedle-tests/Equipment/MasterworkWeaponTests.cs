@@ -5,33 +5,32 @@
 
 namespace Tests.Equipment
 {
-    using NUnit.Framework;
+    using Xunit;
     using SilverNeedle.Equipment;
 
-    [TestFixture]
     public class MasterworkWeaponTests
     {
-        [Test]
+        [Fact]
         public void MasterworkWeaponsProvideAnAttackBonusOfOne()
         {
             var longsword = new Weapon("Longsword", 10, "1d8", DamageTypes.Slashing, 
                 20, 2, 0, WeaponType.OneHanded, WeaponGroup.HeavyBlades, 
                 WeaponTrainingLevel.Martial);
             var mwkLongsword = new MasterworkWeapon(longsword);
-            Assert.That(mwkLongsword.Name, Is.EqualTo("Masterwork Longsword"));
-            Assert.That(mwkLongsword.AttackModifier, Is.EqualTo(1));
-            Assert.That(mwkLongsword.Value, Is.EqualTo(30000)); // Value is copper Based
+            Assert.Equal(mwkLongsword.Name, "Masterwork Longsword");
+            Assert.Equal(mwkLongsword.AttackModifier, 1);
+            Assert.Equal(mwkLongsword.Value, 30000); // Value is copper Based
         }
 
-        [Test]
+        [Fact]
         public void MasterworkDoubleWeaponsCostSixHundredMore()
         {
             var doubleAxe = new Weapon("Double Axe", 10, "1d8", DamageTypes.Slashing, 
                 20, 2, 0, WeaponType.TwoHanded, WeaponGroup.Double, 
                 WeaponTrainingLevel.Martial);
             var mwkDoubleAxe = new MasterworkWeapon(doubleAxe);
-            Assert.That(mwkDoubleAxe.AttackModifier, Is.EqualTo(1));
-            Assert.That(mwkDoubleAxe.Value, Is.EqualTo(60000)); //Value is copper based
+            Assert.Equal(mwkDoubleAxe.AttackModifier, 1);
+            Assert.Equal(mwkDoubleAxe.Value, 60000); //Value is copper based
         }
     }
 }

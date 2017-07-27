@@ -16,7 +16,7 @@ namespace Tests.Characters.Magic
     [TestFixture]
     public class SpellCastingTests
     {
-        [Test]
+        [Fact]
         public void TracksAvailableSpellsForTheCharacter()
         {
             var cls = new ClassLevel(new Class());
@@ -25,7 +25,7 @@ namespace Tests.Characters.Magic
             Assert.That(spellcasting.GetAvailableSpells(0), Is.EquivalentTo(new string[] { "cantrip1", "cantrip2" }));
         }
 
-        [Test]
+        [Fact]
         public void IfDependentOnSpellbookPullsAvailableFromSpellbook()
         {
             var inventory = new Inventory();
@@ -41,7 +41,7 @@ namespace Tests.Characters.Magic
             Assert.That(spellcasting.GetAvailableSpells(0), Is.EquivalentTo(new string[] { "cantrip1", "cantrip2" }));
         }
 
-        [Test]
+        [Fact]
         public void MaxLevelIsSetForNowByTheMaxLevelKnown()
         {
             var cls = new ClassLevel(new Class());
@@ -54,7 +54,7 @@ namespace Tests.Characters.Magic
             Assert.That(spells.MaxLevel, Is.EqualTo(2));
         }
 
-        [Test]
+        [Fact]
         public void CanSpecifyTheNumberOfSpellsPerDay()
         {
             var cls = new ClassLevel(new Class());
@@ -67,7 +67,7 @@ namespace Tests.Characters.Magic
             Assert.That(spells.GetSpellsPerDay(2), Is.EqualTo(0));
         }
 
-        [Test]
+        [Fact]
         public void SpellsCanBePrepared()
         {
             var cls = new ClassLevel(new Class());
@@ -77,7 +77,7 @@ namespace Tests.Characters.Magic
             Assert.That(spells.GetPreparedSpells(0), Is.EquivalentTo(new string[] {"cantrip1"}));
         }
 
-        [Test]
+        [Fact]
         public void CalculatesTheDCBasedOnSpellLevelAndAbility()
         {
             var cls = new ClassLevel(new Class());
@@ -89,7 +89,7 @@ namespace Tests.Characters.Magic
             Assert.That(spells.GetDifficultyClass(9), Is.EqualTo(23));
         }
 
-        [Test]
+        [Fact]
         public void IfAskedForSpellsPastMaxLevelJustReturnZero()
         {
             var cls = new ClassLevel(new Class());
@@ -98,7 +98,7 @@ namespace Tests.Characters.Magic
 
         }
 
-        [Test]
+        [Fact]
         public void RulesCanBeAppliedToSpellCastingThatLimitsAvailableSpells()
         {
             var cls = new ClassLevel(new Class());
@@ -109,14 +109,14 @@ namespace Tests.Characters.Magic
             Assert.That(spellcasting.GetAvailableSpells(0), Is.EquivalentTo(new string[] { "cantrip2" }));
         }
 
-        [Test]
+        [Fact]
         public void IfTryingToPrepareSpellsAndThereAreNoKnownSpellsDoNothing()
         {
             var sc = new SpellCasting(new Inventory(), new ClassLevel(new Class()), "wizard");
             Assert.DoesNotThrow(() => {sc.PrepareSpells(0, new string[] { }); });
         }
 
-        [Test]
+        [Fact]
         public void AddingMoreSpellsToTheSpellCasterJustAppendsDoesNotReplace()
         {
             var sc = new SpellCasting(new Inventory(), new ClassLevel(new Class()), "wizard");

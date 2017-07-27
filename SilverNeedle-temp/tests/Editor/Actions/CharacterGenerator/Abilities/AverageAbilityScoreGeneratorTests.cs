@@ -9,7 +9,7 @@ namespace Tests.Actions {
     [TestFixture]
     public class AverageAbilityScoreGeneratorTests 
     {
-        [Test]
+        [Fact]
         public void CreateAverageScores() 
         {
             var roller = new AverageAbilityScoreGenerator ();

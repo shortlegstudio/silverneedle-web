@@ -4,7 +4,7 @@ using SilverNeedle.Characters;
 namespace Characters {
 	[TestFixture]
 	public class FeatTokenTests {
-		[Test]
+		[Fact]
 		public void FeatTokensKnowWhetherAFeatMatches() {
             var combatFeat = new Feat();
             combatFeat.Tags.Add("combat");
@@ -17,7 +17,7 @@ namespace Characters {
             Assert.IsFalse(featToken.Qualifies(magicFeat));
 		}
 
-        [Test]
+        [Fact]
         public void EmptyFeatTokenCanBeUsedForAnyFeat() {
             var f = new Feat();
             f.Tags.Add("combat");
@@ -27,7 +27,7 @@ namespace Characters {
             
         }
 
-        [Test]
+        [Fact]
         public void FeatTokensCanMatchByNameAsWell()
         {
             var feat = new Feat();

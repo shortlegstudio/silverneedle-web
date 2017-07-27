@@ -22,7 +22,7 @@ namespace Tests.Characters.Domains
             InitializeDomain("fire");
         }
 
-        [Test]
+        [Fact]
         public void AddFirstLevelGrantsFireBoltAttack()
         {
             var acidDart = character.Offense.Attacks().OfType<FireBolt>().First();
@@ -31,7 +31,7 @@ namespace Tests.Characters.Domains
             Assert.That(acidDart.ToString(), Is.EqualTo("Fire Bolt 30' (1d6+1 fire)"));
         }
 
-        [Test]
+        [Fact]
         public void AddsFireDamageResistance()
         {
             // Level Up Notification

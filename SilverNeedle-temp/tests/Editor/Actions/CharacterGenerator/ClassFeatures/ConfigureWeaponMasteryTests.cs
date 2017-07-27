@@ -13,7 +13,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
     [TestFixture]
     public class ConfigureWeaponMasteryTests
     {
-        [Test]
+        [Fact]
         public void ChoosesAWeaponForMastery()
         {
             var configure = new ConfigureWeaponMastery();

@@ -51,7 +51,7 @@ namespace Tests.Actions {
             character.Offense.AddWeaponProficiencies(proficiencies);
         }
 
-        [Test]
+        [Fact]
         [Repeat(1000)]
         public void CharactersGetARangedAndMeleeWeaponTheyAreProficientIn() {
             //Bad test, but good enough for now
@@ -68,7 +68,7 @@ namespace Tests.Actions {
             Assert.IsFalse(character.Inventory.Weapons.Any(x => x.Level == WeaponTrainingLevel.Exotic));
         }
 
-        [Test]
+        [Fact]
         public void IfNoAppropriateItemsAreFoundAssignNothing()
         {
             var action = new PurchaseRangedWeapon (shop);
@@ -79,7 +79,7 @@ namespace Tests.Actions {
             Assert.IsEmpty(character.Inventory.Weapons);
         }
 
-         [Test]
+         [Fact]
         public void AvoidTryingToBuyWeaponsIfBroke()
         {
             character.Inventory.CoinPurse.SetValue(2999); // Not Enough :'(
@@ -88,7 +88,7 @@ namespace Tests.Actions {
             Assert.That(character.Inventory.Weapons, Has.Exactly(0).Count);
         }
 
-        [Test]
+        [Fact]
         public void PurchasingARangedWeaponSpendsMoney()
         {
             subject.Process(character, new CharacterBuildStrategy());

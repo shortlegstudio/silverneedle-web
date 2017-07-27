@@ -44,34 +44,34 @@ namespace Tests.Characters {
             emptyStats.Initialize(emptyBag);
         }
 
-        [Test]
+        [Fact]
         public void ACIsBasedOnDexterityAndSize() {
             Assert.AreEqual (14, basicStats.ArmorClass.TotalValue);
         }
 
-        [Test]
+        [Fact]
         public void TouchACIsBasedOnDexterityAndSize() {
             Assert.AreEqual (14, basicStats.TouchArmorClass.TotalValue); }
 
-        [Test]
+        [Fact]
         public void FlatFootedACIsBaseACAndSize() {
             Assert.AreEqual (11, basicStats.FlatFootedArmorClass.TotalValue); }
 
-        [Test]
+        [Fact]
         public void ReflexSavingThrowIsBasedOnDexterity() {
             Assert.AreEqual (3, basicStats.ReflexSave.TotalValue); }
 
-        [Test]
+        [Fact]
         public void FortitudeSavingThrowIsBasedOnConstitution() {
             Assert.AreEqual (-1, basicStats.FortitudeSave.TotalValue);
         }
 
-        [Test]
+        [Fact]
         public void WillSavingThrowIsBasedOnWisdom() {
             Assert.AreEqual (1, basicStats.WillSave.TotalValue);
         }
 
-        [Test]
+        [Fact]
         public void MarkingASaveGoodGivesItAPlus2Bonus() {
             Assert.AreEqual (3, basicStats.ReflexSave.TotalValue);
             basicStats.SetReflexGoodSave ();
@@ -84,7 +84,7 @@ namespace Tests.Characters {
             Assert.AreEqual (3, basicStats.WillSave.TotalValue);
         }
 
-        [Test]
+        [Fact]
         public void SettingGoodSaveRepeatedlyDoesntBoostSave() {
             basicStats.SetReflexGoodSave ();
             basicStats.SetReflexGoodSave ();
@@ -93,7 +93,7 @@ namespace Tests.Characters {
             Assert.AreEqual (5, basicStats.ReflexSave.TotalValue);
         }
 
-        [Test]
+        [Fact]
         public void LevelingUpAClassMarksGoodSaves() {
             var fighter = new Class ();
             fighter.WillSaveRate = Class.PoorSaveRate;
@@ -107,7 +107,7 @@ namespace Tests.Characters {
             Assert.AreEqual (1, basicStats.WillSave.TotalValue);
         }
 
-        [Test]
+        [Fact]
         public void LevelingUpMultipleTimesIncreasesTheSaveStats() {
             var fighter = new Class ();
             fighter.WillSaveRate = Class.PoorSaveRate;
@@ -124,7 +124,7 @@ namespace Tests.Characters {
         }
 
 
-        [Test]
+        [Fact]
         public void EquippedArmorIncreasesYourDefenseAndYourFlatFootedDefenseButNotTouchDefense() {
             var bag = new ComponentBag();
             var inventory = new Inventory ();
@@ -148,14 +148,14 @@ namespace Tests.Characters {
         }
 
 
-        [Test]
+        [Fact]
         public void ModifiersCanBeAppliedToArmorClass() {
             var ac = emptyStats.ArmorClass.TotalValue;
             emptyStats.ProcessModifier(new MockMod());
             Assert.AreEqual(ac + 1, emptyStats.ArmorClass.TotalValue);
         }
 
-        [Test]
+        [Fact]
         public void ModifiersCanBeAppliedToSavingsThrows() {
             var will = emptyStats.WillSave.TotalValue;
             var fort = emptyStats.FortitudeSave.TotalValue;
@@ -166,19 +166,19 @@ namespace Tests.Characters {
             Assert.AreEqual(reflex + 1, emptyStats.ReflexSave.TotalValue);
         }
 
-        [Test]
+        [Fact]
         public void CanAddArmorProficiency() {
             emptyStats.AddArmorProficiency("Light");
             Assert.IsTrue(emptyStats.IsProficient(Leather()));
         }
 
-        [Test]
+        [Fact]
         public void CanAddArmorProficiencies() {
             emptyStats.AddArmorProficiencies(new string[] { "Light", "Heavy" });
             Assert.IsTrue(emptyStats.IsProficient(Leather()));
         }
 
-        [Test]
+        [Fact]
         public void CanTrackImmunitiesAndOtherSpecialAbilites() {
             var immune = new ImmunityModifier();
             emptyStats.ProcessSpecialAbilities(immune);
@@ -187,7 +187,7 @@ namespace Tests.Characters {
             Assert.AreEqual("Evasion", emptyStats.DefensiveAbilities.First().Condition);
         }
 
-        [Test]
+        [Fact]
         public void ArmorCanLimitTheMaxDexterityBonus()
         {
             var bag = new ComponentBag();
@@ -208,7 +208,7 @@ namespace Tests.Characters {
             Assert.That(def.ArmorClass.TotalValue, Is.EqualTo(11));
         }
 
-        [Test]
+        [Fact]
         public void ReturnStatisticsTracked()
         {
             var stats = basicStats.Statistics;
@@ -226,7 +226,7 @@ namespace Tests.Characters {
             ));
         }
 
-        [Test]
+        [Fact]
         public void CanHaveDamageResistance()
         {
             var dr = new DamageResistance(5, "-");
@@ -234,7 +234,7 @@ namespace Tests.Characters {
             Assert.That(basicStats.DamageResistance, Contains.Item(dr));
         }
 
-        [Test]
+        [Fact]
         public void AddingTheSameTypeOfDamageResistanceStacks()
         {
             var dr = new DamageResistance(1, "-");

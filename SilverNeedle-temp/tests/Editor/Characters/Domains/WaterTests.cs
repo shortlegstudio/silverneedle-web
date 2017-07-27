@@ -22,7 +22,7 @@ namespace Tests.Characters.Domains
             InitializeDomain("water");
         }
 
-        [Test]
+        [Fact]
         public void IcicleAttack()
         {
             var acidDart = character.Offense.Attacks().OfType<Icicle>().First();
@@ -31,7 +31,7 @@ namespace Tests.Characters.Domains
             Assert.That(acidDart.ToString(), Is.EqualTo("Icicle 30' (1d6+1 cold)"));
         }
 
-        [Test]
+        [Fact]
         public void AddsColdDamageResistance()
         {
             // Level Up Notification

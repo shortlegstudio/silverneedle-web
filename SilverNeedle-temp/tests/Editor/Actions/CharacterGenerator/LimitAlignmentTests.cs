@@ -14,7 +14,7 @@ namespace Tests.Actions.CharacterGenerator
     [TestFixture]
     public class LimitAlignmentTests
     {
-        [Test]
+        [Fact]
         public void RemovesAlignmentsFromStrategyIfDenyIsSet()
         {
 

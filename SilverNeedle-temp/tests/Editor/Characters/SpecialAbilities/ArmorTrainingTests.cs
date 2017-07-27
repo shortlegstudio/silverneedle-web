@@ -10,7 +10,7 @@ namespace Tests.Characters
     [TestFixture]
     public class ArmorTrainingTests 
     {
-        [Test]
+        [Fact]
         public void RegistersModifiersWithStats()
         {
             var defStats = new DefenseStats();

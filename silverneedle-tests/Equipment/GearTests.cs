@@ -5,15 +5,14 @@
 
 namespace Tests.Equipment
 {
-    using NUnit.Framework;
+    using Xunit;
     using SilverNeedle.Equipment;
     using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
-    [TestFixture]
     public class GearTests
     {
-        [Test]
+        [Fact]
         public void GearLoadsBasicAttributesForTheItem()
         {
             var data = new MemoryStore();
@@ -22,10 +21,10 @@ namespace Tests.Equipment
             data.SetValue("value", "23gp");
 
             var backpack = new Gear(data);
-            Assert.That(backpack.Name, Is.EqualTo("Backpack"));
-            Assert.That(backpack.Weight, Is.EqualTo(39.2f));
-            Assert.That(backpack.Value, Is.EqualTo(2300));
-            Assert.That(backpack.GroupSimilar, Is.True);
+            Assert.Equal(backpack.Name, "Backpack");
+            Assert.Equal(backpack.Weight, 39.2f);
+            Assert.Equal(backpack.Value, 2300);
+            Assert.True(backpack.GroupSimilar);
         }
     }
 }

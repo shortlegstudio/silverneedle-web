@@ -6,14 +6,13 @@
 namespace Tests.Lexicon
 {
     using System.Linq;
-    using NUnit.Framework;
+    using Xunit;
     using SilverNeedle.Lexicon;
     using SilverNeedle.Serialization;
 
-    [TestFixture]
     public class DescriptionDetailTests
     {
-        [Test]
+        [Fact]
         public void DescriptionDetailCanHaveSupportingAdjectivesToChooseFrom()
         {
             var data = new MemoryStore();
@@ -24,12 +23,12 @@ namespace Tests.Lexicon
             data.SetValue("descriptors", descriptors);
 
             var subject = new TestDescription(data);
-            Assert.That(subject.Name, Is.EqualTo("ponytail"));
-            Assert.That(subject.Descriptors.Values.ElementAt(0), Has.Exactly(1).EqualTo("long"));
-            Assert.That(subject.Descriptors.Values.ElementAt(1), Has.Exactly(1).EqualTo("wavy"));
+            Assert.Equal(subject.Name, "ponytail");
+            Assert.Single(subject.Descriptors.Values.ElementAt(0), "long");
+            Assert.Single(subject.Descriptors.Values.ElementAt(1), "wavy");
         }
 
-        [Test]
+        [Fact]
         public void CreatingADescriptionCombinesDescriptorsAndName()
         {
             var data = new MemoryStore();
@@ -40,10 +39,10 @@ namespace Tests.Lexicon
             data.SetValue("descriptors", descriptors);
             var subject = new TestDescription(data); 
             var text = subject.CreateDescription();
-            Assert.That(text, Is.EqualTo("long braided ponytail"));
+            Assert.Equal(text, "long braided ponytail");
         }
 
-        [Test]
+        [Fact]
         public void SupportsNamedDescriptors()
         {
             var data = new MemoryStore();
@@ -52,7 +51,7 @@ namespace Tests.Lexicon
             descriptors.AddListItem(new MemoryStore("color", "red, green, blue"));
             data.SetValue("descriptors", descriptors);
             var subject = new TestDescription(data);
-            Assert.That(subject.Descriptors.Keys, Has.Exactly(1).EqualTo("color"));
+            Assert.Single(subject.Descriptors.Keys, "color");
         }
 
         private class TestDescription : DescriptionDetail

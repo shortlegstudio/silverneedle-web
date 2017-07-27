@@ -15,14 +15,14 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
     public class PrepareSpellsTests
     {
 
-        [Test]
+        [Fact]
         public void NonCastersDoNothing()
         {
             var character = new CharacterSheet();
             var prepareSpells = new PrepareSpells();
             prepareSpells.Process(character, new CharacterBuildStrategy());
         }
-        [Test]
+        [Fact]
         public void SelectsUniqueListOfSpellsDependingOnAvailableSlots()
         {
             var character = new CharacterSheet();
@@ -43,7 +43,7 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
             Assert.That(character.Get<SpellCasting>().GetPreparedSpells(1).Length, Is.EqualTo(1));
         }
 
-        [Test]
+        [Fact]
         public void PreparesSpellsFromMultipleSpellCastingClassesIfAvailable()
         {
             var character = new CharacterSheet();
@@ -67,7 +67,7 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
 
         }
 
-        [Test]
+        [Fact]
         public void SetAllSpellsAsPreparedIfASpontaneousCaster()
         {
             Assert.Ignore();

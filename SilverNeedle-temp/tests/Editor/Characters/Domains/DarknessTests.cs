@@ -20,7 +20,7 @@ namespace Tests.Characters.Domains
             base.InitializeDomain("darkness");
         }
 
-        [Test]
+        [Fact]
         public void TouchOfDarkness()
         {
             var touch = character.Get<TouchOfDarkness>();
@@ -28,7 +28,7 @@ namespace Tests.Characters.Domains
             Assert.That(touch.UsesPerDay, Is.EqualTo(6));
         }
 
-        [Test]
+        [Fact]
         public void EyesOfDarkness()
         {
             character.SetLevel(8);
@@ -37,7 +37,7 @@ namespace Tests.Characters.Domains
             Assert.That(eyeOfDark, Is.Not.Null); 
         }
 
-        [Test]
+        [Fact]
         public void ReceiveBlindFightAsBonusFeat()
         {
             var blindFight = character.FeatTokens.First();

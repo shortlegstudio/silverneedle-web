@@ -19,7 +19,7 @@ namespace Tests.Characters.Domains
             base.InitializeDomain("weather");
         }
 
-        [Test]
+        [Fact]
         public void StormBurst()
         {
             var touch = character.Get<StormBurst>();
@@ -27,7 +27,7 @@ namespace Tests.Characters.Domains
             Assert.That(touch.UsesPerDay, Is.EqualTo(6));
         }
 
-        [Test]
+        [Fact]
         public void LightningLord()
         {
             character.SetLevel(8);

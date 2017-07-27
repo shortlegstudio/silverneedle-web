@@ -36,13 +36,13 @@ namespace Tests.Characters
             move20.SetBaseSpeed(20);
         }
 
-        [Test]
+        [Fact]
         public void CalculatesSquaresBasedOnMovementValue() {
             Assert.AreEqual(6, move30.BaseSquares);
             Assert.AreEqual(4, move20.BaseSquares);
         }
 
-        [Test]
+        [Fact]
         public void ActualMoveSpeedCanBeImpactedByArmor()
         {
             var heavyArmor = new Armor();
@@ -51,14 +51,14 @@ namespace Tests.Characters
             Assert.That(move30.MovementSpeed, Is.EqualTo(20));
         }
 
-        [Test]
+        [Fact]
         public void ExposeMovementStatistics()
         {
             var stats = move30.Statistics.Select(x => x.Name);
             Assert.That(stats, Is.EquivalentTo(new string[] { StatNames.BaseMovementSpeed, StatNames.ArmorMovementPenalty }));
         }
 
-        [Test]
+        [Fact]
         public void ArmorMovementPenaltyIsAStatThatCanBeCalculated()
         {
             var armor = new Armor();

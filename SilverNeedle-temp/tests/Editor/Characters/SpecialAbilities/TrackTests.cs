@@ -12,7 +12,7 @@ namespace Tests.Characters.SpecialAbilities
     [TestFixture]
     public class TrackTests
     {
-        [Test]
+        [Fact]
         public void AddsHalfRangerLevelToTrackingSurvivalChecks()
         {
             var character = new CharacterSheet();

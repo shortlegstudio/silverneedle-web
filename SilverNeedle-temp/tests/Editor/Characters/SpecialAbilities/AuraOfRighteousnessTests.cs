@@ -13,7 +13,7 @@ namespace Tests.Characters.SpecialAbilities
     [TestFixture]
     public class AuraOfRighteousnessTests
     {
-        [Test]
+        [Fact]
         public void EnablesDamageResistanceAgainstEvil()
         {
             var character = new CharacterSheet();
@@ -24,7 +24,7 @@ namespace Tests.Characters.SpecialAbilities
             Assert.That(dr.Amount, Is.EqualTo(5));
         }
 
-        [Test]
+        [Fact]
         public void ProvidesImmunityToCompulsion()
         {
             var character = new CharacterSheet();

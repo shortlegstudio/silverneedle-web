@@ -12,7 +12,7 @@ namespace Tests.Characters
     [TestFixture]
     public class CharacterWealthTests
     {
-        [Test]
+        [Fact]
         public void LoadsWealthFromTable()
         {
             var data = new MemoryStore();

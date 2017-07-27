@@ -13,7 +13,7 @@ namespace Tests.Actions.CharacterGenerator.Personality
     [TestFixture]
     public class SelectQuirksTests
     {
-        [Test]
+        [Fact]
         public void SelectsSomeQuirksFromAvailableList()
         {
             var character = new CharacterSheet();

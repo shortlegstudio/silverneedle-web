@@ -14,7 +14,7 @@ namespace Tests.Characters.Background
     [TestFixture]
     public class ClassOriginGroupTests
     {
-        [Test]
+        [Fact]
         public void LoadsUpClassOriginFromYamlFileWithExpectedAttributes()
         {
             var list = ClassOriginYamlFile.ParseYaml().Load<ClassOriginGroup>();

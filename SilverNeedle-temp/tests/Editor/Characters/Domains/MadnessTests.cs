@@ -19,7 +19,7 @@ namespace Tests.Characters.Domains
             base.InitializeDomain("madness");
         }
 
-        [Test]
+        [Fact]
         public void VisionOfMadness()
         {
             var touch = character.Get<VisionOfMadness>();
@@ -27,7 +27,7 @@ namespace Tests.Characters.Domains
             Assert.That(touch.UsesPerDay, Is.EqualTo(6));
         }
 
-        [Test]
+        [Fact]
         public void AuraOfMadness()
         {
             character.SetLevel(8);

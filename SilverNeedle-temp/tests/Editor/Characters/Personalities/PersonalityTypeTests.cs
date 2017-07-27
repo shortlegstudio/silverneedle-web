@@ -6,7 +6,7 @@ using SilverNeedle.Serialization;
 namespace Characters {
     [TestFixture]
     public class PersonalityTypeTests {
-        [Test]
+        [Fact]
         public void PersonalityTypesProvideASummaryOfCharacterBehaviorsBasedOnMyersBriggs()
         {
             var personality = new PersonalityType("INFP");
@@ -16,7 +16,7 @@ namespace Characters {
             Assert.AreEqual(PersonalityTypes.Structure.Perceiving, personality.Structure);            
         }
 
-        [Test]
+        [Fact]
         public void CanLoadPersonalityType() {
             var data = new MemoryStore();
             data.SetValue("type", "ISTJ");

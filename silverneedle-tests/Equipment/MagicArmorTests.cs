@@ -5,13 +5,12 @@
 
 namespace Tests.Equipment
 {
-    using NUnit.Framework;
+    using Xunit;
     using SilverNeedle.Equipment;
     
-    [TestFixture]
     public class MagicArmorTests
     {
-        [Test]
+        [Fact]
         public void MagicArmorAddsToTheArmorClassBonus()
         {
             var armor = new Armor();
@@ -19,10 +18,10 @@ namespace Tests.Equipment
             armor.ArmorClass = 5;
             armor.ArmorCheckPenalty = -4;
             var magic = new MagicArmor(armor, 2);
-            Assert.That(magic.ArmorClass, Is.EqualTo(7));
-            Assert.That(magic.Value, Is.EqualTo(400000));
-            Assert.That(magic.Name, Is.EqualTo("Chainmail +2"));
-            Assert.That(magic.ArmorCheckPenalty, Is.EqualTo(-3));
+            Assert.Equal(magic.ArmorClass, 7);
+            Assert.Equal(magic.Value, 400000);
+            Assert.Equal(magic.Name, "Chainmail +2");
+            Assert.Equal(magic.ArmorCheckPenalty, -3);
         }
     }
 }

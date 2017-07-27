@@ -13,7 +13,7 @@ namespace Tests.Characters
     [TestFixture]
     public class EquippedArmorModifierTests
     {
-        [Test]
+        [Fact]
         public void UnEquippedArmorMakesNoDifference() {
             var bag = new ComponentBag(); 
             var inv = new Inventory ();
@@ -27,7 +27,7 @@ namespace Tests.Characters
             Assert.AreEqual (0, mod.Modifier);
         }
 
-        [Test]
+        [Fact]
         public void EquippedArmorIncreasesYourDefenseAndYourFlatFootedDefenseButNotTouchDefense() {
             var bag = new ComponentBag();
             var inventory = new Inventory ();

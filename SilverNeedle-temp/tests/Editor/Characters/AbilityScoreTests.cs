@@ -7,7 +7,7 @@ namespace Characters {
 	[TestFixture]
 	public class AbilityScoreTests {
 
-	    [Test]
+	    [Fact]
 	    public void CalculateModifierScore() {
 			var score = new AbilityScore (AbilityScoreTypes.Strength, 18);
 			Assert.AreEqual (4, score.BaseModifier);
@@ -35,13 +35,13 @@ namespace Characters {
 			Assert.AreEqual (-2, score.BaseModifier);
 	    }
 			
-		[Test]
+		[Fact]
 		public void TotalScoreIsTheSumOfAllModifiers() {
 			var score = new AbilityScore (AbilityScoreTypes.Strength, 15);
 			Assert.AreEqual (15, score.TotalValue);
 		}
 
-		[Test]
+		[Fact]
 		public void YouCanAddAnAdjustmentToAdjustTheTotals() {
 			var score = new AbilityScore (AbilityScoreTypes.Strength, 15);
 			var adj = new AbilityScoreAdjustment ();

@@ -12,7 +12,7 @@ namespace Tests.Actions.CharacterGenerator.Abilities
     [TestFixture]
     public class CreateAbilityScoreTests
     {
-        [Test]
+        [Fact]
         public void UsesAbilityScoreGeneratorSpecifiedByStrategy()
         {
             var strategy = new CharacterBuildStrategy();

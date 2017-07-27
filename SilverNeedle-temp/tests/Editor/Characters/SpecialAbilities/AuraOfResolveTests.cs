@@ -13,7 +13,7 @@ namespace Tests.Characters.SpecialAbilities
     [TestFixture]
     public class AuraOfResolveTests
     {
-        [Test]
+        [Fact]
         public void AuraOfResolveEnablesImmunityToCharms()
         {
             var character = new CharacterSheet();

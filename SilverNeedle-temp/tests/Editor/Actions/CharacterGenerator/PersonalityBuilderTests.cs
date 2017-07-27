@@ -12,7 +12,7 @@ namespace Actions.CharacterGenerator
     [TestFixture]
     public class PersonalityBuilderTests
     {
-        [Test]
+        [Fact]
         public void AssignsARandomPersonalityType()
         {
             var builder = new PersonalityBuilder();
@@ -23,7 +23,7 @@ namespace Actions.CharacterGenerator
             Assert.IsInstanceOf(typeof(PersonalityType), cs.PersonalityType);            
         }
 
-        [Test]
+        [Fact]
         public void AssignsSomeRandomIdeals()
         {
             var builder = new PersonalityBuilder();

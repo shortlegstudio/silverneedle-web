@@ -12,7 +12,7 @@ namespace Tests.Characters {
 
 	[TestFixture]
 	public class InventoryTests {
-		[Test]
+		[Fact]
 		public void InventoryTracksWeapons() {
 			var inv = new Inventory ();
 			var wpn1 = new Weapon ();
@@ -23,7 +23,7 @@ namespace Tests.Characters {
 			Assert.AreEqual (wpn1, inv.Weapons.First ());
 		}
 
-		[Test]
+		[Fact]
 		public void InventoryWillReturnCurrentArmor() {
 			var inv = new Inventory ();
 			var armor = new Armor ();
@@ -32,7 +32,7 @@ namespace Tests.Characters {
 			Assert.AreEqual (armor, inv.Armor.First());
 		}
 
-		[Test]
+		[Fact]
 		public void InventoryItemsCanBeMarkedAsEquipped() {
 			var inv = new Inventory ();
 			var armor = new Armor ();
@@ -40,7 +40,7 @@ namespace Tests.Characters {
 			Assert.AreEqual (1, inv.EquippedItems.Count());
 		}
 
-        [Test]
+        [Fact]
         public void CanGetEquippedArmor()
         {
             var inv = new Inventory();
@@ -49,7 +49,7 @@ namespace Tests.Characters {
             Assert.That(inv.Equipped<IArmor>(), Is.EquivalentTo(new Armor[] { armor }));
         }
 
-		[Test]
+		[Fact]
 		public void CanGetItemOfSpecificType() {
 			var inv = new Inventory ();
 			var armor = new Armor ();
@@ -62,7 +62,7 @@ namespace Tests.Characters {
 			Assert.AreEqual (junk, inv.GearOfType<PieceOfJunk> ().First());
 		}
 
-		[Test]
+		[Fact]
 		public void EquippingItemAddsItToInventoryIfNotAlreadyThere() {
 			var inv = new Inventory ();
 			var armor = new Armor ();
@@ -70,7 +70,7 @@ namespace Tests.Characters {
 			Assert.AreEqual (armor, inv.Armor.First ());
 		}
 
-		[Test]
+		[Fact]
 		public void AddingTheSameItemTwiceIncrementsQuantity() {
 			var inv = new Inventory ();
 			var j = new PieceOfJunk ();
@@ -80,7 +80,7 @@ namespace Tests.Characters {
             Assert.That(item.Quantity, Is.EqualTo(2));
 		}
 
-        [Test]
+        [Fact]
         public void PurchasingAnItemDeductsTheValueFromPurse()
         {
             var inv = new Inventory();
@@ -92,7 +92,7 @@ namespace Tests.Characters {
             Assert.AreEqual(1, inv.All.Count());
         }
 
-        [Test]
+        [Fact]
         public void ProvideMethodForGettingEquippedItemsOfType()
         {
             var inv = new Inventory();
@@ -104,7 +104,7 @@ namespace Tests.Characters {
             Assert.That(equippedArmors.Count(), Is.EqualTo(1));
         }
 
-        [Test]
+        [Fact]
         public void ToStringArrayCreatesAnArrayOfTheNameAndQuantityIfAppropriate()
         {
             var inv = new Inventory();
@@ -121,7 +121,7 @@ namespace Tests.Characters {
             Assert.That(names, Has.Exactly(1).EqualTo("Junk (2)")); 
         }
 
-        [Test]
+        [Fact]
         public void CanReturnSpellbooksInInventory()
         {
             var inv = new Inventory();
@@ -130,7 +130,7 @@ namespace Tests.Characters {
             Assert.That(inv.Spellbooks, Is.EquivalentTo(new Spellbook[] { spells }));
         }
 
-        [Test]
+        [Fact]
         public void RaiseAnEventWhenItemsAreAddedToInventory()
         {
             var inv = new Inventory();
@@ -143,7 +143,7 @@ namespace Tests.Characters {
             Assert.That(called, Is.True);
         }
 
-        [Test]
+        [Fact]
         public void ItemsInInventoryShouldBeModifiableWithCharacterStatAdjustments()
         {
             var inv = new Inventory();

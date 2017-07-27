@@ -14,7 +14,7 @@ namespace Tests.Actions.CharacterGenerator
     [TestFixture]
     public class ProcessCustomClassFeaturesTests
     {
-        [Test]
+        [Fact]
         public void RunAnyCustomStepsForThisLevel()
         {
             var cls = new Class();
@@ -29,7 +29,7 @@ namespace Tests.Actions.CharacterGenerator
             Assert.That(character.Name, Is.EqualTo("I Ran!"));
         }
 
-        [Test]
+        [Fact]
         public void AssignAbilitiesForThisLevel()
         {
             var cls = new Class();

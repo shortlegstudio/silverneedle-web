@@ -19,7 +19,7 @@ namespace Tests.Characters.Domains
             base.InitializeDomain("charm");
         }
 
-        [Test]
+        [Fact]
         public void CanDazeCreations()
         {
             var touch = character.Get<DazingTouch>();
@@ -27,7 +27,7 @@ namespace Tests.Characters.Domains
             Assert.That(touch.UsesPerDay, Is.EqualTo(6));
         }
 
-        [Test]
+        [Fact]
         public void CharmingSmile()
         {
             character.SetLevel(8);

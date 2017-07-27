@@ -1,15 +1,19 @@
-﻿using System.Linq;
-using NUnit.Framework;
+﻿// Copyright (c) 2017 Trevor Redfern
+// 
+// This software is released under the MIT License.
+// https://opensource.org/licenses/MIT
+
+using System.Linq;
+using Xunit;
 using SilverNeedle.Dice;
 
 namespace Dice
 {
     
-    [TestFixture]
     public class CupTests
     {
 
-        [Test]
+        [Fact]
         public void AnyTypeOfDieMayBeAddedToTheCup()
         {
             var cup = new Cup();
@@ -17,47 +21,47 @@ namespace Dice
             cup.AddDie(Die.D10());
             cup.AddDie(Die.D6());
 
-            Assert.AreEqual(new Die[] { Die.D4(), Die.D10(), Die.D6() }, cup.Dice);
+            Assert.Equal(new Die[] { Die.D4(), Die.D10(), Die.D6() }, cup.Dice);
         }
 
-        [Test]
+        [Fact]
         public void ItRollsAllTheDiceWhenRollingTheCup()
         {
             var cup = new Cup();
             cup.AddDie(Die.D6());
             cup.AddDie(Die.D6());
             cup.Roll();
-            Assert.IsTrue(cup.Dice.All(x => x.LastRoll > 0));
+            Assert.True(cup.Dice.All(x => x.LastRoll > 0));
         }
 
-        [Test]
+        [Fact]
         public void ResultIsTheSumOfAllDiceRolled()
         {
             var cup = new Cup();
             cup.AddDie(Die.D6());
             cup.AddDie(Die.D6());
             var result = cup.Roll();
-            Assert.AreEqual(result, cup.Dice.Sum(x => x.LastRoll));
+            Assert.Equal(result, cup.Dice.Sum(x => x.LastRoll));
         }
 
-        [Test]
+        [Fact]
         public void MultiplesOfTheSameDiceCanBeAdded()
         {
             var cup = new Cup();
             cup.AddDice(
                 Die.GetDice(DiceSides.d6, 4)
             );
-            Assert.AreEqual(new Die[] { Die.D6(), Die.D6(), Die.D6(), Die.D6() }, cup.Dice);
+            Assert.Equal(new Die[] { Die.D6(), Die.D6(), Die.D6(), Die.D6() }, cup.Dice);
         }
 
-        [Test]
+        [Fact]
         public void CupCanBeCreatedWithArrayOfDice()
         {
             var cup = new Cup(Die.GetDice(DiceSides.d6, 4));
-            Assert.AreEqual(new Die[] { Die.D6(), Die.D6(), Die.D6(), Die.D6() }, cup.Dice);
+            Assert.Equal(new Die[] { Die.D6(), Die.D6(), Die.D6(), Die.D6() }, cup.Dice);
         }
 
-        [Test]
+        [Fact]
         public void ResultsCanBeFilteredByTakingTheHighestNumberOfDice()
         {
             //For stats we frequently roll 4d6 and want the top 3...
@@ -74,42 +78,42 @@ namespace Dice
                     lowest = d.LastRoll;
             }
 
-            Assert.AreEqual(manualSum - lowest, sumTop3);
+            Assert.Equal(manualSum - lowest, sumTop3);
         }
 
-        [Test]
+        [Fact]
         public void CupCanHaveABaseValueForTheRoll()
         {
             var cup = new Cup();
             cup.AddDie(Die.D4());
             cup.Modifier = 20;
-            Assert.GreaterOrEqual(cup.Roll(), 20);
+            Assert.True(cup.Roll() >= 20);
         }
 
-        [Test]
+        [Fact]
         public void FormatsCupIntoADiceString()
         {
             var cup = new Cup();
             cup.AddDie(Die.D10());
-            Assert.AreEqual("1d10", cup.ToString());
+            Assert.Equal("1d10", cup.ToString());
             cup.AddDie(Die.D10());
-            Assert.AreEqual("2d10", cup.ToString());
+            Assert.Equal("2d10", cup.ToString());
             cup.Modifier = 5;
-            Assert.AreEqual("2d10+5", cup.ToString());
+            Assert.Equal("2d10+5", cup.ToString());
             cup.AddDie(Die.D6());
-            Assert.AreEqual("2d10+1d6+5", cup.ToString());
+            Assert.Equal("2d10+1d6+5", cup.ToString());
 
         }
 
-        [Test]
+        [Fact]
         public void CanBeSetToAllowsRollTheMaximumValue()
         {
             var cup = new Cup();
             cup.AddDice(Die.GetDice(DiceSides.d6, 10));
             cup.MaximizeAmount = true;
-            Assert.That(cup.Roll(), Is.EqualTo(60));
-            Assert.That(cup.Roll(), Is.EqualTo(60));
-            Assert.That(cup.Roll(), Is.EqualTo(60));
+            Assert.Equal(60, cup.Roll());
+            Assert.Equal(60, cup.Roll());
+            Assert.Equal(60, cup.Roll());
         }
     }
 }

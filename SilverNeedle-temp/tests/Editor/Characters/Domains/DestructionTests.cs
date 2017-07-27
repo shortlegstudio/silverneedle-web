@@ -19,7 +19,7 @@ namespace Tests.Characters.Domains
             base.InitializeDomain("destruction");
         }
 
-        [Test]
+        [Fact]
         public void DestructiveSmite()
         {
             var touch = character.Get<DestructiveSmite>();
@@ -27,7 +27,7 @@ namespace Tests.Characters.Domains
             Assert.That(touch.UsesPerDay, Is.EqualTo(6));
         }
 
-        [Test]
+        [Fact]
         public void DestructiveAura()
         {
             character.SetLevel(8);

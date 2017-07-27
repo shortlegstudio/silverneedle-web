@@ -31,20 +31,20 @@ namespace Tests.Actions.CharacterGenerator
             subject = new CharacterDesigner(data);
         }
 
-        [Test]
+        [Fact]
         public void DefaultTypeForDesignerIsNormal()
         {
             Assert.AreEqual(CharacterDesigner.Type.Normal, subject.DesignerType);
         }
 
-        [Test]
+        [Fact]
         public void CharacterCreatorLoadsFromYamlStepsNecessary()
         {           
             Assert.AreEqual("Test One", subject.Name);
             Assert.AreEqual(2, subject.Steps.Count());
         }
 
-        [Test]
+        [Fact]
         public void CharacterCreatorExecutesEachBuildStepInSequence()
         {
             var characterSheet = new CharacterSheet();
@@ -54,7 +54,7 @@ namespace Tests.Actions.CharacterGenerator
             Assert.AreEqual(16, characterSheet.AbilityScores.GetScore(AbilityScoreTypes.Strength));
         }
 
-        [Test]
+        [Fact]
         public void DesignerStepsFindSpecificImplementationOfCharacterDesigners()
         { 
             // TODO: This test is dependent on yaml configuration
@@ -69,7 +69,7 @@ namespace Tests.Actions.CharacterGenerator
             Assert.That(subject.Steps, Has.Exactly(1).TypeOf(typeof(DesignerExecuterStep)));
         }
 
-        [Test]
+        [Fact]
         public void CharacterDesignerWillExecuteStepsUntilCharacterIsAtStrategyLevelIfTypeIsLevelUp()
         {
             var data = new MemoryStore();

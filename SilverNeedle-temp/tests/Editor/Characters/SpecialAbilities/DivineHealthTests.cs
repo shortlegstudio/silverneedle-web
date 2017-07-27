@@ -13,7 +13,7 @@ namespace Tests.Characters.SpecialAbilities
     [TestFixture]
     public class DivineHealthTests
     {
-        [Test]
+        [Fact]
         public void EnablesImmunityToDisease()
         {
             var character = new CharacterSheet();

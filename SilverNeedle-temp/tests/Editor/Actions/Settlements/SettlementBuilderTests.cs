@@ -12,7 +12,7 @@ namespace Tests.Actions.Settlements
     [TestFixture]
     public class SettlementBuilderTests
     {
-        [Test]
+        [Fact]
         public void CreatesSettlementsWithCharactersOfSpecificSize()
         {
             var settlementBuilder = new SettlementBuilder();

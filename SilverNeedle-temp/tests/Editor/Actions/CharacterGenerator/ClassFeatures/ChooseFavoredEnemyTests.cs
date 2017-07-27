@@ -15,7 +15,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
     [TestFixture]
     public class ChooseFavoredEnemyTests
     {
-        [Test]
+        [Fact]
         public void ChooseFromFavoredEnemyList()
         {
             var aberration = new CreatureType("Aberration"); 
@@ -29,7 +29,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
             Assert.That(favEnemy.CreatureTypes, Contains.Item(aberration));
         }
 
-        [Test]
+        [Fact]
         public void AddingASecondEnemyAppendsADifferentOneToTheList()
         {
             var aberration = new CreatureType("Aberration"); 

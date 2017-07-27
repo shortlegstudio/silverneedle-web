@@ -12,7 +12,7 @@ namespace Tests.Characters.SpecialAbilities
     [TestFixture]
     public class FavoredEnemyTests
     {
-        [Test]
+        [Fact]
         public void NameShouldReflectFavoredEnemyAndBonus()
         {
             var creatureType = new CreatureType("Outsider", "Fire");
@@ -21,7 +21,7 @@ namespace Tests.Characters.SpecialAbilities
 
         }
 
-        [Test]
+        [Fact]
         public void CanHaveMultipleFavoredEnemies()
         {
             var dragons = new CreatureType("Dragons");

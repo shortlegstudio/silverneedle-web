@@ -43,7 +43,7 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
             subject = new BuildSpellList(spellLists, spells);
         }
         
-        [Test]
+        [Fact]
         public void AddsAllSpellsForTheCurrentLevelToTheCharacterIfKnowsAllSpells()
         {
             var character = new CharacterSheet();
@@ -61,13 +61,13 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
         }
 
 
-        [Test]
+        [Fact]
         public void ChoosesSpellsKnownBasedOnClassRulesIfSpontaneousCaster()
         {
             Assert.Ignore("Spontaneous Casters Not Supported");
         }
 
-        [Test]
+        [Fact]
         public void ClassesWithoutSpellsDoNothing()
         {
             var character = new CharacterSheet();
@@ -75,7 +75,7 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
             subject.Process(character, new CharacterBuildStrategy());
         }
 
-        [Test]
+        [Fact]
         public void WorksWithMultiClassedCasters()
         {
             var character = new CharacterSheet();
@@ -96,7 +96,7 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
                 new string[] { "level 1-1", "level 1-2", "level 1-3", "level 1-4" }));
         }
 
-        [Test]
+        [Fact]
         public void IgnoreDomainSpellCastingSinceThatsHandledDifferently()
         {
             var character = new CharacterSheet();

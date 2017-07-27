@@ -19,7 +19,7 @@ namespace Tests.Characters.Domains
             base.InitializeDomain("rune");
         }
 
-        [Test]
+        [Fact]
         public void BlastRune()
         {
             var touch = character.Get<BlastRune>();
@@ -27,7 +27,7 @@ namespace Tests.Characters.Domains
             Assert.That(touch.UsesPerDay, Is.EqualTo(6));
         }
 
-        [Test]
+        [Fact]
         public void SpellRune()
         {
             character.SetLevel(8);

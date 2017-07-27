@@ -11,7 +11,7 @@ namespace Tests.Characters.Background
     [TestFixture]
     public class HistoryTests
     {
-        [Test]
+        [Fact]
         public void InitializeWithEmptyObjects()
         {
             var history = new History();

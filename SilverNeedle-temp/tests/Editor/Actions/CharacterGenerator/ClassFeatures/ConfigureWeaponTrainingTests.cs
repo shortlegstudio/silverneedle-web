@@ -18,7 +18,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
     [TestFixture]
     public class ConfigureWeaponTrainingTests
     {
-        [Test]
+        [Fact]
         public void ChoosesAWeaponGroupForBonuses()
         {
             var store = new MemoryStore();
@@ -31,7 +31,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
         }
 
 
-        [Test]
+        [Fact]
         public void IfLevelingUpCreateANewWeaponTrainingGroupAndIncreaseExistingLevel()
         {
             var store = new MemoryStore();

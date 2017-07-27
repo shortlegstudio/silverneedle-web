@@ -19,7 +19,7 @@ namespace Tests.Characters.Domains
             base.InitializeDomain("protection");
         }
 
-        [Test]
+        [Fact]
         public void ResistantTouch()
         {
             var touch = character.Get<ResistantTouch>();
@@ -27,7 +27,7 @@ namespace Tests.Characters.Domains
             Assert.That(touch.UsesPerDay, Is.EqualTo(6));
         }
 
-        [Test]
+        [Fact]
         public void AuraOfProtection()
         {
             character.SetLevel(8);

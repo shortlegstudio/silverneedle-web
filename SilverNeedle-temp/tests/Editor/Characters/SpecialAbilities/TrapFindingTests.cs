@@ -12,7 +12,7 @@ namespace Tests.Characters.SpecialAbilities
     [TestFixture]
     public class TrapFindingTests
     {
-        [Test]
+        [Fact]
         public void AddsModifiersToThePerceptionAndDisableDeviceSkills()
         {
             var character = new CharacterSheet();

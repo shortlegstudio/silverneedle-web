@@ -13,7 +13,7 @@ namespace Tests.Characters.SpecialAbilities
     [TestFixture]
     public class ArmorMasteryTests
     {
-        [Test]
+        [Fact]
         public void AddsDamageResistanceToDefenseStats()
         {
             var bag = new ComponentBag();

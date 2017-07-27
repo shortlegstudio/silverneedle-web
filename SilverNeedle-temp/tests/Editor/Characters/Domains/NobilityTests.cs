@@ -19,7 +19,7 @@ namespace Tests.Characters.Domains
             base.InitializeDomain("nobility");
         }
 
-        [Test]
+        [Fact]
         public void InspiringWord()
         {
             var touch = character.Get<InspiringWord>();
@@ -27,7 +27,7 @@ namespace Tests.Characters.Domains
             Assert.That(touch.UsesPerDay, Is.EqualTo(6));
         }
 
-        [Test]
+        [Fact]
         public void Leadership()
         {
             character.SetLevel(8);

@@ -12,27 +12,27 @@ namespace Characters {
 			Subject = new AbilityScores ();
 		}
 
-		[Test]
+		[Fact]
 		public void AbilityScoresContainerHasAllTheStatsSetToZero() {
 			Assert.AreEqual(0, Subject.GetScore(AbilityScoreTypes.Strength));
 			Assert.AreEqual(0, Subject.GetScore(AbilityScoreTypes.Wisdom));
 			Assert.AreEqual(0, Subject.GetScore("Intelligence"));
 		}
 
-		[Test]
+		[Fact]
 		public void AbilityScoresCanSetAbilities() {
 			Subject.SetScore (AbilityScoreTypes.Charisma, 15);
 			Assert.AreEqual (15, Subject.GetScore ("Charisma"));
 		}
 
-		[Test]
+		[Fact]
 		public void YouMayGetTheAbilityModifier() {
 			Subject.SetScore (AbilityScoreTypes.Charisma, 12);
 
 			Assert.AreEqual (1, Subject.GetModifier (AbilityScoreTypes.Charisma));
 		}
 
-		[Test]
+		[Fact]
 		public void YouCanCopyOneSetOfAbilityScoresToAnother() {
 			var abilityScores = new AbilityScores ();
 			var copyFrom = new AbilityScores ();

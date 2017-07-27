@@ -11,7 +11,7 @@ namespace Tests.Characters
     [TestFixture]
     public class CharacterAppearanceTests
     {
-        [Test]
+        [Fact]
         public void FacialDescriptionsHaveEyeAndHairColors()
         {
             var facial = new CharacterAppearance();
@@ -23,7 +23,7 @@ namespace Tests.Characters
             Assert.That(facial.FacialHair.Name, Is.EqualTo("Moustache"));
         }
 
-        [Test]
+        [Fact]
         public void EmptyConstructorInitializesSubclass()
         {
             var facial = new CharacterAppearance();

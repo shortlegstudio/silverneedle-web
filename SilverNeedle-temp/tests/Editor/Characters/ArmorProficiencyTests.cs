@@ -6,7 +6,7 @@ namespace Characters {
 
 	[TestFixture]
 	public class ArmorProficiencyTests {
-		[Test]
+		[Fact]
 		public void ArmorTypesCanBeDefinedAsProficieny() {
 			var prof = new ArmorProficiency("Light");
 			var armor = new Armor();
@@ -19,7 +19,7 @@ namespace Characters {
 		}
 
 
-		[Test]
+		[Fact]
 		public void MatchesBasedOnNameIfNotTrainingLevel() {
 			var prof = new ArmorProficiency("Hide");
 			var armor = new Armor();

@@ -7,7 +7,7 @@ namespace Characters {
 
     [TestFixture]
     public class CharacterSkillTests {
-        [Test]
+        [Fact]
         public void UntrainedSkillsAreBasedOffOfAttributeScore() {
             //Set up a skill
             var skill = new Skill (
@@ -21,7 +21,7 @@ namespace Characters {
             Assert.IsTrue (charSkill.AbleToUse);
         }
 
-        [Test]
+        [Fact]
         public void TrainedSkillsStartAtMinValueAndUnableToUse() {
             var skill = new Skill (
                             "Disable Device",
@@ -33,7 +33,7 @@ namespace Characters {
             Assert.IsFalse (charSkill.AbleToUse);
         }
 
-        [Test]
+        [Fact]
         public void AddingPointsToSkillsIncreasesTheirScore() {
             var skill = new Skill (
                             "Swim",
@@ -47,7 +47,7 @@ namespace Characters {
             Assert.AreEqual (baseValue + 1, charSkill.Score());
         }
 
-        [Test]
+        [Fact]
         public void AddingARankAllowsToUseTrainingSkill() {
             var skill = new Skill (
                             "Spellcraft",
@@ -61,7 +61,7 @@ namespace Characters {
             Assert.AreEqual (3, charSkill.Score());
         }
 
-        [Test]
+        [Fact]
         public void ClassSkillsGetOneTimeBonus() {
             var skill = new Skill (
                             "Climb",
@@ -76,7 +76,7 @@ namespace Characters {
             Assert.AreEqual (5, charSkill.Score());
         }
 
-        [Test]
+        [Fact]
         public void SkillsCanHaveAdjustmentsFromTraitsOrFeats() {
             var adjust = new ValueStatModifier (
                             "Fly",
@@ -91,7 +91,7 @@ namespace Characters {
             Assert.AreEqual (2, charSkill.Score());
         }
 
-        [Test]
+        [Fact]
         public void SkillsRecalculateWhenAbilityIsUpdated() {
             var skill = new Skill ("Chew", AbilityScoreTypes.Strength, false);
             var ability = new AbilityScore (AbilityScoreTypes.Strength, 10);
@@ -105,7 +105,7 @@ namespace Characters {
 
         }
 
-        [Test]
+        [Fact]
         public void ModificationToAnAdjustmentAreReflectedInTotalScore() {
             var skill = new Skill ("Chew", AbilityScoreTypes.Strength, false);
             var ability = new AbilityScore (AbilityScoreTypes.Strength, 10);
@@ -117,7 +117,7 @@ namespace Characters {
             Assert.AreEqual (5, charSkill.Score());
         }
 
-        [Test]
+        [Fact]
         public void SkillsCanHaveConditionalModifiers() {
             var skill = new Skill("Eat", AbilityScoreTypes.Intelligence, false);
             var ability = new AbilityScore(AbilityScoreTypes.Intelligence, 10);
@@ -130,7 +130,7 @@ namespace Characters {
             Assert.AreEqual("Eat +0 (+3 Celery)", charSkill.ToString());
         }
 
-        [Test]
+        [Fact]
         public void ConditionalModifiersAndRanksAreCountedOnlyOnce() {
             var skill = new Skill("Eat", AbilityScoreTypes.Intelligence, false);
             var ability = new AbilityScore(AbilityScoreTypes.Intelligence, 10);

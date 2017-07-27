@@ -40,21 +40,21 @@ namespace Tests.Actions {
             subject = new PurchaseShield(gateway);
 		}
 
-		[Test]
+		[Fact]
 		public void PurchaseAShield () {
 			subject.Process (proficientCharacter, new CharacterBuildStrategy());
 
 			Assert.That (proficientCharacter.Inventory.Armor, Has.Exactly(1).EqualTo(shield));
 		}
 
-        [Test]
+        [Fact]
         public void DoesNotEquipShieldIfNotProficient()
         {
             subject.Process(incapableCharacter, new CharacterBuildStrategy());
             Assert.That(incapableCharacter.Inventory.Armor, Has.Exactly(0).EqualTo(shield));
         }
 
-        [Test]
+        [Fact]
         public void PurchasingArmorCostsMoney()
         {
             shield.Value = 3700;
@@ -66,7 +66,7 @@ namespace Tests.Actions {
             Assert.That(proficientCharacter.Inventory.Armor, Has.Exactly(1).EqualTo(shield));
         }
 
-        [Test]
+        [Fact]
         public void DoNotPurchaseTooExpensiveItems()
         {
             shield.Value = 60000;

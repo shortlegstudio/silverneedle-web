@@ -12,7 +12,7 @@ namespace Tests.Bestiary
     [TestFixture]
     public class FamiliarTests
     {
-        [Test]
+        [Fact]
         public void LoadFromObjectStore()
         {
             var data = new MemoryStore();

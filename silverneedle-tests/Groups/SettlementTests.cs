@@ -5,21 +5,20 @@
 
 namespace Tests.Groups
 {
-    using NUnit.Framework;
+    using Xunit;
     using SilverNeedle.Characters;
     using SilverNeedle.Groups;
 
-    [TestFixture]
     public class SettlementTests 
     {
-        [Test]
+        [Fact]
         public void SettlementsHaveManyCharactersInThem()
         {
             var settlement = new Settlement();
             settlement.AddInhabitant(new CharacterSheet());
             settlement.AddInhabitant(new CharacterSheet());
 
-            Assert.AreEqual(2, settlement.Population);
+            Assert.Equal(2, settlement.Population);
         }
     }
 }

@@ -16,7 +16,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
     [TestFixture]
     public class AddDomainSpellsTests
     {
-        [Test]
+        [Fact]
         public void FindsDomainsAssociatedWithCharacterAndAddsThoseSpells()
         {
             var character = new CharacterSheet();

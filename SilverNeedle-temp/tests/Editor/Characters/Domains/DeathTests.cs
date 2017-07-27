@@ -19,7 +19,7 @@ namespace Tests.Characters.Domains
             base.InitializeDomain("death");
         }
 
-        [Test]
+        [Fact]
         public void BleedingTouch()
         {
             var touch = character.Get<BleedingTouch>();
@@ -27,7 +27,7 @@ namespace Tests.Characters.Domains
             Assert.That(touch.UsesPerDay, Is.EqualTo(6));
         }
 
-        [Test]
+        [Fact]
         public void DeathEmbrace()
         {
             character.SetLevel(8);

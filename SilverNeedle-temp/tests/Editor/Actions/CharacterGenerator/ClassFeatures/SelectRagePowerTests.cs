@@ -37,7 +37,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
             barbarian.SetClass(cls);
         }
 
-        [Test]
+        [Fact]
         public void SelectFromRagePowersThatCharacterIsQualifiedFor()
         {
             ragePowerSelector.Process(barbarian, new CharacterBuildStrategy());

@@ -37,36 +37,36 @@ namespace Tests.Characters {
             smallStats.Initialize(components);
         }
 
-        [Test]
+        [Fact]
         public void BaseAttackBonusIsAStat() {
             Assert.IsInstanceOf<BasicStat> (smallStats.BaseAttackBonus);
         }
 
-        [Test]
+        [Fact]
         public void BaseMeleeBonusIsBABAndStrengthAndSize() {
             smallStats.BaseAttackBonus.SetValue (3);
             Assert.AreEqual (7, smallStats.MeleeAttackBonus.TotalValue);
         }
 
-        [Test]
+        [Fact]
         public void BaseRangeBonusIsBABAndDexterityAndSize() {
             smallStats.BaseAttackBonus.SetValue (3);
             Assert.AreEqual (6, smallStats.RangeAttackBonus.TotalValue);
         }
 
-        [Test]
+        [Fact]
         public void CMBIsBABAndStrengthAndSize() {
             smallStats.BaseAttackBonus.SetValue (3);
             Assert.AreEqual (5, smallStats.CombatManeuverBonus.TotalValue);
         }
 
-        [Test]
+        [Fact]
         public void CMDIsBABStrengthAndDexterityAndSize() {
             smallStats.BaseAttackBonus.SetValue (3);
             Assert.AreEqual (17, smallStats.CombatManeuverDefense.TotalValue);
         }
 
-        [Test]
+        [Fact]
         public void ModifiersCanBeAppliedToCombatManeuverDefense() {
             var mods = new MockMod();
             var oldCMD = smallStats.CombatManeuverDefense.TotalValue;
@@ -74,7 +74,7 @@ namespace Tests.Characters {
             Assert.AreEqual(oldCMD + 1, smallStats.CombatManeuverDefense.TotalValue);
         }
 
-        [Test]
+        [Fact]
         public void ModifiersCanBeAppliedToCombatManeuverBonus() {
             var mods = new MockMod();
             var oldCMB = smallStats.CombatManeuverBonus.TotalValue;
@@ -82,7 +82,7 @@ namespace Tests.Characters {
             Assert.AreEqual(oldCMB + 1, smallStats.CombatManeuverBonus.TotalValue);
         }
 
-        [Test]
+        [Fact]
         public void ContainsAListOfAllWeaponsAvailableAndTheirStats() {
             var longsword = Longsword();
             inventory.AddGear(longsword);
@@ -91,7 +91,7 @@ namespace Tests.Characters {
             Assert.AreEqual(longsword, smallStats.Attacks().First().Weapon);
         }
 
-        [Test]
+        [Fact]
         public void MeleeWeaponAttacksCalculateDamageBonuses() {
             inventory.AddGear(Longsword());
             smallStats.AddWeaponProficiency("martial");
@@ -106,7 +106,7 @@ namespace Tests.Characters {
             Assert.AreEqual(smallStats.MeleeAttackBonus.TotalValue, atk.AttackBonus);
         }
 
-        [Test]
+        [Fact]
         public void RangeAttackBonusHaveAttackBonusButNotDamage() {
             inventory.AddGear(ShortBow());
             smallStats.AddWeaponProficiency("martial");
@@ -118,19 +118,19 @@ namespace Tests.Characters {
             Assert.AreEqual(smallStats.RangeAttackBonus.TotalValue, atk.AttackBonus);
         }
 
-        [Test]
+        [Fact]
         public void CanAddWeaponProficiencies() {
             smallStats.AddWeaponProficiency("Shortbow");
             Assert.IsTrue(smallStats.IsProficient(ShortBow()));
         }
 
-        [Test]
+        [Fact]
         public void CanAddAnArrayOfWeaponProficiencies() {
             smallStats.AddWeaponProficiencies(new string[] {"simple", "martial"});
             Assert.IsTrue(smallStats.IsProficient(Longsword()));	
         }
 
-        [Test]
+        [Fact]
         public void AttacksWithoutProficiencyAreAtMinus4() {
             inventory.AddGear(Nunchaku());
             var atk = smallStats.Attacks().First();
@@ -138,7 +138,7 @@ namespace Tests.Characters {
             Assert.AreEqual(smallStats.MeleeAttackBonus.TotalValue + OffenseStats.UnproficientWeaponModifier, atk.AttackBonus);
         }
 
-        [Test]
+        [Fact]
         public void ThrownWeaponsAreReturnedForBothMeleeAndRangedVersions()
         {
             inventory.AddGear(Dagger());
@@ -147,7 +147,7 @@ namespace Tests.Characters {
             Assert.IsTrue(atks.Any(x => x.AttackType == AttackTypes.Ranged));
         }
 
-        [Test]
+        [Fact]
         public void TracksSpecialAttackAbilities()
         {
             var special = new SpecialAttacks();
@@ -155,7 +155,7 @@ namespace Tests.Characters {
             Assert.Greater(smallStats.OffensiveAbilities.Count(), 0);
         }
 
-        [Test]
+        [Fact]
         public void LevelsUpCombatStatsBasedOnClass()
         {
             var cls = new Class();
@@ -166,7 +166,7 @@ namespace Tests.Characters {
             Assert.AreEqual(2, smallStats.BaseAttackBonus.TotalValue);            
         }
 
-        [Test]
+        [Fact]
         public void ReturnsStatsForCombat()
         {
             var stats = smallStats.Statistics;
@@ -178,7 +178,7 @@ namespace Tests.Characters {
             }));
         }
 
-        [Test]
+        [Fact]
         public void AllowCustomModifiersToAttackBonusForSpecificWeapons()
         {
             //This allows things like WeaponFocus feats
@@ -201,7 +201,7 @@ namespace Tests.Characters {
             Assert.That(dAttack.Damage.Modifier, Is.EqualTo(3));
         }
 
-        [Test]
+        [Fact]
         public void CanAddSpecialAttacksToStats()
         {
             var attack = new AttackStatistic();
@@ -209,7 +209,7 @@ namespace Tests.Characters {
             Assert.That(smallStats.Attacks(), Contains.Item(attack));
         }
 
-        [Test]
+        [Fact]
         public void MasterworkWeaponsProvideImprovedAttackBonus()
         {
             var mwkLongsword = new MasterworkWeapon(Longsword());

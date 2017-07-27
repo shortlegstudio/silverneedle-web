@@ -26,7 +26,7 @@ namespace Tests.Characters.SpecialAbilities
             paladin.Add(new ChannelEnergy());
             paladin.Add(new HolyChampion());
         }
-        [Test]
+        [Fact]
         public void AddsDamageResistance()
         {
             var def = paladin.Get<DefenseStats>();
@@ -35,7 +35,7 @@ namespace Tests.Characters.SpecialAbilities
             Assert.That(dr.DamageType, Is.EqualTo("evil"));
         }
 
-        [Test]
+        [Fact]
         public void SetsLayOnHandsAndChannelToMaximumPower()
         {
             var lay = paladin.Get<LayOnHands>();

@@ -12,7 +12,7 @@ namespace Tests.Characters.SpecialAbilities
     [TestFixture]
     public class DivineBondWeaponTests
     {
-        [Test]
+        [Fact]
         public void GrantsAWeaponBonus()
         {
             var bond = new DivineBondWeapon();

@@ -9,7 +9,7 @@ namespace Tests.Characters {
 
 	[TestFixture]
 	public class InitiativeTests {
-		[Test]
+		[Fact]
 		public void InitiativeIsBasedOnDexterity() {
 			var abilities = new AbilityScores ();
 			abilities.SetScore (AbilityScoreTypes.Dexterity, 18);
@@ -17,7 +17,7 @@ namespace Tests.Characters {
 			Assert.AreEqual (4, init.TotalValue);
 		}
 
-        [Test]
+        [Fact]
         public void IfDexterityChangesInitiativeIsUpdated() {
             var abilities = new AbilityScores();
             abilities.SetScore(AbilityScoreTypes.Dexterity, 16);

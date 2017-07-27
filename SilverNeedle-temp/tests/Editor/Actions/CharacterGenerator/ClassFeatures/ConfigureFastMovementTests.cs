@@ -14,7 +14,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
     [TestFixture]
     public class ConfigureFastMovementTests
     {
-        [Test]
+        [Fact]
         public void SetsUpAModifierThatIncreasesMovementSpeedWhenNotWearingHeavyArmor()
         {
             var data = new MemoryStore();

@@ -13,7 +13,7 @@ namespace Tests.Characters.SpecialAbilities
     [TestFixture]
     public class RageTests
     {
-        [Test]
+        [Fact]
         public void RageConfiguresBoostsToStrengthAndConstitution()
         {
             var data = new MemoryStore();
@@ -28,7 +28,7 @@ namespace Tests.Characters.SpecialAbilities
             Assert.That(rage.ACModifier.Modifier, Is.EqualTo(-2));
         }
 
-        [Test]
+        [Fact]
         public void RageUpdatesStatsOnCharacterSheet()
         {
             var data = new MemoryStore();
@@ -45,7 +45,7 @@ namespace Tests.Characters.SpecialAbilities
             Assert.That(character.AbilityScores.GetScore(AbilityScoreTypes.Constitution), Is.EqualTo(4));
         }
 
-        [Test]
+        [Fact]
         public void RageCanBeImprovedToHigherPower()
         {
             var data = new MemoryStore();

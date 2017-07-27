@@ -13,7 +13,7 @@ namespace Tests.Actions.CharacterGenerator.CustomClassSteps
     [TestFixture]
     public class CommonerCustomStepsTests
     {
-        [Test]
+        [Fact]
         public void SelectsASingleSimpleWeaponProficiency()
         {
             var character = new CharacterSheet();

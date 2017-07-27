@@ -14,7 +14,7 @@ namespace Tests.Characters.SpecialAbilities
     [TestFixture]
     public class CombatStyleTests
     {
-        [Test]
+        [Fact]
         public void DeserializeSomeYamlToLoadTheAbility()
         {
             var yaml = @"

@@ -14,7 +14,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
     [TestFixture]
     public class ConfigureHuntersBondTests
     {
-        [Test]
+        [Fact]
         public void ChoosesAnItemFromPotentialHuntersBondsForAbility()
         {
             var options = new MemoryStore();

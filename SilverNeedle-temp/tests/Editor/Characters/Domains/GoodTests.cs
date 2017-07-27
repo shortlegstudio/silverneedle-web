@@ -19,7 +19,7 @@ namespace Tests.Characters.Domains
             base.InitializeDomain("good");
         }
 
-        [Test]
+        [Fact]
         public void TouchOfGood()
         {
             var touch = character.Get<TouchOfGood>();
@@ -27,7 +27,7 @@ namespace Tests.Characters.Domains
             Assert.That(touch.UsesPerDay, Is.EqualTo(6));
         }
 
-        [Test]
+        [Fact]
         public void HolyLance()
         {
             character.SetLevel(8);

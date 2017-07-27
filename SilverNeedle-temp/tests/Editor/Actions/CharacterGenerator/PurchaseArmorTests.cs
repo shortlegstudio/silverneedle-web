@@ -42,21 +42,21 @@ namespace Tests.Actions {
             subject = new PurchaseArmor(armorShop);
 		}
 
-		[Test]
+		[Fact]
 		public void EquipWithArmorIfProficient () {
 			subject.Process (proficientCharacter, new CharacterBuildStrategy());
 
 			Assert.That (proficientCharacter.Inventory.Armor, Has.Exactly(1).EqualTo(plate));
 		}
 
-        [Test]
+        [Fact]
         public void DoesNotEquipArmorIfNotProficient()
         {
             subject.Process (incapableCharacter, new CharacterBuildStrategy());
             Assert.That (incapableCharacter.Inventory.Armor, Has.Exactly(0).EqualTo(plate));
         }
 
-        [Test]
+        [Fact]
         public void PurchasingArmorCostsMoney()
         {
             plate.Value = 3700;
@@ -68,7 +68,7 @@ namespace Tests.Actions {
             Assert.That(proficientCharacter.Inventory.Armor, Has.Exactly(1).EqualTo(plate));
         }
 
-        [Test]
+        [Fact]
         public void DoNotPurchaseTooExpensiveItems()
         {
             plate.Value = 60000;
@@ -81,7 +81,7 @@ namespace Tests.Actions {
 
         }
 
-        [Test]
+        [Fact]
         public void QuantityShouldBeOne()
         {
             subject.Process (proficientCharacter, new CharacterBuildStrategy());

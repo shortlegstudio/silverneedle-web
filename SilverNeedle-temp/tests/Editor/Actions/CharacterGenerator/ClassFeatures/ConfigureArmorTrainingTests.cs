@@ -15,7 +15,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
     [TestFixture]
     public class ConfigureArmorTrainingTests
     {
-        [Test]
+        [Fact]
         public void HookUpArmorTrainingToCharacterSheet()
         {
             var data = new MemoryStore();
@@ -28,7 +28,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
             Assert.That(ability, Is.TypeOf<SilverNeedle.Characters.SpecialAbilities.ArmorTraining>());
         }
 
-        [Test]
+        [Fact]
         public void IncreaseLevelOfArmorTrainingIfChanging()
         {
             var data = new MemoryStore();

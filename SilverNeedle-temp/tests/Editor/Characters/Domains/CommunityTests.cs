@@ -19,7 +19,7 @@ namespace Tests.Characters.Domains
             base.InitializeDomain("community");
         }
 
-        [Test]
+        [Fact]
         public void CanCalmingTouch()
         {
             var touch = character.Get<CalmingTouch>();
@@ -27,7 +27,7 @@ namespace Tests.Characters.Domains
             Assert.That(touch.UsesPerDay, Is.EqualTo(6));
         }
 
-        [Test]
+        [Fact]
         public void CanGiveUnity()
         {
             character.SetLevel(8);

@@ -14,7 +14,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
     [TestFixture]
     public class UpgradeFavoredTerrainTests
     {
-        [Test]
+        [Fact]
         public void SelectsAFavoredEnemyAndAddsTwoToTheBonus()
         {
             var forest = new TerrainType("Forest");

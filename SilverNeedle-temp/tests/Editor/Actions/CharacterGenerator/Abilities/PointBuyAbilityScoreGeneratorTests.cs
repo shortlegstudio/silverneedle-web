@@ -13,7 +13,7 @@ namespace Tests.Actions.CharacterGenerator.Abilities
     [TestFixture]
     public class PointBuyAbilityScoreGeneratorTests
     {
-        [Test]
+        [Fact]
         [Repeat(100)]
         public void FifteenGeneratorSpendsAllPointsPossibleToCreateScores()
         {
@@ -33,7 +33,7 @@ namespace Tests.Actions.CharacterGenerator.Abilities
             Assert.That(costTotal, Is.EqualTo(15));
         }
 
-        [Test]
+        [Fact]
         [Repeat(100)]
         public void TwentyPointGeneratorSpendsAllPointsPossibleToCreateScores()
         {
@@ -55,7 +55,7 @@ namespace Tests.Actions.CharacterGenerator.Abilities
             Assert.That(costTotal, Is.EqualTo(20));
         }
 
-        [Test]
+        [Fact]
         [Repeat(100)]
         public void TwentyPointGeneratorOnlyHasASingleScoreBelowTen()
         {
@@ -65,7 +65,7 @@ namespace Tests.Actions.CharacterGenerator.Abilities
             Assert.That(scores, Has.Exactly(1).LessThan(10));
         }
         
-        [Test]
+        [Fact]
         [Repeat(100)]
         public void TenGeneratorSpendsAllPointsPossibleToCreateScores()
         {

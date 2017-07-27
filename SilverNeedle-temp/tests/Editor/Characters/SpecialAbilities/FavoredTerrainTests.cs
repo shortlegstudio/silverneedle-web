@@ -12,7 +12,7 @@ namespace Tests.Characters.SpecialAbilities
     [TestFixture]
     public class FavoredTerrainTests
     {
-        [Test]
+        [Fact]
         public void NameShouldReflectFavoredTerrainAndBonus()
         {
             var terrain = new TerrainType("Jungle");
@@ -21,7 +21,7 @@ namespace Tests.Characters.SpecialAbilities
             Assert.That(fav.Name, Is.EqualTo("Favored Terrain (Jungle +2)"));
         }
 
-        [Test]
+        [Fact]
         public void CanHaveMultipleFavoredEnemies()
         {
             var forest = new TerrainType("Forest");

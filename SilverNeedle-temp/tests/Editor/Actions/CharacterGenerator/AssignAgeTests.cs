@@ -7,7 +7,7 @@ namespace Actions
 {
     [TestFixture]
 	public class AssignAgeTests {
-        [Test]
+        [Fact]
         public void AssignsAnAgeToACharacterBasedOnClassAndMaturity()
         {
             var cls = ClassDevelopmentAge.Young;

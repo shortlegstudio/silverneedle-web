@@ -19,7 +19,7 @@ namespace Tests.Characters.Domains
             base.InitializeDomain("law");
         }
 
-        [Test]
+        [Fact]
         public void CanTouchOfLaw()
         {
             var touch = character.Get<TouchOfLaw>();
@@ -27,7 +27,7 @@ namespace Tests.Characters.Domains
             Assert.That(touch.UsesPerDay, Is.EqualTo(6));
         }
 
-        [Test]
+        [Fact]
         public void CanMakeWeaponsLawful()
         {
             character.SetLevel(8);

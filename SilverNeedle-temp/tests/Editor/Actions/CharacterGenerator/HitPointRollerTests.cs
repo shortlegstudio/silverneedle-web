@@ -13,7 +13,7 @@ namespace Tests.Actions
     [TestFixture]
     public class HitPointRollerTests
     {
-        [Test]
+        [Fact]
         public void LevelUpRollerAddsSomeNumberOfHPBasedOnHitDiePlusCon() 
         {
             var character = new CharacterSheet();

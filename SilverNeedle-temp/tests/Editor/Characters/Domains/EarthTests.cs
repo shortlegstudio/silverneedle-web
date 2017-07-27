@@ -22,7 +22,7 @@ namespace Tests.Characters.Domains
             InitializeDomain("earth");
         }
 
-        [Test]
+        [Fact]
         public void AddFirstLevelGrantsAcidDartAttack()
         {
             var acidDart = character.Offense.Attacks().OfType<AcidDart>().First();
@@ -31,7 +31,7 @@ namespace Tests.Characters.Domains
             Assert.That(acidDart.ToString(), Is.EqualTo("Acid Dart 30' (1d6+1 acid)"));
         }
 
-        [Test]
+        [Fact]
         public void AddsAcidDamageResistance()
         {
             // Level Up Notification

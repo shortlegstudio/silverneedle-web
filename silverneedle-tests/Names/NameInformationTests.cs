@@ -1,6 +1,12 @@
-﻿
-namespace Tests.Names {
-    using NUnit.Framework;
+﻿// Copyright (c) 2017 Trevor Redfern
+// 
+// This software is released under the MIT License.
+// https://opensource.org/licenses/MIT
+
+
+namespace Tests.Names 
+{
+    using Xunit;
     using System.Linq;
     using SilverNeedle.Characters;
     using SilverNeedle.Names;
@@ -8,59 +14,57 @@ namespace Tests.Names {
     using SilverNeedle.Serialization;
 
 
-    [TestFixture]
     public class NameInformationTests
     {
         private EntityGateway<NameInformation> gateway;
 
-        [SetUp]
-        public void SetUp()
+        public NameInformationTests()
         {
             gateway = new EntityGateway<NameInformation>(CharacterNamesTestData.ParseYaml().Load<NameInformation>());
         }
 
-        [Test]
+        [Fact]
         public void CanLoadABunchOfNames()
         {
 
             var names = gateway.GetFirstNames();
-            Assert.Greater(names.Count(), 0);
-            Assert.IsTrue(names.Contains("Steve"));
-            Assert.IsTrue(names.Contains("Neo"));
+            Assert.True(names.Count() > 0);
+            Assert.True(names.Contains("Steve"));
+            Assert.True(names.Contains("Neo"));
         }
 
-        [Test]
+        [Fact]
         public void PrunesOutAnyEmptyStrings() 
         {
             var names = gateway.GetFirstNames();
-            Assert.IsFalse(names.Any(x => string.IsNullOrEmpty(x)));
+            Assert.False(names.Any(x => string.IsNullOrEmpty(x)));
         }
 
-        [Test]
+        [Fact]
         public void CanLoadSomeLastNames()
         {
             var names = gateway.GetLastNames();
-            Assert.Greater(names.Count(), 0);
-            Assert.IsTrue(names.Contains("Hookum"));
-            Assert.IsTrue(names.Contains("Fondu"));
+            Assert.True(names.Count() > 0);
+            Assert.True(names.Contains("Hookum"));
+            Assert.True(names.Contains("Fondu"));
         }
 
-        [Test]
+        [Fact]
         public void CanFilterNamesBasedOnRaceAndGender()
         {
             var names = gateway.GetFirstNames(Gender.Female, "human");
-            Assert.AreEqual(0, names.Count());
+            Assert.Equal(0, names.Count());
             names = gateway.GetFirstNames(Gender.Female, "dwarf");
-            Assert.IsTrue(names.Contains("Sheila"));
-            Assert.IsFalse(names.Contains("Steve"));
+            Assert.True(names.Contains("Sheila"));
+            Assert.False(names.Contains("Steve"));
         }
 
-        [Test]
+        [Fact]
         public void CanFilterLastNamesBasedOnRace()
         {
             var names = gateway.GetLastNames("human");
-            Assert.IsTrue(names.Contains("Stookum"));
-            Assert.IsFalse(names.Contains("Roofus"));
+            Assert.True(names.Contains("Stookum"));
+            Assert.False(names.Contains("Roofus"));
         }
 
         const string CharacterNamesTestData = @"

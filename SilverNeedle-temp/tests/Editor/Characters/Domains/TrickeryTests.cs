@@ -19,7 +19,7 @@ namespace Tests.Characters.Domains
             base.InitializeDomain("trickery");
         }
 
-        [Test]
+        [Fact]
         public void Copycat()
         {
             var touch = character.Get<Copycat>();
@@ -27,7 +27,7 @@ namespace Tests.Characters.Domains
             Assert.That(touch.UsesPerDay, Is.EqualTo(6));
         }
 
-        [Test]
+        [Fact]
         public void MasterIllusion()
         {
             character.SetLevel(8);
@@ -36,7 +36,7 @@ namespace Tests.Characters.Domains
             Assert.That(aura, Is.Not.Null); 
         }
 
-        [Test]
+        [Fact]
         public void ExtraClassSkills()
         {
             Assert.That(character.GetSkill("Bluff").ClassSkill, Is.True);

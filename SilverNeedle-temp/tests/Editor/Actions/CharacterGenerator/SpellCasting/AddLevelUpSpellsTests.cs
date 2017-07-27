@@ -39,7 +39,7 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
             subject = new AddLevelUpSpells(spellLists, spells);
         }
 
-        [Test]
+        [Fact]
         public void AddAllSpellsIfAccessToNextLevelIsAvailable()
         {
             var character = new CharacterSheet();
@@ -61,7 +61,7 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
             Assert.That(spellCasting.GetAvailableSpells(2).Length, Is.EqualTo(2));
         }
 
-        [Test]
+        [Fact]
         public void WorksForMultiClassSpellCasters()
         {
             var character = new CharacterSheet();
@@ -94,7 +94,7 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
             Assert.That(scBard.GetAvailableSpells(2).Length, Is.EqualTo(2));
         }
 
-        [Test]
+        [Fact]
         public void IgnoreDomainSpellCasting()
         {
             var character = new CharacterSheet();

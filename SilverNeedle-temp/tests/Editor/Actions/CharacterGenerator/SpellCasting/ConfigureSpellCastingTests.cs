@@ -13,7 +13,7 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
     [TestFixture]
     public class ConfigureSpellCastingTests
     {
-        [Test]
+        [Fact]
         public void IfNotACasterDoNothing()
         {
             var character = new CharacterSheet();

@@ -19,7 +19,7 @@ namespace Tests.Characters.Domains
             base.InitializeDomain("war");
         }
 
-        [Test]
+        [Fact]
         public void BattleRage()
         {
             var touch = character.Get<BattleRage>();
@@ -27,7 +27,7 @@ namespace Tests.Characters.Domains
             Assert.That(touch.UsesPerDay, Is.EqualTo(6));
         }
 
-        [Test]
+        [Fact]
         public void WeaponMaster()
         {
             character.SetLevel(8);

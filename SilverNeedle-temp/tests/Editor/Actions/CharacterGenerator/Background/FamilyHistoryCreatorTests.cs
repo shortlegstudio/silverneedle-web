@@ -13,7 +13,7 @@ namespace Tests.Actions
     [TestFixture]
     public class FamilyHistoryCreatorTests
     {
-        [Test]
+        [Fact]
         public void CanCreateFamilyTreeWithParents()
         {
             var generator = new FamilyHistoryCreator();
@@ -25,7 +25,7 @@ namespace Tests.Actions
             Assert.IsNotEmpty(familyTree.Mother);
         }
 
-        [Test]
+        [Fact]
         public void AtLeastOneParentHasTheSameLastNameAsTheCharacter()
         {
             var race = new Race();

@@ -7,7 +7,7 @@ namespace Tests.Characters {
 
 	[TestFixture]
 	public class ClassTests {
-		[Test]
+		[Fact]
         public void GetLevelReturnsEmptyLevelIfNothingIsThere()
         {
             var c = new Class();
@@ -39,7 +39,7 @@ namespace Tests.Characters {
             }
         }
 
-        [Test]
+        [Fact]
         public void LoadClassYamlFile()
         {
             Assert.IsNotNull(Fighter);
@@ -47,7 +47,7 @@ namespace Tests.Characters {
             Assert.IsNotNull(Wizard);
         }
 
-        [Test]
+        [Fact]
         public void YamlLoadedClassesShouldHaveClassSkills()
         {
             //Validate that the class skills are tracked
@@ -56,14 +56,14 @@ namespace Tests.Characters {
             Assert.IsFalse(Fighter.IsClassSkill("Spellcraft"));
         }
 
-        [Test]
+        [Fact]
         public void YamlLoadedClassesShouldHaveSkillPoints()
         {
             Assert.AreEqual(2, Fighter.SkillPoints);
             Assert.AreEqual(4, Monk.SkillPoints);
         }
 
-        [Test]
+        [Fact]
         public void YamlLoadedClassesShouldHaveHitDice()
         {
             Assert.AreEqual(DiceSides.d10, Fighter.HitDice);
@@ -71,7 +71,7 @@ namespace Tests.Characters {
             Assert.AreEqual(DiceSides.d6, Wizard.HitDice);
         }
 
-        [Test]
+        [Fact]
         public void ClassesGetAllCraftSkillsIfEnabled()
         {
             Assert.IsTrue(Fighter.IsClassSkill("Craft (Weapons)"));
@@ -85,7 +85,7 @@ namespace Tests.Characters {
             Assert.IsFalse(Wizard.IsClassSkill("Professional Wrestler"));
         }
 
-        [Test]
+        [Fact]
         public void ClassesHaveABaseAttackBonusRate()
         {
             Assert.AreEqual(1, Fighter.BaseAttackBonusRate);
@@ -93,7 +93,7 @@ namespace Tests.Characters {
             Assert.AreEqual(.5f, Wizard.BaseAttackBonusRate);
         }
 
-        [Test]
+        [Fact]
         public void ClassesHaveAFortitudeSavesRate()
         {
             Assert.AreEqual(0.667f, Fighter.FortitudeSaveRate);
@@ -101,7 +101,7 @@ namespace Tests.Characters {
             Assert.AreEqual(0.334f, Wizard.FortitudeSaveRate);
         }
 
-        [Test]
+        [Fact]
         public void ClassesHaveAReflexSavesRate()
         {
             Assert.AreEqual(0.334f, Fighter.ReflexSaveRate);
@@ -109,7 +109,7 @@ namespace Tests.Characters {
             Assert.AreEqual(0.334f, Wizard.ReflexSaveRate);
         }
 
-        [Test]
+        [Fact]
         public void ClassesHaveAWillSavesRate()
         {
             Assert.AreEqual(0.334f, Fighter.WillSaveRate);
@@ -117,7 +117,7 @@ namespace Tests.Characters {
             Assert.AreEqual(0.667f, Wizard.WillSaveRate);
         }
 
-        [Test]
+        [Fact]
         public void ClassHaveArmorProficiencies()
         {
             Assert.IsTrue(Fighter.ArmorProficiencies.Contains("heavy"));
@@ -128,7 +128,7 @@ namespace Tests.Characters {
 
         }
 
-        [Test]
+        [Fact]
         public void ClassKnownTheirGoodSaves()
         {
             Assert.IsTrue(Fighter.IsFortitudeGoodSave);
@@ -139,7 +139,7 @@ namespace Tests.Characters {
             Assert.IsTrue(Monk.IsReflexGoodSave);
         }
 
-        [Test]
+        [Fact]
         public void ClassesHaveWeaponProficiencies()
         {
             Assert.IsTrue(Fighter.WeaponProficiencies.Contains("martial"));
@@ -148,14 +148,14 @@ namespace Tests.Characters {
             Assert.IsTrue(Wizard.WeaponProficiencies.Contains("dagger"));
         }
 
-        [Test]
+        [Fact]
         public void ClassesDefineHowLongTrainingTakes()
         {
             Assert.AreEqual(ClassDevelopmentAge.Trained, Fighter.ClassDevelopmentAge);
             Assert.AreEqual(ClassDevelopmentAge.Studied, Wizard.ClassDevelopmentAge);
         }
 
-        [Test]
+        [Fact]
         public void LoadsAbilitiesForLevel() 
         {
             Assert.AreEqual(3, Fighter.Levels.Count);
@@ -163,39 +163,39 @@ namespace Tests.Characters {
             Assert.AreEqual(4, Wizard.Levels.Count);
         }
 
-        [Test]
+        [Fact]
         public void MatchesOnNameCaseInsensitive()
         {
             Assert.IsTrue(Fighter.Matches("fighter"));
         }
 
-        [Test]
+        [Fact]
         public void ClassesCanHaveStartingWealth()
         {
             Assert.AreEqual(3, Fighter.StartingWealthDice.Dice.Count);
             Assert.AreEqual(DiceSides.d6, Fighter.StartingWealthDice.Dice[0].Sides);
         }
 
-        [Test]
+        [Fact]
         public void ClassesCanHaveCustomBuildStepsForFurtherSpecialization()
         {
             Assert.That(Monk.CustomBuildStep, Is.EqualTo("SilverNeedle.Namespace.ClassName"));
         }
 
-        [Test]
+        [Fact]
         public void ClassesWithoutSpellsAreMarkedAsSuch()
         {
             Assert.That(Monk.HasSpells, Is.False);
         }
 
-        [Test]
+        [Fact]
         public void DefaultClassHasNoSpells()
         {
             var cls = new Class();
             Assert.That(cls.HasSpells, Is.False);
         }
 
-        [Test]
+        [Fact]
         public void ClassesCanHaveASpellList()
         {
             Assert.That(Wizard.Spells.List, Is.EqualTo("wizard"));

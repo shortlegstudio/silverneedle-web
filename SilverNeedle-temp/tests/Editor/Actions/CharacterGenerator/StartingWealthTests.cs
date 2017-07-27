@@ -28,7 +28,7 @@ namespace Tests.Actions.CharacterGenerator
             wealthGateway = new EntityGateway<CharacterWealth>(list);
         }
 
-        [Test]
+        [Fact]
         public void DoesNothingIfStartingWealthIsNullForClass()
         {
             var cls = new Class();
@@ -38,7 +38,7 @@ namespace Tests.Actions.CharacterGenerator
             action.Process(character, new CharacterBuildStrategy());
         }
 
-        [Test]
+        [Fact]
         public void CalculatesWealthBasedOnTheDiceInGoldPiecesTimesTen()
         {
             var cls = new Class();
@@ -53,7 +53,7 @@ namespace Tests.Actions.CharacterGenerator
             Assert.Less(character.Inventory.CoinPurse.Gold.Pieces, 121);
         }
 
-        [Test]
+        [Fact]
         public void IfAfterFirstLevelPickStartValueFromWealthList()
         {
             var character = new CharacterSheet();

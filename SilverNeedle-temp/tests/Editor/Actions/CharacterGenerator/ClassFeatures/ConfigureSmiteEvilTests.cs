@@ -15,7 +15,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
     [TestFixture]
     public class ConfigureSmiteEvilTests
     {
-        [Test]
+        [Fact]
         public void UpdatesSmiteEvilUsesPerDayIfAlreadyConfigured()
         {
             var character = new CharacterSheet();

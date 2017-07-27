@@ -5,38 +5,36 @@
 
 namespace Tests.Equipment
 {
-    using NUnit.Framework;
+    using Xunit;
     using SilverNeedle.Equipment;
 
-    [TestFixture]
     public class PossessionTests
     {
-        [Test]
+        [Fact]
         public void PossessionsAreAssociatedWithGearAndImpersonateThem()
         {
             var gear = new Gear("foo", 2, 10);
             var possession = new Possession(gear);
-            Assert.That(possession.Name, Is.EqualTo("foo"));
-            Assert.That(possession.Quantity, Is.EqualTo(1));
+            Assert.Equal(possession.Name, "foo");
+            Assert.Equal(possession.Quantity, 1);
         }
 
-        [Test]
+        [Fact]
         public void PossessionsContainQuantityForGearThatSupportsIt()
         {
             var gear = new Gear("foo", 2, 10);
             var possession = new Possession(gear);
             possession.Quantity = 10;
-            Assert.That(possession.Quantity, Is.EqualTo(10));
+            Assert.Equal(possession.Quantity, 10);
         }
 
-        [Test]
+        [Fact]
         public void YouCanIncrementQuantityToCountSimilarItems()
         {
             var gear = new Gear("foo", 2, 10);
             var possession = new Possession(gear);
             possession.IncrementQuantity();
-            Assert.That(possession.Quantity, Is.EqualTo(2));
+            Assert.Equal(possession.Quantity, 2);
         }
-
     }
 }

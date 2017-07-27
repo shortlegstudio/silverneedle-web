@@ -5,14 +5,13 @@
 
 namespace Tests.Equipment
 {
-    using NUnit.Framework;
+    using Xunit;
     using SilverNeedle.Equipment;
     using SilverNeedle.Treasure;
 
-    [TestFixture]
-    public class MagicWeaponTests
+    public class MagicWeaponTests : RequiresDataFiles
     {
-        [Test]
+        [Fact]
         public void PlusOneMagicItemsAddToHitAndDamage()
         {
             var longsword = new Weapon("Longsword", 5, "1d8", 
@@ -20,17 +19,17 @@ namespace Tests.Equipment
                 WeaponGroup.HeavyBlades, WeaponTrainingLevel.Martial);
         
             var magicSword = new MagicWeapon(longsword, 1);
-            Assert.That(magicSword.Name, Is.EqualTo("Longsword +1"));
-            Assert.That(magicSword.AttackModifier, Is.EqualTo(1));
-            Assert.That(magicSword.Damage, Is.EqualTo("1d8+1"));
+            Assert.Equal(magicSword.Name, "Longsword +1");
+            Assert.Equal(magicSword.AttackModifier, 1);
+            Assert.Equal(magicSword.Damage, "1d8+1");
         }
 
-        [Test]
+        [Fact]
         public void AddingAMagicDecoratorIncreasesValueBasedOnModifier()
         {
             var sword = new Weapon();
             var magicSword = new MagicWeapon(sword, 2);
-            Assert.That(magicSword.Value, Is.EqualTo(800000)); //Based on magic-weapon-value.yml
+            Assert.Equal(magicSword.Value, 800000); //Based on magic-weapon-value.yml
         }
     }
 }

@@ -12,14 +12,14 @@ namespace Tests.Characters.SpecialAbilities
     [TestFixture]
     public class DivineGraceTests
     {
-        [Test]
+        [Fact]
         public void ItHasAGoodName()
         {
             var grace = new DivineGrace();
             Assert.That(grace.Name, Is.EqualTo("Divine Grace"));
         }
         
-        [Test]
+        [Fact]
         public void AddsCharismaBonusToAllSavingsThrows()
         {
             var character = new CharacterSheet();

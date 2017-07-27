@@ -5,15 +5,14 @@
 
 namespace Tests.Groups
 {
-    using NUnit.Framework;
+    using Xunit;
     using SilverNeedle.Groups;
     using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
-    [TestFixture]
     public class SettlementTypeTests
     {
-        [Test]
+        [Fact]
         public void ParseObjectStore()
         {
             var t = new MemoryStore();
@@ -22,11 +21,9 @@ namespace Tests.Groups
             t.SetValue("maximum", 500);
 
             var setType = new SettlementType(t);
-            Assert.AreEqual("Village", setType.Name);
-            Assert.AreEqual(100, setType.MinimumPopulation);
-            Assert.AreEqual(500, setType.MaximumPopulation);
-
+            Assert.Equal("Village", setType.Name);
+            Assert.Equal(100, setType.MinimumPopulation);
+            Assert.Equal(500, setType.MaximumPopulation);
         }
     }
-
 }

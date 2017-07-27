@@ -13,7 +13,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
     [TestFixture]
     public class AddBonusLanguagesTests 
     {
-        [Test]
+        [Fact]
         public void AddSomeLanguages()
         {
             var data = new MemoryStore();

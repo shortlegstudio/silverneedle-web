@@ -13,7 +13,7 @@ namespace Tests.Actions.Describe
     [TestFixture]
     public class DescriptionBuilderTests
     {
-        [Test]
+        [Fact]
         public void BeAbleToUseCorrectPronoun()
         {
             var desc = new DescriptionBuilder();

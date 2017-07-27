@@ -16,7 +16,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
     [TestFixture]
     public class SelectCombatStyleFeatTests
     {
-        [Test]
+        [Fact]
         public void ChoosesAFeatFromTheAvailableFeats()
         {
             var someFeat = new Feat();

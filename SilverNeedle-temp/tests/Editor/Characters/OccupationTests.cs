@@ -12,7 +12,7 @@ namespace Tests.Characters
     [TestFixture]
     public class OccupationTests
     {
-        [Test]
+        [Fact]
         public void CanParseFromObjectStore()
         {
             var data = new MemoryStore();

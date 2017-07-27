@@ -20,14 +20,14 @@ namespace Tests.Characters.Domains
             base.InitializeDomain("knowledge");
         }
 
-        [Test]
+        [Fact]
         public void LoreKeepers()
         {
             var loreKeep = character.Get<LoreKeeper>();
             Assert.That(loreKeep, Is.Not.Null); 
         }
 
-        [Test]
+        [Fact]
         public void RemoteViewing()
         {
             character.SetLevel(6);
@@ -36,7 +36,7 @@ namespace Tests.Characters.Domains
             Assert.That(remoteView, Is.Not.Null); 
         }
 
-        [Test]
+        [Fact]
         public void AllKnowledgeSkillsAreClassSkills()
         {
             var allSkills = character.SkillRanks.GetSkills();

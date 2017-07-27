@@ -30,7 +30,7 @@ namespace Tests.Characters {
 			human = races.First (x => x.Name == "Human");
 		}
 
-		[Test]
+		[Fact]
 		public void LoadRaceYamlFile() {
 			Assert.IsNotNull (dwarf);
 			Assert.IsNotNull (elf);
@@ -38,7 +38,7 @@ namespace Tests.Characters {
 			Assert.IsNotNull (human);
 		}
 
-		[Test]
+		[Fact]
 		public void HumansCanChooseAbilityModifier() {
 			var mod = human.AbilityModifiers.First ();
 			Assert.IsTrue (mod.ChooseAny);
@@ -46,7 +46,7 @@ namespace Tests.Characters {
 
 		}
 
-		[Test]
+		[Fact]
 		public void DwarvesHaveSpecificAbilitiesToModifier() {
 			var cons = dwarf.AbilityModifiers.First (x => x.AbilityName == AbilityScoreTypes.Constitution);
 			Assert.AreEqual (2, cons.Modifier);
@@ -58,14 +58,14 @@ namespace Tests.Characters {
 			Assert.AreEqual (-2, cha.Modifier);
 		}
 
-		[Test]
+		[Fact]
 		public void RacesHaveTraitsThatTheCanPullFrom() {
 			CollectionAssert.Contains (dwarf.Traits, "Darkvision");
 			CollectionAssert.Contains (dwarf.Traits, "Hardy");
 			CollectionAssert.Contains (halfling.Traits, "Halfling Luck");
 		}
 
-		[Test]
+		[Fact]
 		public void RacesHaveSizeInformation() {
 			Assert.AreEqual (CharacterSize.Medium, dwarf.SizeSetting);
 			Assert.AreEqual (CharacterSize.Small, halfling.SizeSetting);
@@ -80,7 +80,7 @@ namespace Tests.Characters {
 			Assert.AreEqual (cup.Modifier, 120);
 		}
 
-		[Test]
+		[Fact]
 		public void KnownLanguagesAreAssigned() {
 			Assert.IsTrue(dwarf.KnownLanguages.Any(x => x == "Common"));
 			Assert.IsTrue(dwarf.KnownLanguages.Any(x => x == "Dwarven"));
@@ -91,7 +91,7 @@ namespace Tests.Characters {
 			Assert.IsTrue (dwarf.AvailableLanguages.Any (x => x == "Undercommon"));
 		}
 
-		[Test]
+		[Fact]
 		public void RacesHaveABaseMovementSpeed() {
 			Assert.AreEqual (20, dwarf.BaseMovementSpeed);
 			Assert.AreEqual (30, human.BaseMovementSpeed);

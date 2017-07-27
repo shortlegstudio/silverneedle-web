@@ -15,7 +15,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
     [TestFixture]
     public class ChooseFavoredTerrainTests
     {
-        [Test]
+        [Fact]
         public void ChooseFromFavoredTerrainList()
         {
             var forest = new TerrainType("Forest"); 
@@ -29,7 +29,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
             Assert.That(favTerrain.TerrainTypes, Contains.Item(forest));
         }
         
-        [Test]
+        [Fact]
         public void AddingASecondTerrainAppendsADifferentOneToTheList()
         {
             var forest = new TerrainType("Forest"); 

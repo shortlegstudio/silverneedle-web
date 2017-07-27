@@ -31,7 +31,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
 
             Talents = new EntityGateway<RogueTalent>(new RogueTalent[] {basicTalent, advancedTalent});
         }
-        [Test]
+        [Fact]
         public void SelectsBasicTalentsIfNotConfiguredForAdvancedTalents()
         {
             var subject = new SelectRogueTalent(new MemoryStore(), Talents);
@@ -42,7 +42,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
             Assert.That(rogueTalent, Is.EqualTo(basicTalent));
         }
 
-        [Test]
+        [Fact]
         public void SelectAdvancedTalentPrefersAdvancedTalents()
         {
             var configure = new MemoryStore();
@@ -55,7 +55,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
             Assert.That(rogueTalent, Is.EqualTo(advancedTalent));
         }
 
-        [Test]
+        [Fact]
         public void SelectsNonDuplicateTalents()
         {
             var configure = new MemoryStore();

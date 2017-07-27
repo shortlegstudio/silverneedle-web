@@ -19,7 +19,7 @@ namespace Tests.Characters.Domains
             base.InitializeDomain("strength");
         }
 
-        [Test]
+        [Fact]
         public void StrengthSurge()
         {
             var touch = character.Get<StrengthSurge>();
@@ -27,7 +27,7 @@ namespace Tests.Characters.Domains
             Assert.That(touch.UsesPerDay, Is.EqualTo(6));
         }
 
-        [Test]
+        [Fact]
         public void MightOfGods()
         {
             character.SetLevel(8);

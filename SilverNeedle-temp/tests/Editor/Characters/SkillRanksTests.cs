@@ -37,21 +37,21 @@ namespace Tests.Characters
 
         }
 
-        [Test]
+        [Fact]
         public void SkillRanksLoadsAllTheSkills()
         {
             Assert.AreEqual(2, Subject.GetScore("Climb"));
             Assert.AreEqual(int.MinValue, Subject.GetScore("Disable Device"));
         }
 
-        [Test]
+        [Fact]
         public void CanProcessASkillModifierForModifyingSkills()
         {
             Subject.ProcessModifier(new MockMod());
             Assert.AreEqual(5, Subject.GetScore("Climb"));
         }
 
-        [Test]
+        [Fact]
         public void ReturnsAListOfSkillsThatHaveRanks()
         {
             Subject.GetSkill("Climb").AddRank();
@@ -60,13 +60,13 @@ namespace Tests.Characters
             Assert.AreEqual("Climb", list[0].Name);
         }
 
-				[Test]
+				[Fact]
 				public void CaseInsensitiveSearching()
 				{
 						Assert.AreEqual("Climb", Subject.GetSkill("climb").Name);
 				}
 
-        [Test]
+        [Fact]
         public void IfSkillDoesNotExistWhenProcessingAModifierJustLogIt()
         {
             var ranks = new SkillRanks(new List<Skill>(), new AbilityScores());
@@ -74,7 +74,7 @@ namespace Tests.Characters
             //Should not throw exception
         }
 
-        [Test]
+        [Fact]
         public void SettingACraftSkillAsClassSkillSetsAllCraftSkills()
         {
             _skillList.Add(new Skill("Craft (Shoes)", AbilityScoreTypes.Intelligence, false));
@@ -85,7 +85,7 @@ namespace Tests.Characters
             Assert.IsTrue(ranks.GetSkill("Craft (Jewelry)").ClassSkill);
         }
 
-        [Test]
+        [Fact]
         public void SettingAProfessionsSkillAsClassSkillSetsAllProfessionsSkills()
         {
             _skillList.Add(new Skill("Profession (Bouncer)", AbilityScoreTypes.Intelligence, false));
@@ -96,7 +96,7 @@ namespace Tests.Characters
             Assert.IsTrue(ranks.GetSkill("Profession (Turnip Farmer)").ClassSkill);
         }
 
-        [Test]
+        [Fact]
         public void SettingAPerformSkillAsClassSkillSetsAllPerformSkills()
         {
             _skillList.Add(new Skill("Perform (Debate)", AbilityScoreTypes.Intelligence, false));
@@ -107,7 +107,7 @@ namespace Tests.Characters
             Assert.IsTrue(ranks.GetSkill("Perform (Art)").ClassSkill);
         }
     
-        [Test]
+        [Fact]
         public void CanFetchAllTheClassSkills()
         {
             Subject.SetClassSkill("Climb");
@@ -116,7 +116,7 @@ namespace Tests.Characters
             Assert.AreEqual("Climb", classSkills.First().Name);
         }
 
-        [Test]
+        [Fact]
         public void SkillPointsPerLevelCanHaveBonuses() 
         {
             _abilityScores.SetScore(AbilityScoreTypes.Intelligence, 10);
@@ -127,21 +127,21 @@ namespace Tests.Characters
             Assert.AreEqual(1, Subject.BonusSkillPointsPerLevel());
         }
 
-        [Test]
+        [Fact]
         public void SkillPointsPerLevelIsBasedOnIntelligence() {
             _abilityScores.SetScore(AbilityScoreTypes.Intelligence, 16);
             Assert.AreEqual(3, Subject.BonusSkillPointsPerLevel());
         
         }
 
-        [Test]
+        [Fact]
         public void ReturnIntMinimumIfTheSkillIsNotFound()
         {
             var value = Subject.GetScore("Rippadiddledoo");
             Assert.That(value, Is.EqualTo(int.MinValue));
         }
 
-        [Test]
+        [Fact]
         public void WearingArmorIncreasesArmorCheckPenalty()
         {
             var climb = Subject.GetSkill("Climb");
@@ -158,13 +158,13 @@ namespace Tests.Characters
             Assert.That(climb.Score(), Is.EqualTo(startScore - 3));
         }
 
-        [Test]
+        [Fact]
         public void EnsureThatArmorCheckPenaltyCannotBePositive()
         {
             Assert.That(Subject.ArmorCheckPenalty.Maximum, Is.EqualTo(0));
         }
 
-        [Test]
+        [Fact]
         public void ProvidesAccessToTheStatisticsItProvides()
         {
             var stats = Subject.Statistics.Select(x => x.Name);

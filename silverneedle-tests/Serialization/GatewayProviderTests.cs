@@ -8,7 +8,7 @@ namespace Tests.Serialization
     using Xunit;
     using SilverNeedle;
 
-    public class GatewayProviderTests
+    public class GatewayProviderTests : RequiresDataFiles
     {
         [Fact]
         public void LoadsGatewayForCharacterCreator()

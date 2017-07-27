@@ -12,7 +12,7 @@ namespace Tests.Characters {
 	[TestFixture]
 	public class LanguageTests
 	{
-		[Test]
+		[Fact]
 		public void ParseTheYamlFile() 
         {
             var list = LanguageYamlFile.ParseYaml ().Load<Language>();

@@ -34,7 +34,7 @@ namespace Tests.Characters.Domains
             character.Add(airDomain);
         }
 
-        [Test]
+        [Fact]
         public void AddFirstLevelGrantsElecticityAttack()
         {
             var lightning = character.Offense.Attacks().OfType<Air.LightningArcAttack>().First();
@@ -43,7 +43,7 @@ namespace Tests.Characters.Domains
             Assert.That(lightning.ToString(), Is.EqualTo("Lightning Arc 30' (1d6+1 electricity)"));
         }
 
-        [Test]
+        [Fact]
         public void AddsElectricityDamageResistance()
         {
             // Level Up Notification

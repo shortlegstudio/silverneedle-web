@@ -33,14 +33,14 @@ namespace Tests.Characters.Domains
             character.Add(animalDomain);
         }
 
-        [Test]
+        [Fact]
         public void CanSpeakWithAnimals()
         {
             var speak = character.Get<SpeakWithAnimals>();
             Assert.That(speak, Is.Not.Null); 
         }
 
-        [Test]
+        [Fact]
         public void GainsAnimalCompanionAtLevelFour()
         {
             character.SetLevel(4);

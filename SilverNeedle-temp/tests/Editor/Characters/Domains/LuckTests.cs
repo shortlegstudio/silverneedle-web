@@ -19,7 +19,7 @@ namespace Tests.Characters.Domains
             base.InitializeDomain("luck");
         }
 
-        [Test]
+        [Fact]
         public void BitOfLuck()
         {
             var touch = character.Get<BitOfLuck>();
@@ -27,7 +27,7 @@ namespace Tests.Characters.Domains
             Assert.That(touch.UsesPerDay, Is.EqualTo(6));
         }
 
-        [Test]
+        [Fact]
         public void GoodFortune()
         {
             character.SetLevel(6);

@@ -12,7 +12,7 @@ namespace Tests.Characters.SpecialAbilities
     [TestFixture]
     public class ImprovedEvasionTests
     {
-        [Test]
+        [Fact]
         public void RemovesEvasionAbilityFromCharacter()
         {
             var evasion = new Evasion();

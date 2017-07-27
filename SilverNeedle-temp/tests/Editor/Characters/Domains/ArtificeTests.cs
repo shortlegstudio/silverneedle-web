@@ -32,7 +32,7 @@ namespace Tests.Characters.Domains
             character.Add(artificeDomain);
         }
 
-        [Test]
+        [Fact]
         public void CanMendItems()
         {
             var touch = character.Get<ArtificerTouch>();
@@ -40,7 +40,7 @@ namespace Tests.Characters.Domains
             Assert.That(touch.UsesPerDay, Is.EqualTo(6));
         }
 
-        [Test]
+        [Fact]
         public void CanMakeWeaponsDance()
         {
             character.SetLevel(8);

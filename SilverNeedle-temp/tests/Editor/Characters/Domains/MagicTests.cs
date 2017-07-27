@@ -19,7 +19,7 @@ namespace Tests.Characters.Domains
             base.InitializeDomain("magic");
         }
 
-        [Test]
+        [Fact]
         public void HandOfTheAcolyte()
         {
             var touch = character.Get<HandOfTheAcolyte>();
@@ -27,7 +27,7 @@ namespace Tests.Characters.Domains
             Assert.That(touch.UsesPerDay, Is.EqualTo(6));
         }
 
-        [Test]
+        [Fact]
         public void DispellingTouch()
         {
             character.SetLevel(8);

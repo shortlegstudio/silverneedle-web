@@ -14,7 +14,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
     [TestFixture]
     public class SelectMercyTests
     {
-        [Test]
+        [Fact]
         public void SelectsAUniqueMercyFromAvailableLevelAndAddsToMerciesAbility()
         {
             var mercies = new Mercy[] {

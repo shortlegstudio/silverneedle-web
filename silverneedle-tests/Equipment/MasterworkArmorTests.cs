@@ -5,20 +5,19 @@
 
 namespace Tests.Equipment
 {
-    using NUnit.Framework;
+    using Xunit;
     using SilverNeedle.Equipment;
 
-    [TestFixture]
     public class MasterworkArmorTests
     {
-        [Test]
+        [Fact]
         public void MasterworkArmorDecreasesArmorCheckPenaltyByOneAndIncreasesValue()
         {
             var armor = new Armor("Chainmail", 8, 58, 3, -5, 20, ArmorType.Medium);
             var mwkChainmail = new MasterworkArmor(armor);
-            Assert.That(mwkChainmail.Name, Is.EqualTo("Masterwork Chainmail"));
-            Assert.That(mwkChainmail.ArmorCheckPenalty, Is.EqualTo(-4));
-            Assert.That(mwkChainmail.Value, Is.EqualTo(15000));
+            Assert.Equal(mwkChainmail.Name, "Masterwork Chainmail");
+            Assert.Equal(mwkChainmail.ArmorCheckPenalty, -4);
+            Assert.Equal(mwkChainmail.Value, 15000);
         }
     }
 }

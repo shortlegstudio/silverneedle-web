@@ -11,7 +11,7 @@ namespace Tests.Characters {
     [TestFixture]
     public class IdealTests 
     {
-        [Test]
+        [Fact]
         public void ParseFromObjectStore()
         {
             var store = new MemoryStore();

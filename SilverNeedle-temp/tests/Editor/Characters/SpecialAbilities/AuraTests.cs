@@ -14,7 +14,7 @@ namespace Tests.Characters.SpecialAbilities
     [TestFixture]
     public class AuraTests
     {
-        [Test]
+        [Fact]
         public void AurasHaveAType()
         {
             var configure = new MemoryStore();

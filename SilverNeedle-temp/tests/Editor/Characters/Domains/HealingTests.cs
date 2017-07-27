@@ -19,7 +19,7 @@ namespace Tests.Characters.Domains
             base.InitializeDomain("healing");
         }
 
-        [Test]
+        [Fact]
         public void RebukeDeath()
         {
             var touch = character.Get<RebukeDeath>();
@@ -27,7 +27,7 @@ namespace Tests.Characters.Domains
             Assert.That(touch.UsesPerDay, Is.EqualTo(6));
         }
 
-        [Test]
+        [Fact]
         public void HealerBlessing()
         {
             character.SetLevel(6);

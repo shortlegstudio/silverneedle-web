@@ -22,7 +22,7 @@ namespace Tests.Characters {
             dwarf = list.First(x => x.Name == "dwarf");
         }
 
-        [Test]
+        [Fact]
         public void MaturitiesHaveDifferentAttributesForDifferentProfessions()
         {
             Assert.AreEqual(15, human.Adulthood);

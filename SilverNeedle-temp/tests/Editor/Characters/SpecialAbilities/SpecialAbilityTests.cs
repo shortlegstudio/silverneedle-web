@@ -11,7 +11,7 @@ namespace Tests.Characters.SpecialAbilities
     [TestFixture]
     public class SpecialAbilityTests
     {
-        [Test]
+        [Fact]
         public void DefaultNameToTitlizedFromCamelCase()
         {
             var ability = new SpecialAbility();

@@ -13,7 +13,7 @@ namespace Tests.Characters.SpecialAbilities
     [TestFixture]
     public class AuraOfCourageTests
     {
-        [Test]
+        [Fact]
         public void AuraOfCourageEnablesImmunityToFear()
         {
             var character = new CharacterSheet();

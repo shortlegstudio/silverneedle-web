@@ -13,7 +13,7 @@ namespace Tests.Characters.SpecialAbilities
     [TestFixture]
     public class SneakAttackTests
     {
-        [Test]
+        [Fact]
         public void AddingSneakAttackConfiguresASpecialAttack()
         {
             var character = new CharacterSheet();

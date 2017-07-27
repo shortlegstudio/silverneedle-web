@@ -14,7 +14,7 @@ namespace Tests.Actions.CharacterGenerator.Appearance
     [TestFixture]
     public class CreateHairTests
     {
-        [Test]
+        [Fact]
         public void ProcessCreatesADescriptionCombiningColorAndStyle()
         {
             var colors = new HairColor[] { new HairColor("copper") };

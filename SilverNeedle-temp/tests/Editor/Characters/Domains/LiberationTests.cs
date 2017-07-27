@@ -19,14 +19,14 @@ namespace Tests.Characters.Domains
             base.InitializeDomain("liberation");
         }
 
-        [Test]
+        [Fact]
         public void Liberation()
         {
             var touch = character.Get<LiberationMobility>();
             Assert.That(touch, Is.Not.Null); 
         }
 
-        [Test]
+        [Fact]
         public void FreedomCall()
         {
             character.SetLevel(8);

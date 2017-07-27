@@ -19,7 +19,7 @@ namespace Tests.Characters.Domains
             base.InitializeDomain("evil");
         }
 
-        [Test]
+        [Fact]
         public void BleedingTouch()
         {
             var touch = character.Get<TouchOfEvil>();
@@ -27,7 +27,7 @@ namespace Tests.Characters.Domains
             Assert.That(touch.UsesPerDay, Is.EqualTo(6));
         }
 
-        [Test]
+        [Fact]
         public void ScytheOfEvil()
         {
             character.SetLevel(8);

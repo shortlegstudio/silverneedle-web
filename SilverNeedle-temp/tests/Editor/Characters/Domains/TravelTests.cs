@@ -19,7 +19,7 @@ namespace Tests.Characters.Domains
             base.InitializeDomain("travel");
         }
 
-        [Test]
+        [Fact]
         public void AgileFeet()
         {
             var touch = character.Get<AgileFeet>();
@@ -27,7 +27,7 @@ namespace Tests.Characters.Domains
             Assert.That(touch.UsesPerDay, Is.EqualTo(6));
         }
 
-        [Test]
+        [Fact]
         public void DimensionalHop()
         {
             character.SetLevel(8);

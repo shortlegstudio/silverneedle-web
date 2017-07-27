@@ -51,7 +51,7 @@ namespace Tests.Actions {
 
         }
 
-        [Test]
+        [Fact]
         [Repeat(1000)]
         public void CharactersGetAMeleeWeaponIfTheyAreProficient() {
             //Bad test, but good enough for now
@@ -68,7 +68,7 @@ namespace Tests.Actions {
                 Assert.IsFalse(character.Inventory.Weapons.Any(x => x.Level == WeaponTrainingLevel.Exotic));
         }
 
-        [Test]
+        [Fact]
         public void PurchasingAMeleeWeaponSpendsMoney()
         {
             character.Inventory.CoinPurse.SetValue(30000);
@@ -76,7 +76,7 @@ namespace Tests.Actions {
             Assert.AreEqual(27000, character.Inventory.CoinPurse.Value);
         }
 
-        [Test]
+        [Fact]
         public void IfNoAppropriateItemsAreFoundAssignNothing()
         {
             var action = new PurchaseMeleeWeapon (shop);
@@ -86,7 +86,7 @@ namespace Tests.Actions {
             Assert.IsEmpty(character.Inventory.Weapons);
         }
 
-        [Test]
+        [Fact]
         public void AvoidTryingToBuyWeaponsIfBroke()
         {
             character.Inventory.CoinPurse.SetValue(2999); // Not Enough :'(

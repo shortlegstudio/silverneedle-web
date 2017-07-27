@@ -14,7 +14,7 @@ namespace Tests.Actions.CharacterGenerator.Appearance
     [TestFixture]
     public class CreatePhysicalFeaturesTests
     {
-        [Test]
+        [Fact]
         public void IfNoTemplateOrLocationJustDoesASimpleFormat()
         {
             var mem = new MemoryStore();
@@ -30,7 +30,7 @@ namespace Tests.Actions.CharacterGenerator.Appearance
 
         }
 
-        [Test]
+        [Fact]
         public void UsesDescriptorsIfAvailable()
         {
             var descs = new MemoryStore();
@@ -51,7 +51,7 @@ namespace Tests.Actions.CharacterGenerator.Appearance
             Assert.That(character.Appearance.PhysicalAppearance, Is.EqualTo("She has a dragon tattoo."));
         }
 
-        [Test]
+        [Fact]
         public void BreaksDescriptionIntoIndividualComponentsForMoreFlexibleDescriptions()
         {
             // Set up Descriptors

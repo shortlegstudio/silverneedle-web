@@ -11,21 +11,21 @@ namespace Characters {
 
     [TestFixture]
     public class SkillTests {
-        [Test]
+        [Fact]
         public void CraftingSkillsAreConsideredBackgroundSkills()
         {
             var skill = new Skill("Craft (Pottery)", AbilityScoreTypes.Intelligence, false);
             Assert.IsTrue(skill.IsBackgroundSkill);
         }
 
-        [Test]
+        [Fact]
         public void ProfessionSkillsAreConsideredBackgroundSkills()
         {
             var skill = new Skill("Profession (Fisherman)", AbilityScoreTypes.Wisdom, true);
             Assert.IsTrue(skill.IsBackgroundSkill);						
         }
 
-        [Test]
+        [Fact]
         public void PerformSkillsAreConsideredBackgroundSkills()
         {
             var skill = new Skill("Perform (Oratory)", AbilityScoreTypes.Charisma, false);
@@ -33,7 +33,7 @@ namespace Characters {
         }
 
 
-        [Test]
+        [Fact]
         public void LoadsFromObjectStore()
         {
             var data = new MemoryStore();
@@ -48,7 +48,7 @@ namespace Characters {
             Assert.AreEqual("Some text", skill.Description);   
         }
 
-        [Test]
+        [Fact]
         public void SkillsDenoteWhetherImpactedByArmor()
         {
             var data = new MemoryStore();

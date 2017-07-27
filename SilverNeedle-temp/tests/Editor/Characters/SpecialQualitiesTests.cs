@@ -15,7 +15,7 @@ namespace Tests.Characters
     [TestFixture]
     public class SpecialQualitiesTests
     {
-        [Test]
+        [Fact]
         public void TracksAbilities()
         {
             var bag = new ComponentBag();
@@ -26,7 +26,7 @@ namespace Tests.Characters
             Assert.That(sq.SpecialAbilities.Count(), Is.EqualTo(2));
         }
 
-        [Test]
+        [Fact]
         public void BreaksOutSightBasedAbilities()
         {
             var bag = new ComponentBag();

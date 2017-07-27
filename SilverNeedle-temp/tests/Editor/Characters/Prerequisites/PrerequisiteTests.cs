@@ -15,7 +15,7 @@ namespace Tests.Characters.Prerequisites
 
     [TestFixture]
     public class PrerequisiteTests {
-        [Test]
+        [Fact]
         public void ParseSomeYaml() {
             var yamlNode = PrerequisitesYaml.ParseYaml();
             var prereq = yamlNode.GetObject("prerequisites");
@@ -27,13 +27,13 @@ namespace Tests.Characters.Prerequisites
 
         }
 
-        [Test]
+        [Fact]
         public void AlwaysQualifiedIfNoQualificationsNeeded() {
             var pre = new PrerequisiteList();
             Assert.IsTrue(pre.IsQualified(new CharacterSheet(new List<Skill>())));
         }
 
-        [Test]
+        [Fact]
         public void EmptyNodesJustMakeNoPrerequisites()
         {
             var data = new MemoryStore();
@@ -41,7 +41,7 @@ namespace Tests.Characters.Prerequisites
             Assert.That(list.Count, Is.EqualTo(0));
         }
 
-        [Test]
+        [Fact]
         public void NullObjectDataHappensWhenNoPrerequisitesJustIgnore()
         {
             var list = new PrerequisiteList(null);

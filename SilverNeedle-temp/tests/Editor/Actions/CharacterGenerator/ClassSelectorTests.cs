@@ -38,7 +38,7 @@ namespace Tests.Actions
             subject = new ClassSelector(classGateway);
         }
 
-        [Test]
+        [Fact]
         public void SelectARandomClassForACharacter()
         {
             var character = new CharacterSheet();
@@ -46,7 +46,7 @@ namespace Tests.Actions
             Assert.That(character.Class.Name, Is.Not.Null);
         }
 
-        [Test]
+        [Fact]
         public void ChoosingClassFromWeightedOptionTableSelectsFromThoseClasses()
         {
             var character = new CharacterSheet();
@@ -58,7 +58,7 @@ namespace Tests.Actions
             Assert.AreEqual("Fighter", character.Class.Name);
         }
 
-        [Test]
+        [Fact]
         public void EmptyOptionTableChoosesFromAnyOfTheClasses()
         {
             var character = new CharacterSheet();
@@ -69,7 +69,7 @@ namespace Tests.Actions
             Assert.That(character.Class.Name, Is.Not.Null);
         }
 
-        [Test]
+        [Fact]
         public void SettingClassAssignsClassSkills()
         {
             var skills = new List<Skill>();
@@ -85,7 +85,7 @@ namespace Tests.Actions
 
         }
 
-        [Test]
+        [Fact]
         public void AddSpecialAbilitiesFromFirstLevelForClass()
         {
             var cls = new Class();

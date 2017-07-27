@@ -23,14 +23,14 @@ namespace Characters
             strategies = new EntityGateway<CharacterBuildStrategy>(list);
         }
 
-        [Test]
+        [Fact]
         public void DefaultTargetLevelIsOne()
         {
             var strat = new CharacterBuildStrategy();
             Assert.AreEqual(1, strat.TargetLevel);
         }
 
-        [Test]
+        [Fact]
         public void LoadsWeightedTablesForRacesAndClasses()
         {
             var archer = strategies.Find("Archer");
@@ -40,28 +40,28 @@ namespace Characters
             Assert.AreEqual("Fighter", archer.Classes.All.First().Option);
         }  
         
-        [Test]
+        [Fact]
         public void StrategyProvidesGuidanceOnFavoringClassSkills()
         {
             var tank = strategies.Find("tank");
             Assert.AreEqual(3.2f, tank.ClassSkillMultiplier);
         }
 
-        [Test]
+        [Fact]
         public void IgnoreCaseMatching()
         {
             var tank = strategies.Find("tank");
             Assert.IsNotNull(tank);
         }
 
-        [Test]
+        [Fact]
         public void StrategyProvidesBaseForAllSkills()
         {
             var archer = strategies.Find("archer");
             Assert.AreEqual(1, archer.BaseSkillWeight);
         }
 
-        [Test]
+        [Fact]
         public void StrategyProvidesSpecificationOnSkills()
         {
             var archer = strategies.Find("archer");
@@ -70,7 +70,7 @@ namespace Characters
             Assert.AreEqual(20, archer.FavoredSkills.All.First().MaximumValue);
         }
 
-        [Test]
+        [Fact]
         public void StrategyProvidesRecommendationsOnFeats()
         {
             var tank = strategies.Find("tank");
@@ -82,7 +82,7 @@ namespace Characters
             Assert.AreEqual(3, feats.Count());
         }
 
-        [Test]
+        [Fact]
         public void StrategyFavorsSomeAttributesAheadOfOthers() 
         {
             var tank = strategies.Find("tank");
@@ -92,7 +92,7 @@ namespace Characters
             Assert.AreEqual(6, abilities.Count());
         }
 
-        [Test]
+        [Fact]
         public void StrategyProvidesDefaultsToAbilitiesNotSpecifiedOfOne()
         {
             var archer = strategies.Find("archer");
@@ -104,28 +104,28 @@ namespace Characters
             Assert.AreEqual(6, abilities.Count());
         }
 
-        [Test]
+        [Fact]
         public void AnEmptyStrategySelectsAllAttributesEvenly()
         {
             var strategy = new CharacterBuildStrategy();
             Assert.AreEqual(6, strategy.FavoredAbilities.All.Count());
         }
 
-        [Test]
+        [Fact]
         public void SpecifiesTheDesignerToUseCreatingCharacter()
         {
             var archer = strategies.Find("archer");
             Assert.AreEqual("create-default", archer.Designer);
         }
 
-        [Test]
+        [Fact]
         public void DefaultAbilityScoreGeneratorToAverageAbilities()
         {
             var strategy = new CharacterBuildStrategy();
             Assert.That(strategy.AbilityScoreRoller, Contains.Substring("AverageAbilityScore"));
         }
 
-        [Test]
+        [Fact]
         public void CanSpecifyDifferentAbilityScoreGeneratorsInStrategy()
         {
             var archer = strategies.Find("archer");

@@ -67,7 +67,7 @@ namespace Tests.Actions
             raceSelectorSubject = new RaceSelector(raceGateway, traitGateway);
         }
 
-        [Test]
+        [Fact]
         public void SettingRaceLoadsTraits()
         {
             var sheet = new CharacterSheet();
@@ -77,7 +77,7 @@ namespace Tests.Actions
             Assert.IsTrue(sheet.Traits.Any(x => x == elfTrait));
         }
 
-        [Test]
+        [Fact]
         public void SettingRaceCalculatesSize()
         {
             var sheet = new CharacterSheet();
@@ -95,7 +95,7 @@ namespace Tests.Actions
         }
 
 
-        [Test]
+        [Fact]
         public void SettingRaceAssignsMovement()
         {
             var sheet = new CharacterSheet();
@@ -109,7 +109,7 @@ namespace Tests.Actions
             Assert.AreEqual(45, sheet.Movement.BaseMovement.TotalValue);
         }
 
-        [Test]
+        [Fact]
         public void OptionTableLimitsSelectionOfRace()
         {
             var sheet = new CharacterSheet();
@@ -125,7 +125,7 @@ namespace Tests.Actions
             }
         }
 
-        [Test]
+        [Fact]
         public void IfChoiceListIsEmptyChooseAnyRace() 
         {	
             var sheet = new CharacterSheet();
@@ -135,7 +135,7 @@ namespace Tests.Actions
             Assert.IsNotNull(sheet.Race);
         }
 
-        [Test]
+        [Fact]
         public void AddLanguagesKnownToStrategy()
         {
             var character = new CharacterSheet();

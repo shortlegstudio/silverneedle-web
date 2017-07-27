@@ -13,7 +13,7 @@ namespace Tests.Characters.Appearance
     [TestFixture]
     public class PhysicalFeatureTests
     {
-        [Test]
+        [Fact]
         public void HasADefaultTemplate()
         {
             var store = new MemoryStore();

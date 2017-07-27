@@ -15,7 +15,7 @@ namespace Tests.Characters.Prerequisites
 
     [TestFixture]
     public class SpecialAbilityPrerequisiteTests {
-        [Test]
+        [Fact]
         public void SpecialAbilityPrerequisite() 
         {
             var special = new SpecialAbilityPrerequisite("Darkvision");

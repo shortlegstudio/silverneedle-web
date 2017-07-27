@@ -15,7 +15,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
     [TestFixture]
     public class SelectDomainsTests
     {
-        [Test]
+        [Fact]
         public void ChoosesANumberOfDomainsBasedOnConfiguration()
         {
             var configure = new MemoryStore();

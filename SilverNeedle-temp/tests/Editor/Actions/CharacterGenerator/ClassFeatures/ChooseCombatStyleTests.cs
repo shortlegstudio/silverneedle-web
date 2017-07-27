@@ -13,7 +13,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
     [TestFixture]
     public class ChooseCombatStyleTests
     {
-        [Test]
+        [Fact]
         public void ChooseACombatStyle()
         {
             var character = new CharacterSheet();

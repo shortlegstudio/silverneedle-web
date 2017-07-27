@@ -12,7 +12,7 @@ namespace Tests.Characters
     [TestFixture]
     public class EquippedArmorMaxDexBonusModifierTests
     {
-        [Test]
+        [Fact]
         public void IfNoEquippedArmorReturnTenThousand()
         {
             var bag = new ComponentBag();

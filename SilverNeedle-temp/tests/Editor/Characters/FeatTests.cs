@@ -35,7 +35,7 @@ namespace Tests.Characters {
         }
             
 
-        [Test]
+        [Fact]
         public void FeatsKnowWhetherYouQualify() {
             var smartCharacter = new CharacterSheet (new List<Skill>());
             smartCharacter.AbilityScores.SetScore (AbilityScoreTypes.Intelligence, 15);
@@ -49,7 +49,7 @@ namespace Tests.Characters {
             Assert.IsFalse (CombatExpertise.IsQualified (dumbCharacter));
         }		
 
-        [Test]
+        [Fact]
         public void IfFeatIsAlreadySelectedItCannotBeSelectedAgain()
         {
             var character = new CharacterSheet (new List<Skill>());
@@ -58,20 +58,20 @@ namespace Tests.Characters {
             Assert.IsFalse(basicFeat.IsQualified(character));
         }
 
-        [Test]
+        [Fact]
         public void MatchesByName()
         {
             Assert.IsTrue(Acrobatic.Matches("Acrobatic"));
             Assert.IsTrue(Acrobatic.Matches("acrobatic"));
         }
         
-        [Test]
+        [Fact]
         public void FeatsHaveADescription() {
             Assert.AreEqual ("Move good", Acrobatic.Description);
             Assert.AreEqual ("Hit Stuff Hard", PowerAttack.Description);
         }
 
-        [Test]
+        [Fact]
         public void FeatsCanHaveSkillAdjustments() {
             var modifiers = Acrobatic.Modifiers;
             Assert.AreEqual (2, modifiers.Count);
@@ -88,7 +88,7 @@ namespace Tests.Characters {
             Assert.AreEqual (4, flyAdj.Modifier);
         }
 
-        [Test]
+        [Fact]
         public void FeatsCanHaveAbilityPrerequisites() {
             var prereq = CombatExpertise.Prerequisites;
             var abilityCheck = prereq.First() as AbilityPrerequisite;
@@ -97,19 +97,19 @@ namespace Tests.Characters {
             Assert.AreEqual (13, abilityCheck.Minimum);
         }
 
-        [Test]
+        [Fact]
         public void SomeFeatsAreCombatFeats() {
             Assert.IsTrue (CombatExpertise.IsCombatFeat);
             Assert.IsFalse (Acrobatic.IsCombatFeat);
         }
 
-        [Test]
+        [Fact]
         public void SomeFeatsAreCriticalFeats() {
             Assert.IsTrue (PowerAttack.IsCriticalFeat);
             Assert.IsFalse (Acrobatic.IsCriticalFeat);
         }
 
-        [Test]
+        [Fact]
         public void SomeFeatsAreItemCreationFeats() {
             Assert.IsTrue (CraftWand.IsItemCreation);
             Assert.IsFalse (Acrobatic.IsItemCreation);

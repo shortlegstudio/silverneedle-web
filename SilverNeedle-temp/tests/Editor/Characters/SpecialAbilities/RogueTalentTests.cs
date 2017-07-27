@@ -14,7 +14,7 @@ namespace Tests.Characters.SpecialAbilities
     [TestFixture]
     public class RogueTalentTests
     {
-        [Test]
+        [Fact]
         public void ParseAdvancedTalents()
         {
             var talentYaml = @"
@@ -25,7 +25,7 @@ namespace Tests.Characters.SpecialAbilities
             Assert.That(talent.IsAdvancedTalent, Is.True);
         }
 
-        [Test]
+        [Fact]
         public void ParseSneakAttackTalents()
         {
             var talentYaml = @"

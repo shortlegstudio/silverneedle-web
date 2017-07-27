@@ -36,7 +36,7 @@ namespace Tests.Actions.CharacterGenerator
             subject = new PurchaseAdventuringGear(gearGateway);
         }
 
-        [Test]
+        [Fact]
         public void PicksUpSomeRandomGearWorthLessThan20000()
         {
             var character = new CharacterSheet();
@@ -47,7 +47,7 @@ namespace Tests.Actions.CharacterGenerator
             Assert.That(character.Inventory.All.Count, Is.AtLeast(1));
         }
 
-        [Test]
+        [Fact]
         public void DoNotSpendMoneyYouDoNotHave()
         {
             var character = new CharacterSheet();
@@ -56,7 +56,7 @@ namespace Tests.Actions.CharacterGenerator
             Assert.That(character.Inventory.All.Count(), Is.AtLeast(1));
         }
 
-        [Test]
+        [Fact]
         public void IfNothingIsAffordableStop()
         {
             var character = new CharacterSheet();

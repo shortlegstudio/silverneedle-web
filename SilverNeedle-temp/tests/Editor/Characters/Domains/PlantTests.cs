@@ -19,7 +19,7 @@ namespace Tests.Characters.Domains
             base.InitializeDomain("plant");
         }
 
-        [Test]
+        [Fact]
         public void WoodenFist()
         {
             var touch = character.Get<WoodenFist>();
@@ -27,7 +27,7 @@ namespace Tests.Characters.Domains
             Assert.That(touch.UsesPerDay, Is.EqualTo(6));
         }
 
-        [Test]
+        [Fact]
         public void BrambleArmor()
         {
             character.SetLevel(6);

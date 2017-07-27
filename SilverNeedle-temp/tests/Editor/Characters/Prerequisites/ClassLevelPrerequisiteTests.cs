@@ -20,7 +20,7 @@ namespace Tests.Characters.Prerequisites
             prereq = new ClassLevelPrerequisite("Fighter 4");
         }
 
-        [Test]
+        [Fact]
         public void CharacterIsQualifiedIfHasTheSameClassAtAppropriateLevel()
         {
             var character = new CharacterSheet();
@@ -32,7 +32,7 @@ namespace Tests.Characters.Prerequisites
         }
 
 
-        [Test]
+        [Fact]
         public void CharacterIsNotQualifiedIfWrongClassButRightLevel()
         {
             var character = new CharacterSheet();
@@ -43,7 +43,7 @@ namespace Tests.Characters.Prerequisites
             Assert.That(prereq.IsQualified(character), Is.False);
         }
 
-        [Test]
+        [Fact]
         public void CharacterIsNotQualifiedIfRightClassButToLowLevel()
         {
             var character = new CharacterSheet();
@@ -54,7 +54,7 @@ namespace Tests.Characters.Prerequisites
             Assert.That(prereq.IsQualified(character), Is.False);
         }
 
-        [Test]
+        [Fact]
         public void IfCharacterIsNotSetToAClassYouDefinitelyDoNotQualify()
         {
             var character = new CharacterSheet();

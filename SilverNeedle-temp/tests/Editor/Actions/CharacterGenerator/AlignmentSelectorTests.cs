@@ -12,7 +12,7 @@ namespace Tests.Actions.CharacterGenerator
     [TestFixture]
     public class AlignmentSelectorTests
     {
-        [Test]
+        [Fact]
         public void ChoosesAnAlignmentFromPossibleAlignments()
         {
             var selector = new AlignmentSelector();

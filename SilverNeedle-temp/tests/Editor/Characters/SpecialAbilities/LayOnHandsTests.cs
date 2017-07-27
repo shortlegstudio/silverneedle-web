@@ -26,26 +26,26 @@ namespace Tests.Characters.SpecialAbilities
             level4Paladin.Add(layOnHands);
         }
 
-        [Test]
+        [Fact]
         public void LayOnHandsCanBeUsedANumberOfTimesBasedOnCharismaAndPaladinLevels()
         {
             // Charisma + 1/2 Paladin Level 
             Assert.That(level4Paladin.Get<LayOnHands>().UsesPerDay, Is.EqualTo(4));
         }
 
-        [Test]
+        [Fact]
         public void LayOnHandsHealingIsBasedOnLevel()
         {
             Assert.That(level4Paladin.Get<LayOnHands>().HealingDice.ToString(), Is.EqualTo("2d6"));
         }
 
-        [Test]
+        [Fact]
         public void NameReflectsUsesAndHealing()
         {
             Assert.That(level4Paladin.Get<LayOnHands>().Name, Is.EqualTo("Lay on Hands (2d6, 4/day)"));
         }
 
-        [Test]
+        [Fact]
         public void CanBeSetToAlwaysReturnTheMaximumValue()
         {
             var layOn = level4Paladin.Get<LayOnHands>();

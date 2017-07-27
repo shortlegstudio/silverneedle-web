@@ -22,7 +22,7 @@ namespace Actions {
             languages.Add (new Language ("Corgi", "woof"));
             languageGateway = new EntityGateway<Language>(languages);
         }
-        [Test]
+        [Fact]
         public void PickLanguagesThatAreKnownToTheRace() {
             var character = new CharacterSheet();
             var strategy = new CharacterBuildStrategy();
@@ -33,7 +33,7 @@ namespace Actions {
             Assert.That(character.Languages.Select(x => x.Name), Is.EquivalentTo(new string[] { "Elvish", "Giant"}));
         }
 
-        [Test]
+        [Fact]
         public void PickExtraLanguagesIfSmartEnough() {
             var strategy = new CharacterBuildStrategy();
             strategy.LanguagesKnown.Add ("Elvish");
@@ -51,7 +51,7 @@ namespace Actions {
             }
         }
 
-        [Test]
+        [Fact]
         public void IfRunOutOfLanguagesItsOk() {
             var strategy = new CharacterBuildStrategy();
             strategy.LanguagesKnown.Add ("Elvish");
@@ -69,7 +69,7 @@ namespace Actions {
             }
         }
 
-        [Test]
+        [Fact]
         public void IfAvailableLanguagesIsSetToALLThenAnythingIsPossible()
         {
             var strategy = new CharacterBuildStrategy();
@@ -86,7 +86,7 @@ namespace Actions {
             }
         }
 
-        [Test]
+        [Fact]
         public void DoNotRepeatedlyAddKnownLanguages()
         {
             var strategy = new CharacterBuildStrategy();

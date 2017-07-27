@@ -13,7 +13,7 @@ namespace Tests.Actions.CharacterGenerator.CustomClassSteps
     [TestFixture]
     public class ExpertCustomStepsTests
     {
-        [Test]
+        [Fact]
         public void SelectsTenSkillsForClassSkills()
         {
             //Add twelve skills

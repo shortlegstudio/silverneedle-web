@@ -19,7 +19,7 @@ namespace Tests.Characters.Domains
             base.InitializeDomain("glory");
         }
 
-        [Test]
+        [Fact]
         public void TouchOfGlory()
         {
             var touch = character.Get<TouchOfGlory>();
@@ -27,7 +27,7 @@ namespace Tests.Characters.Domains
             Assert.That(touch.UsesPerDay, Is.EqualTo(6));
         }
 
-        [Test]
+        [Fact]
         public void DivinePresence()
         {
             character.SetLevel(8);

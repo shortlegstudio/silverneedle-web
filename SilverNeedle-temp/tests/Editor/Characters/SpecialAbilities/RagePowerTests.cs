@@ -15,14 +15,14 @@ namespace Tests.Characters.SpecialAbilities
     [TestFixture]
     public class RagePowerTests
     {
-        [Test]
+        [Fact]
         public void RagePowersMustHaveNames()
         {
             var data = damageReduction.ParseYaml().Children.First();
             var power = new RagePower(data);
             Assert.That(power.Name, Is.EqualTo("Increased Damage Reduction 3"));
         }
-        [Test]
+        [Fact]
         public void RagePowersHavePrerequisites()
         {
             var data = damageReduction.ParseYaml().Children.First();
@@ -30,7 +30,7 @@ namespace Tests.Characters.SpecialAbilities
             Assert.That(power.Prerequisites.Count, Is.EqualTo(2));
         }
 
-        [Test]
+        [Fact]
         public void IfCharacterDoesNotQualifyRagePowerShouldNotify()
         {
             var data = needsLevel.ParseYaml().Children.First();
@@ -44,7 +44,7 @@ namespace Tests.Characters.SpecialAbilities
             Assert.That(power.IsQualified(character), Is.True);
         }
 
-        [Test]
+        [Fact]
         public void DoesNotNeedPrerequisites()
         {
             var data = nopreReq.ParseYaml().Children.First();

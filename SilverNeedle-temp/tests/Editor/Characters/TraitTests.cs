@@ -31,20 +31,20 @@ namespace Tests.Characters {
             configureTrait = traits.First(x => x.Name == "Configure");
         }
 
-    [Test]
+    [Fact]
     public void LoadTraitYamlFile() {
       Assert.IsNotNull (darkvision);
       Assert.IsNotNull (hardy);
       Assert.IsNotNull (halflingLuck);
     }
 
-    [Test]
+    [Fact]
     public void TraitsHaveADescription() {
       Assert.AreEqual ("See in the dark.", darkvision.Description);
       Assert.AreEqual ("Really tough", hardy.Description);
     }
 
-    [Test]
+    [Fact]
     public void TraitsCanHaveSkillAdjustments() {
       var modifiers = hardy.Modifiers;
       Assert.AreEqual (2, modifiers.Count);
@@ -60,25 +60,25 @@ Assert.AreEqual ("racial", skillAdj.Type);
 			Assert.AreEqual (4, flyAdj.Modifier);
 		}
 
-		[Test]
+		[Fact]
 		public void TraitsCanModifySavingsThrows() {
 			var luck = halflingLuck.Modifiers;
 			Assert.AreEqual(3, luck.Count);
 		}
 
-		[Test]
+		[Fact]
 		public void TraitsCanHaveConditionalModifiers() {
 			var conditional = stoneCunning.Modifiers.OfType<ConditionalStatModifier>();
 			Assert.AreEqual(1, conditional.Count());
 			Assert.AreEqual("Stoneworking", conditional.First().Condition);
 		}
 
-		[Test]
+		[Fact]
 		public void TraitsCanHaveTags() {
 			Assert.AreEqual("senses", darkvision.Tags.First());
 		}
 
-        [Test]
+        [Fact]
         public void CanMarkSpecialAbilitiesAsWell()
         {
             Assert.Greater(darkvision.SpecialAbilities.Count, 0);
@@ -86,13 +86,13 @@ Assert.AreEqual ("racial", skillAdj.Type);
             Assert.AreEqual("In Dark", darkvision.SpecialAbilities.First().Condition);
         }
 
-        [Test]
+        [Fact]
         public void TraitsCanHaveSpecialConfigurationSteps()
         {
             Assert.That(configureTrait.CustomConfiguration, Is.EqualTo("SilverNeedle.SomeOtherClass"));
         }
 
-        [Test]
+        [Fact]
         public void InitializingComponentWillCallCustomImplementation() 
         {
             var trait = new Trait();

@@ -5,10 +5,9 @@
 
 namespace Tests.Maps
 {
-    using NUnit.Framework;
+    using Xunit;
     using SilverNeedle.Maps;
 
-    [TestFixture]
     public class TerrainTypeTests
     {
         

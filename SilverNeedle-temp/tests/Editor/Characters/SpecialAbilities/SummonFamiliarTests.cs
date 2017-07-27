@@ -12,7 +12,7 @@ namespace Tests.Characters.SpecialAbilities
     [TestFixture]
     public class SummonFamiliarTests
     {
-        [Test]
+        [Fact]
         public void ChooseAFamiliarFromList()
         {
             var familiar = new Familiar("Bat");

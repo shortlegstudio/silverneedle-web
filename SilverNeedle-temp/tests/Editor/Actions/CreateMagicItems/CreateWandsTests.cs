@@ -14,7 +14,7 @@ namespace Tests.Actions.CreateMagicItems
     [TestFixture]
     public class CreateWandTests
     {
-        [Test]
+        [Fact]
         public void WandsUtilizeAvailableListsToMakeWandsThatMakeSense()
         {
             var spellList = new SpellList();

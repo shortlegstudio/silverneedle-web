@@ -12,7 +12,7 @@ namespace Tests.Characters.Magic
     [TestFixture]
     public class DomainSpellCastingTests
     {
-        [Test]
+        [Fact]
         public void ShouldReturnOneForSpellsPerDayIfAvailableAtThisLevel()
         {
             var classLevel = new ClassLevel(new Class());
@@ -25,7 +25,7 @@ namespace Tests.Characters.Magic
             
         }
 
-        [Test]
+        [Fact]
         public void ShouldReturnZeroForSpellsPerDayOfOrisons()
         {
             var classLevel = new ClassLevel(new Class());
@@ -34,7 +34,7 @@ namespace Tests.Characters.Magic
             Assert.That(sc.GetSpellsPerDay(0), Is.EqualTo(0));
         }
 
-        [Test]
+        [Fact]
         public void MaxLevelIsSpecifiedByClassLevel()
         {
             var classLevel = new ClassLevel(new Class());
@@ -43,7 +43,7 @@ namespace Tests.Characters.Magic
             Assert.That(sc.MaxLevel, Is.EqualTo(3));
         }
 
-        [Test]
+        [Fact]
         public void IfCharacterLevelIs19Or20Just()
         {
             var classLevel = new ClassLevel(new Class());

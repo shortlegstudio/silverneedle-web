@@ -5,15 +5,14 @@
 
 namespace Tests.Equipment {
     using System.Linq;
-    using NUnit.Framework;
+    using Xunit;
     using SilverNeedle.Characters;
     using SilverNeedle.Equipment;
     using SilverNeedle.Utility;
     using SilverNeedle.Serialization;
 
-    [TestFixture]
     public class WeaponTests {		
-        [Test]
+        [Fact]
         public void DefaultCriticalValuesForWeaponsAreTwentyAndTimesTwo() {
             var wpn = new Weapon (
             "Test",
@@ -26,77 +25,77 @@ namespace Tests.Equipment {
             WeaponType.Light,
             WeaponGroup.Axes,
             WeaponTrainingLevel.Simple);
-            Assert.AreEqual(20, wpn.CriticalThreat);
-            Assert.AreEqual(2, wpn.CriticalModifier);
+            Assert.Equal(20, wpn.CriticalThreat);
+            Assert.Equal(2, wpn.CriticalModifier);
         }
 
-        [Test]
+        [Fact]
         public void LightWeaponsWithNoRangeAreMeleeOnly() {
             var wpn = new Weapon();
             wpn.Type = WeaponType.Light;
-            Assert.IsFalse(wpn.IsRanged);
-            Assert.IsTrue(wpn.IsMelee);
+            Assert.False(wpn.IsRanged);
+            Assert.True(wpn.IsMelee);
         }
 
-        [Test]
+        [Fact]
         public void LightWeaponsWithSomeRangeAreBothRangedAndMelee() {
             var wpn = new Weapon ();
             wpn.Type = WeaponType.Light;
             wpn.Range = 10;
-            Assert.IsTrue (wpn.IsRanged);
-            Assert.IsTrue (wpn.IsMelee);
+            Assert.True (wpn.IsRanged);
+            Assert.True (wpn.IsMelee);
         }
 
-        [Test]
+        [Fact]
         public void RangedWeaponsArentMeleeCompatible() {
             var wpn = new Weapon();
             wpn.Type = WeaponType.Ranged;
-            Assert.IsTrue(wpn.IsRanged);
-            Assert.IsFalse(wpn.IsMelee);
+            Assert.True(wpn.IsRanged);
+            Assert.False(wpn.IsMelee);
         }
 
-        [Test]
+        [Fact]
         public void AllImportantStatsForALongSwordAreAvailable() {
             var repo = new EntityGateway<Weapon>(WeaponYamlFile.ParseYaml().Load<Weapon>());
             var weapons = repo.All ();
             var longsword = weapons.First();
-            Assert.AreEqual("Longsword", longsword.Name);
-            Assert.AreEqual("1d8", longsword.Damage);
-            Assert.AreEqual(4, longsword.Weight);
-            Assert.AreEqual(19, longsword.CriticalThreat);
-            Assert.AreEqual(3, longsword.CriticalModifier);
-            Assert.AreEqual(DamageTypes.Slashing, longsword.DamageType);
-            Assert.AreEqual(WeaponType.OneHanded, longsword.Type);
-            Assert.AreEqual(WeaponGroup.HeavyBlades, longsword.Group);
-            Assert.AreEqual(WeaponTrainingLevel.Martial, longsword.Level);
-            Assert.AreEqual(3200, longsword.Value);
+            Assert.Equal("Longsword", longsword.Name);
+            Assert.Equal("1d8", longsword.Damage);
+            Assert.Equal(4, longsword.Weight);
+            Assert.Equal(19, longsword.CriticalThreat);
+            Assert.Equal(3, longsword.CriticalModifier);
+            Assert.Equal(DamageTypes.Slashing, longsword.DamageType);
+            Assert.Equal(WeaponType.OneHanded, longsword.Type);
+            Assert.Equal(WeaponGroup.HeavyBlades, longsword.Group);
+            Assert.Equal(WeaponTrainingLevel.Martial, longsword.Level);
+            Assert.Equal(3200, longsword.Value);
         }
 
-        [Test]
+        [Fact]
         public void AllImportantStatsForADaggerAreAvailable() {
             var repo = new EntityGateway<Weapon>(WeaponYamlFile.ParseYaml().Load<Weapon>());
             var dagger = repo.All().Last();
-            Assert.AreEqual("Dagger", dagger.Name);
-            Assert.AreEqual("1d4", dagger.Damage);
-            Assert.AreEqual(1, dagger.Weight);
-            Assert.AreEqual(20, dagger.CriticalThreat);
-            Assert.AreEqual(2, dagger.CriticalModifier);
-            Assert.AreEqual(DamageTypes.Piercing, dagger.DamageType);
-            Assert.AreEqual(10, dagger.Range);
-            Assert.AreEqual(WeaponType.Light, dagger.Type);
-            Assert.AreEqual(WeaponGroup.LightBlades, dagger.Group);
-            Assert.AreEqual(WeaponTrainingLevel.Simple, dagger.Level);
-            Assert.AreEqual(40, dagger.Value);
+            Assert.Equal("Dagger", dagger.Name);
+            Assert.Equal("1d4", dagger.Damage);
+            Assert.Equal(1, dagger.Weight);
+            Assert.Equal(20, dagger.CriticalThreat);
+            Assert.Equal(2, dagger.CriticalModifier);
+            Assert.Equal(DamageTypes.Piercing, dagger.DamageType);
+            Assert.Equal(10, dagger.Range);
+            Assert.Equal(WeaponType.Light, dagger.Type);
+            Assert.Equal(WeaponGroup.LightBlades, dagger.Group);
+            Assert.Equal(WeaponTrainingLevel.Simple, dagger.Level);
+            Assert.Equal(40, dagger.Value);
         }
 
-        [Test]
+        [Fact]
         public void CanSelectWeaponsBasedOnProficiencies() {
             var repo = new EntityGateway<Weapon>(WeaponYamlFile.ParseYaml().Load<Weapon>());
             var prof = new WeaponProficiency("dagger");
 
             var results = repo.FindByProficient(new WeaponProficiency[] { prof });
-            Assert.AreEqual(1, results.Count());
-            Assert.AreEqual("Dagger", results.First().Name);
+            Assert.Equal(1, results.Count());
+            Assert.Equal("Dagger", results.First().Name);
         }
 
         private const string WeaponYamlFile = @"--- 

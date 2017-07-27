@@ -45,7 +45,7 @@ namespace Tests.Actions
             gateway = new EntityGateway<Feat>(list);
             selector = new FeatSelector(gateway);
         }
-        [Test]
+        [Fact]
         public void ChooseFeatBasedOnStrategy()
         {
             var strategy = new WeightedOptionTable<string>();
@@ -60,7 +60,7 @@ namespace Tests.Actions
 
         }
 
-        [Test]
+        [Fact]
         public void OnlySelectsFeatsThatCharacterQualifiesFor()
         {
             var strategy = new WeightedOptionTable<string>();
@@ -77,7 +77,7 @@ namespace Tests.Actions
             }            
         } 
 
-        [Test]
+        [Fact]
         public void SelectFeatsBasedOnTokensAvailable() 
         {
             var strategy = new WeightedOptionTable<string>();
@@ -95,7 +95,7 @@ namespace Tests.Actions
             }            
         }
 
-        [Test]
+        [Fact]
         public void SelectsAFeatForEachOutstandingToken() {
             var strategy = new WeightedOptionTable<string>();
             strategy.AddEntry("power attack", 5000000);
@@ -113,7 +113,7 @@ namespace Tests.Actions
             }        
         }
 
-        [Test]
+        [Fact]
         public void FeatTokensAreUsedUpAfterSelection() {
             var strategy = new WeightedOptionTable<string>();
             strategy.AddEntry("power attack", 5000000);
@@ -123,7 +123,7 @@ namespace Tests.Actions
             Assert.AreEqual(0, character.FeatTokens.Count);
         }
 
-        [Test]
+        [Fact]
         public void IfNoPreferredFeatsArePossibleJustSelectRandomlyFromAnyPossible()
         {
             var strategy = new WeightedOptionTable<string>();
@@ -133,7 +133,7 @@ namespace Tests.Actions
             Assert.IsTrue(character.Feats.First() == powerattack || character.Feats.First() == empowerspell);
         }
 
-        [Test]
+        [Fact]
         public void FeatTokensCanSpecifyAFeatByName()
         {
             var strategy = new WeightedOptionTable<string>();

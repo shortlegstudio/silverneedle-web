@@ -13,7 +13,7 @@ namespace Tests.Characters.SpecialAbilities
     [TestFixture]
     public class MasterStrikeTests
     {
-        [Test]
+        [Fact]
         public void AddsSpecialAttackWithDCToSave()
         {
             var character = new CharacterSheet();

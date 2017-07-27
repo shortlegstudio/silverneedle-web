@@ -29,7 +29,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
             subject = new ConfigureSummonFamiliar(new EntityGateway<Familiar>(familiars));
         }
 
-        [Test]
+        [Fact]
         public void ChoosesAFamiliarForTheCharacter()
         {
             var character = new CharacterSheet();
@@ -40,7 +40,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
             Assert.That(summon.Familiar, Is.EqualTo(bat));
         }
 
-        [Test]
+        [Fact]
         public void SummonFamiliarModifiesTheCharacterStats()
         {
             bat.Modifiers.Add(new ValueStatModifier("Perception", 5, "bonus", "Familiar (Bat)"));

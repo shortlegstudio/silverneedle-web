@@ -29,7 +29,7 @@ namespace Tests.Characters
             fighter3 = fighterLevel3.ParseYaml().Children.First();
         }
 
-        [Test]
+        [Fact]
         public void LevelsKnowTheirNumber() 
         {
             var levelYaml = "level: 2".ParseYaml();
@@ -37,7 +37,7 @@ namespace Tests.Characters
             Assert.AreEqual(2, level.Number);
         }
 
-        [Test]
+        [Fact]
         public void LevelsCanProvideExtraFeats()
         {
             var level = new Level(fighter);
@@ -46,7 +46,7 @@ namespace Tests.Characters
             Assert.That(token.Tags, Contains.Item("combat"));
         }
 
-        [Test]
+        [Fact]
         public void LevelsCanModifyStats()
         {
             var level = new Level(fighter);
@@ -59,7 +59,7 @@ namespace Tests.Characters
             Assert.AreEqual("fear", mod.Condition);
         }
 
-        [Test]
+        [Fact]
         public void CanLoadCustomFeatureSteps()
         {
             var level = new Level(adept);
@@ -68,7 +68,7 @@ namespace Tests.Characters
                 Is.TypeOf(typeof(SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSummonFamiliar)));
         }
 
-        [Test]
+        [Fact]
         public void CustomFeatureStepsCanSupportExtraData()
         {
             var level = new Level(fighter3);
@@ -77,7 +77,7 @@ namespace Tests.Characters
             Assert.That(step.ArmorTrainingLevel, Is.EqualTo(1));
         }
 
-        [Test]
+        [Fact]
         public void CanSupportAbilities()
         {
             var barb = barbLevel.ParseYaml().Children.First();

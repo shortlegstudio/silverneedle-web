@@ -29,7 +29,7 @@ namespace Tests.Characters
             _testSkills.Add(new Skill("Spellcraft", AbilityScoreTypes.Intelligence, true));
         }
 
-        [Test]
+        [Fact]
         public void CalculatesSkillPointsBasedOnClassAndIntelligence()
         {
             var sheet = new CharacterSheet(new List<Skill>());
@@ -40,7 +40,7 @@ namespace Tests.Characters
             Assert.AreEqual(4, sheet.GetSkillPointsPerLevel());
         }
 
-        [Test]
+        [Fact]
         public void CharactersHaveVitalStats()
         {
             var sheet = new CharacterSheet(_testSkills);
@@ -50,7 +50,7 @@ namespace Tests.Characters
             Assert.AreEqual(CharacterAlignment.LawfulGood, sheet.Alignment);
         }
 
-        [Test]
+        [Fact]
         public void AssigningClassUpdatesWeaponProficiencies()
         {
             var sheet = new CharacterSheet(new List<Skill>());
@@ -64,7 +64,7 @@ namespace Tests.Characters
             Assert.IsTrue(sheet.Offense.IsProficient(wpn));
         }
 
-        [Test]
+        [Fact]
         public void AssigningClassUpdatesArmorProficiencies()
         {
             var sheet = new CharacterSheet(new List<Skill>());
@@ -80,7 +80,7 @@ namespace Tests.Characters
             Assert.IsTrue(sheet.Defense.IsProficient(armor));
         }
 
-        [Test]
+        [Fact]
         public void AddingATraitToWillSaveBoostsDefense()
         {
             CharacterSheet sheet = new CharacterSheet(_testSkills);
@@ -93,7 +93,7 @@ namespace Tests.Characters
             Assert.AreEqual(oldScore + 10, sheet.Defense.WillSave.TotalValue);
         }
 
-        [Test]
+        [Fact]
         public void AddingATraitWillTriggerAddingImmunities()
         {
             CharacterSheet sheet = new CharacterSheet(_testSkills);
@@ -104,7 +104,7 @@ namespace Tests.Characters
             Assert.Greater(sheet.Defense.Immunities.Count(), 0);
         }
 
-        [Test]
+        [Fact]
         public void AddingAFeatCouldAddOffensiveAbilities() 
         {
             CharacterSheet sheet = new CharacterSheet(_testSkills);
@@ -115,7 +115,7 @@ namespace Tests.Characters
             Assert.Greater(sheet.Offense.OffensiveAbilities.Count(), 0);
         }
 
-        [Test]
+        [Fact]
         public void AddingTraitsCouldAddSpecialQualities()
         {
             CharacterSheet sheet = new CharacterSheet(_testSkills);
@@ -127,7 +127,7 @@ namespace Tests.Characters
             Assert.Greater(sheet.SpecialQualities.SpecialAbilities.Count(), 0);
         }
 
-        [Test]
+        [Fact]
         public void CanGetSkillByName()
         {
             var character = new CharacterSheet(_testSkills);
@@ -136,7 +136,7 @@ namespace Tests.Characters
             Assert.AreEqual("Climb", character.GetSkill("climb").Name);
         }
 
-        [Test]
+        [Fact]
         public void ExposeAllStats()
         {
             var character = new CharacterSheet();
@@ -149,7 +149,7 @@ namespace Tests.Characters
             Assert.That(willSave.Name, Is.EqualTo(StatNames.WillSave));
         }
 
-        [Test]
+        [Fact]
         public void AddingASpecialAbilityAddsToComponentList()
         {
             var character = new CharacterSheet();
@@ -158,7 +158,7 @@ namespace Tests.Characters
             Assert.That(character.Components.Get<SpecialAbility>(), Is.EqualTo(ability));
         }
 
-        [Test]
+        [Fact]
         public void AddingAnAbilityThatImplementsIComponentWillCallInitialize()
         {
             var character = new CharacterSheet();
@@ -167,7 +167,7 @@ namespace Tests.Characters
             Assert.That(ability.Called, Is.True);
         }
 
-        [Test]
+        [Fact]
         public void CanGetAndSetAlignmentAndItShowsUpAsASingleComponent()
         {
             var character = new CharacterSheet();

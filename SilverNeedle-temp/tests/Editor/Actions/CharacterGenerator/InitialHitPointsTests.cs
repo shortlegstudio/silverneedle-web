@@ -13,7 +13,7 @@ namespace Tests.Actions
     [TestFixture]
     public class InitialHitPointsTests
     {
-        [Test]
+        [Fact]
         public void MaxHitPointsAssignsTheCharacterHPToClassHDPlusConModifier() 
         {
             var character = new CharacterSheet();

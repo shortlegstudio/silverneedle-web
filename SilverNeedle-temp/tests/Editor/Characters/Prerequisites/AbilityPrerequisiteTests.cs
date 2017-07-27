@@ -15,7 +15,7 @@ namespace Tests.Characters.Prerequisites
 
     [TestFixture]
     public class AbilityPrerequisiteTests {
-        [Test]
+        [Fact]
         public void AbilityIsQualifiedIfExceedingScore() {
             var pre = new AbilityPrerequisite (AbilityScoreTypes.Intelligence, 13);
             var c = new CharacterSheet (new List<Skill>());
@@ -23,7 +23,7 @@ namespace Tests.Characters.Prerequisites
             Assert.IsTrue (pre.IsQualified (c));
         }
 
-        [Test]
+        [Fact]
         public void AbilityIsNotQualifiedIfNotExceedingScore() {
             var pre = new AbilityPrerequisite (AbilityScoreTypes.Intelligence, 13);
             var c = new CharacterSheet (new List<Skill>());

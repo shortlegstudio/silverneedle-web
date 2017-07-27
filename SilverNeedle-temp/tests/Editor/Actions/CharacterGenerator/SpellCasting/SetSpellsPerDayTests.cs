@@ -21,14 +21,14 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
             subject = new SetSpellsPerDay();
         }
 
-        [Test]
+        [Fact]
         public void IfNotACasterDoNothing()
         {
             var character = new CharacterSheet();
             subject.Process(character, new CharacterBuildStrategy());
         }
 
-        [Test]
+        [Fact]
         public void SetSpellsAvailableForThatDayForFirstLevel()
         {
             var character = new CharacterSheet();
@@ -45,7 +45,7 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
             Assert.That(character.Get<SpellCasting>().GetSpellsPerDay(1), Is.EqualTo(1));
         }
 
-        [Test]
+        [Fact]
         public void GrantBonusSpellsPerDayForAbilityScore()
         {
             var character = new CharacterSheet();
@@ -67,7 +67,7 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
             Assert.That(character.Get<SpellCasting>().GetSpellsPerDay(2), Is.EqualTo(1));
         }
 
-        [Test]
+        [Fact]
         public void HighAbilityScoresShouldGrantExtraBonusSpells()
         {
             var character = new CharacterSheet();

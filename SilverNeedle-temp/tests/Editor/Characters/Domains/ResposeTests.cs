@@ -19,7 +19,7 @@ namespace Tests.Characters.Domains
             base.InitializeDomain("repose");
         }
 
-        [Test]
+        [Fact]
         public void GentleRest()
         {
             var touch = character.Get<GentleRest>();
@@ -27,7 +27,7 @@ namespace Tests.Characters.Domains
             Assert.That(touch.UsesPerDay, Is.EqualTo(6));
         }
 
-        [Test]
+        [Fact]
         public void WardAgainstDeath()
         {
             character.SetLevel(8);
