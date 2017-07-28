@@ -11,6 +11,7 @@ namespace SilverNeedle
     {
         private static GatewayProvider __instance;
         private Dictionary<System.Type, object> gateways;
+        private object _threadLock = new object();
 
         public static GatewayProvider Instance() 
         {
@@ -20,20 +21,23 @@ namespace SilverNeedle
             return __instance;
         }
 
-        public GatewayProvider()
+        protected GatewayProvider()
         {
             gateways = new Dictionary<System.Type, object>();
         }
 
         public EntityGateway<T> GetImpl<T>() where T : IGatewayObject
         {
-            var type = typeof(T);
-            if(gateways.ContainsKey(type)) {
-                return (EntityGateway<T>)gateways[type];
+            lock(_threadLock)
+            {
+                var type = typeof(T);
+                if(gateways.ContainsKey(type)) {
+                    return (EntityGateway<T>)gateways[type];
+                }
+                var newGateway = new EntityGateway<T>();
+                gateways.Add(type, newGateway);
+                return newGateway;
             }
-            var newGateway = new EntityGateway<T>();
-            gateways.Add(type, newGateway);
-            return newGateway;
         }
 
         public static EntityGateway<T> Get<T>() where T : IGatewayObject
