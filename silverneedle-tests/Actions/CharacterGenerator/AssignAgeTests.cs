@@ -3,10 +3,11 @@ using SilverNeedle.Characters;
 using SilverNeedle.Dice;
 using SilverNeedle.Actions.CharacterGenerator;
 
-namespace Actions
+namespace Tests.Actions.CharacterGenerator
 {
     
-	public class AssignAgeTests {
+	public class AssignAgeTests : RequiresDataFiles
+    {
         [Fact]
         public void AssignsAnAgeToACharacterBasedOnClassAndMaturity()
         {
