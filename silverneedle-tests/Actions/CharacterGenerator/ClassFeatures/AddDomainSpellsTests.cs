@@ -1,0 +1,54 @@
+// Copyright (c) 2017 Trevor Redfern
+// 
+// This software is released under the MIT License.
+// https://opensource.org/licenses/MIT
+
+namespace Tests.Actions.CharacterGenerator.ClassFeatures
+{
+    using Xunit;
+    using SilverNeedle.Actions.CharacterGenerator.ClassFeatures;
+    using SilverNeedle.Characters;
+    using SilverNeedle.Characters.Domains;
+    using SilverNeedle.Characters.Magic;
+    using SilverNeedle.Serialization;
+    using SilverNeedle.Spells;
+
+    
+    public class AddDomainSpellsTests
+    {
+        [Fact]
+        public void FindsDomainsAssociatedWithCharacterAndAddsThoseSpells()
+        {
+            var character = new CharacterSheet();
+            character.SetClass(new Class());
+            var configureAir = new MemoryStore();
+            configureAir.SetValue("name", "Air");
+            configureAir.SetValue("spells", "air 1, air 2");
+            var domain = new Domain(configureAir);
+            character.Add(domain);
+
+
+            var spells = new EntityGateway<Spell>(
+                new Spell[] { new Spell("air 1", "evocation"), new Spell("air 2", "evoccation")}
+            );
+            var configure = new MemoryStore();
+            configure.SetValue("casting-ability", "wisdom");
+
+            var addSpells = new AddDomainSpells(configure, spells);
+            addSpells.Process(character, new CharacterBuildStrategy());
+
+            var spellCasting = character.Get<SpellCasting>();
+            Assert.Equal(spellCasting.CastingAbility, character.AbilityScores.GetAbility(AbilityScoreTypes.Wisdom));
+            Assert.Equal(spellCasting.GetAvailableSpells(1), new string[] { "air 1"});
+            Assert.Equal(spellCasting.GetAvailableSpells(2), new string[] { });
+            Assert.Equal(spellCasting.GetSpellsPerDay(1), 1);
+            Assert.Equal(spellCasting.GetSpellsPerDay(2), 0);
+
+            character.SetLevel(4);
+
+            Assert.Equal(spellCasting.GetSpellsPerDay(2), 1);
+            Assert.Equal(spellCasting.GetSpellsPerDay(3), 0);
+            Assert.Equal(spellCasting.GetAvailableSpells(2), new string[] { "air 2"});
+        }
+    }
+}

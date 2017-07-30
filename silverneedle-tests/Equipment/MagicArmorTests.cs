@@ -8,7 +8,7 @@ namespace Tests.Equipment
     using Xunit;
     using SilverNeedle.Equipment;
     
-    public class MagicArmorTests
+    public class MagicArmorTests : RequiresDataFiles
     {
         [Fact]
         public void MagicArmorAddsToTheArmorClassBonus()
