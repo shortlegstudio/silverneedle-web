@@ -29,11 +29,5 @@ namespace SilverNeedle.Shops
             var total = armors.Concat<IArmor>(masterwork);
             StockShop(total);
         }
-        private void StockShop(IEnumerable<IArmor> available)
-        {
-            ShortLog.DebugFormat("Stocking Armor shop with {0} items", available.Count().ToString());
-            //Just add all the armors
-            inventory.Add(available);
-        }
     }
 }

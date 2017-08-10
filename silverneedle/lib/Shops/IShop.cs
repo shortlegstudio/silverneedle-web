@@ -11,5 +11,9 @@ namespace SilverNeedle.Shops
     {
         IEnumerable<IGear> GetInventory();
         IEnumerable<T> GetInventory<T>();
+        
+        IEnumerable<IGear> GetAffordableInventory(int maximumValue);
+
+        void SellItem(IGear item);
     }
 }

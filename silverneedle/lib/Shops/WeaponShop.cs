@@ -28,10 +28,5 @@ namespace SilverNeedle.Shops
             var total = weapons.Concat<IWeapon>(masterwork).Concat<IWeapon>(magical);
             StockShop(total);
         }
-
-        private void StockShop(IEnumerable<IGear> items)
-        {
-            inventory.Add(items);
-        }
     }
 }

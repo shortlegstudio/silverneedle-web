@@ -10,6 +10,7 @@ namespace Tests.Actions.CreateMagicItems
     using SilverNeedle.Equipment;
     using SilverNeedle.Serialization;
     using SilverNeedle.Spells;
+    using SilverNeedle.Treasure;
 
     
     public class CreateWandTests
@@ -27,8 +28,30 @@ namespace Tests.Actions.CreateMagicItems
             var createwands = new CreateWands(spellGateway, spellListGateway);
 
             var wand = createwands.Process();
-            Assert.Equal(wand.Spell, cure);
-            Assert.Equal(wand.Charges, 50);
+            Assert.Equal(cure, wand.Spell);
+            Assert.Equal(50, wand.Charges);
+            Assert.Equal(75000, wand.Value);
         }
+
+        [Theory]
+        [InlineData(1, 75000)]
+        [InlineData(2, 450000)]
+        [InlineData(3, 1125000)]
+        [InlineData(4, 2100000)]
+        public void WandsGetMoreExpensiveWithLevels(int level, int expectedValue)
+        {
+            var spellList = new SpellList();
+            spellList.Class = "Cleric";
+            spellList.Levels.Add(level, new string[] { "Cure Light Wounds" });
+            var cure = new Spell("Cure Light Wounds", "healing");
+            var spellGateway = new EntityGateway<Spell>(new Spell[] { cure });
+            var spellListGateway = new EntityGateway<SpellList>(new SpellList[] { spellList });
+
+            var createwands = new CreateWands(spellGateway, spellListGateway);
+
+            var wand = createwands.Process();
+            Assert.Equal(expectedValue, wand.Value);
+        }
+
     }
 }

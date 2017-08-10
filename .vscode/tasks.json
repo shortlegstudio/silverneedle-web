@@ -7,13 +7,14 @@
         {
             "taskName": "build",
             "args": [
-                "${workspaceRoot}/project.json"
+                "./silverneedle-web.sln"
             ],
             "isBuildCommand": true,
             "problemMatcher": "$msCompile"
         },
         {
-            "taskName": "test"
+            "taskName": "test",
+            "args": ["./silverneedle-tests/silverneedle-tests.csproj"],
         }
     ]
 }

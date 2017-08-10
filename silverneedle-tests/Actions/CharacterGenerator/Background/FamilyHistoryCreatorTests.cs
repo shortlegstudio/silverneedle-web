@@ -11,7 +11,7 @@ namespace Tests.Actions
     using SilverNeedle.Characters.Background;
 
     
-    public class FamilyHistoryCreatorTests
+    public class FamilyHistoryCreatorTests : RequiresDataFiles
     {
         [Fact]
         public void CanCreateFamilyTreeWithParents()

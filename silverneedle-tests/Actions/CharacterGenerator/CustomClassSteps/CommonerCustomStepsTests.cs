@@ -11,7 +11,7 @@ namespace Tests.Actions.CharacterGenerator.CustomClassSteps
     using SilverNeedle.Characters;
 
     
-    public class CommonerCustomStepsTests
+    public class CommonerCustomStepsTests : RequiresDataFiles
     {
         [Fact]
         public void SelectsASingleSimpleWeaponProficiency()

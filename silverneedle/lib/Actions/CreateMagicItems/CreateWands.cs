@@ -36,7 +36,8 @@ namespace SilverNeedle.Actions.CreateMagicItems
             var spellLevel = list.Levels.ChooseOne();
             var spellName = spellLevel.Value.ChooseOne();
             var spell = spells.Find(spellName);
-            var wand = new Wand(spell, 50, 0);
+            var value = 75000 * (spellLevel.Key) * (spellLevel.Key + spellLevel.Key - 1);
+            var wand = new Wand(spell, 50, value);
             return wand;
         }
 

@@ -26,6 +26,8 @@ namespace SilverNeedle.Actions.CharacterGenerator
 
         public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
         {
+            //TODO: Max prices should be specified by strategy
+            //TODO: Very similiar to other purchasing routines just slightly different...
             var spend = System.Math.Min(20000, character.Inventory.CoinPurse.Value);
             while(spend > 0)
             {

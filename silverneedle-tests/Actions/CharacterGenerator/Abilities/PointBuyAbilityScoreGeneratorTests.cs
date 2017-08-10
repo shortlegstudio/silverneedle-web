@@ -12,7 +12,7 @@ namespace Tests.Actions.CharacterGenerator.Abilities
     using SilverNeedle.Serialization;
 
     
-    public class PointBuyAbilityScoreGeneratorTests
+    public class PointBuyAbilityScoreGeneratorTests : RequiresDataFiles
     {
         [Fact]
         [Repeat(100)]

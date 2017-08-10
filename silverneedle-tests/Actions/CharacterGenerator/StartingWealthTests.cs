@@ -12,7 +12,7 @@ namespace Tests.Actions.CharacterGenerator
     using SilverNeedle.Serialization;
     
     
-    public class StartingWealthTests 
+    public class StartingWealthTests : RequiresDataFiles
     {
         EntityGateway<CharacterWealth> wealthGateway;
 
