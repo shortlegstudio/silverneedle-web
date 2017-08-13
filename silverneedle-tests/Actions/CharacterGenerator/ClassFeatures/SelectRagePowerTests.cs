@@ -27,7 +27,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
             {
                 powers.Add(new RagePower(r));
             }
-            var gateway = new EntityGateway<RagePower>(powers);
+            var gateway = EntityGateway<RagePower>.LoadFromList(powers);
             ragePowerSelector = new SelectRagePower(gateway);
 
             barbarian = new CharacterSheet();

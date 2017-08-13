@@ -19,8 +19,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
         public void ChooseFromFavoredEnemyList()
         {
             var aberration = new CreatureType("Aberration"); 
-            var creatureTypes = new CreatureType[] { aberration }; 
-            var ctGateway = new EntityGateway<CreatureType>(creatureTypes);
+            var ctGateway = EntityGateway<CreatureType>.LoadWithSingleItem(aberration);
             var configureStep = new ChooseFavoredEnemy(ctGateway);
             var character = new CharacterSheet();
             configureStep.Process(character, new CharacterBuildStrategy());
@@ -35,7 +34,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
             var aberration = new CreatureType("Aberration"); 
             var dragon = new CreatureType("Dragon"); 
             var creatureTypes = new CreatureType[] { aberration, dragon }; 
-            var ctGateway = new EntityGateway<CreatureType>(creatureTypes);
+            var ctGateway = EntityGateway<CreatureType>.LoadFromList(creatureTypes);
             var configureStep = new ChooseFavoredEnemy(ctGateway);
             var character = new CharacterSheet();
             configureStep.Process(character, new CharacterBuildStrategy());

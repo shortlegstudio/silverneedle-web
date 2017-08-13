@@ -56,7 +56,7 @@ namespace SilverNeedle.Characters.Magic
             return DifficultyClass.TotalValue + spellLevel;
         }
 
-        public virtual string[] GetAvailableSpells(int level)
+        public virtual IList<string> GetAvailableSpells(int level)
         {
             if(SpellsKnown == SpellsKnown.Spellbook)
             {

@@ -20,7 +20,7 @@ namespace Tests.Actions.CharacterGenerator.Appearance
             var mem = new MemoryStore();
             mem.SetValue("name", "crooked nose");
             var phys = new PhysicalFeature(mem);
-            var gateway = new EntityGateway<PhysicalFeature>(new PhysicalFeature[] { phys });
+            var gateway = EntityGateway<PhysicalFeature>.LoadWithSingleItem(phys);
 
             var subject = new CreatePhysicalFeatures(gateway);
             var character = new CharacterSheet();
@@ -40,7 +40,7 @@ namespace Tests.Actions.CharacterGenerator.Appearance
             mem.SetValue("descriptors", descs);
             var phys = new PhysicalFeature(mem);
 
-            var gateway = new EntityGateway<PhysicalFeature>(new PhysicalFeature[] { phys });
+            var gateway = EntityGateway<PhysicalFeature>.LoadWithSingleItem(phys);
             var subject = new CreatePhysicalFeatures(gateway);
 
             var character = new CharacterSheet();
@@ -70,7 +70,7 @@ namespace Tests.Actions.CharacterGenerator.Appearance
             mem.SetValue("templates", temps);
             var phys = new PhysicalFeature(mem);
 
-            var gateway = new EntityGateway<PhysicalFeature>(new PhysicalFeature[] { phys });
+            var gateway = EntityGateway<PhysicalFeature>.LoadWithSingleItem(phys);
             var subject = new CreatePhysicalFeatures(gateway);
 
             var character = new CharacterSheet();

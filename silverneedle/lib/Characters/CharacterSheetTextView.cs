@@ -106,7 +106,7 @@ namespace SilverNeedle.Characters
                 SpellDC = new int[character.Get<SpellCasting>().MaxLevel + 1];
                 for(int i = 0; i <= character.Get<SpellCasting>().MaxLevel; i++)
                 {
-                    SpellsAvailable[i] = character.Get<SpellCasting>().GetAvailableSpells(i);
+                    SpellsAvailable[i] = character.Get<SpellCasting>().GetAvailableSpells(i).ToArray();
                     SpellsPrepared[i] = character.Get<SpellCasting>().GetPreparedSpells(i);
                     SpellDC[i] = character.Get<SpellCasting>().GetDifficultyClass(i);
                 }

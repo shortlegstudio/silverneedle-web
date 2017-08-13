@@ -60,8 +60,8 @@ namespace Tests.Actions
             traitList.Add(elfTrait);
 
             // Configure Gateways
-            raceGateway = new EntityGateway<Race>(list);
-            traitGateway = new EntityGateway<Trait>(traitList);
+            raceGateway = EntityGateway<Race>.LoadFromList(list);
+            traitGateway = EntityGateway<Trait>.LoadFromList(traitList);
             
             raceSelectorSubject = new RaceSelector(raceGateway, traitGateway);
         }

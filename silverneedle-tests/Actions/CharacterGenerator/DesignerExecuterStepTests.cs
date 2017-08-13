@@ -24,7 +24,7 @@ namespace Tests.Actions.CharacterGenerator
             // Set up a character designer
             mockDesigner.Setup(x => x.Process(character, build));
             mockDesigner.Setup(x => x.Matches("hello")).Returns(true);
-            var gateway = new EntityGateway<CharacterDesigner>(new CharacterDesigner[] { mockDesigner.Object});
+            var gateway = EntityGateway<CharacterDesigner>.LoadWithSingleItem(mockDesigner.Object);
 
             var executer = new DesignerExecuterStep("hello", gateway);
             executer.Process(character, build);

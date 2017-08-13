@@ -28,7 +28,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
             character.Add(domain);
 
 
-            var spells = new EntityGateway<Spell>(
+            var spells = EntityGateway<Spell>.LoadFromList(
                 new Spell[] { new Spell("air 1", "evocation"), new Spell("air 2", "evoccation")}
             );
             var configure = new MemoryStore();

@@ -20,7 +20,7 @@ namespace Tests.Names
 
         public NameInformationTests()
         {
-            gateway = new EntityGateway<NameInformation>(CharacterNamesTestData.ParseYaml().Load<NameInformation>());
+            gateway = EntityGateway<NameInformation>.LoadFromList(CharacterNamesTestData.ParseYaml().Load<NameInformation>());
         }
 
         [Fact]

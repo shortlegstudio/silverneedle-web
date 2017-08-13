@@ -8,7 +8,7 @@ namespace SilverNeedle.Shops
 {
     using System;
     using System.Collections.Generic;
-    using SilverNeedle.Actions.CreateMagicItems; //TODO: Move this out. Magic Shops should not generate inventory
+    using SilverNeedle.Actions.MagicItemGeneration; //TODO: Move this out. Magic Shops should not generate inventory
     using SilverNeedle.Equipment;
     using SilverNeedle.Utility;
 
@@ -26,7 +26,7 @@ namespace SilverNeedle.Shops
 
         private void StockShop()
         {
-            var wandBuilder = new CreateWands();
+            var wandBuilder = new WandCreator();
             Repeat.Times(100, () => this.inventory.Add(wandBuilder.Process()));
         }
     }

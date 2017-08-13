@@ -21,7 +21,7 @@ namespace Tests.Actions.CharacterGenerator.Appearance
             var styles = new HairStyle[] { new HairStyle("ponytail") };
             styles[0].Descriptors.Add("descriptor", new string[] { "long" });
 
-            var subject = new CreateHair(new EntityGateway<HairColor>(colors), new EntityGateway<HairStyle>(styles));
+            var subject = new CreateHair(EntityGateway<HairColor>.LoadFromList(colors), EntityGateway<HairStyle>.LoadFromList(styles));
             var character = new CharacterSheet();
             subject.Process(character, new CharacterBuildStrategy());
             Assert.Equal(character.Appearance.Hair, "copper long ponytail");

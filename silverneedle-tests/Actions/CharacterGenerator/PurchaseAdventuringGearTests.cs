@@ -30,7 +30,7 @@ namespace Tests.Actions.CharacterGenerator
             gears.Add(new Gear("other thing", 20, 1));
             gears.Add(new Gear("some stuff", 20, 1));
             gears.Add(new Gear("doodad", 20, 1));
-            gearGateway = new EntityGateway<Gear>(gears);
+            gearGateway = EntityGateway<Gear>.LoadFromList(gears);
             
             subject = new PurchaseAdventuringGear(gearGateway);
         }

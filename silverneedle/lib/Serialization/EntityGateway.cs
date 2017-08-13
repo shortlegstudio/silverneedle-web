@@ -60,35 +60,57 @@ namespace SilverNeedle.Serialization
             return GetDataStore().Choose(number);
         }
 
-        public EntityGateway(IEnumerable<IObjectStore> data) 
+        protected EntityGateway(T singleItem) : this()
         {
-            dataStore = new List<T>();
-            objectType = typeof(T);
+            dataStore.Add(singleItem);
+        }
+
+        protected EntityGateway(IEnumerable<IObjectStore> data) : this()
+        {
             LoadObjects(data);
         }
 
-        public EntityGateway() 
+        protected EntityGateway() 
         {
             dataStore = new List<T>();
             objectType = typeof(T);
+        }
+
+        protected EntityGateway(IEnumerable<T> data) : this()
+        {
+            foreach(var obj in data)
+            {
+                dataStore.Add(obj);
+            }
+        }
+
+        public static EntityGateway<T> LoadFromDataFiles()
+        {
+            var gateway = new EntityGateway<T>();
             var files = DatafileLoader.Instance.GetDataFiles<T>();
             foreach(var f in files)
             {
                 //NOTE: Root of a data file is the file itself not the objects contained
                 //Kind of a tricky distinction, probably need a different data type
                 //in the future
-                LoadObjects(f.Children);
+                gateway.LoadObjects(f.Children);
             }
+            return gateway;
         }
 
-        public EntityGateway(IEnumerable<T> data)
+        public static EntityGateway<T> LoadFromList(IEnumerable<T> initialItems)
         {
-            dataStore = new List<T>();
-            objectType = typeof(T);
-            foreach(var obj in data)
-            {
-                dataStore.Add(obj);
-            }
+            return new EntityGateway<T>(initialItems);
+        }
+
+        public static EntityGateway<T> LoadFromObjectStore(IEnumerable<IObjectStore> data)
+        {
+            return new EntityGateway<T>(data);
+        }
+
+        public static EntityGateway<T> LoadWithSingleItem(T item)
+        {
+            return new EntityGateway<T>(item);
         }
 
         private IList<T> GetDataStore()

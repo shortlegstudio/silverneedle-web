@@ -3,17 +3,17 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-namespace Tests.Actions.CreateMagicItems
+namespace Tests.Actions.MagicItemGeneration
 {
     using Xunit;
-    using SilverNeedle.Actions.CreateMagicItems;
+    using SilverNeedle.Actions.MagicItemGeneration;
     using SilverNeedle.Equipment;
     using SilverNeedle.Serialization;
     using SilverNeedle.Spells;
     using SilverNeedle.Treasure;
 
     
-    public class CreateWandTests
+    public class WandCreatorTests
     {
         [Fact]
         public void WandsUtilizeAvailableListsToMakeWandsThatMakeSense()
@@ -22,10 +22,10 @@ namespace Tests.Actions.CreateMagicItems
             spellList.Class = "Cleric";
             spellList.Levels.Add(1, new string[] { "Cure Light Wounds" });
             var cure = new Spell("Cure Light Wounds", "healing");
-            var spellGateway = new EntityGateway<Spell>(new Spell[] { cure });
-            var spellListGateway = new EntityGateway<SpellList>(new SpellList[] { spellList });
+            var spellGateway = EntityGateway<Spell>.LoadWithSingleItem(cure);
+            var spellListGateway = EntityGateway<SpellList>.LoadWithSingleItem(spellList); 
 
-            var createwands = new CreateWands(spellGateway, spellListGateway);
+            var createwands = new WandCreator(spellGateway, spellListGateway);
 
             var wand = createwands.Process();
             Assert.Equal(cure, wand.Spell);
@@ -44,10 +44,10 @@ namespace Tests.Actions.CreateMagicItems
             spellList.Class = "Cleric";
             spellList.Levels.Add(level, new string[] { "Cure Light Wounds" });
             var cure = new Spell("Cure Light Wounds", "healing");
-            var spellGateway = new EntityGateway<Spell>(new Spell[] { cure });
-            var spellListGateway = new EntityGateway<SpellList>(new SpellList[] { spellList });
+            var spellGateway = EntityGateway<Spell>.LoadWithSingleItem(cure);
+            var spellListGateway = EntityGateway<SpellList>.LoadWithSingleItem(spellList); 
 
-            var createwands = new CreateWands(spellGateway, spellListGateway);
+            var createwands = new WandCreator(spellGateway, spellListGateway);
 
             var wand = createwands.Process();
             Assert.Equal(expectedValue, wand.Value);

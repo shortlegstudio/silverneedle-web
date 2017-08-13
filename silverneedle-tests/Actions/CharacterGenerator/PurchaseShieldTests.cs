@@ -27,12 +27,9 @@ namespace Tests.Actions {
 
         public PurchaseShieldTests()
         {
-            var armors = new List<Armor>();
             shield = new Armor();
             shield.ArmorType = ArmorType.Shield;
-
-            armors.Add(shield);
-            gateway = new EntityGateway<Armor>(armors);
+            gateway = EntityGateway<Armor>.LoadWithSingleItem(shield);
             proficientCharacter = new CharacterSheet();
             proficientCharacter.Defense.AddArmorProficiencies(new string[] {"shield"});
             incapableCharacter = new CharacterSheet();

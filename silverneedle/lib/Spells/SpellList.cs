@@ -12,7 +12,7 @@ namespace SilverNeedle.Spells
     {
         public SpellList()
         {
-            Levels = new Dictionary<int, string[]>();
+            Levels = new Dictionary<int, IList<string>>();
         }
         public SpellList(IObjectStore data) : this()
         {
@@ -27,9 +27,25 @@ namespace SilverNeedle.Spells
             }
         }
 
+        public void Add(int level, string spellName)
+        {
+            AddLevelIfMissing(level);
+            if(!Levels[level].Contains(spellName))
+                Levels[level].Add(spellName);
+        }
+
+        private void AddLevelIfMissing(int level)
+        {
+            if(!Levels.ContainsKey(level))
+            {
+                Levels.Add(level, new List<string>());
+            }
+        }
+
         public string Class { get; set; }
 
-        public Dictionary<int, string[]> Levels { get; set; }
+        //TODO: Refactor this to be abstracted away
+        public Dictionary<int, IList<string>> Levels { get; set; }
 
         public bool Matches(string cls)
         {

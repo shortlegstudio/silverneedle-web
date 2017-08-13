@@ -58,7 +58,7 @@ namespace Tests.Equipment
 
         public ArmorTests() 
         {
-            gateway = new EntityGateway<Armor> (ArmorYamlFile.ParseYaml ().Load<Armor>());
+            gateway = EntityGateway<Armor>.LoadFromList (ArmorYamlFile.ParseYaml ().Load<Armor>());
         }
             
         [Fact]

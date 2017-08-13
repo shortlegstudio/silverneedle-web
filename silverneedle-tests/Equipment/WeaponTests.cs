@@ -56,7 +56,7 @@ namespace Tests.Equipment {
 
         [Fact]
         public void AllImportantStatsForALongSwordAreAvailable() {
-            var repo = new EntityGateway<Weapon>(WeaponYamlFile.ParseYaml().Load<Weapon>());
+            var repo = EntityGateway<Weapon>.LoadFromList(WeaponYamlFile.ParseYaml().Load<Weapon>());
             var weapons = repo.All ();
             var longsword = weapons.First();
             Assert.Equal("Longsword", longsword.Name);
@@ -73,7 +73,7 @@ namespace Tests.Equipment {
 
         [Fact]
         public void AllImportantStatsForADaggerAreAvailable() {
-            var repo = new EntityGateway<Weapon>(WeaponYamlFile.ParseYaml().Load<Weapon>());
+            var repo = EntityGateway<Weapon>.LoadFromList(WeaponYamlFile.ParseYaml().Load<Weapon>());
             var dagger = repo.All().Last();
             Assert.Equal("Dagger", dagger.Name);
             Assert.Equal("1d4", dagger.Damage);
@@ -90,7 +90,7 @@ namespace Tests.Equipment {
 
         [Fact]
         public void CanSelectWeaponsBasedOnProficiencies() {
-            var repo = new EntityGateway<Weapon>(WeaponYamlFile.ParseYaml().Load<Weapon>());
+            var repo = EntityGateway<Weapon>.LoadFromList(WeaponYamlFile.ParseYaml().Load<Weapon>());
             var prof = new WeaponProficiency("dagger");
 
             var results = repo.FindByProficient(new WeaponProficiency[] { prof });

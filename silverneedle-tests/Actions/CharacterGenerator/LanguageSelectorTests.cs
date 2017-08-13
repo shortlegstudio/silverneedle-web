@@ -19,7 +19,7 @@ namespace Actions {
             languages.Add (new Language ("Boo", "foo"));
             languages.Add (new Language ("Giant", "Rawr"));
             languages.Add (new Language ("Corgi", "woof"));
-            languageGateway = new EntityGateway<Language>(languages);
+            languageGateway = EntityGateway<Language>.LoadFromList(languages);
         }
         [Fact]
         public void PickLanguagesThatAreKnownToTheRace() {

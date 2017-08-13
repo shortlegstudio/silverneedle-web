@@ -28,7 +28,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
             advData.SetValue("advanced-talent", "true");
             advancedTalent = new RogueTalent(advData);
 
-            Talents = new EntityGateway<RogueTalent>(new RogueTalent[] {basicTalent, advancedTalent});
+            Talents = EntityGateway<RogueTalent>.LoadFromList(new RogueTalent[] {basicTalent, advancedTalent});
         }
         [Fact]
         public void SelectsBasicTalentsIfNotConfiguredForAdvancedTalents()

@@ -21,8 +21,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
         {
             var someFeat = new Feat();
             someFeat.Name = "Feat One";
-            var feats = new Feat[] { someFeat };
-            var gateway = new EntityGateway<Feat>(feats);
+            var gateway = EntityGateway<Feat>.LoadWithSingleItem(someFeat);
             var yaml = @"
 - name: Archery
   bonus-feats:

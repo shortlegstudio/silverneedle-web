@@ -34,7 +34,7 @@ namespace SilverNeedle
                 if(gateways.ContainsKey(type)) {
                     return (EntityGateway<T>)gateways[type];
                 }
-                var newGateway = new EntityGateway<T>();
+                var newGateway = EntityGateway<T>.LoadFromDataFiles();
                 gateways.Add(type, newGateway);
                 return newGateway;
             }

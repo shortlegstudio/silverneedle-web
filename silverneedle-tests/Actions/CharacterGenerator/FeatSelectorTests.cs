@@ -41,7 +41,7 @@ namespace Tests.Actions
             list.Add(powerattack);
             list.Add(cleave);
             list.Add(empowerspell);
-            gateway = new EntityGateway<Feat>(list);
+            gateway = EntityGateway<Feat>.LoadFromList(list);
             selector = new FeatSelector(gateway);
         }
         [Fact]

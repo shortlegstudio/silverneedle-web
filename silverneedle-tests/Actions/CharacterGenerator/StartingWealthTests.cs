@@ -24,7 +24,7 @@ namespace Tests.Actions.CharacterGenerator
             wealth.Levels.Add(new CharacterWealth.CharacterWealthLevel(1, 0));
             wealth.Levels.Add(new CharacterWealth.CharacterWealthLevel(2, 2000));
             list.Add(wealth);
-            wealthGateway = new EntityGateway<CharacterWealth>(list);
+            wealthGateway = EntityGateway<CharacterWealth>.LoadFromList(list);
         }
 
         [Fact]

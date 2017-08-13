@@ -12,7 +12,7 @@ namespace Tests.Serialization
     using SilverNeedle.Characters;
     using System;
 
-    public class EntityGatewayTests 
+    public class EntityGatewayTests : RequiresDataFiles
     {
         private EntityGateway<TestObject> subject;
 
@@ -26,7 +26,7 @@ namespace Tests.Serialization
             data.Add(entity1);
             data.Add(entity2);
 
-            subject = new EntityGateway<TestObject>(data);
+            subject = EntityGateway<TestObject>.LoadFromObjectStore(data);
         }
 
         [Fact]
@@ -38,7 +38,7 @@ namespace Tests.Serialization
         [Fact]
         public void LoadsDirectlyFromDatafileLoaderByDefault()
         {
-            var gateway = new EntityGateway<PersonalityType>();
+            var gateway = EntityGateway<PersonalityType>.LoadFromDataFiles();
             Assert.True(gateway.All().Count() > 0);
         }
 
@@ -55,7 +55,7 @@ namespace Tests.Serialization
             var list = new List<TestObject>();
             list.Add(new TestObject("hello1"));
             list.Add(new TestObject("hello2"));
-            var gateway = new EntityGateway<TestObject>(list);
+            var gateway = EntityGateway<TestObject>.LoadFromList(list);
             Assert.Equal(2, gateway.Count());
             Assert.NotNull(gateway.Find("hello2"));
         }
@@ -65,7 +65,7 @@ namespace Tests.Serialization
         {
             var data = new MemoryStore();
             data.SetValue("name", "Foo");
-            var gateway = new EntityGateway<TestSerialized>(new IObjectStore[] { data });    
+            var gateway = EntityGateway<TestSerialized>.LoadFromObjectStore(new IObjectStore[] { data });    
             var first = gateway.All().First();
             Assert.Equal(first.Name, "Foo");
         }
@@ -77,7 +77,7 @@ namespace Tests.Serialization
             data.SetValue("name", "Foo");
             var data2 = new MemoryStore();
             data2.SetValue("name", "Bar");
-            var gateway = new EntityGateway<AlwaysFresh>(new IObjectStore[] { data, data2 });
+            var gateway = EntityGateway<AlwaysFresh>.LoadFromObjectStore(new IObjectStore[] { data, data2 });
 
             var item = gateway.Find("Foo");
             item.SomeValue = false;
@@ -90,7 +90,7 @@ namespace Tests.Serialization
         [Fact]
         public void ThrowsNotFoundExceptionIfObjectIsnotFound()
         {
-            var gateway = new EntityGateway<TestObject>(new TestObject[] { new TestObject("Bar") });
+            var gateway = EntityGateway<TestObject>.LoadWithSingleItem(new TestObject("Bar"));
             Assert.Throws(typeof(EntityNotFoundException), () => {gateway.Find("Foo"); });
         }
 
@@ -103,7 +103,7 @@ namespace Tests.Serialization
             data.SetValue("custom-implementation", "Tests.Serialization.EntityGatewayTests+TestObjectCustom");
             var data2 = new MemoryStore();
             data2.SetValue("name", "Bar");
-            var gateway = new EntityGateway<TestObject>(new IObjectStore[] { data, data2});
+            var gateway = EntityGateway<TestObject>.LoadFromObjectStore(new IObjectStore[] { data, data2});
             var one = gateway.Find("Foo");
             Assert.IsType<TestObjectCustom>(one);
             var two = gateway.Find("Bar");

@@ -33,7 +33,7 @@ namespace Tests.Actions
             classes.Add(hero);
             classes.Add(bartender);
 
-            classGateway = new EntityGateway<Class>(classes);
+            classGateway = EntityGateway<Class>.LoadFromList(classes);
             subject = new ClassSelector(classGateway);
         }
 

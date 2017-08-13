@@ -19,8 +19,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
         public void ChooseFromFavoredTerrainList()
         {
             var forest = new TerrainType("Forest"); 
-            var terrainTypes = new TerrainType[] { forest }; 
-            var ctGateway = new EntityGateway<TerrainType>(terrainTypes);
+            var ctGateway = EntityGateway<TerrainType>.LoadWithSingleItem(forest);
             var configureStep = new ChooseFavoredTerrain(ctGateway);
             var character = new CharacterSheet();
             configureStep.Process(character, new CharacterBuildStrategy());
@@ -35,7 +34,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
             var forest = new TerrainType("Forest"); 
             var jungle = new TerrainType("Jungle");
             var terrainTypes = new TerrainType[] { forest, jungle }; 
-            var ctGateway = new EntityGateway<TerrainType>(terrainTypes);
+            var ctGateway = EntityGateway<TerrainType>.LoadFromList(terrainTypes);
             var configureStep = new ChooseFavoredTerrain(ctGateway);
             var character = new CharacterSheet();
             configureStep.Process(character, new CharacterBuildStrategy());

@@ -23,7 +23,7 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
             wizard.Levels.Add(0, new string[] { "cantrip1", "cantrip2" });
             wizard.Levels.Add(1, new string[] { "level 1-1", "level 1-2", "level 1-3", "level 1-4" });
             wizard.Levels.Add(2, new string[] { "level 2-1", "level 2-2" });
-            var spellLists = new EntityGateway<SpellList>(new SpellList[] { wizard });
+            var spellLists = EntityGateway<SpellList>.LoadWithSingleItem(wizard);
             var spellDefs = new Spell[] {
                 new Spell("cantrip1", "evocation"),
                 new Spell("cantrip2", "conjuration"),
@@ -34,7 +34,7 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
                 new Spell("level 2-1", "transmutation"),
                 new Spell("level 2-2", "evocation")
             };
-            var spells = new EntityGateway<Spell>(spellDefs);
+            var spells = EntityGateway<Spell>.LoadFromList(spellDefs);
             subject = new AddLevelUpSpells(spellLists, spells);
         }
 
@@ -57,7 +57,7 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
 
             subject.Process(character, new CharacterBuildStrategy());
 
-            Assert.Equal(spellCasting.GetAvailableSpells(2).Length, 2);
+            Assert.Equal(spellCasting.GetAvailableSpells(2).Count, 2);
         }
 
         [Fact]
@@ -89,8 +89,8 @@ namespace Tests.Actions.CharacterGenerator.SpellCasting
             Assert.NotStrictEqual(character.GetAll<SpellCasting>(), new SpellCasting[] { scBard, scWizard });
             subject.Process(character, new CharacterBuildStrategy());
 
-            Assert.Equal(scWizard.GetAvailableSpells(2).Length, 2);
-            Assert.Equal(scBard.GetAvailableSpells(2).Length, 2);
+            Assert.Equal(scWizard.GetAvailableSpells(2).Count, 2);
+            Assert.Equal(scBard.GetAvailableSpells(2).Count, 2);
         }
 
         [Fact]

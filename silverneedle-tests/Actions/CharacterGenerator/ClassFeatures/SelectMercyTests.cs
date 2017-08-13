@@ -29,7 +29,7 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
             character.SetClass(paladin);
             character.SetLevel(5);
 
-            var process = new SelectMercy(new EntityGateway<Mercy>(mercies));
+            var process = new SelectMercy(EntityGateway<Mercy>.LoadFromList(mercies));
             process.Process(character, new CharacterBuildStrategy());
             process.Process(character, new CharacterBuildStrategy());
             var selected = character.Get<Mercies>();

@@ -19,7 +19,7 @@ namespace Tests.Characters
         public CharacterBuildStrategyTests()
         {
             var list = CharacterBuildYaml.ParseYaml().Load<CharacterBuildStrategy>();
-            strategies = new EntityGateway<CharacterBuildStrategy>(list);
+            strategies = EntityGateway<CharacterBuildStrategy>.LoadFromList(list);
         }
 
         [Fact]

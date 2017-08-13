@@ -29,5 +29,25 @@ namespace Tests.Spells
             Assert.NotStrictEqual(spellList.Levels[1], new string[] {"kill", "explosion"});
             Assert.True(spellList.Matches("FOO"));
         }
+
+        [Fact]
+        public void SpellListsCanBeBuiltManually()
+        {
+            var spellList = new SpellList();
+            spellList.Add(1, "Cure Light Wounds");
+            spellList.Add(4, "Cure Moderate Wounds");
+        }
+
+        [Fact]
+        public void AddingDuplicateSpellsDoesNotDuplicate()
+        {
+
+            var spellList = new SpellList();
+            spellList.Add(1, "Cure Light Wounds");
+            spellList.Add(1, "Cure Light Wounds");
+            spellList.Add(1, "Cure Light Wounds");
+            Assert.Equal(new string[] { "Cure Light Wounds"}, spellList.Levels[1]);
+        }
+
     }
 }

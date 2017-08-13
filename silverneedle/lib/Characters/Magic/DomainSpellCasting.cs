@@ -5,6 +5,8 @@
 
 namespace SilverNeedle.Characters.Magic
 {
+    using System.Collections.Generic;
+    
     public class DomainSpellCasting : SpellCasting
     {
 
@@ -20,12 +22,12 @@ namespace SilverNeedle.Characters.Magic
             return 0;
         }
 
-        public override string[] GetAvailableSpells(int level)
+        public override IList<string> GetAvailableSpells(int level)
         {
             if(GetSpellsPerDay(level) > 0)
                 return base.GetAvailableSpells(level); 
 
-            return new string[] { };
+            return new List<string>();
         }
 
         public override int MaxLevel

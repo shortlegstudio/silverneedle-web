@@ -22,10 +22,8 @@ namespace Tests.Actions.CharacterGenerator.ClassFeatures
         ConfigureSummonFamiliar subject;
         public ConfigureSummonFamiliarTests()
         {
-            var familiars = new List<Familiar>();
             bat = new Familiar("Bat");
-            familiars.Add(bat);
-            subject = new ConfigureSummonFamiliar(new EntityGateway<Familiar>(familiars));
+            subject = new ConfigureSummonFamiliar(EntityGateway<Familiar>.LoadWithSingleItem(bat));
         }
 
         [Fact]

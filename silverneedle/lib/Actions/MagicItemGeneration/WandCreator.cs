@@ -3,27 +3,27 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-namespace SilverNeedle.Actions.CreateMagicItems
+namespace SilverNeedle.Actions.MagicItemGeneration
 {
     using System.Linq;
     using SilverNeedle.Equipment;
     using SilverNeedle.Spells;
     using SilverNeedle.Serialization;
 
-    public class CreateWands
+    public class WandCreator
     {
         EntityGateway<Spell> spells;
         EntityGateway<SpellList> spellLists;
         
         private string[] classes = new string[] { "wizard", "cleric", "druid" };
 
-        public CreateWands()
+        public WandCreator()
         {
             spells = GatewayProvider.Get<Spell>();
             spellLists = GatewayProvider.Get<SpellList>();
         }
 
-        public CreateWands(EntityGateway<Spell> spells, EntityGateway<SpellList> spellLists)
+        public WandCreator(EntityGateway<Spell> spells, EntityGateway<SpellList> spellLists)
         {
             this.spells = spells;
             this.spellLists = spellLists;

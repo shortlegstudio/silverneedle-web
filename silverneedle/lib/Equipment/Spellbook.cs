@@ -11,20 +11,20 @@ namespace SilverNeedle.Equipment
         //TODO: Hardcoded prices and weight are probably bad... 
         public Spellbook() : base("Spellbook", 1500, 3) 
         {
-            Spells = new Dictionary<int, string[]>();
+            Spells = new Dictionary<int, IList<string>>();
             GroupSimilar = false;
         }
 
-        public void AddSpells(int level, string[] spells)
+        public void AddSpells(int level, IList<string> spells)
         {
             this.Spells[level] = spells;
         }
 
-        public string[] GetSpells(int level)
+        public IList<string> GetSpells(int level)
         {
             return Spells[level];
         }
 
-        private IDictionary<int, string[]> Spells { get; set; }
+        private IDictionary<int, IList<string>> Spells { get; set; }
     }
 }
