@@ -28,6 +28,9 @@ namespace SilverNeedle.Shops
         {
             var wandBuilder = new WandCreator();
             Repeat.Times(100, () => this.inventory.Add(wandBuilder.Process()));
+            
+            var potionCreator = new PotionCreator();
+            Repeat.Times(100, () => this.inventory.Add(potionCreator.Process()));
         }
     }
 }

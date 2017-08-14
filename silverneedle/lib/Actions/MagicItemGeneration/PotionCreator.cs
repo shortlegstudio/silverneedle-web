@@ -14,6 +14,7 @@ namespace SilverNeedle.Actions.MagicItemGeneration
         private EntityGateway<SpellList> spellLists;
         private EntityGateway<Spell> spells;
         private string[] classes = new string[] { "wizard", "cleric", "druid" };
+        private int maxSpellLevel = 3;
         public PotionCreator(EntityGateway<SpellList> spellLists, EntityGateway<Spell> spells)
         {
             this.spellLists = spellLists;
@@ -29,11 +30,11 @@ namespace SilverNeedle.Actions.MagicItemGeneration
         public IPotion Process()
         {
             var list = spellLists.Where(x => classes.Any(cls => x.Matches(cls))).ChooseOne();
-            var spellLevel = list.Levels.ChooseOne();
+            var spellLevel = list.FilterByMaxLevel(maxSpellLevel).ChooseOne();
             var spellName = spellLevel.Value.ChooseOne();
             var spell = spells.Find(spellName);
-            //var value = 75000 * (spellLevel.Key) * (spellLevel.Key + spellLevel.Key - 1);
-            var potion = new Potion(spell, 0);
+            var value = 5000 * (spellLevel.Key) * (spellLevel.Key + spellLevel.Key - 1);
+            var potion = new Potion(spell, value);
             return potion;
         }
     }

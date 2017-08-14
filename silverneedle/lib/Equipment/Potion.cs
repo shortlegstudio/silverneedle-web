@@ -19,10 +19,10 @@ namespace SilverNeedle.Equipment
 
         public string Name { get { return string.Format("Potion of {0}", Spell.Name); } }
 
-        public float Weight => throw new NotImplementedException();
+        public float Weight { get { return .1f; } }
 
         public int Value { get; private set; }
 
-        public bool GroupSimilar => throw new NotImplementedException();
+        public bool GroupSimilar { get { return true; } }
     }
 }

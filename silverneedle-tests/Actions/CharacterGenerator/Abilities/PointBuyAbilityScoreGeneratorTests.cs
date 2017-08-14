@@ -14,7 +14,7 @@ namespace Tests.Actions.CharacterGenerator.Abilities
     
     public class PointBuyAbilityScoreGeneratorTests : RequiresDataFiles
     {
-        [Fact]
+        [Theory]
         [Repeat(100)]
         public void FifteenGeneratorSpendsAllPointsPossibleToCreateScores()
         {
@@ -34,7 +34,7 @@ namespace Tests.Actions.CharacterGenerator.Abilities
             Assert.Equal(costTotal, 15);
         }
 
-        [Fact]
+        [Theory]
         [Repeat(100)]
         public void TwentyPointGeneratorSpendsAllPointsPossibleToCreateScores()
         {
@@ -56,7 +56,7 @@ namespace Tests.Actions.CharacterGenerator.Abilities
             Assert.Equal(costTotal, 20);
         }
 
-        [Fact]
+        [Theory]
         [Repeat(100)]
         public void TwentyPointGeneratorOnlyHasASingleScoreBelowTen()
         {
@@ -66,7 +66,7 @@ namespace Tests.Actions.CharacterGenerator.Abilities
             Assert.Equal(1, scores.Where(score => score < 10).Count());
         }
         
-        [Fact]
+        [Theory]
         [Repeat(100)]
         public void TenGeneratorSpendsAllPointsPossibleToCreateScores()
         {

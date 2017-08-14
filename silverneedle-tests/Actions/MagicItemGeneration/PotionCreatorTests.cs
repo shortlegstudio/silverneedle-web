@@ -13,12 +13,15 @@ namespace Tests.Actions.MagicItemGeneration
 
     public class PotionCreatorTests
     {
-        [Fact]
-        public void SelectAPotionFromAListOfSpells()
+        [Theory]
+        [InlineData(1, 5000)]
+        [InlineData(2, 30000)]
+        [InlineData(3, 75000)]
+        public void SelectAPotionFromAListOfSpellsAndChargesProperly(int level, int value)
         {
             var spellList = new SpellList();
             spellList.Class = "Wizard";
-            spellList.Add(1, "Cure Light Wounds");
+            spellList.Add(level, "Cure Light Wounds");
             var cureSpell = new Spell("Cure Light Wounds", "healing");
             var spellLists = EntityGateway<SpellList>.LoadWithSingleItem(spellList);
             var spells = EntityGateway<Spell>.LoadWithSingleItem(cureSpell);
@@ -27,6 +30,29 @@ namespace Tests.Actions.MagicItemGeneration
             var potion = potionCreator.Process();
 
             Assert.Equal(cureSpell, potion.Spell);
+            Assert.Equal(value, potion.Value);
         }
+
+        [Theory]
+        [Repeat(100)]
+        public void MaxSpellLevelIsLevel3()
+        {
+            var spellList = new SpellList();
+            spellList.Class = "Wizard";
+            spellList.Add(1, "Cure Light Wounds");
+            spellList.Add(4, "Cure Serious Wounds");
+            var cureSpell = new Spell("Cure Light Wounds", "healing");
+            var cureSeriousSpell = new Spell("Cure Serious Wounds", "healing");
+            var spellLists = EntityGateway<SpellList>.LoadWithSingleItem(spellList);
+            var spells = EntityGateway<Spell>.LoadFromList(new Spell[] { cureSpell, cureSeriousSpell });
+
+            var potionCreator = new PotionCreator(spellLists, spells);
+            var potion = potionCreator.Process();
+
+            //Always equals cureSpell
+            Assert.Equal(cureSpell, potion.Spell);
+        }
+
+
     }
 }

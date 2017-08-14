@@ -50,7 +50,7 @@ namespace Tests.Actions {
             character.Offense.AddWeaponProficiencies(proficiencies);
         }
 
-        [Fact]
+        [Theory]
         [Repeat(1000)]
         public void CharactersGetARangedAndMeleeWeaponTheyAreProficientIn() {
             //Bad test, but good enough for now

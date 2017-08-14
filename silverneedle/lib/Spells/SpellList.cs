@@ -6,6 +6,7 @@
 namespace SilverNeedle.Spells
 {
     using System.Collections.Generic;
+    using System.Linq;
     using SilverNeedle.Serialization;
 
     public class SpellList : IGatewayObject
@@ -32,6 +33,11 @@ namespace SilverNeedle.Spells
             AddLevelIfMissing(level);
             if(!Levels[level].Contains(spellName))
                 Levels[level].Add(spellName);
+        }
+
+        public IEnumerable<KeyValuePair<int, IList<string>>> FilterByMaxLevel(int maxLevel)
+        {
+            return this.Levels.Where(x => x.Key <= maxLevel);
         }
 
         private void AddLevelIfMissing(int level)

@@ -1,6 +1,5 @@
 --- !<SilverNeedle.Actions.Shops.ShopDesigner>
-- build-steps:
-  name: magic-shop
+- name: magic-shop
   steps:
     - step: SilverNeedle.Actions.Shops.SelectNumberAndTypeOfMagicItems
     - step: SilverNeedle.Actions.Shops.StockMagicItems

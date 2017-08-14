@@ -11,13 +11,24 @@ namespace Tests.Shops
 
     public class MagicShopTests : RequiresDataFiles
     {
+        private MagicShop magicShop;
+        public MagicShopTests()
+        {
+            magicShop = new MagicShop();
+        }
+
         [Fact]
         public void StocksSomeWands()
         {
-            var shop = new MagicShop();
-
-            var wands = shop.GetInventory<IWand>();
+            var wands = magicShop.GetInventory<IWand>();
             Assert.NotEmpty(wands);
+        }
+
+        [Fact]
+        public void StockSomePotions()
+        {
+            var potions = magicShop.GetInventory<IPotion>();
+            Assert.NotEmpty(potions);
         }
     }
 }

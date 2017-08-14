@@ -50,7 +50,7 @@ namespace Tests.Actions {
 
         }
 
-        [Fact]
+        [Theory]
         [Repeat(1000)]
         public void CharactersGetAMeleeWeaponIfTheyAreProficient() {
             //Bad test, but good enough for now
