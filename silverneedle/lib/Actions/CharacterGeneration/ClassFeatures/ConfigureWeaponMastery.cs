@@ -13,7 +13,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
 
     public class ConfigureWeaponMastery : ICharacterDesignStep
     {
-        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             var chosenWeapon = GatewayProvider.Get<Weapon>().ChooseOne();
             var mastery = new WeaponMastery(chosenWeapon);

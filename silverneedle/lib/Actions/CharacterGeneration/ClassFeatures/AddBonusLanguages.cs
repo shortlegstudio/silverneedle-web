@@ -15,7 +15,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
         {
             this.languages = data.GetList("languages");
         }
-        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             strategy.LanguageChoices.Add(this.languages);
         }

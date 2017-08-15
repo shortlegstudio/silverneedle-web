@@ -24,7 +24,7 @@ namespace Tests.Actions.CharacterGeneration.Appearance
 
             var subject = new CreatePhysicalFeatures(gateway);
             var character = new CharacterSheet();
-            subject.Process(character, new CharacterBuildStrategy());
+            subject.ExecuteStep(character, new CharacterBuildStrategy());
 
             Assert.Equal(character.Appearance.PhysicalAppearance, "He has a crooked nose.");
 
@@ -46,7 +46,7 @@ namespace Tests.Actions.CharacterGeneration.Appearance
             var character = new CharacterSheet();
             character.Gender = Gender.Female;
 
-            subject.Process(character, new CharacterBuildStrategy());
+            subject.ExecuteStep(character, new CharacterBuildStrategy());
 
             Assert.Equal(character.Appearance.PhysicalAppearance, "She has a dragon tattoo.");
         }
@@ -76,7 +76,7 @@ namespace Tests.Actions.CharacterGeneration.Appearance
             var character = new CharacterSheet();
             character.Gender = Gender.Female;
 
-            subject.Process(character, new CharacterBuildStrategy());
+            subject.ExecuteStep(character, new CharacterBuildStrategy());
 
             Assert.Equal(character.Appearance.PhysicalAppearance, "Tattoo of a black dragon.");
         }

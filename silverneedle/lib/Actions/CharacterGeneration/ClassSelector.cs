@@ -53,7 +53,7 @@ namespace SilverNeedle.Actions.CharacterGeneration
             character.ProcessLevel(firstClassLevel);            
         }
 
-        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             ChooseClass(character, strategy.Classes);
         }

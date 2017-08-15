@@ -8,7 +8,7 @@ namespace SilverNeedle.Actions.CharacterGeneration
     using SilverNeedle.Characters;
     public class ProcessCustomClassFeatures : ICharacterDesignStep
     {
-        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             var currentClass = character.Class;
             var currentLevel = character.Level;
@@ -18,7 +18,7 @@ namespace SilverNeedle.Actions.CharacterGeneration
             {
                 foreach(var step in level.Steps)
                 {
-                    step.Process(character, strategy);
+                    step.ExecuteStep(character, strategy);
                 }
 
                 foreach(var ability in level.Abilities)

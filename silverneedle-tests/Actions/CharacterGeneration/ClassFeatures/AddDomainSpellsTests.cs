@@ -35,7 +35,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
             configure.SetValue("casting-ability", "wisdom");
 
             var addSpells = new AddDomainSpells(configure, spells);
-            addSpells.Process(character, new CharacterBuildStrategy());
+            addSpells.ExecuteStep(character, new CharacterBuildStrategy());
 
             var spellCasting = character.Get<SpellCasting>();
             Assert.Equal(spellCasting.CastingAbility, character.AbilityScores.GetAbility(AbilityScoreTypes.Wisdom));

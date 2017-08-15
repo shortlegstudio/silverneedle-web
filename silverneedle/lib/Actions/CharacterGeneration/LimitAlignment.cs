@@ -17,7 +17,7 @@ namespace SilverNeedle.Actions.CharacterGeneration
         {
             denyAlignments = configuration.GetList("deny");
         }
-        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             foreach(var deny in denyAlignments)
             {

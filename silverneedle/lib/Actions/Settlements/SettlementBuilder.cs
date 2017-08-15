@@ -22,7 +22,7 @@ namespace SilverNeedle.Actions.Settlements
             {
                 var character = new CharacterSheet();
                 var strategy = stratGateway.Find("inhabitant");
-                characterBuilder.Process(character, strategy);
+                characterBuilder.ExecuteStep(character, strategy);
                 settlement.AddInhabitant(character);
             }
 

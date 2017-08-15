@@ -22,7 +22,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.Personality
             this.fearGateway= GatewayProvider.Get<FearTemplate>();
         }
 
-        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             var selected = fearGateway.Choose(strategy.FearCount);
             var fears = new Fears();

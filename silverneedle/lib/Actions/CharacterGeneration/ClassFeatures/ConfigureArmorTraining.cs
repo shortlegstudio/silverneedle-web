@@ -17,7 +17,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
         {
             ArmorTrainingLevel = data.GetInteger("level");
         }
-        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
         {
 
             var armorTraining = character.Components.Get<ArmorTraining>();

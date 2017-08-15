@@ -22,7 +22,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
             var ctGateway = EntityGateway<TerrainType>.LoadWithSingleItem(forest);
             var configureStep = new ChooseFavoredTerrain(ctGateway);
             var character = new CharacterSheet();
-            configureStep.Process(character, new CharacterBuildStrategy());
+            configureStep.ExecuteStep(character, new CharacterBuildStrategy());
             
             var favTerrain = character.Get<FavoredTerrain>();
             Assert.Contains(forest, favTerrain.TerrainTypes);
@@ -37,8 +37,8 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
             var ctGateway = EntityGateway<TerrainType>.LoadFromList(terrainTypes);
             var configureStep = new ChooseFavoredTerrain(ctGateway);
             var character = new CharacterSheet();
-            configureStep.Process(character, new CharacterBuildStrategy());
-            configureStep.Process(character, new CharacterBuildStrategy());
+            configureStep.ExecuteStep(character, new CharacterBuildStrategy());
+            configureStep.ExecuteStep(character, new CharacterBuildStrategy());
             
             var favTerrain = character.Get<FavoredTerrain>();
             Assert.Contains(forest, favTerrain.TerrainTypes);

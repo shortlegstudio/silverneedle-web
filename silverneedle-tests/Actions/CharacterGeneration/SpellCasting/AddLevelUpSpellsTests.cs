@@ -55,7 +55,7 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
             spellCasting.AddSpells(0, new Spell[] { new Spell("cantrip1", "evocation") });
             spellCasting.AddSpells(1, new Spell[] { new Spell("level 1-1", "evocation") });
 
-            subject.Process(character, new CharacterBuildStrategy());
+            subject.ExecuteStep(character, new CharacterBuildStrategy());
 
             Assert.Equal(spellCasting.GetAvailableSpells(2).Count, 2);
         }
@@ -87,7 +87,7 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
             character.Add(scBard);
             character.Add(scWizard);
             Assert.NotStrictEqual(character.GetAll<SpellCasting>(), new SpellCasting[] { scBard, scWizard });
-            subject.Process(character, new CharacterBuildStrategy());
+            subject.ExecuteStep(character, new CharacterBuildStrategy());
 
             Assert.Equal(scWizard.GetAvailableSpells(2).Count, 2);
             Assert.Equal(scBard.GetAvailableSpells(2).Count, 2);
@@ -98,7 +98,7 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
         {
             var character = new CharacterSheet();
             character.Add(new DomainSpellCasting(new Inventory(), new ClassLevel(new Class())));
-            subject.Process(character, new CharacterBuildStrategy());
+            subject.ExecuteStep(character, new CharacterBuildStrategy());
             // DOES NOT THROW
         }
 

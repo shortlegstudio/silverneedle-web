@@ -21,7 +21,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
             domainsGateway = GatewayProvider.Get<Domain>();
         }
 
-        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             for(int i = 0; i < domainCount; i++)
             {

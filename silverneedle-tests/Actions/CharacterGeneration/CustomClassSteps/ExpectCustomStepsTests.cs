@@ -33,7 +33,7 @@ namespace Tests.Actions.CharacterGeneration.CustomClassSteps
             var character = new CharacterSheet(skills);
 
             var subject = new ExpertCustomSteps();
-            subject.Process(character, new CharacterBuildStrategy());
+            subject.ExecuteStep(character, new CharacterBuildStrategy());
             Assert.Equal(character.SkillRanks.GetClassSkills().Count(), 10);
         }
     }

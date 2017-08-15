@@ -44,7 +44,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.Background
             return familyTree;
         }
 
-        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             character.History.FamilyTree = CreateFamilyTree(character.Race.Name, character.LastName);
         }

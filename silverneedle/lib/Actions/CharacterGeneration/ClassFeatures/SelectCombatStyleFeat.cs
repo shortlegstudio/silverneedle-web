@@ -24,7 +24,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
         {
             this.featGateway = featGateway;
         }
-        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             var combatStyle = character.Get<CombatStyle>();
             var rangerLevel = character.Get<ClassLevel>();

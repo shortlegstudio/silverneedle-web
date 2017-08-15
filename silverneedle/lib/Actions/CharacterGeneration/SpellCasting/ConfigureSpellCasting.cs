@@ -10,7 +10,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.SpellCasting
 
     public class ConfigureSpellCasting : ICharacterDesignStep
     {
-        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             if(character.Class.HasSpells)
             {

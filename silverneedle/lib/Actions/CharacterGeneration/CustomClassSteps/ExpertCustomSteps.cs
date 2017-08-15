@@ -9,7 +9,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.CustomClassSteps
 
     public class ExpertCustomSteps : ICharacterDesignStep
     {
-        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             // Randomly pick 10 and gopherit
             var skills = character.SkillRanks.GetSkills().Choose(10);

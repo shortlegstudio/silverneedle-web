@@ -28,7 +28,7 @@ namespace Actions {
             strategy.LanguagesKnown.Add ("Elvish");
             strategy.LanguagesKnown.Add ("Giant");
             var subject = new LanguageSelector (languageGateway);
-            subject.Process(character, strategy);
+            subject.ExecuteStep(character, strategy);
             Assert.NotStrictEqual(character.Languages.Select(x => x.Name), new string[] { "Elvish", "Giant"});
         }
 
@@ -44,7 +44,7 @@ namespace Actions {
             for (int i = 0; i < 1000; i++) {
                 var character = new CharacterSheet();
                 character.AbilityScores.SetScore(AbilityScoreTypes.Intelligence, 14);
-                subject.Process(character, strategy);
+                subject.ExecuteStep(character, strategy);
                 var res = character.GetAll<Language>().Select(x => x.Name);
                 Assert.NotStrictEqual(res, new string[] { "Elvish", "Giant", "Corgi"});
             }
@@ -62,7 +62,7 @@ namespace Actions {
             for (int i = 0; i < 1000; i++) {
                 var character = new CharacterSheet();
                 character.AbilityScores.SetScore(AbilityScoreTypes.Intelligence, 24);
-                subject.Process (character, strategy);
+                subject.ExecuteStep (character, strategy);
                 var res = character.GetAll<Language>().Select(x => x.Name);
                 Assert.NotStrictEqual(res, new string[] { "Elvish", "Giant", "Corgi" });
             }
@@ -79,7 +79,7 @@ namespace Actions {
             for (int i = 0; i < 1000; i++) {
                 var character = new CharacterSheet();
                 character.AbilityScores.SetScore(AbilityScoreTypes.Intelligence, 24);
-                subject.Process (character, strategy);
+                subject.ExecuteStep (character, strategy);
                 var res = character.GetAll<Language>().Select(x => x.Name);
                 Assert.NotStrictEqual(res, new string[] { "Elvish", "Giant", "Corgi", "Boo" });
             }
@@ -95,7 +95,7 @@ namespace Actions {
             var subject = new LanguageSelector (languageGateway);
             var character = new CharacterSheet();
 
-            subject.Process(character, strategy);
+            subject.ExecuteStep(character, strategy);
             Assert.NotStrictEqual(character.GetAll<Language>().Select(x => x.Name), new string[] {"Corgi", "Elvish"});
         }
     }

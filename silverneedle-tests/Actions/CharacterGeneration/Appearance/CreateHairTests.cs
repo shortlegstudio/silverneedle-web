@@ -23,7 +23,7 @@ namespace Tests.Actions.CharacterGeneration.Appearance
 
             var subject = new CreateHair(EntityGateway<HairColor>.LoadFromList(colors), EntityGateway<HairStyle>.LoadFromList(styles));
             var character = new CharacterSheet();
-            subject.Process(character, new CharacterBuildStrategy());
+            subject.ExecuteStep(character, new CharacterBuildStrategy());
             Assert.Equal(character.Appearance.Hair, "copper long ponytail");
         }
     }

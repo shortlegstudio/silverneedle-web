@@ -119,7 +119,7 @@ namespace Tests.Actions
             //Run it 1000 times, should always be human
             for (int x = 0; x < 1000; x++)
             {
-                raceSelectorSubject.Process(sheet, strategy);
+                raceSelectorSubject.ExecuteStep(sheet, strategy);
                 Assert.Equal(human, sheet.Race);
             }
         }
@@ -130,7 +130,7 @@ namespace Tests.Actions
             var sheet = new CharacterSheet();
             var strategy = new CharacterBuildStrategy();
 
-            raceSelectorSubject.Process(sheet, strategy);
+            raceSelectorSubject.ExecuteStep(sheet, strategy);
             Assert.NotNull(sheet.Race);
         }
 
@@ -140,7 +140,7 @@ namespace Tests.Actions
             var character = new CharacterSheet();
             var strategy = new CharacterBuildStrategy();
             strategy.Races.AddEntry("Elfy", 1000);
-            raceSelectorSubject.Process(character, strategy);
+            raceSelectorSubject.ExecuteStep(character, strategy);
             Assert.Equal(character.Race.Name, "Elfy");
             Assert.NotStrictEqual(strategy.LanguagesKnown, new string[] {"Common", "Elvish"});
             Assert.NotStrictEqual(strategy.LanguageChoices, new string[] {"Draconic", "Celestial"});

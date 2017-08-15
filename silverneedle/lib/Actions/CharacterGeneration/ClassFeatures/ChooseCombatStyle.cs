@@ -16,7 +16,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
         {
             combatStyleGateway = GatewayProvider.Get<CombatStyle>();
         }
-        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             var combat = combatStyleGateway.ChooseOne();
             character.Add(combat);

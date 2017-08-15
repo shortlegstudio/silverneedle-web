@@ -29,7 +29,7 @@ namespace SilverNeedle.Actions.CharacterGeneration
             this.armorShop = armorShop;
         }
 
-        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             var validArmors = new ArmorType[] {
                 ArmorType.None,

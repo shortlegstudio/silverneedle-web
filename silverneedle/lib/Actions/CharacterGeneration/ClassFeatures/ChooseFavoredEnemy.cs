@@ -27,7 +27,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
             this.creatureTypeGateway = ctGateway;
         }
         
-        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             var favoredEnemy = character.Get<FavoredEnemy>();
             if (favoredEnemy == null)

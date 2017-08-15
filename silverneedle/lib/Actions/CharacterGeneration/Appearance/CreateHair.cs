@@ -25,7 +25,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.Appearance
             hairColors = colors;
             hairStyles = styles;
         }
-        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             character.Appearance.HairColor = hairColors.ChooseOne();
             character.Appearance.HairStyle = hairStyles.ChooseOne();

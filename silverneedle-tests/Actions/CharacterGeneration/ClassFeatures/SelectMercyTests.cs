@@ -30,8 +30,8 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
             character.SetLevel(5);
 
             var process = new SelectMercy(EntityGateway<Mercy>.LoadFromList(mercies));
-            process.Process(character, new CharacterBuildStrategy());
-            process.Process(character, new CharacterBuildStrategy());
+            process.ExecuteStep(character, new CharacterBuildStrategy());
+            process.ExecuteStep(character, new CharacterBuildStrategy());
             var selected = character.Get<Mercies>();
             Assert.Equal(selected.MercyList.Count, 2);
             Assert.Equal(selected.MercyList[0].Level, 3);

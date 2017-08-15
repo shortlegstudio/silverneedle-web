@@ -34,7 +34,7 @@ namespace Tests.Actions.CharacterGeneration
             
             character.Inventory.CoinPurse.SetValue(50000);
 
-            subject.Process(character, new CharacterBuildStrategy());
+            subject.ExecuteStep(character, new CharacterBuildStrategy());
             var wands = character.Inventory.GearOfType<IWand>();
             Assert.NotEmpty(wands);
         }

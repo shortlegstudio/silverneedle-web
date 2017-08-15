@@ -60,7 +60,7 @@ namespace Tests.Actions {
             character.Inventory.CoinPurse.SetValue(30000);
                 
             character.Offense.AddWeaponProficiencies(proficiencies);
-            action.Process(character, new CharacterBuildStrategy());
+            action.ExecuteStep(character, new CharacterBuildStrategy());
             Assert.Equal(character.Inventory.Weapons.Count (), 1);
             Assert.True(character.Inventory.Weapons.Any (x => x.Type == WeaponType.Ranged));
             Assert.False(character.Inventory.Weapons.Any (x => x.Type != WeaponType.Ranged));
@@ -74,7 +74,7 @@ namespace Tests.Actions {
             var character = new CharacterSheet();
             character.Inventory.CoinPurse.SetValue(30000);
             //With no specification nothing should match
-            action.Process(character, new CharacterBuildStrategy());
+            action.ExecuteStep(character, new CharacterBuildStrategy());
             Assert.Empty(character.Inventory.Weapons);
         }
 
@@ -82,7 +82,7 @@ namespace Tests.Actions {
         public void AvoidTryingToBuyWeaponsIfBroke()
         {
             character.Inventory.CoinPurse.SetValue(2999); // Not Enough :'(
-            subject.Process(character, new CharacterBuildStrategy());
+            subject.ExecuteStep(character, new CharacterBuildStrategy());
             Assert.Equal(2999, character.Inventory.CoinPurse.Value);
             Assert.Equal(0, character.Inventory.Weapons.Count());
         }
@@ -90,7 +90,7 @@ namespace Tests.Actions {
         [Fact]
         public void PurchasingARangedWeaponSpendsMoney()
         {
-            subject.Process(character, new CharacterBuildStrategy());
+            subject.ExecuteStep(character, new CharacterBuildStrategy());
             Assert.Equal(27000, character.Inventory.CoinPurse.Value);
         }
 

@@ -25,7 +25,7 @@ namespace Tests.Actions.CharacterGeneration
             strat.FavoredAlignments.Disable(CharacterAlignment.LawfulNeutral);
             strat.FavoredAlignments.Disable(CharacterAlignment.NeutralEvil);
             strat.FavoredAlignments.Disable(CharacterAlignment.NeutralGood);
-            selector.Process(character, strat);
+            selector.ExecuteStep(character, strat);
             Assert.Equal(character.Alignment, CharacterAlignment.Neutral);
         }
     }

@@ -20,7 +20,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
             SpeedBonus = data.GetInteger("speed");
         }
 
-        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             var fastMovement = new FastMovement(SpeedBonus); 
             character.Add(fastMovement);

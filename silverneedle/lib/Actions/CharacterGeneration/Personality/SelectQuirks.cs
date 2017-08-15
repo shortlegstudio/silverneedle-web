@@ -22,7 +22,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.Personality
             this.quirkGateway= GatewayProvider.Get<QuirkTemplate>();
         }
 
-        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             var selected = quirkGateway.Choose(strategy.QuirkCount);
             var quirks = new Quirks();

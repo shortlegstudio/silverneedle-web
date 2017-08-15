@@ -34,7 +34,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
             character.SetLevel(2);
             character.Add(combatStyle);
             var step = new SelectCombatStyleFeat(gateway);
-            step.Process(character, new CharacterBuildStrategy());
+            step.ExecuteStep(character, new CharacterBuildStrategy());
             Assert.Contains(someFeat, character.Feats);
         }
     }

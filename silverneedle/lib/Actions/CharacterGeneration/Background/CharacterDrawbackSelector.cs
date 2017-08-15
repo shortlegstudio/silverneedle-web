@@ -24,7 +24,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.Background
             this.drawbacks = GatewayProvider.Get<Drawback>();
         }
 
-        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             character.History.Drawback = SelectDrawback();
         }

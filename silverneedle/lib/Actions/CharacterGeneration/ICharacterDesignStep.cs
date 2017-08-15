@@ -9,6 +9,6 @@ namespace SilverNeedle.Actions
 
     public interface ICharacterDesignStep
     {
-        void Process(CharacterSheet character, CharacterBuildStrategy strategy);
+        void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy);
     }
 }

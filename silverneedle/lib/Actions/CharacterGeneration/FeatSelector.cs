@@ -58,7 +58,7 @@ namespace SilverNeedle.Actions.CharacterGeneration
             character.FeatTokens.Clear();
         }
 
-        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             SelectFeats(character, strategy.FavoredFeats);
         }

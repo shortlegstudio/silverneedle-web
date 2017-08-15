@@ -44,7 +44,7 @@ namespace Tests.Actions {
 
         [Fact]
         public void EquipWithArmorIfProficient () {
-            subject.Process (proficientCharacter, new CharacterBuildStrategy());
+            subject.ExecuteStep (proficientCharacter, new CharacterBuildStrategy());
 
             Assert.Single (proficientCharacter.Inventory.Armor, plate);
         }
@@ -52,7 +52,7 @@ namespace Tests.Actions {
         [Fact]
         public void DoesNotEquipArmorIfNotProficient()
         {
-            subject.Process (incapableCharacter, new CharacterBuildStrategy());
+            subject.ExecuteStep (incapableCharacter, new CharacterBuildStrategy());
             Assert.True (incapableCharacter.Inventory.Armor.None(x => x.Equals(plate)));
         }
 
@@ -62,7 +62,7 @@ namespace Tests.Actions {
             plate.Value = 3700;
             proficientCharacter.Inventory.CoinPurse.SetValue(4000);
 
-            subject.Process(proficientCharacter, new CharacterBuildStrategy());
+            subject.ExecuteStep(proficientCharacter, new CharacterBuildStrategy());
 
             Assert.Equal(proficientCharacter.Inventory.CoinPurse.Value, 300);
             Assert.Single(proficientCharacter.Inventory.Armor, plate);
@@ -74,7 +74,7 @@ namespace Tests.Actions {
             plate.Value = 60000;
             proficientCharacter.Inventory.CoinPurse.SetValue(4000);
 
-            subject.Process(proficientCharacter, new CharacterBuildStrategy());
+            subject.ExecuteStep(proficientCharacter, new CharacterBuildStrategy());
 
             Assert.Equal(proficientCharacter.Inventory.CoinPurse.Value, 4000);
             Assert.True(proficientCharacter.Inventory.Armor.None(x => x == plate));
@@ -84,7 +84,7 @@ namespace Tests.Actions {
         [Fact]
         public void QuantityShouldBeOne()
         {
-            subject.Process (proficientCharacter, new CharacterBuildStrategy());
+            subject.ExecuteStep (proficientCharacter, new CharacterBuildStrategy());
             Assert.Single (proficientCharacter.Inventory.Armor, plate);
             var armorPossession = proficientCharacter.Inventory.Find(plate);
             Assert.Equal(armorPossession.Quantity, 1);

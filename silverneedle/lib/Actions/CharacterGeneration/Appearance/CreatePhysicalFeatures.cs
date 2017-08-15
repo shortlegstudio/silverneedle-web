@@ -24,7 +24,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.Appearance
             physical = physicalFeatures;
         }
 
-        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             var selected = physical.ChooseOne();
             character.Appearance.PhysicalAppearance = CharacterSentenceGenerator.Create(character, selected);

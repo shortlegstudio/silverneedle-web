@@ -14,8 +14,9 @@ namespace SilverNeedle.Serialization
     public class EntityGateway<T> : IEntityGateway<T> where T : IGatewayObject
     {
         private IList<T> dataStore;
-        private Type objectType;
+        private Type entityType;
         private bool returnCopies = false;
+        private bool isDeserializable = false;
         public IEnumerable<T> All()
         {
             return GetDataStore();
@@ -73,7 +74,10 @@ namespace SilverNeedle.Serialization
         protected EntityGateway() 
         {
             dataStore = new List<T>();
-            objectType = typeof(T);
+            entityType = typeof(T);
+            returnCopies = entityType.GetInterfaces().Contains(typeof(IGatewayCopy<T>));
+            var typeInfo = entityType.GetTypeInfo();
+            isDeserializable = typeInfo.GetCustomAttribute<ObjectStoreSerializableAttribute>() != null;
         }
 
         protected EntityGateway(IEnumerable<T> data) : this()
@@ -125,25 +129,25 @@ namespace SilverNeedle.Serialization
 
         private void LoadObjects(IEnumerable<IObjectStore> data)
         {
-            var type = typeof(T);
-            var typeInfo = type.GetTypeInfo();
-            returnCopies = type.GetInterfaces().Contains(typeof(IGatewayCopy<T>));
-
             foreach(var d in data) {
-                T obj;
-                if(d.HasKey("custom-implementation"))
-                {
-                    var typename = d.GetString("custom-implementation");
-                    obj = typename.Instantiate<T>(d);
-                } else {
-                    obj = objectType.Instantiate<T>(d);
-                }
-
-                if(typeInfo.GetCustomAttribute<ObjectStoreSerializableAttribute>() != null)
+                T obj = InstantiateObject(d);
+                
+                if(isDeserializable)
                 {
                     d.Deserialize<T>(obj); 
                 }
                 dataStore.Add(obj);
+            }
+        }
+
+        private T InstantiateObject(IObjectStore objectInformation)
+        {
+            if(objectInformation.HasKey("custom-implementation"))
+            {
+                var typename = objectInformation.GetString("custom-implementation");
+                return typename.Instantiate<T>(objectInformation);
+            } else {
+                return entityType.Instantiate<T>(objectInformation);
             }
         }
     }

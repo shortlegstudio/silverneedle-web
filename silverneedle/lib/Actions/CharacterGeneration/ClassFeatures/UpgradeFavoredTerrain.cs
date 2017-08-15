@@ -12,7 +12,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
     
     public class UpgradeFavoredTerrain : ICharacterDesignStep
     {
-        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             var fav = character.Get<FavoredTerrain>();
             var upgrade = fav.TerrainTypes.ChooseOne();

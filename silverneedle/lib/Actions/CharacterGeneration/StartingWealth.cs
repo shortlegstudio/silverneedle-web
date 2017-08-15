@@ -25,7 +25,7 @@ namespace SilverNeedle.Actions.CharacterGeneration
         {
             this.wealthGateway = GatewayProvider.Get<CharacterWealth>();
         }
-        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             if(character.Level > 1)
             {

@@ -37,7 +37,7 @@ namespace Tests.Actions
             var history = character.Get<History>();
 
             var gen = new FamilyHistoryCreator();
-            gen.Process(character, new CharacterBuildStrategy());
+            gen.ExecuteStep(character, new CharacterBuildStrategy());
             var names = history.FamilyTree.Father + " " + history.FamilyTree.Mother;
             Assert.Contains("BarOrSomethingCrazyThatWontHappenAccidentally", names);
         }

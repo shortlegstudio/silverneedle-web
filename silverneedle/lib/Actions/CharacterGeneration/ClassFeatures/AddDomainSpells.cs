@@ -27,7 +27,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
             this.spellGateway = spellGateway;
             castingAbility = configuration.GetString("casting-ability");
         }
-        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             var domainSpells = new DomainSpellCasting(character.Get<Inventory>(), character.Get<ClassLevel>());
             domainSpells.SetCastingAbility(character.AbilityScores.GetAbility(castingAbility));

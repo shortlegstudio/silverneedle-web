@@ -34,7 +34,7 @@ namespace silverneedleweb.Controllers
             var gen = GatewayProvider.Find<CharacterDesigner>(build.Designer);
             
             var character = new CharacterSheet();
-            gen.Process(character, build);
+            gen.ExecuteStep(character, build);
             
             ViewData["character"] = new CharacterSheetTextView(character);
             ViewData["characterFull"] = character;

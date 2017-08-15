@@ -10,7 +10,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.CustomClassSteps
 
     public class CommonerCustomSteps : ICharacterDesignStep 
     {
-        public void Process(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             // Select a simple weapon
             var choice = GatewayProvider.Get<Weapon>().SimpleWeapons().ChooseOne();

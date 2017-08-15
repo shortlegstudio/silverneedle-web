@@ -20,7 +20,7 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
         {
             var character = new CharacterSheet();
             var prepareSpells = new PrepareSpells();
-            prepareSpells.Process(character, new CharacterBuildStrategy());
+            prepareSpells.ExecuteStep(character, new CharacterBuildStrategy());
         }
         [Fact]
         public void SelectsUniqueListOfSpellsDependingOnAvailableSlots()
@@ -38,7 +38,7 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
 
             var prepareSpells = new PrepareSpells();
 
-            prepareSpells.Process(character, new CharacterBuildStrategy());
+            prepareSpells.ExecuteStep(character, new CharacterBuildStrategy());
             Assert.Equal(character.Get<SpellCasting>().GetPreparedSpells(0).Length, 3);
             Assert.Equal(character.Get<SpellCasting>().GetPreparedSpells(1).Length, 1);
         }
@@ -61,7 +61,7 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
             character.Add(scCleric);
 
             var prepSpells = new PrepareSpells();
-            prepSpells.Process(character, new CharacterBuildStrategy());
+            prepSpells.ExecuteStep(character, new CharacterBuildStrategy());
             Assert.Equal(scWizard.GetPreparedSpells(0).Length, 3);
             Assert.Equal(scCleric.GetPreparedSpells(0).Length, 3);
 

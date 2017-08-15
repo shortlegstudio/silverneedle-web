@@ -22,7 +22,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
             var ctGateway = EntityGateway<CreatureType>.LoadWithSingleItem(aberration);
             var configureStep = new ChooseFavoredEnemy(ctGateway);
             var character = new CharacterSheet();
-            configureStep.Process(character, new CharacterBuildStrategy());
+            configureStep.ExecuteStep(character, new CharacterBuildStrategy());
             
             var favEnemy = character.Get<FavoredEnemy>();
             Assert.Contains(aberration, favEnemy.CreatureTypes);
@@ -37,8 +37,8 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
             var ctGateway = EntityGateway<CreatureType>.LoadFromList(creatureTypes);
             var configureStep = new ChooseFavoredEnemy(ctGateway);
             var character = new CharacterSheet();
-            configureStep.Process(character, new CharacterBuildStrategy());
-            configureStep.Process(character, new CharacterBuildStrategy());
+            configureStep.ExecuteStep(character, new CharacterBuildStrategy());
+            configureStep.ExecuteStep(character, new CharacterBuildStrategy());
             
             var favEnemy = character.Get<FavoredEnemy>();
             Assert.Contains(aberration, favEnemy.CreatureTypes);
