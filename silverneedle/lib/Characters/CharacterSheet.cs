@@ -20,16 +20,7 @@ namespace SilverNeedle.Characters
     /// <remarks>This should only delegate to proper objects to perform actions. There should not be specific rule logic here</remarks>
     public class CharacterSheet : IHitPointTracker
     {
-        public CharacterSheet() : this(new List<Skill>())
-        {
-
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SilverNeedle.Characters.CharacterSheet"/> class.
-        /// </summary>
-        /// <param name="skillList">Skill list of available skills</param>
-        public CharacterSheet(IEnumerable<Skill> skillList)
+        public CharacterSheet() 
         {
             this.Components = new ComponentBag();
             this.Components.Add(new AbilityScores());
@@ -45,7 +36,7 @@ namespace SilverNeedle.Characters
             this.Components.Add(new DefenseStats());
             this.Components.Add(new MovementStats());
             this.Components.Add(new CharacterAppearance());
-            this.Components.Add(new SkillRanks(skillList, this.AbilityScores));
+            this.Components.Add(new SkillRanks(this.AbilityScores));
             this.Components.Add(new Initiative(this.AbilityScores));
         }
 
@@ -280,31 +271,6 @@ namespace SilverNeedle.Characters
             if(classLevel == null)
                 throw new MissingCharacterClassException();
              classLevel.Level = level;
-        }
-
-        /// <summary>
-        /// Gets a character skill.
-        /// </summary>
-        /// <returns>The character's ability with the skill found.</returns>
-        /// <param name="skill">Skill to lookup.</param>
-        public CharacterSkill GetSkill(Skill skill)
-        {
-            return SkillRanks.GetSkill(skill.Name);
-        }
-
-        public CharacterSkill GetSkill(string skillName)
-        {
-            return SkillRanks.GetSkill(skillName);
-        }
-
-        /// <summary>
-        /// Gets the skill value. 
-        /// </summary>
-        /// <returns>The skill numeric value.</returns>
-        /// <param name="name">Name of skill to find.</param>
-        public int GetSkillValue(string name)
-        {
-            return SkillRanks.GetScore(name);
         }
 
         /// <summary>

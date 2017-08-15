@@ -41,11 +41,11 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
         public void SummonFamiliarModifiesTheCharacterStats()
         {
             bat.Modifiers.Add(new ValueStatModifier("Perception", 5, "bonus", "Familiar (Bat)"));
-            var character = new CharacterSheet(new Skill[] { new Skill("Perception", AbilityScoreTypes.Wisdom, false) });
-            character.InitializeComponents();
-            var baseValue = character.GetSkillValue("Perception");
+            var character = new CharacterSheet();
+            character.SkillRanks.AddSkill(new Skill("Perception", AbilityScoreTypes.Wisdom, false));
+            var baseValue = character.SkillRanks.GetScore("Perception");
             subject.ExecuteStep(character, new CharacterBuildStrategy());
-            Assert.Equal(character.GetSkillValue("Perception"), baseValue + 5);
+            Assert.Equal(character.SkillRanks.GetScore("Perception"), baseValue + 5);
             
         }
     }

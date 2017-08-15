@@ -18,17 +18,14 @@ namespace Tests.Characters.SpecialAbilities
             var character = new CharacterSheet();
             character.SetClass(new Class("Rogue"));
             character.SetLevel(4);
-            character.SkillRanks.FillSkills(
-                new Skill[] { 
-                    new Skill("Perception", AbilityScoreTypes.Wisdom, false),
-                    new Skill("Disable Device", AbilityScoreTypes.Dexterity, false) }, 
-                character.AbilityScores);
+            character.SkillRanks.AddSkill(new Skill("Perception", AbilityScoreTypes.Wisdom, false));
+            character.SkillRanks.AddSkill(new Skill("Disable Device", AbilityScoreTypes.Dexterity, false));
                 
             var trapFinding = new TrapFinding();
             character.Add(trapFinding);
 
-            var disable = character.GetSkill("Disable Device");
-            var perception = character.GetSkill("Perception");
+            var disable = character.SkillRanks.GetSkill("Disable Device");
+            var perception = character.SkillRanks.GetSkill("Perception");
             Assert.Equal(disable.GetConditionalScore("traps"), disable.Score() + 2);
             Assert.Equal(perception.GetConditionalScore("traps"), perception.Score() + 2);
         }

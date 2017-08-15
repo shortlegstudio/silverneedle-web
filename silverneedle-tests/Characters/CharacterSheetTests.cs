@@ -31,7 +31,7 @@ namespace Tests.Characters
         [Fact]
         public void CalculatesSkillPointsBasedOnClassAndIntelligence()
         {
-            var sheet = new CharacterSheet(new List<Skill>());
+            var sheet = new CharacterSheet();
             var fighter = new Class();
             fighter.SkillPoints = 2;
             sheet.AbilityScores.SetScore(AbilityScoreTypes.Intelligence, 14);
@@ -42,7 +42,7 @@ namespace Tests.Characters
         [Fact]
         public void CharactersHaveVitalStats()
         {
-            var sheet = new CharacterSheet(_testSkills);
+            var sheet = new CharacterSheet();
             sheet.FirstName = "Foobar";
             sheet.Alignment = CharacterAlignment.LawfulGood;
             Assert.Equal("Foobar", sheet.Name);
@@ -52,7 +52,7 @@ namespace Tests.Characters
         [Fact]
         public void AssigningClassUpdatesWeaponProficiencies()
         {
-            var sheet = new CharacterSheet(new List<Skill>());
+            var sheet = new CharacterSheet();
             var fighter = new Class();
             fighter.WeaponProficiencies.Add("martial");
             fighter.WeaponProficiencies.Add("simple");
@@ -66,7 +66,7 @@ namespace Tests.Characters
         [Fact]
         public void AssigningClassUpdatesArmorProficiencies()
         {
-            var sheet = new CharacterSheet(new List<Skill>());
+            var sheet = new CharacterSheet();
             var fighter = new Class();
             fighter.ArmorProficiencies.Add("Light");
             fighter.ArmorProficiencies.Add("Medium");
@@ -82,7 +82,7 @@ namespace Tests.Characters
         [Fact]
         public void AddingATraitToWillSaveBoostsDefense()
         {
-            CharacterSheet sheet = new CharacterSheet(_testSkills);
+            CharacterSheet sheet = new CharacterSheet();
             var trait = new Trait();
             trait.Modifiers.Add(
                 new ValueStatModifier("Will", 10, "Trait", "Cause")
@@ -95,7 +95,7 @@ namespace Tests.Characters
         [Fact]
         public void AddingATraitWillTriggerAddingImmunities()
         {
-            CharacterSheet sheet = new CharacterSheet(_testSkills);
+            CharacterSheet sheet = new CharacterSheet();
             var trait = new Trait();
             trait.SpecialAbilities.Add(
                 new SpecialAbility("vs. Spells", "Immunity"));
@@ -106,7 +106,7 @@ namespace Tests.Characters
         [Fact]
         public void AddingAFeatCouldAddOffensiveAbilities() 
         {
-            CharacterSheet sheet = new CharacterSheet(_testSkills);
+            CharacterSheet sheet = new CharacterSheet();
             var feat = new Feat();
             feat.SpecialAbilities.Add(
                 new SpecialAbility("Sneak Attack 1d6", "Offensive"));
@@ -117,22 +117,13 @@ namespace Tests.Characters
         [Fact]
         public void AddingTraitsCouldAddSpecialQualities()
         {
-            CharacterSheet sheet = new CharacterSheet(_testSkills);
+            CharacterSheet sheet = new CharacterSheet();
             sheet.InitializeComponents();
             var trait = new Trait();
             trait.SpecialAbilities.Add(
                 new SpecialAbility("vs. Spells", "Ability"));
             sheet.Add(trait);
             Assert.True(sheet.SpecialQualities.SpecialAbilities.Count() > 0);
-        }
-
-        [Fact]
-        public void CanGetSkillByName()
-        {
-            var character = new CharacterSheet(_testSkills);
-            Assert.NotNull(character.GetSkill("Climb"));
-            Assert.Equal("Climb", character.GetSkill("Climb").Name);
-            Assert.Equal("Climb", character.GetSkill("climb").Name);
         }
 
         [Fact]

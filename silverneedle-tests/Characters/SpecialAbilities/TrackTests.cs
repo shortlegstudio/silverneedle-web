@@ -18,13 +18,13 @@ namespace Tests.Characters.SpecialAbilities
             var character = new CharacterSheet();
             var ranger = new Class();
             ranger.Name = "Ranger";
-            character.SkillRanks.FillSkills(new Skill[] { new Skill("Survival", AbilityScoreTypes.Wisdom, false) }, character.AbilityScores);
+            character.SkillRanks.AddSkill(new Skill("Survival", AbilityScoreTypes.Wisdom, false));
             character.SetClass(ranger);
             character.SetLevel(4);
 
             var track = new Track();
             character.Add(track);
-            var survivalSkill = character.GetSkill("Survival");
+            var survivalSkill = character.SkillRanks.GetSkill("Survival");
             Assert.Equal(survivalSkill.GetConditionalScore("track"), survivalSkill.Score() + 2);
             Assert.Equal(track.Name, "Track +2");
         }

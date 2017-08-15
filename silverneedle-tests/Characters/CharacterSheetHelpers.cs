@@ -51,7 +51,7 @@ namespace Tests.Characters
                 new Skill("Use Magical Device", AbilityScoreTypes.Charisma, true)
             };
 
-            character.SkillRanks.FillSkills(skills, character.AbilityScores);
+            character.SkillRanks.FillSkills(skills);
 
             character.InitializeComponents();
             return character;

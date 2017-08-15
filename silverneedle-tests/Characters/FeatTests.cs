@@ -36,9 +36,9 @@ namespace Tests.Characters {
 
         [Fact]
         public void FeatsKnowWhetherYouQualify() {
-            var smartCharacter = new CharacterSheet (new List<Skill>());
+            var smartCharacter = new CharacterSheet ();
             smartCharacter.AbilityScores.SetScore (AbilityScoreTypes.Intelligence, 15);
-            var dumbCharacter = new CharacterSheet (new List<Skill>());
+            var dumbCharacter = new CharacterSheet ();
             dumbCharacter.AbilityScores.SetScore (AbilityScoreTypes.Intelligence, 5);
 
             var CombatExpertise = new Feat();
@@ -51,7 +51,7 @@ namespace Tests.Characters {
         [Fact]
         public void IfFeatIsAlreadySelectedItCannotBeSelectedAgain()
         {
-            var character = new CharacterSheet (new List<Skill>());
+            var character = new CharacterSheet ();
             var basicFeat = new Feat();
             character.Add(basicFeat);
             Assert.False(basicFeat.IsQualified(character));

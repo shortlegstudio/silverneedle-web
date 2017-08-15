@@ -17,7 +17,7 @@ namespace Tests.Actions {
 		CharacterSheet character;
 
 		public LevelUpCharacterTests() {
-			character = new CharacterSheet (new List<Skill>());
+			character = new CharacterSheet ();
             character.AbilityScores.SetScore(AbilityScoreTypes.Strength, 10);
             character.AbilityScores.SetScore(AbilityScoreTypes.Dexterity, 10);
             character.AbilityScores.SetScore(AbilityScoreTypes.Constitution, 10);

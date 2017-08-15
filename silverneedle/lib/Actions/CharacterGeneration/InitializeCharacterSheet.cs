@@ -20,7 +20,7 @@ namespace SilverNeedle.Actions.CharacterGeneration
 
         public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
         {
-            character.SkillRanks.FillSkills(skills.All(), character.AbilityScores);
+            character.SkillRanks.FillSkills(skills.All());
             character.InitializeComponents();
         }
     }

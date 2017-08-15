@@ -21,6 +21,7 @@ namespace SilverNeedle.Characters
         /// The skills available
         /// </summary>
         private IDictionary<string, CharacterSkill> skills;
+        private AbilityScores abilityScores;
 
         private BasicStat BonusSkillPoints = new BasicStat(StatNames.BonusSkillPoints);
 
@@ -31,6 +32,7 @@ namespace SilverNeedle.Characters
         {
             ArmorCheckPenalty = new BasicStat(StatNames.ArmorCheckPenalty);
             ArmorCheckPenalty.Maximum = 0;
+            this.skills = new Dictionary<string, CharacterSkill>(StringComparer.OrdinalIgnoreCase);
         }
 
         /// <summary>
@@ -38,10 +40,14 @@ namespace SilverNeedle.Characters
         /// </summary>
         /// <param name="skillList">Skills available</param>
         /// <param name="scores">Ability scores for a baseline.</param>
-        public SkillRanks(IEnumerable<Skill> skillList, AbilityScores scores) : this()
+        public SkillRanks(IEnumerable<Skill> skillList, AbilityScores scores) : this(scores)
         {
-            this.skills = new Dictionary<string, CharacterSkill>(StringComparer.OrdinalIgnoreCase);
-            this.FillSkills(skillList, scores);
+            this.FillSkills(skillList);
+        }
+
+        public SkillRanks(AbilityScores scores) : this()
+        {
+            this.abilityScores = scores;
             this.BonusSkillPoints.AddModifier(new AbilityStatModifier(scores.GetAbility(AbilityScoreTypes.Intelligence)));
         }
 
@@ -150,20 +156,27 @@ namespace SilverNeedle.Characters
         /// </summary>
         /// <param name="skills">Skills available.</param>
         /// <param name="scores">Scores to base skill ranks on.</param>
-        public void FillSkills(IEnumerable<Skill> newSkills, AbilityScores scores)
+        public void FillSkills(IEnumerable<Skill> newSkills)
         {
             foreach (var s in newSkills)
             {
-                if(!this.skills.ContainsKey(s.Name))
-                {
-                    this.skills.Add(
-                        s.Name, 
-                        new CharacterSkill(
-                        s,
-                        scores.GetAbility(s.Ability),
-                        false));
-                }
+                AddSkill(s);
             }
+        }
+        
+        public void AddSkill(Skill skill)
+        {
+            if(this.skills.ContainsKey(skill.Name))
+                return;
+
+            this.skills.Add(
+                skill.Name,
+                new CharacterSkill(
+                    skill,
+                    abilityScores.GetAbility(skill.Ability),
+                    false
+                )
+            );
         }
 
         public void Initialize(ComponentBag components)

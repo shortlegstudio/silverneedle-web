@@ -71,17 +71,15 @@ namespace Tests.Actions
         [Fact]
         public void SettingClassAssignsClassSkills()
         {
-            var skills = new List<Skill>();
-            skills.Add(new Skill("Climb", AbilityScoreTypes.Strength, false));
-            var character = new CharacterSheet(skills);
+            var character = new CharacterSheet();
+            character.SkillRanks.AddSkill(new Skill("Climb", AbilityScoreTypes.Strength, false));
             
             var cls = new Class();
             cls.AddClassSkill("Climb");
 
             subject.AssignClass(character, cls);
 
-            Assert.True(character.GetSkill("Climb").ClassSkill);
-
+            Assert.True(character.SkillRanks.GetSkill("Climb").ClassSkill);
         }
 
         [Fact]

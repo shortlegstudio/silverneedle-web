@@ -26,7 +26,7 @@ namespace SilverNeedle.Characters
             Alignment = character.Alignment.ShortString();
             Initiative = character.Initiative.TotalValue.ToModifierString();
             Senses = FormatSenses(character);
-            Perception = character.GetSkillValue("Perception").ToModifierString();
+            Perception = character.SkillRanks.GetScore("Perception").ToModifierString();
             Size = character.Size.Size.ToString();
             Level = character.Level.ToString();
             ArmorClass = character.Defense.ArmorClass.ToString();

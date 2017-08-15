@@ -30,7 +30,7 @@ namespace Tests.Characters.Prerequisites
         [Fact]
         public void AlwaysQualifiedIfNoQualificationsNeeded() {
             var pre = new PrerequisiteList();
-            Assert.True(pre.IsQualified(new CharacterSheet(new List<Skill>())));
+            Assert.True(pre.IsQualified(new CharacterSheet()));
         }
 
         [Fact]

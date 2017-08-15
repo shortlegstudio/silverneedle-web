@@ -38,9 +38,9 @@ namespace Tests.Characters.Domains
         [Fact]
         public void ExtraClassSkills()
         {
-            Assert.True(character.GetSkill("Bluff").ClassSkill);
-            Assert.True(character.GetSkill("Disguise").ClassSkill);
-            Assert.True(character.GetSkill("Stealth").ClassSkill);
+            Assert.True(character.SkillRanks.GetSkill("Bluff").ClassSkill);
+            Assert.True(character.SkillRanks.GetSkill("Disguise").ClassSkill);
+            Assert.True(character.SkillRanks.GetSkill("Stealth").ClassSkill);
         }
     }
 }
