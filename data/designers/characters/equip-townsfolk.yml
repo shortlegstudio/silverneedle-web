@@ -1,10 +1,10 @@
---- !<SilverNeedle.Actions.CharacterGenerator.CharacterDesigner>
+--- !<SilverNeedle.Actions.CharacterGeneration.CharacterDesigner>
 - build-steps:
   name: equip-townsfolk
   type: normal
   steps: 
-    - step: SilverNeedle.Actions.CharacterGenerator.StartingWealth
-    - step: SilverNeedle.Actions.CharacterGenerator.PurchaseMeleeWeapon
-    - step: SilverNeedle.Actions.CharacterGenerator.PurchaseArmor
-    - step: SilverNeedle.Actions.CharacterGenerator.PurchaseShield
-    - step: SilverNeedle.Actions.CharacterGenerator.EquipArmor
+    - step: SilverNeedle.Actions.CharacterGeneration.StartingWealth
+    - step: SilverNeedle.Actions.CharacterGeneration.PurchaseMeleeWeapon
+    - step: SilverNeedle.Actions.CharacterGeneration.PurchaseArmor
+    - step: SilverNeedle.Actions.CharacterGeneration.PurchaseShield
+    - step: SilverNeedle.Actions.CharacterGeneration.EquipArmor

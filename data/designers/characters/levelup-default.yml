@@ -1,15 +1,15 @@
---- !<SilverNeedle.Actions.CharacterGenerator.CharacterDesigner>
+--- !<SilverNeedle.Actions.CharacterGeneration.CharacterDesigner>
 - build-steps:
   name: levelup-default
   type: levelup
   steps:
-    - step: SilverNeedle.Actions.CharacterGenerator.LevelUpCharacter
-    - step: SilverNeedle.Actions.CharacterGenerator.HitPointRoller
-    - step: SilverNeedle.Actions.CharacterGenerator.AbilityPointAssigner
-    - step: SilverNeedle.Actions.CharacterGenerator.SkillPointDistributor
-    - step: SilverNeedle.Actions.CharacterGenerator.FeatSelector
-    - step: SilverNeedle.Actions.CharacterGenerator.SpellCasting.SetSpellsPerDay
-    - step: SilverNeedle.Actions.CharacterGenerator.SpellCasting.AddLevelUpSpells
-    - step: SilverNeedle.Actions.CharacterGenerator.SpellCasting.PrepareSpells
-    - step: SilverNeedle.Actions.CharacterGenerator.ProcessCustomClassFeatures
-    - step: SilverNeedle.Actions.CharacterGenerator.NotifyComponentsOfLevelUp
+    - step: SilverNeedle.Actions.CharacterGeneration.LevelUpCharacter
+    - step: SilverNeedle.Actions.CharacterGeneration.HitPointRoller
+    - step: SilverNeedle.Actions.CharacterGeneration.AbilityPointAssigner
+    - step: SilverNeedle.Actions.CharacterGeneration.SkillPointDistributor
+    - step: SilverNeedle.Actions.CharacterGeneration.FeatSelector
+    - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SetSpellsPerDay
+    - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddLevelUpSpells
+    - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.PrepareSpells
+    - step: SilverNeedle.Actions.CharacterGeneration.ProcessCustomClassFeatures
+    - step: SilverNeedle.Actions.CharacterGeneration.NotifyComponentsOfLevelUp

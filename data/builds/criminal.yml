@@ -5,7 +5,7 @@
   baseskillweight: 1
   charactercreator: default
   designer: create-adventurer
-  ability-score-roller: SilverNeedle.Actions.CharacterGenerator.Abilities.StandardAbilityScoreGenerator
+  ability-score-roller: SilverNeedle.Actions.CharacterGeneration.Abilities.StandardAbilityScoreGenerator
   classes:
     - name: rogue
       weight: 20

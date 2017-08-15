@@ -26,7 +26,7 @@ namespace SilverNeedle.Characters
             TargetLevel = 1;
             QuirkCount = 3;
             FearCount = 1;
-            this.AbilityScoreRoller = typeof(SilverNeedle.Actions.CharacterGenerator.Abilities.AverageAbilityScoreGenerator).FullName;
+            this.AbilityScoreRoller = typeof(SilverNeedle.Actions.CharacterGeneration.Abilities.AverageAbilityScoreGenerator).FullName;
         }
 
         public CharacterBuildStrategy(IObjectStore data) 
@@ -97,7 +97,7 @@ namespace SilverNeedle.Characters
                 AbilityScoreRoller = data.GetStringOptional("ability-score-roller");
                 if (string.IsNullOrEmpty(AbilityScoreRoller)) 
                 {
-                    this.AbilityScoreRoller = typeof(SilverNeedle.Actions.CharacterGenerator.Abilities.AverageAbilityScoreGenerator).FullName;
+                    this.AbilityScoreRoller = typeof(SilverNeedle.Actions.CharacterGeneration.Abilities.AverageAbilityScoreGenerator).FullName;
                 }
                 
                 // Collections

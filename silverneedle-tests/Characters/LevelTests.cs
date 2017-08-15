@@ -63,7 +63,7 @@ namespace Tests.Characters
         {
             var level = new Level(adept);
             Assert.Equal(1, level.Steps.Count);
-            Assert.IsType<SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSummonFamiliar>(level.Steps[0]);
+            Assert.IsType<SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSummonFamiliar>(level.Steps[0]);
         }
 
         [Fact]
@@ -71,7 +71,7 @@ namespace Tests.Characters
         {
             var level = new Level(fighter3);
             Assert.Equal(level.Steps.Count, 1);
-            var step = level.Steps[0] as SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureArmorTraining;
+            var step = level.Steps[0] as SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureArmorTraining;
             Assert.Equal(step.ArmorTrainingLevel, 1);
         }
 
@@ -108,7 +108,7 @@ namespace Tests.Characters
         const string adeptLevel = @"---
 - level: 2
   class-feature-steps:
-    - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSummonFamiliar
+    - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSummonFamiliar
 ";
         const string barbLevel = @"---
 - level: 3
@@ -118,7 +118,7 @@ namespace Tests.Characters
         const string fighterLevel3 = @"---
 - level: 3
   class-feature-steps:
-    - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureArmorTraining
+    - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureArmorTraining
       level: 1
 ";
     }

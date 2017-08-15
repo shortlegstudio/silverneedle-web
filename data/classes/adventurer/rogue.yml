@@ -38,13 +38,13 @@
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.TrapFinding
       class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSneakAttack
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSneakAttack
           damage: 1d6
     - level: 2
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.Evasion
       class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.SelectRogueTalent
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRogueTalent
     - level: 3
       modifiers:
         - name: Trap Sense +1 (Reflex)
@@ -58,16 +58,16 @@
           type: bonus
           condition: traps
       class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSneakAttack
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSneakAttack
           damage: 2d6
     - level: 4
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.UncannyDodge
       class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.SelectRogueTalent
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRogueTalent
     - level: 5
       class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSneakAttack
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSneakAttack
           damage: 3d6
     - level: 6
       modifiers:
@@ -82,16 +82,16 @@
           type: bonus
           condition: traps
       class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.SelectRogueTalent
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRogueTalent
     - level: 7
       class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSneakAttack
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSneakAttack
           damage: 4d6
     - level: 8
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.ImprovedUncannyDodge
       class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.SelectRogueTalent
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRogueTalent
     - level: 9
       modifiers:
         - name: Trap Sense +3 (Reflex)
@@ -105,15 +105,15 @@
           type: bonus
           condition: traps
       class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSneakAttack
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSneakAttack
           damage: 5d6
     - level: 10
       class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.SelectRogueTalent
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRogueTalent
           advanced-talents: true
     - level: 11
       class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSneakAttack
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSneakAttack
           damage: 6d6
     - level: 12
       modifiers:
@@ -128,15 +128,15 @@
           type: bonus
           condition: traps
       class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.SelectRogueTalent
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRogueTalent
           advanced-talents: true
     - level: 13
       class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSneakAttack
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSneakAttack
           damage: 7d6
     - level: 14
       class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.SelectRogueTalent
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRogueTalent
           advanced-talents: true
     - level: 15
       modifiers:
@@ -151,15 +151,15 @@
           type: bonus
           condition: traps
       class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSneakAttack
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSneakAttack
           damage: 8d6
     - level: 16
       class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.SelectRogueTalent
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRogueTalent
           advanced-talents: true
     - level: 17
       class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSneakAttack
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSneakAttack
           damage: 9d6
     - level: 18
       modifiers:
@@ -174,15 +174,15 @@
           type: bonus
           condition: traps
       class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.SelectRogueTalent
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRogueTalent
           advanced-talents: true
     - level: 19
       class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureSneakAttack
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSneakAttack
           damage: 10d6
     - level: 20
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.MasterStrike
       class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.SelectRogueTalent
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRogueTalent
           advanced-talents: true

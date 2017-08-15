@@ -4,7 +4,7 @@
   classskillmultiplier: 3  
   baseskillweight: 1
   charactercreator: default
-  ability-score-roller: SilverNeedle.Actions.CharacterGenerator.Abilities.StandardAbilityScoreGenerator
+  ability-score-roller: SilverNeedle.Actions.CharacterGeneration.Abilities.StandardAbilityScoreGenerator
   designer: create-adventurer
   classes:
     - name: fighter

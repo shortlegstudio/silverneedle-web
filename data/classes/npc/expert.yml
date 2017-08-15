@@ -24,4 +24,4 @@
   levels: 
     - level: 1
       class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGenerator.CustomClassSteps.ExpertCustomSteps
+        - step: SilverNeedle.Actions.CharacterGeneration.CustomClassSteps.ExpertCustomSteps

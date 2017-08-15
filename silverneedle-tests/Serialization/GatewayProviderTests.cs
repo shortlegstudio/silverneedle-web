@@ -13,7 +13,7 @@ namespace Tests.Serialization
         [Fact]
         public void LoadsGatewayForCharacterCreator()
         {
-            var creatorGateway = GatewayProvider.Get<SilverNeedle.Actions.CharacterGenerator.CharacterDesigner>();
+            var creatorGateway = GatewayProvider.Get<SilverNeedle.Actions.CharacterGeneration.CharacterDesigner>();
             Assert.NotNull(creatorGateway);
             Assert.True(creatorGateway.Count() > 0);
         }

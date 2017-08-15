@@ -1,26 +1,26 @@
---- !<SilverNeedle.Actions.CharacterGenerator.CharacterDesigner>
+--- !<SilverNeedle.Actions.CharacterGeneration.CharacterDesigner>
 - build-steps:
   name: create-default
   type: normal
   steps: 
-    - step: SilverNeedle.Actions.CharacterGenerator.InitializeCharacterSheet
-    - step: SilverNeedle.Actions.CharacterGenerator.AddUniversalFeatToken
-    - step: SilverNeedle.Actions.CharacterGenerator.Abilities.CreateAbilityScores
-    - step: SilverNeedle.Actions.CharacterGenerator.RaceSelector
-    - step: SilverNeedle.Actions.CharacterGenerator.GenderSelector
+    - step: SilverNeedle.Actions.CharacterGeneration.InitializeCharacterSheet
+    - step: SilverNeedle.Actions.CharacterGeneration.AddUniversalFeatToken
+    - step: SilverNeedle.Actions.CharacterGeneration.Abilities.CreateAbilityScores
+    - step: SilverNeedle.Actions.CharacterGeneration.RaceSelector
+    - step: SilverNeedle.Actions.CharacterGeneration.GenderSelector
     - step: SilverNeedle.Actions.NamingThings.NameCharacter
-    - step: SilverNeedle.Actions.CharacterGenerator.Background.HomelandSelector
-    - step: SilverNeedle.Actions.CharacterGenerator.Background.FamilyHistoryCreator
-    - step: SilverNeedle.Actions.CharacterGenerator.Background.CharacterDrawbackSelector
+    - step: SilverNeedle.Actions.CharacterGeneration.Background.HomelandSelector
+    - step: SilverNeedle.Actions.CharacterGeneration.Background.FamilyHistoryCreator
+    - step: SilverNeedle.Actions.CharacterGeneration.Background.CharacterDrawbackSelector
     - designer: class-selection
     - designer: configure-spellcaster
-    - step: SilverNeedle.Actions.CharacterGenerator.AbilityPointAssigner
-    - step: SilverNeedle.Actions.CharacterGenerator.FeatSelector
-    - step: SilverNeedle.Actions.CharacterGenerator.InitialHitPoints
-    - step: SilverNeedle.Actions.CharacterGenerator.AssignAge
-    - step: SilverNeedle.Actions.CharacterGenerator.Background.ClassOriginStoryCreator
-    - step: SilverNeedle.Actions.CharacterGenerator.SkillPointDistributor
-    - step: SilverNeedle.Actions.CharacterGenerator.AlignmentSelector
-    - step: SilverNeedle.Actions.CharacterGenerator.LanguageSelector
+    - step: SilverNeedle.Actions.CharacterGeneration.AbilityPointAssigner
+    - step: SilverNeedle.Actions.CharacterGeneration.FeatSelector
+    - step: SilverNeedle.Actions.CharacterGeneration.InitialHitPoints
+    - step: SilverNeedle.Actions.CharacterGeneration.AssignAge
+    - step: SilverNeedle.Actions.CharacterGeneration.Background.ClassOriginStoryCreator
+    - step: SilverNeedle.Actions.CharacterGeneration.SkillPointDistributor
+    - step: SilverNeedle.Actions.CharacterGeneration.AlignmentSelector
+    - step: SilverNeedle.Actions.CharacterGeneration.LanguageSelector
     - designer: create-appearance
     - designer: create-personality

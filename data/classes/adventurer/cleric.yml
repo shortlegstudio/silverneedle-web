@@ -33,11 +33,11 @@
         - ability: SilverNeedle.Characters.SpecialAbilities.SpontaneousCastingCleric
         - ability: SilverNeedle.Characters.Magic.CannotCastSpellsOfOpposingAlignment
       class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.SelectDomains
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectDomains
           count: 2
-        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.AddBonusLanguages
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddBonusLanguages
           languages: celestial, abyssal, infernal
-        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.AddDomainSpells
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddDomainSpells
           casting-ability: wisdom
   spells:
     list: cleric

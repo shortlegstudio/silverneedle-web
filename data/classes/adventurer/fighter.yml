@@ -37,14 +37,14 @@
           condition: fear
     - level: 3
       class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureArmorTraining
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureArmorTraining
           level: 1
     - level: 4
       bonus-feats:
         - tags: combat
     - level: 5
       class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureWeaponTraining
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureWeaponTraining
           level: 1
     - level: 6
       bonus-feats:
@@ -57,14 +57,14 @@
           condition: fear
     - level: 7
       class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureArmorTraining
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureArmorTraining
           level: 2
     - level: 8
       bonus-feats:
         - tags: combat
     - level: 9
       class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureWeaponTraining
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureWeaponTraining
           level: 2
     - level: 10
       bonus-feats:
@@ -77,14 +77,14 @@
           condition: fear
     - level: 11
       class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureArmorTraining
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureArmorTraining
           level: 3
     - level: 12
       bonus-feats:
         - tags: combat
     - level: 13
       class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureWeaponTraining
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureWeaponTraining
           level: 3
     - level: 14
       bonus-feats:
@@ -97,14 +97,14 @@
           condition: fear
     - level: 15
       class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureArmorTraining
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureArmorTraining
           level: 4
     - level: 16
       bonus-feats:
         - tags: combat
     - level: 17
       class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureWeaponTraining
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureWeaponTraining
           level: 4
     - level: 18
       bonus-feats:
@@ -117,11 +117,11 @@
           condition: fear
     - level: 19
       class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureArmorMastery
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureArmorMastery
           amount: 5
           damage-type: "-"
     - level: 20
       bonus-feats:
         - tags: combat
       class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGenerator.ClassFeatures.ConfigureWeaponMastery
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureWeaponMastery

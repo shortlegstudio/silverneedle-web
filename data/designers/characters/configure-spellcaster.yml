@@ -1,9 +1,9 @@
---- !<SilverNeedle.Actions.CharacterGenerator.CharacterDesigner>
+--- !<SilverNeedle.Actions.CharacterGeneration.CharacterDesigner>
 - build-steps:
   name: configure-spellcaster
   type: normal
   steps: 
-    - step: SilverNeedle.Actions.CharacterGenerator.SpellCasting.ConfigureSpellCasting
-    - step: SilverNeedle.Actions.CharacterGenerator.SpellCasting.BuildSpellList
-    - step: SilverNeedle.Actions.CharacterGenerator.SpellCasting.SetSpellsPerDay
-    - step: SilverNeedle.Actions.CharacterGenerator.SpellCasting.PrepareSpells
+    - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.ConfigureSpellCasting
+    - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.BuildSpellList
+    - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SetSpellsPerDay
+    - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.PrepareSpells

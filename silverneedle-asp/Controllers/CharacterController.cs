@@ -5,7 +5,7 @@
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using SilverNeedle;
-using SilverNeedle.Actions.CharacterGenerator;
+using SilverNeedle.Actions.CharacterGeneration;
 using SilverNeedle.Characters;
 using SilverNeedle.Serialization;
 
