@@ -29,18 +29,20 @@
     - template: '{{pronoun}} has {{descriptor "ropes"}} tattoos covering both wrists.'
     - template: '{{pronoun}} has {{descriptor "ropes"}} tattoo around neck.'
     - template: '{{pronoun}} has {{descriptor "number"}} {{descriptor "whimsical"}} tattoos on {{possessivepronoun}} {{descriptor "locations"}}'
-- name: missing fingers or toes
+- name: hands and feet
   descriptors:
     - hand: left, right
     - foot: right, left
     - toes: one toe, two toes
     - finger: pinkie, ring, middle, index
     - reason: birth defect, injury, disease, frostbite
+    - skin: wrinkly, smooth, rough, callused, splotchy, bumpy
   templates:
     - template: '{{pronoun}} is missing {{possessivepronoun}} {{descriptor "hand"}} {{descriptor "finger"}} finger.'
     - template: '{{pronoun}} is missing {{possessivepronoun}} {{descriptor "hand"}} {{descriptor "finger"}} finger from a {{descriptor "reason"}}.'
     - template: '{{pronoun}} is missing {{descriptor "toes"}} on {{possessivepronoun}} {{descriptor "foot"}} foot and walks with a slight limp.'
     - template: '{{pronoun}} has only 4 fingers on {{possessivepronoun}} {{descriptor "hand"}} hand from a birth defect.'
+    - template: '{{pronoun}} has {{descriptor "skin"}} hands.'
 - name: scars
   descriptors:
     - size: small, large

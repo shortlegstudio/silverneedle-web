@@ -80,5 +80,14 @@ namespace Tests.Actions.CharacterGeneration.Appearance
 
             Assert.Equal(character.Appearance.PhysicalAppearance, "Tattoo of a black dragon.");
         }
+
+        [Fact]
+        public void CombineMultipleDescriptionsTogetherButDoNotRepeat()
+        {
+            
+            var character = new CharacterSheet();
+//            var subject = new CreatePhysicalFeatures(gateway);
+//            subject.ExecuteStep(character, new CharacterBuildStrategy());
+        }
     }
 }

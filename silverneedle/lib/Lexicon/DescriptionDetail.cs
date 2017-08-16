@@ -11,6 +11,9 @@ namespace SilverNeedle.Lexicon
     public abstract class DescriptionDetail : IGatewayObject
     {
         public string[] Templates { get; set; }
+        public string Name { get; set; }
+        public IDictionary<string, string[]> Descriptors { get; set; }
+
         public DescriptionDetail()
         {
             Descriptors = new Dictionary<string, string[]>();
@@ -19,19 +22,7 @@ namespace SilverNeedle.Lexicon
         {
             Name = data.GetString("name");
             var descs = data.GetObjectOptional("descriptors");
-            if(descs != null)
-            {
-                foreach(var d in descs.Children) 
-                {
-                    var keyName = d.Keys.First();
-                    ShortLog.DebugFormat("KeyName: {0}", keyName);
-                    var m = d.GetList(keyName);
-                    if(Descriptors.ContainsKey(keyName)) {
-                        keyName = string.Format("{0}-{1}", keyName, Descriptors.Count);    
-                    }
-                    Descriptors.Add(keyName, m);
-                }
-            }
+            LoadDescriptors(descs);
 
             var temps = data.GetObjectOptional("templates");
             if(temps != null)
@@ -45,9 +36,6 @@ namespace SilverNeedle.Lexicon
             Name = name;
         }
 
-        public string Name { get; set; }
-        
-        public IDictionary<string, string[]> Descriptors { get; set; }
 
         public override string ToString()
         {
@@ -75,6 +63,22 @@ namespace SilverNeedle.Lexicon
         public virtual bool Matches(string name)
         {
             return Name.EqualsIgnoreCase(name);
+        }
+
+        private void LoadDescriptors(IObjectStore descriptors)
+        {
+            if(descriptors == null)
+                return;
+            
+            foreach(var descriptor in descriptors.Children) 
+            {
+                // Descriptor format in YAML is "- key: item1, item2, item3"
+                var keyName = descriptor.Keys.First();
+                ShortLog.DebugFormat("Descriptor KeyName: {0}", keyName);
+
+                var m = descriptor.GetList(keyName);
+                Descriptors.Add(keyName, m);
+            }
         }
     }
 }

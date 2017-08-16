@@ -1,30 +1,31 @@
 --- !<SilverNeedle.Characters.Appearance.HairStyle>
 - name: afro
   descriptors: 
-    - descriptor: bushy, thick, springy, coarse, fine, brushed, flowing, messy, cloudy, dense, bouncy
-    - descriptor: tight, short, trimmed, long, wide, voluminous
+    - texture: bushy, thick, springy, coarse, fine, brushed, flowing, messy, cloudy, dense, bouncy
+    - size: tight, short, trimmed, long, wide, voluminous
 - name: asymmetric cut
   descriptors:
-    - descriptor: off-center, straight, crooked, spikey, jagged, layered
+    - texture: off-center, straight, crooked, spikey, jagged, layered
 - name: bald
 - name: beehive
   descriptors:
-    - descriptor: thick, springy, coarse, fine, messy
-    - descriptor: tall, short, basic, voluminous, 
+    - texture: thick, springy, coarse, fine, messy
+    - length: tall, short, basic, voluminous, 
 - name: blowout
   descriptors:
-    - descriptor: bushy, thick, springy, coarse, fine, flowing, messy, cloudy, bouncy
-    - descriptor: tight, short, trimmed, long, wide, voluminous, soft, cropped
+    - texture: bushy, thick, springy, coarse, fine, flowing, messy, cloudy, bouncy
+    - length: tight, short, trimmed, long, wide, voluminous, soft, cropped
 - name: bob
   descriptors:
-    - descriptor: undercut, cropped, fine, asymmetric 
+    - length: undercut, cropped, fine, asymmetric 
 - name: bouffant
   descriptors:
-    - descriptor: bubbly, puffy 
+    - texture: bubbly, puffy 
 - name: bowl
 - name: braids
   descriptors:
-    - descriptor: long, thick, woven, messy, tight, tidy
+    - texture: thick, woven, messy, thin, 
+    - length: long, short, shoulder-length
 - name: bun
 - name: butch
 - name: buzz
@@ -33,17 +34,17 @@
 - name: chonmage
 - name: combover
   descriptors: 
-    - descriptor: straggly, unkept, messy, effective
+    - texture: straggly, unkept, messy, effective
 - name: crewcut
 - name: cropped
 - name: emo
 - name: fade
 - name: fauxhawk
   descriptors: 
-    - descriptor: short, narrow, wide, long, spikey
+    - texture: short, narrow, wide, long, spikey
 - name: feathered
   descriptors: 
-    - descriptor: bushy, thick, springy, coarse, fine, brushed, flowing, messy, cloudy, dense, bouncy
+    - texture: bushy, thick, springy, coarse, fine, brushed, flowing, messy, cloudy, dense, bouncy
 - name: fingerwave
 - name: flattop
 - name: french braid
@@ -56,12 +57,12 @@
 - name: pompadour
 - name: ponytail
   descriptors:
-    - descriptor: swirly, straight, wavy, shiny, disheveled, messy, simple, thick, braided
-    - descriptor: side, voluminous, long, shoulder-length, high
+    - texture: swirly, straight, wavy, shiny, disheveled, messy, simple, thick, braided
+    - length: side, voluminous, long, shoulder-length, high
 - name: rattail
   descriptors:
-    - descriptor: single, double, braided, messy
-    - descriptor: long, shoulder-length, waist-long, 
+    - texture: single, double, braided, messy
+    - length: long, shoulder-length, waist-long, 
 - name: ringlets
 - name: tonsure
 - name: up-do

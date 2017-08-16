@@ -18,7 +18,7 @@ namespace SilverNeedle.Characters
     /// A character sheet is the object that ties everything together.
     /// </summary>
     /// <remarks>This should only delegate to proper objects to perform actions. There should not be specific rule logic here</remarks>
-    public class CharacterSheet : IHitPointTracker
+    public class CharacterSheet 
     {
         public CharacterSheet() 
         {
