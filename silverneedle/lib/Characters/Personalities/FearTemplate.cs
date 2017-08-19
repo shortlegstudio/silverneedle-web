@@ -8,7 +8,7 @@ namespace SilverNeedle.Characters.Personalities
 {
     using SilverNeedle.Lexicon;
     using SilverNeedle.Serialization;
-    public class FearTemplate : DescriptionDetail
+    public class FearTemplate : TemplateSentenceGenerator
     {
         public FearTemplate(IObjectStore data) : base(data)
         {

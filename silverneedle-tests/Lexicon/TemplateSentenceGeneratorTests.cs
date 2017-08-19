@@ -10,7 +10,7 @@ namespace Tests.Lexicon
     using SilverNeedle.Lexicon;
     using SilverNeedle.Serialization;
 
-    public class DescriptionDetailTests
+    public class TemplateSentenceGeneratorTests
     {
         [Fact]
         public void DescriptionDetailCanHaveSupportingAdjectivesToChooseFrom()
@@ -54,7 +54,7 @@ namespace Tests.Lexicon
             Assert.Single(subject.Descriptors.Keys, "color");
         }
 
-        private class TestDescription : DescriptionDetail
+        private class TestDescription : TemplateSentenceGenerator
         {
             public TestDescription(IObjectStore data) : base(data)
             {

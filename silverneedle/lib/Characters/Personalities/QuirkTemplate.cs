@@ -8,7 +8,7 @@ namespace SilverNeedle.Characters.Personalities
 {
     using SilverNeedle.Lexicon;
     using SilverNeedle.Serialization;
-    public class QuirkTemplate : DescriptionDetail
+    public class QuirkTemplate : TemplateSentenceGenerator
     {
         public QuirkTemplate(IObjectStore data) : base(data)
         {

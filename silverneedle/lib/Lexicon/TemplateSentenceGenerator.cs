@@ -8,17 +8,17 @@ namespace SilverNeedle.Lexicon
     using System.Collections.Generic;
     using System.Linq;
     using SilverNeedle.Serialization;
-    public abstract class DescriptionDetail : IGatewayObject
+    public abstract class TemplateSentenceGenerator : IGatewayObject
     {
         public string[] Templates { get; set; }
         public string Name { get; set; }
         public IDictionary<string, string[]> Descriptors { get; set; }
 
-        public DescriptionDetail()
+        public TemplateSentenceGenerator()
         {
             Descriptors = new Dictionary<string, string[]>();
         }
-        public DescriptionDetail(IObjectStore data) : this()
+        public TemplateSentenceGenerator(IObjectStore data) : this()
         {
             Name = data.GetString("name");
             var descs = data.GetObjectOptional("descriptors");
@@ -31,7 +31,7 @@ namespace SilverNeedle.Lexicon
             }
         }
 
-        public DescriptionDetail(string name) : this()
+        public TemplateSentenceGenerator(string name) : this()
         {
             Name = name;
         }

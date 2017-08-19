@@ -8,7 +8,7 @@ namespace SilverNeedle.Characters.Appearance
     using SilverNeedle.Lexicon;
     using SilverNeedle.Serialization;
 
-    public class FaceShape : DescriptionDetail
+    public class FaceShape : TemplateSentenceGenerator
     {
 
         public FaceShape(IObjectStore data) : base(data)

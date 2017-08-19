@@ -8,7 +8,7 @@ namespace SilverNeedle.Characters.Appearance
     using SilverNeedle.Lexicon;
     using SilverNeedle.Serialization;
 
-    public class HairStyle : DescriptionDetail
+    public class HairStyle : TemplateSentenceGenerator
     {
 
         public HairStyle(IObjectStore data) : base(data)

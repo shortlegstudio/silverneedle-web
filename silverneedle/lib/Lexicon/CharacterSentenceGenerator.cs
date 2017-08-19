@@ -9,7 +9,7 @@ namespace SilverNeedle.Lexicon
     using SilverNeedle.Characters;
     public static class CharacterSentenceGenerator
     {
-        public static string Create(CharacterSheet character, DescriptionDetail outline)
+        public static string Create(CharacterSheet character, TemplateSentenceGenerator outline)
         {
             SilverNeedle.Utility.HandlebarsHelpers.ConfigureHelpers();
             var template = outline.Templates.ChooseOne();

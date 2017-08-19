@@ -7,7 +7,7 @@ namespace SilverNeedle.Characters.Appearance
 {
     using SilverNeedle.Lexicon;
     using SilverNeedle.Serialization;
-    public class FacialHair : DescriptionDetail
+    public class FacialHair : TemplateSentenceGenerator
     {
         public FacialHair(IObjectStore data) : base(data)
         {

@@ -8,7 +8,7 @@ namespace SilverNeedle.Characters.Appearance
     using SilverNeedle.Lexicon;
     using SilverNeedle.Serialization;
 
-    public class PhysicalFeature : DescriptionDetail
+    public class PhysicalFeature : TemplateSentenceGenerator
     {
         public PhysicalFeature(IObjectStore data) : base(data)
         {
