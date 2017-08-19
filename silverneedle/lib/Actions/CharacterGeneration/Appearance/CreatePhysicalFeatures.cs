@@ -5,6 +5,7 @@
 
 namespace SilverNeedle.Actions.CharacterGeneration.Appearance
 {
+    using System.Collections.Generic;
     using SilverNeedle;
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.Appearance;
@@ -14,6 +15,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.Appearance
     public class CreatePhysicalFeatures : ICharacterDesignStep
     {
         EntityGateway<PhysicalFeature> physical;
+        public int MaximumFeatures = 3;
         public CreatePhysicalFeatures()
         {
             physical = GatewayProvider.Get<PhysicalFeature>();
@@ -26,8 +28,16 @@ namespace SilverNeedle.Actions.CharacterGeneration.Appearance
 
         public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
         {
-            var selected = physical.ChooseOne();
-            character.Appearance.PhysicalAppearance = CharacterSentenceGenerator.Create(character, selected);
+            var chosenOptions = new List<PhysicalFeature>();
+            var paragraph = new ParagraphBuilder();
+
+            while(chosenOptions.Count < MaximumFeatures && physical.All().Exclude(chosenOptions).HasChoices())
+            {
+                var selected = physical.All().Exclude(chosenOptions).ChooseOne();
+                chosenOptions.Add(selected);
+                paragraph.AddSentence(CharacterSentenceGenerator.Create(character, selected));
+            }
+            character.Appearance.PhysicalAppearance = paragraph.GetParagraph();
         }
 
     }

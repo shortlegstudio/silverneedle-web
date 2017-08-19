@@ -54,8 +54,26 @@ namespace Tests.Lexicon
             Assert.Single(subject.Descriptors.Keys, "color");
         }
 
+        [Fact]
+        public void CanAddDescriptors()
+        {
+            var test = new TestDescription();
+            test.AddDescriptor("color", new string[] { "red", "green", "blue"});
+            Assert.Equal(new string[] { "red", "green", "blue" }, test.Descriptors["color"]);
+        }
+
+        [Fact]
+        public void CanAddTemplates()
+        {
+            var test = new TestDescription();
+            test.AddTemplate("Foo {{bar}}");
+            Assert.Equal("Foo {{bar}}", test.Templates[0]);
+        }
+
+
         private class TestDescription : TemplateSentenceGenerator
         {
+            public TestDescription() { }
             public TestDescription(IObjectStore data) : base(data)
             {
 

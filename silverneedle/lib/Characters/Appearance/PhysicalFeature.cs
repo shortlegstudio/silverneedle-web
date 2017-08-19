@@ -5,20 +5,20 @@
 
 namespace SilverNeedle.Characters.Appearance
 {
+    using System.Linq;
     using SilverNeedle.Lexicon;
     using SilverNeedle.Serialization;
 
     public class PhysicalFeature : TemplateSentenceGenerator
     {
+        public PhysicalFeature() { }
         public PhysicalFeature(IObjectStore data) : base(data)
         {
             var defaultTemplate = "{{pronoun}} has a {{description}}.";
 
-            if(Templates == null)
+            if(this.Templates.Empty())
             {
-                Templates = new string[] {
-                    defaultTemplate
-                };
+                this.Templates.Add(defaultTemplate);
             }
         }
     }

@@ -84,10 +84,20 @@ namespace Tests.Actions.CharacterGeneration.Appearance
         [Fact]
         public void CombineMultipleDescriptionsTogetherButDoNotRepeat()
         {
-            
+            var tattoo = new PhysicalFeature();
+            tattoo.AddDescriptor("color", new string[] { "green" });
+            tattoo.AddTemplate("Tattoo of a {{descriptor \"color\"}} dragon.");
+            var scar = new PhysicalFeature();
+            scar.AddDescriptor("location", new string[] { "face" });
+            scar.AddTemplate("A scar on {{descriptor \"location\"}}.");
+
+            var gateway = EntityGateway<PhysicalFeature>.LoadFromList(new PhysicalFeature[] { tattoo, scar });
+            var subject = new CreatePhysicalFeatures(gateway);
+
             var character = new CharacterSheet();
-//            var subject = new CreatePhysicalFeatures(gateway);
-//            subject.ExecuteStep(character, new CharacterBuildStrategy());
+            subject.ExecuteStep(character, new CharacterBuildStrategy());
+            Assert.Contains("Tattoo of a green dragon.", character.Appearance.PhysicalAppearance);
+            Assert.Contains("A scar on face.", character.Appearance.PhysicalAppearance);
         }
     }
 }
