@@ -1,7 +1,6 @@
 --- !<SilverNeedle.Characters.Appearance.PhysicalFeature>
 - name: tattoos
   descriptors:
-    - animal: dragon, squid, octopus, lion, falcon, cat, tiger, pigeon, seagull, eagle, crow, raven
     - whimsical: strawberries
     - symbol: quarter moon, half moon, full moon, lightning bolt, star, zig-zag, anchor with wings, eye
     - shape: dots, stripes
@@ -15,10 +14,10 @@
     - locations: left calf, right calf, left arm, right arm, right forearm, left forearm, left breast, right breast, back, right ankle, left ankle, left side of neck, right side of neck, right bicep, left bicep, lower neck
   templates:
     - template: '{{pronoun}} has a tattoo on {{possessivepronoun}} {{descriptor "locations"}}.'
-    - template: '{{pronoun}} has a tattoo of a {{choose-color}} {{descriptor "animal"}} on {{possessivepronoun}} {{descriptor "locations"}}.'
-    - template: '{{pronoun}} has a {{descriptor "shade"}} {{descriptor "animal"}} tattoo on {{possessivepronoun}} {{descriptor "locations"}}.'
-    - template: '{{pronoun}} has a tattoo of a {{descriptor "animal"}} on {{possessivepronoun}} {{descriptor "locations"}}'
-    - template: '{{pronoun}} has tattoos of a {{descriptor "animal"}} and a {{descriptor "animal"}} on {{possessivepronoun}} {{descriptor "locations"}}.'
+    - template: '{{pronoun}} has a tattoo of a {{choose-color}} {{choose "animal"}} on {{possessivepronoun}} {{descriptor "locations"}}.'
+    - template: '{{pronoun}} has a {{descriptor "shade"}} {{choose "animal"}} tattoo on {{possessivepronoun}} {{descriptor "locations"}}.'
+    - template: '{{pronoun}} has a tattoo of a {{choose "animal"}} on {{possessivepronoun}} {{descriptor "locations"}}'
+    - template: '{{pronoun}} has tattoos of a {{choose "animal"}} and a {{choose "animal"}} on {{possessivepronoun}} {{descriptor "locations"}}.'
     - template: '{{pronoun}} has a {{choose-color}} tattoo of a {{descriptor "symbol"}} on {{possessivepronoun}} {{descriptor "locations"}}'
     - template: '{{pronoun}} has a {{descriptor "number"}} {{choose-color}} tattoos of a {{descriptor "symbol"}} on {{possessivepronoun}} {{descriptor "locations"}}'
     - template: '{{pronoun}} has a {{descriptor "symbol"}} tattoo {{descriptor "alignment"}} on {{possessivepronoun}} forehead.'

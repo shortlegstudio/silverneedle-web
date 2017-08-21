@@ -1,0 +1,28 @@
+--- !<SilverNeedle.Lexicon.Descriptor>
+- name: animal
+  words: |
+    barn owl, bat, bear, beetle, bird, bison, butterfly
+    chicken, chinchilla, chipmunk, cougar, cow, coyote, crab,
+    deer, dog, dolphin, donkey, dragonfly, duck, 
+    eagle, elephant, 
+    falcon, ferret, fish, fly, fox, frog,
+    gecko, gerbil, gila monster, goat, goose, gopher, grasshopper, 
+    hamster, hare, hedgehog, heron, honey bee, horse, hummingbird, hyena,
+    iguana, 
+    jackal, jaguar, jellyfish,
+    kangaroo, koala,
+    lemur, leopard, liger, lion, lizard, llama, lobster, lynx,
+    macaw, manta ray, mongoose, monkey, moth, mouse, mule,
+    newt, nightingale,
+    ocelot, octopus, otter, oyster,
+    panther, parrot, peacock, penguin, pig, pike, piranha, porcupine, possom, prawn, pufferfish, 
+    quail, 
+    rabbit, raccoon, rat, rattlesnake, rhinoceros, robin, 
+    sabre-toothed tiger, salamander, sand lizard, sea dragon, sea lion, seahorse, sea turtle, sloth, snail, sparrow, squirrel, starfish, swan,
+    tiger, tortoise, turkey,
+    vampire bat, vulture,
+    walrus, warthog, wasp, weasal, welsh corgi, wild boar, wildebeest, wolf, wolverine, wombat, woodpecker,
+    yak,
+    zebra 
+
+

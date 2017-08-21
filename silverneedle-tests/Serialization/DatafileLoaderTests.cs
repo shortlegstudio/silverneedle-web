@@ -20,5 +20,20 @@ namespace Tests.Serialization
             var files = datafileLoader.GetDataFiles<SilverNeedle.Characters.PersonalityType>();
             Assert.True(files.Count() > 0);
         }
+
+        [Fact]
+        public void IfTypeIsNotFoundThenThroughSaneException()
+        {
+            var datafileLoader = new DatafileLoader();
+            Assert.Throws<MissingDataFileException>(() => datafileLoader.GetDataFiles<ShouldNeverExistInADataFile>());
+        }
+
+        private class ShouldNeverExistInADataFile : IGatewayObject
+        {
+            public bool Matches(string name)
+            {
+                throw new System.NotImplementedException();
+            }
+        }
     }
 }

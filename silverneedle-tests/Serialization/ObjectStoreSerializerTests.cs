@@ -27,6 +27,8 @@ namespace Tests.Serialization
             Assert.Equal(test.Optional, "");
         }
 
+        //TODO: Question? If the property is invalid what should be the expected behavior?
+
         public class TestSimpleObject : IGatewayObject
         {
             [ObjectStore("name")]

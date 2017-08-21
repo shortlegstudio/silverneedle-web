@@ -42,6 +42,7 @@ namespace SilverNeedle.Serialization
             if (!fileListMap.ContainsKey(type.FullName))
             {
                 ShortLog.ErrorFormat("Could not find data file of type: {0}", type.FullName);
+                throw MissingDataFileException.MissingDataFilesForType(type.FullName);
             }
             return fileListMap[type.FullName];
         }

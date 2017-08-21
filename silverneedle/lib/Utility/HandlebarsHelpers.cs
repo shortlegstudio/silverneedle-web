@@ -27,6 +27,11 @@ namespace SilverNeedle.Utility
                 var gem = GatewayProvider.Get<Gem>().ChooseOne();
                 writer.Write(gem.Name);
             });
+
+            Handlebars.RegisterHelper("choose", (writer, context, parameters) => {
+                var descriptor = GatewayProvider.Find<Descriptor>(parameters[0].ToString());
+                writer.Write(descriptor.Words.ChooseOne());
+            });
         }
     }
 }
