@@ -6,28 +6,26 @@
     - shape: dots, stripes
     - number: two, three, four, several, many
     - facial: forehead, right cheek, left cheek, right jawline, left jawline
-    - limbs: left arm, right arm, left leg, right leg
     - shade: faded, fresh, discolored
     - ropes: chain, knotwork
     - face-location: above left eye, below left eye, above right eye, below right eye, below left ear, above right ear
     - alignment: offcenter, centered
-    - locations: left calf, right calf, left arm, right arm, right forearm, left forearm, left breast, right breast, back, right ankle, left ankle, left side of neck, right side of neck, right bicep, left bicep, lower neck
   templates:
-    - template: '{{pronoun}} has a tattoo on {{possessivepronoun}} {{descriptor "locations"}}.'
-    - template: '{{pronoun}} has a tattoo of a {{choose-color}} {{choose "animal"}} on {{possessivepronoun}} {{descriptor "locations"}}.'
-    - template: '{{pronoun}} has a {{descriptor "shade"}} {{choose "animal"}} tattoo on {{possessivepronoun}} {{descriptor "locations"}}.'
-    - template: '{{pronoun}} has a tattoo of a {{choose "animal"}} on {{possessivepronoun}} {{descriptor "locations"}}'
-    - template: '{{pronoun}} has tattoos of a {{choose "animal"}} and a {{choose "animal"}} on {{possessivepronoun}} {{descriptor "locations"}}.'
-    - template: '{{pronoun}} has a {{choose-color}} tattoo of a {{descriptor "symbol"}} on {{possessivepronoun}} {{descriptor "locations"}}'
-    - template: '{{pronoun}} has a {{descriptor "number"}} {{choose-color}} tattoos of a {{descriptor "symbol"}} on {{possessivepronoun}} {{descriptor "locations"}}'
+    - template: '{{pronoun}} has a tattoo on {{possessivepronoun}} {{choose "body-location-humanoid"}}.'
+    - template: '{{pronoun}} has a tattoo of a {{choose-color}} {{choose "animal"}} on {{possessivepronoun}} {{choose "body-location-humanoid"}}.'
+    - template: '{{pronoun}} has a {{descriptor "shade"}} {{choose "animal"}} tattoo on {{possessivepronoun}} {{choose "body-location-humanoid"}}.'
+    - template: '{{pronoun}} has a tattoo of a {{choose "animal"}} on {{possessivepronoun}} {{choose "body-location-humanoid"}}'
+    - template: '{{pronoun}} has tattoos of a {{choose "animal"}} and a {{choose "animal"}} on {{possessivepronoun}} {{choose "body-location-humanoid"}}.'
+    - template: '{{pronoun}} has a {{choose-color}} tattoo of a {{descriptor "symbol"}} on {{possessivepronoun}} {{choose "body-location-humanoid"}}'
+    - template: '{{pronoun}} has a {{descriptor "number"}} {{choose-color}} tattoos of a {{descriptor "symbol"}} on {{possessivepronoun}} {{choose "body-location-humanoid"}}'
     - template: '{{pronoun}} has a {{descriptor "symbol"}} tattoo {{descriptor "alignment"}} on {{possessivepronoun}} forehead.'
     - template: '{{pronoun}} has a {{descriptor "symbol"}} tattoo {{descriptor "face-location"}}.'
     - template: '{{pronoun}} has a facial tattoo of {{choose-color}} {{descriptor "shape"}} on {{possessivepronoun}} {{descriptor "facial"}}.'
     - template: '{{pronoun}} has a facial tattoo of {{descriptor "number"}} {{choose-color}} {{descriptor "shape"}} on {{possessivepronoun}} {{descriptor "facial"}}.'
-    - template: '{{pronoun}} has a large {{descriptor "ropes"}} tattoo covering {{possessivepronoun}} entire {{descriptor "limbs"}}.'
+    - template: '{{pronoun}} has a large {{descriptor "ropes"}} tattoo covering {{possessivepronoun}} entire {{choose "limb"}}.'
     - template: '{{pronoun}} has {{descriptor "ropes"}} tattoos covering both wrists.'
     - template: '{{pronoun}} has {{descriptor "ropes"}} tattoo around neck.'
-    - template: '{{pronoun}} has {{descriptor "number"}} {{descriptor "whimsical"}} tattoos on {{possessivepronoun}} {{descriptor "locations"}}'
+    - template: '{{pronoun}} has {{descriptor "number"}} {{descriptor "whimsical"}} tattoos on {{possessivepronoun}} {{choose "body-location-humanoid"}}'
 - name: hands and feet
   descriptors:
     - hand: left, right

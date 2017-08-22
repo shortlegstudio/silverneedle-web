@@ -1,0 +1,11 @@
+--- !<SilverNeedle.Lexicon.Descriptor>
+- name: left-right
+  words: left, right
+- name: limbs
+  words: |
+    [[left-right]] arm, [[left-right]] leg
+- name: body-location-humanoid
+  words: | 
+    [[left-right]] calf, [[left-right]] thigh, [[left-right]] foot, [[left-right]] ankle
+    [[left-right]] arm, [[left-right]] forearm, [[left-right]] bicep,
+    [[left-right]] breast, back, [[left-right]] of neck, lower neck
