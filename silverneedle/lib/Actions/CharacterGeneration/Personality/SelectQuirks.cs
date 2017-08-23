@@ -7,7 +7,6 @@
 namespace SilverNeedle.Actions.CharacterGeneration.Personality
 {
     using System;
-    using HandlebarsDotNet;
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.Personalities;
     using SilverNeedle.Lexicon;
