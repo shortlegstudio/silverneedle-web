@@ -45,12 +45,7 @@ namespace SilverNeedle.Actions.CharacterGeneration
             // Special Level ups
             if (character.Level % 4 == 0)
             {
-                var adj = new AbilityScoreAdjustment();
-                adj.Reason = string.Format("Level ({0})", character.Level);
-                adj.Modifier = 1;
-                character.AbilityScoreTokens.Enqueue(
-                    new AbilityScoreToken(adj)
-                );
+                character.Add(new AbilityScoreToken(1, string.Format("Level ({0})", character.Level)));
             }
         }
 

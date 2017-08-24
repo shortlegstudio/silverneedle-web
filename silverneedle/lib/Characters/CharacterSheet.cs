@@ -30,7 +30,6 @@ namespace SilverNeedle.Characters
             this.Components.Add(new SpecialQualities());
             this.Components.Add(new History());
             this.Components.Add(new PersonalityType("ESTJ"));
-            this.Components.Add(new Queue<AbilityScoreToken>());
             this.Components.Add(new List<FeatToken>());
             this.Components.Add(new OffenseStats());
             this.Components.Add(new DefenseStats());
@@ -73,8 +72,8 @@ namespace SilverNeedle.Characters
         /// <value>The character's alignment.</value>
         public CharacterAlignment Alignment 
         {
-            get { return Components.Get<CharacterAlignment>(); }
-            set { Components.Replace<CharacterAlignment>(value); }
+            get { return Get<CharacterAlignment>(); }
+            set { Replace<CharacterAlignment>(value); }
         }
 
         /// <summary>
@@ -84,13 +83,13 @@ namespace SilverNeedle.Characters
         public Gender Gender { get; set; }
 
         public PersonalityType PersonalityType { 
-            get { return this.Components.Get<PersonalityType>(); }
-            set { this.Components.Replace<PersonalityType>(value); }
+            get { return this.Get<PersonalityType>(); }
+            set { this.Replace<PersonalityType>(value); }
         }
 
         public Ideal Ideal { 
-            get { return this.Components.Get<Ideal>(); }
-            set { this.Components.Replace<Ideal>(value); }
+            get { return this.Get<Ideal>(); }
+            set { this.Replace<Ideal>(value); }
         }
         /// <summary>
         /// Gets or sets the size.
@@ -98,7 +97,7 @@ namespace SilverNeedle.Characters
         /// <value>The character's size information.</value>
         public SizeStats Size 
         { 
-            get { return this.Components.Get<SizeStats>(); }
+            get { return this.Get<SizeStats>(); }
         }
 
         /// <summary>
@@ -107,7 +106,7 @@ namespace SilverNeedle.Characters
         /// <value>The character's race.</value>
         public Race Race 
         { 
-            get { return this.Components.Get<Race>(); }
+            get { return this.Get<Race>(); }
         }
 
         /// <summary>
@@ -117,7 +116,7 @@ namespace SilverNeedle.Characters
         public Class Class { 
             get 
             { 
-                return this.Components.Get<Class>();
+                return this.Get<Class>();
             } 
         }
 
@@ -128,7 +127,7 @@ namespace SilverNeedle.Characters
         public int Level { 
             get 
             { 
-                var classLevel = this.Components.Get<ClassLevel>();
+                var classLevel = this.Get<ClassLevel>();
                 if(classLevel == null)
                     return 0;
                 
@@ -141,58 +140,53 @@ namespace SilverNeedle.Characters
         /// </summary>
         /// <value>The character's ability scores.</value>
         public AbilityScores AbilityScores { 
-            get { return this.Components.Get<AbilityScores>(); } 
-        }
-
-        public Queue<AbilityScoreToken> AbilityScoreTokens 
-        { 
-            get { return this.Components.Get<Queue<AbilityScoreToken>>(); }
+            get { return this.Get<AbilityScores>(); } 
         }
 
         /// <summary>
         /// Gets the skill ranks.
         /// </summary>
         /// <value>The character's skill ranks.</value>
-        public SkillRanks SkillRanks { get { return this.Components.Get<SkillRanks>(); } }
+        public SkillRanks SkillRanks { get { return this.Get<SkillRanks>(); } }
 
         /// <summary>
         /// Gets the traits.
         /// </summary>
         /// <value>The character's traits.</value>
-        public IEnumerable<Trait> Traits { get { return this.Components.GetAll<Trait>(); } }
+        public IEnumerable<Trait> Traits { get { return this.GetAll<Trait>(); } }
 
         /// <summary>
         /// Gets the feats.
         /// </summary>
         /// <value>The character's feats.</value>
-        public IEnumerable<Feat> Feats { get { return this.Components.GetAll<Feat>(); } }
+        public IEnumerable<Feat> Feats { get { return this.GetAll<Feat>(); } }
 
         /// <summary>
         /// Represents an available feat chose the generator may make. Could be triggered
         /// by a racial trait, level up, or class bonus for example
         /// </summary>
         /// <returns>Any feat tokens available</returns>
-        public IList<FeatToken> FeatTokens { get { return this.Components.Get<List<FeatToken>>(); } }
+        public IList<FeatToken> FeatTokens { get { return this.Get<List<FeatToken>>(); } }
 
         /// <summary>
         /// Gets the initiative modifier.
         /// </summary>
         /// <value>The characters initiative modifier.</value>
-        public Initiative Initiative { get { return this.Components.Get<Initiative>(); } }
+        public Initiative Initiative { get { return this.Get<Initiative>(); } }
 
         /// <summary>
         /// Gets the inventory.
         /// </summary>
         /// <value>The character's inventory.</value>
         public Inventory Inventory { 
-            get { return this.Components.Get<Inventory>(); }
+            get { return this.Get<Inventory>(); }
         }
 
         /// <summary>
         /// Gets the languages.
         /// </summary>
         /// <value>The character's languages.</value>
-        public IEnumerable<Language> Languages { get { return this.Components.GetAll<Language>(); } }
+        public IEnumerable<Language> Languages { get { return this.GetAll<Language>(); } }
 
         /// <summary>
         /// Gets or sets the max hit points.
@@ -210,25 +204,25 @@ namespace SilverNeedle.Characters
         /// Gets the offense stats.
         /// </summary>
         /// <value>The character's offensive abilities.</value>
-        public OffenseStats Offense { get { return this.Components.Get<OffenseStats>(); } }
+        public OffenseStats Offense { get { return this.Get<OffenseStats>(); } }
 
         /// <summary>
         /// Gets the defense stats.
         /// </summary>
         /// <value>The character's defense abilities.</value>
-        public DefenseStats Defense { get { return this.Components.Get<DefenseStats>(); } }
+        public DefenseStats Defense { get { return this.Get<DefenseStats>(); } }
 
         /// <summary>
         /// Gets the movement speeds.
         /// </summary>
         /// <value>The characters movement abilities.</value>
-        public MovementStats Movement { get { return this.Components.Get<MovementStats>(); } }
+        public MovementStats Movement { get { return this.Get<MovementStats>(); } }
 
-        public CharacterAppearance Appearance { get { return this.Components.Get<CharacterAppearance>(); } }
+        public CharacterAppearance Appearance { get { return this.Get<CharacterAppearance>(); } }
 
-        public History History { get { return this.Components.Get<History>(); } }
+        public History History { get { return this.Get<History>(); } }
 
-        public SpecialQualities SpecialQualities { get { return this.Components.Get<SpecialQualities>(); } }
+        public SpecialQualities SpecialQualities { get { return this.Get<SpecialQualities>(); } }
 
         /// <summary>
         /// Sets this character to Level 1 in specified class
@@ -267,7 +261,7 @@ namespace SilverNeedle.Characters
         /// <param name="level">Character's level</param>
         public void SetLevel(int level)
         {
-            var classLevel = this.Components.Get<ClassLevel>();
+            var classLevel = this.Get<ClassLevel>();
             if(classLevel == null)
                 throw new MissingCharacterClassException();
              classLevel.Level = level;
@@ -364,6 +358,11 @@ namespace SilverNeedle.Characters
             return this.Components.GetAll<T>().ToList();
         }
 
+        public void Replace<T>(T value)
+        {
+            this.Components.Replace<T>(value);
+        }
+
         public bool Contains<T>()
         {
             return this.Components.Contains<T>();
@@ -377,6 +376,13 @@ namespace SilverNeedle.Characters
         public IEnumerable<BasicStat> GetAllStats()
         {
             return this.Components.GetAllStats();
+        }
+
+        public IEnumerable<T> GetAndRemoveAll<T>()
+        {
+            var list = this.GetAll<T>();
+            this.Components.Remove<T>();
+            return list;
         }
     }
 }

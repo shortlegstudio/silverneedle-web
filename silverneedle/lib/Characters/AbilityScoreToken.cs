@@ -6,10 +6,24 @@ namespace SilverNeedle.Characters
     /// </summary>
     public class AbilityScoreToken
     {
-        public AbilityScoreAdjustment Modifier { get; private set; }
-        public AbilityScoreToken(AbilityScoreAdjustment modifier) 
+        private int amount;
+        private string source;
+
+        public AbilityScoreToken(int amount, string source)
         {
-            Modifier = modifier;
+            this.amount = amount;
+            this.source = source;
         }
+
+
+        public AbilityScoreAdjustment CreateAdjustment(AbilityScoreTypes abilityScore)
+        {
+            var modifier = new AbilityScoreAdjustment();
+            modifier.AbilityName = abilityScore;
+            modifier.Modifier = amount;
+            modifier.Reason = source;
+            return modifier;
+        }
+
     }
 }

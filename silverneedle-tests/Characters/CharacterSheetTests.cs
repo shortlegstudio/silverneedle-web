@@ -170,6 +170,20 @@ namespace Tests.Characters
             Assert.Equal(character.GetAll<CharacterAlignment>().Count(), 1);
         }
 
+        [Fact]
+        public void GetAndRemoveAllReturnsAllOfATypeAndRemovesThem()
+        {
+            var character = new CharacterSheet();
+            character.Add(new CompAbility());
+            character.Add(new CompAbility());
+            character.Add(new CompAbility());
+
+            var abilities = character.GetAndRemoveAll<CompAbility>();
+            Assert.Equal(3, abilities.Count());
+            Assert.Empty(character.GetAll<CompAbility>());
+
+        }
+
         public class CompAbility : SpecialAbility, IComponent
         {
             public bool Called { get; private set; }

@@ -1,0 +1,11 @@
+--- !<SilverNeedle.Lexicon.Descriptor>
+- name: celestial-symbols
+  words: star, moon, first quarter moon, half moon, last quarter moon, comet
+- name: symbols
+  words: |
+    anchor, anchor with wings, 
+    comet,
+    eye, evil eye, open eye, closed eye, red eye
+    lightning bolt,
+    moon, first quarter moon, half moon, last quarter moon,
+    zig-zag

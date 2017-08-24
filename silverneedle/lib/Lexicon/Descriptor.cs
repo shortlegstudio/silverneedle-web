@@ -20,5 +20,11 @@ namespace SilverNeedle.Lexicon
         {
             return this.Name.EqualsIgnoreCase(name);
         }
+
+        public static string FindAndChooseWord(string descriptorName)
+        {
+            var descriptor = GatewayProvider.Find<Descriptor>(descriptorName);
+            return descriptor.Words.ChooseOne();
+        }
     }
 }

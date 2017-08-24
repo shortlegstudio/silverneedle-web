@@ -2,7 +2,6 @@
 - name: tattoos
   descriptors:
     - whimsical: strawberries
-    - symbol: quarter moon, half moon, full moon, lightning bolt, star, zig-zag, anchor with wings, eye
     - shape: dots, stripes
     - number: two, three, four, several, many
     - facial: forehead, right cheek, left cheek, right jawline, left jawline
@@ -16,10 +15,10 @@
     - template: '{{pronoun}} has a {{descriptor "shade"}} {{choose "animal"}} tattoo on {{possessivepronoun}} {{choose "body-location-humanoid"}}.'
     - template: '{{pronoun}} has a tattoo of a {{choose "animal"}} on {{possessivepronoun}} {{choose "body-location-humanoid"}}'
     - template: '{{pronoun}} has tattoos of a {{choose "animal"}} and a {{choose "animal"}} on {{possessivepronoun}} {{choose "body-location-humanoid"}}.'
-    - template: '{{pronoun}} has a {{choose-color}} tattoo of a {{descriptor "symbol"}} on {{possessivepronoun}} {{choose "body-location-humanoid"}}'
-    - template: '{{pronoun}} has a {{descriptor "number"}} {{choose-color}} tattoos of a {{descriptor "symbol"}} on {{possessivepronoun}} {{choose "body-location-humanoid"}}'
-    - template: '{{pronoun}} has a {{descriptor "symbol"}} tattoo {{descriptor "alignment"}} on {{possessivepronoun}} forehead.'
-    - template: '{{pronoun}} has a {{descriptor "symbol"}} tattoo {{descriptor "face-location"}}.'
+    - template: '{{pronoun}} has a {{choose-color}} tattoo of a {{choose "symbol"}} on {{possessivepronoun}} {{choose "body-location-humanoid"}}'
+    - template: '{{pronoun}} has a {{descriptor "number"}} {{choose-color}} tattoos of a {{choose "symbol"}} on {{possessivepronoun}} {{choose "body-location-humanoid"}}'
+    - template: '{{pronoun}} has a {{choose "symbol"}} tattoo {{descriptor "alignment"}} on {{possessivepronoun}} forehead.'
+    - template: '{{pronoun}} has a {{choose "symbol"}} tattoo {{descriptor "face-location"}}.'
     - template: '{{pronoun}} has a facial tattoo of {{choose-color}} {{descriptor "shape"}} on {{possessivepronoun}} {{descriptor "facial"}}.'
     - template: '{{pronoun}} has a facial tattoo of {{descriptor "number"}} {{choose-color}} {{descriptor "shape"}} on {{possessivepronoun}} {{descriptor "facial"}}.'
     - template: '{{pronoun}} has a large {{descriptor "ropes"}} tattoo covering {{possessivepronoun}} entire {{choose "limb"}}.'

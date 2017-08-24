@@ -18,5 +18,12 @@ namespace Tests.Lexicon
             var gateway = GatewayProvider.Get<Descriptor>();
             Assert.NotEqual(0, gateway.Count());
         }
+
+        [Fact]
+        public void CanFindAndChooseAWord()
+        {
+            var word = Descriptor.FindAndChooseWord("animal");
+            Assert.NotEmpty(word);
+        }
     }
 }

@@ -4,6 +4,7 @@
 // https://opensource.org/licenses/MIT
 
 namespace Tests.Actions {
+    using System.Linq;
     using Xunit;
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.SpecialAbilities;
@@ -45,7 +46,7 @@ namespace Tests.Actions {
 
 			//Should have an abilityScore Token
 			Assert.True (
-				character.AbilityScoreTokens.Count > 0				
+				character.GetAll<AbilityScoreToken>().Count() > 0				
 			);
 		}
 

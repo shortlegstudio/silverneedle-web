@@ -6,13 +6,12 @@ namespace SilverNeedle.Actions.CharacterGeneration
 
     public class AbilityPointAssigner : ICharacterDesignStep
     {
-        public void AssignByStrategy(CharacterSheet character, WeightedOptionTable<AbilityScoreTypes> abilities)
+        private void AssignByStrategy(CharacterSheet character, WeightedOptionTable<AbilityScoreTypes> abilities)
         {
-            while(character.AbilityScoreTokens.Count > 0)
+            var tokens = character.GetAndRemoveAll<AbilityScoreToken>();
+            foreach(var token in tokens)
             {
-                var token = character.AbilityScoreTokens.Dequeue();
-                var modifier = token.Modifier;
-                modifier.AbilityName = abilities.ChooseRandomly();
+                var modifier = token.CreateAdjustment(abilities.ChooseRandomly());
                 character.AbilityScores.AddModifier(modifier);
             }            
         }

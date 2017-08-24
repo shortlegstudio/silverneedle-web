@@ -107,8 +107,7 @@ namespace SilverNeedle.Actions.CharacterGeneration
             {
                 if (adj.ChooseAny)
                 {
-                    var token = new AbilityScoreToken(adj);
-                    character.AbilityScoreTokens.Enqueue(token);
+                    character.Add(new AbilityScoreToken((int)adj.Modifier, adj.Reason));
                 }
                 else
                 {
