@@ -1,7 +1,7 @@
 --- !<SilverNeedle.Lexicon.Descriptor>
-- name: celestial-symbols
+- name: celestial-symbol
   words: star, moon, first quarter moon, half moon, last quarter moon, comet
-- name: symbols
+- name: symbol
   words: |
     anchor, anchor with wings, 
     comet,
