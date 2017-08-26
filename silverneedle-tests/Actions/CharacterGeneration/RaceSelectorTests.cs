@@ -146,15 +146,5 @@ namespace Tests.Actions
             Assert.NotStrictEqual(strategy.LanguageChoices, new string[] {"Draconic", "Celestial"});
         }
     }
-
-    class TestTraitGateway : IEntityGateway<Trait>
-    {
-        public List<Trait> Traits = new List<Trait>();
-
-        public IEnumerable<Trait> All()
-        {
-            return Traits;
-        }
-    }
 }
 

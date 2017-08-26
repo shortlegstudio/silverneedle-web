@@ -7,17 +7,7 @@ namespace SilverNeedle.Serialization
 {
     using System.Collections.Generic;
 
-    /// <summary>
-    /// Entity Gateway is an interface defining standard gateway behaviors
-    /// </summary>
-    /// <typeparam name="T">Type of Entities stored in this gateway</typeparam>
-    public interface IEntityGateway<T>
+    public interface IEntityGateway
     {
-        /// <summary>
-        /// Should return all of this entity types
-        /// </summary>
-        /// <returns>Enumerable collection of the entities</returns>
-        IEnumerable<T> All();
-        
     }
 }

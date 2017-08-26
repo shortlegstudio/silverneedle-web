@@ -12,7 +12,7 @@ namespace SilverNeedle.Utility
 
     public class HandlebarsHelpers
     {
-        //private static IList<ChooseWordFromGatewayObject> helpers;
+        private static IList<ITemplateExpander> helpers = new List<ITemplateExpander>();
         public static void ConfigureHelpers() {
             Handlebars.RegisterHelper("descriptor", (writer, context, parameters) => {
                 ShortLog.DebugFormat("Getting descriptor: {0}", parameters[0].ToString());
@@ -41,7 +41,11 @@ namespace SilverNeedle.Utility
 
         private static void RegisterAllSupportedGateways()
         {
-            var lexicon = Reflector.FindAllTypesThatImplement<ILexiconGatewayObject>();
+            if(helpers.Count > 0)
+                return;
+                
+            helpers.Add(new ChooseWordFromGatewayObject<Color>(GatewayProvider.Get<Color>()));
+            helpers.Add(new ChooseWordFromGatewayObject<Gem>(GatewayProvider.Get<Gem>()));
         }
     }
 }

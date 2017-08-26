@@ -8,7 +8,7 @@ namespace SilverNeedle.Lexicon
     using SilverNeedle.Serialization;
     using HandlebarsDotNet;
 
-    public class ChooseWordFromGatewayObject<T> where T : ILexiconGatewayObject
+    public class ChooseWordFromGatewayObject<T> : ITemplateExpander where T : ILexiconGatewayObject
     {
         private EntityGateway<T> gateway;
         private string helperName;
@@ -20,20 +20,15 @@ namespace SilverNeedle.Lexicon
             RegisterHandlebarHelper();
         }
 
+        public void ExpandTemplate(System.IO.TextWriter writer, dynamic context, object[] parameters)
+        {
+            var chosen = gateway.ChooseOne();
+            writer.Write(chosen.Name);
+        }
+
         private void RegisterHandlebarHelper()
         {
-
-            Handlebars.RegisterHelper(this.helperName, (writer, context, parameters) => 
-            {
-                var chosen = gateway.ChooseOne();
-                writer.Write(chosen.Name);
-            });
+            Handlebars.RegisterHelper(this.helperName, this.ExpandTemplate);
         }
-
-        public static ChooseWordFromGatewayObject<I> RegisterNewHelper<I>(I obj) where I : ILexiconGatewayObject
-        {
-            return new ChooseWordFromGatewayObject<I>(GatewayProvider.Get<I>());
-        }
-
     }
 }

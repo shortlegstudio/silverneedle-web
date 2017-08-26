@@ -11,7 +11,7 @@ namespace SilverNeedle.Actions.CharacterGeneration
 
     public class InitializeCharacterSheet : ICharacterDesignStep
     {
-        IEntityGateway<Skill> skills;
+        EntityGateway<Skill> skills;
 
         public InitializeCharacterSheet()
         {
