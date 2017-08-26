@@ -19,7 +19,7 @@ namespace Tests.Characters.Appearance
             var store = new MemoryStore();
             store.SetValue("name", "tattoo");
             var feature = new PhysicalFeature(store);
-            Assert.Single(feature.Templates, "{{pronoun}} has a {{description}}.");
+            Assert.Equal("{{pronoun}} has a {{description}}.", feature.Templates[0].Template);
         }
     }
 }

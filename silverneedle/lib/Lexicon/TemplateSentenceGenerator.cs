@@ -10,14 +10,14 @@ namespace SilverNeedle.Lexicon
     using SilverNeedle.Serialization;
     public abstract class TemplateSentenceGenerator : IGatewayObject
     {
-        public List<string> Templates { get; set; }
+        public List<PhraseTemplate> Templates { get; set; }
         public string Name { get; set; }
         public IDictionary<string, string[]> Descriptors { get; set; }
 
         public TemplateSentenceGenerator()
         {
             Descriptors = new Dictionary<string, string[]>();
-            Templates = new List<string>();
+            Templates = new List<PhraseTemplate>();
         }
         public TemplateSentenceGenerator(IObjectStore data) : this()
         {
@@ -28,7 +28,7 @@ namespace SilverNeedle.Lexicon
             var temps = data.GetObjectOptional("templates");
             if(temps != null)
             {
-                this.Templates.Add(temps.Children.Select(x => x.GetString("template")));
+                this.Templates.Add(temps.Children.Select(x => new PhraseTemplate(x.GetString("template"))));
             }
         }
 
@@ -73,7 +73,7 @@ namespace SilverNeedle.Lexicon
 
         public void AddTemplate(string template)
         {
-            this.Templates.Add(template);
+            this.Templates.Add(new PhraseTemplate(template));
         }
 
         private void LoadDescriptors(IObjectStore descriptors)

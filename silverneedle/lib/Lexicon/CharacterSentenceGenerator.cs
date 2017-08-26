@@ -13,7 +13,6 @@ namespace SilverNeedle.Lexicon
         {
             SilverNeedle.Utility.HandlebarsHelpers.ConfigureHelpers();
             var template = outline.Templates.ChooseOne();
-            var compile = Handlebars.Compile(template);
             var commonProperties = new {
                 name = character.Name,
                 pronoun = character.Gender.Pronoun(),
@@ -22,7 +21,7 @@ namespace SilverNeedle.Lexicon
                 feature = outline.Name,
                 descriptors = outline.Descriptors
             };
-            var sentence = compile.Invoke(commonProperties);
+            var sentence = template.WritePhrase(commonProperties);
             
             return sentence.Capitalize();
         }

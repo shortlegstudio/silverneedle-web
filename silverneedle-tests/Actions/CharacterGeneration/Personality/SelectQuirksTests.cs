@@ -11,7 +11,7 @@ namespace Tests.Actions.CharacterGeneration.Personality
     using SilverNeedle.Characters.Personalities;
 
     
-    public class SelectQuirksTests
+    public class SelectQuirksTests : RequiresDataFiles
     {
         [Fact]
         public void SelectsSomeQuirksFromAvailableList()

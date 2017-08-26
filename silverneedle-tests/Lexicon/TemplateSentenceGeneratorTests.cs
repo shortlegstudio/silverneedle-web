@@ -67,7 +67,7 @@ namespace Tests.Lexicon
         {
             var test = new TestDescription();
             test.AddTemplate("Foo {{bar}}");
-            Assert.Equal("Foo {{bar}}", test.Templates[0]);
+            Assert.Equal("Foo {{bar}}", test.Templates[0].Template);
         }
 
 

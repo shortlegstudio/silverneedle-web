@@ -18,7 +18,7 @@ namespace SilverNeedle.Characters.Appearance
 
             if(this.Templates.Empty())
             {
-                this.Templates.Add(defaultTemplate);
+                this.AddTemplate(defaultTemplate);
             }
         }
     }
