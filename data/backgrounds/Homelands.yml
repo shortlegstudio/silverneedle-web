@@ -5,12 +5,18 @@
     - location: Hills/Mountains
       weight: 40
       traits: Goldsniffer, Highlander
+      storylines:
+        - template: '{{name}} grew up in a mountain fortress that faced threats from hordes of {{descriptor-plural "monster-humanoids}}.'
     - location: Underground
       weight: 40
       traits: Surface Stranger, Tunnel Fighter
+      storylines:
+        - template: '{{name}} grew up deep underground in the mines of {{descriptor "dwarven-settlement-name"}}.'
     - location: Non-Dwarven Town/Village
       weight: 7
       traits: Brewmaster, Militia Veteran
+      storylines:
+        - template: '{{name}} grew up a human farming village.'
     - location: Non-Dwarven City/Metropolis
       weight: 8
       traits: Brewmaster, Vagabond Child

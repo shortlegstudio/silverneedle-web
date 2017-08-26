@@ -6,6 +6,7 @@
 namespace SilverNeedle.Utility 
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
     using SilverNeedle.Serialization;
@@ -54,6 +55,13 @@ namespace SilverNeedle.Utility
             return GetAssemblies()
                 .SelectMany(x => x.ExportedTypes)
                 .FirstOrDefault(t => t.FullName.Equals(typeName));
+        }
+
+        public static IEnumerable<Type> FindAllTypesThatImplement<I>()
+        {
+            return GetAssemblies().SelectMany(x => x.GetTypes())
+                .Where(t => t.GetInterfaces().Contains(typeof(I)));
+
         }
 
         public static Assembly[] GetAssemblies()

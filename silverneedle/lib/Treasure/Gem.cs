@@ -6,9 +6,10 @@
 namespace SilverNeedle.Treasure
 {
     using SilverNeedle.Serialization;
+    using SilverNeedle.Lexicon;
 
     [ObjectStoreSerializable]
-    public class Gem : IGatewayObject
+    public class Gem : ILexiconGatewayObject
     {
         [ObjectStore("name")]
         public string Name { get; set; }

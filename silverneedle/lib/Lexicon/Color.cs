@@ -8,7 +8,7 @@ namespace SilverNeedle.Lexicon
     using SilverNeedle.Serialization;
 
     [ObjectStoreSerializable]
-    public class Color : IGatewayObject
+    public class Color : ILexiconGatewayObject
     {
         [ObjectStore("id")]
         public string ID { get; set; }

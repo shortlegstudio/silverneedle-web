@@ -16,5 +16,16 @@ namespace Tests.Utility
             var type = Reflector.FindType("Tests.Utility.ReflectorTests");
             Assert.Equal(typeof(ReflectorTests), type);
         }
+
+        [Fact]
+        public void FindAllTypesThatImplementInterface()
+        {
+            var types = Reflector.FindAllTypesThatImplement<IDummy>();
+            Assert.NotStrictEqual(new System.Type[] { typeof(DummyOne), typeof(DummyTwo)}, types);
+        }
+
+        public interface IDummy { }
+        public class DummyOne : IDummy { }
+        public class DummyTwo : IDummy { }
     }
 }

@@ -1,7 +1,7 @@
 --- !<SilverNeedle.Lexicon.Descriptor>
 - name: left-right
   words: left, right
-- name: limbs
+- name: limb
   words: |
     [[left-right]] arm, [[left-right]] leg
 - name: body-location-humanoid
