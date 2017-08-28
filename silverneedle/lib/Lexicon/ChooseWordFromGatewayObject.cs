@@ -23,7 +23,7 @@ namespace SilverNeedle.Lexicon
         public void ExpandTemplate(System.IO.TextWriter writer, dynamic context, object[] parameters)
         {
             var chosen = gateway.ChooseOne();
-            writer.Write(chosen.Name);
+            writer.WriteSafeString(chosen.Name);
         }
 
         private void RegisterHandlebarHelper()

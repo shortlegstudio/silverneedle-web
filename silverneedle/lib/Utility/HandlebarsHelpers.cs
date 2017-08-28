@@ -17,7 +17,7 @@ namespace SilverNeedle.Utility
             Handlebars.RegisterHelper("descriptor", (writer, context, parameters) => {
                 ShortLog.DebugFormat("Getting descriptor: {0}", parameters[0].ToString());
                 var value = context.descriptors[parameters[0].ToString()] as string[];
-                writer.Write(value.ChooseOne());
+                writer.WriteSafeString(value.ChooseOne());
             });
 
             Handlebars.RegisterHelper("choose", (writer, context, parameters) => {
@@ -33,7 +33,7 @@ namespace SilverNeedle.Utility
                     var subDescChose = Descriptor.FindAndChooseWord(subDescName);
                     choice = choice.Substring(0, startIndex) + subDescChose + choice.Substring(endIndex + 2);
                 }
-                writer.Write(choice);
+                writer.WriteSafeString(choice);
             });
 
             RegisterAllSupportedGateways();
@@ -43,7 +43,7 @@ namespace SilverNeedle.Utility
         {
             if(helpers.Count > 0)
                 return;
-                
+
             helpers.Add(new ChooseWordFromGatewayObject<Color>(GatewayProvider.Get<Color>()));
             helpers.Add(new ChooseWordFromGatewayObject<Gem>(GatewayProvider.Get<Gem>()));
         }

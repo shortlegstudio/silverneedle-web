@@ -4,6 +4,8 @@
     [[left-right]] calf, [[left-right]] thigh, [[left-right]] foot, [[left-right]] ankle
     [[left-right]] arm, [[left-right]] forearm, [[left-right]] bicep,
     [[left-right]] breast, back, [[left-right]] of neck, lower neck
+- name: ear
+  words: '{{choose "left-right"}} ear'
 - name: finger-no-thumb
   words: index, middle, ring, pinky
 - name: left-right
