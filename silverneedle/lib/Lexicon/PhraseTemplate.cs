@@ -16,9 +16,10 @@ namespace SilverNeedle.Lexicon
             compiledTemplate = Handlebars.Compile(this.Template);
         }
 
-        public string WritePhrase(object context)
+        public string WritePhrase(PhraseContext context)
         {
-            var expandedString = compiledTemplate(context);
+            var templateObject = context.CreateObject();
+            var expandedString = compiledTemplate(templateObject);
             if(ContainsExpansions(expandedString))
             {
                 var expandedPhrase = new PhraseTemplate(expandedString);

@@ -15,7 +15,8 @@ namespace Tests.Lexicon
         {
             var template = "Hello {{name}}.";
             var phrase = new PhraseTemplate(template);
-            var context = new { name = "Bob" };
+            var context = new PhraseContext()
+            { { "name", "Bob" } };
             var result = phrase.WritePhrase(context);
             Assert.Equal("Hello Bob.", result);
 
@@ -26,7 +27,10 @@ namespace Tests.Lexicon
         {
             var template = "Good Day, {{name}}.";
             var phrase = new PhraseTemplate(template);
-            var context = new { name = "{{fullname}}", fullname = "Bob Woodward" };
+            var context = new PhraseContext() {
+                { "name", "{{fullname}}" },
+                { "fullname", "Bob Woodward"}
+            };
             var result = phrase.WritePhrase(context);
             Assert.Equal("Good Day, Bob Woodward.", result);
         }
