@@ -1,0 +1,7 @@
+--- !<SilverNeedle.Lexicon.Descriptor>
+- name: background-story
+  words:
+    - '{{choose "birth-story"}}'
+- name: birth-story
+  words:
+    - '{{name}} was born in a building.'

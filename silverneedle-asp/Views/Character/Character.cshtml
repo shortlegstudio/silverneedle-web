@@ -297,6 +297,8 @@
                     <h3 class="panel-title">History</h3>
                 </div>
                 <div class="panel-body">
+                    @{ var story =  charFull.Get<SilverNeedle.Characters.Background.BackgroundStory>().GetStory(); }
+                    <p>@story</p>
                     <ul class="stats">
                         <li>
                             <ul class="commalist">

@@ -9,9 +9,7 @@
     - step: SilverNeedle.Actions.CharacterGeneration.RaceSelector
     - step: SilverNeedle.Actions.CharacterGeneration.GenderSelector
     - step: SilverNeedle.Actions.NamingThings.NameCharacter
-    - step: SilverNeedle.Actions.CharacterGeneration.Background.HomelandSelector
-    - step: SilverNeedle.Actions.CharacterGeneration.Background.FamilyHistoryCreator
-    - step: SilverNeedle.Actions.CharacterGeneration.Background.CharacterDrawbackSelector
+    - designer: create-background
     - designer: class-selection
     - designer: configure-spellcaster
     - step: SilverNeedle.Actions.CharacterGeneration.AbilityPointAssigner

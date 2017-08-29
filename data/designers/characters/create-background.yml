@@ -1,0 +1,9 @@
+--- !<SilverNeedle.Actions.CharacterGeneration.CharacterDesigner>
+- build-steps:
+  name: create-background
+  type: normal
+  steps: 
+    - step: SilverNeedle.Actions.CharacterGeneration.Background.HomelandSelector
+    - step: SilverNeedle.Actions.CharacterGeneration.Background.FamilyHistoryCreator
+    - step: SilverNeedle.Actions.CharacterGeneration.Background.CharacterDrawbackSelector
+    - step: SilverNeedle.Actions.CharacterGeneration.Background.BackgroundStorywriter

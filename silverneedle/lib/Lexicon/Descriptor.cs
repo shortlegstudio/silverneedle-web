@@ -16,6 +16,13 @@ namespace SilverNeedle.Lexicon
         [ObjectStore("words")]
         public string[] Words { get; set; }
 
+        public Descriptor() { }
+        public Descriptor(string name, string[] words)
+        {
+            this.Name = name;
+            this.Words = words;
+        }
+
         public bool Matches(string name)
         {
             return this.Name.EqualsIgnoreCase(name);
