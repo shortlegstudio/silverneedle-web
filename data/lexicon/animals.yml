@@ -1,6 +1,6 @@
 --- !<SilverNeedle.Lexicon.Descriptor>
 - name: animal
-  words: |
+  words: [ 
     barn owl, bat, bear, beetle, bird, bison, butterfly
     chicken, chinchilla, chipmunk, cougar, cow, coyote, crab,
     deer, dog, dolphin, donkey, dragonfly, duck, 
@@ -23,6 +23,4 @@
     vampire bat, vulture,
     walrus, warthog, wasp, weasal, welsh corgi, wild boar, wildebeest, wolf, wolverine, wombat, woodpecker,
     yak,
-    zebra 
-
-
+    zebra]

@@ -1,4 +1,3 @@
 --- !<SilverNeedle.Lexicon.Descriptor>
 - name: fruit
-  words: |
-    apple, pear, strawberry
+  words: [apple, pear, strawberry]

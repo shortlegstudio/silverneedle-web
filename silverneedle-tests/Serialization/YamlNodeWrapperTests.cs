@@ -41,5 +41,19 @@ node4: value
             Assert.False(n.GetBool("boolean"));
         }
 
+        [Fact]
+        public void GetListWillReturnStringListIfKeyHasChildren()
+        {
+            string list = @"---
+list:
+    - one
+    - two
+    - three
+";
+            IObjectStore parsedYaml = list.ParseYaml();
+            string[] items = parsedYaml.GetList("list");
+            Assert.Equal(new string[] { "one", "two", "three"}, items);
+        }
+
     }
 }

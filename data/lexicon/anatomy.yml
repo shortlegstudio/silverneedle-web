@@ -1,18 +1,24 @@
 --- !<SilverNeedle.Lexicon.Descriptor>
 - name: body-location-humanoid
-  words: | 
-    [[left-right]] calf, [[left-right]] thigh, [[left-right]] foot, [[left-right]] ankle
-    [[left-right]] arm, [[left-right]] forearm, [[left-right]] bicep,
-    [[left-right]] breast, back, [[left-right]] of neck, lower neck
+  words:
+    - '{{ choose "left-right" }} calf'
+    - '{{ choose "left-right" }} thigh'
+    - '{{ choose "left-right" }} foot'
+    - '{{ choose "left-right" }} ankle'
+    - '{{ choose "left-right" }} arm'
+    - '{{ choose "left-right" }} forearm'
+    - '{{ choose "left-right" }} bicep'
+    - '{{ choose "left-right" }} breast'
+    - back
+    - '{{ choose "left-right" }} of neck'
+    - lower neck
 - name: ear
-  words: '{{choose "left-right"}} ear'
+  words: '{{ choose "left-right" }} ear'
 - name: finger-no-thumb
-  words: index, middle, ring, pinky
+  words: [index, middle, ring, pinky]
 - name: left-right
-  words: left, right
+  words: [left, right]
 - name: limb
-  words: |
-    [[left-right]] arm, [[left-right]] leg
+  words: ['{{ choose "left-right"}} arm', '{{ choose "left-right" }} leg']
 - name: skin-texture
-  words: |
-    wrinkly, smooth, rough, callused, splotchy, bumpy
+  words: [wrinkly, smooth, rough, callused, splotchy, bumpy]

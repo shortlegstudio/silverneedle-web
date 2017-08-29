@@ -169,6 +169,10 @@ namespace SilverNeedle.Serialization
         /// <param name="key">Key to the comma delimited string</param>
         public string[] GetList(string key)
         {
+            if (this.GetObject(key).HasChildren)
+            {
+                return this.GetObject(key).Children.Select(x => x.Value).ToArray();
+            }
             var val = this.GetString(key);            
             if (val != null)
             {
