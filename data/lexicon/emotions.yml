@@ -1,0 +1,4 @@
+--- !<SilverNeedle.Lexicon.Descriptor>
+- name: attachment-past-tense
+  words: [loved, liked, hated, ignored]
+

@@ -1,10 +1,13 @@
 --- !<SilverNeedle.Lexicon.Descriptor>
 - name: background-story
   words:
-    - '{{choose "birth-story"}} {{choose "parent-story"}}'
+    - '{{choose "birth-story"}} {{choose "parent-story"}} {{choose "childhood-story"}}'
 - name: birth-story
   words:
     - '{{name}} was born under the sign of the {{choose "animal"}}.'
 - name: parent-story
   words:
     - '{{possessivepronoun}} father, {{character-father-name}}, was a {{choose-occupation}} and {{possessivepronoun}} mother, {{character-mother-name}} was a {{choose-occupation}}.'
+- name: childhood-story
+  words:
+    - '{{name}} grew up with a pet {{choose "animal"}}. She {{choose "attachment-past-tense"}} {{choose "pet-name"}}.'

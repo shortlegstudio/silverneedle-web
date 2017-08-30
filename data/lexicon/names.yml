@@ -1,0 +1,5 @@
+--- !<SilverNeedle.Lexicon.Descriptor>
+- name: pet-name
+  words: [
+    Fluffy, Spot
+  ]
