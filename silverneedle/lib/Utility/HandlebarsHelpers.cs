@@ -7,6 +7,7 @@ namespace SilverNeedle.Utility
 {
     using System.Collections.Generic;
     using HandlebarsDotNet;
+    using SilverNeedle.Characters;
     using SilverNeedle.Lexicon;
     using SilverNeedle.Treasure;
 
@@ -36,6 +37,7 @@ namespace SilverNeedle.Utility
 
             helpers.Add(new ChooseWordFromGatewayObject<Color>(GatewayProvider.Get<Color>()));
             helpers.Add(new ChooseWordFromGatewayObject<Gem>(GatewayProvider.Get<Gem>()));
+            helpers.Add(new ChooseWordFromGatewayObject<Occupation>(GatewayProvider.Get<Occupation>()));
         }
     }
 }

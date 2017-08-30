@@ -6,16 +6,19 @@
 namespace SilverNeedle.Characters
 {
     using SilverNeedle.Serialization;
+    using SilverNeedle.Lexicon;
 
-    public class Occupation
+    [ObjectStoreSerializable]
+    public class Occupation : ILexiconGatewayObject
     {
-        public string Name { get; private set; }
-        public string Class { get; private set; }
+        [ObjectStore("name")]
+        public string Name { get; set; }
+        [ObjectStore("class")]
+        public string Class { get; set; }
 
-        public Occupation(IObjectStore data)
+        public bool Matches(string name)
         {
-            Name = data.GetString("name");
-            Class = data.GetString("class");
+            return this.Name.EqualsIgnoreCase(name);
         }
     }
 }

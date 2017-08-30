@@ -6,6 +6,7 @@
 namespace SilverNeedle.Lexicon
 {
     using SilverNeedle.Characters;
+    using SilverNeedle.Characters.Background;
     public class CharacterContext : PhraseContext
     {
         public CharacterContext(CharacterSheet character)
@@ -14,6 +15,8 @@ namespace SilverNeedle.Lexicon
             this.Add("pronoun", character.Gender.Pronoun());
             this.Add("possessivepronoun", character.Gender.PossessivePronoun());
             this.Add("character-sheet", character);
+            this.Add("character-father-name", character.Get<History>().FamilyTree.Father);
+            this.Add("character-mother-name", character.Get<History>().FamilyTree.Mother);
         }
     }
 }

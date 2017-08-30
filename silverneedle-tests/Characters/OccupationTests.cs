@@ -13,16 +13,11 @@ namespace Tests.Characters
     public class OccupationTests
     {
         [Fact]
-        public void CanParseFromObjectStore()
+        public void MatchesOnName()
         {
-            var data = new MemoryStore();
-            data.SetValue("name", "Pig Farmer");
-            data.SetValue("class", "commoner");
-
-            var oc = new Occupation(data);
-            Assert.Equal("Pig Farmer", oc.Name);
-            Assert.Equal("commoner", oc.Class);
-            
+            var occ = new Occupation();
+            occ.Name = "foo";
+            Assert.True(occ.Matches("foo"));
         }
     }
 }
