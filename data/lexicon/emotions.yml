@@ -1,4 +1,8 @@
 --- !<SilverNeedle.Lexicon.Descriptor>
 - name: attachment-past-tense
   words: [loved, liked, hated, ignored]
+- name: enjoyed-hated
+  words: [enjoyed, hated, liked, disliked, delighted in, detested]
+- name: positive-negative
+  words: [positive, negative, powerful, negligible]
 

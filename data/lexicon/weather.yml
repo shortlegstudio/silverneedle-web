@@ -1,0 +1,3 @@
+--- !<SilverNeedle.Lexicon.Descriptor>
+- name: weather
+  words: [blizzard, lightning storm, tornado, hurricane, sunny day, snowstorm, torrential rain, windy day]

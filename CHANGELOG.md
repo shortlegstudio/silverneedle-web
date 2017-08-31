@@ -13,9 +13,12 @@ All notable changes will be tracked in this file. Most likely.
 - Added domain abilities and spells
 - Added masterwork armor and weapons
 - Added concept of "shops" they are limited right now but room to grow 
+- Added basic magic weapons and armor
+- Added wands and potions
 - Improved ability to generate descriptions
 - Allows for cascading description templates to choose more complex descriptions
 - Created common lexicon for story generation
+- Introduced background story generation
 
 ### Changed
 - Layout of HTML has changed. It will provide better flexibility in long run but 

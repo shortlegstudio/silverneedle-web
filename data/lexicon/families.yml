@@ -1,0 +1,5 @@
+--- !<SilverNeedle.Lexicon.Descriptor>
+- name: parent
+  words: [father, mother]
+- name: relative
+  words: ['{{choose "parent"}}', uncle, aunt, cousin, grandfather, grandmother]
