@@ -81,6 +81,11 @@ namespace SilverNeedle
             return table;
         }
 
+        public static WeightedOptionTable<T> CreateWeightedTable<T>(this IEnumerable<T> source) where T : IWeightedTableObject
+        {
+            return new WeightedOptionTable<T>(source);
+        }
+
         /// <summary>
         /// Adds an enumerable list of items to a list
         /// </summary>

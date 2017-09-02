@@ -1,5 +1,6 @@
 @using SilverNeedle.Characters;
 @using SilverNeedle.Characters.Magic;
+@using SilverNeedle.Characters.Background;
 @{
     var character = (CharacterSheetTextView)ViewData["Character"];
     var charFull = (CharacterSheet)ViewData["characterFull"];
@@ -309,6 +310,7 @@
                         <li><strong>Homeland</strong> @character.Homeland</li>
                         <li><strong>Drawback</strong> @character.Drawback</li>
                         <li><strong>Origins</strong> @character.ClassOrigin</li>
+                        <li><strong>Birth</strong> @{ var birthCirc = charFull.Get<History>().BirthCircumstance.Name; } @birthCirc</li>
                     </ul>
                 </div>
             </div>

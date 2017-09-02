@@ -1,0 +1,45 @@
+--- !<SilverNeedle.Characters.Background.BirthCircumstance>
+- name: Lower-Class Birth
+  weight: 40
+- name: Middle-Class Birth
+  weight: 25
+- name: Noble Birth
+  weight: 5
+- name: Adopted Outside of Race
+  weight: 2
+  tags: different-race-parents
+- name: Adopted
+  weight: 5
+  tags: different-name-parents
+- name: Bastard Born
+  weight: 4
+  tags: single-parent
+- name: Blessed Birth
+  weight: 1
+- name: Born of Violence
+  weight: 2
+  tags: single-parent
+- name: Born out of Time 
+  weight: 1
+- name: Born into Bondage
+  weight: 2
+- name: Cursed Birth
+  weight: 1
+- name: Dishonored Family
+  weight: 2
+- name: Heir to a Legacy
+  weight: 2
+- name: Left to Die
+  weight: 2
+- name: Marked by Gods
+  weight: 1
+- name: Energy Infused
+  weight: 1
+- name: Progeny of Power
+  weight: 1
+- name: Prophesied
+  weight: 1
+- name: Reincarnated
+  weight: 1
+- name: Omen
+  weight: 1

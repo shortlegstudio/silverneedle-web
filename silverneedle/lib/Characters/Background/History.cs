@@ -13,12 +13,14 @@ namespace SilverNeedle.Characters.Background
             FamilyTree = new FamilyTree();
             ClassOriginStory = new ClassOrigin();
             Drawback = new Drawback();
+            BirthCircumstance = new BirthCircumstance();
         }
 
         public Homeland Homeland { get; set; }
         public FamilyTree FamilyTree { get; set; }
         public ClassOrigin ClassOriginStory { get; set; }
         public Drawback Drawback { get; set; }
+        public BirthCircumstance BirthCircumstance { get; set; }
     }
 }
 
