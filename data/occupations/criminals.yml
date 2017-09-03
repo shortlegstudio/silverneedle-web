@@ -1,3 +1,4 @@
 --- !<SilverNeedle.Characters.Occupation>
 - name: Burglar
   class: Warrior
+  tags: criminal

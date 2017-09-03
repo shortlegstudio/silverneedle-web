@@ -16,6 +16,9 @@ namespace SilverNeedle.Characters
         [ObjectStore("class")]
         public string Class { get; set; }
 
+        [ObjectStoreOptional("tags")]
+        public string[] Tags { get; set; }
+
         public bool Matches(string name)
         {
             return this.Name.EqualsIgnoreCase(name);

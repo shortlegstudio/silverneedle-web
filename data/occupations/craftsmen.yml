@@ -1,38 +1,56 @@
 --- !<SilverNeedle.Characters.Occupation>
 - name: Apothecary
   class: Expert
+  tags: trained-class
 - name: Armorer
   class: Commoner
+  tags: trained-class
 - name: Artist
   class: Expert
+  tags: trained-class
 - name: Atilliator
   class: Commoner
+  tags: trained-class
 - name: Basketmaker
   class: Commoner
+  tags: trained-class
 - name: Black Smith
   class: Commoner
+  tags: trained-class
 - name: Bowyer
   class: Commoner
+  tags: trained-class
 - name: Brewer
   class: Commoner
+  tags: working-class
 - name: Brush Maker
   class: Commoner
+  tags: trained-class
 - name: Candlemaker
   class: Commoner
+  tags: trained-class
 - name: Carpenter
   class: Commoner
+  tags: trained-class
 - name: Cartwright
   class: Commoner
+  tags: trained-class
 - name: Clothier
   class: Commoner
+  tags: trained-class
 - name: Cooper
   class: Commoner
+  tags: trained-class
 - name: Cordwainer
   class: Commoner
+  tags: trained-class
 - name: Fletcher
   class: Commoner
+  tags: trained-class
 - name: Gold Smith
   class: Commoner
+  tags: trained-class
 - name: Thatcher
   class: Commoner
+  tags: working-class
 

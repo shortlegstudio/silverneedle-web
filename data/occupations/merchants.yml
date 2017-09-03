@@ -1,15 +1,22 @@
 --- !<SilverNeedle.Characters.Occupation>
 - name: Baker
   class: Commoner
+  tags: merchant-class
 - name: Barber
   class: Commoner
+  tags: merchant-class
 - name: Bottler
   class: Commoner
+  tags: merchant-class
 - name: Draper
   class: Commoner
+  tags: merchant-class
 - name: Fish Monger
   class: Commoner
+  tags: merchant-class
 - name: Grocer
   class: Commoner
+  tags: merchant-class
 - name: Innkeeper
   class: Commoner
+  tags: merchant-class

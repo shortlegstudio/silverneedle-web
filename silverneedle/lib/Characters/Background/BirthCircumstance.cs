@@ -20,6 +20,9 @@ namespace SilverNeedle.Characters.Background
         [ObjectStoreOptional("tags")]
         public string[] Tags { get; set; }
 
+        [ObjectStore("parent-professions")]
+        public string [] ParentProfessions { get; set; }
+
         public BirthCircumstance() { }
         public BirthCircumstance(string name, int weight)
         {

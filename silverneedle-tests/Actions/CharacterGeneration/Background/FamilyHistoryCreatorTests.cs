@@ -17,7 +17,10 @@ namespace Tests.Actions
         public void CanCreateFamilyTreeWithParents()
         {
             var generator = new FamilyHistoryCreator();
-            var familyTree = generator.CreateFamilyTree("Human", "FoodlePoodle");
+            var character = CharacterTestTemplates.AverageBob();
+            generator.ExecuteStep(character, new CharacterBuildStrategy());
+            
+            var familyTree = character.Get<History>().FamilyTree;
 
             Assert.NotNull(familyTree.Father);
             Assert.NotNull(familyTree.Mother);

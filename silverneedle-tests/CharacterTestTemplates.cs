@@ -16,7 +16,13 @@ namespace Tests
             bob.Gender = Gender.Male;
             bob.Get<History>().FamilyTree.Father = "Bob's Father";
             bob.Get<History>().FamilyTree.Mother = "Bob's Mother";
+
+            var human = new Race();
+            human.Name = "Human";
+            bob.SetRace(human);
             return bob;
         }
+
+
     }
 }

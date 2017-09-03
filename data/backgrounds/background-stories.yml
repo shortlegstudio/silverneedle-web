@@ -4,7 +4,7 @@
     - '{{choose "birth-story"}} {{choose "parent-story"}} {{choose "childhood-story"}}'
 - name: birth-story
   words:
-    - '{{name}} was born under the sign of the {{choose "animal"}} to her mother {{character-mother-name}} and father {{character-father-name}}.'
+    - '{{name}} was born under the sign of the {{choose "animal"}} to {{possessivepronoun}} mother {{character-mother-name}} and father {{character-father-name}}.'
     - '{{name}} was born during {{choose "weather"}} to her mother {{character-mother-name}} and father {{character-father-name}}.'
 - name: parent-story
   words:

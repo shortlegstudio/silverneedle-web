@@ -1,18 +1,25 @@
 --- !<SilverNeedle.Characters.Occupation>
 - name: Bailiff
   class: Warrior
+  tags: trained-class
 - name: Catchpole
   class: Warrior
+  tags: trained-class
 - name: Chamberlain
   class: Expert
+  tags: artistocrat-class
 - name: Chancellor
   class: Expert
 - name: Clerk
   class: Commoner
+  tags: trained-class
 - name: Constable
   class: Commoner
+  tags: trained-class
 - name: Diplomat
   class: Expert
+  tags: artistocrat-class
 - name: Reeve
   class: Expert
+  tags: artistocrat-class
   

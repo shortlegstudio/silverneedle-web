@@ -1,3 +1,4 @@
 --- !<SilverNeedle.Characters.Occupation>
 - name: Chaplain
-  class: Commoner
+  class: Adept
+  tags: religion
