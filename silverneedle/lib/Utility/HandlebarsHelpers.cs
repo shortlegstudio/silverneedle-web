@@ -21,20 +21,14 @@ namespace SilverNeedle.Utility
                 writer.WriteSafeString(value.ChooseOne());
             });
 
-            Handlebars.RegisterHelper("choose", (writer, context, parameters) => {
-                var descriptorName = parameters[0].ToString();
-                var choice = Descriptor.FindAndChooseWord(descriptorName);
-                writer.WriteSafeString(choice);
-            });
-
-            RegisterAllSupportedGateways();
+            RegisterSupportedHelpers();
         }
 
-        private static void RegisterAllSupportedGateways()
+        private static void RegisterSupportedHelpers()
         {
             if(helpers.Count > 0)
                 return;
-
+            helpers.Add(new ChooseDescriptor());
             helpers.Add(new ChooseWordFromGatewayObject<Color>(GatewayProvider.Get<Color>()));
             helpers.Add(new ChooseWordFromGatewayObject<Gem>(GatewayProvider.Get<Gem>()));
             helpers.Add(new ChooseWordFromGatewayObject<Occupation>(GatewayProvider.Get<Occupation>()));

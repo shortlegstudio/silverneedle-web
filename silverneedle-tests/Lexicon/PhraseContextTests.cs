@@ -33,6 +33,14 @@ namespace Tests.Lexicon
         }
 
         [Fact]
+        public void AddsItselfToObjectContext()
+        {
+            var context = new PhraseContext();
+            dynamic obj = context.CreateObject();
+            Assert.Equal(context, obj.BaseContext);
+        }
+
+        [Fact]
         public void CanInitializeLikeADictionary()
         {
             var context = new PhraseContext() 
@@ -43,6 +51,15 @@ namespace Tests.Lexicon
 
             Assert.Equal("Bob", context.GetValue<string>("name"));
             Assert.Equal(28, context.GetValue<int>("age"));
+        }
+
+        [Fact]
+        public void AddingTheSameValueUpdatesThatValue()
+        {
+            var context = new PhraseContext();
+            context.Add("name", "Bob");
+            context.Add("name", "Joe");
+            Assert.Equal("Joe", context.GetValue<string>("name"));
         }
     }
 }

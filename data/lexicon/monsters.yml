@@ -1,0 +1,18 @@
+--- !<SilverNeedle.Lexicon.Descriptor>
+- name: monster-encounter
+  words:
+    - band of orcs
+    - demons
+    - devils
+    - dragon
+    - evil wizard
+    - evil cleric
+    - family of giants
+    - ghouls
+    - goblin raiders
+    - griffon
+    - imps
+    - ogre
+    - paladin army
+    - skeleton horde
+    - zombies

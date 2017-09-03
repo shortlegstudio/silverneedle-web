@@ -19,6 +19,7 @@ All notable changes will be tracked in this file. Most likely.
 - Allows for cascading description templates to choose more complex descriptions
 - Created common lexicon for story generation
 - Introduced background story generation
+- Stores selected values to make more robust story telling by allowing repeating words
 
 ### Changed
 - Layout of HTML has changed. It will provide better flexibility in long run but 

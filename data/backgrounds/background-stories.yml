@@ -17,7 +17,7 @@
     - '{{choose "town-attacked-story"}}'
 - name: childhood-pet-story
   words:
-    - '{{name}} grew up with a pet {{choose "animal"}}. She {{choose "attachment-past-tense"}} {{choose "pet-name"}}.'
+    - '{{name}} grew up with a pet {{choose "animal"}} named {{choose "pet-name"}}. She {{choose "attachment-past-tense"}} {{pet-name}}.'
 - name: town-attacked-story
   words:
-    - 'One night/day {{possessivepronoun}} home was attacked by some monsters. During the battle {{possessivepronoun}} {{choose "relative"}} was killed.'
+    - 'One night/day {{possessivepronoun}} home was attacked by {{choose "monster-encounter"}}. During the battle {{possessivepronoun}} {{choose "relative"}} was killed.'

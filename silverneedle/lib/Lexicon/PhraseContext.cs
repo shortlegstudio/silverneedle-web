@@ -11,6 +11,7 @@ namespace SilverNeedle.Lexicon
 
     public class PhraseContext : System.Collections.IEnumerable
     {
+        public const string CONTEXT_KEY = "BaseContext";
         private IDictionary<string, object> properties = new Dictionary<string, object>();
 
         public void Add(string name, object value)
@@ -27,6 +28,7 @@ namespace SilverNeedle.Lexicon
         {
             var expand = new ExpandoObject();
             var props = (IDictionary<string, object>)expand;
+            props.Add(CONTEXT_KEY, this);
             foreach(var keyvalue in properties) 
             {
                 props.Add(keyvalue.Key, keyvalue.Value);
@@ -40,9 +42,16 @@ namespace SilverNeedle.Lexicon
             return ((IEnumerable)properties).GetEnumerator();
         }
 
-        public void Add<TKey, TValue>(TKey key, TValue value) 
+        public void Add<TValue>(string key, TValue value) 
         {
-            properties.Add(key.ToString(), value);
+            if(properties.ContainsKey(key))
+            {
+                properties[key] = value;
+            }
+            else
+            {
+                properties.Add(key, value);
+            }
         }
     }
 }
