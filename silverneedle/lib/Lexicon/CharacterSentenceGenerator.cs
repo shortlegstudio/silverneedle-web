@@ -5,13 +5,12 @@
 
 namespace SilverNeedle.Lexicon
 {
-    using HandlebarsDotNet;
     using SilverNeedle.Characters;
     public static class CharacterSentenceGenerator
     {
         public static string Create(CharacterSheet character, TemplateSentenceGenerator outline)
         {
-            SilverNeedle.Utility.HandlebarsHelpers.ConfigureHelpers();
+            HandlebarsHelpers.InitializeHelpers();
             var template = outline.Templates.ChooseOne();
             var context = new PhraseContext() {
                 { "name" , character.Name },

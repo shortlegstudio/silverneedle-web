@@ -12,6 +12,7 @@ namespace SilverNeedle.Lexicon
         private System.Func<object, string> compiledTemplate;
         public PhraseTemplate(string template)
         {
+            HandlebarsHelpers.InitializeHelpers();
             this.Template = template;
             compiledTemplate = Handlebars.Compile(this.Template);
         }

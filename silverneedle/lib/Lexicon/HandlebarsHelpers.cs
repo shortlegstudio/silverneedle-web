@@ -3,7 +3,7 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-namespace SilverNeedle.Utility
+namespace SilverNeedle.Lexicon
 {
     using System.Collections.Generic;
     using HandlebarsDotNet;
@@ -11,10 +11,14 @@ namespace SilverNeedle.Utility
     using SilverNeedle.Lexicon;
     using SilverNeedle.Treasure;
 
-    public class HandlebarsHelpers
+    public static class HandlebarsHelpers
     {
         private static IList<ITemplateExpander> helpers = new List<ITemplateExpander>();
-        public static void ConfigureHelpers() {
+        public static void InitializeHelpers() {
+            //Only initialize Once TODO - Better solutions
+            if(helpers.Count > 0)
+                return;
+
             Handlebars.RegisterHelper("descriptor", (writer, context, parameters) => {
                 ShortLog.DebugFormat("Getting descriptor: {0}", parameters[0].ToString());
                 var value = context.descriptors[parameters[0].ToString()] as string[];
@@ -26,8 +30,6 @@ namespace SilverNeedle.Utility
 
         private static void RegisterSupportedHelpers()
         {
-            if(helpers.Count > 0)
-                return;
             helpers.Add(new ChooseDescriptor());
             helpers.Add(new ChooseWordFromGatewayObject<Color>(GatewayProvider.Get<Color>()));
             helpers.Add(new ChooseWordFromGatewayObject<Gem>(GatewayProvider.Get<Gem>()));
