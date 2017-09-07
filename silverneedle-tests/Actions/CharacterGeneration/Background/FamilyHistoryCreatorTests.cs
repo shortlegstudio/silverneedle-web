@@ -9,6 +9,7 @@ namespace Tests.Actions
     using SilverNeedle.Actions.CharacterGeneration.Background;
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.Background;
+    using SilverNeedle.Serialization;
 
     
     public class FamilyHistoryCreatorTests : RequiresDataFiles
@@ -22,10 +23,10 @@ namespace Tests.Actions
             
             var familyTree = character.Get<History>().FamilyTree;
 
-            Assert.NotNull(familyTree.Father);
-            Assert.NotNull(familyTree.Mother);
-            Assert.NotEmpty(familyTree.Father);
-            Assert.NotEmpty(familyTree.Mother);
+            Assert.NotNull(familyTree.FatherName);
+            Assert.NotNull(familyTree.MotherName);
+            Assert.NotEmpty(familyTree.FatherName);
+            Assert.NotEmpty(familyTree.MotherName);
         }
 
         [Fact]
@@ -41,8 +42,36 @@ namespace Tests.Actions
 
             var gen = new FamilyHistoryCreator();
             gen.ExecuteStep(character, new CharacterBuildStrategy());
-            var names = history.FamilyTree.Father + " " + history.FamilyTree.Mother;
+            var names = history.FamilyTree.FatherName + " " + history.FamilyTree.MotherName;
             Assert.Contains("BarOrSomethingCrazyThatWontHappenAccidentally", names);
+        }
+
+        [Fact]
+        public void MotherAndFatherAreGivenJobsDependingOnTagsFromBirthCircumstance()
+        {
+            //Bob's parents were lower-class
+            var bob = CharacterTestTemplates.AverageBob();
+            bob.History.BirthCircumstance.ParentProfessions = new string[] { "lower-class" };
+
+            var peasant = new Occupation("peasant", "commoner", new string[] { "lower-class" });
+            var occGateway = EntityGateway<Occupation>.LoadWithSingleItem(peasant);
+            
+            var historyCreator = new FamilyHistoryCreator(occGateway);
+            historyCreator.ExecuteStep(bob, new CharacterBuildStrategy());
+
+            Assert.Equal(peasant, bob.Get<History>().FamilyTree.Father.Get<Occupation>());
+            Assert.Equal(peasant, bob.Get<History>().FamilyTree.Mother.Get<Occupation>());
+        }
+
+        [Fact]
+        public void IfNoOccupationsMatchJustPickUnemployed()
+        {
+            var bob = CharacterTestTemplates.AverageBob();
+            var historyCreator = new FamilyHistoryCreator();
+            historyCreator.ExecuteStep(bob, new CharacterBuildStrategy());
+            
+            Assert.Equal(Occupation.Unemployed(), bob.Get<History>().FamilyTree.Father.Get<Occupation>());
+            Assert.Equal(Occupation.Unemployed(), bob.Get<History>().FamilyTree.Mother.Get<Occupation>());
         }
     }
 }

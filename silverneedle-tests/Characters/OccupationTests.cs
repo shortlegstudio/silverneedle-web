@@ -19,5 +19,13 @@ namespace Tests.Characters
             occ.Name = "foo";
             Assert.True(occ.Matches("foo"));
         }
+
+        [Fact]
+        public void MatchesWithTags()
+        {
+            var occ = new Occupation("peasant", "commoner", new string[] { "working-class", "poor" });
+            Assert.True(occ.MatchAnyTags(new string[] { "missing", "poor" }));
+            Assert.False(occ.MatchAnyTags(new string[] { }));
+        }
     }
 }

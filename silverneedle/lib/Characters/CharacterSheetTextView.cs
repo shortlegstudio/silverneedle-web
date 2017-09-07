@@ -72,8 +72,8 @@ namespace SilverNeedle.Characters
             Languages = character.Languages.Select(x => x.Name).ToArray();
             Gear = character.Inventory.ToStringArray();
 
-            Father = character.History.FamilyTree.Father;
-            Mother = character.History.FamilyTree.Mother;
+            Father = character.History.FamilyTree.FatherName;
+            Mother = character.History.FamilyTree.MotherName;
             ClassOrigin = character.History.ClassOriginStory.Name;
             Drawback = character.History.Drawback.Name;
             Homeland = character.History.Homeland.Location;

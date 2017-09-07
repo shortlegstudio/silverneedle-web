@@ -14,8 +14,8 @@ namespace Tests
             var bob = new CharacterSheet();
             bob.FirstName = "Bob";
             bob.Gender = Gender.Male;
-            bob.Get<History>().FamilyTree.Father = "Bob's Father";
-            bob.Get<History>().FamilyTree.Mother = "Bob's Mother";
+            bob.Get<History>().FamilyTree.Father.FirstName = "Bob's Father";
+            bob.Get<History>().FamilyTree.Mother.FirstName = "Bob's Mother";
 
             var human = new Race();
             human.Name = "Human";

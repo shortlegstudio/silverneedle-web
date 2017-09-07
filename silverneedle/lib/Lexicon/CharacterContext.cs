@@ -15,8 +15,17 @@ namespace SilverNeedle.Lexicon
             this.Add("pronoun", character.Gender.Pronoun());
             this.Add("possessivepronoun", character.Gender.PossessivePronoun());
             this.Add("character-sheet", character);
-            this.Add("character-father-name", character.Get<History>().FamilyTree.Father);
-            this.Add("character-mother-name", character.Get<History>().FamilyTree.Mother);
+            AddParentInformation(character);
+        }
+
+        private void AddParentInformation(CharacterSheet character)
+        {
+            var father = character.Get<History>().FamilyTree.Father;
+            var mother = character.Get<History>().FamilyTree.Mother;
+            this.Add("character-father-name", father.Name);
+            this.Add("character-mother-name", mother.Name);
+            this.Add("character-father-job", father.GetOrDefault<Occupation>(Occupation.Unemployed()).Name);
+            this.Add("character-mother-job", mother.GetOrDefault<Occupation>(Occupation.Unemployed()).Name);
         }
     }
 }

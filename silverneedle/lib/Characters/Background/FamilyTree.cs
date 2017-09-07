@@ -7,12 +7,37 @@ namespace SilverNeedle.Characters.Background
 {
     public class FamilyTree
     {
-        public FamilyTree()
-        {
+        private CharacterSheet father;
+        private CharacterSheet mother;
+
+        public CharacterSheet Father 
+        { 
+            get 
+            { 
+                if(father == null) 
+                    father = new CharacterSheet();
+                return father;
+            } 
+        }
+        public CharacterSheet Mother 
+        { 
+            get
+            {
+                if(mother == null)
+                    mother = new CharacterSheet();
+
+                return mother;
+             } 
         }
 
-        public string Father { get; set; }
-        public string Mother { get; set; }
+        public string FatherName 
+        { 
+            get { return Father.Name; }
+        }
+        public string MotherName 
+        { 
+            get { return Mother.Name; }
+        }
     }
 }
 

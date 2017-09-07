@@ -40,6 +40,14 @@ namespace Tests.Characters
         }
 
         [Fact]
+        public void CanGetAComponentWithADefaultIfMissing()
+        {
+            var sheet = new CharacterSheet();
+            var comp = sheet.GetOrDefault<Occupation>(Occupation.Unemployed());
+            Assert.Equal(Occupation.Unemployed(), comp);
+        }
+
+        [Fact]
         public void CharactersHaveVitalStats()
         {
             var sheet = new CharacterSheet();

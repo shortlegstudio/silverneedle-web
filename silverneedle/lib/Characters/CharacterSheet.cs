@@ -353,6 +353,15 @@ namespace SilverNeedle.Characters
             return this.Components.Get<T>();
         }
 
+        public T GetOrDefault<T>(T defaultIfMissing)
+        {
+            var item = Get<T>();
+            if(item == null)
+                return defaultIfMissing;
+            
+            return item;
+        }
+
         public IEnumerable<T> GetAll<T>()
         {
             return this.Components.GetAll<T>().ToList();

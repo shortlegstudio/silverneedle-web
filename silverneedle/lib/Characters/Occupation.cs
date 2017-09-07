@@ -5,6 +5,7 @@
 
 namespace SilverNeedle.Characters
 {
+    using System.Linq;
     using SilverNeedle.Serialization;
     using SilverNeedle.Lexicon;
 
@@ -23,5 +24,33 @@ namespace SilverNeedle.Characters
         {
             return this.Name.EqualsIgnoreCase(name);
         }
+        public bool MatchAnyTags(string [] tags)
+        {
+            if(tags == null)
+                return false;
+            return this.Tags.Any(x => tags.Contains(x));
+        }
+
+        public Occupation() 
+        { 
+            this.Tags = new string[] { };
+        }
+        public Occupation(string name, string characterClass, string[] tags)
+        {
+            this.Name = name;
+            this.Class = characterClass;
+            this.Tags = tags;
+        }
+
+
+        private static Occupation unemployed;
+        public static Occupation Unemployed()
+        {
+            if(unemployed == null)
+                unemployed = new Occupation("Unemployed", "", new string[] { });
+
+            return unemployed;
+        }
+
     }
 }

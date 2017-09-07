@@ -8,7 +8,7 @@
     - '{{name}} was born during {{choose "weather"}} to her mother {{character-mother-name}} and father {{character-father-name}}.'
 - name: parent-story
   words:
-    - '{{possessivepronoun}} father was a {{choose-occupation}} and {{possessivepronoun}} mother was a {{choose-occupation}}. 
+    - '{{possessivepronoun}} father was a {{character-father-job}} and {{possessivepronoun}} mother was a {{character-mother-job}}. 
       {{pronoun}} {{choose "enjoyed-hated"}} watching {{possessivepronoun}} {{choose "parent"}} work.'
     - '{{possessivepronoun}} {{choose "parent"}} was a {{choose "positive-negative"}} force in {{possessivepronoun}} early years.'
 - name: childhood-story
