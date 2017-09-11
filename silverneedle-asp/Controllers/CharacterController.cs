@@ -18,7 +18,7 @@ namespace silverneedleweb.Controllers
 
         public IActionResult Index()
         {
-            var strategies = strategyGateway.All();
+            var strategies = strategyGateway.All().OrderBy(x => x.Name);
             ViewData["Strategies"] = strategies.ToArray();
             ViewData["ScoreGenerators"] = GatewayProvider.All<AbilityScoreGenerator>();
             return View();

@@ -1,0 +1,67 @@
+--- !<SilverNeedle.Characters.CharacterBuildStrategy>
+- characterbuild:
+  name: Ranger
+  classskillmultiplier: 3  
+  baseskillweight: 1
+  charactercreator: default
+  ability-score-roller: SilverNeedle.Actions.CharacterGeneration.Abilities.StandardAbilityScoreGenerator
+  designer: create-adventurer
+  classes:
+    - name: ranger
+      weight: 10
+  races:
+    - name: human
+      weight: 10
+    - name: elf
+      weight: 12
+    - name: half-orc
+      weight: 10
+    - name: half-elf 
+      weight: 14  
+    - name: dwarf
+      weight: 6    
+    - name: gnome
+      weight: 8    
+    - name: halfling
+      weight: 8    
+  skills:
+    - name: survival 
+      weight: 10
+    - name: climb
+      weight: 15
+    - name: swim
+      weight: 15
+    - name: heal
+      weight: 6
+    - name: intimidate
+      weight: 8
+  feats:
+    - name: power attack
+      weight: 30
+    - name: combat reflexes
+      weight: 20
+    - name: cleave
+      weight: 20
+    - name: improved initiative
+      weight: 5
+    - name: point-blank shot
+      weight: 40
+    - name: rapid shot
+      weight: 40
+    - name: precise shot
+      weight: 20
+    - name: deadly aim
+      weight: 20
+    - name: great fortitude
+      weight: 10
+    - name: iron will
+      weight: 10
+  abilities:
+    - name: dexterity
+      weight: 10
+    - name: strength
+      weight: 8
+    - name: constitution
+      weight: 6
+    - name: wisdom
+      weight: 4

@@ -1,0 +1,54 @@
+--- !<SilverNeedle.Characters.CharacterBuildStrategy>
+- characterbuild:
+  name: Fighter
+  classskillmultiplier: 3  
+  baseskillweight: 1
+  charactercreator: default
+  ability-score-roller: SilverNeedle.Actions.CharacterGeneration.Abilities.StandardAbilityScoreGenerator
+  designer: create-adventurer
+  classes:
+    - name: fighter
+      weight: 10
+  races:
+    - name: human
+      weight: 10
+    - name: elf
+      weight: 8
+    - name: half-orc
+      weight: 10
+    - name: half-elf 
+      weight: 8  
+    - name: dwarf
+      weight: 12    
+    - name: gnome
+      weight: 4    
+    - name: halfling
+      weight: 4    
+  skills:
+    - name: survival 
+      weight: 10
+    - name: climb
+      weight: 15
+    - name: swim
+      weight: 15
+    - name: heal
+      weight: 6
+    - name: intimidate
+      weight: 8
+  feats:
+    - name: power attack
+      weight: 30
+    - name: combat reflexes
+      weight: 20
+    - name: cleave
+      weight: 20
+    - name: improved initiative
+      weight: 5
+  abilities:
+    - name: strength
+      weight: 100
+    - name: constitution
+      weight: 80
+    - name: dexterity
+      weight: 60
+    

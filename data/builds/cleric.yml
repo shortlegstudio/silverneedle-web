@@ -1,0 +1,67 @@
+--- !<SilverNeedle.Characters.CharacterBuildStrategy>
+- characterbuild:
+  name: Cleric
+  classskillmultiplier: 5
+  baseskillweight: 1
+  charactercreator: default
+  designer: create-adventurer
+  ability-score-roller: SilverNeedle.Actions.CharacterGeneration.Abilities.ThreedSixAbilityScoreGenerator
+  classes:
+    - name: cleric
+      weight: 10
+  races:
+    - name: dwarf 
+      weight: 10     
+    - name: elf 
+      weight: 10     
+    - name: human
+      weight: 12
+    - name: half-orc
+      weight: 6
+    - name: half-elf 
+      weight: 8     
+    - name: halfling 
+      weight: 10     
+    - name: gnome 
+      weight: 10     
+  skills:
+    - name: heal
+      weight: 20
+    - name: knowledge nature
+      weight: 10
+    - name: knowledge religion
+      weight: 10
+    - name: knowledge planes
+      weight: 10
+    - name: spellcraft
+      weight: 10
+    - name: survival
+      weight: 10
+  feats:
+    - name: Animal Affinity
+      weight: 10
+    - name: Athletic
+      weight: 12
+    - name: Brew Potion
+      weight: 20
+    - name: Craft Magic Arms and Armor
+      weight: 20
+    - name: Craft Rod
+      weight: 20
+    - name: Craft Staff
+      weight: 20
+    - name: Craft Wand
+      weight: 20
+    - name: Craft Wondrous Item
+      weight: 20
+    - name: Extra Channel
+      weight: 20
+  abilities:
+    - name: wisdom
+      weight: 18
+    - name: intelligence
+      weight: 8
+    - name: constitution
+      weight: 8
+    - name: charisma
+      weight: 6
