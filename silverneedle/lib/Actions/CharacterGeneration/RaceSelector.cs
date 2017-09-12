@@ -131,8 +131,8 @@ namespace SilverNeedle.Actions.CharacterGeneration
         public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             ChooseRace(character, strategy.Races);
-            strategy.LanguagesKnown.Add(character.Race.KnownLanguages);
-            strategy.LanguageChoices.Add(character.Race.AvailableLanguages);
+            strategy.AddLanguagesKnown(character.Race.KnownLanguages);
+            strategy.AddLanguageChoices(character.Race.AvailableLanguages);
         }
 
     }

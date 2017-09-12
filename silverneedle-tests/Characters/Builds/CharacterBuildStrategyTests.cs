@@ -131,6 +131,21 @@ namespace Tests.Characters
             Assert.Contains("HeroicAbilityScore", archer.AbilityScoreRoller);
         }
 
+        [Fact]
+        public void CopyConstructorShouldCopyLanguageLists()
+        {
+          var strategyOne = new CharacterBuildStrategy();
+          strategyOne.AddLanguageKnown("English");
+          strategyOne.AddLanguageChoice("French");
+
+          var copy = new CharacterBuildStrategy(strategyOne);
+          copy.AddLanguageKnown("German");
+          copy.AddLanguageChoice("Russian");
+
+          Assert.Equal(new string[] { "English" }, strategyOne.LanguagesKnown);
+          Assert.Equal(new string[] { "French" }, strategyOne.LanguageChoices);
+        }
+
         private const string CharacterBuildYaml = @"--- 
 - build:
   name: Archer

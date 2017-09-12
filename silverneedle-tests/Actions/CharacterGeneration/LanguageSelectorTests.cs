@@ -7,7 +7,7 @@ using SilverNeedle;
 using SilverNeedle.Serialization;
 
 
-namespace Actions {
+namespace Tests.Actions.CharacterGeneration {
 
     
     public class LanguageSelectorTests {
@@ -25,8 +25,8 @@ namespace Actions {
         public void PickLanguagesThatAreKnownToTheRace() {
             var character = new CharacterSheet();
             var strategy = new CharacterBuildStrategy();
-            strategy.LanguagesKnown.Add ("Elvish");
-            strategy.LanguagesKnown.Add ("Giant");
+            strategy.AddLanguageKnown("Elvish");
+            strategy.AddLanguageKnown ("Giant");
             var subject = new LanguageSelector (languageGateway);
             subject.ExecuteStep(character, strategy);
             Assert.NotStrictEqual(character.Languages.Select(x => x.Name), new string[] { "Elvish", "Giant"});
@@ -35,9 +35,9 @@ namespace Actions {
         [Fact]
         public void PickExtraLanguagesIfSmartEnough() {
             var strategy = new CharacterBuildStrategy();
-            strategy.LanguagesKnown.Add ("Elvish");
-            strategy.LanguageChoices.Add ("Corgi");
-            strategy.LanguageChoices.Add ("Giant");
+            strategy.AddLanguageKnown ("Elvish");
+            strategy.AddLanguageChoice ("Corgi");
+            strategy.AddLanguageChoice ("Giant");
             var subject = new LanguageSelector (languageGateway);
 
             //Pick two bonus Language -> This should always return all the above
@@ -46,16 +46,17 @@ namespace Actions {
                 character.AbilityScores.SetScore(AbilityScoreTypes.Intelligence, 14);
                 subject.ExecuteStep(character, strategy);
                 var res = character.GetAll<Language>().Select(x => x.Name);
-                Assert.NotStrictEqual(res, new string[] { "Elvish", "Giant", "Corgi"});
+                
+                AssertExtensions.EquivalentLists(new string[] { "Elvish", "Giant", "Corgi"}, res);
             }
         }
 
         [Fact]
         public void IfRunOutOfLanguagesItsOk() {
             var strategy = new CharacterBuildStrategy();
-            strategy.LanguagesKnown.Add ("Elvish");
-            strategy.LanguageChoices.Add ("Corgi");
-            strategy.LanguageChoices.Add ("Giant");
+            strategy.AddLanguageKnown ("Elvish");
+            strategy.AddLanguageChoice ("Corgi");
+            strategy.AddLanguageChoice ("Giant");
             var subject = new LanguageSelector (languageGateway);
 
             //Pick two bonus Language -> This should always return all the above
@@ -72,7 +73,7 @@ namespace Actions {
         public void IfAvailableLanguagesIsSetToALLThenAnythingIsPossible()
         {
             var strategy = new CharacterBuildStrategy();
-            strategy.LanguageChoices.Add ("ALL");
+            strategy.AddLanguageChoice ("ALL");
             var subject = new LanguageSelector (languageGateway);
 
             //Pick two bonus Language -> This should always return all the above
@@ -89,9 +90,9 @@ namespace Actions {
         public void DoNotRepeatedlyAddKnownLanguages()
         {
             var strategy = new CharacterBuildStrategy();
-            strategy.LanguagesKnown.Add ("Corgi");
-            strategy.LanguagesKnown.Add ("Corgi");
-            strategy.LanguagesKnown.Add ("Elvish");
+            strategy.AddLanguageKnown ("Corgi");
+            strategy.AddLanguageKnown ("Corgi");
+            strategy.AddLanguageKnown ("Elvish");
             var subject = new LanguageSelector (languageGateway);
             var character = new CharacterSheet();
 

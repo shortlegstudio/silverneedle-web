@@ -19,8 +19,6 @@ namespace SilverNeedle.Characters
             FavoredFeats = new WeightedOptionTable<string>();
             FavoredAbilities = new WeightedOptionTable<AbilityScoreTypes>();
             FavoredAlignments = new WeightedOptionTable<CharacterAlignment>();
-            LanguageChoices = new List<string>();
-            LanguagesKnown = new List<string>();
             BuildAlignmentTable();
             FillInMissingAbilities(FavoredAbilities);
             TargetLevel = 1;
@@ -40,8 +38,6 @@ namespace SilverNeedle.Characters
             FavoredFeats = new WeightedOptionTable<string>();
             FavoredAbilities = new WeightedOptionTable<AbilityScoreTypes>();
             FavoredAlignments = new WeightedOptionTable<CharacterAlignment>();
-            LanguageChoices = new List<string>();
-            LanguagesKnown = new List<string>();
             ParseObjectStore(data);
         }
 
@@ -61,8 +57,8 @@ namespace SilverNeedle.Characters
             this.QuirkCount = copy.QuirkCount;
             this.FearCount = copy.FearCount;
             this.AbilityScoreRoller = copy.AbilityScoreRoller;
-            this.LanguageChoices = copy.LanguageChoices;
-            this.LanguagesKnown = copy.LanguagesKnown;
+            this.AddLanguageChoices(copy.LanguageChoices);
+            this.AddLanguagesKnown(copy.LanguagesKnown);
         }
         
         public string Name { get; set; }
@@ -86,8 +82,14 @@ namespace SilverNeedle.Characters
         public int FearCount { get; set; }
 
         public WeightedOptionTable<CharacterAlignment> FavoredAlignments { get; set; }
-        public IList<string> LanguageChoices { get; set; }
-        public IList<string> LanguagesKnown { get; set; }
+        public IEnumerable<string> LanguageChoices { get { return this.languageChoiceList; } }
+        public IEnumerable<string> LanguagesKnown { get { return this.languagesKnownList; } }
+        private IList<string> languageChoiceList = new List<string>();
+        private IList<string> languagesKnownList = new List<string>();
+        public void AddLanguageKnown(string language) { this.languagesKnownList.Add(language); }
+        public void AddLanguageChoice(string language) { this.languageChoiceList.Add(language); }
+        public void AddLanguagesKnown(IEnumerable<string> languages) { this.languagesKnownList.Add(languages); }
+        public void AddLanguageChoices(IEnumerable<string> languages) { this.languageChoiceList.Add(languages); }
         private void ParseObjectStore(IObjectStore data)
         {
             // Basic Properties
