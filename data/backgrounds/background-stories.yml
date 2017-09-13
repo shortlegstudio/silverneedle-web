@@ -5,7 +5,7 @@
 - name: birth-story
   words:
     - '{{name}} was born under the sign of the {{choose "animal"}} to {{possessivepronoun}} mother {{character-mother-name}} and father {{character-father-name}}.'
-    - '{{name}} was born during {{choose "weather"}} to her mother {{character-mother-name}} and father {{character-father-name}}.'
+    - '{{name}} was born during {{choose "weather"}} to {{possessivepronoun}} mother {{character-mother-name}} and father {{character-father-name}}.'
 - name: parent-story
   words:
     - '{{possessivepronoun}} father was a {{character-father-job}} and {{possessivepronoun}} mother was a {{character-mother-job}}. 
@@ -17,7 +17,7 @@
     - '{{choose "town-attacked-story"}}'
 - name: childhood-pet-story
   words:
-    - '{{name}} grew up with a pet {{choose "animal"}} named {{choose "pet-name"}}. She {{choose "attachment-past-tense"}} {{pet-name}}.'
+    - '{{name}} grew up with a pet {{choose "animal"}} named {{choose "pet-name"}}. {{pronoun}} {{choose "attachment-past-tense"}} {{pet-name}}.'
 - name: town-attacked-story
   words:
     - 'One night/day {{possessivepronoun}} home was attacked by {{choose "monster-encounter"}}. During the battle {{possessivepronoun}} {{choose "relative"}} was killed.'

@@ -20,8 +20,6 @@ namespace SilverNeedle.Characters.Appearance
         public HairColor HairColor { get; set; }
         public HairStyle HairStyle { get; set; }
 
-        public string Hair { get; set; }
-
         public string PhysicalAppearance { get; set; }
 
         public string Description { get; set; }

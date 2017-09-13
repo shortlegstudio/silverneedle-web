@@ -87,16 +87,11 @@ namespace SilverNeedle.Characters
                 IdealDescription = character.Ideal.Description;
             }
             Quirks = character.Get<Quirks>().Items.ToArray();
-            Hair = character.Appearance.Hair;
-            HairColor = character.Appearance.HairColor.ToString();
-            HairStyle = character.Appearance.HairStyle.ToString();
             FacialHair = character.Appearance.FacialHair.ToString();
-            EyeColor = character.Appearance.EyeColor.ToString();
             Age = character.Age.ToString();
             Height = character.Size.Height.ToInchesAndFeet();
             Weight = character.Size.Weight.ToPoundsString();
             Money = character.Inventory.CoinPurse.ToString();
-            PhysicalFeatures = character.Appearance.PhysicalAppearance;
             SpellsAvailable = new Dictionary<int, string[]>();
             SpellsPrepared = new Dictionary<int, string[]>();
 

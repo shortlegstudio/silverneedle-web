@@ -29,7 +29,6 @@ namespace SilverNeedle.Actions.CharacterGeneration.Appearance
         {
             character.Appearance.HairColor = hairColors.ChooseOne();
             character.Appearance.HairStyle = hairStyles.ChooseOne();
-            character.Appearance.Hair = string.Format("{0} {1}", character.Appearance.HairColor.CreateDescription(), character.Appearance.HairStyle.CreateDescription());
         }
     }
 }
