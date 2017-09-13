@@ -1,0 +1,12 @@
+--- !<SilverNeedle.Lexicon.Descriptor>
+- name: character-appearance
+  words: 
+    - '{{choose "eyes"}} {{ choose "hair" }} {{physical-features}}'
+    - '{{choose "hair"}} {{ choose "eyes" }} {{physical-features}}'
+    - '{{physical-features}} {{choose "hair"}} {{ choose "eyes" }}'
+- name: hair
+  words:
+    - '{{possessivepronoun}} hair is a {{haircolor}} {{hairstyle}}.'
+- name: eyes
+  words:
+    - '{{possessivepronoun}} eyes are {{eyecolor}}.'

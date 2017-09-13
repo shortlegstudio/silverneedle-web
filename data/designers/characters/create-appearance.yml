@@ -6,3 +6,4 @@
     - step: SilverNeedle.Actions.CharacterGeneration.Appearance.CreateFacialFeatures
     - step: SilverNeedle.Actions.CharacterGeneration.Appearance.CreateHair
     - step: SilverNeedle.Actions.CharacterGeneration.Appearance.CreatePhysicalFeatures
+    - step: SilverNeedle.Actions.CharacterGeneration.Appearance.CreateCharacterDescription

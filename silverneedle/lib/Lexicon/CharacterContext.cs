@@ -26,6 +26,11 @@ namespace SilverNeedle.Lexicon
             this.Add("character-mother-name", mother.Name);
             this.Add("character-father-job", father.GetOrDefault<Occupation>(Occupation.Unemployed()).Name);
             this.Add("character-mother-job", mother.GetOrDefault<Occupation>(Occupation.Unemployed()).Name);
+            //TODO: HairStyle/Color should not use create description here. Need static descriptions
+            this.Add("eyecolor", character.Appearance.EyeColor.CreateDescription());
+            this.Add("hairstyle", character.Appearance.HairStyle.CreateDescription());
+            this.Add("haircolor", character.Appearance.HairColor.CreateDescription());
+            this.Add("physical-features", character.Appearance.PhysicalAppearance);
         }
     }
 }
