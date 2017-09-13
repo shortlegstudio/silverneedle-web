@@ -1,0 +1,51 @@
+--- !<SilverNeedle.Characters.CharacterBuildStrategy>
+- characterbuild:
+  name: Druid
+  classskillmultiplier: 5
+  baseskillweight: 1
+  charactercreator: default
+  designer: create-adventurer
+  ability-score-roller: SilverNeedle.Actions.CharacterGeneration.Abilities.ThreedSixAbilityScoreGenerator
+  classes:
+    - name: druid
+      weight: 10
+  races:
+    - name: dwarf 
+      weight: 10     
+    - name: elf 
+      weight: 10     
+    - name: human
+      weight: 12
+    - name: half-orc
+      weight: 6
+    - name: half-elf 
+      weight: 8     
+    - name: halfling 
+      weight: 10     
+    - name: gnome 
+      weight: 10     
+  skills:
+    - name: handle animal
+      weight: 30
+    - name: heal
+      weight: 20
+    - name: knowledge nature
+      weight: 10
+    - name: spellcraft
+      weight: 10
+    - name: survival
+      weight: 10
+  feats:
+    - name: Animal Affinity
+      weight: 10
+    - name: Athletic
+      weight: 12
+    - name: Brew Potion
+      weight: 20
+  abilities:
+    - name: wisdom
+      weight: 18
+    - name: constitution
+      weight: 10
+    - name: dexterity
+      weight: 12
