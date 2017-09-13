@@ -1,7 +1,12 @@
 # Change Log
 All notable changes will be tracked in this file. Most likely.
 
-## [Unreleased]
+## [Unreleased Changes]
+### Added
+### Changed
+### Known Issues
+
+## 0.2.0.0
 ### Added
 - Added 3d6 ability score generator
 - Added point buy ability score generator
@@ -20,6 +25,9 @@ All notable changes will be tracked in this file. Most likely.
 - Created common lexicon for story generation
 - Introduced background story generation
 - Stores selected values to make more robust story telling by allowing repeating words
+- Generates description sentences for the characters eyes and hair
+- Allows selecting from available main classes
+
 
 ### Changed
 - Layout of HTML has changed. It will provide better flexibility in long run but 
@@ -31,4 +39,6 @@ other libraries in the future
 
 ### Known Issues
 - Rage Powers and Rogue Talents don't modify stats and are incomplete
+- Feats aren't fully implemented yet
+- Descriptions are limited and look a little funky. Baseline is robust but will take work to get smoothed out
 - In production it can get stuck and generates all the same names. Not able to repro yet.
