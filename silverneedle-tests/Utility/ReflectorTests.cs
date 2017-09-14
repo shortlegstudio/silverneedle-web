@@ -24,6 +24,12 @@ namespace Tests.Utility
             Assert.NotStrictEqual(new System.Type[] { typeof(DummyOne), typeof(DummyTwo)}, types);
         }
 
+        [Fact]
+        public void ThrowExceptionIfTypeNotFound()
+        {
+            Assert.Throws(typeof(TypeNotFoundException), () => "SomeRandomTypeThatCantExist".Instantiate<object>()); 
+        }
+
         public interface IDummy { }
         public class DummyOne : IDummy { }
         public class DummyTwo : IDummy { }

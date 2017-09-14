@@ -10,7 +10,7 @@ namespace Tests.Actions.CharacterGeneration.Appearance
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.Appearance;
 
-    public class CreateCharacterDescriptionTests 
+    public class CreateCharacterDescriptionTests : RequiresDataFiles
     {
         [Fact]
         public void CombinesPhysicalFeaturesAndHairIntoSingleDescription()

@@ -46,6 +46,9 @@ namespace SilverNeedle.Utility
             // Search all loaded assemblies for the type name
 
             var type = FindType(typeName);
+            if(type == null)
+                throw new TypeNotFoundException(typeName);
+
             ShortLog.DebugFormat("Type is: {0}", type.ToString());
             return type.Instantiate<T>(constructor);
         }
