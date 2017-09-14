@@ -20,10 +20,22 @@ namespace Equipment {
             Assert.Equal ("1d8", DamageTables.ConvertDamageBySize ("1d8", CharacterSize.Medium));
         }
 
+        [Fact]
+        public void DropsModifiersDuringConversion()
+        {
+            Assert.Equal ("1d4+2", DamageTables.ConvertDamageBySize("1d6+2", CharacterSize.Small));
+        }
+
 
         [Fact]
         public void NotImplementedExceptionTriggeredForNotSupportedSizes() {
             Assert.Throws(typeof(NotImplementedException), () => DamageTables.ConvertDamageBySize ("1d6", CharacterSize.Colossal));
+        }
+
+        [Fact]
+        public void ThrowsDamageTableAmountNotFoundExceptionIfIncorrectTypesAreUsed()
+        {
+            Assert.Throws(typeof(DamageTableValueNotFoundException), () => DamageTables.ConvertDamageBySize("10d6", CharacterSize.Small));
         }
 
     }

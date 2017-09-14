@@ -8,6 +8,7 @@ namespace SilverNeedle.Equipment
     using System;
     using System.Collections.Generic;
     using SilverNeedle.Characters;
+    using SilverNeedle.Dice;
 
     /// <summary>
     /// Damage tables.
@@ -27,7 +28,7 @@ namespace SilverNeedle.Equipment
         /// </summary>
         private static List<string> smallDamageTable = new List<string>
         { 
-            "1",    "1d2",  "1d3",  "1d4",  "1d6",  "1d8",  "1d10", "1d6",  "1d10", "2d6",  "2d8"
+            "1",  "1d2",  "1d3",  "1d4",  "1d6",  "1d8",  "1d10", "1d6",  "1d10", "2d6",  "2d8"
         };
 
         /// <summary>
@@ -54,20 +55,37 @@ namespace SilverNeedle.Equipment
         /// <param name="size">Size of the character.</param>
         public static string ConvertDamageBySize(string mediumDamageAmount, CharacterSize size)
         {
-            int index = mediumDamageTable.IndexOf(mediumDamageAmount);
+
+            //Drop the modifier
+            Cup dice = DiceStrings.ParseDice(mediumDamageAmount);
+            Cup converted = new Cup();
+            converted.Modifier = dice.Modifier;
+            dice.Modifier = 0;
+            var dieString = dice.ToString();
+
+            int index = mediumDamageTable.IndexOf(dieString);
+            if(index == -1)
+                throw new DamageTableValueNotFoundException(dieString);
+
             switch (size)
             {
                 case CharacterSize.Tiny:
-                    return tinyDamageTable[index];
+                    converted.AddDice(DiceStrings.ParseDice(tinyDamageTable[index]).Dice);
+                    break;
                 case CharacterSize.Small:
-                    return smallDamageTable[index];
+                    converted.AddDice(DiceStrings.ParseDice(smallDamageTable[index]).Dice);
+                    break;
                 case CharacterSize.Medium:
-                    return mediumDamageAmount;
+                    converted.AddDice(DiceStrings.ParseDice(mediumDamageTable[index]).Dice);
+                    break;
                 case CharacterSize.Large:
-                    return largeDamageTable[index];
+                    converted.AddDice(DiceStrings.ParseDice(largeDamageTable[index]).Dice);
+                    break;
+                default:
+                    throw new NotImplementedException(string.Format("Character Size: {0} has not been implemented in damage tables.", size));
             }
 
-            throw new NotImplementedException(string.Format("Character Size: {0} has not been implemented in damage tables.", size));
+            return converted.ToString();
         }
     }
 }

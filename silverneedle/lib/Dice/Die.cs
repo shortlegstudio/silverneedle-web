@@ -154,7 +154,7 @@ namespace SilverNeedle.Dice
         /// <returns>A <see cref="System.String"/> that represents the current <see cref="SilverNeedle.Dice.Die"/>.</returns>
         public override string ToString()
         {
-            return string.Format("[Die: Sides={0}, LastRoll={1}]", this.Sides, this.LastRoll);
+            return string.Format("1{0}", this.Sides);
         }
 
         /// <summary>

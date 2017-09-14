@@ -88,12 +88,10 @@ namespace Tests.Dice
         }
 
         [Fact]
-        public void ToStringReturnsALogicalVersionOfDie()
+        public void ToStringReturnsADieRepresentation()
         {
             var d4 = Die.D4();
-            var result = d4.Roll();
-            var expectedString = string.Format("[Die: Sides={0}, LastRoll={1}]", d4.Sides, result);
-            Assert.Equal(expectedString, d4.ToString());
+            Assert.Equal("1d4", d4.ToString());
         }
 
         [Fact]
