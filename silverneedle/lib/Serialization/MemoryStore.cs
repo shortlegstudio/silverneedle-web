@@ -1,8 +1,14 @@
-using System;
-using System.Collections.Generic;
+// Copyright (c) 2017 Trevor Redfern
+// 
+// This software is released under the MIT License.
+// https://opensource.org/licenses/MIT
 
 namespace SilverNeedle.Serialization
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class MemoryStore : IObjectStore
     {
         public string Key { get; private set; }
@@ -83,6 +89,11 @@ namespace SilverNeedle.Serialization
 
         public string[] GetList(string key)
         {
+            var item = GetObject(key);
+            if(item.HasChildren)
+            {
+                return item.Children.Select(x => x.Value).ToArray();
+            }
             return GetString(key).ParseList();
         }
 
@@ -156,6 +167,17 @@ namespace SilverNeedle.Serialization
         public void AddListItem(IObjectStore childItem)
         {
             childList.Add(childItem);
+        }
+
+        public void SetValue(string key, IEnumerable<string> values)
+        {
+            var obj = new MemoryStore();
+            obj.Key = key;
+            foreach(var v in values)
+            {
+                obj.AddListItem(new MemoryStore("list-item", v));
+            }
+            SetValue(key, obj);
         }
 
         private Dictionary<string, IObjectStore> dataStore;

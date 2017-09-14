@@ -8,7 +8,7 @@ namespace Tests.Lexicon
     using Xunit;
     using SilverNeedle.Lexicon;
 
-    public class PhraseTemplateTests
+    public class PhraseTemplateTests : RequiresDataFiles
     {
         [Fact]
         public void PhrasesCanCompileTemplates()

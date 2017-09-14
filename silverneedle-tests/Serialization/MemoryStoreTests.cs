@@ -63,6 +63,14 @@ namespace Tests.Serialization
             Assert.False(memStore.GetBool("falsies"));
         }
 
+        [Fact]
+        public void CanSetStringArraysForLists()
+        {
+            var memStore = new MemoryStore();
+            memStore.SetValue("options", new string[] { "option1", "option2", "option3" });
+            Assert.Equal(new string[] { "option1", "option2", "option3" }, memStore.GetList("options"));
+        }
+
         public enum TestEnum
         {
             Foo,

@@ -35,6 +35,8 @@
           languages: Sylvan
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddFreeLanguages
           languages: Druidic
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ChooseNaturesBond
+          domain-options: [Air, Animal, Earth, Fire, Plant, Water, Weather]
   spells:
     list: druid
     type: divine

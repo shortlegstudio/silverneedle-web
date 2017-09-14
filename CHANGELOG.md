@@ -5,6 +5,7 @@ All notable changes will be tracked in this file. Most likely.
 ### Added
 ### Changed
 ### Known Issues
+- Animal Companions are not supported yet which makes the druid generation more limited than it should be
 
 ## 0.2.0.0
 ### Added

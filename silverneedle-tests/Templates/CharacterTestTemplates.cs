@@ -23,6 +23,15 @@ namespace Tests
             return bob;
         }
 
+        public static CharacterSheet DruidDonna()
+        {
+            var donna = new CharacterSheet();
+            var druid = new Class("Druid");
+            donna.SetClass(druid);
+
+            return donna;
+        }
+
 
     }
 }
