@@ -29,6 +29,12 @@
     - level: 1
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.SpontaneousCastingDruid
+        - ability: SilverNeedle.Characters.Magic.CannotCastSpellsOfOpposingAlignment
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddBonusLanguages
+          languages: Sylvan
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddFreeLanguages
+          languages: Druidic
   spells:
     list: druid
     type: divine

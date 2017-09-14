@@ -112,7 +112,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @for(int spellLevel = 0; spellLevel < sc.MaxLevel; spellLevel++)
+                                @for(int spellLevel = 0; spellLevel <= sc.MaxLevel; spellLevel++)
                                 {
                                     @if(sc.GetPreparedSpells(spellLevel).Length > 0)
                                     {
