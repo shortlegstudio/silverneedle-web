@@ -5,6 +5,7 @@
 
 namespace Tests.Stats
 {
+    using System.Linq;
     using Xunit;
     using SilverNeedle;
     using SilverNeedle.Characters.SpecialAbilities;
@@ -48,6 +49,26 @@ namespace Tests.Stats
 
             var bob = CharacterTestTemplates.AverageBob();
             Assert.Throws(typeof(StatisticNotFoundException), () => bob.Add(modifySkill));
+        }
+
+        [Fact]
+        public void SupportsConditionalStatisticModifiers()
+        {
+            var configuration = new MemoryStore();
+            var condModifiers = new MemoryStore();
+            var saves = new MemoryStore();
+            saves.SetValue("name", "Will");
+            saves.SetValue("modifier", 4);
+            saves.SetValue("type", "bonus");
+            saves.SetValue("condition", "vs. Smoke");
+            condModifiers.AddListItem(saves);
+            configuration.SetValue("conditional-modifiers", condModifiers);
+            var modifySaves = new StatisticModifyingComponent(configuration);
+            var bob = CharacterTestTemplates.AverageBob();
+            bob.Add(modifySaves);
+            var willSave = bob.Defense.WillSave;
+            Assert.Equal(willSave.TotalValue + 4, willSave.GetConditionalValue("vs. Smoke"));
+
         }
     }
 }

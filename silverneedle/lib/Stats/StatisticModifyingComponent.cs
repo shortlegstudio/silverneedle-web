@@ -10,14 +10,31 @@ namespace SilverNeedle
     using SilverNeedle.Utility;
     public class StatisticModifyingComponent : IComponent
     {
-        private IList<ValueStatModifier> modifiers = new List<ValueStatModifier>();
+        private IList<IStatModifier> modifiers = new List<IStatModifier>();
         public StatisticModifyingComponent(IObjectStore configuration)
         {
-            foreach(var modifier in configuration.GetObject("modifiers").Children)
+            var mods = configuration.GetObjectOptional("modifiers");
+            if(mods != null)
             {
-                modifiers.Add(
-                    new ValueStatModifier(modifier)
-                );
+                foreach(var modifier in mods.Children)
+                {
+                    modifiers.Add(
+                        new ValueStatModifier(modifier)
+                    );
+                }
+            }
+
+            var conditionalModifiers = configuration.GetObjectOptional("conditional-modifiers");
+            if(conditionalModifiers != null)
+            {
+                foreach(var conditional in conditionalModifiers.Children)
+                {
+                    var mod = new ValueStatModifier(conditional);
+                    var condition = conditional.GetString("condition");
+                    modifiers.Add(
+                        new ConditionalStatModifier(mod, condition)
+                    );
+                }
             }
         }
 

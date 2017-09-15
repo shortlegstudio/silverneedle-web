@@ -48,6 +48,28 @@
           domain-options: [Air, Animal, Earth, Fire, Plant, Water, Weather]
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddDomainSpells
           casting-ability: wisdom
+    - level: 2
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.WoodlandStride
+    - level: 3
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.TracklessStep
+    - level: 4
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.ResistNaturesLure
+          conditional-modifiers:
+            - name: Fortitude
+              modifier: 4
+              type: bonus
+              condition: vs. Fey
+            - name: Reflex
+              modifier: 4
+              type: bonus
+              condition: vs. Fey
+            - name: Will
+              modifier: 4
+              type: bonus
+              condition: vs. Fey
   spells:
     list: druid
     type: divine
