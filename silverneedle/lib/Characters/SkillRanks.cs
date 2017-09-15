@@ -16,7 +16,17 @@ namespace SilverNeedle.Characters
     /// </summary>
     public class SkillRanks : ISkillRanks, IStatTracker, IComponent
     {
-        public IEnumerable<BasicStat> Statistics { get { return new BasicStat[] { BonusSkillPoints, ArmorCheckPenalty }; } }
+        public IEnumerable<IStatistic> Statistics 
+        { 
+            get 
+            { 
+                var statistics = new List<IStatistic>();
+                statistics.Add(this.skills.Values);
+                statistics.Add(BonusSkillPoints);
+                statistics.Add(ArmorCheckPenalty);
+                return statistics;
+            } 
+        }
         /// <summary>
         /// The skills available
         /// </summary>

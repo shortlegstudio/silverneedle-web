@@ -18,7 +18,7 @@ namespace SilverNeedle
     /// to specify conditional modifiers that can be used in certain circumstances to
     /// change the stat value.
     /// </summary>
-    public class BasicStat
+    public class BasicStat : IStatistic
     {
         public string Name { get; private set; }
         /// <summary>

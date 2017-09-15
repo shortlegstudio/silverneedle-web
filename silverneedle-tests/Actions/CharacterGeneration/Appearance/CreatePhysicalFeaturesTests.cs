@@ -12,7 +12,7 @@ namespace Tests.Actions.CharacterGeneration.Appearance
     using SilverNeedle.Serialization;
 
     
-    public class CreatePhysicalFeaturesTests
+    public class CreatePhysicalFeaturesTests : RequiresDataFiles
     {
         [Fact]
         public void IfNoTemplateOrLocationJustDoesASimpleFormat()

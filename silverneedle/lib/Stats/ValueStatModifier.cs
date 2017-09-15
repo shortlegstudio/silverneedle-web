@@ -5,17 +5,23 @@
 //-----------------------------------------------------------------------
 namespace SilverNeedle
 {
+    using SilverNeedle.Serialization;
     /// <summary>
     /// Basic stat modifier provides a method for tracking what modifiers to apply to various statistics
     /// An example of a modifier might be a feat that provides a +1 dodge bonus to AC
     /// </summary>
     public class ValueStatModifier : IStatModifier
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SilverNeedle.ValueStatModifier"/> class.
-        /// </summary>
         public ValueStatModifier()
         {
+        }
+
+        public ValueStatModifier(IObjectStore configuration)
+        {
+            this.StatisticName = configuration.GetString("name");
+            this.Modifier = configuration.GetFloat("modifier");
+            this.Type = configuration.GetString("type");
+            this.Reason = configuration.GetStringOptional("reason");
         }
 
         /// <summary>

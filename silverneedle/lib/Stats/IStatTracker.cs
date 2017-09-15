@@ -18,6 +18,6 @@ namespace SilverNeedle
         /// <param name="modifier">Modifier for stats</param>
         void ProcessModifier(IModifiesStats modifier);
 
-        IEnumerable<BasicStat> Statistics { get; }
+        IEnumerable<IStatistic> Statistics { get; }
     }
 }

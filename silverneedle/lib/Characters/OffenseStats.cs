@@ -35,7 +35,7 @@ namespace SilverNeedle.Characters
 
         private const string OffensiveAbilitiesName = "Offensive";
 
-        public IEnumerable<BasicStat> Statistics
+        public IEnumerable<IStatistic> Statistics
         {
             get 
             {

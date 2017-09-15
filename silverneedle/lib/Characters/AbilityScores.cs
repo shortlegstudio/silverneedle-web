@@ -36,7 +36,7 @@ namespace SilverNeedle.Characters
             get { return this.abilities.Values; }
         }
 
-        public IEnumerable<BasicStat> Statistics
+        public IEnumerable<IStatistic> Statistics
         {
             get { return Abilities; }
         }

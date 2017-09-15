@@ -9,6 +9,15 @@ namespace Tests
     using SilverNeedle.Characters.Background;
     public static class CharacterTestTemplates
     {
+        public static CharacterSheet WithSkills(string[] names)
+        {
+            var skills = new CharacterSheet();
+            foreach(var n in names)
+            {
+                skills.SkillRanks.AddSkill(new Skill(n, AbilityScoreTypes.Wisdom, false));
+            }
+            return skills;
+        }
         public static CharacterSheet AverageBob()
         {
             var bob = new CharacterSheet();

@@ -167,7 +167,15 @@ namespace Tests.Characters
         public void ProvidesAccessToTheStatisticsItProvides()
         {
             var stats = Subject.Statistics.Select(x => x.Name);
-            Assert.NotStrictEqual(stats, new string[] { StatNames.BonusSkillPoints, StatNames.ArmorCheckPenalty });
+            Assert.Contains(StatNames.BonusSkillPoints, stats);
+            Assert.Contains(StatNames.ArmorCheckPenalty, stats);
+        }
+
+        [Fact]
+        public void ExposesSkillsAsStatsToBeModified()
+        {
+            var climbStat = Subject.Statistics.First(x => x.Name == "Climb");
+            Assert.NotNull(climbStat);
         }
 
         class MockMod : IModifiesStats

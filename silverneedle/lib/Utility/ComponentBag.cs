@@ -89,12 +89,12 @@ namespace SilverNeedle.Utility
             }
         }
 
-        public IEnumerable<BasicStat> GetAllStats()
+        public IEnumerable<IStatistic> GetAllStats()
         {
             return GetAll<IStatTracker>().SelectMany(x => x.Statistics);
         }
 
-        public BasicStat FindStat(string name)
+        public IStatistic FindStat(string name)
         {
             return GetAllStats().FirstOrDefault(x => x.Name.EqualsIgnoreCase(name));
         }

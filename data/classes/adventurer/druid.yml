@@ -30,6 +30,14 @@
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.SpontaneousCastingDruid
         - ability: SilverNeedle.Characters.Magic.CannotCastSpellsOfOpposingAlignment
+        - ability: SilverNeedle.Characters.SpecialAbilities.NatureSense
+          modifiers:
+            - name: Knowledge (Nature)
+              modifier: 2
+              type: bonus
+            - name: Survival
+              modifier: 2
+              type: bonus
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddBonusLanguages
           languages: Sylvan

@@ -377,12 +377,12 @@ namespace SilverNeedle.Characters
             return this.Components.Contains<T>();
         }
 
-        public BasicStat FindStat(string name)
+        public IStatistic FindStat(string name)
         {
             return GetAllStats().First(x => x.Name.EqualsIgnoreCase(name));
         }
 
-        public IEnumerable<BasicStat> GetAllStats()
+        public IEnumerable<IStatistic> GetAllStats()
         {
             return this.Components.GetAllStats();
         }
