@@ -32,12 +32,13 @@
         - ability: SilverNeedle.Characters.Magic.CannotCastSpellsOfOpposingAlignment
         - ability: SilverNeedle.Characters.SpecialAbilities.NatureSense
           modifiers:
-            - name: Knowledge (Nature)
+            - name: Knowledge Nature
               modifier: 2
               type: bonus
             - name: Survival
               modifier: 2
               type: bonus
+        - ability: SilverNeedle.Characters.SpecialAbilities.WildEmpathy
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddBonusLanguages
           languages: Sylvan
