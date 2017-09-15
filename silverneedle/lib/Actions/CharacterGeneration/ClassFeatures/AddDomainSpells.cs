@@ -29,9 +29,12 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
         }
         public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
         {
+            var domains = character.GetAll<Domain>();
+            if(domains.Empty())
+                return;
+
             var domainSpells = new DomainSpellCasting(character.Get<Inventory>(), character.Get<ClassLevel>());
             domainSpells.SetCastingAbility(character.AbilityScores.GetAbility(castingAbility));
-            var domains = character.GetAll<Domain>();
             foreach(var d in domains)
             {
                 for(int i = 0; i < d.Spells.Length; i++)

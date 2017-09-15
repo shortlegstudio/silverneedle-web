@@ -50,5 +50,17 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
             Assert.Equal(spellCasting.GetSpellsPerDay(3), 0);
             Assert.Equal(spellCasting.GetAvailableSpells(2), new string[] { "air 2"});
         }
+
+        [Fact]
+        public void IfCharacterDoesNotHaveDomainsDoNotAddSpellcasting()
+        {
+            var bob = CharacterTestTemplates.AverageBob();
+            var configure = new MemoryStore();
+            configure.SetValue("casting-ability", "wisdom");
+            var addDomainSpells = new AddDomainSpells(configure, EntityGateway<Spell>.Empty());
+
+            addDomainSpells.ExecuteStep(bob, new CharacterBuildStrategy());
+            Assert.Null(bob.Get<DomainSpellCasting>());
+        }
     }
 }

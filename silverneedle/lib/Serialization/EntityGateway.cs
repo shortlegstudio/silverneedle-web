@@ -117,6 +117,11 @@ namespace SilverNeedle.Serialization
             return new EntityGateway<T>(item);
         }
 
+        public static EntityGateway<T> Empty()
+        {
+            return new EntityGateway<T>();
+        }
+
         private IList<T> GetDataStore()
         {
             if(returnCopies)
