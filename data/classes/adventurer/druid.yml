@@ -70,6 +70,16 @@
               modifier: 4
               type: bonus
               condition: vs. Fey
+        - ability: SilverNeedle.Characters.SpecialAbilities.WildShape
+    - level: 9
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.VenomImmunity
+    - level: 12
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.ThousandFaces
+    - level: 15
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.TimelessBody
   spells:
     list: druid
     type: divine

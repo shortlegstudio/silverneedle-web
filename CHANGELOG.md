@@ -3,6 +3,7 @@ All notable changes will be tracked in this file. Most likely.
 
 ## [Unreleased Changes]
 ### Added
+- Druid class is now supported (minus animal companions >0.0<
 ### Changed
 ### Known Issues
 - Animal Companions are not supported yet which makes the druid generation more limited than it should be
