@@ -4,381 +4,381 @@
   table:
     - name: Vengeance
       weight: 10
-      traits: Axe to Grind
-      storylines: Foeslayer, Vengeance
+      traits: [Axe to Grind]
+      storylines: [Foeslayer, Vengeance]
     - name: Champion of a God
       weight: 10
-      traits: Inspired
-      storylines: Champion
+      traits: [Inspired]
+      storylines: [Champion]
     - name: Conquest
       weight: 10
-      traits: Killer
+      traits: [Killer]
     - name: Hated Foe
       weight: 10
-      traits: Reckless
-      storylines: Foeslayer
+      traits: [ Reckless ]
+      storylines: [ Foeslayer ]
     - name: Personal Flaw
       weight: 10
-      traits: Axe to Grind
+      traits: [Axe to Grind]
     - name: Hatred of Civilization
       weight: 10
-      trait: Savage
+      trait: [ Savage ]
     - name: Persecution
       weight: 10
-      traits: Bullied
+      traits: [ Bullied ]
     - name: One of a Dying Breed
       weight: 10
-      traits: Reactionary
+      traits: [ Reactionary ]
     - name: Chaos Embraced
       weight: 10
-      traits: Unpredictable
+      traits: [ Unpredictable ]
     - name: Bloodthirsty
       weight: 10
-      traits: Bloodthirsty
-      storylines: Innocent Blood
+      traits: [ Bloodthirsty ]
+      storylines: [Innocent Blood]
 - background:
   class: bard
   table:
     - name: Celebrity
       weight: 10
-      traits: Charming, Influence
+      traits: [Charming, Influence]
     - name: Cultural Mandate
       weight: 10
-      traits: Fast Talker
+      traits: [Fast Talker]
     - name: Dabbler
       weight: 10
-      traits: Worldly
+      traits: [ Worldly ]
     - name: For Love
       weight: 10
-      traits: Ear for Music
-      storylines: True Love
+      traits: [Ear for Music]
+      storylines: [True Love]
     - name: Gift
       weight: 10
-      traits: Seeker
+      traits: [ Seeker ]
     - name: Ongoing Patron
       weight: 10
-      traits: Oathbound
+      traits: [ Oathbound ]
     - name: Spy
       weight: 10
-      traits: Criminal
+      traits: [ Criminal ]
     - name: Spy
       weight: 10
-      traits: Criminal
+      traits: [ Criminal ]
     - name: Troupe of Players
       weight: 10
-      traits: World Traveler
+      traits: [World Traveler]
     - name: Virtuoso
       weight: 10
-      traits: Talented
-      storylines: Magnum Opus
+      traits: [ Talented ]
+      storylines: [Magnum Opus]
     - name: Worldshaker
       weight: 10
-      traits: Natural-Born Leader
+      traits: [Natural-Born Leader]
 - background:
   class: cleric
   table:
     - name: Angelic Encounter
       weight: 10
-      traits: Prophesied
+      traits: [ Prophesied ]
     - name: Atonement
       weight: 10
-      traits: Oathbound
+      traits: [ Oathbound ]
     - name: Converted
       weight: 10
-      traits: Inspired
+      traits: [ Inspired ]
     - name: Devoted
       weight: 10
-      traits: Blessed
-      storylines: Fearless Zeal
+      traits: [ Blessed ]
+      storylines: [Fearless Zeal]
     - name: Healed
       weight: 10
-      traits: Sacred Touch
-      storylines: Battlefield Healer
+      traits: [Sacred Touch]
+      storylines: [Battlefield Healer]
     - name: Reborn
       weight: 10
-      traits: Deathtouched
-      storylines: Arisen
+      traits: [ Deathtouched ]
+      storylines: [ Arisen ]
     - name: Religious Colony
       weight: 10
-      traits: Natural-Born Leader
+      traits: [Natural-Born Leader]
     - name: Revelation
       weight: 10
-      traits: Worldly
+      traits: [ Worldly ]
     - name: Sanctuary
       weight: 10
-      traits: Criminal
+      traits: [ Criminal ]
     - name: Taken in by the Church
       weight: 10
-      traits: Child of the Temple
+      traits: [Child of the Temple]
 - background:
   class: druid
   table:
     - name: Lost in the Wild
       weight: 10
-      traits: Resilient
+      traits: [ Resilient ]
     - name: Fey Meeting
       weight: 10
-      traits: Magical Knack
+      traits: [Magical Knack]
     - name: Spirit of Nature
       weight: 10
-      traits: Sacred Touch
+      traits: [Sacred Touch]
     - name: Tree Tender
       weight: 10
-      traits: Devotee of the Green
+      traits: [Devotee of the Green]
     - name: Druid Circle
       weight: 10
-      traits: Mentored
+      traits: [ Mentored ]
     - name: Civilized Outcast
       weight: 10
-      traits: Civilized
+      traits: [ Civilized ]
     - name: Savage
       weight: 10
-      traits: Savage
+      traits: [ Savage ]
     - name: Raised by Beasts
       weight: 10
-      traits: Animal Friend
-      storylines: Feral Heart
+      traits: [Animal Friend]
+      storylines: [Feral Heart]
     - name: Avatar
       weight: 10
-      traits: Child of Nature
+      traits: [Child of Nature]
     - name: Beastlord
       weight: 10
-      traits: Beast Bond
+      traits: [Beast Bond]
 - background:
   class: fighter
   table:
     - name: Adventure
       weight: 10
-      traits: Seeker
+      traits: [ Seeker ]
     - name: Conscripted
       weight: 10
-      traits: Worldly
+      traits: [ Worldly ]
     - name: Duty
       weight: 10
-      traits: Courageous
+      traits: [ Courageous ]
     - name: Gladiator
       weight: 10
-      traits: Life of Toil
-      storylines: Champion
+      traits: [Life of Toil]
+      storylines: [ Champion ]
     - name: Joined the Watch
       weight: 10
-      traits: Militia Veteran
+      traits: [Militia Veteran]
     - name: Knighted
       weight: 10
-      traits: Influence
+      traits: [ Influence ]
     - name: Mercenary
       weight: 10
-      traits: Mercenary
+      traits: [ Mercenary ]
     - name: On the Street
       weight: 10
-      traits: Child of the Streets
+      traits: [Child of the Streets]
     - name: Schooled
       weight: 10
-      traits: Tactician
+      traits: [ Tactician ]
     - name: Survival
       weight: 10
-      traits: Resilient
+      traits: [ Resilient ]
 - background:
   class: monk
   table:
     - name: Bellicose Historian
       weight: 10
-      traits: Style Sage
+      traits: [Style Sage]
     - name: Classically Schooled
       weight: 10
-      traits: Simple Disciple
+      traits: [Simple Disciple]
     - name: Elite Fighting Force
       weight: 10
-      traits: Veiled Disciple
+      traits: [Veiled Disciple]
     - name: Tournament Champion
       weight: 10
-      traits: Martial Performer
+      traits: [Martial Performer]
     - name: Lineage Holder
       weight: 10
-      traits: Martial Manuscript
+      traits: [Martial Manuscript]
     - name: Nature's Disciple
       weight: 10
-      traits: Nature's Mimic
+      traits: [Nature's Mimic]
     - name: Secret Student
       weight: 10
-      traits: Hidden Hand
+      traits: [Hidden Hand]
     - name: Spirit Teacher
       weight: 10
-      traits: Spirit Sense
+      traits: [Spirit Sense]
     - name: Unsuspecting Master
       weight: 10
-      traits: Surprise Weapon
+      traits: [Surprise Weapon]
     - name: Wandering Savant
       weight: 10
-      traits: Wanderer's Shroud
+      traits: [Wanderer's Shroud]
 - background:
   class: paladin
   table:
     - name: Divine Calling
       weight: 10
-      traits: Blessed
+      traits: [ Blessed ]
     - name: Dread Penance
       weight: 10
-      traits: Oathbound
+      traits: [ Oathbound ]
     - name: Holy Epiphany
       weight: 10
-      traits: Inspired
+      traits: [ Inspired ]
     - name: Zealous Devotion
       weight: 10
-      traits: Indomitable Faith
+      traits: [Indomitable Faith]
     - name: Moral Debt
       weight: 10
-      traits: Principled
-      storylines: Fearless Zeal
+      traits: [Principled]
+      storylines: [Fearless Zeal]
     - name: Mark of Faith
       weight: 10
-      traits: Birthmark
+      traits: [ Birthmark ]
     - name: Righteous Mentor
       weight: 10
-      traits: Natural-Born Leader
+      traits: [Natural-Born Leader]
     - name: Warrior of Truth
       weight: 10
-      traits: Skeptic
+      traits: [Skeptic]
     - name: Knight-Errant
       weight: 10
-      traits: Seeker
+      traits: [ Seeker ]
     - name: Terrible Secret
       weight: 10
-      traits: Scholar of the Great Beyond
+      traits: [Scholar of the Great Beyond]
 - background:
   class: ranger
   table:
     - name: An Eye for an Eye
       weight: 10
-      traits: Tireless Avenger
-      storylines: Foeslary
+      traits: [Tireless Avenger]
+      storylines: [ Foeslayer ]
     - name: Ancient Hatred
       weight: 10
-      traits: Knowing the Enemy
+      traits: [Knowing the Enemy]
     - name: Big Game Hunter
       weight: 10
-      traits: Evasive Sting
+      traits: [Evasive Sting]
     - name: Blood Cleansing
       weight: 10
-      traits: Scarred Descendant
+      traits: [Scarred Descendant]
     - name: Bounty Hunter
       weight: 10
-      traits: Easy Way or the Hard Way
-      storylines: Town Tamer
+      traits: [Easy Way or the Hard Way]
+      storylines: [Town Tamer]
     - name: Detached Observer
       weight: 10
-      traits: Cold and Calculating
+      traits: [Cold and Calculating]
     - name: Divine Purpose
       weight: 10
-      traits: Faith's Hunter
+      traits: [Faith's Hunter]
     - name: Nightmare Slayer
       weight: 10
-      traits: Fearless Defiance
+      traits: [Fearless Defiance]
     - name: Opportunist
       weight: 10
-      traits: Harvester
+      traits: [ Harvester ]
     - name: Survivalist
       weight: 10
-      traits: Hunter's Knack
+      traits: [Hunter's Knack]
 - background:
   class: rogue
   table:
     - name: Gang War
       weight: 10
-      traits: Dirty Fighter
+      traits: [Dirty Fighter]
     - name: Greed
       weight: 10
-      traits: Ambitious
-      storylines: Thief of Legend
+      traits: [ Ambitious ]
+      storylines: [Thief of Legend]
     - name: Poverty
       weight: 10
-      traits: Poverty Stricken
+      traits: [Poverty Stricken]
     - name: Spy
       weight: 10
-      traits: Fast Talker
+      traits: [Fast Talker]
     - name: The Kill
       weight: 10
-      traits: Killer
-      storylines: Innocent Blood
+      traits: [ Killer ]
+      storylines: [Innocent Blood]
     - name: The Trained
       weight: 10
-      traits: Mentored
+      traits: [ Mentored ]
     - name: Outlawed
       weight: 10
-      traits: Criminal
+      traits: [ Criminal ]
     - name: Thrill Seeker
       weight: 10
-      traits: Acrobat
+      traits: [ Acrobat ]
     - name: Henchman
       weight: 10
-      traits: Oathbound, Child of the Streets
+      traits: [Oathbound, Child of the Streets]
     - name: Scout
       weight: 10
-      traits: Canter
+      traits: [ Canter ]
 - background:
   class: sorcerer
   table:
     - name: Awakened Moment
       weight: 10
-      traits: Ascendant Recollection
+      traits: [Ascendant Recollection]
     - name: Dreams of Something Different
       weight: 10
-      traits: Strenght Foretold
+      traits: [Strength Foretold]
     - name: Failed Wizard
       weight: 10
-      traits: Reluctant Apprentice
+      traits: [Reluctant Apprentice]
     - name: One of a Kind
       weight: 10
-      traits: Knowledgeable Caster
+      traits: [Knowledgeable Caster]
     - name: Outcast
       weight: 10
-      traits: Outcast's Intuition
+      traits: [Outcast's Intuition]
     - name: Proud Heritage
       weight: 10
-      traits: Imposing Scion
+      traits: [Imposing Scion]
     - name: Shameful Heritage
       weight: 10
-      traits: Unseen But Not Undone
+      traits: [Unseen But Not Undone]
     - name: Too Lucky
       weight: 10
-      traits: Fate's Favored
+      traits: [Fate's Favored]
     - name: Unharmed
       weight: 10
-      traits: Unscathed
+      traits: [ Unscathed ]
     - name: Wild Talent
       weight: 10
-      traits: Volatile Conduit
+      traits: [Volatile Conduit]
 - background:
   class: wizard
   table:
     - name: Brains over Brawn
       weight: 10
-      traits: Tenacious Shifting
+      traits: [Tenacious Shifting]
     - name: Dangerous Intellect
       weight: 10
-      traits: Tireless Logic
+      traits: [Tireless Logic]
     - name: Fitting IN
       weight: 10
-      traits: Shrouded Casting
+      traits: [Shrouded Casting]
     - name: Gifted Pride
       weight: 10
-      traits: Bruising Intellect
+      traits: [Bruising Intellect]
     - name: Mortality's Mirror
       weight: 10
-      traits: Greater Purpose
+      traits: [Greater Purpose]
     - name: Righting a Wrong
       weight: 10
-      traits: Desparate Resolve
+      traits: [Desparate Resolve]
     - name: Storied Lineage
       weight: 10
-      traits: Resilient Caster
+      traits: [Resilient Caster]
     - name: The Way Things Work
       weight: 10
-      traits: Magic Crafter
-      storylines: Eldritch Researcher
+      traits: [Magic Crafter]
+      storylines: [Eldritch Researcher]
     - name: Unpaid Debt
       weight: 10
-      traits: Principled Faith
+      traits: [Principled Faith]
     - name: Unquenchable Hunger for Knowledge
       weight: 10
-      traits: Eldritch Delver
+      traits: [Eldritch Delver]

@@ -31,21 +31,21 @@ namespace Tests.Characters.Background
   table:
     - name: Vengeance
       weight: 10
-      traits: Axe to Grind
-      storylines: Foeslayer, Vengeance
+      traits: [Axe to Grind]
+      storylines: [Foeslayer, Vengeance]
     - name: Champion of a God
       weight: 10
-      traits: Inspired
-      storylines: Champion
+      traits: [ Inspired ]
+      storylines: [ Champion ]
 - background:
   class: bard
   table:
     - name: Celebrity
       weight: 10
-      traits: Charming, Influence
+      traits: [Charming, Influence]
     - name: Cultural Mandate
       weight: 10
-      traits: Fast Talker
+      traits: [Fast Talker]
 ";
     }
 }

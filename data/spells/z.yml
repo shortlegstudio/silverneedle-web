@@ -5,4 +5,4 @@
 - name: Zone of Truth
   school: enchantment
   subschool: compulsion
-  descriptors: mind-affecting
+  descriptors: [mind-affecting]

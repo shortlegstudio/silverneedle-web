@@ -20,7 +20,7 @@ namespace Tests.Actions.CharacterGeneration
 
             var strategy = new CharacterBuildStrategy();
             var data = new MemoryStore();
-            data.SetValue("deny", "LawfulEvil, LawfulNeutral, LawfulGood");
+            data.SetValue("deny", new string[] { "LawfulEvil" , "LawfulNeutral", "LawfulGood" });
             var step = new LimitAlignment(data);
             step.ExecuteStep(new CharacterSheet(), strategy);
             var enabled = strategy.FavoredAlignments.Enabled.Select(x => x.Option);

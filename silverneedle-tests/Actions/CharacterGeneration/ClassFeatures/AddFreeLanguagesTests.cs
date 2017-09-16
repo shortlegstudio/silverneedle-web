@@ -19,7 +19,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
             var bob = CharacterTestTemplates.AverageBob();
             var strategy = new CharacterBuildStrategy();
             var objectProps = new MemoryStore();
-            objectProps.SetValue("languages", "Druidic, Draconic");
+            objectProps.SetValue("languages", new string[] { "Druidic" , "Draconic" });
             var freeLanguages = new AddFreeLanguages(objectProps);
             freeLanguages.ExecuteStep(bob, strategy);
             Assert.Contains("Druidic", strategy.LanguagesKnown);

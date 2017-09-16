@@ -1,21 +1,21 @@
 --- !<SilverNeedle.Characters.Personalities.FearTemplate>
 - name: phobias
   descriptors:
-    - insects: ' 
+    - insects: [ 
       ants, spiders, flies, mosquitos, gnats, horseflies, centipedes, millipedes,
-      crane flies, wasps, hornets, moths, aphids, ladybugs'
-    - phobia: crowds, tight spaces, open spaces, loud sounds, hairy creatures, heights
+      crane flies, wasps, hornets, moths, aphids, ladybugs]
+    - phobia: [crowds, tight spaces, open spaces, loud sounds, hairy creatures, heights]
   templates:
     - template: '{{pronoun}} is afraid of {{descriptor "insects"}}.'
     - template: '{{pronoun}} has a fear of {{descriptor "phobia"}}.'
 - name: events
   descriptors:
-    - life-event: death, birthday, parenthood, marriage
+    - life-event: [death, birthday, parenthood, marriage]
   templates:
     - template: '{{pronoun}} is afraid of {{possessivepronoun}} upcoming {{descriptor "life-event"}}.'
 - name: conspiracy theorist
   descriptors:
-    - group: the masonic league, the draconic alliance, the storm giant army, an order of paladins, the thieves guild, the wizard' council, the trade consortium, the drow, the duergar
+    - group: [the masonic league, the draconic alliance, the storm giant army, an order of paladins, the thieves guild, the wizard' council, the trade consortium, the drow, the duergar]
   templates:
     - template: '{{pronoun}} is convinced that {{descriptor "group"}} are planning a global take over.'
     - template: '{{pronoun}} is certain that everyone is under the control off {{descriptor "group"}}.'

@@ -1,7 +1,7 @@
 --- !<SilverNeedle.Spells.Spell>
 - name: Hallow
   school: evocation
-  descriptors: good
+  descriptors: [ good ]
 - name: Hallucinatory Terrain
   school: illusion
   subschool: glamer
@@ -22,7 +22,7 @@
   subschool: healing
 - name: Heat Metal
   school: transmutation
-  descriptors: fire
+  descriptors: [ fire ]
 - name: Helping Hand
   school: evocation
 - name: Heroes' Feast
@@ -31,11 +31,11 @@
 - name: Heroism
   school: enchantment
   subschool: compulsion
-  descriptors: mind-affecting
+  descriptors: [mind-affecting]
 - name: Heroism - Greater
   school: enchantment
   subschool: compulsion
-  descriptors: mind-affecting
+  descriptors: [mind-affecting]
 - name: Hide from Animals
   school: abjuration
 - name: Hide from Undead
@@ -43,48 +43,48 @@
 - name: Hideous Laughter
   school: enchantment
   subschool: compulsion
-  descriptors: mind-affecting
+  descriptors: [mind-affecting]
 - name: Hold Animal
   school: enchantment
   subschool: compulsion
-  descriptors: mind-affecting
+  descriptors: [mind-affecting]
 - name: Hold Monster
   school: enchantment
   subschool: compulsion
-  descriptors: mind-affecting
+  descriptors: [mind-affecting]
 - name: Hold Monster - Mass
   school: enchantment
   subschool: compulsion
-  descriptors: mind-affecting
+  descriptors: [mind-affecting]
 - name: Hold Person
   school: enchantment
   subschool: compulsion
-  descriptors: mind-affecting
+  descriptors: [mind-affecting]
 - name: Hold Person - Mass
   school: enchantment
   subschool: compulsion
-  descriptors: mind-affecting
+  descriptors: [mind-affecting]
 - name: Hold Portal
   school: abjuration
 - name: Holy Aura
   school: abjuration
-  descriptors: good
+  descriptors: [ good ]
 - name: Holy Smite
   school: evocation
-  descriptors: good
+  descriptors: [ good ]
 - name: Holy Sword
   school: evocation
-  descriptors: good
+  descriptors: [ good ]
 - name: Holy Word
   school: evocation
-  descriptors: good, sonic
+  descriptors: [good, sonic]
 - name: Horrid Wilting
   school: necromancy
 - name: Hypnotic Pattern
   school: illusion
   subschool: pattern
-  descriptors: mind-affecting
+  descriptors: [mind-affecting]
 - name: Hypnotism
   school: enchantment
   subschool: compulsion
-  descriptors: mind-affecting
+  descriptors: [mind-affecting]

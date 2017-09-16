@@ -2,27 +2,27 @@
 - name: Acid Arrow
   school: conjuration
   subschool: creation
-  descriptors: acid
+  descriptors: [ acid ]
 - name: Acid Fog
   school: conjuration
   subschool: creation
-  descriptors: acid
+  descriptors: [ acid ]
 - name: Acid Splash
   school: conjuration
   subschool: creation
-  descriptors: acid
+  descriptors: [ acid ]
 - name: Aid
   school: enchantment
   subschool: compulsion
-  descriptors: mind-affecting
+  descriptors: [mind-affecting]
 - name: Air Walk
   school: transmutation
-  descriptors: air
+  descriptors: [ air ]
 - name: Alarm
   school: abjuration
 - name: Align Weapon
   school: transmutation
-  descriptors: custom alignment
+  descriptors: [custom alignment]
 - name: Alter Self
   school: transmutation
   subschool: polymorph
@@ -33,17 +33,17 @@
 - name: Animal Messenger
   school: enchantment
   subschool: compulsion
-  descriptors: mind-affecting
+  descriptors: [mind-affecting]
 - name: Animal Shapes
   school: transmutation
   subschool: polymorph
 - name: Animal Trance
   school: enchantment
   subschool: compulsion
-  descriptors: mind-affecting, sonic
+  descriptors: [mind-affecting, sonic]
 - name: Animate Dead
   school: necromancy
-  descriptors: evil
+  descriptors: [ evil ]
 - name: Animate Objects
   school: transmutation
 - name: Animate Plants
@@ -57,7 +57,7 @@
 - name: Antipathy
   school: enchantment
   subschool: compulsion
-  descriptors: mind-affecting, emotion
+  descriptors: [mind-affecting, emotion]
 - name: Antiplant Shell
   school: abjuration
 - name: Arcane Eye

@@ -18,8 +18,8 @@
   fortitude: 0.667
   reflex: 0.334
   will: 0.334
-  armorproficiencies: light, medium, heavy
-  weaponproficiencies: simple, martial
+  armorproficiencies: [light, medium, heavy]
+  weaponproficiencies: [simple, martial]
   developedage: trained
   startingwealth: 5d6
   levels:

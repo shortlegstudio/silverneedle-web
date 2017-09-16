@@ -7,11 +7,11 @@
 - name: Geas, Lesser
   school: enchantment
   subschool: compulsion
-  descriptors: language-dependent, mind-affecting
+  descriptors: [language-dependent, mind-affecting]
 - name: Geas/Quest
   school: enchantment
   subschool: compulsion
-  descriptors: language-dependent, mind-affecting
+  descriptors: [language-dependent, mind-affecting]
 - name: Gentle Repose
   school: necromancy
 - name: Ghost Sound
@@ -43,12 +43,12 @@
 - name: Good Hope
   school: enchantment
   subschool: compulsion
-  descriptors: mind-affecting
+  descriptors: [mind-affecting]
 - name: Goodberry
   school: transmutation
 - name: Grasping Hand
   school: evocation
-  descriptors: force
+  descriptors: [ force ]
 - name: Grease
   school: conjuration
   subschool: creation
@@ -58,4 +58,4 @@
   school: divination
 - name: Gust of Wind
   school: evocation
-  descriptors: air
+  descriptors: [ air ]

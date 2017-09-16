@@ -15,6 +15,6 @@
     - Keen Senses
     - Weapon Familiarity
   languages:
-    known: Common, Elven
-    available: Celestial, Draconic, Gnoll, Gnome, Goblin, Orc, Sylvan
+    known: [Common, Elven]
+    available: [Celestial, Draconic, Gnoll, Gnome, Goblin, Orc, Sylvan]
   basemovementspeed: 30

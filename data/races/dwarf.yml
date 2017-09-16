@@ -19,6 +19,6 @@
     - Stonecunning
     - Weapon Familiarity
   languages:
-    known: Common, Dwarven
-    available: Giant, Gnome, Goblin, Orc, Terran, Undercommon
+    known: [Common, Dwarven]
+    available: [Giant, Gnome, Goblin, Orc, Terran, Undercommon]
   basemovementspeed: 20

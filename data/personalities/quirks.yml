@@ -1,12 +1,13 @@
 --- !<SilverNeedle.Characters.Personalities.QuirkTemplate>
 - name: names
   descriptors:
-    - distant-relative: grandfather, grandmother, uncle, aunt, great-grandfather, great-grandmother
-    - relative: mother, father, sister, brother, cousin, uncle, aunt, grandfather, grandmother
-    - constellation: > 
+    - distant-relative: [grandfather, grandmother, uncle, aunt, great-grandfather, great-grandmother]
+    - relative: [mother, father, sister, brother, cousin, uncle, aunt, grandfather, grandmother]
+    - constellation: [
         hunter, dragon, bear, mountain, river, goat, sheep, ram, lamb, shield, 
         bow, sword, thief, warrior, shadow, crow, eagle, raven, dog, bard, singer,
         orator, tiger, cat, devil, tree
+    ]
   templates:
     - template: '{{pronoun}} was named after a {{descriptor "distant-relative"}} {{pronoun}} despises.'
     - template: '{{pronoun}} was named after a stranger that helped {{possessivepronoun}} {{descriptor "relative"}}.'
@@ -14,8 +15,8 @@
     - template: '{{pronoun}} was named after the constellation of the {{descriptor "constellation"}}.'
 - name: clothing
   descriptors:
-    - clothing: boots, gloves, hats, socks, shirts, ties, hankerchiefs, jackets, scarfs
-    - material: fur, leather, cloth, patchwork, knitted, woven
+    - clothing: [boots, gloves, hats, socks, shirts, ties, hankerchiefs, jackets, scarfs]
+    - material: [fur, leather, cloth, patchwork, knitted, woven]
   templates:
     - template: '{{pronoun}} always wears {{choose-color}} {{descriptor "clothing"}}.'
     - template: '{{pronoun}} collects {{descriptor "clothing"}}.'
@@ -23,11 +24,11 @@
     - template: '{{pronoun}} wears {{descriptor "material"}} {{descriptor "clothing"}}.'
 - name: ticks
   descriptors:
-    - body-part: chin, ear, nose, head, neck, left arm, right arm, left leg, right leg, left knee, right knee, left foot, right foot
-    - behavior: lying, truth-telling, contemplating, plotting, studying, judging, relaxing
-    - response: laughing, arguing, intimidating, bluffing, joking 
-    - hand-ticks: rubs, scratches, taps
-    - motions: paces, taps feet, whispers quietly to self, closes eyes, crosses arms behind back, crosses legs
+    - body-part: [chin, ear, nose, head, neck, left arm, right arm, left leg, right leg, left knee, right knee, left foot, right foot]
+    - behavior: [lying, truth-telling, contemplating, plotting, studying, judging, relaxing]
+    - response: [laughing, arguing, intimidating, bluffing, joking]
+    - hand-ticks: [rubs, scratches, taps]
+    - motions: [paces, taps feet, whispers quietly to self, closes eyes, crosses arms behind back, crosses legs]
   templates:
     - template: '{{pronoun}} sneezes when looking into a bright light.'
     - template: '{{pronoun}} blinks frequently.'
@@ -38,20 +39,20 @@
     - template: '{{pronoun}} rolls {{possessivepronoun}} eyes whenever someone is {{descriptor "response"}}.'
 - name: possessions
   descriptors:
-    - common: quill pen, pocketwatch, bracelet, necklace, ring, tapestry, cauldron, toolset, bridle
-    - relative: grandfather, grandmother, uncle, aunt, father, mother, sister, brother, cousin
+    - common: [quill pen, pocketwatch, bracelet, necklace, ring, tapestry, cauldron, toolset, bridle]
+    - relative: [grandfather, grandmother, uncle, aunt, father, mother, sister, brother, cousin]
   templates:
     - template: '{{pronoun}} owns a pair of glasses even though {{pronoun}} does not need them.'
     - template: '{{pronoun}} carries a small book and is constantly recording notes in it.'
     - template: '{{pronoun}} has a fine {{descriptor "common"}} that was passed down by {{possessivepronoun}} {{descriptor "relative"}}.'
 - name: food
   descriptors:
-    - diet: carnivore, omnivore, pescatarian, vegetarian, vegan 
-    - vegetables: carrots, parsnips, beets, kale, radishes, endive, celery, cucumber, onion, garlic
-    - herbs: basil, thyme, rosemary, cilantro, cumin, cardamon, coriandar, dill, sage
-    - meats: rabbit, ostrich, beef, chicken, turkey, pheasant, pork
-    - fish: halibut, salmon, tuna, sardine, anchovy, mackerel, trout, bass, rockfish
-    - cooking: roasted, grilled, fried, baked 
+    - diet: [carnivore, omnivore, pescatarian, vegetarian, vegan ]
+    - vegetables: [carrots, parsnips, beets, kale, radishes, endive, celery, cucumber, onion, garlic]
+    - herbs: [basil, thyme, rosemary, cilantro, cumin, cardamon, coriandar, dill, sage]
+    - meats: [rabbit, ostrich, beef, chicken, turkey, pheasant, pork]
+    - fish: [halibut, salmon, tuna, sardine, anchovy, mackerel, trout, bass, rockfish]
+    - cooking: [roasted, grilled, fried, baked ]
   templates:
     - template: '{{pronoun}} always eats alone.'
     - template: '{{pronoun}} is a devout {{descriptor "diet"}}.'

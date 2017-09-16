@@ -224,8 +224,8 @@ namespace Tests.Characters {
   fortitude: 0.667
   reflex: 0.334
   will: 0.334
-  armorproficiencies: light, medium, heavy
-  weaponproficiencies: simple, martial
+  armorproficiencies: [light, medium, heavy]
+  weaponproficiencies: [simple, martial]
   developedage: Trained
   startingwealth: 3d6
   levels:
@@ -246,7 +246,7 @@ namespace Tests.Characters {
   fortitude: 0.667
   reflex: 0.667
   will: 0.334
-  weaponproficiencies: simple, monk
+  weaponproficiencies: [simple, monk]
   developedage: Studied
   startingwealth: 1d6
   custom-build-step: SilverNeedle.Namespace.ClassName
@@ -269,7 +269,7 @@ namespace Tests.Characters {
   reflex: 0.334
   fortitude: 0.334
   will: 0.667
-  weaponproficiencies: club, dagger, crossbow
+  weaponproficiencies: [club, dagger, crossbow]
   developedage: Studied 
   spells:
     list: wizard
@@ -277,11 +277,11 @@ namespace Tests.Characters {
     known: spellbook
     ability: intelligence
     per-day:
-      1: 3, 1
-      2: 3, 2
-      3: 4, 2, 1
-      4: 4, 3, 2
-      5: 4, 4, 2, 1
+      1: [3, 1]
+      2: [3, 2]
+      3: [4, 2, 1]
+      4: [4, 3, 2]
+      5: [4, 4, 2, 1]
   levels:
     - level: 1      
     - level: 2

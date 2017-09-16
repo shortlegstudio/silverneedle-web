@@ -18,8 +18,8 @@
   fortitude: 0.667
   reflex: 0.334
   will: 0.667
-  armorproficiencies: light, medium, heavy
-  weaponproficiencies: simple, martial
+  armorproficiencies: [light, medium, heavy]
+  weaponproficiencies: [simple, martial]
   developedage: trained
   startingwealth: 5d6
   levels:
@@ -30,7 +30,7 @@
         - ability: SilverNeedle.Characters.SpecialAbilities.DetectEvil
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.LimitAlignment
-          deny: LawfulEvil, LawfulNeutral, ChaoticGood, ChaoticNeutral, ChaoticEvil, Neutral, NeutralGood, NeutralEvil
+          deny: [LawfulEvil, LawfulNeutral, ChaoticGood, ChaoticNeutral, ChaoticEvil, Neutral, NeutralGood, NeutralEvil]
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSmiteEvil
           uses-per-day: 1
     - level: 2
@@ -108,23 +108,23 @@
     known: all
     ability: charisma
     per-day:
-      1: 
-      2: 
-      3: 
-      4: 0, 0
-      5: 0, 1
-      6: 0, 1
-      7: 0, 1, 0
-      8: 0, 1, 1
-      9: 0, 2, 1
-      10: 0, 2, 1, 0
-      11: 0, 2, 1, 1
-      12: 0, 2, 2, 1
-      13: 0, 3, 2, 1, 0
-      14: 0, 3, 2, 1, 1
-      15: 0, 3, 2, 2, 1
-      16: 0, 3, 3, 2, 1
-      17: 0, 4, 3, 2, 1
-      18: 0, 4, 3, 2, 2
-      19: 0, 4, 3, 3, 2
-      20: 0, 4, 4, 3, 3
+      1: []
+      2: []
+      3: []
+      4: [0, 0]
+      5: [0, 1]
+      6: [0, 1]
+      7: [0, 1, 0]
+      8: [0, 1, 1]
+      9: [0, 2, 1]
+      10: [0, 2, 1, 0]
+      11: [0, 2, 1, 1]
+      12: [0, 2, 2, 1]
+      13: [0, 3, 2, 1, 0]
+      14: [0, 3, 2, 1, 1]
+      15: [0, 3, 2, 2, 1]
+      16: [0, 3, 3, 2, 1]
+      17: [0, 4, 3, 2, 1]
+      18: [0, 4, 3, 2, 2]
+      19: [0, 4, 3, 3, 2]
+      20: [0, 4, 4, 3, 3]

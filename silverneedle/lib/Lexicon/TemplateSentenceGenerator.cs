@@ -83,7 +83,7 @@ namespace SilverNeedle.Lexicon
             
             foreach(var descriptor in descriptors.Children) 
             {
-                // Descriptor format in YAML is "- key: item1, item2, item3"
+                // Descriptor format in YAML is "- key: [item1, item2, item3]"
                 var keyName = descriptor.Keys.First();
                 ShortLog.DebugFormat("Descriptor KeyName: {0}", keyName);
 

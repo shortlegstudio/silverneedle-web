@@ -151,11 +151,8 @@ namespace SilverNeedle.Serialization
         /// <param name="key">Key to the comma delimited string</param>
         public string[] GetListOptional(string key)
         {
-            var val = this.GetStringOptional(key);
-            if (val != null)
-            {
-                return Regex.Split(val, "\\s*,\\s*");
-            }
+            if(this.HasKey(key))
+                return GetList(key);
 
             return new string[] { };
         }
@@ -169,17 +166,7 @@ namespace SilverNeedle.Serialization
         /// <param name="key">Key to the comma delimited string</param>
         public string[] GetList(string key)
         {
-            if (this.GetObject(key).HasChildren)
-            {
-                return this.GetObject(key).Children.Select(x => x.Value).ToArray();
-            }
-            var val = this.GetString(key);            
-            if (val != null)
-            {
-                return val.ParseList();                
-            }
-
-            return new string[] { };
+            return this.GetObject(key).Children.Select(x => x.Value).ToArray();
         }
 
         public bool GetBool(string key)

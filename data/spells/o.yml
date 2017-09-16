@@ -8,7 +8,7 @@
   school: transmutation
 - name: Order's Wrath
   school: evocation
-  descriptors: lawful
+  descriptors: [ lawful ]
 - name: Overland Flight
   school: transmutation
 - name: Owl's Wisdom

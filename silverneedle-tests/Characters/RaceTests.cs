@@ -121,8 +121,8 @@ namespace Tests.Characters
     - Darkvision
     - Hardy
   languages: 
-    known: Common, Dwarven
-    available: Giant, Gnome, Goblin, Orc, Terran, Undercommon
+    known: [Common, Dwarven]
+    available: [Giant, Gnome, Goblin, Orc, Terran, Undercommon]
   basemovementspeed: 20
 - race: 
   name: Elf
@@ -137,8 +137,8 @@ namespace Tests.Characters
     - Elfy Stuff
     - Smart Guys
   languages: 
-    known: Common, Dwarven
-    available: Giant, Gnome, Goblin, Orc, Terrain, Undercommon
+    known: [Common, Dwarven]
+    available: [Giant, Gnome, Goblin, Orc, Terrain, Undercommon]
   basemovementspeed: 100
 - race:
   name: Human
@@ -151,8 +151,8 @@ namespace Tests.Characters
     - Boring Stuff
     - Extra Skill Point
   languages: 
-    known: Common
-    available: ALL
+    known: [ Common ]
+    available: [ ALL ]
   basemovementspeed: 30
 - race: 
   name: Halfling
@@ -167,8 +167,8 @@ namespace Tests.Characters
     - Halfling Luck
     - Foobar
   languages: 
-    known: Common, Halfling
-    available: Gnome
+    known: [Common, Halfling]
+    available: [ Gnome ]
   basemovementspeed: 25
 ...";
     }

@@ -5,7 +5,7 @@
   school: transmutation
 - name: Earthquake
   school: evocation
-  descriptors: earth
+  descriptors: [ earth ]
 - name: Elemental Body I
   school: transmutation
   subschool: polymorph
@@ -21,7 +21,7 @@
 - name: Elemental Swarm
   school: conjuration
   subschool: summoning
-  descriptors: element-dependent
+  descriptors: [element-dependent]
 - name: Endure Elements
   school: abjuration
 - name: Energy Drain
@@ -37,7 +37,7 @@
 - name: Enthrall
   school: enchantment
   subschool: compulsion
-  descriptors: language-dependent, mind-affecting, sonic
+  descriptors: [language-dependent, mind-affecting, sonic]
 - name: Entropic Shield
   school: abjuration
 - name: Erase
@@ -50,6 +50,6 @@
   school: transmutation
 - name: Explosive Runes
   school: abjuration
-  descriptors: force
+  descriptors: [ force ]
 - name: Eyebite
   school: necromancy

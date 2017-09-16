@@ -5,13 +5,13 @@
   school: abjuration
 - name: Unhallow
   school: evocation
-  descriptors: evil
+  descriptors: [ evil ]
 - name: Unholy Aura
   school: abjuration
-  descriptors: evil
+  descriptors: [ evil ]
 - name: Unholy Blight
   school: evocation
-  descriptors: evil
+  descriptors: [ evil ]
 - name: Unseen Servant
   school: conjuration
   subschool: creation

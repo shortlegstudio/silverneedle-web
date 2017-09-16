@@ -2,16 +2,16 @@
 - name: Archery
   bonus-feats:
     - level: 1
-      feats: far shot, point-blank shot, precise shot, rapid shot
+      feats: [far shot, point-blank shot, precise shot, rapid shot]
     - level: 6
-      feats: improved precise shot, manyshot
+      feats: [improved precise shot, manyshot]
     - level: 10
-      feats: pinpoint targeting, shot on the run
+      feats: [pinpoint targeting, shot on the run]
 - name: Two-Weapon Combat
   bonus-feats:
     - level: 1
-      feats: double slice, improved shield bash, quick draw, two-weapon fighting
+      feats: [double slice, improved shield bash, quick draw, two-weapon fighting]
     - level: 6
-      feats: improved two-weapon fighting, two-weapon defense
+      feats: [improved two-weapon fighting, two-weapon defense]
     - level: 10
-      feats: greater two-weapon fighting, two-weapon rend
+      feats: [greater two-weapon fighting, two-weapon rend]

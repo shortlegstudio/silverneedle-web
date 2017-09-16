@@ -15,6 +15,6 @@
   fortitude: 0.667
   reflex: 0.334
   will: 0.334
-  weaponproficiencies: simple, martial
-  armorproficiencies: light, medium, heavy, shield, towershield
+  weaponproficiencies: [simple, martial]
+  armorproficiencies: [light, medium, heavy, shield, towershield]
   developedage: Young

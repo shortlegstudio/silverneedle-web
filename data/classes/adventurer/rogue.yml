@@ -29,8 +29,8 @@
   fortitude: 0.334
   reflex: 0.667
   will: 0.334
-  armorproficiencies: light
-  weaponproficiencies: simple, hand crossbow, rapier, sap, shortbow, short sword
+  armorproficiencies: [light]
+  weaponproficiencies: [simple, hand crossbow, rapier, sap, shortbow, short sword]
   developedage: young
   startingwealth: 4d6
   levels:

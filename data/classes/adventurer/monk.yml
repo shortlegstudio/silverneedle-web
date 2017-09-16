@@ -22,6 +22,6 @@
   fortitude: 0.667
   reflex: 0.667
   will: 0.667
-  weaponproficiencies: club, light crossbow, heavy crossbow, dagger, handaxe, javelin, kama, nunchaku, quarterstaff, sai, shortspear, short sword, shuriken, siangham, sling, spear
+  weaponproficiencies: [club, light crossbow, heavy crossbow, dagger, handaxe, javelin, kama, nunchaku, quarterstaff, sai, shortspear, short sword, shuriken, siangham, sling, spear]
   developedage: studied
   startingwealth: 1d6

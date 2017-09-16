@@ -128,16 +128,16 @@ namespace Tests.Characters {
 - feat:
   name: Combat Expertise
   description: Dodge stuff better
-  tags: combat
+  tags: [ combat ]
   prerequisites:
     - intelligence: 13
 - feat:
   name: Power Attack
   description: Hit Stuff Hard
-  tags: combat, critical
+  tags: [combat, critical]
 - feat:
   name: Craft Wand
-  tags: itemcreation
+  tags: [ itemcreation ]
   description: Make Wands
 ...";
     }

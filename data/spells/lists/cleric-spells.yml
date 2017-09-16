@@ -1,17 +1,18 @@
 --- !<SilverNeedle.Spells.SpellList>
 - class: Cleric
   levels:
-    0: >
+    0: [
       bleed, create water, detect magic, detect poison, guidance, light, mending, 
-      purify food and drink, read magic, resistance, stabilize, virtue
-    1: >
+      purify food and drink, read magic, resistance, stabilize, virtue]
+    1: [
       bane, bless, bless water, cause fear, command, comprehend languages, 
       cure light wounds, deathwatch, detect chaos, detect evil, detect good, detect law, 
       endure elements, entropic shield, hide from undead, inflict light wounds, 
       magic stone, magic weapon, obscuring mist, protection from evil,
       protection from chaos, protection from good, protection from law, remove fear,
       sanctuary, shield of faith, summon monster i
-    2: >
+    ]
+    2: [
       aid, align weapon, augury, bear's endurance, bull's strength, calm emotions,
       consecrate, cure moderate wounds, darkness, delay poison, desecrate, 
       eagle's splendor, enthrall, find traps, gentle repose, hold person, 
@@ -19,7 +20,8 @@
       resist energy, restoration - lesser, shatter, shield other, silence, 
       sound burst, spiritual weapon, status, summon monster ii, undetectable alignment,
       zone of truth
-    3: > 
+    ]
+    3: [
       animate dead, bestow curse, blindness/deafness, contagion, continual flame, 
       create food and water, cure serious wounds, daylight, deeper darkness, 
       dispel magic, glyph of warding, helping hand, inflict serious wounds, 
@@ -29,21 +31,24 @@
       remove blindness/deafness, remove curse, remove disease, searing light,
       speak with dead, stone shape, summon monster iii, water breathing, water walk,
       wind wall
-    4: >
+    ]
+    4: [
       air walk, chaos hammer, control water, cure critical wounds, death ward, 
       dimensional anchor, discern lies, dismissal, divination, divine power, 
       freedom of movement, giant vermin, holy smite, imbue with spell ability,
       inflict critical wounds, magic weapon - greater, neutralize poison, 
       order's wrath, planar ally - lesser, poison, repel vermin, restoration,
       sending, spell immunity, summon monster iv, tongues, unholy blight
-    5: >
+    ]
+    5: [
       atonement, break enchantment, breath of life, command - greater, commune, 
       cure light wounds - mass, dispel chaos, dispel evil, dispel good, dispel law,
       disrupting weapon, flame strike, hallow, inflict light wounds - mass, 
       insect plague, mark of justice, plane shift, raise dead, righteous might,
       scrying, slay living, spell resistance, summon monster v,
       symbol of pain, symbol of sleep, true seeing, unhallow, wall of stone
-    6: >
+    ]
+    6: [
       animate objects, antilife shell, banishment, bear's endurance - mass, 
       blade barrier, bull's strength - mass, create undead, cure moderate wounds - mass,
       dispel magic - greater, eagle's splendor - mass, find the path, forbiddance,
@@ -51,17 +56,21 @@
       inflict moderate wounds - mass, owl's wisdom - mass, planar ally, 
       summon monster vi, symbol of fear, symbol of persuasion, undeath to death,
       wind walk, word of recall
-    7: >
+    ]
+    7: [
       blasphemy, control weather, cure serious wounds - mass, destruction, dictum,
       ethereal jaunt, holy word, inflict serious wounds - mass, refuge, regenerate,
       repulsion, restoration - greater, resurrection, scrying - greater, 
       summon monster vii, symbol of stunning, symbol of weakness, word of chaos
-    8: >
+    ]
+    8: [
       antimagic field, cloak of chaos, create greater undead, cure critical wounds - mass,
       dimensional lock, discern location, earthquake, fire storm, holy aura,
       inflict critical wounds - mass, planar ally - greater, shield of law,
       spell immunity - greater, summon monster viii, symbol of death, symbol of insanity,
       unholy aura
-    9: >
+    ]
+    9: [
       astral projection, energy drain, etherealness, gate, heal - mass, implosion,
       miracle, soul bind, storm of vengeance, summon monster ix, true resurrection
+    ]

@@ -14,7 +14,7 @@
 - name: Phantasmal Killer
   school: illusion
   subschool: phantasm
-  descriptors: fear, mind-affecting
+  descriptors: [fear, mind-affecting]
 - name: Phantom Steed
   school: conjuration
   subschool: creation
@@ -60,7 +60,7 @@
   school: necromancy
 - name: Polar Ray
   school: evocation
-  descriptors: cold
+  descriptors: [ cold ]
 - name: Polymorph
   school: transmutation
   subschool: polymorph
@@ -73,19 +73,19 @@
 - name: Power Word Blind
   school: enchantment
   subschool: compulsion
-  descriptors: mind-affecting
+  descriptors: [mind-affecting]
 - name: Power Word Kill
   school: enchantment
   subschool: compulsion
-  descriptors: death, mind-affecting
+  descriptors: [death, mind-affecting]
 - name: Power Word Stun
   school: enchantment
   subschool: compulsion
-  descriptors: mind-affecting
+  descriptors: [mind-affecting]
 - name: Prayer
   school: enchantment
   subschool: compulsion
-  descriptors: mind-affecting
+  descriptors: [mind-affecting]
 - name: Prestidigitation
   school: universal
 - name: Prismatic Sphere
@@ -96,7 +96,7 @@
   school: abjuration
 - name: Produce Flame
   school: evocation
-  descriptors: fire
+  descriptors: [ fire ]
 - name: Programmed Image
   school: illusion
   subschool: figment
@@ -107,18 +107,18 @@
   school: abjuration
 - name: Protection from Chaos
   school: abjuration
-  descriptors: lawful
+  descriptors: [ lawful ]
 - name: Protection from Energy
   school: abjuration
 - name: Protection from Evil
   school: abjuration
-  descriptors: good
+  descriptors: [ good ]
 - name: Protection from Good
   school: abjuration
-  descriptors: evil
+  descriptors: [ evil ]
 - name: Protection from Law
   school: abjuration
-  descriptors: chaotic
+  descriptors: [ chaotic ]
 - name: Protection from Spells
   school: abjuration
 - name: Prying Eyes

@@ -1,61 +1,61 @@
 --- !<SilverNeedle.Characters.Background.Drawback>
 - name: Attachment (Object)
   weight: 5
-  traits: Attached
+  traits: [Attached]
 - name: Attachment (Person)
   weight: 5
-  traits: Attached
+  traits: [ Attached ]
 - name: Family
   weight: 5
-  traits: Family Ties
+  traits: [Family Ties]
 - name: Justice
   weight: 5
-  traits: Headstrong
+  traits: [ Headstrong ]
 - name: Love
   weight: 5
-  traits: Lovesick
+  traits: [ Lovesick ]
 - name: Loyalty
   weight: 5
-  traits: Pride
+  traits: [ Pride ]
 - name: Material Wealth
   weight: 5
-  traits: Avarice
+  traits: [ Avarice ]
 - name: Pleasure
   weight: 5
-  traits: Hedonistic
+  traits: [ Hedonistic ]
 - name: Power
   weight: 5
-  traits: Power-Hungry
+  traits: [Power-Hungry]
 - name: Pride
   weight: 5
-  traits: Pride
+  traits: [ Pride ]
 - name: Race
   weight: 5
-  traits: Xenophobic
+  traits: [ Xenophobic ]
 - name: Religion
   weight: 5
-  traits: Zealous
+  traits: [ Zealous ]
 - name: Reputation/Fame
   weight: 5
-  traits: Vain
+  traits: [ Vain ]
 - name: Safety/Security
   weight: 5
-  traits: Paranoid
+  traits: [ Paranoid ]
 - name: Self-Doubt
   weight: 5
-  traits: Doubt
+  traits: [ Doubt ]
 - name: Social Acceptance
   weight: 5
-  traits: Dependent
+  traits: [ Dependent ]
 - name: The Future
   weight: 5
-  traits: Meticulous
+  traits: [ Meticulous ]
 - name: The Past
   weight: 5
-  traits: Sentimental
+  traits: [ Sentimental ]
 - name: Worldview
   weight: 5
-  traits: Provincial
+  traits: [ Provincial ]
 - name: Youth
   weight: 5
-  traits: Vain
+  traits: [ Vain ]

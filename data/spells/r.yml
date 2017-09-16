@@ -2,11 +2,11 @@
 - name: Rage
   school: enchantment
   subschool: compulsion
-  descriptors: mind-affecting
+  descriptors: [mind-affecting]
 - name: Rainbow Pattern
   school: illusion
   subschool: pattern
-  descriptors: mind-affecting
+  descriptors: [mind-affecting]
 - name: Raise Dead
   school: conjuration
   subschool: healing
@@ -16,7 +16,7 @@
   school: necromancy
 - name: Ray of Frost
   school: evocation
-  descriptors: cold
+  descriptors: [ cold ]
 - name: Read Magic
   school: divination
 - name: Reduce Animal
@@ -48,7 +48,7 @@
   subschool: healing
 - name: Repel Metal or Stone
   school: abjuration
-  descriptors: earth
+  descriptors: [ earth ]
 - name: Repel Vermin
   school: abjuration
 - name: Repel Wood
@@ -57,7 +57,7 @@
   school: abjuration
 - name: Resilient Sphere
   school: evocation
-  descriptors: force
+  descriptors: [ force ]
 - name: Resist Energy
   school: abjuration
 - name: Resistance

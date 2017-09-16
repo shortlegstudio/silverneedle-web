@@ -10,6 +10,6 @@
     - Bonus Feat
     - Skilled
   languages:
-    known: Common
-    available: ALL
+    known: [Common]
+    available: [ALL]
   basemovementspeed: 30

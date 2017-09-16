@@ -1,25 +1,25 @@
 --- !<SilverNeedle.Spells.SpellList>
 - class: Adept
   levels:
-    0: >
+    0: [
       create water, detect magic, ghost sound, guidance, light, mending, 
-      purify food and drink, read magic, stabilize, touch of fatigue
-    1: >
+      purify food and drink, read magic, stabilize, touch of fatigue]
+    1: [
       bless, burning hands, cause fear, command, comprehend languages, 
       cure light wounds, detect chaos, detect evil, detect good, detect law, 
       endure elements, obscuring mist, protection from evil,
-      protection from chaos, protection from good, protection from law, sleep
-    2: >
+      protection from chaos, protection from good, protection from law, sleep]
+    2: [
       aid, animal trance, bear's endurance, bull's strength, cat's grace, 
       cure moderate wounds, darkness, delay poison, invisibility, mirror image, 
-      resist energy, scorching ray, see invisibility, web
-    3: > 
+      resist energy, scorching ray, see invisibility, web]
+    3: [
       animate dead, bestow curse, contagion, continual flame, cure serious wounds, 
       daylight, deeper darkness, lightning bolt, neutralize poison, remove curse,
-      remove disease, tongues
-    4: >
+      remove disease, tongues]
+    4: [
       cure critical wounds, minor creation, polymorph, restoration, stoneskin, 
-      wall of fire
-    5: >
+      wall of fire]
+    5: [
       baleful polymorph, break enchantment, commune, heal, major creation, 
-      raise dead, true seeing, wall of stone
+      raise dead, true seeing, wall of stone]

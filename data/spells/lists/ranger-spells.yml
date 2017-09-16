@@ -1,21 +1,25 @@
 --- !<SilverNeedle.Spells.SpellList>
 - class: Ranger
   levels:
-    0: 
-    1: >
+    0: []
+    1: [
       alarm, animal messenger, calm animals, charm animal, delay poison,
       detect animals or plants, detect poison, detect snares and pits, 
       endure elements, entangle, hide from animals, jump, longstrider,
       magic fang, pass without trace, read magic, resist energy, speak with animals,
       summon nature's ally I
-    2: >
+    ]
+    2: [
       barkskin, bear's endurance, cat's grace, cure light wounds, hold animal,
       owl's wisdom, protection from energy, snare, speak with plants, spike growth,
       summon nature's ally II, wind wall
-    3: > 
+    ]
+    3: [ 
       command plants, cure moderate wounds, darkvision, diminish plants, magic fang - greater,
       neutralize poison, plant growth, reduce animal, remove disease, repel vermin,
       summon nature's ally III, tree shape, water walk
-    4: >
+    ]
+    4: [
       animal growth, commune with nature, cure serious wounds, freedom of movement,
       nondetection, summon nature's ally IV, tree stride
+    ]

@@ -5,7 +5,7 @@
 - name: Bane
   school: enchantment
   subschool: compulsion
-  descriptors: emotion, fear, mind-affecting
+  descriptors: [emotion, fear, mind-affecting]
 - name: Banishment
   school: abjuration
 - name: Barkskin
@@ -28,50 +28,50 @@
   subschool: polymorph
 - name: Bestow Curse
   school: necromancy
-  descriptors: curse
+  descriptors: [ curse ]
 - name: Binding
   school: enchantment
   subschool: compulsion
-  descriptors: mind-affecting
+  descriptors: [mind-affecting]
 - name: Black Tentacles
   school: conjuration
   subschool: creation
 - name: Blade Barrier
   school: evocation
-  descriptors: force
+  descriptors: [ force ]
 - name: Blasphemy
   school: evocation
-  descriptors: evil, sonic
+  descriptors: [evil, sonic]
 - name: Bleed
   school: necromancy
 - name: Bless
   school: enchantment
   subschool: compulsion
-  descriptors: mind-affecting
+  descriptors: [mind-affecting]
 - name: Bless Water
   school: transmutation
-  descriptors: good
+  descriptors: [ good ]
 - name: Bless Weapon
   school: transmutation
 - name: Blight
   school: necromancy
 - name: Blindness/Deafness
   school: necromancy
-  descriptors: curse
+  descriptors: [ curse ]
 - name: Blink
   school: transmutation
 - name: Blur
   school: illusion
-  descriptors: glamer
+  descriptors: [ glamer ]
 - name: Break Enchantment
   school: abjuration
 - name: Breath of Life
   school: conjuration
-  descriptors: healing
+  descriptors: [ healing ]
 - name: Bull's Strength
   school: transmutation
 - name: Bull's Strength - Mass
   school: transmutation
 - name: Burning Hands
   school: evocation
-  descriptors: fire
+  descriptors: [ fire ]

@@ -34,7 +34,7 @@ namespace Tests.Actions.CharacterGeneration.Appearance
         public void UsesDescriptorsIfAvailable()
         {
             var descs = new MemoryStore();
-            descs.AddListItem(new MemoryStore("descriptor", "dragon"));
+            descs.AddListItem(new MemoryStore("descriptor", new string[] { "dragon" }));
             var mem = new MemoryStore();
             mem.SetValue("name", "tattoo");
             mem.SetValue("descriptors", descs);
@@ -56,8 +56,8 @@ namespace Tests.Actions.CharacterGeneration.Appearance
         {
             // Set up Descriptors
             var descs = new MemoryStore();
-            descs.AddListItem(new MemoryStore("pattern", "dragon"));
-            descs.AddListItem(new MemoryStore("color", "black"));
+            descs.AddListItem(new MemoryStore("pattern", new string[] { "dragon" }));
+            descs.AddListItem(new MemoryStore("color", new string[] { "black" }));
 
             // Set up Templates 
             var temps = new MemoryStore();

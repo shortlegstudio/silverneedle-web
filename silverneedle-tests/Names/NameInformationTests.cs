@@ -71,25 +71,23 @@ namespace Tests.Names
 - gender: male
   race: human
   category: first
-  names: | 
-    Steve, John, Charles
-    Neo,,,Foobar
+  names: [
+    Steve, John, Charles,
+    Neo,Foobar]
 - gender: any
   race: human
   category: last
-  names: |
-    Smith, Johnson, Fondu
-    ,,Hookum,Stookum,
+  names: [
+    Smith, Johnson, Fondu,
+    Hookum,Stookum]
 - gender: female
   race: dwarf
   category: first
-  names: |
-    Arletta, Sheila, Sara
+  names: [ Arletta, Sheila, Sara ]
 - gender: any
   race: dwarf
   category: last
-  names: |
-    Rockhammer, Biggut, Roofus
+  names: [ Rockhammer, Biggut, Roofus ]
 ";
 	}
 }

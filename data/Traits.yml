@@ -14,7 +14,7 @@
 - trait:
   name: Darkvision
   description: See in the dark up to 60 feet.
-  tags: sense
+  tags: [ sense ]
   special:
     - type: Sight
       condition: Darkvision
@@ -41,7 +41,7 @@
   description: Half-Elves count as both elves and humans for any effect related to race.
 - trait:
   name: Elven Immunities
-  tags: immunity
+  tags: [ immunity ]
   description: >
     Elves are immune to magic sleep effects and get a +2 racial saving throws
     bonus against enchantment spells and effects.
@@ -180,7 +180,7 @@
 - trait:
   name: Low-Light Vision
   description: Can see in low light like normal light.
-  tags: sense
+  tags: [ sense ]
   special:
     - type: Sight
       condition: Low-Light Vision
@@ -215,14 +215,14 @@
 - trait:
   name: Slow Speed
   description: Speed of only 20 feet instead of 30 feet.
-  tags: move
+  tags: [ move ]
 - trait:
   configure: SilverNeedle.Characters.Traits.SlowAndSteady
   name: Slow and Steady
   description: >
     Dwarves have a base speed of 20 feet, but their speed is never modified
     by armor or encumberance.
-  tags: move
+  tags: [ move ]
 - trait:
   name: Stability
   description: >

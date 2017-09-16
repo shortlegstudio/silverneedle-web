@@ -1,13 +1,13 @@
 --- !<SilverNeedle.Spells.Spell>
 - name: Ice Storm
   school: evocation
-  descriptors: cold
+  descriptors: [ cold ]
 - name: Identify
   school: divination
 - name: Illusory Script
   school: illusion
   subschool: phantasm
-  descriptors: mind-affecting
+  descriptors: [mind-affecting]
 - name: Illusory Wall
   school: illusion
   subschool: figment
@@ -20,7 +20,7 @@
 - name: Incendiary Cloud
   school: conjuration
   subschool: creation
-  descriptors: fire
+  descriptors: [ fire ]
 - name: Inflict Critical Wounds
   school: necromancy
 - name: Inflict Critical Wounds - Mass
@@ -40,7 +40,7 @@
 - name: Insanity
   school: enchantment
   subschool: compulsion
-  descriptors: mind-affecting
+  descriptors: [mind-affecting]
 - name: Insect Plague
   school: conjuration
   subschool: summoning
@@ -49,7 +49,7 @@
   subschool: summoning
 - name: Interposing Hand
   school: evocation
-  descriptors: force
+  descriptors: [ force ]
 - name: Invisibility
   school: illusion
   subschool: glamer
@@ -71,4 +71,4 @@
 - name: Irresistible Dance
   school: enchantment
   subschool: compulsion
-  descriptors: mind-affecting
+  descriptors: [mind-affecting]

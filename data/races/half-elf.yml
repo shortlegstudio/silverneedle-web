@@ -14,6 +14,6 @@
     - Keen Senses
     - Multitalented
   languages:
-    known: Common, Elven
-    available: ALL
+    known: [Common, Elven]
+    available: [ALL]
   basemovementspeed: 30

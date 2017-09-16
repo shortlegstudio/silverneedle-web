@@ -106,7 +106,7 @@ Assert.Equal ("racial", skillAdj.Type);
 - trait: 
   name: Darkvision
   description: See in the dark.
-  tags: senses
+  tags: [ senses ]
   special:
     - type: Sight
       condition: In Dark

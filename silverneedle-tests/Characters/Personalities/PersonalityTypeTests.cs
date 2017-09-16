@@ -20,8 +20,8 @@ namespace Tests.Characters {
         public void CanLoadPersonalityType() {
             var data = new MemoryStore();
             data.SetValue("type", "ISTJ");
-            data.SetValue("descriptors", "Quiet, Serious, Focused");
-            data.SetValue("weaknesses", "Arrogant, Self-Centered");
+            data.SetValue("descriptors", new string[] {"Quiet", "Serious", "Focused" });
+            data.SetValue("weaknesses", new string[] {"Arrogant", "Self-Centered"});
 
             var personality = new PersonalityType(data);
             Assert.Equal(PersonalityTypes.Attitude.Introverted, personality.Attitude);

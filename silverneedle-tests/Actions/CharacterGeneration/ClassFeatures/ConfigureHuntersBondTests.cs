@@ -18,13 +18,13 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
         public void ChoosesAnItemFromPotentialHuntersBondsForAbility()
         {
             var options = new MemoryStore();
-            options.SetValue("bonds", "wolf, cat, tiger, elephant, giraffe");
+            options.SetValue("bonds", new string[] { "wolf", "cat", "tiger", "elephant", "giraffe" });
             var step = new ConfigureHuntersBond(options);
             var character = new CharacterSheet();
             step.ExecuteStep(character, new CharacterBuildStrategy());
 
             var bond = character.Get<HuntersBond>();
-            Assert.Contains(bond.Bond, options.GetString("bonds"));
+            Assert.Contains(bond.Bond, options.GetList("bonds"));
         }
     }
 }

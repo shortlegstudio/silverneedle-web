@@ -36,7 +36,7 @@
   fortitude: 0.334
   reflex: 0.667
   will: 0.667
-  armorproficiencies: light
-  weaponproficiencies: simple, longsword, rapier, sap, short sword, shortbow, whip
+  armorproficiencies: [light]
+  weaponproficiencies: [simple, longsword, rapier, sap, short sword, shortbow, whip]
   developedage: trained
   startingwealth: 3d6

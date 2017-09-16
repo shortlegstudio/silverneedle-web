@@ -1,23 +1,23 @@
 --- !<SilverNeedle.Spells.Spell>
 - name: Wail of the Banshee
   school: necromancy
-  descriptors: death, sonic
+  descriptors: [death, sonic]
 - name: Wall of Fire
   school: evocation
-  descriptors: fire
+  descriptors: [ fire ]
 - name: Wall of Force
   school: evocation
-  descriptors: force
+  descriptors: [ force ]
 - name: Wall of Ice
   school: evocation
-  descriptors: cold
+  descriptors: [ cold ]
 - name: Wall of Iron
   school: conjuration
   subschool: creation
 - name: Wall of Stone
   school: conjuration
   subschool: creation
-  descriptors: earth
+  descriptors: [ earth ]
 - name: Wall of Thorns
   school: conjuration
   subschool: creation
@@ -27,7 +27,7 @@
   school: transmutation
 - name: Water Walk
   school: transmutation
-  descriptors: water
+  descriptors: [ water ]
 - name: Waves of Exhaustion
   school: necromancy
 - name: Waves of Fatigue
@@ -38,26 +38,26 @@
 - name: Weird
   school: illusion
   subschool: phantasm
-  descriptors: fear, mind-affecting
+  descriptors: [fear, mind-affecting]
 - name: Whirlwind
   school: evocation
-  descriptors: air
+  descriptors: [ air ]
 - name: Whispering Wind
   school: transmutation
-  descriptors: air
+  descriptors: [ air ]
 - name: Wind Walk
   school: transmutation
-  descriptors: air
+  descriptors: [ air ]
 - name: Wind Wall
   school: evocation
-  descriptors: air
+  descriptors: [ air ]
 - name: Wish
   school: universal
 - name: Wood Shape
   school: transmutation
 - name: Word of Chaos
   school: evocation
-  descriptors: chaotic, sonic
+  descriptors: [chaotic, sonic]
 - name: Word of Recall
   school: conjuration
   subschool: teleportation

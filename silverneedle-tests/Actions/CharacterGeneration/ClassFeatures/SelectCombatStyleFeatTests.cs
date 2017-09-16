@@ -26,7 +26,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
 - name: Archery
   bonus-feats:
     - level: 1
-      feats: feat one".ParseYaml().Children.First();
+      feats: [feat one]".ParseYaml().Children.First();
             var combatStyle = new CombatStyle(yaml);
             var character = new CharacterSheet();
             var cls = new Class();

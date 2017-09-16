@@ -1,51 +1,61 @@
 --- !<SilverNeedle.Spells.SpellList>
 - class: Druid
   levels:
-    0: >
+    0: [
       create water, detect magic, detect poison, flare, guidance, know direction,
       light, mending, purify food and drink, read magic, resistance, stabilize, virtue
-    1: >
+    ]
+    1: [
       calm animals, charm animal, cure light wounds, detect animals or plants,
       detect snares and pits, endure elements, entangle, faerie fire, goodberry,
       hide from animals, jump, longstrider, magic fang, magic stone, obscuring mist, 
       pass without trace, produce flame, shillelagh, speak with animals, 
       summon nature's ally i
-    2: >
+    ]
+    2: [
       animal messenger, animal trance, barkskin, bear's endurance, bull's strength, 
       cat's grace, chill metal, delay poison, fire trap, flame blade, 
       flaming sphere, fog cloud,  gust of wind, heat metal, hold animal,
       owl's wisdom, reduce animal, resist energy, restoration - lesser, 
       soften earth and stone, spider climb, summon nature's ally ii, summon swarm,
       tree shape, warp wood, wood shape
-    3: > 
+    ]
+    3: [ 
       call lightning, contagion, cure moderate wounds, daylight, diminish plants,
       dominate animal, magic fang - greater, meld into stone, neutralize poison,
       plant growth, poison, protection from energy, quench, remove disease,
       sleet storm, snare, speak with plants, spike growth, stone shape, 
       summon nature's ally iii, water breathing, wind wall
-    4: >
+    ]
+    4: [
       air walk, antiplant shell, blight, command plants, control water, 
       cure serious wounds, dispel magic, flame strike, freedom of movement, 
       giant vermin, ice storm, reincarnate, repel vermin, rusting grasp, scrying,
       spike stones, summon nature's ally iv
-    5: >
+    ]
+    5: [
       animal growth, atonement, awaken, baleful polymorph, call lightning storm,
       commune with nature, control winds, cure critical wounds, death ward, hallow,
       insect plague, stoneskin, summon nature's ally v, transmute mud to rock, 
       transmute rock to mud, tree stride, unhallow, wall of fire, wall of thorns
-    6: >
+    ]
+    6: [
       antilife shell, bear's endurance - mass, bull's strength - mass, cat's grace - mass,
       cure light wounds - mass, dispel magic - greater, find the path, fire seeds,
       ironwood, liveoak, move earth, owl's wisdom - mass, repel wood, spellstaff,
       stone tell, summon nature's ally vi, transport via plants, wall of stone
-    7: >
+    ]
+    7: [
       animate plants, changestaff, control weather, creeping doom, cure moderate wounds - mass,
       fire storm, heal, scrying - greater, summon nature's ally vii, sunbeam, 
       transmute metal to wood, true seeing, wind walk
-    8: >
+    ]
+    8: [
       animal shapes, control plants, cure serious wounds - mass, earthquake, finger of death,
       repel metal or stone, reverse gravity, summon nature's ally viii, sunburst,
       whirlwind, word of recall
-    9: >
+    ]
+    9: [
       antipathy, cure critical wounds - mass, elemental swarm, foresight, regenerate,
       shambler, shapechange, storm of vengeance, summon nature's ally ix, sympathy
+    ]

@@ -6,14 +6,14 @@
 - name: black
 - name: blonde
   descriptors:
-    - descriptor: dirty, strawberry, honey, platinum, bright
+    - descriptor: [dirty, strawberry, honey, platinum, bright]
 - name: blue
   descriptors:
-    - descriptor: bright, dark, deep, navy, sky, light
+    - descriptor: [bright, dark, deep, navy, sky, light]
 - name: bronze
 - name: brown
   descriptors: 
-    - descriptor: light, medium, dark, ash
+    - descriptor: [light, medium, dark, ash]
 - name: brunette
 - name: chestnut
 - name: copper

@@ -16,6 +16,6 @@
     - Sure-Footed
     - Weapon Familiarity
   languages:
-    known: Common, Halfling
-    available: Dwarven, Elven, Gnome, Goblin
+    known: [Common, Halfling]
+    available: [Dwarven, Elven, Gnome, Goblin]
   basemovementspeed: 20

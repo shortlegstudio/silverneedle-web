@@ -23,7 +23,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
             character.SetClass(new Class());
             var configureAir = new MemoryStore();
             configureAir.SetValue("name", "Air");
-            configureAir.SetValue("spells", "air 1, air 2");
+            configureAir.SetValue("spells", new string[] { "air 1", "air 2"} );
             var domain = new Domain(configureAir);
             character.Add(domain);
 

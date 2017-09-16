@@ -44,6 +44,16 @@ namespace SilverNeedle.Serialization
             dataStore[key] = this;
         }
 
+        public MemoryStore(string key, IEnumerable<string> list) : this()
+        {
+            Key = key;
+            dataStore[key] = this;
+            foreach(var s in list)
+            {
+                AddListItem(new MemoryStore("list-item", s));
+            }
+        }
+
         public IDictionary<string, string> ChildrenToDictionary()
         {
             throw new NotImplementedException();
@@ -94,7 +104,7 @@ namespace SilverNeedle.Serialization
             {
                 return item.Children.Select(x => x.Value).ToArray();
             }
-            return GetString(key).ParseList();
+            return new string[] { };
         }
 
         public string[] GetListOptional(string key)

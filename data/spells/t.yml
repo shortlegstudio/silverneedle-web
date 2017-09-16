@@ -3,7 +3,7 @@
   school: transmutation
 - name: Telekinetic Sphere
   school: evocation
-  descriptors: force
+  descriptors: [ force ]
 - name: Telepathic Bond
   school: divination
 - name: Teleport
@@ -24,7 +24,7 @@
   school: transmutation
 - name: Tiny Hut
   school: evocation
-  descriptors: force
+  descriptors: [ force ]
 - name: Tongues
   school: divination
 - name: Touch of Fatigue
@@ -32,17 +32,17 @@
 - name: Touch of Idiocy
   school: enchantment
   subschool: compulsion
-  descriptors: mind-affecting
+  descriptors: [mind-affecting]
 - name: Transformation
   school: transmutation
 - name: Transmute Metal to Wood
   school: transmutation
 - name: Transmute Mud to Rock
   school: transmutation
-  descriptors: earth
+  descriptors: [ earth ]
 - name: Transmute Rock to Mud
   school: transmutation
-  descriptors: earth
+  descriptors: [ earth ]
 - name: Transport via Plants
   school: conjuration
   subschool: teleportation

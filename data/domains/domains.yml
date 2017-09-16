@@ -1,168 +1,135 @@
 --- !<SilverNeedle.Characters.Domains.Domain>
 - name: Air
   custom-implementation: SilverNeedle.Characters.Domains.Air
-  spells: > 
-    obscuring mist, wind wall, gaseous form, air walk, control winds, 
-    chain lightning, elemental body iv, whirlwind, elemental swarm
+  spells: [obscuring mist, wind wall, gaseous form, air walk, control winds, 
+    chain lightning, elemental body iv, whirlwind, elemental swarm]
 - name: Animal
   custom-implementation: SilverNeedle.Characters.Domains.Animal
-  spells: > 
-    calm animals, hold animal, dominate animal, summon nature's ally iv,
+  spells: [calm animals, hold animal, dominate animal, summon nature's ally iv,
     beast shape iii, antilife shell, animal shapes, summon nature's ally viii, 
-    shapechange
+    shapechange]
 - name: Artifice
   custom-implementation: SilverNeedle.Characters.Domains.Artifice
-  spells: >
-    animate rope, wood shape, stone shape, minor creation, fabricate, major creation,
-    wall of iron, statue, prismatic sphere
+  spells: [animate rope, wood shape, stone shape, minor creation, fabricate, major creation,
+    wall of iron, statue, prismatic sphere]
 - name: Chaos
   custom-implementation: SilverNeedle.Characters.Domains.Chaos
-  spells: > 
-    protection from law, align weapon, magic circle against law, chaos hammer,
-    dispel law, animate objects, word of chaos, cloak of chaos, summon monster ix
+  spells: [protection from law, align weapon, magic circle against law, chaos hammer,
+    dispel law, animate objects, word of chaos, cloak of chaos, summon monster ix]
 - name: Charm
   custom-implementation: SilverNeedle.Characters.Domains.Charm
-  spells: >
-    charm person, calm emotions, suggestion, heroism, charm monster, geas/quest,
-    insanity, demand, dominate monster
+  spells: [charm person, calm emotions, suggestion, heroism, charm monster, geas/quest,
+    insanity, demand, dominate monster]
 - name: Community
   custom-implementation: SilverNeedle.Characters.Domains.Community
-  spells: >
-    bless, shield other, prayer, imbue with spell ability, telepathic bond,
-    heroes' feast, refuge, cure critical wounds - mass, miracle
+  spells: [bless, shield other, prayer, imbue with spell ability, telepathic bond,
+    heroes' feast, refuge, cure critical wounds - mass, miracle]
 - name: Darkness
   custom-implementation: SilverNeedle.Characters.Domains.Darkness
-  spells: > 
-    obscuring mist, blindness/deafness, deeper darkness, shadow conjuration, 
+  spells: [obscuring mist, blindness/deafness, deeper darkness, shadow conjuration, 
     summon monster v, shadow walk, power word blind, shadow evocation - greater,
-    shades
+    shades]
 - name: Death
   custom-implementation: SilverNeedle.Characters.Domains.Death
-  spells: >
-    cause fear, death knell, animate dead, death ward, slay living, create undead,
-    destruction, create greater undead, wail of the banshee
+  spells: [cause fear, death knell, animate dead, death ward, slay living, create undead,
+    destruction, create greater undead, wail of the banshee]
 - name: Destruction
   custom-implementation: SilverNeedle.Characters.Domains.Destruction
-  spells: >
-    true strike, shatter, rage, inflict critical wounds, shout, harm, disintegrate,
-    earthquake, implosion
+  spells: [true strike, shatter, rage, inflict critical wounds, shout, harm, disintegrate,
+    earthquake, implosion]
 - name: Earth
   custom-implementation: SilverNeedle.Characters.Domains.Earth
-  spells: >
-    magic stone, soften earth and stone, stone shape, spike stones, wall of stone,
-    stoneskin, elemental body iv, earthquake, elemental swarm
+  spells: [magic stone, soften earth and stone, stone shape, spike stones, wall of stone,
+    stoneskin, elemental body iv, earthquake, elemental swarm]
 - name: Evil
   custom-implementation: SilverNeedle.Characters.Domains.Evil
-  spells: >
-    protection from good, align weapon, magic circle against good, unholy blight,
-    dispel good, create undead, blasphemy, unholy aura, summon monster ix
+  spells: [protection from good, align weapon, magic circle against good, unholy blight,
+    dispel good, create undead, blasphemy, unholy aura, summon monster ix]
 - name: Fire
   custom-implementation: SilverNeedle.Characters.Domains.Fire
-  spells: >
-    burning hands, produce flame, fireball, wall of fire, fire shield, 
-    fire seeds, elemental body iv, incendiary cloud, elemental swarm
+  spells: [burning hands, produce flame, fireball, wall of fire, fire shield, 
+    fire seeds, elemental body iv, incendiary cloud, elemental swarm]
 - name: Glory
   custom-implementation: SilverNeedle.Characters.Domains.Glory
-  spells: >
-    shield of faith, bless weapon, searing light, holy smite, righteous might,
-    undeath to death, holy sword, holy aura, gate
+  spells: [shield of faith, bless weapon, searing light, holy smite, righteous might,
+    undeath to death, holy sword, holy aura, gate]
 - name: Good
   custom-implementation: SilverNeedle.Characters.Domains.Good
-  spells: >
-    protection from evil, align weapon, magic circle against evil, holy smite,
-    dispel evil, blade barrier, holy word, holy aura, summon monster ix
+  spells: [protection from evil, align weapon, magic circle against evil, holy smite,
+    dispel evil, blade barrier, holy word, holy aura, summon monster ix]
 - name: Healing
   custom-implementation: SilverNeedle.Characters.Domains.Healing
-  spells: >
-    cure light wounds, cure moderate wounds, cure serious wounds, cure critical wounds,
-    breath of life, heal, regenerate, cure critical wounds - mass, heal - mass
+  spells: [cure light wounds, cure moderate wounds, cure serious wounds, cure critical wounds,
+    breath of life, heal, regenerate, cure critical wounds - mass, heal - mass]
 - name: Knowledge
   custom-implementation: SilverNeedle.Characters.Domains.Knowledge
-  spells: >
-    comprehend languages, detect thoughts, speak with dead, divination, 
-    true seeing, find the path, legend lore, discern location, foresight
+  spells: [comprehend languages, detect thoughts, speak with dead, divination, 
+    true seeing, find the path, legend lore, discern location, foresight]
 - name: Law
   custom-implementation: SilverNeedle.Characters.Domains.Law
-  spells: >
-    protection from chaos, align weapon, magic circle against chaos, order's wrath,
-    dispel chaos, hold monster, dictum, shield of law, summon monster ix
+  spells: [protection from chaos, align weapon, magic circle against chaos, order's wrath,
+    dispel chaos, hold monster, dictum, shield of law, summon monster ix]
 - name: Liberation
   custom-implementation: SilverNeedle.Characters.Domains.Liberation
-  spells: >
-    remove fear, remove paralysis, remove curse, freedom of movement, break enchantment,
-    dispel magic - greater, refuge, mind blank, freedom
+  spells: [remove fear, remove paralysis, remove curse, freedom of movement, break enchantment,
+    dispel magic - greater, refuge, mind blank, freedom]
 - name: Luck
   custom-implementation: SilverNeedle.Characters.Domains.Luck
-  spells: >
-    true strike, aid, protection from energy, freedom of movement, break enchantment,
-    mislead, spell turning, moment of prescience, miracle
+  spells: [true strike, aid, protection from energy, freedom of movement, break enchantment,
+    mislead, spell turning, moment of prescience, miracle]
 - name: Madness
   custom-implementation: SilverNeedle.Characters.Domains.Madness
-  spells: >
-    confusion - lesser, touch of idiocy, rage, confusion, nightmare,
-    phantasmal killer, insanity, scintillating pattern, weird
+  spells: [confusion - lesser, touch of idiocy, rage, confusion, nightmare,
+    phantasmal killer, insanity, scintillating pattern, weird]
 - name: Magic
   custom-implementation: SilverNeedle.Characters.Domains.Magic
-  spells: >
-    identify, magic mouth, dispel magic, imbue with spell ability, spell resistance,
-    antimagic field, spell turning, protection from spells, mage's disjunction
+  spells: [identify, magic mouth, dispel magic, imbue with spell ability, spell resistance,
+    antimagic field, spell turning, protection from spells, mage's disjunction]
 - name: Nobility
   custom-implementation: SilverNeedle.Characters.Domains.Nobility
-  spells: >
-    divine favor, enthrall, magic vestment, discern lies, command - greater,
-    geas/quest, repulsion, demand, storm of vengeance
+  spells: [divine favor, enthrall, magic vestment, discern lies, command - greater,
+    geas/quest, repulsion, demand, storm of vengeance]
 - name: Plant
   custom-implementation: SilverNeedle.Characters.Domains.Plant
-  spells: >
-    entangle, barkskin, plant growth, command plants, wall of thorns, repel wood,
-    animate plants, control plants, shambler
+  spells: [entangle, barkskin, plant growth, command plants, wall of thorns, repel wood,
+    animate plants, control plants, shambler]
 - name: Protection
   custom-implementation: SilverNeedle.Characters.Domains.Protection
-  spells: >
-    sanctuary, shield other, protection from energy, spell immunity, spell resistance,
-    antimagic field, repulsion, mind blank, prismatic sphere
+  spells: [sanctuary, shield other, protection from energy, spell immunity, spell resistance,
+    antimagic field, repulsion, mind blank, prismatic sphere]
 - name: Repose
   custom-implementation: SilverNeedle.Characters.Domains.Repose
-  spells: >
-    deathwatch, gentle repose, speak with dead, death ward, slay living, 
-    undeath to death, destruction, waves of exhaustion, wail of the banshee
+  spells: [deathwatch, gentle repose, speak with dead, death ward, slay living, 
+    undeath to death, destruction, waves of exhaustion, wail of the banshee]
 - name: Rune
   custom-implementation: SilverNeedle.Characters.Domains.Rune
-  spells: >
-    erase, secret page, glyph of warding, explosive runes, planar binding - lesser,
-    glyph of warding - greater, instant summons, symbol of death, teleportation circle
+  spells: [erase, secret page, glyph of warding, explosive runes, planar binding - lesser,
+    glyph of warding - greater, instant summons, symbol of death, teleportation circle]
 - name: Strength
   custom-implementation: SilverNeedle.Characters.Domains.Strength
-  spells: >
-    enlarge person, bull's strength, magic vestment, spell immunity, righteous might,
-    stoneskin, grasping hand, clenched fist, crushing hand
+  spells: [enlarge person, bull's strength, magic vestment, spell immunity, righteous might,
+    stoneskin, grasping hand, clenched fist, crushing hand]
 - name: Sun
   custom-implementation: SilverNeedle.Characters.Domains.Sun
-  spells: >
-    endure elements, heat metal, searing light, fire shield, flame strike, 
-    fire seeds, sunbeam, sunburst, prismatic sphere
+  spells: [endure elements, heat metal, searing light, fire shield, flame strike, 
+    fire seeds, sunbeam, sunburst, prismatic sphere]
 - name: Travel
   custom-implementation: SilverNeedle.Characters.Domains.Travel
-  spells: >
-    longstrider, locate object, fly, dimension door, teleport, find the path,
-    teleport - greater, phase door, astral projection
+  spells: [longstrider, locate object, fly, dimension door, teleport, find the path,
+    teleport - greater, phase door, astral projection]
 - name: Trickery
   custom-implementation: SilverNeedle.Characters.Domains.Trickery
-  spells: >
-    disguise self, invisibility, nondetection, confusion, false vision, mislead,
-    screen, invisibility - mass, time stop
+  spells: [disguise self, invisibility, nondetection, confusion, false vision, mislead,
+    screen, invisibility - mass, time stop]
 - name: War
   custom-implementation: SilverNeedle.Characters.Domains.War
-  spells: >
-    magic weapon, spiritual weapon, magic vestment, divine power, flame strike,
-    blade barrier, power word blind, power word stun, power word kill
+  spells: [magic weapon, spiritual weapon, magic vestment, divine power, flame strike,
+    blade barrier, power word blind, power word stun, power word kill]
 - name: Water
   custom-implementation: SilverNeedle.Characters.Domains.Water
-  spells: >
-    obscuring mist, fog cloud, water breathing, control water, ice storm, 
-    cone of cold, elemental body iv, horrid wilting, elemental swarm
+  spells: [obscuring mist, fog cloud, water breathing, control water, ice storm, 
+    cone of cold, elemental body iv, horrid wilting, elemental swarm]
 - name: Weather
   custom-implementation: SilverNeedle.Characters.Domains.Weather
-  spells: >
-    obscuring mist, fog cloud, call lightning, sleet storm, ice storm, 
-    control winds, control weather, whirlwind, storm of vengeance
+  spells: [obscuring mist, fog cloud, call lightning, sleet storm, ice storm, 
+    control winds, control weather, whirlwind, storm of vengeance]

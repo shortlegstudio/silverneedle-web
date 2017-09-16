@@ -18,8 +18,8 @@ namespace Tests.Lexicon
             var data = new MemoryStore();
             data.SetValue("name", "ponytail");
             var descriptors = new MemoryStore();
-            descriptors.AddListItem(new MemoryStore("length", "long, short, waist-length"));
-            descriptors.AddListItem(new MemoryStore("texture", "messy, tidy, wavy, straight, high, braided"));
+            descriptors.AddListItem(new MemoryStore("length", new string[] { "long", "short", "waist-length" }));
+            descriptors.AddListItem(new MemoryStore("texture", new string[] { "messy", "tidy", "wavy", "straight", "high", "braided" }));
             data.SetValue("descriptors", descriptors);
 
             var subject = new TestDescription(data);
@@ -34,8 +34,8 @@ namespace Tests.Lexicon
             var data = new MemoryStore();
             data.SetValue("name", "ponytail");
             var descriptors = new MemoryStore();
-            descriptors.AddListItem(new MemoryStore("length", "long"));
-            descriptors.AddListItem(new MemoryStore("texture", "braided"));
+            descriptors.AddListItem(new MemoryStore("length", new string[] { "long" }));
+            descriptors.AddListItem(new MemoryStore("texture", new string[] { "braided" }));
             data.SetValue("descriptors", descriptors);
             var subject = new TestDescription(data); 
             var text = subject.CreateDescription();

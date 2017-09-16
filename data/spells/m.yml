@@ -2,7 +2,7 @@
 - name: Mage Armor
   school: conjuration
   subschool: creation
-  descriptors: force
+  descriptors: [ force ]
 - name: Mage Hand
   school: transmutation
 - name: Mage's Disjunction
@@ -19,22 +19,22 @@
   school: abjuration
 - name: Mage's Sword
   school: evocation
-  descriptors: force
+  descriptors: [ force ]
 - name: Magic Aura
   school: illusion
   subschool: glamer
 - name: Magic Circle against Chaos
   school: abjuration
-  descriptors: lawful
+  descriptors: [ lawful ]
 - name: Magic Circle against Evil
   school: abjuration
-  descriptors: good
+  descriptors: [ good ]
 - name: Magic Circle against Good
   school: abjuration
-  descriptors: evil
+  descriptors: [ evil ]
 - name: Magic Circle against Law
   school: abjuration
-  descriptors: chaotic
+  descriptors: [ chaotic ]
 - name: Magic Fang
   school: transmutation
 - name: Magic Fang - Greater
@@ -43,7 +43,7 @@
   school: necromancy
 - name: Magic Missile
   school: evocation
-  descriptors: force
+  descriptors: [ force ]
 - name: Magic Mouth
   school: illusion
   subschool: glamer
@@ -70,21 +70,21 @@
   subschool: teleportation
 - name: Meld into Stone
   school: transmutation
-  descriptors: earth
+  descriptors: [ earth ]
 - name: Mending
   school: transmutation
 - name: Message
   school: transmutation
-  descriptors: language-dependent
+  descriptors: [language-dependent]
 - name: Meteor Swarm
   school: evocation
-  descriptors: fire
+  descriptors: [ fire ]
 - name: Mind Blank
   school: abjuration
 - name: Mind Fog
   school: enchantment
   subschool: compulsion
-  descriptors: mind-affecting
+  descriptors: [mind-affecting]
 - name: Minor Creation
   school: conjuration
   subschool: creation
@@ -110,7 +110,7 @@
 - name: Modify Memory
   school: enchantment
   subschool: compulsion
-  descriptors: mind-affecting
+  descriptors: [mind-affecting]
 - name: Moment of Prescience
   school: divination
 - name: Mount
@@ -118,4 +118,4 @@
   subschool: summoning
 - name: Move Earth
   school: transmutation
-  descriptors: earth
+  descriptors: [ earth ]

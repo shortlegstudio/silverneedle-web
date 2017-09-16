@@ -13,6 +13,6 @@
     - Orc Ferocity
     - Weapon Familiarity
   languages:
-    known: Common, Orc
-    available: Abyssal, Draconic, Giant, Gnoll, Goblin
+    known: [Common, Orc]
+    available: [Abyssal, Draconic, Giant, Gnoll, Goblin]
   basemovementspeed: 30

@@ -3,7 +3,7 @@
   school: transmutation
 - name: Faerie Fire
   school: evocation
-  descriptors: light
+  descriptors: [ light ]
 - name: False Life
   school: necromancy
 - name: False Vision
@@ -11,56 +11,56 @@
   subschool: glamer
 - name: Fear
   school: necromancy
-  descriptors: fear, mind-affecting
+  descriptors: [fear, mind-affecting]
 - name: Feather Fall
   school: transmutation
 - name: Feeblemind
   school: enchantment
   subschool: compulsion
-  descriptors: mind-affecting
+  descriptors: [mind-affecting]
 - name: Find Traps
   school: divination
 - name: Find the Path
   school: divination
 - name: Finger of Death
   school: necromancy
-  descriptors: death
+  descriptors: [ death ]
 - name: Fire Seeds
   school: conjuration
   subschool: creation
-  descriptors: fire
+  descriptors: [ fire ]
 - name: Fire Shield
   school: evocation
-  descriptors: fire or cold
+  descriptors: [fire, cold]
 - name: Fire Storm
   school: evocation
-  descriptors: fire
+  descriptors: [fire]
 - name: Fire Trap
   school: abjuration
-  descriptors: fire
+  descriptors: [ fire ]
 - name: Fireball
   school: evocation
-  descriptors: fire
+  descriptors: [ fire ]
 - name: Flame Arrow
   school: transmutation
-  descriptors: fire
+  descriptors: [ fire ]
 - name: Flame Blade
   school: evocation
-  descriptors: fire
+  descriptors: [ fire ]
 - name: Flame Strike
   school: evocation
-  descriptors: fire
+  descriptors: [ fire ]
 - name: Flaming Sphere
   school: evocation
-  descriptors: fire
+  descriptors: [ fire ]
 - name: Flare
   school: evocation
-  descriptors: light
+  descriptors: [ light ]
 - name: Flesh to Stone
   school: transmutation
 - name: Floating Disk
   school: evocation
-  descriptors: force
+  descriptors: [ force ]
 - name: Fly
   school: transmutation
 - name: Fog Cloud
@@ -70,10 +70,10 @@
   school: abjuration
 - name: Forcecage
   school: evocation
-  descriptors: force
+  descriptors: [ force ]
 - name: Forceful Hand
   school: evocation
-  descriptors: force
+  descriptors: [ force ]
 - name: Foresight
   school: divination
 - name: Form of the Dragon I
@@ -95,4 +95,4 @@
   school: abjuration
 - name: Freezing Sphere
   school: evocation
-  descriptors: cold
+  descriptors: [ cold ]

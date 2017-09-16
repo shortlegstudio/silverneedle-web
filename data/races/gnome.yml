@@ -19,6 +19,6 @@
     - Obsessive
     - Weapon Familiarity
   languages:
-    known: Common, Gnome, Sylvan
-    available: Draconic, Dwarven, Elven, Giant, Goblin, Orc
+    known: [Common, Gnome, Sylvan]
+    available: [Draconic, Dwarven, Elven, Giant, Goblin, Orc]
   basemovementspeed: 20
