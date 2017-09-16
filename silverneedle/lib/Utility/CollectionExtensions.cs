@@ -111,6 +111,11 @@ namespace SilverNeedle
             return list.Count() == 0;
         }
 
+        public static bool NotEmpty<T>(this IEnumerable<T> list)
+        {
+            return list.Count() > 0;
+        }
+
         public static IEnumerable<T> Exclude<T>(this IEnumerable<T> source, IEnumerable<T> exclude)
         {
             return source.Where(x => !exclude.Contains(x));

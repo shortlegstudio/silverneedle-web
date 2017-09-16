@@ -9,7 +9,7 @@ namespace SilverNeedle.Characters
     /// <summary>
     /// An ability score for a character. Examples: Strength, Intelligence, Charisma, ...
     /// </summary>
-    public class AbilityScore : BasicStat
+    public class AbilityScore : BasicStat, IStatistic
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Characters.AbilityScore"/> class.

@@ -22,6 +22,7 @@ namespace Tests.Actions.CharacterGeneration
             var bob = CharacterTestTemplates.AverageBob();
             addToken.ExecuteStep(bob, new CharacterBuildStrategy());
 
+            //TODO: What kind of abstraction is this???? 
             var token = bob.FeatTokens[0];
             Assert.Contains("combat", token.Tags);
             Assert.Contains("critical", token.Tags);

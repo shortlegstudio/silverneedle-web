@@ -41,6 +41,13 @@ namespace Tests
             return donna;
         }
 
+        public static CharacterSheet MarkyMonk()
+        {
+            var marky = new CharacterSheet();
+            var monk = new Class("Monk");
+            marky.SetClass(monk);
+            return marky;
+        }
 
     }
 }

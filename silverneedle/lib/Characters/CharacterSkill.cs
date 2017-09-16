@@ -97,6 +97,8 @@ namespace SilverNeedle.Characters
             }
         }
 
+        public int TotalValue { get { return Score(); } }
+
         /// <summary>
         /// Calculates the score of this skill using all available modifiers.
         /// </summary>

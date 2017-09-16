@@ -29,6 +29,12 @@ namespace SilverNeedle
             this.abilityScore = ability;
         }
 
+        public AbilityStatModifier(AbilityScore ability, string statisticName)
+        {
+            this.abilityScore = ability;
+            this.StatisticName = statisticName;
+        }
+
         /// <summary>
         /// Gets the modifier. Set throws an exception in this case because modifying this modifier is not allowed
         /// </summary>

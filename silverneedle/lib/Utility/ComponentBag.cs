@@ -99,6 +99,11 @@ namespace SilverNeedle.Utility
             return GetAllStats().FirstOrDefault(x => x.Name.EqualsIgnoreCase(name));
         }
 
+        public T FindStat<T>(string name)
+        {
+            return GetAllStats().Where(x => x.Name.EqualsIgnoreCase(name)).OfType<T>().FirstOrDefault();
+        }
+
         private void OnComponentAdded(object component)
         {
             var args = new ComponentBagEvent();

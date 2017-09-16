@@ -42,7 +42,6 @@
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
           options: [Endurance]
-      class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ChooseFavoredTerrain
     - level: 4
       class-feature-steps:
@@ -116,8 +115,8 @@
     ability: wisdom
     per-day:
       1: []
-      2: [] 
-      3: [] 
+      2: []
+      3: []
       4: [0, 0]
       5: [0, 1]
       6: [0, 1]

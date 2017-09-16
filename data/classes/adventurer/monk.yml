@@ -27,6 +27,8 @@
   startingwealth: 1d6
   levels:
     - level: 1
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.MonkArmorClassBonus
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
           options: [Catch Off-Guard, Combat Reflexes, Deflect Arrows, Dodge, Improved Grapple, Scorpion Style, Throw Anything]

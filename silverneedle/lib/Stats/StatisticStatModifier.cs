@@ -9,14 +9,14 @@ namespace SilverNeedle
 {
     public class StatisticStatModifier : IStatModifier
     {
-        private BasicStat statistic;
+        private IStatistic statistic;
 
 
-        public StatisticStatModifier(string statisticName, BasicStat trackingStat) : this(statisticName, trackingStat.Name, trackingStat.Name, trackingStat)
+        public StatisticStatModifier(string statisticName, IStatistic trackingStat) : this(statisticName, trackingStat.Name, trackingStat.Name, trackingStat)
         {
 
         }
-        public StatisticStatModifier(string statisticName, string type, string reason, BasicStat trackingStat)
+        public StatisticStatModifier(string statisticName, string type, string reason, IStatistic trackingStat)
         {
             statistic = trackingStat;
             this.StatisticName = statisticName;

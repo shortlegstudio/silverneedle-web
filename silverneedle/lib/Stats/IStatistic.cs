@@ -9,5 +9,6 @@ namespace SilverNeedle
     {
         string Name { get; }
         void AddModifier(IStatModifier modifier);
+        int TotalValue { get; }
     }
 }
