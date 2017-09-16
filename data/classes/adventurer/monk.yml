@@ -25,3 +25,25 @@
   weaponproficiencies: [club, light crossbow, heavy crossbow, dagger, handaxe, javelin, kama, nunchaku, quarterstaff, sai, shortspear, short sword, shuriken, siangham, sling, spear]
   developedage: studied
   startingwealth: 1d6
+  levels:
+    - level: 1
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
+          options: [Catch Off-Guard, Combat Reflexes, Deflect Arrows, Dodge, Improved Grapple, Scorpion Style, Throw Anything]
+    - level: 2
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
+          options: [Catch Off-Guard, Combat Reflexes, Deflect Arrows, Dodge, Improved Grapple, Scorpion Style, Throw Anything]
+    - level: 6
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
+          options: [Catch Off-Guard, Combat Reflexes, Deflect Arrows, Dodge, Improved Grapple, Scorpion Style, Throw Anything
+            Gorgon's Fist, Improved Bull Rush, Improved Disarm, Improved Feint, Improved Trip, Mobility
+          ]
+    - level: 10
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
+          options: [Catch Off-Guard, Combat Reflexes, Deflect Arrows, Dodge, Improved Grapple, Scorpion Style, Throw Anything
+            Gorgon's Fist, Improved Bull Rush, Improved Disarm, Improved Feint, Improved Trip, Mobility,
+            Improved Critical, Medusa's Wrath, Snatch Arrows, Spring Attack
+          ]

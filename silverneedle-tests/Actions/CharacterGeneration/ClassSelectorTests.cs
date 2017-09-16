@@ -87,11 +87,9 @@ namespace Tests.Actions
         {
             var cls = new Class();
             var lvl1 = new Level(1);
-            lvl1.FeatTokens.Add(new FeatToken());
             cls.Levels.Add(lvl1);
             var character = new CharacterSheet();
             subject.AssignClass(character, cls);
-            Assert.Equal(1, character.FeatTokens.Count);
         }
     }
 }

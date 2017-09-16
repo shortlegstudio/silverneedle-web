@@ -58,17 +58,6 @@ namespace Tests.Actions {
             Assert.Equal(1, character.FeatTokens.Count);
 		}
 
-		[Fact]
-		public void AssignsFeatTokensToCharacters() {
-            var levelUp = new LevelUpCharacter();
-            var levelOne = new Level(2);
-            levelOne.FeatTokens.Add(new FeatToken());
-            character.Class.Levels.Add(levelOne);
-
-            levelUp.LevelUp(character);
-            Assert.Equal(1, character.FeatTokens.Count);
-		}
-
         [Fact]
         public void IncreasesBaseAttackBonus() {
             var levelUp = new LevelUpCharacter();

@@ -10,7 +10,7 @@ namespace Tests.Lexicon
     using SilverNeedle.Lexicon;
     using SilverNeedle.Serialization;
 
-    public class TemplateSentenceGeneratorTests
+    public class TemplateSentenceGeneratorTests : RequiresDataFiles 
     {
         [Fact]
         public void DescriptionDetailCanHaveSupportingAdjectivesToChooseFrom()

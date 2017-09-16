@@ -41,5 +41,16 @@ namespace Tests.Characters {
             var featToken = new FeatToken("Turtle Snapper");
             Assert.True(featToken.Qualifies(feat));
         }
+
+        [Fact]
+        public void CanReceiveAListOfFeats()
+        {
+            var featToken = new FeatToken(new string[] { "Dodge", "Mobility" });
+            var dodge = Feat.Named("Dodge");
+            var mobility = Feat.Named("Mobility");
+
+            Assert.True(featToken.Qualifies(dodge));
+            Assert.True(featToken.Qualifies(mobility));
+        }
     }
 }

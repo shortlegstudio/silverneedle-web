@@ -16,7 +16,6 @@ namespace SilverNeedle.Characters
         public IList<IStatModifier> Modifiers { get; private set; }
 
         public IList<ICharacterDesignStep> Steps { get; private set; }
-        public IList<FeatToken> FeatTokens { get; private set; }
         public IList<object> Abilities { get; private set; }
         public int Number { get; private set; }
 
@@ -24,7 +23,6 @@ namespace SilverNeedle.Characters
         {
             Modifiers = new List<IStatModifier>();
             Steps = new List<ICharacterDesignStep>();
-            FeatTokens = new List<FeatToken>();
             Abilities = new List<object>();
         }
 
@@ -41,15 +39,6 @@ namespace SilverNeedle.Characters
         private void Load(IObjectStore objectStore)
         {
             Number = objectStore.GetInteger("level");
-            var featTokens = objectStore.GetObjectOptional("bonus-feats");
-            if(featTokens != null)
-            {
-                foreach(var f in featTokens.Children)
-                {
-                    var tags = f.GetStringOptional("tags");
-                    FeatTokens.Add(new FeatToken(tags));
-                }
-            }
 
             //Verbose and probably could be simplified
             var modifiers = objectStore.GetObjectOptional("modifiers");

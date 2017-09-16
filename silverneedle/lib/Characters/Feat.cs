@@ -146,5 +146,12 @@ namespace SilverNeedle.Characters
 
             Tags = data.GetListOptional("tags").ToList();
         }
+
+        public static Feat Named(string name)
+        {
+            var feat = new Feat();
+            feat.Name = name;
+            return feat;
+        }
     }
 }

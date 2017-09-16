@@ -308,7 +308,6 @@ namespace SilverNeedle.Characters
         public void ProcessLevel(Level level)
         {
             this.Components.ApplyStatModifiers(level.Modifiers);
-            this.FeatTokens.Add(level.FeatTokens);
         }
             
         /// <summary>

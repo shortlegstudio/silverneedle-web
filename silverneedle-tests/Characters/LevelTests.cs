@@ -37,15 +37,6 @@ namespace Tests.Characters
         }
 
         [Fact]
-        public void LevelsCanProvideExtraFeats()
-        {
-            var level = new Level(fighter);
-            Assert.Equal(1, level.FeatTokens.Count);
-            var token = level.FeatTokens.First();
-            Assert.Contains("combat", token.Tags);
-        }
-
-        [Fact]
         public void LevelsCanModifyStats()
         {
             var level = new Level(fighter);
@@ -85,8 +76,6 @@ namespace Tests.Characters
         }
         const string fighterLevel = @"---
 - level: 2
-  bonus-feats:
-    - tags: combat
   modifiers:
     - name: Bravery +2
       stat: Will

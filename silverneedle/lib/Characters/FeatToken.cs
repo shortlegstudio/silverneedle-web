@@ -17,6 +17,11 @@ namespace SilverNeedle.Characters
             }
         }
 
+        public FeatToken(IEnumerable<string> options)
+        {
+            this.tags.Add(options);
+        }
+
         public FeatToken() { }
         public IEnumerable<string> Tags { get { return this.tags; } }
 

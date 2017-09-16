@@ -39,8 +39,9 @@
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ChooseCombatStyle
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectCombatStyleFeat
     - level: 3
-      bonus-feats:
-        - tags: Endurance
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
+          options: [Endurance]
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ChooseFavoredTerrain
     - level: 4
