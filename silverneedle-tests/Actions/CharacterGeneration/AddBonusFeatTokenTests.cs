@@ -27,5 +27,18 @@ namespace Tests.Actions.CharacterGeneration
             Assert.Contains("combat", token.Tags);
             Assert.Contains("critical", token.Tags);
         }
+
+        [Fact]
+        public void TokensCanBeConfiguredToIgnorePrerequisites()
+        {
+            var configuration = new MemoryStore();
+            configuration.SetValue("options", new string[] { "combat" });
+            configuration.SetValue("ignore-prerequisites", true);
+            var addToken = new AddBonusFeatToken(configuration);
+            var bob = CharacterTestTemplates.AverageBob();
+            addToken.ExecuteStep(bob, new CharacterBuildStrategy());
+            var token = bob.FeatTokens[0];
+            Assert.True(token.IgnorePrerequisites);
+        }
     }
 }

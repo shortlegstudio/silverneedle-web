@@ -12,7 +12,7 @@ namespace Tests.Actions.CharacterGeneration.Background
     using SilverNeedle.Lexicon;
     using SilverNeedle.Serialization;
 
-    public class BackgroundStorywriterTests
+    public class BackgroundStorywriterTests : RequiresDataFiles
     {
         [Fact]
         public void SelectsABackgroundStoryToGenerate()

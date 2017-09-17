@@ -12,14 +12,16 @@ namespace SilverNeedle.Actions.CharacterGeneration
     public class AddBonusFeatToken : ICharacterDesignStep
     {
         private IEnumerable<string> options;
+        private bool ignorePrequisites;
         public AddBonusFeatToken(IObjectStore configuration)
         {
             options = configuration.GetList("options");
+            ignorePrequisites = configuration.GetBoolOptional("ignore-prerequisites");
         }
 
         public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
         {
-            var token = new FeatToken(options);
+            var token = new FeatToken(options, ignorePrequisites);
             character.FeatTokens.Add(token);
         }
     }

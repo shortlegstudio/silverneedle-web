@@ -142,5 +142,15 @@ namespace Tests.Actions
             selector.SelectFeats(character, strategy);
             Assert.Contains(empowerspell, character.Feats);
         }
+
+        [Fact]
+        public void IgnorePrerequisitesIfTokenSaysSo()
+        {
+            Assert.True(cleave.Prerequisites.Count > 0);
+            var bob = CharacterTestTemplates.AverageBob();
+            bob.FeatTokens.Add(new FeatToken(new string[] { "cleave" } , true));
+            selector.ExecuteStep(bob, new CharacterBuildStrategy());
+            Assert.Contains(cleave, bob.Feats);
+        }
     }
 }

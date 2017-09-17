@@ -22,8 +22,14 @@ namespace SilverNeedle.Characters
             this.tags.Add(options);
         }
 
+        public FeatToken(IEnumerable<string> options, bool ignorePrerequisites) : this(options)
+        {
+            this.IgnorePrerequisites = ignorePrerequisites;
+        }
+
         public FeatToken() { }
         public IEnumerable<string> Tags { get { return this.tags; } }
+        public bool IgnorePrerequisites { get; private set; }
 
         public bool Qualifies(Feat feat) 
         {
