@@ -9,9 +9,18 @@ namespace Tests
     using SilverNeedle.Characters.Background;
     public static class CharacterTestTemplates
     {
+        private static CharacterSheet CreateWithAverageAbilityScores()
+        {
+            var character = new CharacterSheet();
+            foreach(var s in character.AbilityScores.Abilities)
+            {
+                s.SetValue(10);
+            }
+            return character;
+        }
         public static CharacterSheet WithSkills(string[] names)
         {
-            var skills = new CharacterSheet();
+            var skills = CreateWithAverageAbilityScores();
             foreach(var n in names)
             {
                 skills.SkillRanks.AddSkill(new Skill(n, AbilityScoreTypes.Wisdom, false));
@@ -20,7 +29,8 @@ namespace Tests
         }
         public static CharacterSheet AverageBob()
         {
-            var bob = new CharacterSheet();
+            var bob = CreateWithAverageAbilityScores();
+            bob.InitializeComponents();
             bob.FirstName = "Bob";
             bob.Gender = Gender.Male;
             bob.Get<History>().FamilyTree.Father.FirstName = "Bob's Father";
@@ -34,7 +44,8 @@ namespace Tests
 
         public static CharacterSheet DruidDonna()
         {
-            var donna = new CharacterSheet();
+            var donna = CreateWithAverageAbilityScores();
+            donna.InitializeComponents();
             var druid = new Class("Druid");
             donna.SetClass(druid);
 
@@ -43,7 +54,8 @@ namespace Tests
 
         public static CharacterSheet MarkyMonk()
         {
-            var marky = new CharacterSheet();
+            var marky = CreateWithAverageAbilityScores();
+            marky.InitializeComponents();
             var monk = new Class("Monk");
             marky.SetClass(monk);
             return marky;

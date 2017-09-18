@@ -1,0 +1,22 @@
+--- !<SilverNeedle.Characters.SpecialAbilities.MonkUnarmedAttack>
+- damage-table:
+    1: 1d6
+    2: 1d6
+    3: 1d6
+    4: 1d8
+    5: 1d8
+    6: 1d8
+    7: 1d8
+    8: 1d10
+    9: 1d10
+    10: 1d10
+    11: 1d10
+    12: 2d6
+    13: 2d6
+    14: 2d6
+    15: 2d6
+    16: 2d8
+    17: 2d8
+    18: 2d8
+    19: 2d8
+    20: 2d10
