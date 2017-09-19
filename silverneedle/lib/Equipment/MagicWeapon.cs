@@ -8,6 +8,7 @@ namespace SilverNeedle.Equipment
     using SilverNeedle.Dice;
     using SilverNeedle.Treasure;
     using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
     public class MagicWeapon : WeaponDecorator
     {
         public MagicWeapon(IWeapon weapon, int magic) : base(weapon)

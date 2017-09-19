@@ -6,7 +6,7 @@
 namespace Tests.Serialization
 {
     using Xunit;
-    using SilverNeedle;
+    using SilverNeedle.Serialization;
 
     public class GatewayProviderTests : RequiresDataFiles
     {

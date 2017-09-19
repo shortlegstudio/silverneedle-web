@@ -8,6 +8,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.Abilities
     using System.Collections.Generic;
     using SilverNeedle.Characters;
     using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
 
     public abstract class PointBuyAbilityScoreGenerator : IAbilityScoreGenerator
     {

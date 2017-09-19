@@ -9,6 +9,7 @@ namespace SilverNeedle.Actions.Settlements
     using SilverNeedle.Characters;
     using SilverNeedle.Actions.CharacterGeneration;
     using SilverNeedle.Groups;
+    using SilverNeedle.Serialization;
 
     public class SettlementBuilder
     {

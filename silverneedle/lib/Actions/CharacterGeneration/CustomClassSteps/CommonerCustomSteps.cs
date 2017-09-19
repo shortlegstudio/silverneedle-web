@@ -7,6 +7,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.CustomClassSteps
 {
     using SilverNeedle.Characters;
     using SilverNeedle.Equipment;
+    using SilverNeedle.Serialization;
 
     public class CommonerCustomSteps : ICharacterDesignStep 
     {

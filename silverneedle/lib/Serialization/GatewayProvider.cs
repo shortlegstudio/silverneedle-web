@@ -3,7 +3,7 @@
 // This software is released under the MIT License.
 // http://opensource.org/licenses/mit-license.php
 
-namespace SilverNeedle
+namespace SilverNeedle.Serialization
 {
     using System.Collections.Generic;
     using SilverNeedle.Serialization;

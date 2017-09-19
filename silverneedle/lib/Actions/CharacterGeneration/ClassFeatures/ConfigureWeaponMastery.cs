@@ -10,6 +10,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Equipment;
+    using SilverNeedle.Serialization;
 
     public class ConfigureWeaponMastery : ICharacterDesignStep
     {

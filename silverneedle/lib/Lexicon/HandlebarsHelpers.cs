@@ -10,6 +10,7 @@ namespace SilverNeedle.Lexicon
     using SilverNeedle.Characters;
     using SilverNeedle.Lexicon;
     using SilverNeedle.Treasure;
+    using SilverNeedle.Serialization;
 
     public static class HandlebarsHelpers
     {

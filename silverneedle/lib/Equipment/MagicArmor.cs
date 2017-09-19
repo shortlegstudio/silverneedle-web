@@ -7,6 +7,7 @@ namespace SilverNeedle.Equipment
 {
     using SilverNeedle.Treasure;
     using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
     public class MagicArmor : ArmorDecorator
     {
         public int MagicBonus { get; set; }

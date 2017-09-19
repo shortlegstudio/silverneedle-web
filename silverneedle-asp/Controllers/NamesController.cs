@@ -7,6 +7,7 @@ using SilverNeedle;
 using SilverNeedle.Actions.NamingThings;
 using SilverNeedle.Characters;
 using System.Collections.Generic;
+using SilverNeedle.Serialization;
 
 namespace silverneedleweb.Controllers
 {
