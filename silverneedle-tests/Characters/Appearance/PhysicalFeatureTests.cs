@@ -11,7 +11,7 @@ namespace Tests.Characters.Appearance
     using SilverNeedle.Utility;
 
     
-    public class PhysicalFeatureTests
+    public class PhysicalFeatureTests : RequiresDataFiles
     {
         [Fact]
         public void HasADefaultTemplate()

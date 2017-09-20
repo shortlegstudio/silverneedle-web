@@ -312,5 +312,10 @@ namespace SilverNeedle.Characters
 
             return atk;
         }
+
+        public void SetMeleeAttackStatistics()
+        {
+
+        }
     }
 }

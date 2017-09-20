@@ -1,6 +1,6 @@
 --- !<SilverNeedle.DataTable>
-- name: Monk Unarmed Strike
-  columns: [damage]
+- name: Monk Abilities
+  columns: [unarmed-damage]
   table:
     1: [ 1d6 ]
     2: [ 1d6 ]

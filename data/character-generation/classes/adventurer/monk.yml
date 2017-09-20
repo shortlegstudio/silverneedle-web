@@ -29,6 +29,7 @@
     - level: 1
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.MonkArmorClassBonus
+        - ability: SilverNeedle.Characters.SpecialAbilities.MonkUnarmedStrike
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
           options: [Improved Unarmed Strike]

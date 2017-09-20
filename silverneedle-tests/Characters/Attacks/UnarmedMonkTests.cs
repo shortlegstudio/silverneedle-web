@@ -18,5 +18,12 @@ namespace Tests.Characters.Attacks
             var attack = new UnarmedMonk("1d6");
             Assert.Equal("1d6", attack.Damage.ToString());
         }
+
+        [Fact]
+        public void ReturnsAttackInCleanFormat()
+        {
+            var attack = new UnarmedMonk("1d6");
+            Assert.Equal("Unarmed (1d6)", attack.ToString());
+        }
     }
 }

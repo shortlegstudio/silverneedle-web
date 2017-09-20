@@ -6,6 +6,7 @@
 namespace Tests.Characters.SpecialAbilities
 {
     using Xunit;
+    using SilverNeedle;
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Serialization;
@@ -15,14 +16,12 @@ namespace Tests.Characters.SpecialAbilities
         private MonkUnarmedStrike unarmedStrike;
         public MonkUnarmedStrikeTests()
         {
-
-            var configure = new MemoryStore();
-            var damageTable = new MemoryStore();
-            damageTable.AddListItem(new MemoryStore("1", "1d6"));
-            damageTable.AddListItem(new MemoryStore("2", "1d8"));
-            damageTable.AddListItem(new MemoryStore("3", "2d10"));
-            configure.SetValue("damage-table", damageTable);
-            unarmedStrike = new MonkUnarmedStrike(configure);
+            var dataTable = new DataTable("Monk Abilities");
+            dataTable.SetColumns(new string[] { "unarmed-damage" });
+            dataTable.AddRow("1", new string[] { "1d6" });
+            dataTable.AddRow("2", new string[] { "1d8" });
+            dataTable.AddRow("3", new string[] { "2d10" });
+            unarmedStrike = new MonkUnarmedStrike(dataTable);
         }
 
         [Fact]

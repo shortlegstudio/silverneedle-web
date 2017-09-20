@@ -28,6 +28,14 @@ table:
             Assert.Equal("table", table.Name);
         }
 
+        [Fact]
+        public void CanBuildATable()
+        {
+            var table = new DataTable("test");
+            table.SetColumns(new string[] { "damage" });
+            table.AddRow("1", new string[] { "2d6" });
+            Assert.Equal("2d6", table.Get("1", "damage"));
+        }
 
     }
 }

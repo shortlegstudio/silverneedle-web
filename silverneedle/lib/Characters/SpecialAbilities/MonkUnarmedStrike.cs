@@ -16,21 +16,25 @@ namespace SilverNeedle.Characters.SpecialAbilities
     public class MonkUnarmedStrike : IComponent, IImprovesWithLevels
     {
         public UnarmedMonk Attack { get; private set; }
-        private IDictionary<int, string> damageTable = new Dictionary<int, string>();
+        private ClassLevel monkLevels;
+        private DataTable damageTable;
+        private CharacterSize size;
 
-        public MonkUnarmedStrike(IObjectStore configuration)
+        public MonkUnarmedStrike()
         {
-            foreach(var c in configuration.GetObject("damage-table").Children)
-            {
-                damageTable.Add(int.Parse(c.Key), c.Value);
-            }
+            damageTable = GatewayProvider.Find<DataTable>("Monk Abilities");
+        }
+
+        public MonkUnarmedStrike(DataTable damageTable)
+        {
+            this.damageTable = damageTable;
         }
 
         public void Initialize(ComponentBag components)
         {
-            var level = components.Get<ClassLevel>();
-            var size = components.Get<SizeStats>().Size;
-            Attack = new UnarmedMonk(DamageTables.ConvertDamageBySize(damageTable[level.Level], size));
+            monkLevels = components.Get<ClassLevel>();
+            size = components.Get<SizeStats>().Size;
+            Attack = new UnarmedMonk(GetDamage());
             var offense = components.Get<OffenseStats>();
             offense.AddAttack(Attack);
         }
@@ -39,7 +43,16 @@ namespace SilverNeedle.Characters.SpecialAbilities
         {
             var level = components.Get<ClassLevel>();
             var size = components.Get<SizeStats>().Size;
-            Attack.Damage = Dice.DiceStrings.ParseDice(DamageTables.ConvertDamageBySize(damageTable[level.Level], size));
+            Attack.Damage = Dice.DiceStrings.ParseDice(GetDamage());
+        }
+
+
+        private string GetDamage()
+        {
+            return DamageTables.ConvertDamageBySize(
+                damageTable.Get(monkLevels.Level.ToString(), "unarmed-damage"), 
+                size
+            );
         }
     }
 }
