@@ -9,6 +9,7 @@ namespace Tests.Characters {
     using Xunit;
     using SilverNeedle;
     using SilverNeedle.Characters;
+    using SilverNeedle.Characters.Attacks;
     using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Equipment;
     using SilverNeedle.Dice;

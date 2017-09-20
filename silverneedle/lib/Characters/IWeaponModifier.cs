@@ -7,6 +7,7 @@ namespace SilverNeedle.Characters
 {
     using System;
     using SilverNeedle.Equipment;
+    using SilverNeedle.Characters.Attacks;
     public interface IWeaponModifier
     {
         Func<IWeapon, bool> WeaponQualifies { get; }

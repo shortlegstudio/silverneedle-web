@@ -6,6 +6,7 @@
 namespace SilverNeedle.Characters.Domains
 {
     using System;
+    using SilverNeedle.Characters.Attacks;
     using SilverNeedle.Dice;
     using SilverNeedle.Serialization;
     using SilverNeedle.Utility;

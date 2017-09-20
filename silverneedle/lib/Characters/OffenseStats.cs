@@ -7,6 +7,7 @@ namespace SilverNeedle.Characters
 {
     using System.Collections.Generic;
     using System.Linq;
+    using SilverNeedle.Characters.Attacks;
     using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Dice;
     using SilverNeedle.Equipment;
@@ -277,13 +278,10 @@ namespace SilverNeedle.Characters
 
         private AttackStatistic CreateAttack(AttackTypes attackType, IWeapon weapon) 
         {
-            var atk = new AttackStatistic();
+            var atk = new AttackStatistic(weapon);
             atk.AttackType = attackType;
-            atk.Name = weapon.Name;
-            atk.Weapon = weapon;
             atk.Damage = DiceStrings.ParseDice(DamageTables.ConvertDamageBySize(weapon.Damage, this.Size.Size));
             atk.AttackBonus = weapon.AttackModifier;
-            atk.CriticalModifier = weapon.CriticalModifier;
             
             // Figure out to apply damage modifier
             if (attackType == AttackTypes.Melee)

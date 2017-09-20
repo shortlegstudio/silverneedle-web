@@ -5,6 +5,7 @@
 
 using System;
 using SilverNeedle.Equipment;
+using SilverNeedle.Characters.Attacks;
 
 namespace SilverNeedle.Characters
 {

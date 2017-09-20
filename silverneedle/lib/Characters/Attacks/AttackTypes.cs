@@ -4,7 +4,7 @@
 // </copyright>
 //-----------------------------------------------------------------------
 
-namespace SilverNeedle.Characters
+namespace SilverNeedle.Characters.Attacks
 {
     public enum AttackTypes
     {

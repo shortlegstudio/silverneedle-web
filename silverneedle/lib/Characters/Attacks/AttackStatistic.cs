@@ -3,7 +3,7 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-namespace SilverNeedle.Characters
+namespace SilverNeedle.Characters.Attacks
 {
     using SilverNeedle.Dice;
     using SilverNeedle.Equipment;
@@ -13,6 +13,18 @@ namespace SilverNeedle.Characters
     /// </summary>
     public class AttackStatistic
     {
+        public AttackStatistic()
+        {
+
+        }
+        public AttackStatistic(IWeapon weapon)
+        {
+            this.Weapon = weapon;
+            this.Name = weapon.Name;
+            this.DamageType = weapon.DamageType.ToString();
+            this.CriticalModifier = weapon.CriticalModifier;
+            this.CriticalThreat = weapon.CriticalThreat;
+        }
         /// <summary>
         /// Gets or sets the name.
         /// </summary>
@@ -39,6 +51,7 @@ namespace SilverNeedle.Characters
         public virtual AttackTypes AttackType { get; set; }
 
         public virtual int CriticalModifier { get; set; }
+        public virtual int CriticalThreat { get; set; }
         public virtual int SaveDC { get; set; }
 
         public string DamageType { get; set; }
@@ -55,7 +68,7 @@ namespace SilverNeedle.Characters
                 this.Name,
                 this.AttackBonus.ToModifierString(),
                 this.Damage,
-                this.Weapon.CriticalThreat,
+                this.CriticalThreat,
                 this.CriticalModifier,
                 this.AttackType == AttackTypes.Ranged ? this.Weapon.Range.ToRangeString() : "");
         }

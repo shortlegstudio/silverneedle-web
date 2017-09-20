@@ -5,6 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
+    using SilverNeedle.Characters.Attacks;
     using SilverNeedle.Utility;
     public class MasterStrike : SpecialAbility, IComponent
     {
