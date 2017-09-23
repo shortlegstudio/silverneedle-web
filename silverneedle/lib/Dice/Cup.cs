@@ -33,6 +33,11 @@ namespace SilverNeedle.Dice
             this.Dice.AddRange(dice);
         }
 
+        public Cup(IList<Die> dice, int modifier) : this(dice)
+        {
+            this.Modifier = modifier;
+        }
+
         public Cup(Die die) : this()
         {
             this.AddDie(die);
@@ -144,6 +149,12 @@ namespace SilverNeedle.Dice
             }
 
             return result.ToString();
+        }
+
+        public Cup Copy()
+        {
+            var copy = new Cup(this.Dice, Modifier);
+            return copy;
         }
     }
 }

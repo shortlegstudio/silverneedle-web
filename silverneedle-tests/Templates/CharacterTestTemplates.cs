@@ -16,6 +16,7 @@ namespace Tests
             {
                 s.SetValue(10);
             }
+            character.InitializeComponents();
             return character;
         }
         public static CharacterSheet WithSkills(string[] names)
@@ -30,7 +31,6 @@ namespace Tests
         public static CharacterSheet AverageBob()
         {
             var bob = CreateWithAverageAbilityScores();
-            bob.InitializeComponents();
             bob.FirstName = "Bob";
             bob.Gender = Gender.Male;
             bob.Get<History>().FamilyTree.Father.FirstName = "Bob's Father";
@@ -45,7 +45,6 @@ namespace Tests
         public static CharacterSheet DruidDonna()
         {
             var donna = CreateWithAverageAbilityScores();
-            donna.InitializeComponents();
             var druid = new Class("Druid");
             donna.SetClass(druid);
 
@@ -55,10 +54,16 @@ namespace Tests
         public static CharacterSheet MarkyMonk()
         {
             var marky = CreateWithAverageAbilityScores();
-            marky.InitializeComponents();
             var monk = new Class("Monk");
             marky.SetClass(monk);
             return marky;
+        }
+
+        public static CharacterSheet StrongBad()
+        {
+            var bad = CreateWithAverageAbilityScores();
+            bad.AbilityScores.SetScore(AbilityScoreTypes.Strength, 16);
+            return bad;
         }
 
     }

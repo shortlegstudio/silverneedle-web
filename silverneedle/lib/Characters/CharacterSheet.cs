@@ -9,6 +9,7 @@ namespace SilverNeedle.Characters
     using System.Collections.Generic;
     using System.Linq;
     using SilverNeedle.Characters.Appearance;
+    using SilverNeedle.Characters.Attacks;
     using SilverNeedle.Characters.Background;
     using SilverNeedle.Characters.Magic;
     using SilverNeedle.Utility;
@@ -23,6 +24,8 @@ namespace SilverNeedle.Characters
         public CharacterSheet() 
         {
             this.Components = new ComponentBag();
+            //TODO: Should component.add perform initialize and we 
+            //provide a group add to add everything that might be needed
             this.Components.Add(new AbilityScores());
             this.Components.Add(new SizeStats());
             this.Components.Add(new Inventory());
@@ -32,6 +35,8 @@ namespace SilverNeedle.Characters
             this.Components.Add(new PersonalityType("ESTJ"));
             this.Components.Add(new List<FeatToken>());
             this.Components.Add(new OffenseStats());
+            this.Components.Add(new MeleeAttackBonus());
+            this.Components.Add(new RangeAttackBonus());
             this.Components.Add(new DefenseStats());
             this.Components.Add(new MovementStats());
             this.Components.Add(new CharacterAppearance());

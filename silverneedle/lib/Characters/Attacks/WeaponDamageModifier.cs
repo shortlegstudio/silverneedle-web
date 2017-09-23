@@ -9,7 +9,7 @@ namespace SilverNeedle.Characters
     using System;
     using SilverNeedle.Equipment;
     using SilverNeedle.Characters.Attacks;
-    public class WeaponAttackModifier : IStatModifier, IWeaponModifier
+    public class WeaponDamageModifier : IStatModifier, IWeaponModifier
     {
         public float Modifier { get; set; }
 
@@ -17,9 +17,8 @@ namespace SilverNeedle.Characters
 
         public string Type { get { return "Bonus"; } }
 
-        public string StatisticName { get { return "Weapon Attack"; } }
-
-        public WeaponAttackModifier(string reason, float modifier, Func<IWeapon, bool> weaponQualifies)
+        public string StatisticName { get { return "Weapon Damage"; } }
+        public WeaponDamageModifier(string reason, float modifier, Func<IWeapon, bool> weaponQualifies)
         {
             this.Modifier = modifier;
             this.Reason = reason;
@@ -30,7 +29,7 @@ namespace SilverNeedle.Characters
 
         public void ApplyModifier(AttackStatistic attack)
         {
-            attack.AttackBonus += (int)Modifier;
+            attack.DamageModifier.AddModifier(this);
         }
     }
 }

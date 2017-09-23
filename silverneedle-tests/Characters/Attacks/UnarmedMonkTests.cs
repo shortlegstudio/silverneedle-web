@@ -8,22 +8,9 @@ namespace Tests.Characters.Attacks
     using Xunit;
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.Attacks;
+    using SilverNeedle.Characters.SpecialAbilities;
 
-    public class UnarmedMonkTests
+    public class UnarmedMonkTests : RequiresDataFiles
     {
-        [Fact]
-        public void CanBeConfiguredForDamage()
-        {
-
-            var attack = new UnarmedMonk("1d6");
-            Assert.Equal("1d6", attack.Damage.ToString());
-        }
-
-        [Fact]
-        public void ReturnsAttackInCleanFormat()
-        {
-            var attack = new UnarmedMonk("1d6");
-            Assert.Equal("Unarmed (1d6)", attack.ToString());
-        }
     }
 }

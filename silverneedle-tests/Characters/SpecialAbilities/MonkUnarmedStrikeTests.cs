@@ -49,7 +49,6 @@ namespace Tests.Characters.SpecialAbilities
             var monk = CharacterTestTemplates.MarkyMonk();
             monk.Add(unarmedStrike);
             monk.SetLevel(2);
-            unarmedStrike.LeveledUp(monk.Components);
             Assert.Contains(unarmedStrike.Attack, monk.Offense.Attacks());
             Assert.Equal("1d8", unarmedStrike.Attack.Damage.ToString());
         }
@@ -61,7 +60,6 @@ namespace Tests.Characters.SpecialAbilities
             monk.Size.SetSize(CharacterSize.Small, 0, 0);
             monk.Add(unarmedStrike);
             monk.SetLevel(3);
-            unarmedStrike.LeveledUp(monk.Components);
             Assert.Contains(unarmedStrike.Attack, monk.Offense.Attacks());
             Assert.Equal("2d8", unarmedStrike.Attack.Damage.ToString());
         }

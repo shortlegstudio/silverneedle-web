@@ -16,14 +16,12 @@ namespace SilverNeedle.Characters.SpecialAbilities
         public SneakAttack()
         {
             this.Damage = "1d6";
-            this.Attack = new SneakAttackAttackStatistic();
-            this.Attack.Damage = DiceStrings.ParseDice(this.Damage);
+            this.Attack = new SneakAttackAttackStatistic(this);
         }
 
         public void SetDamage(string damage)
         {
             this.Damage = damage;
-            this.Attack.Damage = DiceStrings.ParseDice(this.Damage);
         }
 
         public override string Name 
@@ -42,11 +40,18 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
         public class SneakAttackAttackStatistic : AttackStatistic
         {
-            public SneakAttackAttackStatistic()
+            private SneakAttack sneakAttack;
+            public SneakAttackAttackStatistic(SneakAttack sneakAttack)
             {
+                this.sneakAttack = sneakAttack;
                 this.Name = "Sneak Attack";
                 this.AttackType = AttackTypes.Special;
             }
+            public override Cup Damage 
+            {
+                get { return DiceStrings.ParseDice(sneakAttack.Damage); }
+            }
+
             public override string ToString()
             {
                 return string.Format("{0} {1}", this.Name, this.Damage);

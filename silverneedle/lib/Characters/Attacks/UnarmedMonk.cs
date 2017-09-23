@@ -5,11 +5,22 @@
 
 namespace SilverNeedle.Characters.Attacks
 {
+    using SilverNeedle.Characters.SpecialAbilities;
+    using SilverNeedle.Dice;
     public class UnarmedMonk : AttackStatistic
     {
-        public UnarmedMonk(string damage)
+        private MonkUnarmedStrike unarmedStrike;
+        public UnarmedMonk(MonkUnarmedStrike unarmed)
         {
-            this.Damage = Dice.DiceStrings.ParseDice(damage);
+            this.unarmedStrike = unarmed;
+        }
+
+        public override Cup Damage
+        {
+            get 
+            {
+                return Dice.DiceStrings.ParseDice(unarmedStrike.GetDamage());
+            }
         }
 
         public override string Name 

@@ -5,8 +5,11 @@
 
 namespace SilverNeedle.Characters.Attacks
 {
+    using SilverNeedle.Dice;
     public interface IAttackStatistic
     {
-
+        BasicStat AttackBonus { get; }
+        BasicStat DamageModifier { get; }
+        Cup Damage { get; }
     }
 }

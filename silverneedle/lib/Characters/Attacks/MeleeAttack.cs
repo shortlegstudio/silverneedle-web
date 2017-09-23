@@ -9,24 +9,16 @@ namespace SilverNeedle.Characters.Attacks
     using SilverNeedle.Equipment;
     public class MeleeAttack : AttackStatistic
     {
-        private BasicStat meleeAttackBonus;
         private AbilityScore strength;
-        public MeleeAttack(CharacterSheet character, IWeapon weapon) : base(weapon)
+        public MeleeAttack(OffenseStats offenseAbilities,
+            AbilityScore strength, 
+            CharacterSize size,
+            IWeapon weapon) : base(offenseAbilities, size, weapon)
         {
-            this.strength = character.AbilityScores.GetAbility(AbilityScoreTypes.Strength);
-            this.meleeAttackBonus = character.Offense.MeleeAttackBonus;
-            this.Damage = DiceStrings.ParseDice(weapon.Damage);
+            this.strength = strength;
+            AttackBonus.AddModifier(new StatisticStatModifier("Melee Attack Bonus", offenseAbilities.MeleeAttackBonus));
+            DamageModifier.AddModifier(this.strength.UniversalStatModifier);
+            this.AttackType = AttackTypes.Melee;
         }
-
-        public override Cup Damage
-        {
-            get
-            {
-                base.Damage.Modifier = strength.TotalModifier;
-                return base.Damage;
-            }
-        }
-
-        public override int AttackBonus { get { return meleeAttackBonus.TotalValue; } }
     }
 }

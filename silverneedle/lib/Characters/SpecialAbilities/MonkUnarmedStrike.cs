@@ -13,7 +13,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using SilverNeedle.Serialization;
     using SilverNeedle.Equipment;
 
-    public class MonkUnarmedStrike : IComponent, IImprovesWithLevels
+    public class MonkUnarmedStrike : IComponent
     {
         public UnarmedMonk Attack { get; private set; }
         private ClassLevel monkLevels;
@@ -34,20 +34,12 @@ namespace SilverNeedle.Characters.SpecialAbilities
         {
             monkLevels = components.Get<ClassLevel>();
             size = components.Get<SizeStats>().Size;
-            Attack = new UnarmedMonk(GetDamage());
+            Attack = new UnarmedMonk(this);
             var offense = components.Get<OffenseStats>();
             offense.AddAttack(Attack);
         }
 
-        public void LeveledUp(ComponentBag components)
-        {
-            var level = components.Get<ClassLevel>();
-            var size = components.Get<SizeStats>().Size;
-            Attack.Damage = Dice.DiceStrings.ParseDice(GetDamage());
-        }
-
-
-        private string GetDamage()
+        public string GetDamage()
         {
             return DamageTables.ConvertDamageBySize(
                 damageTable.Get(monkLevels.Level.ToString(), "unarmed-damage"), 

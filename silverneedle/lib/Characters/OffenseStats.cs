@@ -80,8 +80,6 @@ namespace SilverNeedle.Characters
             this.CombatManeuverBonus = new BasicStat(StatNames.CMB);
             this.WeaponProficiencies = new List<WeaponProficiency>();
             this.offensiveAbilities = new List<SpecialAbility>();
-            this.MeleeAttackBonus = new BasicStat(StatNames.MeleeAttackBonus);
-            this.RangeAttackBonus = new BasicStat(StatNames.RangeAttackBonus);
             this.weaponModifiers = new List<IWeaponModifier>();
             this.customAttacks = new List<AttackStatistic>();
         }
@@ -89,32 +87,24 @@ namespace SilverNeedle.Characters
         public void Initialize(ComponentBag components)
         {
             var abilities = components.Get<AbilityScores>();
-            this.AbilityScores = abilities;
+            this.Strength = abilities.GetAbility(AbilityScoreTypes.Strength);
+            this.Dexterity = abilities.GetAbility(AbilityScoreTypes.Dexterity);
             var size = components.Get<SizeStats>();
             this.Size = size;
             this.inventory = components.Get<Inventory>();
-            this.MeleeAttackBonus.AddModifiers(
-                new StatisticStatModifier(StatNames.MeleeAttackBonus, this.BaseAttackBonus),
-                new AbilityStatModifier(abilities.GetAbility(AbilityScoreTypes.Strength)),
-                size.PositiveSizeModifier
-            );
-
-            this.RangeAttackBonus.AddModifiers(
-                new StatisticStatModifier(StatNames.RangeAttackBonus, this.BaseAttackBonus),
-                new AbilityStatModifier(abilities.GetAbility(AbilityScoreTypes.Dexterity)),
-                size.PositiveSizeModifier
-            );
+            this.MeleeAttackBonus = components.Get<MeleeAttackBonus>();
+            this.RangeAttackBonus = components.Get<RangeAttackBonus>();
 
             this.CombatManeuverBonus.AddModifiers(
                 new StatisticStatModifier(StatNames.CMB, this.BaseAttackBonus),
-                abilities.GetStatModifier(AbilityScoreTypes.Strength),
+                new AbilityStatModifier(this.Strength),
                 size.NegativeSizeModifier
             );
 
             this.CombatManeuverDefense.AddModifiers(
                 new StatisticStatModifier(StatNames.CMB, this.BaseAttackBonus),
-                abilities.GetStatModifier(AbilityScoreTypes.Strength),
-                abilities.GetStatModifier(AbilityScoreTypes.Dexterity),
+                new AbilityStatModifier(this.Strength),
+                new AbilityStatModifier(this.Dexterity),
                 size.NegativeSizeModifier
             );
         }
@@ -143,7 +133,8 @@ namespace SilverNeedle.Characters
         /// Gets or sets the ability scores.
         /// </summary>
         /// <value>The ability scores.</value>
-        private AbilityScores AbilityScores { get; set; }
+        private AbilityScore Dexterity { get; set; }
+        private AbilityScore Strength { get; set; }
 
         /// <summary>
         /// Gets or sets the size.
@@ -155,13 +146,13 @@ namespace SilverNeedle.Characters
         /// Calculates the melee attack bonus.
         /// </summary>
         /// <returns>The attack bonus.</returns>
-        public BasicStat MeleeAttackBonus { get; private set; }
+        public IStatistic MeleeAttackBonus { get; private set; }
 
         /// <summary>
         /// Calculates the range attack bonus.
         /// </summary>
         /// <returns>The attack bonus.</returns>
-        public BasicStat RangeAttackBonus { get; private set; }
+        public IStatistic RangeAttackBonus { get; private set; }
 
         /// <summary>
         /// The implementing class must handle modifiers to stats under its control
@@ -278,42 +269,19 @@ namespace SilverNeedle.Characters
 
         private AttackStatistic CreateAttack(AttackTypes attackType, IWeapon weapon) 
         {
-            var atk = new AttackStatistic(weapon);
-            atk.AttackType = attackType;
-            atk.Damage = DiceStrings.ParseDice(DamageTables.ConvertDamageBySize(weapon.Damage, this.Size.Size));
-            atk.AttackBonus = weapon.AttackModifier;
+            AttackStatistic atk = null;
             
             // Figure out to apply damage modifier
             if (attackType == AttackTypes.Melee)
             {
-                atk.Damage.Modifier = AbilityScores.GetModifier(AbilityScoreTypes.Strength);
-                atk.AttackBonus += this.MeleeAttackBonus.TotalValue;
+                atk = new MeleeAttack(this, this.Strength, this.Size.Size, weapon);
             }
             else if(attackType == AttackTypes.Ranged)
             {
-                atk.AttackBonus += this.RangeAttackBonus.TotalValue;
+                atk = new RangeAttack(this, this.Size.Size, weapon);
             }
             
-            // If not proficient, add a penalty to the attack bonus
-            if (!this.IsProficient(weapon))
-            {
-                atk.AttackBonus += UnproficientWeaponModifier;
-            }
-
-            foreach(var weaponMod in weaponModifiers)
-            {
-                if(weaponMod.WeaponQualifies(weapon))
-                {
-                    weaponMod.ApplyModifier(atk);
-                }
-            }
-
             return atk;
-        }
-
-        public void SetMeleeAttackStatistics()
-        {
-
         }
     }
 }

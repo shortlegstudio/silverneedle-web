@@ -19,6 +19,8 @@ namespace Tests.Characters {
     public class OffenseStatsTests {
         OffenseStats smallStats;
         Inventory inventory;
+        MeleeAttackBonus meleeAttackBonus;
+        RangeAttackBonus rangeAttackBonus;
 
         public OffenseStatsTests() {
             var abilities = new AbilityScores ();
@@ -28,13 +30,19 @@ namespace Tests.Characters {
 
             inventory = new Inventory();
             smallStats = new OffenseStats ();
+            meleeAttackBonus = new MeleeAttackBonus();
+            rangeAttackBonus = new RangeAttackBonus();
 
             var components = new ComponentBag();
             components.Add(abilities);
             components.Add(size);
             components.Add(smallStats);
             components.Add(inventory);
+            components.Add(meleeAttackBonus);
+            components.Add(rangeAttackBonus);
             smallStats.Initialize(components);
+            meleeAttackBonus.Initialize(components);
+            rangeAttackBonus.Initialize(components);
         }
 
         [Fact]
@@ -103,7 +111,7 @@ namespace Tests.Characters {
 
             //Should convert damage based on size
             Assert.Equal(DiceSides.d6, diceRoll.Dice.First().Sides);
-            Assert.Equal(smallStats.MeleeAttackBonus.TotalValue, atk.AttackBonus);
+            Assert.Equal(smallStats.MeleeAttackBonus.TotalValue, atk.AttackBonus.TotalValue);
         }
 
         [Fact]
@@ -115,7 +123,7 @@ namespace Tests.Characters {
             var diceRoll = atk.Damage;
             Assert.Equal(0, diceRoll.Modifier);
             Assert.Equal(DiceSides.d4, diceRoll.Dice.First().Sides);
-            Assert.Equal(smallStats.RangeAttackBonus.TotalValue, atk.AttackBonus);
+            Assert.Equal(smallStats.RangeAttackBonus.TotalValue, atk.AttackBonus.TotalValue);
         }
 
         [Fact]
@@ -135,7 +143,7 @@ namespace Tests.Characters {
             inventory.AddGear(Nunchaku());
             var atk = smallStats.Attacks().First();
             Assert.NotNull(atk);
-            Assert.Equal(smallStats.MeleeAttackBonus.TotalValue + OffenseStats.UnproficientWeaponModifier, atk.AttackBonus);
+            Assert.Equal(smallStats.MeleeAttackBonus.TotalValue + OffenseStats.UnproficientWeaponModifier, atk.AttackBonus.TotalValue);
         }
 
         [Fact]
@@ -195,9 +203,9 @@ namespace Tests.Characters {
             var lswordAttack = smallStats.Attacks().First(x => x.Name == "Longsword");
             var dAttack = smallStats.Attacks().First(x => x.Name == "Dagger");
 
-            Assert.Equal(lswordAttack.AttackBonus, smallStats.MeleeAttackBonus.TotalValue + 1);
+            Assert.Equal(lswordAttack.AttackBonus.TotalValue, smallStats.MeleeAttackBonus.TotalValue + 1);
             Assert.Equal(lswordAttack.Damage.Modifier, 5);
-            Assert.Equal(dAttack.AttackBonus, smallStats.MeleeAttackBonus.TotalValue);
+            Assert.Equal(dAttack.AttackBonus.TotalValue, smallStats.MeleeAttackBonus.TotalValue);
             Assert.Equal(dAttack.Damage.Modifier, 3);
         }
 
@@ -218,7 +226,7 @@ namespace Tests.Characters {
 
             var atk = smallStats.GetAttack(mwkLongsword);
             // Small Size (1) + Str16 (3) + Mwk (1)
-            Assert.Equal(atk.AttackBonus, 5);
+            Assert.Equal(atk.AttackBonus.TotalValue, 5);
         }
 
         private Weapon Longsword() {

@@ -192,6 +192,16 @@ namespace Tests.Characters
 
         }
 
+        public void HasAGroupOfRequiredStandardComponentsAdded()
+        {
+            var character = new CharacterSheet();
+            Assert.NotNull(character.Get<Inventory>());
+            Assert.NotNull(character.Get<OffenseStats>());
+            Assert.NotNull(character.Get<DefenseStats>());
+            Assert.NotNull(character.Get<SizeStats>());
+            Assert.NotNull(character.Get<SilverNeedle.Characters.Attacks.MeleeAttackBonus>());
+        }
+
         public class CompAbility : SpecialAbility, IComponent
         {
             public bool Called { get; private set; }
