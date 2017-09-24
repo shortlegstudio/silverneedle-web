@@ -10,6 +10,7 @@ namespace Tests.Actions.CharacterGeneration
     using SilverNeedle.Actions.CharacterGeneration;
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.SpecialAbilities;
+    using SilverNeedle.Serialization;
 
     
     public class ProcessCustomClassFeaturesTests
@@ -34,15 +35,14 @@ namespace Tests.Actions.CharacterGeneration
         {
             var cls = new Class();
             var level = new Level(1);
-            var ability = new SpecialAbility();
-            level.Abilities.Add(ability);
+            level.AddAbility("SilverNeedle.Characters.SpecialAbilities.Evasion", new MemoryStore());
             cls.Levels.Add(level);
             var character = new CharacterSheet();
             character.SetClass(cls);
 
             var subject = new ProcessCustomClassFeatures();
             subject.ExecuteStep(character, new CharacterBuildStrategy());
-            Assert.Contains(ability, character.Components.GetAll<SpecialAbility>());
+            Assert.NotNull(character.Components.Get<Evasion>());
         }
 
         public class DummyCharacterDesignStep : ICharacterDesignStep

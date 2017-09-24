@@ -6,6 +6,7 @@
 namespace SilverNeedle.Characters
 {
     using System.Collections.Generic;
+    using System.Linq;
     using SilverNeedle.Actions;
     using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Serialization;
@@ -16,14 +17,23 @@ namespace SilverNeedle.Characters
         public IList<IStatModifier> Modifiers { get; private set; }
 
         public IList<ICharacterDesignStep> Steps { get; private set; }
-        public IList<object> Abilities { get; private set; }
+        public IEnumerable<object> Abilities 
+        { 
+            get
+            {
+                return abilityClassNames.Select(keyValue =>
+                    keyValue.Key.Instantiate<object>(keyValue.Value)
+                );
+            } 
+        }
+           
         public int Number { get; private set; }
 
         public Level()
         {
             Modifiers = new List<IStatModifier>();
             Steps = new List<ICharacterDesignStep>();
-            Abilities = new List<object>();
+            abilityClassNames = new Dictionary<string, IObjectStore>();
         }
 
         public Level(IObjectStore objectStore) : this()
@@ -35,6 +45,8 @@ namespace SilverNeedle.Characters
         {
             Number = number;
         }
+
+        private IDictionary<string, IObjectStore> abilityClassNames;
 
         private void Load(IObjectStore objectStore)
         {
@@ -67,9 +79,14 @@ namespace SilverNeedle.Characters
                 foreach(var abl in abilities.Children)
                 {
                     var abilityName = abl.GetString("ability");
-                    this.Abilities.Add(abilityName.Instantiate<object>(abl));
+                    this.abilityClassNames.Add(abilityName, abl);
                 }
             }
+        }
+
+        public void AddAbility(string instanceName, IObjectStore configuration)
+        {
+            abilityClassNames.Add(instanceName, configuration);
         }
     }
 }

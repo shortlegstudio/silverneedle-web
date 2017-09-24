@@ -71,8 +71,19 @@ namespace Tests.Characters
         {
             var barb = barbLevel.ParseYaml().Children.First();
             var level = new Level(barb);
-            Assert.Equal(level.Abilities.Count, 1);
-            Assert.IsType<SilverNeedle.Characters.SpecialAbilities.UncannyDodge>(level.Abilities[0]);
+            Assert.Equal(level.Abilities.Count(), 1);
+            Assert.IsType<SilverNeedle.Characters.SpecialAbilities.UncannyDodge>(level.Abilities.First());
+        }
+
+        [Fact]
+        public void AbilitiesReturnANewInstanceEachTime()
+        {
+            var barb = barbLevel.ParseYaml().Children.First();
+            var level = new Level(barb);
+            var abilityOne = level.Abilities.First();
+            var abilityTwo = level.Abilities.First();
+            Assert.NotEqual(abilityOne, abilityTwo);
+
         }
         const string fighterLevel = @"---
 - level: 2

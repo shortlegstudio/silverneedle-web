@@ -21,7 +21,7 @@ namespace SilverNeedle.Characters
         { 
             get 
             { 
-                return new BasicStat[] { 
+                return new IStatistic[] { 
                     BaseArmorClass,
                     ArmorClass, 
                     TouchArmorClass, 
@@ -29,7 +29,8 @@ namespace SilverNeedle.Characters
                     FortitudeSave, 
                     ReflexSave, 
                     WillSave, 
-                    MaxDexterityBonus 
+                    MaxDexterityBonus,
+                    SpellResistance
                 }; 
             } 
         }
@@ -92,6 +93,7 @@ namespace SilverNeedle.Characters
             this.FlatFootedArmorClass.UseModifierString = false;
             this.MaxDexterityBonus = new BasicStat(StatNames.MaxDexterityBonus);
             this.specialAbilities = new List<SpecialAbility>();
+            this.SpellResistance = new BasicStat(StatNames.SpellResistance);
         }
 
         public void Initialize(ComponentBag components)
@@ -160,6 +162,8 @@ namespace SilverNeedle.Characters
         /// <returns>The will save.</returns>
         public BasicStat WillSave { get; private set; }
         public BasicStat MaxDexterityBonus { get; private set; }
+
+        public IStatistic SpellResistance { get; private set; }
 
         public IEnumerable<SpecialAbility> Immunities
         {

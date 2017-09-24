@@ -94,6 +94,9 @@
     - level: 12
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.AbundantStep
+    - level: 13
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.DiamondSoul
     - level: 14
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken

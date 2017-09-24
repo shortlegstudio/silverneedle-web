@@ -42,5 +42,6 @@ namespace SilverNeedle.Characters
         public const string DamageResistance = "DR";
 
         public const string SpellcastingDC = "Spell DC";
+        public const string SpellResistance = "Spell Resistance";
     }
 }
