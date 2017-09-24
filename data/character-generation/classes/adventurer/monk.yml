@@ -41,10 +41,15 @@
           options: [Catch Off-Guard, Combat Reflexes, Deflect Arrows, Dodge, Improved Grapple, Scorpion Style, Throw Anything]
           ignore-prerequisites: true
     - level: 2
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.Evasion
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
           options: [Catch Off-Guard, Combat Reflexes, Deflect Arrows, Dodge, Improved Grapple, Scorpion Style, Throw Anything]
           ignore-prerequisites: true
+    - level: 3
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.MonkFastMovement
     - level: 6
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
@@ -52,6 +57,9 @@
             Gorgon's Fist, Improved Bull Rush, Improved Disarm, Improved Feint, Improved Trip, Mobility
           ]
           ignore-prerequisites: true
+    - level: 9
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.ImprovedEvasion
     - level: 10
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
