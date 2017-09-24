@@ -31,6 +31,8 @@
         - ability: SilverNeedle.Characters.SpecialAbilities.MonkArmorClassBonus
         - ability: SilverNeedle.Characters.SpecialAbilities.MonkUnarmedStrike
       class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.LimitAlignment
+          deny: [NeutralGood, ChaoticGood, Neutral, ChaoticNeutral, NeutralEvil, ChaoticEvil]
         - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
           options: [Improved Unarmed Strike]
           ignore-prerequisites: true
@@ -50,6 +52,12 @@
     - level: 3
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.MonkFastMovement
+        - ability: SilverNeedle.Characters.SpecialAbilities.StillMind
+    - level: 4
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.KiPool
+        - ability: SilverNeedle.Characters.Attacks.KiStrike
+          damage-type: magic
     - level: 6
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
@@ -57,10 +65,18 @@
             Gorgon's Fist, Improved Bull Rush, Improved Disarm, Improved Feint, Improved Trip, Mobility
           ]
           ignore-prerequisites: true
+    - level: 7
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.WholenessOfBody
+        - ability: SilverNeedle.Characters.Attacks.KiStrike
+          damage-type: cold iron/silver
     - level: 9
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.ImprovedEvasion
     - level: 10
+      abilities:
+        - ability: SilverNeedle.Characters.Attacks.KiStrike
+          damage-type: lawful
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
           options: [Catch Off-Guard, Combat Reflexes, Deflect Arrows, Dodge, Improved Grapple, Scorpion Style, Throw Anything
@@ -68,6 +84,9 @@
             Improved Critical, Medusa's Wrath, Snatch Arrows, Spring Attack
           ]
           ignore-prerequisites: true
+    - level: 12
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.AbundantStep
     - level: 14
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
@@ -76,6 +95,13 @@
             Improved Critical, Medusa's Wrath, Snatch Arrows, Spring Attack
           ]
           ignore-prerequisites: true
+    - level: 16
+      abilities:
+        - ability: SilverNeedle.Characters.Attacks.KiStrike
+          damage-type: adamantine
+    - level: 17
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.TongueOfSunAndMoon
     - level: 18
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
@@ -84,3 +110,6 @@
             Improved Critical, Medusa's Wrath, Snatch Arrows, Spring Attack
           ]
           ignore-prerequisites: true
+    - level: 19
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.EmptyBody

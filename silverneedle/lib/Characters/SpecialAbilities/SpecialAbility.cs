@@ -21,7 +21,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
         public string Condition { get; set; }
         public string Type { get; set; }
 
-        public virtual string Name { get; set; }
+        public virtual string Name { get; protected set; }
     }
 }
 
