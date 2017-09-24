@@ -10,7 +10,7 @@ namespace Tests.Characters.SpecialAbilities
     using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Equipment;
 
-    public class MonkArmorClassBonusTests
+    public class MonkArmorClassBonusTests : RequiresDataFiles
     {
         [Fact]
         public void AddsWisdomModifierIfPositiveToArmorClassIfNotWearingArmor()
@@ -25,6 +25,20 @@ namespace Tests.Characters.SpecialAbilities
             monk.Inventory.EquipItem(anyArmor);
             Assert.Equal(oldAC, monk.Defense.ArmorClass.TotalValue);
             
+        }
+
+        [Fact]
+        public void ImprovesArmorClassWithLevelUps()
+        {
+            var monk = CharacterTestTemplates.MarkyMonk();
+            var oldAC = monk.Defense.ArmorClass.TotalValue;
+            var dataTable = new SilverNeedle.DataTable("monk abilities");
+            dataTable.SetColumns(new string[] {"ac-bonus" } );
+            dataTable.AddRow("1", new string[] { "0" });
+            dataTable.AddRow("2", new string[] { "1" });
+            monk.Add(new MonkArmorClassBonus(dataTable));
+            monk.SetLevel(2);
+            Assert.Equal(oldAC + 1, monk.Defense.ArmorClass.TotalValue);
         }
     }
 }

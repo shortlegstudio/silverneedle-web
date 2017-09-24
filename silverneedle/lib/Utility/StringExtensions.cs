@@ -40,5 +40,10 @@ namespace SilverNeedle
             var array = Regex.Split(source, "[\\n,]+");
             return array.Select(x => x.Trim()).Where(x => string.IsNullOrEmpty(x) == false).ToArray();
         }
+
+        public static int ToInteger(this string source)
+        {
+            return int.Parse(source);
+        }
     }
 }
