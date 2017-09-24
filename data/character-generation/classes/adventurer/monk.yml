@@ -58,6 +58,10 @@
         - ability: SilverNeedle.Characters.SpecialAbilities.KiPool
         - ability: SilverNeedle.Characters.Attacks.KiStrike
           damage-type: magic
+    - level: 5
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.HighJump
+        - ability: SilverNeedle.Characters.SpecialAbilities.PurityOfBody
     - level: 6
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
@@ -84,6 +88,9 @@
             Improved Critical, Medusa's Wrath, Snatch Arrows, Spring Attack
           ]
           ignore-prerequisites: true
+    - level: 11
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.DiamondBody
     - level: 12
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.AbundantStep
@@ -102,6 +109,7 @@
     - level: 17
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.TongueOfSunAndMoon
+        - ability: SilverNeedle.Characters.SpecialAbilities.TimelessBody
     - level: 18
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken

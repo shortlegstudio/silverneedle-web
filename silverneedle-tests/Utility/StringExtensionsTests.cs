@@ -24,5 +24,12 @@ namespace Tests.Utility
             var list = "foo,,".ParseList();
             Assert.Equal(1, list.Length);
         }
+
+        [Fact]
+        public void ProvideAFormatterThatImprovesReadability()
+        {
+            var result = "I {0} {1} {2}.".Formatted("am", 104, new object());
+            Assert.Equal("I am 104 System.Object.", result);
+        }
     }
 }

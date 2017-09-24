@@ -45,5 +45,10 @@ namespace SilverNeedle
         {
             return int.Parse(source);
         }
+
+        public static string Formatted(this string format, params object[] values)
+        {
+            return string.Format(format, values);
+        }
     }
 }

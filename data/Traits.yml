@@ -52,15 +52,15 @@
     - stat: Will
       modifier: 2
       type: racial
-      condition: enchantment spells
+      condition: enchantment
     - stat: Fortitude
       modifier: 2
       type: racial
-      condition: enchantment spells
+      condition: enchantment
     - stat: Reflex
       modifier: 2
       type: racial
-      condition: enchantment spells
+      condition: enchantment
 - trait:
   name: Elven Magic
   description: >
