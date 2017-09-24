@@ -7,7 +7,7 @@ namespace SilverNeedle.Characters.Attacks
 {
     using System;
     using SilverNeedle.Dice;
-    public class FireBolt : AttackStatistic
+    public class FireBolt : WeaponAttack
     {
         private ClassLevel source;
         private AbilityScore baseAbility;

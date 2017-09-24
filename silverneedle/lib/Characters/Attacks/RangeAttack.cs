@@ -7,7 +7,7 @@ namespace SilverNeedle.Characters.Attacks
 {
     using SilverNeedle.Dice;
     using SilverNeedle.Equipment;
-    public class RangeAttack : AttackStatistic
+    public class RangeAttack : WeaponAttack
     {
         public RangeAttack(OffenseStats offenseAbilities,
             CharacterSize size,

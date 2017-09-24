@@ -50,7 +50,7 @@ namespace SilverNeedle.Characters
         /// </summary>
         /// <returns><c>true</c> if this instance is proficient the specified wpn; otherwise, <c>false</c>.</returns>
         /// <param name="weapon">Weapon to validate proficiency.</param>
-        public bool IsProficient(IWeapon weapon)
+        public bool IsProficient(IWeaponAttackStatistics weapon)
         {
             if (this.isLevel)
             {

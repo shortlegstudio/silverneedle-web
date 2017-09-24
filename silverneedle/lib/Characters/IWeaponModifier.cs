@@ -10,7 +10,7 @@ namespace SilverNeedle.Characters
     using SilverNeedle.Characters.Attacks;
     public interface IWeaponModifier
     {
-        Func<IWeapon, bool> WeaponQualifies { get; }
-        void ApplyModifier(AttackStatistic attack);
+        Func<IWeaponAttackStatistics, bool> WeaponQualifies { get; }
+        void ApplyModifier(WeaponAttack attack);
     }
 }

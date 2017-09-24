@@ -8,14 +8,8 @@ namespace SilverNeedle.Equipment
     /// <summary>
     /// Piece of equipment
     /// </summary>
-    public interface IGear
+    public interface IGear : INamedEntity
     {
-        /// <summary>
-        /// Gets the name.
-        /// </summary>
-        /// <value>The name of the equipment.</value>
-        string Name { get; }
-
         /// <summary>
         /// Gets the weight.
         /// </summary>

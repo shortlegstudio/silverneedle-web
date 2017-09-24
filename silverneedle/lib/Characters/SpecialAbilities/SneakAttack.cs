@@ -38,7 +38,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
             offense.AddAttack(this.Attack);
         }
 
-        public class SneakAttackAttackStatistic : AttackStatistic
+        public class SneakAttackAttackStatistic : WeaponAttack
         {
             private SneakAttack sneakAttack;
             public SneakAttackAttackStatistic(SneakAttack sneakAttack)

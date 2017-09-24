@@ -6,8 +6,9 @@
 namespace SilverNeedle.Characters.Attacks
 {
     using SilverNeedle.Characters.SpecialAbilities;
+    using SilverNeedle.Equipment;
     using SilverNeedle.Dice;
-    public class UnarmedMonk : AttackStatistic
+    public class UnarmedMonk : IWeaponAttackStatistics
     {
         private MonkUnarmedStrike unarmedStrike;
         public UnarmedMonk(MonkUnarmedStrike unarmed)
@@ -15,22 +16,34 @@ namespace SilverNeedle.Characters.Attacks
             this.unarmedStrike = unarmed;
         }
 
-        public override Cup Damage
-        {
-            get 
-            {
-                return Dice.DiceStrings.ParseDice(unarmedStrike.GetDamage());
-            }
-        }
-
-        public override string Name 
+        public string Name 
         {
             get { return "Unarmed"; }
         }
 
-        public override string ToString()
-        {
-            return string.Format("{0} ({1})", this.Name, this.Damage);
-        }
+        public DamageTypes DamageType { get { return DamageTypes.Bludgeoning; } }
+
+        public int CriticalThreat { get { return 20; } }
+
+        public int CriticalModifier { get { return 2; } }
+
+        public int Range { get { return 0; } }
+
+        public WeaponType Type { get { return WeaponType.Unarmed; } }
+
+        public WeaponTrainingLevel Level { get { return WeaponTrainingLevel.Simple; } }
+
+        public int AttackModifier { get { return 0; } }
+
+        public WeaponGroup Group { get { return WeaponGroup.Natural; } }
+
+        public string ProficiencyName { get { return "Unarmed"; } }
+
+        public bool IsRanged { get { return false; } }
+
+        public bool IsMelee { get { return true; } }
+
+        string IWeaponAttackStatistics.Damage { get { return unarmedStrike.GetDamage(); } }
+
     }
 }

@@ -3,9 +3,10 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-namespace SilverNeedle.Equipment
+namespace SilverNeedle
 {
-    public interface IWeapon : IGear, IWeaponAttackStatistics
+    public interface INamedEntity
     {
+        string Name { get; }
     }
 }

@@ -5,6 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
+    using SilverNeedle.Characters.Attacks;
     using SilverNeedle.Equipment;
     using SilverNeedle.Utility;
 

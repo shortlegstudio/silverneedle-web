@@ -6,6 +6,7 @@
 namespace SilverNeedle.Characters.SpecialAbilities
 {
     using System;
+    using SilverNeedle.Characters.Attacks;
     using SilverNeedle.Equipment;
     using SilverNeedle.Utility;
 
@@ -29,7 +30,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
             );
         }
 
-        Func<IWeapon, bool> QualifyCheck;
+        Func<IWeaponAttackStatistics, bool> QualifyCheck;
         public WeaponGroup Group { get; private set; }
         public int Level { get; private set; }
 

@@ -15,10 +15,10 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
     public class MonkUnarmedStrike : IComponent
     {
-        public UnarmedMonk Attack { get; private set; }
+        private UnarmedMonk Weapon { get; set; }
+        public MeleeAttack Attack { get; private set; }
         private ClassLevel monkLevels;
         private DataTable damageTable;
-        private CharacterSize size;
 
         public MonkUnarmedStrike()
         {
@@ -33,18 +33,17 @@ namespace SilverNeedle.Characters.SpecialAbilities
         public void Initialize(ComponentBag components)
         {
             monkLevels = components.Get<ClassLevel>();
-            size = components.Get<SizeStats>().Size;
-            Attack = new UnarmedMonk(this);
+            Weapon = new UnarmedMonk(this);
             var offense = components.Get<OffenseStats>();
+            var strength = components.Get<AbilityScores>().GetAbility(AbilityScoreTypes.Strength);
+            var size = components.Get<SizeStats>().Size;
+            Attack = new MeleeAttack(offense, strength, size, Weapon);
             offense.AddAttack(Attack);
         }
 
         public string GetDamage()
         {
-            return DamageTables.ConvertDamageBySize(
-                damageTable.Get(monkLevels.Level.ToString(), "unarmed-damage"), 
-                size
-            );
+            return damageTable.Get(monkLevels.Level.ToString(), "unarmed-damage");
         }
     }
 }

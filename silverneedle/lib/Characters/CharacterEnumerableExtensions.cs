@@ -31,7 +31,7 @@ namespace SilverNeedle.Characters
         /// <returns><c>true</c> if is proficient the specified proficiencies wpn; otherwise, <c>false</c>.</returns>
         /// <param name="proficiencies">Proficiencies to validate against.</param>
         /// <param name="weapon">Weapon to validate proficiency.</param>
-        public static bool IsProficient(this IEnumerable<WeaponProficiency> proficiencies, IWeapon weapon)
+        public static bool IsProficient(this IEnumerable<WeaponProficiency> proficiencies, IWeaponAttackStatistics weapon)
         {
             return proficiencies.Any(x => x.IsProficient(weapon));
         }

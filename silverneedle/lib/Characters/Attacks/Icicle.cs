@@ -8,7 +8,7 @@ namespace SilverNeedle.Characters.Attacks
     using System;
     using SilverNeedle.Dice;
     //TODO: These attacks should have configuration yaml files
-    public class Icicle : AttackStatistic
+    public class Icicle : WeaponAttack
     {
         private ClassLevel source;
         private AbilityScore baseAbility;

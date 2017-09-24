@@ -4,11 +4,10 @@
 // https://opensource.org/licenses/MIT
 
 
-namespace SilverNeedle.Characters
+namespace SilverNeedle.Characters.Attacks
 {
     using System;
     using SilverNeedle.Equipment;
-    using SilverNeedle.Characters.Attacks;
     public class WeaponDamageModifier : IStatModifier, IWeaponModifier
     {
         public float Modifier { get; set; }
@@ -18,16 +17,16 @@ namespace SilverNeedle.Characters
         public string Type { get { return "Bonus"; } }
 
         public string StatisticName { get { return "Weapon Damage"; } }
-        public WeaponDamageModifier(string reason, float modifier, Func<IWeapon, bool> weaponQualifies)
+        public WeaponDamageModifier(string reason, float modifier, Func<IWeaponAttackStatistics, bool> weaponQualifies)
         {
             this.Modifier = modifier;
             this.Reason = reason;
             this.WeaponQualifies = weaponQualifies;
         }
 
-        public Func<IWeapon, bool> WeaponQualifies { get; private set; }
+        public Func<IWeaponAttackStatistics, bool> WeaponQualifies { get; private set; }
 
-        public void ApplyModifier(AttackStatistic attack)
+        public void ApplyModifier(WeaponAttack attack)
         {
             attack.DamageModifier.AddModifier(this);
         }

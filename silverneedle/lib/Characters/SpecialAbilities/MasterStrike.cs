@@ -20,7 +20,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
             offense.AddAttack(Attack);
         }
 
-        public class MasterStrikeAttack : AttackStatistic
+        public class MasterStrikeAttack : WeaponAttack
         {
             private ClassLevel rogueLevel;
             private AbilityScore intelligence;

@@ -7,7 +7,7 @@ namespace SilverNeedle.Characters.Attacks
 {
     using SilverNeedle.Utility;
     using SilverNeedle.Dice;
-     public class ChannelEnergyAttack : AttackStatistic
+     public class ChannelEnergyAttack : WeaponAttack
     {
         private AbilityScore charisma;
         private ClassLevel classLevel;

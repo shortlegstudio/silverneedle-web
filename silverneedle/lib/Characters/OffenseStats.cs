@@ -62,7 +62,7 @@ namespace SilverNeedle.Characters
         private List<SpecialAbility> offensiveAbilities;
 
         private List<IWeaponModifier> weaponModifiers;
-        private List<AttackStatistic> customAttacks;
+        private List<WeaponAttack> customAttacks;
 
         public IEnumerable<IWeaponModifier> WeaponModifiers { get { return weaponModifiers; } }
 
@@ -81,7 +81,7 @@ namespace SilverNeedle.Characters
             this.WeaponProficiencies = new List<WeaponProficiency>();
             this.offensiveAbilities = new List<SpecialAbility>();
             this.weaponModifiers = new List<IWeaponModifier>();
-            this.customAttacks = new List<AttackStatistic>();
+            this.customAttacks = new List<WeaponAttack>();
         }
 
         public void Initialize(ComponentBag components)
@@ -214,7 +214,7 @@ namespace SilverNeedle.Characters
         /// </summary>
         /// <returns><c>true</c> if this instance is proficient in the specified weapon; otherwise, <c>false</c>.</returns>
         /// <param name="weapon">Weapon to check.</param>
-        public bool IsProficient(IWeapon weapon)
+        public bool IsProficient(IWeaponAttackStatistics weapon)
         {
             return this.WeaponProficiencies.IsProficient(weapon);
         }
@@ -228,9 +228,9 @@ namespace SilverNeedle.Characters
         /// Calculates what attacks are available to this instance
         /// </summary>
         /// <returns>List of attacks that are available</returns>
-        public IList<AttackStatistic> Attacks()
+        public IList<WeaponAttack> Attacks()
         {
-            var attacks = new List<AttackStatistic>();
+            var attacks = new List<WeaponAttack>();
             
             // Get all the melee weapons
             foreach (var weapon in this.inventory.Weapons.Where(x => x.IsMelee))
@@ -253,7 +253,7 @@ namespace SilverNeedle.Characters
             return attacks;
         }
 
-        public AttackStatistic GetAttack(IWeapon weapon)
+        public WeaponAttack GetAttack(IWeapon weapon)
         {
             return Attacks().First(x => x.Weapon == weapon);
         }
@@ -262,14 +262,14 @@ namespace SilverNeedle.Characters
             BaseAttackBonus.AddModifier(new ValueStatModifier(characterClass.BaseAttackBonusRate, string.Format("{0} Level", characterClass.Name)));            
         }
 
-        public void AddAttack(AttackStatistic newAttack)
+        public void AddAttack(WeaponAttack newAttack)
         {
             this.customAttacks.Add(newAttack);
         }
 
-        private AttackStatistic CreateAttack(AttackTypes attackType, IWeapon weapon) 
+        private WeaponAttack CreateAttack(AttackTypes attackType, IWeapon weapon) 
         {
-            AttackStatistic atk = null;
+            WeaponAttack atk = null;
             
             // Figure out to apply damage modifier
             if (attackType == AttackTypes.Melee)

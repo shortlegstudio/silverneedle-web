@@ -85,7 +85,7 @@ namespace Tests.Characters.Attacks
                 CharacterSize.Medium,
                 sword);
             Assert.Equal("Slashing", melee.DamageType);
-            Assert.Equal(3, melee.CriticalModifier);
+            Assert.Equal(3, melee.CriticalModifier.TotalValue);
             Assert.Equal(19, melee.CriticalThreat);
             Assert.Equal("Sword", melee.Name);
         }
@@ -122,7 +122,7 @@ namespace Tests.Characters.Attacks
         {
             var bad = CharacterTestTemplates.StrongBad();
             bad.Offense.AddWeaponProficiency(sword.ProficiencyName);
-            bad.Offense.AddWeaponModifier(new WeaponAttackModifier("cause", 1, (IWeapon wpn) => { return wpn == sword; }));
+            bad.Offense.AddWeaponModifier(new WeaponAttackModifier("cause", 1, (IWeaponAttackStatistics wpn) => { return wpn == sword; }));
             var melee = new MeleeAttack(
                 bad.Offense,
                 bad.AbilityScores.GetAbility(AbilityScoreTypes.Strength),

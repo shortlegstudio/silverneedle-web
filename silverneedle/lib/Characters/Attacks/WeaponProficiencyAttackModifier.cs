@@ -9,7 +9,7 @@ namespace SilverNeedle.Characters.Attacks
     public class WeaponProficiencyAttackModifier : DelegateStatModifier
 
     {
-        public WeaponProficiencyAttackModifier(OffenseStats offenseAbilities, IWeapon weapon)
+        public WeaponProficiencyAttackModifier(OffenseStats offenseAbilities, IWeaponAttackStatistics weapon)
             : base(weapon.Name + " Proficiency Modifier", 
                 "proficiency penalty", 
                 "Level of Proficiency") 
@@ -20,7 +20,7 @@ namespace SilverNeedle.Characters.Attacks
         }
         private OffenseStats offenseAbilities;
 
-        private IWeapon weapon;
+        private IWeaponAttackStatistics weapon;
 
     }
 }

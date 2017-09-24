@@ -48,7 +48,7 @@ namespace SilverNeedle.Characters.Domains
                 defenseStats.AddImmunity("electricity");
             }
         }
-        public class LightningArcAttack : AttackStatistic
+        public class LightningArcAttack : WeaponAttack
         {
             private ClassLevel clericLevel;
             private AbilityScore wisdom;

@@ -7,7 +7,7 @@ namespace SilverNeedle.Characters.Attacks
 {
     using System;
     using SilverNeedle.Dice;
-    public class AcidDart : AttackStatistic
+    public class AcidDart : WeaponAttack
     {
         private ClassLevel source;
         private AbilityScore baseAbility;

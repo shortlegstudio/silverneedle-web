@@ -7,13 +7,13 @@ namespace SilverNeedle.Characters.Attacks
 {
     using SilverNeedle.Dice;
     using SilverNeedle.Equipment;
-    public class MeleeAttack : AttackStatistic
+    public class MeleeAttack : WeaponAttack
     {
         private AbilityScore strength;
         public MeleeAttack(OffenseStats offenseAbilities,
             AbilityScore strength, 
             CharacterSize size,
-            IWeapon weapon) : base(offenseAbilities, size, weapon)
+            IWeaponAttackStatistics weapon) : base(offenseAbilities, size, weapon)
         {
             this.strength = strength;
             AttackBonus.AddModifier(new StatisticStatModifier("Melee Attack Bonus", offenseAbilities.MeleeAttackBonus));
