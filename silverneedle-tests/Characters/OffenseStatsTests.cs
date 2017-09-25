@@ -46,11 +46,6 @@ namespace Tests.Characters {
         }
 
         [Fact]
-        public void BaseAttackBonusIsAStat() {
-            Assert.IsType<BasicStat> (smallStats.BaseAttackBonus);
-        }
-
-        [Fact]
         public void BaseMeleeBonusIsBABAndStrengthAndSize() {
             smallStats.BaseAttackBonus.SetValue (3);
             Assert.Equal (7, smallStats.MeleeAttackBonus.TotalValue);

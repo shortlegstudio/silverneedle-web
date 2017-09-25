@@ -75,13 +75,10 @@ namespace SilverNeedle.Characters.Attacks
         /// </summary>
         public virtual BasicStat AttackBonus { get; private set; }
         public virtual BasicStat DamageModifier { get; private set; }
-
         public virtual AttackTypes AttackType { get; protected set; }
-
         public virtual BasicStat CriticalModifier { get; private set; }
         public virtual int CriticalThreat { get; protected set; }
-    public virtual int SaveDC { get; protected set; }
-
+        public virtual int SaveDC { get; protected set; }
         public string DamageType { get; protected set; }
 
         /// <summary>

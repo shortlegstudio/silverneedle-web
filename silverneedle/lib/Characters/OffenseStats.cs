@@ -75,7 +75,7 @@ namespace SilverNeedle.Characters
         /// <param name="inventory">Inventory and gear of the character.</param>
         public OffenseStats()
         {
-            this.BaseAttackBonus = new BasicStat(StatNames.BaseAttackBonus);
+            this.BaseAttackBonus = new BaseAttackBonus();
             this.CombatManeuverDefense = new BasicStat(StatNames.CMD, 10);
             this.CombatManeuverBonus = new BasicStat(StatNames.CMB);
             this.WeaponProficiencies = new List<WeaponProficiency>();
