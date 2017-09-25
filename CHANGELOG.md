@@ -4,7 +4,10 @@ All notable changes will be tracked in this file. Most likely.
 ## [Unreleased Changes]
 ### Added
 - Druid class is now supported (minus animal companions >0.0<
+- Add Spell Resistance statistic
+
 ### Changed
+- Levels were reusing abilities which caused weird bugs, now each level up will create new instances for each character
 ### Known Issues
 - Animal Companions are not supported yet which makes the druid generation more limited than it should be
 

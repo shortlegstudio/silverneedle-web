@@ -53,6 +53,7 @@
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.MonkFastMovement
         - ability: SilverNeedle.Characters.SpecialAbilities.StillMind
+        - ability: SilverNeedle.Characters.SpecialAbilities.ManeuverTraining
     - level: 4
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.KiPool
@@ -105,6 +106,9 @@
             Improved Critical, Medusa's Wrath, Snatch Arrows, Spring Attack
           ]
           ignore-prerequisites: true
+    - level: 15
+      abilities:
+        - ability: SilverNeedle.Characters.Attacks.QuiveringPalm
     - level: 16
       abilities:
         - ability: SilverNeedle.Characters.Attacks.KiStrike
