@@ -80,7 +80,7 @@ namespace SilverNeedle.Characters.Attacks
 
         public virtual BasicStat CriticalModifier { get; private set; }
         public virtual int CriticalThreat { get; protected set; }
-        public virtual int SaveDC { get; protected set; }
+    public virtual int SaveDC { get; protected set; }
 
         public string DamageType { get; protected set; }
 

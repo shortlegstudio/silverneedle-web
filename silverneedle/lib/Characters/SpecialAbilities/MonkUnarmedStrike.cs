@@ -15,7 +15,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
     public class MonkUnarmedStrike : IComponent
     {
-        private UnarmedMonk Weapon { get; set; }
+        public UnarmedMonk Weapon { get; private set; }
         public MeleeAttack Attack { get; private set; }
         private ClassLevel monkLevels;
         private DataTable damageTable;
