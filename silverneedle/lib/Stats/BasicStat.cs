@@ -133,6 +133,14 @@ namespace SilverNeedle
             }
         }
 
+        public void AddModifiers(IEnumerable<IStatModifier> modifiers)
+        {
+            foreach(var mod in modifiers)
+            {
+                this.AddModifier(mod);
+            }
+        }
+
         /// <summary>
         /// Sets the Base Value for the stat 
         /// </summary>

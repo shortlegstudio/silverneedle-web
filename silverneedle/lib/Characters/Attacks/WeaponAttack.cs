@@ -5,6 +5,7 @@
 
 namespace SilverNeedle.Characters.Attacks
 {
+    using System.Collections.Generic;
     using SilverNeedle.Dice;
     using SilverNeedle.Equipment;
     using SilverNeedle.Utility;
@@ -32,6 +33,7 @@ namespace SilverNeedle.Characters.Attacks
 
             this.AttackBonus = new BasicStat(string.Format("{0} Attack Bonus", weapon.Name), weapon.AttackModifier);
             this.AttackBonus.AddModifier(new WeaponProficiencyAttackModifier(this.offenseAbilities, this.Weapon));
+            this.AttackBonus.AddModifiers(MultipleAttackBonusModifier.GetConditionalMultipleAttackModifiers());
 
             this.DamageModifier = new BasicStat(string.Format("{0} Damage Modifier", weapon.Name), 0);
             foreach(var weaponModifier in offense.WeaponModifiers)
@@ -80,6 +82,10 @@ namespace SilverNeedle.Characters.Attacks
         public virtual int CriticalThreat { get; protected set; }
         public virtual int SaveDC { get; protected set; }
         public string DamageType { get; protected set; }
+        public virtual int NumberOfAttacks 
+        {
+            get { return this.offenseAbilities.BaseAttackBonus.NumberOfAttacks; }
+        }
 
         /// <summary>
         /// Returns a <see cref="System.String"/> that represents the current <see cref="SilverNeedle.Characters.OffenseStats+AttackStatistic"/>.
@@ -91,11 +97,23 @@ namespace SilverNeedle.Characters.Attacks
             return string.Format(
                 "{0} {1} ({2} / {3}x{4}) {5}",
                 this.Name,
-                this.AttackBonus.TotalValue.ToModifierString(),
+                this.AttackBonusString(),
                 this.Damage,
                 this.CriticalThreat,
                 this.CriticalModifier.TotalValue,
                 this.AttackType == AttackTypes.Ranged ? this.Weapon.Range.ToRangeString() : "");
+        }
+
+        private string AttackBonusString()
+        {
+            List<string> bonuses = new List<string>();
+            for(int i = 1; i <= NumberOfAttacks; i++)
+            {
+                bonuses.Add(
+                    this.AttackBonus.GetConditionalValue("attack {0}".Formatted(i)).ToModifierString()
+                );
+            }
+            return string.Join("/", bonuses);
         }
     }
 }

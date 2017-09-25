@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters.Attacks
 {
-    public class BaseAttackBonus : BasicStat
+    public class BaseAttackBonus : BasicStat, IAttackBonus
     {
         public BaseAttackBonus() : base(StatNames.BaseAttackBonus)
         {

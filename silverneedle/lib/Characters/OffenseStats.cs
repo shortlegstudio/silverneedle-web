@@ -40,7 +40,7 @@ namespace SilverNeedle.Characters
         {
             get 
             {
-                return new BasicStat[] { BaseAttackBonus, CombatManeuverDefense, CombatManeuverBonus };
+                return new IStatistic[] { BaseAttackBonus, CombatManeuverDefense, CombatManeuverBonus };
             }
         }
 
@@ -119,7 +119,7 @@ namespace SilverNeedle.Characters
         /// Gets the base attack bonus.
         /// </summary>
         /// <value>The base attack bonus.</value>
-        public BasicStat BaseAttackBonus { get; private set; }
+        public BaseAttackBonus BaseAttackBonus { get; private set; }
 
         public IEnumerable<SpecialAbility> OffensiveAbilities
         {
