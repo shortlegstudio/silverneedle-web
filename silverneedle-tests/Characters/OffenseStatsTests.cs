@@ -91,7 +91,7 @@ namespace Tests.Characters {
             inventory.AddGear(longsword);
             Assert.Equal(1, smallStats.Attacks().Count);
             Assert.Equal("Longsword", smallStats.Attacks().First().Name);
-            Assert.Equal(longsword, smallStats.Attacks().First().Weapon);
+            Assert.Equal(longsword, smallStats.Attacks().OfType<WeaponAttack>().First().Weapon);
         }
 
         [Fact]

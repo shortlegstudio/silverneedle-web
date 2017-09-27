@@ -30,6 +30,7 @@
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.MonkArmorClassBonus
         - ability: SilverNeedle.Characters.SpecialAbilities.MonkUnarmedStrike
+        - ability: SilverNeedle.Characters.Attacks.FlurryOfBlows
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.LimitAlignment
           deny: [NeutralGood, ChaoticGood, Neutral, ChaoticNeutral, NeutralEvil, ChaoticEvil]

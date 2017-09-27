@@ -62,7 +62,7 @@ namespace SilverNeedle.Characters
         private List<SpecialAbility> offensiveAbilities;
 
         private List<IWeaponModifier> weaponModifiers;
-        private List<WeaponAttack> customAttacks;
+        private List<IAttackStatistic> customAttacks;
 
         public IEnumerable<IWeaponModifier> WeaponModifiers { get { return weaponModifiers; } }
 
@@ -81,7 +81,7 @@ namespace SilverNeedle.Characters
             this.WeaponProficiencies = new List<WeaponProficiency>();
             this.offensiveAbilities = new List<SpecialAbility>();
             this.weaponModifiers = new List<IWeaponModifier>();
-            this.customAttacks = new List<WeaponAttack>();
+            this.customAttacks = new List<IAttackStatistic>();
         }
 
         public void Initialize(ComponentBag components)
@@ -228,9 +228,9 @@ namespace SilverNeedle.Characters
         /// Calculates what attacks are available to this instance
         /// </summary>
         /// <returns>List of attacks that are available</returns>
-        public IList<WeaponAttack> Attacks()
+        public IList<IAttackStatistic> Attacks()
         {
-            var attacks = new List<WeaponAttack>();
+            var attacks = new List<IAttackStatistic>();
             
             // Get all the melee weapons
             foreach (var weapon in this.inventory.Weapons.Where(x => x.IsMelee))
@@ -255,14 +255,14 @@ namespace SilverNeedle.Characters
 
         public WeaponAttack GetAttack(IWeapon weapon)
         {
-            return Attacks().First(x => x.Weapon == weapon);
+            return Attacks().OfType<WeaponAttack>().First(x => x.Weapon == weapon);
         }
         public void LevelUp(Class characterClass)
         {
             BaseAttackBonus.AddModifier(new ValueStatModifier(characterClass.BaseAttackBonusRate, string.Format("{0} Level", characterClass.Name)));            
         }
 
-        public void AddAttack(WeaponAttack newAttack)
+        public void AddAttack(IAttackStatistic newAttack)
         {
             this.customAttacks.Add(newAttack);
         }

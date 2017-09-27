@@ -43,7 +43,7 @@ namespace SilverNeedle.Characters.Attacks
 
         public bool IsMelee { get { return true; } }
 
-        string IWeaponAttackStatistics.Damage { get { return unarmedStrike.GetDamage(); } }
+        public string Damage { get { return unarmedStrike.GetDamage(); } }
 
     }
 }
