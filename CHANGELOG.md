@@ -6,9 +6,11 @@ All notable changes will be tracked in this file. Most likely.
 - Druid class is now supported (minus animal companions >^.^< )
 - Add Spell Resistance statistic
 - Multiple Attacks are awarded for high attack bonuses now
+- Monk class is now supported
 
 ### Changed
 - Levels were reusing abilities which caused weird bugs, now each level up will create new instances for each character
+- Provides more flexibility in defining attacks
 ### Known Issues
 - Animal Companions are not supported yet which makes the druid generation more limited than it should be
 
