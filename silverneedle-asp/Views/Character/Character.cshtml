@@ -10,7 +10,7 @@
 <div class="charactersheet">
     <h1>
       <span>@character.Name</span>
-      <a asp-area="" asp-controller="Character" asp-action="Character" asp-route-strategy="@ViewData["strategy"]" asp-route-level="@ViewData["level"]" asp-route-scores="@ViewData["scores"]" class="btn btn-lg btn-primary pull-right" role="button">Regenerate</a>
+      <a asp-area="" asp-controller="Character" asp-action="Character" asp-route-strategy="@ViewData["strategy"]" asp-route-level="@ViewData["level"]" asp-route-scores="@ViewData["scores"]" class="btn btn-lg btn-primary pull-right hidden-print" role="button">Regenerate</a>
     </h1>
     <h4>@character.Alignment @character.Gender @character.Race</h4> 
     <h5>@character.Class @character.Level</h5>
@@ -31,6 +31,8 @@
                     </p>
                 </div>
             </div>
+        </div>
+        <div class="col-md-6">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">Combat</h3>
@@ -94,6 +96,9 @@
                     </ul>
                 </div>
             </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
             @if(character.IsSpellCaster) 
             {
                 @foreach(var sc in charFull.GetAll<SpellCasting>())
