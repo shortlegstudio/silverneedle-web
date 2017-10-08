@@ -38,23 +38,24 @@ ul.inline li {
 .charactersheet .panel-body {
   padding: 5px 15px;
 }
-.statistic-group {
-  width: 95%;
-}
 .statistic {
   display: inline-block;
-  padding: 4px 8px;
+  margin: 4px 8px;
 }
 .statistic-title {
   font-weight: bold;
   font-size: 16px;
   text-align: center;
+  color: #230007;
+  padding: 2px 6px;
 }
 .statistic-horizontal-title {
   display: inline !important;
 }
 .statistic-box {
   text-align: center;
+  padding: 4px 6px;
+  border: 1px dotted #4d4d4d;
 }
 .statistic-score {
   font-size: 14px;

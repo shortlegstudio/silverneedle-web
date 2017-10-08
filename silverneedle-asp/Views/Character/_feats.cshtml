@@ -1,0 +1,20 @@
+@using SilverNeedle.Characters;
+@using SilverNeedle.Utility;
+@{
+    var character = (CharacterSheetTextView)ViewData["Character"];
+    var charFull = (CharacterSheet)ViewData["characterFull"];
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Feats</h3>
+    </div>
+    <div class="panel-table">
+        <table class="table table-striped">
+            <tbody>
+                @foreach(var f in character.Feats)
+                { <tr><td>@f</td></tr> }
+            </tbody>
+        </table>
+    </div>
+</div>

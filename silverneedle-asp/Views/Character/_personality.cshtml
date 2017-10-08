@@ -1,0 +1,40 @@
+@using SilverNeedle.Characters;
+@using SilverNeedle.Utility;
+@{
+    var character = (CharacterSheetTextView)ViewData["Character"];
+    var charFull = (CharacterSheet)ViewData["characterFull"];
+}
+<div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Personality</h3>
+                </div>
+                <div class="panel-body">
+                    <ul class="stats">
+                        <li><strong>Ideal</strong> @character.IdealName - @character.IdealDescription</li>
+                        <li><strong>Behaviors</strong>
+                            <ul>
+                                @foreach(var p in character.Personality)
+                                { <li>@p</li> }
+                            </ul>
+                        </li>  
+                        <li><strong>Weaknesses</strong>
+                            <ul>
+                                @foreach(var p in character.PersonalityWeaknesses)
+                                { <li>@p</li> }
+                            </ul>
+                        </li>  
+                        <li><strong>Quirks</strong>
+                            <ul>
+                                @foreach(var q in character.Quirks)
+                                { <li>@q</li>}
+                            </ul>
+                        </li>
+                        <li><strong>Fears</strong>
+                            <ul>
+                                @foreach(var f in charFull.Get<SilverNeedle.Characters.Personalities.Fears>())
+                                { <li>@f</li>}
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>

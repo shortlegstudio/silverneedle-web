@@ -1,0 +1,41 @@
+@using SilverNeedle.Characters;
+@{
+    var character = (CharacterSheetTextView)ViewData["Character"];
+    var charFull = (CharacterSheet)ViewData["characterFull"];
+}
+<div class="panel panel-default">
+    <table class="table table-striped statistics">
+        <thead><th colspan="2">Defense</th></thead>
+        <tbody>
+            @{ Html.RenderPartial("_statistic-row", new ViewDataDictionary(this.ViewData) {
+                { "statistic-title", "Armor Class" },
+                { "statistic-score", @character.ArmorClass } }); }
+            @{ Html.RenderPartial("_statistic-row", new ViewDataDictionary(this.ViewData) {
+                { "statistic-title", "Touch" },
+                { "statistic-score", @character.TouchArmorClass } }); }
+            @{ Html.RenderPartial("_statistic-row", new ViewDataDictionary(this.ViewData) {
+                { "statistic-title", "Flat-Footed" },
+                { "statistic-score", @character.FlatFootedArmorClass } }); }
+            @{ Html.RenderPartial("_statistic-row", new ViewDataDictionary(this.ViewData) {
+                { "statistic-title", "Fortitude" },
+                { "statistic-notes", @character.FortitudeSave } }); }
+            @{ Html.RenderPartial("_statistic-row", new ViewDataDictionary(this.ViewData) {
+                { "statistic-title", "Reflex" },
+                { "statistic-notes", @character.ReflexSave } }); }
+            @{ Html.RenderPartial("_statistic-row", new ViewDataDictionary(this.ViewData) {
+                { "statistic-title", "Will" },
+                { "statistic-notes", @character.WillSave } }); }
+            @{
+                var damageResistance = string.Join(", ", character.DamageResistance);
+                Html.RenderPartial("_statistic-row", new ViewDataDictionary(this.ViewData) {
+                    { "statistic-title", "Damage Resistance" },
+                    { "statistic-notes", @damageResistance } }); 
+
+                var immunities = string.Join(", ", character.Immunities);
+                Html.RenderPartial("_statistic-row", new ViewDataDictionary(this.ViewData) {
+                    { "statistic-title", "Immunities" },
+                    { "statistic-notes", @immunities } }); 
+            }
+        </tbody>
+    </table>
+</div>

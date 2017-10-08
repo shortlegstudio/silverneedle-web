@@ -1,0 +1,24 @@
+<tr class="statistic-row">
+    <td class="statistic-row-name">@ViewData["statistic-title"]</div>
+    @if(ViewData["statistic-score"] != null)
+    {
+        <td>@ViewData["statistic-score"]</td>
+    }
+    @if(ViewData["statistic-modifier"] != null)
+    {
+        var colorCoding = "statistic-neutral";
+        @if(ViewData["statistic-modifier"].ToString().Contains("+"))
+        {
+            colorCoding = "statistic-positive";
+        }
+        else if(ViewData["statistic-modifier"].ToString().Contains("-"))
+        {
+            colorCoding = "statistic-negative";
+        }
+        <td><span class="statistic-modifier @colorCoding">@ViewData["statistic-modifier"]</span></td>
+    }
+    @if(ViewData["statistic-notes"] != null)
+    {
+        <td class="statistic-notes-row">@ViewData["statistic-notes"]</td>
+    }
+</tr>

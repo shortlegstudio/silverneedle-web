@@ -11,6 +11,7 @@
 @warningColor: rgba(215, 207, 7, 1);
 @negativeColor: rgba(249, 86, 79, 1);
 @inverseTextColor: rgba(240, 240, 240, 1);
+@borderColor: rgba(77, 77, 77, 1);
 
 ul.commalist
 {
@@ -76,13 +77,12 @@ ul.inline li
 
 .statistic-group
 {
-    width: 95%;
 }
 
 .statistic
 {
     display: inline-block;
-    padding: 4px 8px;
+    margin: 4px 8px;
 }
 
 .statistic-title
@@ -90,6 +90,8 @@ ul.inline li
     font-weight: bold;
     font-size: 16px;
     text-align: center;
+    color: @darkTextColor;
+    padding: 2px 6px;
 }
 
 .statistic-horizontal-title
@@ -100,6 +102,8 @@ ul.inline li
 .statistic-box
 {
     text-align: center;
+    padding: 4px 6px;
+    border: 1px dotted @borderColor;
 }
 
 .statistic-score

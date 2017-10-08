@@ -1,0 +1,31 @@
+@using SilverNeedle.Characters;
+@{
+    var character = (CharacterSheetTextView)ViewData["Character"];
+    var charFull = (CharacterSheet)ViewData["characterFull"];
+    var language = string.Join(", ", character.Languages);
+}
+<div class="panel panel-default">
+    <table class="table table-striped statistics">
+        <thead><th colspan="3">General Statistics</th></thead>
+        <tbody>
+            @{ Html.RenderPartial("_statistic-row", new ViewDataDictionary(this.ViewData) {
+                { "statistic-title", "Hit Points" },
+                { "statistic-score", @character.HitPoints } }); }
+            @{ Html.RenderPartial("_statistic-row", new ViewDataDictionary(this.ViewData) {
+                { "statistic-title", "Movement" },
+                { "statistic-score", @character.MovementSpeed + " ft" } }); }
+            @{ Html.RenderPartial("_statistic-row", new ViewDataDictionary(this.ViewData) {
+                { "statistic-title", "Initiative" },
+                { "statistic-modifier", @character.Initiative } }); }
+            @{ Html.RenderPartial("_statistic-row", new ViewDataDictionary(this.ViewData) {
+                { "statistic-title", "Perception" },
+                { "statistic-modifier", @character.Perception } }); }
+            @{ Html.RenderPartial("_statistic-row", new ViewDataDictionary(this.ViewData) {
+                { "statistic-title", "Special Senses" },
+                { "statistic-notes", @character.Senses } }); }
+            @{ Html.RenderPartial("_statistic-row", new ViewDataDictionary(this.ViewData) {
+                { "statistic-title", "Languages" },
+                { "statistic-score", @language } }); }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,8 @@
+
+@using SilverNeedle.Characters;
+@using SilverNeedle.Utility;
+@{
+    var character = (CharacterSheetTextView)ViewData["Character"];
+    var charFull = (CharacterSheet)ViewData["characterFull"];
+}
+<p><strong>Money</strong> @character.Money </p>

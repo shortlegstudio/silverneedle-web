@@ -1,0 +1,32 @@
+@using SilverNeedle.Characters;
+@using SilverNeedle.Utility;
+@{
+    var character = (CharacterSheetTextView)ViewData["Character"];
+    var charFull = (CharacterSheet)ViewData["characterFull"];
+}
+<div class="panel panel-default">
+    <div class="panel-table">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Skill</th>
+                    <th>Ranks</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+            @{ var skills = charFull.Get<SkillRanks>(); }
+            @foreach(var s in skills.GetRankedSkills())
+            { 
+                @if(s.AbleToUse && !(s.Skill.IsBackgroundSkill && s.Ranks == 0))
+                {
+                    Html.RenderPartial("_statistic-row", new ViewDataDictionary(this.ViewData) {
+                        { "statistic-title", s.Name },
+                        { "statistic-score", s.Ranks.ToString() },
+                        { "statistic-modifier", s.Score().ToModifierString() } });
+                }
+            }
+            </tbody>
+        </table>
+    </div>
+</div>

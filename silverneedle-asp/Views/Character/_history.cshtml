@@ -1,0 +1,28 @@
+@using SilverNeedle.Characters;
+@using SilverNeedle.Characters.Background;
+@using SilverNeedle.Utility;
+@{
+    var character = (CharacterSheetTextView)ViewData["Character"];
+    var charFull = (CharacterSheet)ViewData["characterFull"];
+}
+<div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">History</h3>
+                </div>
+                <div class="panel-body">
+                    @{ var story =  charFull.Get<SilverNeedle.Characters.Background.BackgroundStory>().GetStory(); }
+                    <p>@story</p>
+                    <ul class="stats">
+                        <li>
+                            <ul class="commalist">
+                                <li><strong>Father</strong> @character.Father</li>
+                                <li><strong>Mother</strong> @character.Mother</li>
+                            </ul>
+                        </li>
+                        <li><strong>Homeland</strong> @character.Homeland</li>
+                        <li><strong>Drawback</strong> @character.Drawback</li>
+                        <li><strong>Origins</strong> @character.ClassOrigin</li>
+                        <li><strong>Birth</strong> @{ var birthCirc = charFull.Get<History>().BirthCircumstance.Name; } @birthCirc</li>
+                    </ul>
+                </div>
+            </div>

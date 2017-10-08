@@ -1,6 +1,7 @@
 @using SilverNeedle.Characters;
 @using SilverNeedle.Characters.Magic;
 @using SilverNeedle.Characters.Background;
+@using SilverNeedle.Utility;
 @{
     var character = (CharacterSheetTextView)ViewData["Character"];
     var charFull = (CharacterSheet)ViewData["characterFull"];
@@ -15,375 +16,83 @@
     <h4>@character.Alignment @character.Gender @character.Race</h4> 
     <h5>@character.Class @character.Level</h5>
     <div class="row">
-        <div class="col-sm-1 no-padding no-margin">
-            <div class="panel panel-default">
-                <div class="panel-body no-padding center-text">
-                    <p>
-                        <div class="statistic-group">
-                        @{ Html.RenderPartial("_statistic", new ViewDataDictionary(this.ViewData) {
-                            { "statistic-title", "Str" },
-                            { "statistic-score", @character.Strength },
-                            { "statistic-modifier", @character.StrengthModifier } }); }
-                        </div>
-                        <div class="statistic-group">
-                        @{ Html.RenderPartial("_statistic", new ViewDataDictionary(this.ViewData) {
-                            { "statistic-title", "Dex" },
-                            { "statistic-score", @character.Dexterity },
-                            { "statistic-modifier", @character.DexterityModifier } }); }
-                        </div>
-                        <div class="statistic-group">
-                        @{ Html.RenderPartial("_statistic", new ViewDataDictionary(this.ViewData) {
-                            { "statistic-title", "Con" },
-                            { "statistic-score", @character.Constitution },
-                            { "statistic-modifier", @character.ConstitutionModifier } }); }
-                        </div>
-                        <div class="statistic-group">
-                        @{ Html.RenderPartial("_statistic", new ViewDataDictionary(this.ViewData) {
-                            { "statistic-title", "Int" },
-                            { "statistic-score", @character.Intelligence },
-                            { "statistic-modifier", @character.IntelligenceModifier } }); }
-                        </div>
-                        <div class="statistic-group">
-                        @{ Html.RenderPartial("_statistic", new ViewDataDictionary(this.ViewData) {
-                            { "statistic-title", "Wis" },
-                            { "statistic-score", @character.Wisdom },
-                            { "statistic-modifier", @character.WisdomModifier } }); }
-                        </div>
-                        <div class="statistic-group">
-                        @{ Html.RenderPartial("_statistic", new ViewDataDictionary(this.ViewData) {
-                            { "statistic-title", "Cha" },
-                            { "statistic-score", @character.Charisma },
-                            { "statistic-modifier", @character.CharismaModifier } }); }
-                        </div>
-                    </p>
+        <div class="col-sm-8">
+            <div class="row">
+                <div class="col-sm-12 no-padding">
+                    @{ Html.RenderPartial("_appearance", this.ViewData); }
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 no-padding">
+                    @{ Html.RenderPartial("_history", this.ViewData); }
                 </div>
             </div>
         </div>
-        <div class="col-sm-6 no-padding no-margin">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <div class="statistic-group">
-                    @{ Html.RenderPartial("_statistic", new ViewDataDictionary(this.ViewData) {
-                        { "statistic-title", "Hit Points" },
-                        { "statistic-score", @character.HitPoints } }); }
-                    @{ Html.RenderPartial("_statistic", new ViewDataDictionary(this.ViewData) {
-                        { "statistic-title", "Movement" },
-                        { "statistic-score", @character.MovementSpeed + " ft" } }); }
-                    @{ Html.RenderPartial("_statistic", new ViewDataDictionary(this.ViewData) {
-                        { "statistic-title", "Initiative" },
-                        { "statistic-modifier", @character.Initiative } }); }
-                    @{ Html.RenderPartial("_statistic", new ViewDataDictionary(this.ViewData) {
-                        { "statistic-title", "Perception" },
-                        { "statistic-modifier", @character.Perception } }); }
-                    @{ Html.RenderPartial("_statistic", new ViewDataDictionary(this.ViewData) {
-                        { "statistic-title", "" },
-                        { "statistic-notes", @character.Senses } }); }
-                    </div>
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <div class="statistic-group">
-                    @{ Html.RenderPartial("_statistic", new ViewDataDictionary(this.ViewData) {
-                        { "statistic-title", "Armor Class" },
-                        { "statistic-score", @character.ArmorClass } }); }
-                    @{ Html.RenderPartial("_statistic", new ViewDataDictionary(this.ViewData) {
-                        { "statistic-title", "Touch" },
-                        { "statistic-score", @character.TouchArmorClass } }); }
-                    @{ Html.RenderPartial("_statistic", new ViewDataDictionary(this.ViewData) {
-                        { "statistic-title", "Flat-Footed" },
-                        { "statistic-score", @character.FlatFootedArmorClass } }); }
-                    </div>
-
-                    <div class="statistic-group">
-                    @{ Html.RenderPartial("_statistic", new ViewDataDictionary(this.ViewData) {
-                        { "statistic-title", "Fortitude" },
-                        { "statistic-notes", @character.FortitudeSave } }); }
-                    @{ Html.RenderPartial("_statistic", new ViewDataDictionary(this.ViewData) {
-                        { "statistic-title", "Reflex" },
-                        { "statistic-notes", @character.ReflexSave } }); }
-                    @{ Html.RenderPartial("_statistic", new ViewDataDictionary(this.ViewData) {
-                        { "statistic-title", "Will" },
-                        { "statistic-notes", @character.WillSave } }); }
-                    </div>
-                    <div class="statistic-group">
-                    @if(character.DamageResistance.Length > 0)
-                    {
-                        var damageResistance = string.Join(", ", character.DamageResistance);
-                        Html.RenderPartial("_statistic", new ViewDataDictionary(this.ViewData) {
-                            { "statistic-title", "Damage Resistance" },
-                            { "statistic-notes", @damageResistance } }); 
-                    }
-                    @if(character.Immunities.Length > 0)
-                    {
-                        var immunities = string.Join(", ", character.Immunities);
-                        Html.RenderPartial("_statistic", new ViewDataDictionary(this.ViewData) {
-                            { "statistic-title", "Immunities" },
-                            { "statistic-notes", @immunities } }); 
-                    }
-                    </div>
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <div class="statistic-group">
-                        @{ Html.RenderPartial("_statistic", new ViewDataDictionary(this.ViewData) {
-                            { "statistic-title", "Base Attack" },
-                            { "statistic-score", @character.BaseAttackBonus } }); }
-                        @{ Html.RenderPartial("_statistic", new ViewDataDictionary(this.ViewData) {
-                            { "statistic-title", "CMB" },
-                            { "statistic-score", @character.CombatManeuverBonus } }); }
-                        @{ Html.RenderPartial("_statistic", new ViewDataDictionary(this.ViewData) {
-                            { "statistic-title", "CMD" },
-                            { "statistic-score", @character.CombatManeuverDefense } }); }
-                    </div>
-                    <table class="table table-striped">
-                        <tbody>
-                            @for(int i = 0; i < character.AttackTypes.Length; i++)
-                            {
-                                <tr>
-                                <td>@character.AttackTypes[i]</td>
-                                <td>@character.Attacks[i]</td>
-                                </tr>
-                            }
-
-                            @foreach(var spc in @character.SpecialAttacks)
-                            { 
-                                <tr>
-                                <td>Special</td>
-                                <td>@spc</td>@spc 
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-5 no-padding no-margin">
-            <div class="panel panel-default">
-                <div class="panel-table">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>Skill</th>
-                                <th>Ranks</th>
-                                <th>Score</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        @{ var skills = charFull.Get<SkillRanks>(); }
-                        @foreach(var s in skills.GetRankedSkills())
-                        { 
-                            @if(s.AbleToUse && !(s.Skill.IsBackgroundSkill && s.Ranks == 0))
-                            {
-                                <tr>
-                                    <td>@s.Name</td>
-                                    <td>@s.Ranks</td>
-                                    <td class='@(@s.Ranks > 0 ? "success" : "")'> @s.Score()</td>
-                                </tr>
-                            }
-                        }
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
+        <div class="col-sm-4 no-padding">
+            @{ Html.RenderPartial("_personality", this.ViewData); }
         </div>
     </div>
     <div class="row">
-            <div class="col-md-6">
-            @if(character.IsSpellCaster) 
-            {
+        <div class="col-sm-8">
+            <div class="row">
+                <div class="col-sm-4 no-padding no-margin">
+                    @{ Html.RenderPartial("_ability-scores", this.ViewData); }
+                </div>
+                <div class="col-sm-8 no-padding">
+                    @{ Html.RenderPartial("_basic-statistics", this.ViewData); }
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 no-padding">
+                    @{ Html.RenderPartial("_offense-statistics", this.ViewData); }
+                </div>
+                <div class="col-sm-6 no-padding">
+                    @{ Html.RenderPartial("_defense-statistics", this.ViewData); }
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 no-padding">
+                    @{ Html.RenderPartial("_special-abilities", this.ViewData); }
+                </div>
+                <div class="col-sm-6 no-padding">
+                    @{ Html.RenderPartial("_feats", this.ViewData); }
+                </div>
+            </div>
+            <div class="row">
                 @foreach(var sc in charFull.GetAll<SpellCasting>())
                 {
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Spell Casting (@sc.SpellList)</h3>
-                        </div>
-                        <div class="panel-table">
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Level</th>
-                                        <th>DC</th>
-                                        <th>Spells</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                @for(int spellLevel = 0; spellLevel <= sc.MaxLevel; spellLevel++)
-                                {
-                                    @if(sc.GetPreparedSpells(spellLevel).Length > 0)
-                                    {
-                                        <tr>
-                                            <td>@spellLevel</td>
-                                            <td>@sc.GetDifficultyClass(spellLevel)</td>
-                                            <td>
-                                                <ul class="commalist" style="padding: 0">
-                                                    @{ var spells = sc.GetPreparedSpells(spellLevel); }
-                                                    @foreach(var s in spells)
-                                                    { <li>@s</li> } 
-                                                </ul>
-                                            </td>
-                                        </tr>
-                                    }
-                                }
-                                </tbody>
-                            </table>
-                        </div>
+                    <div class="col-sm-12 no-padding">
+                        @{ Html.RenderPartial("_spell-list", 
+                        new ViewDataDictionary(this.ViewData) {
+                            { "spell-casting", sc }
+                        }); }
                     </div>
                 }
-            }
-            @if(character.SpecialAbilities.Length > 0)
-            {
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Special Abilities</h3>
+                @if(domains.Count() > 0)
+                {
+                    <div class="col-sm-12">
+                        @{ Html.RenderPartial("_domains", this.ViewData); }
                     </div>
-                    <div class="panel-table">
-                        <table class="table table-striped">
-                            <tbody>
-                        @foreach(var a in character.SpecialAbilities)
-                        { <tr><td>@a</td></tr> }
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            }
-
-            @if(domains.Count() > 0)
-            {
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Domains</h3>
-                    </div>
-                    <div class="panel-table">
-                        <table class="table table-striped">
-                            <tbody>
-                        @foreach(var d in domains)
-                        { <tr><td>@d</td></tr> }
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            }
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Feats</h3>
-                </div>
-                <div class="panel-table">
-                    <table class="table table-striped">
-                        <tbody>
-                            @foreach(var f in character.Feats)
-                            { <tr><td>@f</td></tr> }
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class='panel panel-default'>
-                <div class='panel-heading'>
-                    <h3 class='panel-title'>Skills</h3>
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Languages</h3>
-                </div>
-                <div class="panel-body">
-                    <ul class="commalist">
-                        @foreach(var l in character.Languages)
-                        { <li>@l</li> }
-                    </ul>
-                </div>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Gear</h3>
-                </div>
-                <div class="panel-table">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>Item</th>
-                                <th>Quantity</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach(var g in charFull.Inventory.All)
-                            { <tr><td>@g.Name</td><td>@g.Quantity</td></tr> }
-                        </tbody>
-                    </table>
-                    <p><strong>Money</strong> @character.Money </p>
-                </div>
+                }
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Description</h3>
-                </div>
-                <div class="panel-body">
-                    <ul class="stats">
-                        <li><strong>Age</strong> @character.Age</li>
-                        <li><strong>Size</strong> @character.Height @character.Weight</li>
-                        <li><strong>Description</strong> @charFull.Appearance.Description</li>
-                    </ul>
+        <div class="col-sm-4">
+            <div class="row">
+                <div class="col-sm-12 no-padding">
+                    @{ Html.RenderPartial("_skills", this.ViewData); }
                 </div>
             </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Personality</h3>
-                </div>
-                <div class="panel-body">
-                    <ul class="stats">
-                        <li><strong>Ideal</strong> @character.IdealName - @character.IdealDescription</li>
-                        <li><strong>Behaviors</strong>
-                            <ul>
-                                @foreach(var p in character.Personality)
-                                { <li>@p</li> }
-                            </ul>
-                        </li>  
-                        <li><strong>Weaknesses</strong>
-                            <ul>
-                                @foreach(var p in character.PersonalityWeaknesses)
-                                { <li>@p</li> }
-                            </ul>
-                        </li>  
-                        <li><strong>Quirks</strong>
-                            <ul>
-                                @foreach(var q in character.Quirks)
-                                { <li>@q</li>}
-                            </ul>
-                        </li>
-                        <li><strong>Fears</strong>
-                            <ul>
-                                @foreach(var f in charFull.Get<SilverNeedle.Characters.Personalities.Fears>())
-                                { <li>@f</li>}
-                            </ul>
-                        </li>
-                    </ul>
+            <div class="row">
+                <div class="col-sm-12 no-padding">
+                    @{ Html.RenderPartial("_inventory", this.ViewData); }
                 </div>
             </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">History</h3>
-                </div>
-                <div class="panel-body">
-                    @{ var story =  charFull.Get<SilverNeedle.Characters.Background.BackgroundStory>().GetStory(); }
-                    <p>@story</p>
-                    <ul class="stats">
-                        <li>
-                            <ul class="commalist">
-                                <li><strong>Father</strong> @character.Father</li>
-                                <li><strong>Mother</strong> @character.Mother</li>
-                            </ul>
-                        </li>
-                        <li><strong>Homeland</strong> @character.Homeland</li>
-                        <li><strong>Drawback</strong> @character.Drawback</li>
-                        <li><strong>Origins</strong> @character.ClassOrigin</li>
-                        <li><strong>Birth</strong> @{ var birthCirc = charFull.Get<History>().BirthCircumstance.Name; } @birthCirc</li>
-                    </ul>
+            <div class="row">
+                <div class="col-sm-12 no-padding">
+                    @{ Html.RenderPartial("_money", this.ViewData); }
                 </div>
             </div>
+
         </div>
     </div>
 </div>

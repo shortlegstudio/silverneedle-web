@@ -1,0 +1,35 @@
+@using SilverNeedle.Characters;
+@{
+    var character = (CharacterSheetTextView)ViewData["Character"];
+    var charFull = (CharacterSheet)ViewData["characterFull"];
+}
+<div class="panel panel-default">
+    <table class="table table-striped statistics">
+        <thead><th colspan="4">Offense</th></thead>
+        <tbody>
+        
+            @{ Html.RenderPartial("_statistic-row", new ViewDataDictionary(this.ViewData) {
+                { "statistic-title", "Base Attack" },
+                { "statistic-score", @character.BaseAttackBonus } }); }
+            @{ Html.RenderPartial("_statistic-row", new ViewDataDictionary(this.ViewData) {
+                { "statistic-title", "CMB" },
+                { "statistic-score", @character.CombatManeuverBonus } }); }
+            @{ Html.RenderPartial("_statistic-row", new ViewDataDictionary(this.ViewData) {
+                { "statistic-title", "CMD" },
+                { "statistic-score", @character.CombatManeuverDefense } }); }
+                @for(int i = 0; i < character.AttackTypes.Length; i++)
+                {
+                    Html.RenderPartial("_statistic-row", new ViewDataDictionary(this.ViewData) {
+                        { "statistic-title", character.AttackTypes[i] },
+                        { "statistic-score", character.Attacks[i] } }); 
+                }
+
+                @foreach(var spc in @character.SpecialAttacks)
+                { 
+                    Html.RenderPartial("_statistic-row", new ViewDataDictionary(this.ViewData) {
+                        { "statistic-title", "Special" },
+                        { "statistic-score", @spc } }); 
+                }
+        </tbody>
+    </table>
+</div>
