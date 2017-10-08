@@ -18,7 +18,7 @@ namespace SilverNeedle.Characters.Attacks
         protected CharacterSize size;
         public WeaponAttack()
         {
-
+            this.AttackBonus = new BasicStat(string.Format("Attack Bonus"), 0);
         }
         public WeaponAttack(OffenseStats offense, CharacterSize size, IWeaponAttackStatistics weapon)
         {
@@ -26,6 +26,7 @@ namespace SilverNeedle.Characters.Attacks
             this.size = size;
             this.Weapon = weapon;
             this.Name = weapon.Name;
+            this.Range = weapon.Range;
             this.DamageType = weapon.DamageType.ToString();
             this.CriticalThreat = weapon.CriticalThreat;
 
@@ -84,7 +85,12 @@ namespace SilverNeedle.Characters.Attacks
         public string DamageType { get; protected set; }
         public virtual int NumberOfAttacks 
         {
-            get { return this.offenseAbilities.BaseAttackBonus.NumberOfAttacks; }
+            get 
+            { 
+                if(this.offenseAbilities == null)
+                    return 1;
+                return this.offenseAbilities.BaseAttackBonus.NumberOfAttacks; 
+            }
         }
 
         /// <summary>
@@ -104,7 +110,9 @@ namespace SilverNeedle.Characters.Attacks
                 this.AttackType == AttackTypes.Ranged ? this.Weapon.Range.ToRangeString() : "");
         }
 
-        private string AttackBonusString()
+        public int Range  { get; protected set; }
+
+        public string AttackBonusString()
         {
             List<string> bonuses = new List<string>();
             for(int i = 1; i <= NumberOfAttacks; i++)

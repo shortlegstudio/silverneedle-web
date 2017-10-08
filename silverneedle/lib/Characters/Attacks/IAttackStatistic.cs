@@ -17,5 +17,7 @@ namespace SilverNeedle.Characters.Attacks
         BasicStat CriticalModifier { get; }
         int CriticalThreat { get; }
         int SaveDC { get; }
+        int Range { get; }
+        string AttackBonusString();
     }
 }

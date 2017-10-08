@@ -20,6 +20,7 @@
     <Folder Include="Views\Character\" />
     <Folder Include="Views\Names\" />
     <Folder Include="Views\Settlement\" />
+    <Folder Include="Styles\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\silverneedle\silverneedle.csproj" />

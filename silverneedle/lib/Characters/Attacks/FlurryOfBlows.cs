@@ -89,6 +89,7 @@ namespace SilverNeedle.Characters.Attacks
 
         public int CriticalThreat { get; private set; }
         public int SaveDC { get { return 0; } }
+        public int Range { get { return 0; } }
 
         public override string ToString()
         {
@@ -122,7 +123,7 @@ namespace SilverNeedle.Characters.Attacks
 
             }
         }
-        private string AttackBonusString()
+        public string AttackBonusString()
         {
             List<string> bonuses = new List<string>();
             for(int i = 1; i <= NumberOfAttacks; i++)

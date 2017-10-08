@@ -14,7 +14,7 @@
         },
         {
             "taskName": "test",
-            "args": ["./silverneedle-tests/silverneedle-tests.csproj"],
+            "args": ["./silverneedle-tests/silverneedle-tests.csproj"]
         }
     ]
 }

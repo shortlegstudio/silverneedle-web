@@ -12,7 +12,6 @@ namespace SilverNeedle.Characters.Attacks
     {
         private ClassLevel source;
         private AbilityScore baseAbility;
-        private int Range;
         public Icicle(ClassLevel source, AbilityScore baseAbility)
         {
             this.source = source;

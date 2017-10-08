@@ -52,7 +52,6 @@ namespace SilverNeedle.Characters.Domains
         {
             private ClassLevel clericLevel;
             private AbilityScore wisdom;
-            private int Range;
             public LightningArcAttack(ComponentBag components)
             {
                 clericLevel = components.Get<ClassLevel>();

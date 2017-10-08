@@ -11,7 +11,6 @@ namespace SilverNeedle.Characters.Attacks
     {
         private ClassLevel source;
         private AbilityScore baseAbility;
-        private int Range;
         public FireBolt(ClassLevel source, AbilityScore baseAbility)
         {
             this.source = source;

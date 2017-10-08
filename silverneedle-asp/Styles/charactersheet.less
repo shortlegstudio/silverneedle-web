@@ -1,0 +1,125 @@
+//@darkTextColor: hsla(348%, 100%, 7%, 1);
+//@headingsColor: hsla(311%, 64%, 27%, 1);
+//@positiveColor: hsla(126%, 38%, 48%, 1);
+//@warningColor: hsla(58%, 94%, 44%, 1);
+//@negativeColor: hsla(2%, 93%, 64%, 1);
+
+/* RGB */
+@darkTextColor: rgba(35, 0, 7, 1);
+@headingsColor: rgba(115, 25, 99, 1);
+@positiveColor: rgba(77, 170, 87, 1);
+@warningColor: rgba(215, 207, 7, 1);
+@negativeColor: rgba(249, 86, 79, 1);
+@inverseTextColor: rgba(240, 240, 240, 1);
+
+ul.commalist
+{
+    display: inline;
+    list-style: none;
+}
+
+ul.commalist li
+{
+    display: inline;
+}
+
+ul.commalist li:after
+{
+    content: ", ";
+}
+
+ul.commalist li:last-child:after
+{
+    content: "";
+}
+
+ul.stats 
+{
+    padding-left: 0;
+}
+
+ul.stats > li
+{
+    list-style: none;    
+}
+
+ul.stats ul.commalist 
+{
+    padding-left: 0;
+}
+ul.inline li
+{
+    display: inline;
+}
+
+.charactersheet .panel-table
+{
+    padding: 0;
+}
+
+.charactersheet .panel
+{
+    border-radius: 0;
+    margin-bottom: 0; 
+}
+
+.charactersheet .panel-heading
+{ 
+    padding: 5px 15px;
+    border-radius: 0;
+}
+
+.charactersheet .panel-body
+{
+    padding: 5px 15px;
+}
+
+.statistic-group
+{
+    width: 95%;
+}
+
+.statistic
+{
+    display: inline-block;
+    padding: 4px 8px;
+}
+
+.statistic-title
+{
+    font-weight: bold;
+    font-size: 16px;
+    text-align: center;
+}
+
+.statistic-horizontal-title
+{
+    display: inline !important;
+}
+
+.statistic-box
+{
+    text-align: center;
+}
+
+.statistic-score
+{
+    font-size: 14px;
+}
+
+.statistic-modifier
+{
+    padding: 4px;
+    color: @inverseTextColor;
+    border-radius: 2px;
+}
+
+.statistic-positive
+{
+    background-color: @positiveColor;
+}
+
+.statistic-negative
+{
+    background-color: @negativeColor;
+}

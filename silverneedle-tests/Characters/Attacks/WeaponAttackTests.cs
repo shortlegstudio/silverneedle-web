@@ -24,5 +24,12 @@ namespace Tests.Characters.Attacks
             Assert.Equal(2, attack.NumberOfAttacks);
             Assert.Contains("Sword +6/+1", attack.ToString());
         }
+
+        [Fact]
+        public void DefaultToOneAttackIfUninitialized()
+        {
+            var weapon = new WeaponAttack();
+            Assert.Equal(1, weapon.NumberOfAttacks);
+        }
     }
 }

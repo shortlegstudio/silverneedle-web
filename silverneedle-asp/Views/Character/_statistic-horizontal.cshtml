@@ -1,0 +1,26 @@
+<div class="statistic statistic-horizontal">
+    <div class="statistic-title statistic-horizontal-title">@ViewData["statistic-title"]</div>
+    <div class="statistic-box">
+    @if(!string.IsNullOrEmpty(ViewData["statistic-score"] as string))
+    {
+        <span class="statistic-score">@ViewData["statistic-score"]</span>
+    }
+    @if(!string.IsNullOrEmpty(ViewData["statistic-modifier"] as string))
+    {
+        var colorCoding = "statistic-neutral";
+        @if(ViewData["statistic-modifier"].ToString().Contains("+"))
+        {
+            colorCoding = "statistic-positive";
+        }
+        else if(ViewData["statistic-modifier"].ToString().Contains("-"))
+        {
+            colorCoding = "statistic-negative";
+        }
+        <span class="statistic-modifier @colorCoding">@ViewData["statistic-modifier"]</span>
+    }
+    @if(!string.IsNullOrEmpty(ViewData["statistic-notes"] as string))
+    {
+        <span class="statistic-notes">@ViewData["statistic-notes"]</span>
+    }
+    </div>
+</div>
