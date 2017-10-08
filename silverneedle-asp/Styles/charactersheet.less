@@ -5,13 +5,17 @@
 //@negativeColor: hsla(2%, 93%, 64%, 1);
 
 /* RGB */
-@darkTextColor: rgba(35, 0, 7, 1);
-@headingsColor: rgba(115, 25, 99, 1);
+@darkTextColor: rgba(49, 47, 47, 1);
+@headingsColor:rgba(166, 217, 247, 1);
+@headingTextColor: @darkTextColor;
+@labelBackColor: rgba(147, 163, 188, 1);
+@labelTextColor:  rgba(74, 87, 89, 1);
 @positiveColor: rgba(77, 170, 87, 1);
 @warningColor: rgba(215, 207, 7, 1);
 @negativeColor: rgba(249, 86, 79, 1);
 @inverseTextColor: rgba(240, 240, 240, 1);
 @borderColor: rgba(77, 77, 77, 1);
+@neutralColor: @darkTextColor;
 
 ul.commalist
 {
@@ -62,12 +66,15 @@ ul.inline li
 {
     border-radius: 0;
     margin-bottom: 0; 
+    page-break-inside: avoid;
 }
 
 .charactersheet .panel-heading
 { 
     padding: 5px 15px;
     border-radius: 0;
+    background-color: @headingsColor;
+    color: @headingTextColor;
 }
 
 .charactersheet .panel-body
@@ -75,40 +82,21 @@ ul.inline li
     padding: 5px 15px;
 }
 
-.statistic-group
+.statistics 
 {
+    text-align: center;
 }
 
-.statistic
+.statistic-row-name
 {
-    display: inline-block;
-    margin: 4px 8px;
-}
-
-.statistic-title
-{
+    background-color: @labelBackColor;
+    color: @labelTextColor;
     font-weight: bold;
-    font-size: 16px;
-    text-align: center;
-    color: @darkTextColor;
-    padding: 2px 6px;
-}
-
-.statistic-horizontal-title
-{
-    display: inline !important;
-}
-
-.statistic-box
-{
-    text-align: center;
-    padding: 4px 6px;
-    border: 1px dotted @borderColor;
+    text-align: right;
 }
 
 .statistic-score
 {
-    font-size: 14px;
 }
 
 .statistic-modifier

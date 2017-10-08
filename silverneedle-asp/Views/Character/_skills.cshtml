@@ -5,12 +5,14 @@
     var charFull = (CharacterSheet)ViewData["characterFull"];
 }
 <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Skills</h3>
+    </div>
     <div class="panel-table">
-        <table class="table table-striped">
+        <table class="table table-striped table-bordered">
             <thead>
                 <tr>
                     <th>Skill</th>
-                    <th>Ranks</th>
                     <th>Score</th>
                 </tr>
             </thead>
@@ -22,8 +24,7 @@
                 {
                     Html.RenderPartial("_statistic-row", new ViewDataDictionary(this.ViewData) {
                         { "statistic-title", s.Name },
-                        { "statistic-score", s.Ranks.ToString() },
-                        { "statistic-modifier", s.Score().ToModifierString() } });
+                        { "statistic-score", s.Score().ToModifierString() } });
                 }
             }
             </tbody>

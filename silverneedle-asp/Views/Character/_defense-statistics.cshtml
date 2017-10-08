@@ -4,8 +4,10 @@
     var charFull = (CharacterSheet)ViewData["characterFull"];
 }
 <div class="panel panel-default">
-    <table class="table table-striped statistics">
-        <thead><th colspan="2">Defense</th></thead>
+    <div class="panel-heading">
+        <h3 class="panel-title">Defense</h3>
+    </div>
+    <table class="table table-striped statistics table-bordered">
         <tbody>
             @{ Html.RenderPartial("_statistic-row", new ViewDataDictionary(this.ViewData) {
                 { "statistic-title", "Armor Class" },
@@ -18,13 +20,13 @@
                 { "statistic-score", @character.FlatFootedArmorClass } }); }
             @{ Html.RenderPartial("_statistic-row", new ViewDataDictionary(this.ViewData) {
                 { "statistic-title", "Fortitude" },
-                { "statistic-notes", @character.FortitudeSave } }); }
+                { "statistic-score", @character.FortitudeSave } }); }
             @{ Html.RenderPartial("_statistic-row", new ViewDataDictionary(this.ViewData) {
                 { "statistic-title", "Reflex" },
-                { "statistic-notes", @character.ReflexSave } }); }
+                { "statistic-score", @character.ReflexSave } }); }
             @{ Html.RenderPartial("_statistic-row", new ViewDataDictionary(this.ViewData) {
                 { "statistic-title", "Will" },
-                { "statistic-notes", @character.WillSave } }); }
+                { "statistic-score", @character.WillSave } }); }
             @{
                 var damageResistance = string.Join(", ", character.DamageResistance);
                 Html.RenderPartial("_statistic-row", new ViewDataDictionary(this.ViewData) {

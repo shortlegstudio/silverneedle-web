@@ -5,8 +5,10 @@
     var language = string.Join(", ", character.Languages);
 }
 <div class="panel panel-default">
-    <table class="table table-striped statistics">
-        <thead><th colspan="3">General Statistics</th></thead>
+    <div class="panel-heading">
+        <h3 class="panel-title">General Statistics</h3>
+    </div>
+    <table class="table table-striped table-bordered statistics">
         <tbody>
             @{ Html.RenderPartial("_statistic-row", new ViewDataDictionary(this.ViewData) {
                 { "statistic-title", "Hit Points" },
