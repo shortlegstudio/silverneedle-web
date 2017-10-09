@@ -6,6 +6,7 @@
 namespace Tests.Characters.Domains
 {
     using Xunit;
+    using System.Linq;
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.Domains;
     using SilverNeedle.Characters.SpecialAbilities;
@@ -31,7 +32,7 @@ namespace Tests.Characters.Domains
         {
             character.SetLevel(8);
             domain.LeveledUp(character.Components);
-            var featToken = character.FeatTokens[0];
+            var featToken = character.FeatTokens.First();
             Assert.NotStrictEqual(featToken.Tags, new string[] { "Leadership" });
         }
     }

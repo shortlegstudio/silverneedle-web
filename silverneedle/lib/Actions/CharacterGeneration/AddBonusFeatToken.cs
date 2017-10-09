@@ -22,7 +22,7 @@ namespace SilverNeedle.Actions.CharacterGeneration
         public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
         {
             var token = new FeatToken(options, ignorePrequisites);
-            character.FeatTokens.Add(token);
+            character.Add(token);
         }
     }
 }

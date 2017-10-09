@@ -39,7 +39,7 @@ namespace SilverNeedle.Actions.CharacterGeneration
             character.ProcessLevel(level);
 
             if(character.Level % 2 == 1) {
-                character.FeatTokens.Add(new FeatToken());
+                character.Add(new FeatToken());
             }
 
             // Special Level ups

@@ -55,7 +55,7 @@ namespace Tests.Actions {
             //Level one feats are currently handled outside this
             var levelUp = new LevelUpCharacter();
             levelUp.BringCharacterToLevel(character, 3);
-            Assert.Equal(1, character.FeatTokens.Count);
+            Assert.Equal(1, character.FeatTokens.Count());
 		}
 
         [Fact]

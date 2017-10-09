@@ -33,7 +33,6 @@ namespace SilverNeedle.Characters
             this.Components.Add(new SpecialQualities());
             this.Components.Add(new History());
             this.Components.Add(new PersonalityType("ESTJ"));
-            this.Components.Add(new List<FeatToken>());
             this.Components.Add(new OffenseStats());
             this.Components.Add(new MeleeAttackBonus());
             this.Components.Add(new RangeAttackBonus());
@@ -171,7 +170,7 @@ namespace SilverNeedle.Characters
         /// by a racial trait, level up, or class bonus for example
         /// </summary>
         /// <returns>Any feat tokens available</returns>
-        public IList<FeatToken> FeatTokens { get { return this.Get<List<FeatToken>>(); } }
+        public IEnumerable<FeatToken> FeatTokens { get { return this.GetAll<FeatToken>(); } }
 
         /// <summary>
         /// Gets the initiative modifier.

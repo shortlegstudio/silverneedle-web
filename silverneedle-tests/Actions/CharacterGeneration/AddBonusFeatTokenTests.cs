@@ -6,6 +6,7 @@
 namespace Tests.Actions.CharacterGeneration
 {
     using Xunit;
+    using System.Linq;
     using SilverNeedle.Actions.CharacterGeneration;
     using SilverNeedle.Characters;
     using SilverNeedle.Serialization;
@@ -22,8 +23,7 @@ namespace Tests.Actions.CharacterGeneration
             var bob = CharacterTestTemplates.AverageBob();
             addToken.ExecuteStep(bob, new CharacterBuildStrategy());
 
-            //TODO: What kind of abstraction is this???? 
-            var token = bob.FeatTokens[0];
+            var token = bob.FeatTokens.First();
             Assert.Contains("combat", token.Tags);
             Assert.Contains("critical", token.Tags);
         }
@@ -37,7 +37,7 @@ namespace Tests.Actions.CharacterGeneration
             var addToken = new AddBonusFeatToken(configuration);
             var bob = CharacterTestTemplates.AverageBob();
             addToken.ExecuteStep(bob, new CharacterBuildStrategy());
-            var token = bob.FeatTokens[0];
+            var token = bob.FeatTokens.First();
             Assert.True(token.IgnorePrerequisites);
         }
     }

@@ -31,8 +31,7 @@ namespace SilverNeedle.Characters.Domains
         {
             if(source.Level == 8)
             {
-                var featTokens = components.Get<List<FeatToken>>();
-                featTokens.Add(new FeatToken("Leadership"));
+                components.Add(new FeatToken("Leadership"));
             }
         }
     }
