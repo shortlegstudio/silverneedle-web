@@ -62,28 +62,24 @@ namespace SilverNeedle.Characters
         }
         
         public string Name { get; set; }
-        public WeightedOptionTable<string> Classes { get; set; }
-        public WeightedOptionTable<string> Races { get; set; }
+        public WeightedOptionTable<string> Classes { get; private set; }
+        public WeightedOptionTable<string> Races { get; private set; }
+        public WeightedOptionTable<string> FavoredSkills { get; private set; }
+        public WeightedOptionTable<string> FavoredFeats { get; private set; }
+        public WeightedOptionTable<AbilityScoreTypes> FavoredAbilities { get; private set; }
+        public WeightedOptionTable<CharacterAlignment> FavoredAlignments { get; private set; }
+        public IEnumerable<string> LanguageChoices { get { return this.languageChoiceList; } }
+        public IEnumerable<string> LanguagesKnown { get { return this.languagesKnownList; } }
 
         public float ClassSkillMultiplier { get; set; }
-
         public int BaseSkillWeight { get; set; }
-
-        public WeightedOptionTable<string> FavoredSkills { get; set; }
-        public WeightedOptionTable<string> FavoredFeats { get; set; }
-
-        public WeightedOptionTable<AbilityScoreTypes> FavoredAbilities { get; set; }
-
-        public string Designer { get; private set; }
+        public string Designer { get; set; }
         public string AbilityScoreRoller { get; set; }
 
         public int TargetLevel { get; set; }
         public int QuirkCount { get; set; }
         public int FearCount { get; set; }
 
-        public WeightedOptionTable<CharacterAlignment> FavoredAlignments { get; set; }
-        public IEnumerable<string> LanguageChoices { get { return this.languageChoiceList; } }
-        public IEnumerable<string> LanguagesKnown { get { return this.languagesKnownList; } }
         private IList<string> languageChoiceList = new List<string>();
         private IList<string> languagesKnownList = new List<string>();
         public void AddLanguageKnown(string language) { this.languagesKnownList.Add(language); }
@@ -93,39 +89,38 @@ namespace SilverNeedle.Characters
         private void ParseObjectStore(IObjectStore data)
         {
             // Basic Properties
-                Name = data.GetString("name");
-                ClassSkillMultiplier = data.GetFloat("classskillmultiplier");
-                BaseSkillWeight = data.GetInteger("baseskillweight");
-                AbilityScoreRoller = data.GetStringOptional("ability-score-roller");
-                if (string.IsNullOrEmpty(AbilityScoreRoller)) 
-                {
-                    this.AbilityScoreRoller = typeof(SilverNeedle.Actions.CharacterGeneration.Abilities.AverageAbilityScoreGenerator).FullName;
-                }
-                
-                // Collections
-                //
-                // Races
-                var races = data.GetObject("races");
-                BuildWeightedTable(Races, races);
-                
-                // Classes
-                var classes = data.GetObject("classes");
-                BuildWeightedTable(Classes, classes);
-                
-                // Skills
-                var skills = data.GetObject("skills");
-                BuildWeightedTable(FavoredSkills, skills);
-                
-                // Feats
-                var feats = data.GetObject("feats");
-                BuildWeightedTable(FavoredFeats, feats);
+            Name = data.GetString("name");
+            ClassSkillMultiplier = data.GetFloat("classskillmultiplier");
+            BaseSkillWeight = data.GetInteger("baseskillweight");
+            AbilityScoreRoller = data.GetStringOptional("ability-score-roller");
+            if (string.IsNullOrEmpty(AbilityScoreRoller)) 
+            {
+                this.AbilityScoreRoller = typeof(SilverNeedle.Actions.CharacterGeneration.Abilities.AverageAbilityScoreGenerator).FullName;
+            }
+            
+            // Collections
+            //
+            // Races
+            var races = data.GetObject("races");
+            BuildWeightedTable(Races, races);
+            
+            // Classes
+            var classes = data.GetObject("classes");
+            BuildWeightedTable(Classes, classes);
+            
+            // Skills
+            var skills = data.GetObject("skills");
+            BuildWeightedTable(FavoredSkills, skills);
+            
+            // Feats
+            var feats = data.GetObject("feats");
+            BuildWeightedTable(FavoredFeats, feats);
 
-                var abilities = data.GetObjectOptional("abilities");
-                BuildAbilityTable(FavoredAbilities, abilities);
+            var abilities = data.GetObjectOptional("abilities");
+            BuildAbilityTable(FavoredAbilities, abilities);
 
-                BuildAlignmentTable();
-
-                Designer = data.GetStringOptional("designer");
+            BuildAlignmentTable();
+            Designer = data.GetStringOptional("designer");
         }
 
         private void BuildWeightedTable(WeightedOptionTable<string> tableToBuild, IObjectStore node)

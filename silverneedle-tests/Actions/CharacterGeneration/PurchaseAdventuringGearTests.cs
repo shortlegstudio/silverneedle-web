@@ -40,8 +40,9 @@ namespace Tests.Actions.CharacterGeneration
         {
             var character = new CharacterSheet();
             character.Inventory.CoinPurse.SetValue(50000);
+            var strategy = new CharacterBuildStrategy();
 
-            subject.ExecuteStep(character, new CharacterBuildStrategy());
+            subject.ExecuteStep(character, strategy);
             Assert.True(character.Inventory.CoinPurse.Value >= 30000);
             Assert.True(character.Inventory.All.Count() >= 1);
         }

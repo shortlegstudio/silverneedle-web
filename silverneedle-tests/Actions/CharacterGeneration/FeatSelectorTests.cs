@@ -47,13 +47,10 @@ namespace Tests.Actions
         [Fact]
         public void ChooseFeatBasedOnStrategy()
         {
-            var strategy = new WeightedOptionTable<string>();
-            strategy.AddEntry("power attack", 5000000);
-            strategy.AddEntry("cleave", 1);
             
             var buildStrategy = new CharacterBuildStrategy();
-            buildStrategy.FavoredFeats = strategy;
-
+            buildStrategy.FavoredFeats.AddEntry("power attack", 5000000);
+            buildStrategy.FavoredFeats.AddEntry("cleave", 1);
             var character = new CharacterSheet();
             character.Add(new FeatToken());
             
@@ -65,13 +62,9 @@ namespace Tests.Actions
         [Fact]
         public void OnlySelectsFeatsThatCharacterQualifiesFor()
         {
-            var strategy = new WeightedOptionTable<string>();
-            strategy.AddEntry("power attack", 1);
-            strategy.AddEntry("cleave", 5000000);
-            
             var buildStrategy = new CharacterBuildStrategy();
-            buildStrategy.FavoredFeats = strategy;
-
+            buildStrategy.FavoredFeats.AddEntry("power attack", 1);
+            buildStrategy.FavoredFeats.AddEntry("cleave", 5000000);
             for(int i = 0; i < 1000; i++)
             {
                 var character = new CharacterSheet();
@@ -85,12 +78,9 @@ namespace Tests.Actions
         [Fact]
         public void SelectFeatsBasedOnTokensAvailable() 
         {
-            var strategy = new WeightedOptionTable<string>();
-            strategy.AddEntry("power attack", 5000000);
-            strategy.AddEntry("empower spell", 1);
-
             var buildStrategy = new CharacterBuildStrategy();
-            buildStrategy.FavoredFeats = strategy;
+            buildStrategy.FavoredFeats.AddEntry("power attack", 5000000);
+            buildStrategy.FavoredFeats.AddEntry("empower spell", 1);
 
             for(int i = 0; i < 1000; i++)
             {
@@ -104,12 +94,9 @@ namespace Tests.Actions
 
         [Fact]
         public void SelectsAFeatForEachOutstandingToken() {
-            var strategy = new WeightedOptionTable<string>();
-            strategy.AddEntry("power attack", 5000000);
-            strategy.AddEntry("empower spell", 1);
-        
             var buildStrategy = new CharacterBuildStrategy();
-            buildStrategy.FavoredFeats = strategy;
+            buildStrategy.FavoredFeats.AddEntry("power attack", 5000000);
+            buildStrategy.FavoredFeats.AddEntry("empower spell", 1);
 
             for(int i = 0; i < 1000; i++)
             {
@@ -125,11 +112,8 @@ namespace Tests.Actions
 
         [Fact]
         public void FeatTokensAreUsedUpAfterSelection() {
-            var strategy = new WeightedOptionTable<string>();
-            strategy.AddEntry("power attack", 5000000);
-
             var buildStrategy = new CharacterBuildStrategy();
-            buildStrategy.FavoredFeats = strategy;
+            buildStrategy.FavoredFeats.AddEntry("power attack", 5000000);
 
             var character = new CharacterSheet();
             character.Add(new FeatToken());
@@ -141,11 +125,7 @@ namespace Tests.Actions
         [Fact]
         public void IfNoPreferredFeatsArePossibleJustSelectRandomlyFromAnyPossible()
         {
-            var strategy = new WeightedOptionTable<string>();
-
             var buildStrategy = new CharacterBuildStrategy();
-            buildStrategy.FavoredFeats = strategy;
-
             var character = new CharacterSheet();
             character.Add(new FeatToken());
             selector.ExecuteStep(character, buildStrategy);
@@ -155,11 +135,8 @@ namespace Tests.Actions
         [Fact]
         public void FeatTokensCanSpecifyAFeatByName()
         {
-            var strategy = new WeightedOptionTable<string>();
-            strategy.AddEntry("power attack", 5000000);
-
             var buildStrategy = new CharacterBuildStrategy();
-            buildStrategy.FavoredFeats = strategy;
+            buildStrategy.FavoredFeats.AddEntry("power attack", 5000000);
 
             var character = new CharacterSheet();
             character.Add(new FeatToken("Empower Spell"));

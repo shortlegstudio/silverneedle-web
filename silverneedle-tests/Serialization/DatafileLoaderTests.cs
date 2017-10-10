@@ -14,8 +14,6 @@ namespace Tests.Serialization
         [Fact]
         public void CanFindFilesOfSpecificObjectType()
         {
-            // TODO: It's a bad test because it's dependent on data files.
-            // On the otherhand it also ensures some data files
             var datafileLoader = new DatafileLoader();
             var files = datafileLoader.GetDataFiles<SilverNeedle.Characters.PersonalityType>();
             Assert.True(files.Count() > 0);
