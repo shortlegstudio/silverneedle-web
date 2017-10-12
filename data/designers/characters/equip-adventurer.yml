@@ -4,6 +4,7 @@
   type: normal
   steps: 
     - step: SilverNeedle.Actions.CharacterGeneration.StartingWealth
+    - step: SilverNeedle.Actions.CharacterGeneration.EquipCharacter.PurchaseClothing
     - step: SilverNeedle.Actions.CharacterGeneration.PurchaseMeleeWeapon
     - step: SilverNeedle.Actions.CharacterGeneration.PurchaseRangedWeapon
     - step: SilverNeedle.Actions.CharacterGeneration.PurchaseArmor

@@ -1,0 +1,40 @@
+--- !<SilverNeedle.Equipment.Clothes>
+- name: Artisan's Outfit
+  value: 1gp
+  weight: 4
+- name: Cleric's Vestments
+  value: 5gp
+  weight: 6
+- name: Cold-weather outfit
+  value: 8gp
+  weight: 7
+- name: Courtier's outfit
+  value: 30gp
+  weight: 6
+- name: Entertainer's outfit
+  value: 3gp
+  weight: 4
+- name: Explorer's outfit
+  value: 10gp
+  weight: 8
+- name: Monk's outfit
+  value: 5gp
+  weight: 2
+- name: Noble's outfit
+  value: 75gp
+  weight: 10
+- name: Peasant's outfit
+  value: 1sp
+  weight: 2
+- name: Royal outfit
+  value: 200gp
+  weight: 15
+- name: Scholar's outfit
+  value: 5gp
+  weight: 6
+- name: Traveler's outfit
+  value: 1gp
+  weight: 5
+
+
+

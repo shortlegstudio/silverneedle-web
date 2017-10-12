@@ -1,6 +1,0 @@
---- !<SilverNeedle.Equipment.ArmorDecorator>
-- decorator: SilverNeedle.Equipment.MasterworkArmor
-  armor-check-penalty: -1
-  cost: 150
-- decorator: SilverNeedle.Equipment.SpikedArmor
-  cost: 50
