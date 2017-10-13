@@ -27,6 +27,10 @@
   weaponproficiencies: [simple]
   developedage: Trained
   levels:
+    - level: 1
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.AddValuesToBuildStrategy
+          clothes: [Cleric's vestments, Peasant's outfit, Traveler's outfit]
     - level: 2
       class-feature-steps: 
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSummonFamiliar

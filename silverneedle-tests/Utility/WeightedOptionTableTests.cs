@@ -124,7 +124,6 @@ namespace Tests.Utility
             var table = new WeightedOptionTable<DummyEntry>(list);
             Assert.Equal(2, table.All.Count());            
         }
-        
         public class DummyEntry : IWeightedTableObject
         {
             public DummyEntry(string name, int weight)

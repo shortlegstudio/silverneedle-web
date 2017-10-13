@@ -29,6 +29,8 @@
           type: Good
         - ability: SilverNeedle.Characters.SpecialAbilities.DetectEvil
       class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.AddValuesToBuildStrategy
+          clothes: [Cold-weather outfit, Explorer's outfit, Noble's outfit, Traveler's outfit]
         - step: SilverNeedle.Actions.CharacterGeneration.LimitAlignment
           deny: [LawfulEvil, LawfulNeutral, ChaoticGood, ChaoticNeutral, ChaoticEvil, Neutral, NeutralGood, NeutralEvil]
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSmiteEvil

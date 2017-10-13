@@ -36,3 +36,8 @@
   weaponproficiencies: [simple, martial]
   armorproficiencies: [light, medium, heavy, shield, towershield]
   developedage: Trained
+  levels:
+    - level: 1
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.AddValuesToBuildStrategy
+          clothes: [Noble's vestments, Courtier's outfit]

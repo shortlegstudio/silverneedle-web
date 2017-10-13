@@ -5,6 +5,7 @@
 
 namespace SilverNeedle.Actions.CharacterGeneration.EquipCharacter
 {
+    using System.Linq;
     using SilverNeedle.Characters;
     using SilverNeedle.Equipment;
     using SilverNeedle.Serialization;
@@ -24,7 +25,10 @@ namespace SilverNeedle.Actions.CharacterGeneration.EquipCharacter
 
         public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
         {
-            var items = clothing.Where(x => character.Inventory.CoinPurse.CanAfford(x));
+            var items = clothing.Where(x => 
+                character.Inventory.CoinPurse.CanAfford(x) &&
+                strategy.GetOptions<string>("clothes").Contains(x.Name)
+            );
             if(items.HasChoices())
             {
                 character.Inventory.Purchase(items.ChooseOne());

@@ -146,6 +146,28 @@ namespace Tests.Characters
           Assert.Equal(new string[] { "French" }, strategyOne.LanguageChoices);
         }
 
+        [Fact]
+        public void AddNamedWeightedTable()
+        {
+            var strat = new CharacterBuildStrategy();
+            strat.AddCustomValue("colors", "red", 10);
+            Assert.Equal("red", strat.ChooseOption<string>("colors"));
+            var copy = strat.Copy();
+            Assert.Equal("red", copy.ChooseOption<string>("colors"));
+        }
+
+        [Fact]
+        public void CanGetAListOfAllCustomOptions()
+        {
+            var strat = new CharacterBuildStrategy();
+            strat.AddCustomValue("table", "value-1", 1);
+            strat.AddCustomValue("table", "value-2", 1);
+            strat.AddCustomValue("table", "value-3", 1);
+            Assert.Equal(3, strat.GetOptions<string>("table").Count());
+            Assert.Contains("value-1", strat.GetOptions<string>("table"));
+            Assert.Contains("value-2", strat.GetOptions<string>("table"));
+        }
+
         private const string CharacterBuildYaml = @"--- 
 - build:
   name: Archer

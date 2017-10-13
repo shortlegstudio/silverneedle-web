@@ -6,6 +6,7 @@
 namespace SilverNeedle.Characters
 {
     using System.Collections.Generic;
+    using System.Linq;
     using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
@@ -59,6 +60,10 @@ namespace SilverNeedle.Characters
             this.AbilityScoreRoller = copy.AbilityScoreRoller;
             this.AddLanguageChoices(copy.LanguageChoices);
             this.AddLanguagesKnown(copy.LanguagesKnown);
+            foreach(var table in copy.customTables)
+            {
+                this.customTables.Add(table.Key, table.Value.Copy());
+            }
         }
         
         public string Name { get; set; }
@@ -82,6 +87,7 @@ namespace SilverNeedle.Characters
 
         private IList<string> languageChoiceList = new List<string>();
         private IList<string> languagesKnownList = new List<string>();
+        private IDictionary<string, WeightedOptionTable<object>> customTables = new Dictionary<string, WeightedOptionTable<object>>();
         public void AddLanguageKnown(string language) { this.languagesKnownList.Add(language); }
         public void AddLanguageChoice(string language) { this.languageChoiceList.Add(language); }
         public void AddLanguagesKnown(IEnumerable<string> languages) { this.languagesKnownList.Add(languages); }
@@ -175,6 +181,35 @@ namespace SilverNeedle.Characters
         public CharacterBuildStrategy Copy()
         {
             return new CharacterBuildStrategy(this);
+        }
+
+        public T ChooseOption<T>(string tableName)
+        {
+            return (T)GetCustomTable(tableName).ChooseRandomly();
+        }
+
+        public IEnumerable<T> GetOptions<T>(string tableName)
+        {
+            return GetCustomTable(tableName).UniqueList().Cast<T>();
+        }
+
+        public void AddCustomValue<T>(string tableName, T value, int weight)
+        {
+            var table = GetCustomTable(tableName);
+            if(table == null)
+            {
+            }
+            table.AddEntry(value, weight);
+        }
+
+        private WeightedOptionTable<object> GetCustomTable(string tableName)
+        {
+            if(customTables.ContainsKey(tableName) == false)
+            {
+                customTables[tableName] = new WeightedOptionTable<object>();
+            }
+
+            return customTables[tableName];
         }
     }
 }

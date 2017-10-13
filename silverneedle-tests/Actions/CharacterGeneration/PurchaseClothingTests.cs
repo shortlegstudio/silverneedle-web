@@ -5,6 +5,7 @@
 
 namespace Tests.Actions.CharacterGeneration
 {
+    using System.Collections.Generic;
     using Xunit;
     using SilverNeedle.Actions.CharacterGeneration.EquipCharacter;
     using SilverNeedle.Characters;
@@ -14,15 +15,22 @@ namespace Tests.Actions.CharacterGeneration
     public class PurchaseClothingTests
     {
         [Fact]
-        public void SelectsClothingFromPossiblePurchasePoints()
+        [Repeat(50)]
+        public void SelectsClothingFromOptionsInStrategy()
         {
-            var clothes = new Clothes("Outfit", 2000, 5);
-            var purchase = new PurchaseClothing(EntityGateway<Clothes>.LoadWithSingleItem(clothes));
+            
+            var clothes = new List<Clothes>() {
+                new Clothes("Outfit", 2000, 5),
+                new Clothes("Ignore", 200, 5)
+            };
+            var purchase = new PurchaseClothing(EntityGateway<Clothes>.LoadFromList(clothes));
             var bob = CharacterTestTemplates.AverageBob();
             bob.Inventory.CoinPurse.AddGold(200);
+            var strategy = new CharacterBuildStrategy();
+            strategy.AddCustomValue("clothes", "Outfit", 1);
 
-            purchase.ExecuteStep(bob, new CharacterBuildStrategy());
-            Assert.NotNull(bob.Inventory.Find(clothes));
+            purchase.ExecuteStep(bob, strategy);
+            Assert.NotNull(bob.Inventory.Find(clothes[0]));
         }
 
         [Fact]
@@ -32,8 +40,9 @@ namespace Tests.Actions.CharacterGeneration
             var purchase = new PurchaseClothing(EntityGateway<Clothes>.LoadWithSingleItem(clothes));
             var bob = CharacterTestTemplates.AverageBob();
             bob.Inventory.CoinPurse.AddGold(1);
+            var strategy = new CharacterBuildStrategy();
 
-            purchase.ExecuteStep(bob, new CharacterBuildStrategy());
+            purchase.ExecuteStep(bob, strategy);
             Assert.Null(bob.Inventory.Find(clothes));
         }
     }

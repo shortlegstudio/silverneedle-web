@@ -25,6 +25,8 @@
   levels:
     - level: 1
       class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.AddValuesToBuildStrategy
+          clothes: [Cold-weather outfit, Explorer's outfit, Traveler's outfit]
         - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
           options: [combat]
     - level: 2

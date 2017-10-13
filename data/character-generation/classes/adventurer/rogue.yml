@@ -38,6 +38,8 @@
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.TrapFinding
       class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.AddValuesToBuildStrategy
+          clothes: [Entertainer's outfit, Explorer's outfit, Peasant's outfit, Traveler's outfit]
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSneakAttack
           damage: 1d6
     - level: 2

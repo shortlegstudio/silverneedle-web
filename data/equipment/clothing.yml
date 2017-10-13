@@ -1,8 +1,8 @@
 --- !<SilverNeedle.Equipment.Clothes>
-- name: Artisan's Outfit
+- name: Artisan's outfit
   value: 1gp
   weight: 4
-- name: Cleric's Vestments
+- name: Cleric's vestments
   value: 5gp
   weight: 6
 - name: Cold-weather outfit

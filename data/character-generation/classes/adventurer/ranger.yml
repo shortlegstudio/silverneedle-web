@@ -33,6 +33,8 @@
         - ability: SilverNeedle.Characters.SpecialAbilities.Track
         - ability: SilverNeedle.Characters.SpecialAbilities.WildEmpathy
       class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.AddValuesToBuildStrategy
+          clothes: [Explorer's outfit, Traveler's outfit]
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ChooseFavoredEnemy
     - level: 2
       class-feature-steps:

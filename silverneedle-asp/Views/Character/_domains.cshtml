@@ -3,6 +3,7 @@
 @{
     var character = (CharacterSheetTextView)ViewData["Character"];
     var charFull = (CharacterSheet)ViewData["characterFull"];
+    var domains = charFull.GetAll<SilverNeedle.Characters.Domains.Domain>();
 }
 
 <div class="panel panel-default">

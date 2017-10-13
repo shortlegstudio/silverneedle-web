@@ -20,4 +20,6 @@
   levels:
     - level: 1
       class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.AddValuesToBuildStrategy
+          clothes: [Artisan's outfit, Entertainer's outfit, Peasant's outfit]
         - step: SilverNeedle.Actions.CharacterGeneration.CustomClassSteps.CommonerCustomSteps

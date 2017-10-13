@@ -40,6 +40,8 @@
               type: bonus
         - ability: SilverNeedle.Characters.SpecialAbilities.WildEmpathy
       class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.AddValuesToBuildStrategy
+          clothes: [Peasant's outfit, Traveler's outfit]
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddBonusLanguages
           languages: [Sylvan]
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddFreeLanguages
