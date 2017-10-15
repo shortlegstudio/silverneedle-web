@@ -32,5 +32,14 @@ namespace SilverNeedle.Lexicon
         {
             return this.Name.EqualsIgnoreCase(name);
         }
+
+        public Color() { }
+        public Color(string name, int r, int g, int b)
+        {
+            this.Name = name;
+            this.Red = r;
+            this.Green = g;
+            this.Blue = b;
+        }
     }
 }

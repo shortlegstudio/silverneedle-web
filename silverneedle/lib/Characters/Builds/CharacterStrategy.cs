@@ -25,11 +25,13 @@ namespace SilverNeedle.Characters
             TargetLevel = 1;
             QuirkCount = 3;
             FearCount = 1;
+            FavoriteColorCount = 3;
             this.AbilityScoreRoller = typeof(SilverNeedle.Actions.CharacterGeneration.Abilities.AverageAbilityScoreGenerator).FullName;
         }
 
         public CharacterStrategy(IObjectStore data) 
         {
+            FavoriteColorCount = 3;
             QuirkCount = 3;
             FearCount = 1;
             TargetLevel = 1;
@@ -57,6 +59,7 @@ namespace SilverNeedle.Characters
             this.FavoredAlignments = copy.FavoredAlignments.Copy();
             this.QuirkCount = copy.QuirkCount;
             this.FearCount = copy.FearCount;
+            this.FavoriteColorCount = copy.FavoriteColorCount;
             this.AbilityScoreRoller = copy.AbilityScoreRoller;
             this.AddLanguageChoices(copy.LanguageChoices);
             this.AddLanguagesKnown(copy.LanguagesKnown);
@@ -84,6 +87,7 @@ namespace SilverNeedle.Characters
         public int TargetLevel { get; set; }
         public int QuirkCount { get; set; }
         public int FearCount { get; set; }
+        public int FavoriteColorCount { get; set; }
 
         private IList<string> languageChoiceList = new List<string>();
         private IList<string> languagesKnownList = new List<string>();

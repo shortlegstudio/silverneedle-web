@@ -1,0 +1,28 @@
+@using SilverNeedle.Characters;
+@using SilverNeedle.Characters.Personalities;
+@using SilverNeedle.Utility;
+@{
+    var character = (CharacterSheetTextView)ViewData["Character"];
+    var charFull = (CharacterSheet)ViewData["characterFull"];
+    var likes = charFull.Get<Likes>();
+}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Likes</h3>
+    </div>
+    <div class="panel-body">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td class="col-md-3">Favorite Colors</td>
+                    <td class="col-md-9">
+                        @foreach(var c in likes.FavoriteColors)
+                        {
+                            <div style="background-color:@c.Hex; color: white; text-shadow: black 1px 1px 1px; float: left; padding:6px 15px;">@c.Name</div>
+                        }
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -12,6 +12,7 @@ namespace SilverNeedle.Characters
     using SilverNeedle.Characters.Attacks;
     using SilverNeedle.Characters.Background;
     using SilverNeedle.Characters.Magic;
+    using SilverNeedle.Characters.Personalities;
     using SilverNeedle.Utility;
 
     
@@ -32,7 +33,6 @@ namespace SilverNeedle.Characters
             this.Components.Add(new List<Language>());
             this.Components.Add(new SpecialQualities());
             this.Components.Add(new History());
-            this.Components.Add(new PersonalityType("ESTJ"));
             this.Components.Add(new OffenseStats());
             this.Components.Add(new MeleeAttackBonus());
             this.Components.Add(new RangeAttackBonus());
@@ -41,6 +41,9 @@ namespace SilverNeedle.Characters
             this.Components.Add(new CharacterAppearance());
             this.Components.Add(new SkillRanks(this.AbilityScores));
             this.Components.Add(new Initiative(this.AbilityScores));
+
+            this.Components.Add(new PersonalityType("ESTJ"));
+            this.Components.Add(new Likes());
         }
 
         public void InitializeComponents()

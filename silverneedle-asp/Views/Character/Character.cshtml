@@ -27,6 +27,11 @@
                     @{ Html.RenderPartial("_history", this.ViewData); }
                 </div>
             </div>
+            <div class="row">
+                <div class="col-sm-12 no-padding">
+                    @{ Html.RenderPartial("_likes", this.ViewData); }
+                </div>
+            </div>
         </div>
         <div class="col-sm-4 no-padding">
             @{ Html.RenderPartial("_personality", this.ViewData); }

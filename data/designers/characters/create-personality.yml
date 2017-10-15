@@ -3,6 +3,7 @@
   name: create-personality
   type: normal
   steps: 
+    - step: SilverNeedle.Actions.CharacterGeneration.Personality.SelectFavoriteColors
     - step: SilverNeedle.Actions.CharacterGeneration.PersonalityBuilder
     - step: SilverNeedle.Actions.CharacterGeneration.Personality.SelectQuirks
     - step: SilverNeedle.Actions.CharacterGeneration.Personality.SelectFears
