@@ -18,7 +18,7 @@
     - clothing: [boots, gloves, hats, socks, shirts, ties, hankerchiefs, jackets, scarfs]
     - material: [fur, leather, cloth, patchwork, knitted, woven]
   templates:
-    - template: '{{pronoun}} always wears {{choose-color}} {{descriptor "clothing"}}.'
+    - template: '{{pronoun}} always wears {{choose-favorite-color}} {{descriptor "clothing"}}.'
     - template: '{{pronoun}} collects {{descriptor "clothing"}}.'
     - template: '{{pronoun}} only wears the finest {{descriptor "clothing"}}.'
     - template: '{{pronoun}} wears {{descriptor "material"}} {{descriptor "clothing"}}.'

@@ -7,10 +7,13 @@ All notable changes will be tracked in this file. Most likely.
 - Add Spell Resistance statistic
 - Multiple Attacks are awarded for high attack bonuses now
 - Monk class is now supported
+- Favorite Colors are available for characters and used in description generation
 
 ### Changed
 - Levels were reusing abilities which caused weird bugs, now each level up will create new instances for each character
 - Provides more flexibility in defining attacks
+- Improved? Layout of information for character to make it easier to read
+- Broke out rendering of character template information to make it easier to change
 ### Known Issues
 - Animal Companions are not supported yet which makes the druid generation more limited than it should be
 

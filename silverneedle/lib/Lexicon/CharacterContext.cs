@@ -14,7 +14,7 @@ namespace SilverNeedle.Lexicon
             this.Add("name", character.Name);
             this.Add("pronoun", character.Gender.Pronoun());
             this.Add("possessivepronoun", character.Gender.PossessivePronoun());
-            this.Add("character-sheet", character);
+            this.Add("charactersheet", character);
             AddParentInformation(character);
         }
 

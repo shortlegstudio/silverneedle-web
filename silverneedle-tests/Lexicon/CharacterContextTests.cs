@@ -28,5 +28,13 @@ namespace Tests.Lexicon
             Assert.Equal("Bob's Father", context.GetValue<string>("character-father-name"));
             Assert.Equal("Bob's Mother", context.GetValue<string>("character-mother-name"));
         }
+
+        [Fact]
+        public void CanGetTheCharacterSheet()
+        {
+            var bob = CharacterTestTemplates.AverageBob();
+            var context = new CharacterContext(bob);
+            Assert.Equal(bob, context.GetValue<CharacterSheet>("charactersheet"));
+        }
     }
 }

@@ -12,13 +12,10 @@ namespace SilverNeedle.Lexicon
         {
             HandlebarsHelpers.InitializeHelpers();
             var template = outline.Templates.ChooseOne();
-            var context = new PhraseContext() {
-                { "name" , character.Name },
-                { "pronoun" , character.Gender.Pronoun() },
-                { "possessivepronoun" , character.Gender.PossessivePronoun() },
-                { "description" , outline.CreateDescription() },
-                { "feature" , outline.Name },
-                { "descriptors" , outline.Descriptors }
+            var context = new CharacterContext(character); {
+            context.Add("description", outline.CreateDescription());
+            context.Add("feature", outline.Name);
+            context.Add("descriptors", outline.Descriptors);
             };
             var sentence = template.WritePhrase(context);
             

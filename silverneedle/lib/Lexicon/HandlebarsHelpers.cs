@@ -35,6 +35,7 @@ namespace SilverNeedle.Lexicon
             helpers.Add(new ChooseWordFromGatewayObject<Color>(GatewayProvider.Get<Color>()));
             helpers.Add(new ChooseWordFromGatewayObject<Gem>(GatewayProvider.Get<Gem>()));
             helpers.Add(new ChooseWordFromGatewayObject<Occupation>(GatewayProvider.Get<Occupation>()));
+            helpers.Add(ChooseCharacterFavoriteColor.CreateAndRegister());
         }
     }
 }
