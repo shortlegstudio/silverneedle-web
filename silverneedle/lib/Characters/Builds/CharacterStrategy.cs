@@ -10,9 +10,9 @@ namespace SilverNeedle.Characters
     using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
-    public class CharacterBuildStrategy : IGatewayObject, IGatewayCopy<CharacterBuildStrategy>
+    public class CharacterStrategy : IGatewayObject, IGatewayCopy<CharacterStrategy>
     {
-        public CharacterBuildStrategy()
+        public CharacterStrategy()
         {
             Classes = new WeightedOptionTable<string>();
             Races = new WeightedOptionTable<string>();
@@ -28,7 +28,7 @@ namespace SilverNeedle.Characters
             this.AbilityScoreRoller = typeof(SilverNeedle.Actions.CharacterGeneration.Abilities.AverageAbilityScoreGenerator).FullName;
         }
 
-        public CharacterBuildStrategy(IObjectStore data) 
+        public CharacterStrategy(IObjectStore data) 
         {
             QuirkCount = 3;
             FearCount = 1;
@@ -42,7 +42,7 @@ namespace SilverNeedle.Characters
             ParseObjectStore(data);
         }
 
-        public CharacterBuildStrategy(CharacterBuildStrategy copy)
+        public CharacterStrategy(CharacterStrategy copy)
         {
             this.Name = copy.Name;
             this.TargetLevel = copy.TargetLevel;
@@ -178,9 +178,9 @@ namespace SilverNeedle.Characters
             return Name.EqualsIgnoreCase(name);
         }
 
-        public CharacterBuildStrategy Copy()
+        public CharacterStrategy Copy()
         {
-            return new CharacterBuildStrategy(this);
+            return new CharacterStrategy(this);
         }
 
         public T ChooseOption<T>(string tableName)

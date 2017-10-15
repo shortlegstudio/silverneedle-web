@@ -18,7 +18,7 @@ namespace Tests.Actions.CharacterGeneration
             character.AbilityScores.SetScore(AbilityScoreTypes.Strength, 10);
             character.Add(new AbilityScoreToken(2, "Racial Choice"));
 
-            var strategy = new CharacterBuildStrategy();
+            var strategy = new CharacterStrategy();
             strategy.FavoredAbilities.AddEntry(AbilityScoreTypes.Strength, 100000);
 
             var abilityPointAssigner = new AbilityPointAssigner();

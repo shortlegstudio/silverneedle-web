@@ -18,7 +18,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
             this.rageConfiguration = configuration;
         }
 
-        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
         {
             var rage = character.Components.Get<Rage>();
             if (rage == null)

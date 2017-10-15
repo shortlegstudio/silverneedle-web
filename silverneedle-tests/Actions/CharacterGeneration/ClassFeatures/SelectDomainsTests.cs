@@ -23,7 +23,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
             var selectDomains = new SelectDomains(configure);
 
             var character = Tests.Characters.CharacterSheetHelpers.CreateBlankStandardOGLSheet();
-            selectDomains.ExecuteStep(character, new CharacterBuildStrategy());
+            selectDomains.ExecuteStep(character, new CharacterStrategy());
             var domains = character.GetAll<Domain>();
 
             Assert.Equal(domains.Count(), 2);

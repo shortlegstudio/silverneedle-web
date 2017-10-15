@@ -12,20 +12,20 @@ namespace Tests.Characters
     using SilverNeedle.Utility;
 
     
-    public class CharacterBuildStrategyTests
+    public class CharacterStrategyTests
     {
-        EntityGateway<CharacterBuildStrategy> strategies;
+        EntityGateway<CharacterStrategy> strategies;
 
-        public CharacterBuildStrategyTests()
+        public CharacterStrategyTests()
         {
-            var list = CharacterBuildYaml.ParseYaml().Load<CharacterBuildStrategy>();
-            strategies = EntityGateway<CharacterBuildStrategy>.LoadFromList(list);
+            var list = CharacterBuildYaml.ParseYaml().Load<CharacterStrategy>();
+            strategies = EntityGateway<CharacterStrategy>.LoadFromList(list);
         }
 
         [Fact]
         public void DefaultTargetLevelIsOne()
         {
-            var strat = new CharacterBuildStrategy();
+            var strat = new CharacterStrategy();
             Assert.Equal(1, strat.TargetLevel);
         }
 
@@ -106,7 +106,7 @@ namespace Tests.Characters
         [Fact]
         public void AnEmptyStrategySelectsAllAttributesEvenly()
         {
-            var strategy = new CharacterBuildStrategy();
+            var strategy = new CharacterStrategy();
             Assert.Equal(6, strategy.FavoredAbilities.All.Count());
         }
 
@@ -120,7 +120,7 @@ namespace Tests.Characters
         [Fact]
         public void DefaultAbilityScoreGeneratorToAverageAbilities()
         {
-            var strategy = new CharacterBuildStrategy();
+            var strategy = new CharacterStrategy();
             Assert.Contains("AverageAbilityScore", strategy.AbilityScoreRoller);
         }
 
@@ -134,11 +134,11 @@ namespace Tests.Characters
         [Fact]
         public void CopyConstructorShouldCopyLanguageLists()
         {
-          var strategyOne = new CharacterBuildStrategy();
+          var strategyOne = new CharacterStrategy();
           strategyOne.AddLanguageKnown("English");
           strategyOne.AddLanguageChoice("French");
 
-          var copy = new CharacterBuildStrategy(strategyOne);
+          var copy = new CharacterStrategy(strategyOne);
           copy.AddLanguageKnown("German");
           copy.AddLanguageChoice("Russian");
 
@@ -149,7 +149,7 @@ namespace Tests.Characters
         [Fact]
         public void AddNamedWeightedTable()
         {
-            var strat = new CharacterBuildStrategy();
+            var strat = new CharacterStrategy();
             strat.AddCustomValue("colors", "red", 10);
             Assert.Equal("red", strat.ChooseOption<string>("colors"));
             var copy = strat.Copy();
@@ -159,7 +159,7 @@ namespace Tests.Characters
         [Fact]
         public void CanGetAListOfAllCustomOptions()
         {
-            var strat = new CharacterBuildStrategy();
+            var strat = new CharacterStrategy();
             strat.AddCustomValue("table", "value-1", 1);
             strat.AddCustomValue("table", "value-2", 1);
             strat.AddCustomValue("table", "value-3", 1);

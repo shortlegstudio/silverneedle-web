@@ -21,7 +21,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
         {
             this.mercyGateway = mercyGateway;
         }
-        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
         {
             var mercies = character.Get<Mercies>();
             if(mercies == null)

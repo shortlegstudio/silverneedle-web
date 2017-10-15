@@ -14,7 +14,7 @@ namespace silverneedleweb.Controllers
 {
     public class CharacterController : Controller
     {
-        private EntityGateway<CharacterBuildStrategy> strategyGateway = GatewayProvider.Get<CharacterBuildStrategy>();
+        private EntityGateway<CharacterStrategy> strategyGateway = GatewayProvider.Get<CharacterStrategy>();
 
         public IActionResult Index()
         {
@@ -57,7 +57,7 @@ namespace silverneedleweb.Controllers
             var strat = strategyGateway.Find(strategyName);
             if(strat == null)
             {
-                strat = new CharacterBuildStrategy();
+                strat = new CharacterStrategy();
                 strat.Name = "Not Found!";
             }
             return Json(strat);

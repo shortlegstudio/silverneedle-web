@@ -16,7 +16,7 @@ namespace silverneedleweb.Controllers
 {
     public class SettlementController : Controller
     {
-        private EntityGateway<CharacterBuildStrategy> strategyGateway = GatewayProvider.Get<CharacterBuildStrategy>();
+        private EntityGateway<CharacterStrategy> strategyGateway = GatewayProvider.Get<CharacterStrategy>();
 
         public IActionResult Index()
         {

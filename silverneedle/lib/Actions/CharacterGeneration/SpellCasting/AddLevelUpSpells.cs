@@ -29,7 +29,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.SpellCasting
             this.spells = spells;
         }
 
-        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
         {
             var spellCasting = character.GetAll<SpellCasting>();
             foreach(var sc in spellCasting)

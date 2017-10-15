@@ -20,7 +20,7 @@ namespace SilverNeedle.Actions.CharacterGeneration
                 values[key] = configuration.GetList(key);
             }
         }
-        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
         {
             foreach(var item in values)
             {

@@ -20,7 +20,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
             this.Amount = data.GetInteger("amount");
             this.Type = data.GetString("type");
         }
-        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
         {
             var dr = new DamageResistance(Amount, Type);
             character.Defense.AddDamageResistance(dr);

@@ -20,7 +20,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
             Amount = data.GetInteger("amount");
             Type = data.GetString("damage-type");
         }
-        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
         {
             var ability = new ArmorMastery(Amount, Type);
             character.Add(ability);

@@ -27,7 +27,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.Appearance
             eyeColors = GatewayProvider.Get<EyeColor>();
         }
 
-        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
         {
             var facial = character.Appearance;
             facial.EyeColor = eyeColors.ChooseOne();

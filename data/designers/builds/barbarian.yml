@@ -1,4 +1,4 @@
---- !<SilverNeedle.Characters.CharacterBuildStrategy>
+--- !<SilverNeedle.Characters.CharacterStrategy>
 - characterbuild:
   name: Barbarian
   classskillmultiplier: 3  

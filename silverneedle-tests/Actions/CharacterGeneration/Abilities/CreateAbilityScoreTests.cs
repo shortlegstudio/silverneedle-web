@@ -15,7 +15,7 @@ namespace Tests.Actions.CharacterGeneration.Abilities
         [Fact]
         public void UsesAbilityScoreGeneratorSpecifiedByStrategy()
         {
-            var strategy = new CharacterBuildStrategy();
+            var strategy = new CharacterStrategy();
             strategy.AbilityScoreRoller = "SilverNeedle.Actions.CharacterGeneration.Abilities.AverageAbilityScoreGenerator";
             var character = new CharacterSheet();
             var step = new CreateAbilityScores();

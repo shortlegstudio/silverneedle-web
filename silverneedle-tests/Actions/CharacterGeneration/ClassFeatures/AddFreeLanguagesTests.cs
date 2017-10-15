@@ -17,7 +17,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
         public void AddsLanguagesToCharacterForFree()
         {
             var bob = CharacterTestTemplates.AverageBob();
-            var strategy = new CharacterBuildStrategy();
+            var strategy = new CharacterStrategy();
             var objectProps = new MemoryStore();
             objectProps.SetValue("languages", new string[] { "Druidic" , "Draconic" });
             var freeLanguages = new AddFreeLanguages(objectProps);

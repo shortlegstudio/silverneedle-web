@@ -18,7 +18,7 @@ namespace Tests.Actions.CharacterGeneration
         public void ExecutesTheDesignerRequested()
         {
             var character = new CharacterSheet();
-            var build = new CharacterBuildStrategy();
+            var build = new CharacterStrategy();
             var mockDesigner = new Mock<CharacterDesigner>();
             
             // Set up a character designer

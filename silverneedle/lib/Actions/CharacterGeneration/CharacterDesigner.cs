@@ -55,7 +55,7 @@ namespace SilverNeedle.Actions.CharacterGeneration
 
         public Type DesignerType { get; private set; }
 
-        public virtual void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
+        public virtual void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
         {
             ShortLog.DebugFormat("Executing Designer: {0}", Name);
             if (DesignerType == Type.LevelUp)
@@ -64,7 +64,7 @@ namespace SilverNeedle.Actions.CharacterGeneration
                 ProcessSteps(character, strategy);
         }
 
-        private void ProcessLevelUp(CharacterSheet character, CharacterBuildStrategy strategy)
+        private void ProcessLevelUp(CharacterSheet character, CharacterStrategy strategy)
         {
             while(character.Level < strategy.TargetLevel)
             {
@@ -77,7 +77,7 @@ namespace SilverNeedle.Actions.CharacterGeneration
             }
         }
 
-        private void ProcessSteps(CharacterSheet character, CharacterBuildStrategy strategy)
+        private void ProcessSteps(CharacterSheet character, CharacterStrategy strategy)
         {
             foreach (var step in designSteps)
             {

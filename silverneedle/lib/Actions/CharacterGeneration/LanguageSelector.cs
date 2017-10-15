@@ -36,7 +36,7 @@ namespace SilverNeedle.Actions.CharacterGeneration
             this.languages = GatewayProvider.Get<Language>();
         }
 
-        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
         {
             var known = this.languages.FindAll(strategy.LanguagesKnown);
             foreach(var k in known)

@@ -10,7 +10,7 @@ namespace SilverNeedle.Actions.CharacterGeneration
 {
     public class GenderSelector : ICharacterDesignStep
     {
-        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
         {
             character.Gender = EnumHelpers.ChooseOne<Gender>(); 
         }

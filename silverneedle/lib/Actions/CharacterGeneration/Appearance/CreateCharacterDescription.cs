@@ -26,7 +26,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.Appearance
         {
             this.descriptors = descriptors;
         }
-        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
         {
             var storyTemplate = descriptors.Find("character-appearance").Words.ChooseOne();
             var expansion = new PhraseTemplate(storyTemplate);

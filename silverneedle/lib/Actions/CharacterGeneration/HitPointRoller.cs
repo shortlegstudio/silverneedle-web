@@ -13,7 +13,7 @@ namespace SilverNeedle.Actions.CharacterGeneration
     /// </summary>
     public class HitPointRoller : ICharacterDesignStep
     {
-        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
         {
             var cup = new Cup();
             cup.AddDie(new Die(character.Class.HitDice));

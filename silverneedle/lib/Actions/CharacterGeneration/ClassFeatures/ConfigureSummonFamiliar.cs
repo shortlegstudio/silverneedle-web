@@ -24,7 +24,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
             this.familiars = familiars;
         }
 
-        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
         {
             var familiar = familiars.ChooseOne();
             var summon = new SummonFamiliar(familiar);

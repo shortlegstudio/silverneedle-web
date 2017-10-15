@@ -16,7 +16,7 @@ namespace Tests.Actions.CharacterGeneration
         {
             var selector = new AlignmentSelector();
             var character = new CharacterSheet();
-            var strat = new CharacterBuildStrategy();            
+            var strat = new CharacterStrategy();            
             strat.FavoredAlignments.Disable(CharacterAlignment.ChaoticEvil);
             strat.FavoredAlignments.Disable(CharacterAlignment.ChaoticGood);
             strat.FavoredAlignments.Disable(CharacterAlignment.ChaoticNeutral);

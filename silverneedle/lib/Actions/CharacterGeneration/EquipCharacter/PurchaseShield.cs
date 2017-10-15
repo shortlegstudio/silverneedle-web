@@ -35,7 +35,7 @@ namespace SilverNeedle.Actions.CharacterGeneration
             this.armors = GatewayProvider.Get<Armor>();
         }
 
-        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
         {
             var shields = this.armors.Where(armor =>
                 (armor.ArmorType == ArmorType.Shield || armor.ArmorType == ArmorType.TowerShield) &&

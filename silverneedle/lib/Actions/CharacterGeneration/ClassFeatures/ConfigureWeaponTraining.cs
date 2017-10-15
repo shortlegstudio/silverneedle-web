@@ -19,7 +19,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
         {
             WeaponTrainingLevel = data.GetInteger("level");
         }
-        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
         {
             var trainings = character.Components.GetAll<WeaponTraining>();
             foreach(var t in trainings)

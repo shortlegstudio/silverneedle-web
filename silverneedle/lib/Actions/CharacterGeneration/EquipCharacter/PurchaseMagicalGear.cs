@@ -23,7 +23,7 @@ namespace SilverNeedle.Actions.CharacterGeneration
             this.magicShop = injectedShop;
         }
         
-        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
         {
             //TODO: Spending limit should be specified by strategy
             var spend = System.Math.Min(2000000, character.Inventory.CoinPurse.Value);

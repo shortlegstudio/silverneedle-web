@@ -48,7 +48,7 @@ namespace Tests.Actions
         public void ChooseFeatBasedOnStrategy()
         {
             
-            var buildStrategy = new CharacterBuildStrategy();
+            var buildStrategy = new CharacterStrategy();
             buildStrategy.FavoredFeats.AddEntry("power attack", 5000000);
             buildStrategy.FavoredFeats.AddEntry("cleave", 1);
             var character = new CharacterSheet();
@@ -62,7 +62,7 @@ namespace Tests.Actions
         [Fact]
         public void OnlySelectsFeatsThatCharacterQualifiesFor()
         {
-            var buildStrategy = new CharacterBuildStrategy();
+            var buildStrategy = new CharacterStrategy();
             buildStrategy.FavoredFeats.AddEntry("power attack", 1);
             buildStrategy.FavoredFeats.AddEntry("cleave", 5000000);
             for(int i = 0; i < 1000; i++)
@@ -78,7 +78,7 @@ namespace Tests.Actions
         [Fact]
         public void SelectFeatsBasedOnTokensAvailable() 
         {
-            var buildStrategy = new CharacterBuildStrategy();
+            var buildStrategy = new CharacterStrategy();
             buildStrategy.FavoredFeats.AddEntry("power attack", 5000000);
             buildStrategy.FavoredFeats.AddEntry("empower spell", 1);
 
@@ -94,7 +94,7 @@ namespace Tests.Actions
 
         [Fact]
         public void SelectsAFeatForEachOutstandingToken() {
-            var buildStrategy = new CharacterBuildStrategy();
+            var buildStrategy = new CharacterStrategy();
             buildStrategy.FavoredFeats.AddEntry("power attack", 5000000);
             buildStrategy.FavoredFeats.AddEntry("empower spell", 1);
 
@@ -112,7 +112,7 @@ namespace Tests.Actions
 
         [Fact]
         public void FeatTokensAreUsedUpAfterSelection() {
-            var buildStrategy = new CharacterBuildStrategy();
+            var buildStrategy = new CharacterStrategy();
             buildStrategy.FavoredFeats.AddEntry("power attack", 5000000);
 
             var character = new CharacterSheet();
@@ -125,7 +125,7 @@ namespace Tests.Actions
         [Fact]
         public void IfNoPreferredFeatsArePossibleJustSelectRandomlyFromAnyPossible()
         {
-            var buildStrategy = new CharacterBuildStrategy();
+            var buildStrategy = new CharacterStrategy();
             var character = new CharacterSheet();
             character.Add(new FeatToken());
             selector.ExecuteStep(character, buildStrategy);
@@ -135,7 +135,7 @@ namespace Tests.Actions
         [Fact]
         public void FeatTokensCanSpecifyAFeatByName()
         {
-            var buildStrategy = new CharacterBuildStrategy();
+            var buildStrategy = new CharacterStrategy();
             buildStrategy.FavoredFeats.AddEntry("power attack", 5000000);
 
             var character = new CharacterSheet();
@@ -151,7 +151,7 @@ namespace Tests.Actions
             Assert.True(cleave.Prerequisites.Count > 0);
             var bob = CharacterTestTemplates.AverageBob();
             bob.Add(new FeatToken(new string[] { "cleave" } , true));
-            selector.ExecuteStep(bob, new CharacterBuildStrategy());
+            selector.ExecuteStep(bob, new CharacterStrategy());
             Assert.Contains(cleave, bob.Feats);
         }
     }

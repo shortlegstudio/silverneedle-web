@@ -1,4 +1,4 @@
---- !<SilverNeedle.Characters.CharacterBuildStrategy>
+--- !<SilverNeedle.Characters.CharacterStrategy>
 - characterbuild:
   name: Monk
   classskillmultiplier: 3  

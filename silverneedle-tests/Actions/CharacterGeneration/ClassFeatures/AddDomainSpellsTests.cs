@@ -35,7 +35,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
             configure.SetValue("casting-ability", "wisdom");
 
             var addSpells = new AddDomainSpells(configure, spells);
-            addSpells.ExecuteStep(character, new CharacterBuildStrategy());
+            addSpells.ExecuteStep(character, new CharacterStrategy());
 
             var spellCasting = character.Get<SpellCasting>();
             Assert.Equal(spellCasting.CastingAbility, character.AbilityScores.GetAbility(AbilityScoreTypes.Wisdom));
@@ -59,7 +59,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
             configure.SetValue("casting-ability", "wisdom");
             var addDomainSpells = new AddDomainSpells(configure, EntityGateway<Spell>.Empty());
 
-            addDomainSpells.ExecuteStep(bob, new CharacterBuildStrategy());
+            addDomainSpells.ExecuteStep(bob, new CharacterStrategy());
             Assert.Null(bob.Get<DomainSpellCasting>());
         }
     }

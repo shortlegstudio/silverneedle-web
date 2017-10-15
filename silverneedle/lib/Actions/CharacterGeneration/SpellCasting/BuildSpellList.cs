@@ -27,7 +27,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.SpellCasting
             this.spellLists = spellLists;
             this.spells = spells;
         }
-        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
         {
             if(!character.Contains<SpellCasting>())
                 return;
@@ -54,7 +54,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.SpellCasting
         }
 
 
-        private void BuildSpellbook(CharacterSheet character, CharacterBuildStrategy strategy, SpellList spellList)
+        private void BuildSpellbook(CharacterSheet character, CharacterStrategy strategy, SpellList spellList)
         {
             var spellbook = new Spellbook();
             
@@ -66,7 +66,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.SpellCasting
             spellbook.AddSpells(1, spellList.Levels[1].Choose(3).ToArray());
         }
 
-        private void AddAllSpells(SpellCasting casting, CharacterBuildStrategy strategy, SpellList spellList)
+        private void AddAllSpells(SpellCasting casting, CharacterStrategy strategy, SpellList spellList)
         {
             casting.AddSpells(0, spells.FindAll(spellList.Levels[0]).ToArray());
             casting.AddSpells(1, spells.FindAll(spellList.Levels[1]).ToArray());

@@ -18,7 +18,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
         {
             var character = new CharacterSheet();
             var step = new ChooseCombatStyle();
-            step.ExecuteStep(character, new CharacterBuildStrategy());
+            step.ExecuteStep(character, new CharacterStrategy());
             Assert.NotNull(character.Get<CombatStyle>()); 
         }
     }

@@ -1,4 +1,4 @@
---- !<SilverNeedle.Characters.CharacterBuildStrategy>
+--- !<SilverNeedle.Characters.CharacterStrategy>
 - characterbuild:
   name: Cleric
   classskillmultiplier: 5

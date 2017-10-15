@@ -23,7 +23,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.EquipCharacter
             this.clothing = clothingGateway;
         }
 
-        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
         {
             var items = clothing.Where(x => 
                 character.Inventory.CoinPurse.CanAfford(x) &&

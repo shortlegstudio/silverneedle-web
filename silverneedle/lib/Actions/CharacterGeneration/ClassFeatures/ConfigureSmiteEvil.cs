@@ -18,7 +18,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
         {
             this.UsesPerDay = configuration.GetInteger("uses-per-day");
         }
-        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
         {
             var smiteEvil = character.Get<SmiteEvil>();
             if(smiteEvil == null)

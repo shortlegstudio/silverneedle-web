@@ -24,7 +24,7 @@ namespace Tests.Actions.CharacterGeneration {
         [Fact]
         public void PickLanguagesThatAreKnownToTheRace() {
             var character = new CharacterSheet();
-            var strategy = new CharacterBuildStrategy();
+            var strategy = new CharacterStrategy();
             strategy.AddLanguageKnown("Elvish");
             strategy.AddLanguageKnown ("Giant");
             var subject = new LanguageSelector (languageGateway);
@@ -34,7 +34,7 @@ namespace Tests.Actions.CharacterGeneration {
 
         [Fact]
         public void PickExtraLanguagesIfSmartEnough() {
-            var strategy = new CharacterBuildStrategy();
+            var strategy = new CharacterStrategy();
             strategy.AddLanguageKnown ("Elvish");
             strategy.AddLanguageChoice ("Corgi");
             strategy.AddLanguageChoice ("Giant");
@@ -53,7 +53,7 @@ namespace Tests.Actions.CharacterGeneration {
 
         [Fact]
         public void IfRunOutOfLanguagesItsOk() {
-            var strategy = new CharacterBuildStrategy();
+            var strategy = new CharacterStrategy();
             strategy.AddLanguageKnown ("Elvish");
             strategy.AddLanguageChoice ("Corgi");
             strategy.AddLanguageChoice ("Giant");
@@ -72,7 +72,7 @@ namespace Tests.Actions.CharacterGeneration {
         [Fact]
         public void IfAvailableLanguagesIsSetToALLThenAnythingIsPossible()
         {
-            var strategy = new CharacterBuildStrategy();
+            var strategy = new CharacterStrategy();
             strategy.AddLanguageChoice ("ALL");
             var subject = new LanguageSelector (languageGateway);
 
@@ -89,7 +89,7 @@ namespace Tests.Actions.CharacterGeneration {
         [Fact]
         public void DoNotRepeatedlyAddKnownLanguages()
         {
-            var strategy = new CharacterBuildStrategy();
+            var strategy = new CharacterStrategy();
             strategy.AddLanguageKnown ("Corgi");
             strategy.AddLanguageKnown ("Corgi");
             strategy.AddLanguageKnown ("Elvish");

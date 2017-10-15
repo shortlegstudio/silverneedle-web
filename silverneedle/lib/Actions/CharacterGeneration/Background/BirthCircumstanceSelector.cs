@@ -23,7 +23,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.Background
             this.circumstances = circumstances;
         }
 
-        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
         {
             var birth = circumstances.All().CreateWeightedTable().ChooseRandomly();
             var history = character.Get<History>();

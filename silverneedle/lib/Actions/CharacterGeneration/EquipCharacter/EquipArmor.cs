@@ -12,7 +12,7 @@ namespace SilverNeedle.Actions.CharacterGeneration
 
     public class EquipArmor : ICharacterDesignStep
     {
-        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
         {
             var armor = character.Inventory.GearOfType<IArmor>();
             foreach(var a in armor)

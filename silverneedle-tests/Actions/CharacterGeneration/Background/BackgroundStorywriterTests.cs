@@ -22,7 +22,7 @@ namespace Tests.Actions.CharacterGeneration.Background
             var character = new CharacterSheet();
             character.FirstName = "Foo";
             
-            writer.ExecuteStep(character, new CharacterBuildStrategy());
+            writer.ExecuteStep(character, new CharacterStrategy());
             Assert.Equal("Foo was born in a shack.", character.Get<BackgroundStory>().GetStory());
         }
     }

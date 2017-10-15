@@ -24,7 +24,7 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
         public void IfNotACasterDoNothing()
         {
             var character = new CharacterSheet();
-            subject.ExecuteStep(character, new CharacterBuildStrategy());
+            subject.ExecuteStep(character, new CharacterStrategy());
         }
 
         [Fact]
@@ -38,7 +38,7 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
             spellCasting.SetCastingAbility(new AbilityScore(AbilityScoreTypes.Wisdom, 10));
             character.Add(spellCasting);
 
-            subject.ExecuteStep(character, new CharacterBuildStrategy());
+            subject.ExecuteStep(character, new CharacterStrategy());
 
             Assert.Equal(character.Get<SpellCasting>().GetSpellsPerDay(0), 3);
             Assert.Equal(character.Get<SpellCasting>().GetSpellsPerDay(1), 1);
@@ -56,7 +56,7 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
             spellCasting.SetCastingAbility(abilityScore);
             character.Add(spellCasting);
 
-            subject.ExecuteStep(character, new CharacterBuildStrategy());
+            subject.ExecuteStep(character, new CharacterStrategy());
 
             //Level 0 should not change
             Assert.Equal(character.Get<SpellCasting>().GetSpellsPerDay(0), 3);
@@ -78,7 +78,7 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
             spellCasting.SetCastingAbility(abilityScore);
             character.Add(spellCasting);
 
-            subject.ExecuteStep(character, new CharacterBuildStrategy());
+            subject.ExecuteStep(character, new CharacterStrategy());
 
             //Level 0 should not change
             Assert.Equal(character.Get<SpellCasting>().GetSpellsPerDay(0), 3);

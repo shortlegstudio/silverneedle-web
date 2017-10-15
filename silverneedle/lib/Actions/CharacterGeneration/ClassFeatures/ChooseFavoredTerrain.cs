@@ -27,7 +27,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
             this.terrainTypeGateway = ctGateway;
         }
         
-        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
         {
             var fav = character.Get<FavoredTerrain>();
             if(fav == null)

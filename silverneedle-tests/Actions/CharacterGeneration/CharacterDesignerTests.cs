@@ -47,7 +47,7 @@ namespace Tests.Actions.CharacterGeneration
         public void CharacterCreatorExecutesEachBuildStepInSequence()
         {
             var characterSheet = new CharacterSheet();
-            var strategy = new CharacterBuildStrategy();
+            var strategy = new CharacterStrategy();
             subject.ExecuteStep(characterSheet, strategy);
             Assert.Equal("Dummy One", characterSheet.Name);
             Assert.Equal(16, characterSheet.AbilityScores.GetScore(AbilityScoreTypes.Strength));
@@ -66,7 +66,7 @@ namespace Tests.Actions.CharacterGeneration
             var designer = new CharacterDesigner(data);
             var character = new CharacterSheet();
             character.SetClass(new Class());
-            var build = new CharacterBuildStrategy();
+            var build = new CharacterStrategy();
             build.TargetLevel = 5;
 
             designer.ExecuteStep(character, build);
@@ -86,7 +86,7 @@ namespace Tests.Actions.CharacterGeneration
             data.SetValue("steps", steps);
 
             var character = new CharacterSheet();
-            var build = new CharacterBuildStrategy();
+            var build = new CharacterStrategy();
             build.TargetLevel = 5;
 
             var designer = new CharacterDesigner(data);
@@ -96,7 +96,7 @@ namespace Tests.Actions.CharacterGeneration
 
     public class DummyStepOne : ICharacterDesignStep
     {
-        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
         {
             character.FirstName = "Dummy";
             character.LastName = "One";
@@ -105,7 +105,7 @@ namespace Tests.Actions.CharacterGeneration
 
     public class DummyStepTwo : ICharacterDesignStep
     {
-        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
         {
             character.AbilityScores.SetScore(AbilityScoreTypes.Strength, 16);
         }
@@ -113,7 +113,7 @@ namespace Tests.Actions.CharacterGeneration
 
     public class DummyStepLevelUp : ICharacterDesignStep
     {
-        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
         {
             character.Age += 1;
             character.SetLevel(character.Level + 1);

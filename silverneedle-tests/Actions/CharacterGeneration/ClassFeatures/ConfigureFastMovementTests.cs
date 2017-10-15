@@ -22,7 +22,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
             var character = new CharacterSheet();
             var action = new ConfigureFastMovement(data);
 
-            action.ExecuteStep(character, new CharacterBuildStrategy());
+            action.ExecuteStep(character, new CharacterStrategy());
             Assert.Equal(character.Movement.MovementSpeed, 40);
             var heavyArmor = new Armor();
             heavyArmor.ArmorType = ArmorType.Heavy;

@@ -113,7 +113,7 @@ namespace Tests.Actions
         {
             var sheet = new CharacterSheet();
             var options = new WeightedOptionTable<string>();
-            var strategy = new CharacterBuildStrategy();
+            var strategy = new CharacterStrategy();
             strategy.Races.AddEntry("Human", 12);
 
             //Run it 1000 times, should always be human
@@ -128,7 +128,7 @@ namespace Tests.Actions
         public void IfChoiceListIsEmptyChooseAnyRace() 
         {	
             var sheet = new CharacterSheet();
-            var strategy = new CharacterBuildStrategy();
+            var strategy = new CharacterStrategy();
 
             raceSelectorSubject.ExecuteStep(sheet, strategy);
             Assert.NotNull(sheet.Race);
@@ -138,7 +138,7 @@ namespace Tests.Actions
         public void AddLanguagesKnownToStrategy()
         {
             var character = new CharacterSheet();
-            var strategy = new CharacterBuildStrategy();
+            var strategy = new CharacterStrategy();
             strategy.Races.AddEntry("Elfy", 1000);
             raceSelectorSubject.ExecuteStep(character, strategy);
             Assert.Equal(character.Race.Name, "Elfy");

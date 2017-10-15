@@ -12,7 +12,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
     
     public class UpgradeFavoredEnemy : ICharacterDesignStep
     {
-        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
         {
             var favEnemy = character.Get<FavoredEnemy>();
             var upgrade = favEnemy.CreatureTypes.ChooseOne();

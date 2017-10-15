@@ -19,7 +19,7 @@ namespace Tests.Actions.CharacterGeneration.Background
             var circumstance = new BirthCircumstance("Nothing exciting", 10);
             var character = CharacterTestTemplates.AverageBob();
             var subject = new BirthCircumstanceSelector(EntityGateway<BirthCircumstance>.LoadWithSingleItem(circumstance));
-            subject.ExecuteStep(character, new CharacterBuildStrategy());
+            subject.ExecuteStep(character, new CharacterStrategy());
             var history = character.Get<History>();
             Assert.Equal(circumstance, history.BirthCircumstance);
 

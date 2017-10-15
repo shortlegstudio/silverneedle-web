@@ -26,7 +26,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.Appearance
             physical = physicalFeatures;
         }
 
-        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
         {
             var chosenOptions = new List<PhysicalFeature>();
             var paragraph = new ParagraphBuilder();

@@ -18,7 +18,7 @@ namespace Tests.Actions.CharacterGeneration
         public void RemovesAlignmentsFromStrategyIfDenyIsSet()
         {
 
-            var strategy = new CharacterBuildStrategy();
+            var strategy = new CharacterStrategy();
             var data = new MemoryStore();
             data.SetValue("deny", new string[] { "LawfulEvil" , "LawfulNeutral", "LawfulGood" });
             var step = new LimitAlignment(data);

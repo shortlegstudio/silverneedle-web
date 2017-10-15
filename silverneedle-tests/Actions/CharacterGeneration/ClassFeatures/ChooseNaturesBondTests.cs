@@ -24,7 +24,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
 
 
             var donna = CharacterTestTemplates.DruidDonna();
-            chooser.ExecuteStep(donna, new CharacterBuildStrategy());
+            chooser.ExecuteStep(donna, new CharacterStrategy());
 
             Assert.Equal(airDomain, donna.Get<Domain>());
         }

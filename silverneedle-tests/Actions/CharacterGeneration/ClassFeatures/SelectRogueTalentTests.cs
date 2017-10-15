@@ -35,7 +35,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
         {
             var subject = new SelectRogueTalent(new MemoryStore(), Talents);
             var character = new CharacterSheet();
-            subject.ExecuteStep(character, new CharacterBuildStrategy());
+            subject.ExecuteStep(character, new CharacterStrategy());
             var rogueTalent = character.Get<RogueTalent>();
             Assert.False(rogueTalent.IsAdvancedTalent);
             Assert.Equal(rogueTalent, basicTalent);
@@ -48,7 +48,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
             configure.SetValue("advanced-talents", "true");
             var subject = new SelectRogueTalent(configure, Talents);
             var character = new CharacterSheet();
-            subject.ExecuteStep(character, new CharacterBuildStrategy());
+            subject.ExecuteStep(character, new CharacterStrategy());
             var rogueTalent = character.Get<RogueTalent>();
             Assert.True(rogueTalent.IsAdvancedTalent);
             Assert.Equal(rogueTalent, advancedTalent);
@@ -62,7 +62,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
             var subject = new SelectRogueTalent(configure, Talents);
             var character = new CharacterSheet();
             character.Add(advancedTalent);
-            subject.ExecuteStep(character, new CharacterBuildStrategy());
+            subject.ExecuteStep(character, new CharacterStrategy());
             var rogueTalents = character.GetAll<RogueTalent>();
             Assert.NotStrictEqual(rogueTalents, new RogueTalent[] { basicTalent, advancedTalent });
         }

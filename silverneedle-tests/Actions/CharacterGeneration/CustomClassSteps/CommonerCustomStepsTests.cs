@@ -19,7 +19,7 @@ namespace Tests.Actions.CharacterGeneration.CustomClassSteps
             var character = new CharacterSheet();
 
             var subject = new CommonerCustomSteps();
-            subject.ExecuteStep(character, new CharacterBuildStrategy());
+            subject.ExecuteStep(character, new CharacterStrategy());
             Assert.Equal(character.Offense.WeaponProficiencies.Count, 1);
         }
     }

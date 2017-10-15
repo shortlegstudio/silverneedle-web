@@ -15,7 +15,7 @@ namespace Tests.Actions.CharacterGeneration
         [Fact]
         public void AddsASingleEntryToStrategy()
         {
-            var strat = new CharacterBuildStrategy();
+            var strat = new CharacterStrategy();
             var bob = CharacterTestTemplates.AverageBob();
 
             var configure = new MemoryStore();

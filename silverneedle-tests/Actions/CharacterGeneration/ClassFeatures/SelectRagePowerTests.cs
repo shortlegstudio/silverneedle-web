@@ -39,7 +39,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
         [Fact]
         public void SelectFromRagePowersThatCharacterIsQualifiedFor()
         {
-            ragePowerSelector.ExecuteStep(barbarian, new CharacterBuildStrategy());
+            ragePowerSelector.ExecuteStep(barbarian, new CharacterStrategy());
             Assert.Equal(barbarian.Components.Get<RagePower>().Name, "Rage 1");
         }
 

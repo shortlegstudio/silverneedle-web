@@ -25,7 +25,7 @@ namespace SilverNeedle.Actions.CharacterGeneration
             this.gateway = gateway;
         }
 
-        public virtual void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
+        public virtual void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
         {
             var designer = FindDesigner(designerName);
             designer.ExecuteStep(character, strategy);

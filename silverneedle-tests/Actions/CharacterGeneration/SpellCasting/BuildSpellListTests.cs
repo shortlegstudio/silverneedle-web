@@ -52,7 +52,7 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
             var spellcasting = new SpellCasting(character.Inventory, character.Get<ClassLevel>(), "wizard");
             spellcasting.SpellsKnown = SpellsKnown.All;
             character.Add(spellcasting);
-            subject.ExecuteStep(character, new CharacterBuildStrategy());
+            subject.ExecuteStep(character, new CharacterStrategy());
 
             Assert.NotStrictEqual(character.Get<SpellCasting>().GetAvailableSpells(0), new string [] { "cantrip1", "cantrip2" });
             Assert.NotStrictEqual(character.Get<SpellCasting>().GetAvailableSpells(1), 
@@ -70,7 +70,7 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
         {
             var character = new CharacterSheet();
             character.SetClass(new Class()); 
-            subject.ExecuteStep(character, new CharacterBuildStrategy());
+            subject.ExecuteStep(character, new CharacterStrategy());
             //DOES NOT THROW
         }
 
@@ -84,7 +84,7 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
             var scBard = new SpellCasting(character.Inventory, new ClassLevel(new Class()), "wizard");
             scBard.SpellsKnown = SpellsKnown.All;
             character.Add(scBard);
-            subject.ExecuteStep(character, new CharacterBuildStrategy());
+            subject.ExecuteStep(character, new CharacterStrategy());
 
             Assert.NotStrictEqual(scWizard.GetAvailableSpells(0), new string [] { "cantrip1", "cantrip2" });
             Assert.NotStrictEqual(scWizard.GetAvailableSpells(1), 
@@ -100,7 +100,7 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
         {
             var character = new CharacterSheet();
             character.Add(new DomainSpellCasting(new Inventory(), new ClassLevel(new Class())));
-            subject.ExecuteStep(character, new CharacterBuildStrategy()); 
+            subject.ExecuteStep(character, new CharacterStrategy()); 
             // DOES NOT THROW
         }
     }

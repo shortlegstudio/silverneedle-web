@@ -12,7 +12,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.Abilities
 
     public class CreateAbilityScores : ICharacterDesignStep
     {
-        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
         {
             var roller = strategy.AbilityScoreRoller.Instantiate<IAbilityScoreGenerator>();
             var scores = roller.GetScores();

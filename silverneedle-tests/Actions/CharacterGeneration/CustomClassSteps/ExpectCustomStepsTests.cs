@@ -34,7 +34,7 @@ namespace Tests.Actions.CharacterGeneration.CustomClassSteps
             character.SkillRanks.FillSkills(skills);
 
             var subject = new ExpertCustomSteps();
-            subject.ExecuteStep(character, new CharacterBuildStrategy());
+            subject.ExecuteStep(character, new CharacterStrategy());
             Assert.Equal(character.SkillRanks.GetClassSkills().Count(), 10);
         }
     }

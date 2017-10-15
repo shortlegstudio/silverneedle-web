@@ -8,7 +8,7 @@ namespace SilverNeedle.Actions.CharacterGeneration
     using SilverNeedle.Characters;
     public class ProcessCustomClassFeatures : ICharacterDesignStep
     {
-        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
         {
             var currentClass = character.Class;
             var currentLevel = character.Level;

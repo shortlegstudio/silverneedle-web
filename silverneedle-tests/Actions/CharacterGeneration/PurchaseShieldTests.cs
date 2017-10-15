@@ -39,7 +39,7 @@ namespace Tests.Actions {
 
         [Fact]
         public void PurchaseAShield () {
-            subject.ExecuteStep (proficientCharacter, new CharacterBuildStrategy());
+            subject.ExecuteStep (proficientCharacter, new CharacterStrategy());
 
             Assert.Single (proficientCharacter.Inventory.Armor, shield);
         }
@@ -47,7 +47,7 @@ namespace Tests.Actions {
         [Fact]
         public void DoesNotEquipShieldIfNotProficient()
         {
-            subject.ExecuteStep(incapableCharacter, new CharacterBuildStrategy());
+            subject.ExecuteStep(incapableCharacter, new CharacterStrategy());
             Assert.True(incapableCharacter.Inventory.Armor.None(x => x == shield));
         }
 
@@ -57,7 +57,7 @@ namespace Tests.Actions {
             shield.Value = 3700;
             proficientCharacter.Inventory.CoinPurse.SetValue(4000);
 
-            subject.ExecuteStep(proficientCharacter, new CharacterBuildStrategy());
+            subject.ExecuteStep(proficientCharacter, new CharacterStrategy());
 
             Assert.Equal(proficientCharacter.Inventory.CoinPurse.Value, 300);
             Assert.Single(proficientCharacter.Inventory.Armor, shield);
@@ -69,7 +69,7 @@ namespace Tests.Actions {
             shield.Value = 60000;
             proficientCharacter.Inventory.CoinPurse.SetValue(4000);
 
-            subject.ExecuteStep(proficientCharacter, new CharacterBuildStrategy());
+            subject.ExecuteStep(proficientCharacter, new CharacterStrategy());
 
             Assert.Equal(proficientCharacter.Inventory.CoinPurse.Value, 4000);
             Assert.True(proficientCharacter.Inventory.Armor.None(x => x.Equals(shield)));

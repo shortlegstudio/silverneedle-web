@@ -34,7 +34,7 @@ namespace Tests.Actions.CharacterGeneration
             var character = new CharacterSheet();
             character.SetClass(cls);
             var action = new StartingWealth();
-            action.ExecuteStep(character, new CharacterBuildStrategy());
+            action.ExecuteStep(character, new CharacterStrategy());
         }
 
         [Fact]
@@ -46,7 +46,7 @@ namespace Tests.Actions.CharacterGeneration
             character.SetClass(cls);
 
             var action = new StartingWealth();
-            action.ExecuteStep(character, new CharacterBuildStrategy());
+            action.ExecuteStep(character, new CharacterStrategy());
 
             Assert.True(character.Inventory.CoinPurse.Gold.Pieces > 19);
             Assert.True(character.Inventory.CoinPurse.Gold.Pieces < 121);
@@ -59,7 +59,7 @@ namespace Tests.Actions.CharacterGeneration
             character.SetClass(new Class());
             character.SetLevel(2);
             var action = new StartingWealth(wealthGateway);
-            action.ExecuteStep(character, new CharacterBuildStrategy());
+            action.ExecuteStep(character, new CharacterStrategy());
 
             Assert.Equal(character.Inventory.CoinPurse.Value, 2000);
 

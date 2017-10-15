@@ -24,7 +24,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
             configuration.SetValue("uses-per-day", 2);
 
             var process = new ConfigureSmiteEvil(configuration);
-            process.ExecuteStep(character, new CharacterBuildStrategy());
+            process.ExecuteStep(character, new CharacterStrategy());
             var smite = character.Components.GetAll<SmiteEvil>();
             Assert.Equal(smite.Count(), 1);
             Assert.Equal(smite.First().UsesPerDay, 2);

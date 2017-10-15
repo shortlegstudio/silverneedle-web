@@ -31,7 +31,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
         {
             var character = new CharacterSheet();
             character.InitializeComponents();
-            subject.ExecuteStep(character, new CharacterBuildStrategy());
+            subject.ExecuteStep(character, new CharacterStrategy());
 
             var summon = character.SpecialQualities.SpecialAbilities.First() as SummonFamiliar;
             Assert.Equal(summon.Familiar, bat);
@@ -44,7 +44,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
             var character = new CharacterSheet();
             character.SkillRanks.AddSkill(new Skill("Perception", AbilityScoreTypes.Wisdom, false));
             var baseValue = character.SkillRanks.GetScore("Perception");
-            subject.ExecuteStep(character, new CharacterBuildStrategy());
+            subject.ExecuteStep(character, new CharacterStrategy());
             Assert.Equal(character.SkillRanks.GetScore("Perception"), baseValue + 5);
             
         }

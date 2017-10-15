@@ -44,7 +44,7 @@ namespace SilverNeedle.Actions.NamingThings
             return GetFirstName(gender, race) + " " + lastName;
         }
 
-        public void ExecuteStep(CharacterSheet character, CharacterBuildStrategy strategy)
+        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
         {
             character.FirstName = GetFirstName(character.Gender, character.Race.Name);
             character.LastName = GetLastName(character.Race.Name);

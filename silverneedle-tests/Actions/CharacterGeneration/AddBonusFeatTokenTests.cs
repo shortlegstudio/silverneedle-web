@@ -21,7 +21,7 @@ namespace Tests.Actions.CharacterGeneration
             var addToken = new AddBonusFeatToken(configuration);
 
             var bob = CharacterTestTemplates.AverageBob();
-            addToken.ExecuteStep(bob, new CharacterBuildStrategy());
+            addToken.ExecuteStep(bob, new CharacterStrategy());
 
             var token = bob.FeatTokens.First();
             Assert.Contains("combat", token.Tags);
@@ -36,7 +36,7 @@ namespace Tests.Actions.CharacterGeneration
             configuration.SetValue("ignore-prerequisites", true);
             var addToken = new AddBonusFeatToken(configuration);
             var bob = CharacterTestTemplates.AverageBob();
-            addToken.ExecuteStep(bob, new CharacterBuildStrategy());
+            addToken.ExecuteStep(bob, new CharacterStrategy());
             var token = bob.FeatTokens.First();
             Assert.True(token.IgnorePrerequisites);
         }
