@@ -1036,7 +1036,8 @@
   description: You are trained in the use of basic weapons
 - feat:
   name: Skill Focus
-  description: Choose a skill. You are particularly adeupt at that skill.
+  description: Choose a skill. You are particularly adept at that skill.
+  custom-implementation: SilverNeedle.Characters.Feats.SkillFocus
 - feat:
   name: Snatch Arrows
   tags: [ combat ]

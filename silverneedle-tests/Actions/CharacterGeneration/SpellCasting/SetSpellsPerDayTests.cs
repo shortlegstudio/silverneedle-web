@@ -23,14 +23,14 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
         [Fact]
         public void IfNotACasterDoNothing()
         {
-            var character = new CharacterSheet();
+            var character = CharacterTestTemplates.AverageBob();
             subject.ExecuteStep(character, new CharacterStrategy());
         }
 
         [Fact]
         public void SetSpellsAvailableForThatDayForFirstLevel()
         {
-            var character = new CharacterSheet();
+            var character = CharacterTestTemplates.AverageBob();
             var cls = new Class();
             cls.Spells.PerDay[1] = new int[] { 3, 1 };
             character.SetClass(cls);
@@ -47,7 +47,7 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
         [Fact]
         public void GrantBonusSpellsPerDayForAbilityScore()
         {
-            var character = new CharacterSheet();
+            var character = CharacterTestTemplates.AverageBob();
             var cls = new Class();
             cls.Spells.PerDay[1] = new int[] { 3, 2, 1 };
             character.SetClass(cls);
@@ -69,7 +69,7 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
         [Fact]
         public void HighAbilityScoresShouldGrantExtraBonusSpells()
         {
-            var character = new CharacterSheet();
+            var character = CharacterTestTemplates.AverageBob();
             var abilityScore = new AbilityScore(AbilityScoreTypes.Charisma, 45);
             var cls = new Class();
             cls.Spells.PerDay[1] = new int[] { 3, 2, 1 };
