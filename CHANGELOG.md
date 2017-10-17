@@ -14,6 +14,8 @@ All notable changes will be tracked in this file. Most likely.
 - Provides more flexibility in defining attacks
 - Improved? Layout of information for character to make it easier to read
 - Broke out rendering of character template information to make it easier to change
+- Reworked traits to be more standard custom-implementation usage
+
 ### Known Issues
 - Animal Companions are not supported yet which makes the druid generation more limited than it should be
 

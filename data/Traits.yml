@@ -2,15 +2,11 @@
 - trait:
   name: Adaptability
   description: Half-Elves receive Skill Focus as a bonus feat at 1st Level.
-  special:
-    - type: Feat Token
-      condition: Skill Focus
+  custom-implementation: SilverNeedle.Characters.Traits.Adaptability
 - trait:
   name: Bonus Feat
   description: Gain a bonus feat at level one
-  special:
-    - type: Feat Token
-      condition: 
+  custom-implementation: SilverNeedle.Characters.Traits.BonusFeat
 - trait:
   name: Darkvision
   description: See in the dark up to 60 feet.
@@ -217,7 +213,7 @@
   description: Speed of only 20 feet instead of 30 feet.
   tags: [ move ]
 - trait:
-  configure: SilverNeedle.Characters.Traits.SlowAndSteady
+  custom-implementation: SilverNeedle.Characters.Traits.SlowAndSteady
   name: Slow and Steady
   description: >
     Dwarves have a base speed of 20 feet, but their speed is never modified

@@ -1,4 +1,9 @@
-﻿using System.Collections.Generic;
+﻿// Copyright (c) 2017 Trevor Redfern
+// 
+// This software is released under the MIT License.
+// https://opensource.org/licenses/MIT
+
+using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 using SilverNeedle;
@@ -13,7 +18,6 @@ namespace Tests.Characters {
     Trait hardy;
     Trait halflingLuck;
     Trait stoneCunning;
-        Trait configureTrait;
 
         public TraitTests() 
         {
@@ -27,7 +31,6 @@ namespace Tests.Characters {
             hardy = traits.First (x => x.Name == "Hardy");
             halflingLuck = traits.First (x => x.Name == "Halfling Luck");
             stoneCunning = traits.First(x => x.Name == "Stonecunning");
-            configureTrait = traits.First(x => x.Name == "Configure");
         }
 
     [Fact]
@@ -50,32 +53,32 @@ namespace Tests.Characters {
       var skillAdj = modifiers.First ();
       Assert.Equal ("Heal", skillAdj.StatisticName);
 Assert.Equal ("racial", skillAdj.Type);
-			Assert.Equal ("Hardy (trait)", skillAdj.Reason);
-			Assert.Equal (2, skillAdj.Modifier);
+            Assert.Equal ("Hardy (trait)", skillAdj.Reason);
+            Assert.Equal (2, skillAdj.Modifier);
 
-			var flyAdj = modifiers.Last ();
-			Assert.Equal ("Fly", flyAdj.StatisticName);
-			Assert.Equal ("racial", flyAdj.Type);
-			Assert.Equal (4, flyAdj.Modifier);
-		}
+            var flyAdj = modifiers.Last ();
+            Assert.Equal ("Fly", flyAdj.StatisticName);
+            Assert.Equal ("racial", flyAdj.Type);
+            Assert.Equal (4, flyAdj.Modifier);
+        }
 
-		[Fact]
-		public void TraitsCanModifySavingsThrows() {
-			var luck = halflingLuck.Modifiers;
-			Assert.Equal(3, luck.Count);
-		}
+        [Fact]
+        public void TraitsCanModifySavingsThrows() {
+            var luck = halflingLuck.Modifiers;
+            Assert.Equal(3, luck.Count);
+        }
 
-		[Fact]
-		public void TraitsCanHaveConditionalModifiers() {
-			var conditional = stoneCunning.Modifiers.OfType<ConditionalStatModifier>();
-			Assert.Equal(1, conditional.Count());
-			Assert.Equal("Stoneworking", conditional.First().Condition);
-		}
+        [Fact]
+        public void TraitsCanHaveConditionalModifiers() {
+            var conditional = stoneCunning.Modifiers.OfType<ConditionalStatModifier>();
+            Assert.Equal(1, conditional.Count());
+            Assert.Equal("Stoneworking", conditional.First().Condition);
+        }
 
-		[Fact]
-		public void TraitsCanHaveTags() {
-			Assert.Equal("senses", darkvision.Tags.First());
-		}
+        [Fact]
+        public void TraitsCanHaveTags() {
+            Assert.Equal("senses", darkvision.Tags.First());
+        }
 
         [Fact]
         public void CanMarkSpecialAbilitiesAsWell()
@@ -85,24 +88,7 @@ Assert.Equal ("racial", skillAdj.Type);
             Assert.Equal("In Dark", darkvision.SpecialAbilities.First().Condition);
         }
 
-        [Fact]
-        public void TraitsCanHaveSpecialConfigurationSteps()
-        {
-            Assert.Equal(configureTrait.CustomConfiguration, "SilverNeedle.SomeOtherClass");
-        }
-
-        [Fact]
-        public void InitializingComponentWillCallCustomImplementation() 
-        {
-            var trait = new Trait();
-            trait.CustomConfiguration = "Tests.Characters.CustomConfigurationSteps";
-            var bag = new ComponentBag();
-            trait.Initialize(bag);
-            Assert.Equal(bag.GetAll<Feat>().Count(), 1);
-        }
-
-
-		private const string TraitYamlFile = @"
+        private const string TraitYamlFile = @"
 - trait: 
   name: Darkvision
   description: See in the dark.
@@ -141,17 +127,6 @@ Assert.Equal ("racial", skillAdj.Type);
     - type: racial
       stat: Will
       modifier: 1
-- trait: 
-  name: Configure
-  configure: SilverNeedle.SomeOtherClass
 ...";
-	}
-        public class CustomConfigurationSteps : IComponent
-        {
-            public void Initialize(ComponentBag components)
-            {
-                //Add a feat or something
-                components.Add(new Feat());
-            }
-        }
+    }
 }

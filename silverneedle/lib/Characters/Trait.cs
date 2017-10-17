@@ -13,7 +13,7 @@ namespace SilverNeedle.Characters
     /// <summary>
     /// A trait is some basic innate attribute of the character. Usually positive
     /// </summary>
-    public class Trait : IModifiesStats, IProvidesSpecialAbilities, IGatewayObject, IComponent
+    public class Trait : IModifiesStats, IProvidesSpecialAbilities, IGatewayObject
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Characters.Trait"/> class.
@@ -94,16 +94,6 @@ namespace SilverNeedle.Characters
                     SpecialAbilities.Add(specialAbility);
                 }
             }
-        }
-
-        public void Initialize(ComponentBag components)
-        {
-            if(!string.IsNullOrEmpty(CustomConfiguration))
-            {
-                var instance = CustomConfiguration.Instantiate<IComponent>();
-                instance.Initialize(components);
-            }
-
         }
     }
 }

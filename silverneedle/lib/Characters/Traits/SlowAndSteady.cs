@@ -8,8 +8,11 @@ namespace SilverNeedle.Characters.Traits
     using System.Linq;
     using SilverNeedle.Utility;
     using SilverNeedle.Equipment;
-    public class SlowAndSteady : IComponent
+    using SilverNeedle.Serialization;
+    public class SlowAndSteady : Trait, IComponent
     {
+        public SlowAndSteady() : base() { }
+        public SlowAndSteady(IObjectStore configure) : base(configure) { }
         public void Initialize(ComponentBag components)
         {
             var dwarfMove = new DwarfMovement(components);
