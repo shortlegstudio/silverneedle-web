@@ -18,7 +18,7 @@ namespace Tests.Characters.SpecialAbilities
             var evasion = new Evasion();
             var impEvasion = new ImprovedEvasion();
 
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             character.Add(evasion);
             character.Add(impEvasion);
             Assert.Contains(impEvasion, character.Components.All);

@@ -40,7 +40,7 @@ namespace Tests.Actions
         [Fact]
         public void SelectARandomClassForACharacter()
         {
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             subject.ChooseAny(character);
             Assert.NotNull(character.Class.Name);
         }
@@ -48,7 +48,7 @@ namespace Tests.Actions
         [Fact]
         public void ChoosingClassFromWeightedOptionTableSelectsFromThoseClasses()
         {
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             var choices = new WeightedOptionTable<string>();
             choices.AddEntry("Fighter", 10);
 
@@ -60,7 +60,7 @@ namespace Tests.Actions
         [Fact]
         public void EmptyOptionTableChoosesFromAnyOfTheClasses()
         {
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             var choices = new WeightedOptionTable<string>();
             
             Assert.Null(character.Class);
@@ -71,7 +71,7 @@ namespace Tests.Actions
         [Fact]
         public void SettingClassAssignsClassSkills()
         {
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             character.SkillRanks.AddSkill(new Skill("Climb", AbilityScoreTypes.Strength, false));
             
             var cls = new Class();
@@ -88,7 +88,7 @@ namespace Tests.Actions
             var cls = new Class();
             var lvl1 = new Level(1);
             cls.Levels.Add(lvl1);
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             subject.AssignClass(character, cls);
         }
     }

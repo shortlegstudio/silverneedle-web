@@ -15,7 +15,7 @@ namespace Tests.Characters.SpecialAbilities
         [Fact]
         public void AddsModifiersToThePerceptionAndDisableDeviceSkills()
         {
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             character.SetClass(new Class("Rogue"));
             character.SetLevel(4);
             character.SkillRanks.AddSkill(new Skill("Perception", AbilityScoreTypes.Wisdom, false));

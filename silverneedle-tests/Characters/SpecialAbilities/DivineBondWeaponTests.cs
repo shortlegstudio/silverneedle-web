@@ -16,7 +16,7 @@ namespace Tests.Characters.SpecialAbilities
         public void GrantsAWeaponBonus()
         {
             var bond = new DivineBondWeapon();
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             var cls = new Class();
             cls.Name = "Paladin";
             character.SetClass(cls);

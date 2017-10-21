@@ -35,7 +35,7 @@ namespace Tests.Characters.SpecialAbilities
         {
             var data = needsLevel.ParseYaml().Children.First();
             var power = new RagePower(data);  
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             Assert.False(power.IsQualified(character));
             var barbarian = new Class();
             barbarian.Name = "Barbarian";

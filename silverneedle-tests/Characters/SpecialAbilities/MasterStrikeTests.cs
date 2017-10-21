@@ -16,7 +16,7 @@ namespace Tests.Characters.SpecialAbilities
         [Fact]
         public void AddsSpecialAttackWithDCToSave()
         {
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             character.InitializeComponents();
             character.AbilityScores.SetScore(AbilityScoreTypes.Intelligence, 14); //+2
             var rogue = new Class("Rogue");

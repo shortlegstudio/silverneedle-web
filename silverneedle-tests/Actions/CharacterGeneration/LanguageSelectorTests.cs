@@ -23,10 +23,10 @@ namespace Tests.Actions.CharacterGeneration {
         }
         [Fact]
         public void PickLanguagesThatAreKnownToTheRace() {
-            var character = new CharacterSheet();
             var strategy = new CharacterStrategy();
             strategy.AddLanguageKnown("Elvish");
             strategy.AddLanguageKnown ("Giant");
+            var character = new CharacterSheet(strategy);
             var subject = new LanguageSelector (languageGateway);
             subject.ExecuteStep(character, strategy);
             Assert.NotStrictEqual(character.Languages.Select(x => x.Name), new string[] { "Elvish", "Giant"});
@@ -42,7 +42,7 @@ namespace Tests.Actions.CharacterGeneration {
 
             //Pick two bonus Language -> This should always return all the above
             for (int i = 0; i < 1000; i++) {
-                var character = new CharacterSheet();
+                var character = new CharacterSheet(strategy);
                 character.AbilityScores.SetScore(AbilityScoreTypes.Intelligence, 14);
                 subject.ExecuteStep(character, strategy);
                 var res = character.GetAll<Language>().Select(x => x.Name);
@@ -61,7 +61,7 @@ namespace Tests.Actions.CharacterGeneration {
 
             //Pick two bonus Language -> This should always return all the above
             for (int i = 0; i < 1000; i++) {
-                var character = new CharacterSheet();
+                var character = new CharacterSheet(strategy);
                 character.AbilityScores.SetScore(AbilityScoreTypes.Intelligence, 24);
                 subject.ExecuteStep (character, strategy);
                 var res = character.GetAll<Language>().Select(x => x.Name);
@@ -78,7 +78,7 @@ namespace Tests.Actions.CharacterGeneration {
 
             //Pick two bonus Language -> This should always return all the above
             for (int i = 0; i < 1000; i++) {
-                var character = new CharacterSheet();
+                var character = new CharacterSheet(strategy);
                 character.AbilityScores.SetScore(AbilityScoreTypes.Intelligence, 24);
                 subject.ExecuteStep (character, strategy);
                 var res = character.GetAll<Language>().Select(x => x.Name);
@@ -94,7 +94,7 @@ namespace Tests.Actions.CharacterGeneration {
             strategy.AddLanguageKnown ("Corgi");
             strategy.AddLanguageKnown ("Elvish");
             var subject = new LanguageSelector (languageGateway);
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(strategy);
 
             subject.ExecuteStep(character, strategy);
             Assert.NotStrictEqual(character.GetAll<Language>().Select(x => x.Name), new string[] {"Corgi", "Elvish"});

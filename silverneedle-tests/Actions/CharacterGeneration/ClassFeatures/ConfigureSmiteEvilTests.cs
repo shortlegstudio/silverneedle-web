@@ -18,7 +18,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
         [Fact]
         public void UpdatesSmiteEvilUsesPerDayIfAlreadyConfigured()
         {
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             character.Add(new SmiteEvil(1));
             var configuration = new MemoryStore();
             configuration.SetValue("uses-per-day", 2);

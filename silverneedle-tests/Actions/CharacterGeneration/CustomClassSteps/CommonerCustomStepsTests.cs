@@ -16,7 +16,7 @@ namespace Tests.Actions.CharacterGeneration.CustomClassSteps
         [Fact]
         public void SelectsASingleSimpleWeaponProficiency()
         {
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
 
             var subject = new CommonerCustomSteps();
             subject.ExecuteStep(character, new CharacterStrategy());

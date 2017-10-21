@@ -21,7 +21,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
             var data = new MemoryStore();
             data.SetValue("level", 1);
             var step = new ConfigureArmorTraining(data);
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             character.InitializeComponents();
             step.ExecuteStep(character, new CharacterStrategy());
             var ability = character.SpecialQualities.SpecialAbilities.First();
@@ -36,7 +36,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
             var step = new ConfigureArmorTraining(data);
             var at = new ArmorTraining();
             at.SetLevel(2);
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             character.Add(at);
             step.ExecuteStep(character, new CharacterStrategy());
             Assert.Equal(at.Level, 3);

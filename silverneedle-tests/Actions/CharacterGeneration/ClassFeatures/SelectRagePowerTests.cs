@@ -30,7 +30,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
             var gateway = EntityGateway<RagePower>.LoadFromList(powers);
             ragePowerSelector = new SelectRagePower(gateway);
 
-            barbarian = new CharacterSheet();
+            barbarian = new CharacterSheet(CharacterStrategy.Default());
             var cls = new Class();
             cls.Name = "Barbarian";
             barbarian.SetClass(cls);

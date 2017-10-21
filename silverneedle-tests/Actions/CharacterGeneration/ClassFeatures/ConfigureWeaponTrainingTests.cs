@@ -24,7 +24,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
             var store = new MemoryStore();
             store.SetValue("level", 1);
             var training = new ConfigureWeaponTraining(store);
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             training.ExecuteStep(character, new CharacterStrategy());
             var ability = character.Components.Get<WeaponTraining>();
             Assert.NotNull(ability);
@@ -37,7 +37,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
             var store = new MemoryStore();
             store.SetValue("level", 2);
             var training = new ConfigureWeaponTraining(store);
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             var wpnTrain1 = new WeaponTraining(WeaponGroup.Axes, 1);
             character.Add(wpnTrain1);
             training.ExecuteStep(character, new CharacterStrategy());

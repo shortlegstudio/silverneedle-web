@@ -15,7 +15,7 @@ namespace Tests.Characters.SpecialAbilities
         [Fact]
         public void AddsHalfRangerLevelToTrackingSurvivalChecks()
         {
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             var ranger = new Class();
             ranger.Name = "Ranger";
             character.SkillRanks.AddSkill(new Skill("Survival", AbilityScoreTypes.Wisdom, false));

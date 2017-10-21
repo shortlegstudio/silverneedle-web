@@ -18,7 +18,7 @@ namespace Tests.Characters.SpecialAbilities
             var quarry = new Quarry();
             var impQuarry = new ImprovedQuarry();
 
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             character.Add(quarry);
             character.Add(impQuarry);
             Assert.Contains(impQuarry, character.Components.All);

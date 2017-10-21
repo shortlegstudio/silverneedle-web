@@ -17,7 +17,7 @@ namespace Tests.Characters.SpecialAbilities
         public void ChannelEnergyAddsASpecialAttack()
         {
             var channel = new ChannelEnergy();
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             character.InitializeComponents();
             character.AbilityScores.SetScore(AbilityScoreTypes.Charisma, 12);
             var cls = new Class();

@@ -38,7 +38,7 @@ namespace Tests.Actions.CharacterGeneration
         [Fact]
         public void PicksUpSomeRandomGearWorthLessThan20000()
         {
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             character.Inventory.CoinPurse.SetValue(50000);
             var strategy = new CharacterStrategy();
 
@@ -50,7 +50,7 @@ namespace Tests.Actions.CharacterGeneration
         [Fact]
         public void DoNotSpendMoneyYouDoNotHave()
         {
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             character.Inventory.CoinPurse.SetValue(200);
             subject.ExecuteStep(character, new CharacterStrategy());
             Assert.True(character.Inventory.All.Count() >= 1);
@@ -59,7 +59,7 @@ namespace Tests.Actions.CharacterGeneration
         [Fact]
         public void IfNothingIsAffordableStop()
         {
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             character.Inventory.CoinPurse.SetValue(1);
             subject.ExecuteStep(character, new CharacterStrategy());
             Assert.Empty(character.Inventory.All);

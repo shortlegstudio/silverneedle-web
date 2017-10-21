@@ -16,7 +16,7 @@ namespace Tests.Characters.SpecialAbilities
         [Fact]
         public void EnablesImmunityToDisease()
         {
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             character.Add(new DivineHealth());
             var defense = character.Get<DefenseStats>();
             var fear = defense.Immunities.First();

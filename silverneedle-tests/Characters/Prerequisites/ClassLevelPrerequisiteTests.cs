@@ -22,7 +22,7 @@ namespace Tests.Characters.Prerequisites
         [Fact]
         public void CharacterIsQualifiedIfHasTheSameClassAtAppropriateLevel()
         {
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             var fighter = new Class();
             fighter.Name = "Fighter";
             character.SetClass(fighter);
@@ -34,7 +34,7 @@ namespace Tests.Characters.Prerequisites
         [Fact]
         public void CharacterIsNotQualifiedIfWrongClassButRightLevel()
         {
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             var wizard = new Class();
             wizard.Name = "Wizard";
             character.SetClass(wizard);
@@ -45,7 +45,7 @@ namespace Tests.Characters.Prerequisites
         [Fact]
         public void CharacterIsNotQualifiedIfRightClassButToLowLevel()
         {
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             var fighter = new Class();
             fighter.Name = "Fighter";
             character.SetClass(fighter);
@@ -56,7 +56,7 @@ namespace Tests.Characters.Prerequisites
         [Fact]
         public void IfCharacterIsNotSetToAClassYouDefinitelyDoNotQualify()
         {
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             Assert.False(prereq.IsQualified(character));
         }
     }

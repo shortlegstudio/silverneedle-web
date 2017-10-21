@@ -46,8 +46,8 @@ namespace Tests.Actions.CharacterGeneration
         [Fact]
         public void CharacterCreatorExecutesEachBuildStepInSequence()
         {
-            var characterSheet = new CharacterSheet();
-            var strategy = new CharacterStrategy();
+            var strategy = CharacterStrategy.Default();
+            var characterSheet = new CharacterSheet(strategy);
             subject.ExecuteStep(characterSheet, strategy);
             Assert.Equal("Dummy One", characterSheet.Name);
             Assert.Equal(16, characterSheet.AbilityScores.GetScore(AbilityScoreTypes.Strength));
@@ -63,12 +63,12 @@ namespace Tests.Actions.CharacterGeneration
             steps.AddListItem(new MemoryStore("step", "Tests.Actions.CharacterGeneration.DummyStepLevelUp"));
             data.SetValue("steps", steps);
             
-            var designer = new CharacterDesigner(data);
-            var character = new CharacterSheet();
-            character.SetClass(new Class());
             var build = new CharacterStrategy();
             build.TargetLevel = 5;
+            var character = new CharacterSheet(build);
+            character.SetClass(new Class());
 
+            var designer = new CharacterDesigner(data);
             designer.ExecuteStep(character, build);
             Assert.Equal(designer.DesignerType, CharacterDesigner.Type.LevelUp);
             Assert.Equal(character.Level, 5);
@@ -85,9 +85,9 @@ namespace Tests.Actions.CharacterGeneration
             var steps = new MemoryStore();
             data.SetValue("steps", steps);
 
-            var character = new CharacterSheet();
             var build = new CharacterStrategy();
             build.TargetLevel = 5;
+            var character = new CharacterSheet(build);
 
             var designer = new CharacterDesigner(data);
             Assert.Throws<System.InvalidOperationException>(() => designer.ExecuteStep(character, build));

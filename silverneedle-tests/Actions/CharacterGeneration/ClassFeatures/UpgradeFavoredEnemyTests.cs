@@ -19,7 +19,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
         {
             var ct = new CreatureType("Dragon");
             var favEnemy = new FavoredEnemy(ct);
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             character.Add(favEnemy);
             var upgrade = new UpgradeFavoredEnemy();
             upgrade.ExecuteStep(character, new CharacterStrategy());

@@ -23,7 +23,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
                 new Mercy("Mercy 3", 6),
                 new Mercy("Mercy 4", 6)
             };
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             var paladin = new Class();
             paladin.Name = "Paladin";
             character.SetClass(paladin);

@@ -10,7 +10,7 @@ namespace Tests.Characters
     {
         public static CharacterSheet CreateBlankStandardOGLSheet()
         {
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             //Fill in the standard skills to be expected
             var skills = new Skill[] 
             {

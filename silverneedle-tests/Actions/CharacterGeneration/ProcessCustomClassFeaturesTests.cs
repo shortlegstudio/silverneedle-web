@@ -22,7 +22,7 @@ namespace Tests.Actions.CharacterGeneration
             var level = new Level(1);
             level.Steps.Add(new DummyCharacterDesignStep());
             cls.Levels.Add(level);
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             character.SetClass(cls);
 
             var subject = new ProcessCustomClassFeatures();
@@ -37,7 +37,7 @@ namespace Tests.Actions.CharacterGeneration
             var level = new Level(1);
             level.AddAbility("SilverNeedle.Characters.SpecialAbilities.Evasion", new MemoryStore());
             cls.Levels.Add(level);
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             character.SetClass(cls);
 
             var subject = new ProcessCustomClassFeatures();

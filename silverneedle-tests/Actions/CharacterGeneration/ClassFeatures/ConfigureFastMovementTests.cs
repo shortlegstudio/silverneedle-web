@@ -19,7 +19,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
         {
             var data = new MemoryStore();
             data.SetValue("speed", 10);
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             var action = new ConfigureFastMovement(data);
 
             action.ExecuteStep(character, new CharacterStrategy());

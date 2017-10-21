@@ -15,7 +15,7 @@ namespace Tests.Actions.CharacterGeneration
         public void ChoosesAnAlignmentFromPossibleAlignments()
         {
             var selector = new AlignmentSelector();
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             var strat = new CharacterStrategy();            
             strat.FavoredAlignments.Disable(CharacterAlignment.ChaoticEvil);
             strat.FavoredAlignments.Disable(CharacterAlignment.ChaoticGood);

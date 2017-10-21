@@ -28,7 +28,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
     - level: 1
       feats: [feat one]".ParseYaml().Children.First();
             var combatStyle = new CombatStyle(yaml);
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             var cls = new Class();
             character.SetClass(cls);
             character.SetLevel(2);

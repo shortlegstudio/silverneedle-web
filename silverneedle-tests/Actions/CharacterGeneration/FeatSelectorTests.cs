@@ -51,7 +51,7 @@ namespace Tests.Actions
             var buildStrategy = new CharacterStrategy();
             buildStrategy.FavoredFeats.AddEntry("power attack", 5000000);
             buildStrategy.FavoredFeats.AddEntry("cleave", 1);
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(buildStrategy);
             character.Add(new FeatToken());
             
             selector.ExecuteStep(character, buildStrategy);
@@ -67,7 +67,7 @@ namespace Tests.Actions
             buildStrategy.FavoredFeats.AddEntry("cleave", 5000000);
             for(int i = 0; i < 1000; i++)
             {
-                var character = new CharacterSheet();
+                var character = new CharacterSheet(buildStrategy);
                 character.Add(new FeatToken());
 
                 selector.ExecuteStep(character, buildStrategy);
@@ -84,7 +84,7 @@ namespace Tests.Actions
 
             for(int i = 0; i < 1000; i++)
             {
-                var character = new CharacterSheet();
+                var character = new CharacterSheet(buildStrategy);
                 character.Add(new FeatToken("metamagic"));
 
                 selector.ExecuteStep(character, buildStrategy);
@@ -100,7 +100,7 @@ namespace Tests.Actions
 
             for(int i = 0; i < 1000; i++)
             {
-                var character = new CharacterSheet();
+                var character = new CharacterSheet(buildStrategy);
                 character.Add(new FeatToken("metamagic"));
                 character.Add(new FeatToken());
 
@@ -115,7 +115,7 @@ namespace Tests.Actions
             var buildStrategy = new CharacterStrategy();
             buildStrategy.FavoredFeats.AddEntry("power attack", 5000000);
 
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(buildStrategy);
             character.Add(new FeatToken());
 
             selector.ExecuteStep(character, buildStrategy);
@@ -126,7 +126,7 @@ namespace Tests.Actions
         public void IfNoPreferredFeatsArePossibleJustSelectRandomlyFromAnyPossible()
         {
             var buildStrategy = new CharacterStrategy();
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(buildStrategy);
             character.Add(new FeatToken());
             selector.ExecuteStep(character, buildStrategy);
             Assert.True(character.Feats.First() == powerattack || character.Feats.First() == empowerspell);
@@ -138,7 +138,7 @@ namespace Tests.Actions
             var buildStrategy = new CharacterStrategy();
             buildStrategy.FavoredFeats.AddEntry("power attack", 5000000);
 
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(buildStrategy);
             character.Add(new FeatToken("Empower Spell"));
 
             selector.ExecuteStep(character, buildStrategy);

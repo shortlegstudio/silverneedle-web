@@ -18,7 +18,7 @@ namespace Tests.Characters.Prerequisites
         [Fact]
         public void AbilityIsQualifiedIfExceedingScore() {
             var pre = new AbilityPrerequisite (AbilityScoreTypes.Intelligence, 13);
-            var c = new CharacterSheet ();
+            var c = new CharacterSheet(CharacterStrategy.Default());
             c.AbilityScores.SetScore (AbilityScoreTypes.Intelligence, 15);
             Assert.True (pre.IsQualified (c));
         }
@@ -26,7 +26,7 @@ namespace Tests.Characters.Prerequisites
         [Fact]
         public void AbilityIsNotQualifiedIfNotExceedingScore() {
             var pre = new AbilityPrerequisite (AbilityScoreTypes.Intelligence, 13);
-            var c = new CharacterSheet ();
+            var c = new CharacterSheet(CharacterStrategy.Default());
             c.AbilityScores.SetScore (AbilityScoreTypes.Intelligence, 11);
             Assert.False (pre.IsQualified (c));
         }

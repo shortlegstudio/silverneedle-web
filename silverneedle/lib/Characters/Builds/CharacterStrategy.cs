@@ -13,7 +13,7 @@ namespace SilverNeedle.Characters
     public class CharacterStrategy : IGatewayObject, IGatewayCopy<CharacterStrategy>
     {
 
-        public static CharacterStrategy None()
+        public static CharacterStrategy Default()
         {
             return new CharacterStrategy();
         }

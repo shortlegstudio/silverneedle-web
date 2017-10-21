@@ -15,7 +15,7 @@ namespace Tests.Characters.SpecialAbilities
         private CharacterSheet level4Paladin;
         public LayOnHandsTests()
         {
-            level4Paladin = new CharacterSheet();
+            level4Paladin = new CharacterSheet(CharacterStrategy.Default());
             level4Paladin.AbilityScores.SetScore(AbilityScoreTypes.Charisma, 14); //+2 Modifier
             var paladin = new Class();
             paladin.Name = "Paladin";

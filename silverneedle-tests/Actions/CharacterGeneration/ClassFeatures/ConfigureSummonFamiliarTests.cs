@@ -29,7 +29,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
         [Fact]
         public void ChoosesAFamiliarForTheCharacter()
         {
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             character.InitializeComponents();
             subject.ExecuteStep(character, new CharacterStrategy());
 
@@ -41,7 +41,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
         public void SummonFamiliarModifiesTheCharacterStats()
         {
             bat.Modifiers.Add(new ValueStatModifier("Perception", 5, "bonus", "Familiar (Bat)"));
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             character.SkillRanks.AddSkill(new Skill("Perception", AbilityScoreTypes.Wisdom, false));
             var baseValue = character.SkillRanks.GetScore("Perception");
             subject.ExecuteStep(character, new CharacterStrategy());

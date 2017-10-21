@@ -20,7 +20,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
             var options = new MemoryStore();
             options.SetValue("bonds", new string[] { "wolf", "cat", "tiger", "elephant", "giraffe" });
             var step = new ConfigureHuntersBond(options);
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             step.ExecuteStep(character, new CharacterStrategy());
 
             var bond = character.Get<HuntersBond>();

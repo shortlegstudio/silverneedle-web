@@ -22,7 +22,7 @@ namespace Tests.Actions.CharacterGeneration.Appearance
             styles[0].Descriptors.Add("descriptor", new string[] { "long" });
 
             var subject = new CreateHair(EntityGateway<HairColor>.LoadFromList(colors), EntityGateway<HairStyle>.LoadFromList(styles));
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             subject.ExecuteStep(character, new CharacterStrategy());
             Assert.Equal(colors[0], character.Appearance.HairColor);
             Assert.Equal(styles[0], character.Appearance.HairStyle);

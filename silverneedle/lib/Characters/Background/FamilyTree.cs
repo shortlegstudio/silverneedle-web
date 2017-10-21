@@ -15,7 +15,7 @@ namespace SilverNeedle.Characters.Background
             get 
             { 
                 if(father == null) 
-                    father = new CharacterSheet(CharacterStrategy.None());
+                    father = new CharacterSheet(CharacterStrategy.Default());
                 return father;
             } 
         }
@@ -24,7 +24,7 @@ namespace SilverNeedle.Characters.Background
             get
             {
                 if(mother == null)
-                    mother = new CharacterSheet(CharacterStrategy.None());
+                    mother = new CharacterSheet(CharacterStrategy.Default());
 
                 return mother;
              } 

@@ -41,7 +41,7 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
         [Fact]
         public void AddAllSpellsIfAccessToNextLevelIsAvailable()
         {
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             var cls = new Class();
             cls.Spells.List = "wizard";
             character.SetClass(cls);
@@ -63,7 +63,7 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
         [Fact]
         public void WorksForMultiClassSpellCasters()
         {
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             var cls = new Class();
             cls.Spells.List = "wizard";
             character.SetClass(cls);
@@ -96,7 +96,7 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
         [Fact]
         public void IgnoreDomainSpellCasting()
         {
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             character.Add(new DomainSpellCasting(new Inventory(), new ClassLevel(new Class())));
             subject.ExecuteStep(character, new CharacterStrategy());
             // DOES NOT THROW

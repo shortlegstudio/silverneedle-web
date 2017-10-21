@@ -31,7 +31,7 @@ namespace Tests.Characters
         [Fact]
         public void CalculatesSkillPointsBasedOnClassAndIntelligence()
         {
-            var sheet = new CharacterSheet();
+            var sheet = new CharacterSheet(CharacterStrategy.Default());
             var fighter = new Class();
             fighter.SkillPoints = 2;
             sheet.AbilityScores.SetScore(AbilityScoreTypes.Intelligence, 14);
@@ -42,7 +42,7 @@ namespace Tests.Characters
         [Fact]
         public void CanGetAComponentWithADefaultIfMissing()
         {
-            var sheet = new CharacterSheet();
+            var sheet = new CharacterSheet(CharacterStrategy.Default());
             var comp = sheet.GetOrDefault<Occupation>(Occupation.Unemployed());
             Assert.Equal(Occupation.Unemployed(), comp);
         }
@@ -50,7 +50,7 @@ namespace Tests.Characters
         [Fact]
         public void CharactersHaveVitalStats()
         {
-            var sheet = new CharacterSheet();
+            var sheet = new CharacterSheet(CharacterStrategy.Default());
             sheet.FirstName = "Foobar";
             sheet.Alignment = CharacterAlignment.LawfulGood;
             Assert.Equal("Foobar", sheet.Name);
@@ -60,7 +60,7 @@ namespace Tests.Characters
         [Fact]
         public void AssigningClassUpdatesWeaponProficiencies()
         {
-            var sheet = new CharacterSheet();
+            var sheet = new CharacterSheet(CharacterStrategy.Default());
             var fighter = new Class();
             fighter.WeaponProficiencies.Add("martial");
             fighter.WeaponProficiencies.Add("simple");
@@ -74,7 +74,7 @@ namespace Tests.Characters
         [Fact]
         public void AssigningClassUpdatesArmorProficiencies()
         {
-            var sheet = new CharacterSheet();
+            var sheet = new CharacterSheet(CharacterStrategy.Default());
             var fighter = new Class();
             fighter.ArmorProficiencies.Add("Light");
             fighter.ArmorProficiencies.Add("Medium");
@@ -90,7 +90,7 @@ namespace Tests.Characters
         [Fact]
         public void AddingATraitToWillSaveBoostsDefense()
         {
-            CharacterSheet sheet = new CharacterSheet();
+            CharacterSheet sheet = new CharacterSheet(CharacterStrategy.Default());
             var trait = new Trait();
             trait.Modifiers.Add(
                 new ValueStatModifier("Will", 10, "Trait", "Cause")
@@ -103,7 +103,7 @@ namespace Tests.Characters
         [Fact]
         public void AddingATraitWillTriggerAddingImmunities()
         {
-            CharacterSheet sheet = new CharacterSheet();
+            CharacterSheet sheet = new CharacterSheet(CharacterStrategy.Default());
             var trait = new Trait();
             trait.SpecialAbilities.Add(
                 new SpecialAbility("vs. Spells", "Immunity"));
@@ -114,7 +114,7 @@ namespace Tests.Characters
         [Fact]
         public void AddingAFeatCouldAddOffensiveAbilities() 
         {
-            CharacterSheet sheet = new CharacterSheet();
+            CharacterSheet sheet = new CharacterSheet(CharacterStrategy.Default());
             var feat = new Feat();
             feat.SpecialAbilities.Add(
                 new SpecialAbility("Sneak Attack 1d6", "Offensive"));
@@ -125,7 +125,7 @@ namespace Tests.Characters
         [Fact]
         public void AddingTraitsCouldAddSpecialQualities()
         {
-            CharacterSheet sheet = new CharacterSheet();
+            CharacterSheet sheet = new CharacterSheet(CharacterStrategy.Default());
             sheet.InitializeComponents();
             var trait = new Trait();
             trait.SpecialAbilities.Add(
@@ -137,7 +137,7 @@ namespace Tests.Characters
         [Fact]
         public void ExposeAllStats()
         {
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             var ac = character.FindStat("Armor Class");
             var str = character.FindStat("Strength");
             var willSave = character.FindStat(StatNames.WillSave);
@@ -150,7 +150,7 @@ namespace Tests.Characters
         [Fact]
         public void AddingASpecialAbilityAddsToComponentList()
         {
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             var ability = new SpecialAbility();
             character.Add(ability);
             Assert.Equal(character.Components.Get<SpecialAbility>(), ability);
@@ -159,7 +159,7 @@ namespace Tests.Characters
         [Fact]
         public void AddingAnAbilityThatImplementsIComponentWillCallInitialize()
         {
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             var ability = new CompAbility();
             character.Add(ability);
             Assert.True(ability.Called);
@@ -168,7 +168,7 @@ namespace Tests.Characters
         [Fact]
         public void CanGetAndSetAlignmentAndItShowsUpAsASingleComponent()
         {
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             character.Alignment = CharacterAlignment.Neutral;
             Assert.Equal(character.Alignment, CharacterAlignment.Neutral);
             character.Alignment = CharacterAlignment.LawfulEvil;
@@ -181,7 +181,7 @@ namespace Tests.Characters
         [Fact]
         public void GetAndRemoveAllReturnsAllOfATypeAndRemovesThem()
         {
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             character.Add(new CompAbility());
             character.Add(new CompAbility());
             character.Add(new CompAbility());
@@ -194,7 +194,7 @@ namespace Tests.Characters
 
         public void HasAGroupOfRequiredStandardComponentsAdded()
         {
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             Assert.NotNull(character.Get<Inventory>());
             Assert.NotNull(character.Get<OffenseStats>());
             Assert.NotNull(character.Get<DefenseStats>());

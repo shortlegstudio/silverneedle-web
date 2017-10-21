@@ -21,7 +21,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
             var aberration = new CreatureType("Aberration"); 
             var ctGateway = EntityGateway<CreatureType>.LoadWithSingleItem(aberration);
             var configureStep = new ChooseFavoredEnemy(ctGateway);
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             configureStep.ExecuteStep(character, new CharacterStrategy());
             
             var favEnemy = character.Get<FavoredEnemy>();
@@ -36,7 +36,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
             var creatureTypes = new CreatureType[] { aberration, dragon }; 
             var ctGateway = EntityGateway<CreatureType>.LoadFromList(creatureTypes);
             var configureStep = new ChooseFavoredEnemy(ctGateway);
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             configureStep.ExecuteStep(character, new CharacterStrategy());
             configureStep.ExecuteStep(character, new CharacterStrategy());
             

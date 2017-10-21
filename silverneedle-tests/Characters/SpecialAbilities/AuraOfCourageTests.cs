@@ -16,7 +16,7 @@ namespace Tests.Characters.SpecialAbilities
         [Fact]
         public void AuraOfCourageEnablesImmunityToFear()
         {
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             character.Add(new AuraOfCourage());
             var defense = character.Get<DefenseStats>();
             var fear = defense.Immunities.First();

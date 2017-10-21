@@ -19,7 +19,7 @@ namespace Tests.Characters.Prerequisites
         public void SpecialAbilityPrerequisite() 
         {
             var special = new SpecialAbilityPrerequisite("Darkvision");
-            var c = new CharacterSheet();
+            var c = new CharacterSheet(CharacterStrategy.Default());
             Assert.False(special.IsQualified(c));
             var darkvision = new MemoryStore();
             darkvision.SetValue("name", "Darkvision");

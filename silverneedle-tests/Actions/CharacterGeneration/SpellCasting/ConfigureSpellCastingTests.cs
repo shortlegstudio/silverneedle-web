@@ -16,7 +16,7 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
         [Fact]
         public void IfNotACasterDoNothing()
         {
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             character.SetClass(Class.None);
             var subject = new ConfigureSpellCasting();
             subject.ExecuteStep(character, new CharacterStrategy());

@@ -69,7 +69,7 @@ namespace Tests.Actions
         [Fact]
         public void SettingRaceLoadsTraits()
         {
-            var sheet = new CharacterSheet();
+            var sheet = new CharacterSheet(CharacterStrategy.Default());
 
             raceSelectorSubject.SetRace(sheet, elf);
             Assert.Equal(elf, sheet.Race);
@@ -79,7 +79,7 @@ namespace Tests.Actions
         [Fact]
         public void SettingRaceCalculatesSize()
         {
-            var sheet = new CharacterSheet();
+            var sheet = new CharacterSheet(CharacterStrategy.Default());
 
             var smallGuy = new Race();
             smallGuy.SizeSetting = CharacterSize.Small;
@@ -97,7 +97,7 @@ namespace Tests.Actions
         [Fact]
         public void SettingRaceAssignsMovement()
         {
-            var sheet = new CharacterSheet();
+            var sheet = new CharacterSheet(CharacterStrategy.Default());
             var fastGuy = new Race();
             fastGuy.SizeSetting = CharacterSize.Small;
             fastGuy.HeightRange = DiceStrings.ParseDice("2d4+10");
@@ -111,10 +111,10 @@ namespace Tests.Actions
         [Fact]
         public void OptionTableLimitsSelectionOfRace()
         {
-            var sheet = new CharacterSheet();
             var options = new WeightedOptionTable<string>();
             var strategy = new CharacterStrategy();
             strategy.Races.AddEntry("Human", 12);
+            var sheet = new CharacterSheet(strategy);
 
             //Run it 1000 times, should always be human
             for (int x = 0; x < 1000; x++)
@@ -127,8 +127,8 @@ namespace Tests.Actions
         [Fact]
         public void IfChoiceListIsEmptyChooseAnyRace() 
         {	
-            var sheet = new CharacterSheet();
             var strategy = new CharacterStrategy();
+            var sheet = new CharacterSheet(strategy);
 
             raceSelectorSubject.ExecuteStep(sheet, strategy);
             Assert.NotNull(sheet.Race);
@@ -137,9 +137,9 @@ namespace Tests.Actions
         [Fact]
         public void AddLanguagesKnownToStrategy()
         {
-            var character = new CharacterSheet();
             var strategy = new CharacterStrategy();
             strategy.Races.AddEntry("Elfy", 1000);
+            var character = new CharacterSheet(strategy);
             raceSelectorSubject.ExecuteStep(character, strategy);
             Assert.Equal(character.Race.Name, "Elfy");
             Assert.NotStrictEqual(strategy.LanguagesKnown, new string[] {"Common", "Elvish"});

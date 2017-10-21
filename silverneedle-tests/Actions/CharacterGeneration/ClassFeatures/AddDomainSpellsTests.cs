@@ -19,7 +19,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
         [Fact]
         public void FindsDomainsAssociatedWithCharacterAndAddsThoseSpells()
         {
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             character.SetClass(new Class());
             var configureAir = new MemoryStore();
             configureAir.SetValue("name", "Air");

@@ -22,7 +22,7 @@ namespace Tests.Characters.SpecialAbilities
         [Fact]
         public void AddsCharismaBonusToAllSavingsThrows()
         {
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             character.AbilityScores.SetScore(AbilityScoreTypes.Charisma, 18); //+4
             var startingFortSave = character.Defense.FortitudeSave.TotalValue;
             var startingReflexSave = character.Defense.ReflexSave.TotalValue;

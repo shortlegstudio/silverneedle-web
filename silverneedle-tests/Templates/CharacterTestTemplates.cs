@@ -11,7 +11,7 @@ namespace Tests
     {
         private static CharacterSheet CreateWithAverageAbilityScores()
         {
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             foreach(var s in character.AbilityScores.Abilities)
             {
                 s.SetValue(10);

@@ -22,7 +22,7 @@ namespace Tests.Actions.CharacterGeneration
             var data = new MemoryStore();
             data.SetValue("deny", new string[] { "LawfulEvil" , "LawfulNeutral", "LawfulGood" });
             var step = new LimitAlignment(data);
-            step.ExecuteStep(new CharacterSheet(), strategy);
+            step.ExecuteStep(new CharacterSheet(strategy), strategy);
             var enabled = strategy.FavoredAlignments.Enabled.Select(x => x.Option);
             Assert.DoesNotContain(CharacterAlignment.LawfulEvil, enabled); 
             Assert.DoesNotContain(CharacterAlignment.LawfulGood, enabled); 

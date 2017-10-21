@@ -12,51 +12,51 @@ namespace Tests.Actions {
     using SilverNeedle.Actions.CharacterGeneration.Abilities;
     using System.Collections.Generic;
 
-	
-	public class LevelUpCharacterTests {
+    
+    public class LevelUpCharacterTests {
         //Handles moving characters to Level 2 and beyond
-		CharacterSheet character;
+        CharacterSheet character;
 
-		public LevelUpCharacterTests() {
-			character = new CharacterSheet ();
+        public LevelUpCharacterTests() {
+            character = new CharacterSheet(CharacterStrategy.Default());
             character.AbilityScores.SetScore(AbilityScoreTypes.Strength, 10);
             character.AbilityScores.SetScore(AbilityScoreTypes.Dexterity, 10);
             character.AbilityScores.SetScore(AbilityScoreTypes.Constitution, 10);
             character.AbilityScores.SetScore(AbilityScoreTypes.Intelligence, 10);
             character.AbilityScores.SetScore(AbilityScoreTypes.Wisdom, 10);
             character.AbilityScores.SetScore(AbilityScoreTypes.Charisma, 10);
-			var cls = new Class ();
-			character.SetClass (cls);
-		}
+            var cls = new Class ();
+            character.SetClass (cls);
+        }
 
 
 
-	    [Fact]
-	    public void LevelingUpIncrementsTheLevelNumber() {
-			var levelUp = new LevelUpCharacter ();
-			levelUp.LevelUp (character);
-			Assert.Equal (2, character.Level);
-		}
+        [Fact]
+        public void LevelingUpIncrementsTheLevelNumber() {
+            var levelUp = new LevelUpCharacter ();
+            levelUp.LevelUp (character);
+            Assert.Equal (2, character.Level);
+        }
 
-		[Fact]
-		public void EveryFourLevelsYouGetAnExtraAbilityScore() {
-			var levelUp = new LevelUpCharacter ();
+        [Fact]
+        public void EveryFourLevelsYouGetAnExtraAbilityScore() {
+            var levelUp = new LevelUpCharacter ();
 
-			levelUp.BringCharacterToLevel (character, 4);
+            levelUp.BringCharacterToLevel (character, 4);
 
-			//Should have an abilityScore Token
-			Assert.True (
-				character.GetAll<AbilityScoreToken>().Count() > 0				
-			);
-		}
+            //Should have an abilityScore Token
+            Assert.True (
+                character.GetAll<AbilityScoreToken>().Count() > 0				
+            );
+        }
 
-		[Fact]
-		public void EveryOtherLevelAddsAFeatToken() {
+        [Fact]
+        public void EveryOtherLevelAddsAFeatToken() {
             //Level one feats are currently handled outside this
             var levelUp = new LevelUpCharacter();
             levelUp.BringCharacterToLevel(character, 3);
             Assert.Equal(1, character.FeatTokens.Count());
-		}
+        }
 
         [Fact]
         public void IncreasesBaseAttackBonus() {
@@ -86,5 +86,5 @@ namespace Tests.Actions {
             Assert.Equal(1, character.Defense.ReflexSave.TotalValue);
             Assert.Equal(1, character.Defense.FortitudeSave.TotalValue);
         }
-	}
+    }
 }

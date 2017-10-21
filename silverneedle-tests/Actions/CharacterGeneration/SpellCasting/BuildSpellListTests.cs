@@ -45,7 +45,7 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
         [Fact]
         public void AddsAllSpellsForTheCurrentLevelToTheCharacterIfKnowsAllSpells()
         {
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             var cls = new Class();
             cls.Spells.List = "wizard";
             character.SetClass(cls);
@@ -68,7 +68,7 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
         [Fact]
         public void ClassesWithoutSpellsDoNothing()
         {
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             character.SetClass(new Class()); 
             subject.ExecuteStep(character, new CharacterStrategy());
             //DOES NOT THROW
@@ -77,7 +77,7 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
         [Fact]
         public void WorksWithMultiClassedCasters()
         {
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             var scWizard = new SpellCasting(character.Inventory, new ClassLevel(new Class()), "wizard");
             scWizard.SpellsKnown = SpellsKnown.All;
             character.Add(scWizard);
@@ -98,7 +98,7 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
         [Fact]
         public void IgnoreDomainSpellCastingSinceThatsHandledDifferently()
         {
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             character.Add(new DomainSpellCasting(new Inventory(), new ClassLevel(new Class())));
             subject.ExecuteStep(character, new CharacterStrategy()); 
             // DOES NOT THROW

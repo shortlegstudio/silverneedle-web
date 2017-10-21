@@ -25,7 +25,7 @@ namespace Tests.Characters.Domains
             data.SetValue("name", "air");
             airDomain = new Air(data);
 
-            character = new CharacterSheet();
+            character = new CharacterSheet(CharacterStrategy.Default());
             character.InitializeComponents();
             var Class = new Class("cleric");
             character.SetClass(Class);

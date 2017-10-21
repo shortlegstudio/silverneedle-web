@@ -16,7 +16,7 @@ namespace Tests.Actions.CharacterGeneration.Personality
         [Fact]
         public void SelectsSomeQuirksFromAvailableList()
         {
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             var step = new SelectQuirks();
             step.ExecuteStep(character, new CharacterStrategy());
             var quirks = character.Get<Quirks>();

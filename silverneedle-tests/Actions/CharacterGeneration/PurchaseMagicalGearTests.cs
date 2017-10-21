@@ -30,7 +30,7 @@ namespace Tests.Actions.CharacterGeneration
         [Fact]
         public void PurchasesWands()
         {
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             
             character.Inventory.CoinPurse.SetValue(50000);
 

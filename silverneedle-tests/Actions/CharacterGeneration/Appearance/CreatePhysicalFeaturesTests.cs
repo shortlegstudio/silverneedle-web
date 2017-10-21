@@ -23,7 +23,7 @@ namespace Tests.Actions.CharacterGeneration.Appearance
             var gateway = EntityGateway<PhysicalFeature>.LoadWithSingleItem(phys);
 
             var subject = new CreatePhysicalFeatures(gateway);
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             subject.ExecuteStep(character, new CharacterStrategy());
 
             Assert.Equal(character.Appearance.PhysicalAppearance, "He has a crooked nose.");
@@ -43,7 +43,7 @@ namespace Tests.Actions.CharacterGeneration.Appearance
             var gateway = EntityGateway<PhysicalFeature>.LoadWithSingleItem(phys);
             var subject = new CreatePhysicalFeatures(gateway);
 
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             character.Gender = Gender.Female;
 
             subject.ExecuteStep(character, new CharacterStrategy());
@@ -73,7 +73,7 @@ namespace Tests.Actions.CharacterGeneration.Appearance
             var gateway = EntityGateway<PhysicalFeature>.LoadWithSingleItem(phys);
             var subject = new CreatePhysicalFeatures(gateway);
 
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             character.Gender = Gender.Female;
 
             subject.ExecuteStep(character, new CharacterStrategy());
@@ -94,7 +94,7 @@ namespace Tests.Actions.CharacterGeneration.Appearance
             var gateway = EntityGateway<PhysicalFeature>.LoadFromList(new PhysicalFeature[] { tattoo, scar });
             var subject = new CreatePhysicalFeatures(gateway);
 
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             subject.ExecuteStep(character, new CharacterStrategy());
             Assert.Contains("Tattoo of a green dragon.", character.Appearance.PhysicalAppearance);
             Assert.Contains("A scar on face.", character.Appearance.PhysicalAppearance);

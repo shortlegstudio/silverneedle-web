@@ -16,7 +16,7 @@ namespace Tests.Actions
         [Fact]
         public void LevelUpRollerAddsSomeNumberOfHPBasedOnHitDiePlusCon() 
         {
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             var cls = new Class();
             cls.HitDice = DiceSides.d8;
             character.AbilityScores.SetScore(AbilityScoreTypes.Constitution, 12);

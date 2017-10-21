@@ -30,9 +30,9 @@ namespace Tests.Actions {
             shield = new Armor();
             shield.ArmorType = ArmorType.Shield;
             gateway = EntityGateway<Armor>.LoadWithSingleItem(shield);
-            proficientCharacter = new CharacterSheet();
+            proficientCharacter = new CharacterSheet(CharacterStrategy.Default());
             proficientCharacter.Defense.AddArmorProficiencies(new string[] {"shield"});
-            incapableCharacter = new CharacterSheet();
+            incapableCharacter = new CharacterSheet(CharacterStrategy.Default());
 
             subject = new PurchaseShield(gateway);
         }

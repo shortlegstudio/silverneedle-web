@@ -18,14 +18,14 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
         [Fact]
         public void NonCastersDoNothing()
         {
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             var prepareSpells = new PrepareSpells();
             prepareSpells.ExecuteStep(character, new CharacterStrategy());
         }
         [Fact]
         public void SelectsUniqueListOfSpellsDependingOnAvailableSlots()
         {
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             var cls = new Class();
             character.SetClass(cls);
             var spellCasting = new SpellCasting(character.Get<Inventory>(), character.Get<ClassLevel>(), "wizard");
@@ -46,7 +46,7 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
         [Fact]
         public void PreparesSpellsFromMultipleSpellCastingClassesIfAvailable()
         {
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             var cls = new Class();
             character.SetClass(cls);
             var scWizard = new SpellCasting(character.Get<Inventory>(), character.Get<ClassLevel>(), "wizard");

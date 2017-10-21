@@ -34,7 +34,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
         public void SelectsBasicTalentsIfNotConfiguredForAdvancedTalents()
         {
             var subject = new SelectRogueTalent(new MemoryStore(), Talents);
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             subject.ExecuteStep(character, new CharacterStrategy());
             var rogueTalent = character.Get<RogueTalent>();
             Assert.False(rogueTalent.IsAdvancedTalent);
@@ -47,7 +47,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
             var configure = new MemoryStore();
             configure.SetValue("advanced-talents", "true");
             var subject = new SelectRogueTalent(configure, Talents);
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             subject.ExecuteStep(character, new CharacterStrategy());
             var rogueTalent = character.Get<RogueTalent>();
             Assert.True(rogueTalent.IsAdvancedTalent);
@@ -60,7 +60,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
             var configure = new MemoryStore();
             configure.SetValue("advanced-talents", "true");
             var subject = new SelectRogueTalent(configure, Talents);
-            var character = new CharacterSheet();
+            var character = new CharacterSheet(CharacterStrategy.Default());
             character.Add(advancedTalent);
             subject.ExecuteStep(character, new CharacterStrategy());
             var rogueTalents = character.GetAll<RogueTalent>();
