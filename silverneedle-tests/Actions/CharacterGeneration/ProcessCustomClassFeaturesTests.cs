@@ -26,7 +26,7 @@ namespace Tests.Actions.CharacterGeneration
             character.SetClass(cls);
 
             var subject = new ProcessCustomClassFeatures();
-            subject.ExecuteStep(character, new CharacterStrategy());
+            subject.ExecuteStep(character);
             Assert.Equal(character.Name, "I Ran!");
         }
 
@@ -41,13 +41,13 @@ namespace Tests.Actions.CharacterGeneration
             character.SetClass(cls);
 
             var subject = new ProcessCustomClassFeatures();
-            subject.ExecuteStep(character, new CharacterStrategy());
+            subject.ExecuteStep(character);
             Assert.NotNull(character.Components.Get<Evasion>());
         }
 
         public class DummyCharacterDesignStep : ICharacterDesignStep
         {
-            public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
+            public void ExecuteStep(CharacterSheet character)
             {
                 character.FirstName = "I Ran!";
             }

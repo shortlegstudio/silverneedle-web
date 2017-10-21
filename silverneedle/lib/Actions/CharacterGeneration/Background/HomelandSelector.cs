@@ -27,7 +27,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.Background
             return this.homelands.Find(race).Homelands.ChooseRandomly();
         }
 
-        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
+        public void ExecuteStep(CharacterSheet character)
         {
             character.History.Homeland = SelectHomelandByRace(character.Race.Name);
         }

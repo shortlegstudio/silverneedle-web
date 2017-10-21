@@ -18,7 +18,7 @@ namespace Tests.Actions.CharacterGeneration.Personality
         {
             var character = new CharacterSheet(CharacterStrategy.Default());
             var step = new SelectQuirks();
-            step.ExecuteStep(character, new CharacterStrategy());
+            step.ExecuteStep(character);
             var quirks = character.Get<Quirks>();
             Assert.NotNull(quirks);
             Assert.NotEmpty(quirks.Items);

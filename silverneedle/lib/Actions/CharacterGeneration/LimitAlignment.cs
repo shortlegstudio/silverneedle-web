@@ -17,12 +17,12 @@ namespace SilverNeedle.Actions.CharacterGeneration
         {
             denyAlignments = configuration.GetList("deny");
         }
-        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
+        public void ExecuteStep(CharacterSheet character)
         {
             foreach(var deny in denyAlignments)
             {
                 var align = deny.EnumValue<CharacterAlignment>();
-                strategy.FavoredAlignments.Disable(align);
+                character.Strategy.FavoredAlignments.Disable(align);
             }
         }
     }

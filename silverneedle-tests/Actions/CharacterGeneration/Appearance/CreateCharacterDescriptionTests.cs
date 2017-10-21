@@ -20,7 +20,7 @@ namespace Tests.Actions.CharacterGeneration.Appearance
             bob.Appearance.HairStyle = new HairStyle("ponytail");
 
             var description = new CreateCharacterDescription();
-            description.ExecuteStep(bob, new CharacterStrategy());
+            description.ExecuteStep(bob);
 
             Assert.Contains("his hair is a red ponytail.", bob.Appearance.Description);
 
@@ -33,7 +33,7 @@ namespace Tests.Actions.CharacterGeneration.Appearance
             var bob = CharacterTestTemplates.AverageBob();
             bob.Appearance.PhysicalAppearance = "Tattoos and Scars";
             var description = new CreateCharacterDescription();
-            description.ExecuteStep(bob, new CharacterStrategy());
+            description.ExecuteStep(bob);
 
             Assert.Contains("Tattoos and Scars", bob.Appearance.Description);
         }
@@ -44,7 +44,7 @@ namespace Tests.Actions.CharacterGeneration.Appearance
             var bob = CharacterTestTemplates.AverageBob();
             bob.Appearance.EyeColor = new EyeColor("blue");
             var description = new CreateCharacterDescription();
-            description.ExecuteStep(bob, new CharacterStrategy());
+            description.ExecuteStep(bob);
 
             Assert.Contains("his eyes are blue.", bob.Appearance.Description);
         }

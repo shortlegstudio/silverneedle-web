@@ -23,7 +23,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
             var character = new CharacterSheet(CharacterStrategy.Default());
             character.Add(fav);
             var upgrade = new UpgradeFavoredTerrain();
-            upgrade.ExecuteStep(character, new CharacterStrategy());
+            upgrade.ExecuteStep(character);
             Assert.Equal(fav.Bonus(forest), 4);
         }
     }

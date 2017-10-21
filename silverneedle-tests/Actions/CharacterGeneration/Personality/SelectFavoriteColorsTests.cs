@@ -18,8 +18,7 @@ namespace Tests.Actions.CharacterGeneration.Personality
         public void ChoosesAFewColorsThatTheCharacterMightLike()
         {
             var bob = CharacterTestTemplates.AverageBob();
-            var strategy = new CharacterStrategy();
-            strategy.FavoriteColorCount = 3;
+            bob.Strategy.FavoriteColorCount = 3;
             var colors = new Color[]
             {
                 new Color("Red", 255, 0, 0),
@@ -28,7 +27,7 @@ namespace Tests.Actions.CharacterGeneration.Personality
             };
 
             var pick = new SelectFavoriteColors(EntityGateway<Color>.LoadFromList(colors));
-            pick.ExecuteStep(bob, strategy);
+            pick.ExecuteStep(bob);
 
             var personality = bob.Get<Likes>();
             Assert.Contains(colors[0], personality.FavoriteColors);

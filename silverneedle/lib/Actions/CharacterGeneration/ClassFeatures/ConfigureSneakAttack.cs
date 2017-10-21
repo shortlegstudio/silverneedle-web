@@ -16,7 +16,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
         {
             Damage = configuration.GetString("damage");
         }
-        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
+        public void ExecuteStep(CharacterSheet character)
         {
             var sneakAttack = character.Get<SneakAttack>();
             if(sneakAttack == null)

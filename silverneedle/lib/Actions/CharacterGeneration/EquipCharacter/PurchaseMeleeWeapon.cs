@@ -35,7 +35,7 @@ namespace SilverNeedle.Actions.CharacterGeneration
             this.shop = new WeaponShop();
         }
 
-        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
+        public void ExecuteStep(CharacterSheet character)
         {
             var validWeapons = this.shop.GetInventory<IWeapon>().Where(
                 weapon => 

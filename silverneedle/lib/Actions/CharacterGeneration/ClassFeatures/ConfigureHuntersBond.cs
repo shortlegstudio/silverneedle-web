@@ -16,7 +16,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
         {
             this.bonds = options.GetList("bonds");
         }
-        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
+        public void ExecuteStep(CharacterSheet character)
         {
             var hunterBond = new HuntersBond(this.bonds.ChooseOne());
             character.Add(hunterBond);

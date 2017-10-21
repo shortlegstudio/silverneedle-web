@@ -18,7 +18,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
         {
             var configure = new ConfigureWeaponMastery();
             var character = new CharacterSheet(CharacterStrategy.Default());
-            configure.ExecuteStep(character, new CharacterStrategy());
+            configure.ExecuteStep(character);
 
             var mastery = character.Components.Get<WeaponMastery>();
             Assert.NotNull(mastery.Weapon);

@@ -17,7 +17,7 @@ namespace SilverNeedle.Actions.CharacterGeneration
             maturityGateway = GatewayProvider.Get<Maturity>();            
         }
 
-        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
+        public void ExecuteStep(CharacterSheet character)
         {
             character.Age = RandomAge(character.Class.ClassDevelopmentAge, maturityGateway.Find(character.Race.Name));
         }

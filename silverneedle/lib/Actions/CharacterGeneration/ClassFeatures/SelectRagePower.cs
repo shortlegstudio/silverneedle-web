@@ -24,7 +24,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
         {
             this.ragePowers = ragePowers;
         }
-        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
+        public void ExecuteStep(CharacterSheet character)
         {
             var options = ragePowers.All().GetAllQualified<RagePower>(character);
             var power = options.ChooseOne();

@@ -40,9 +40,8 @@ namespace Tests.Actions.CharacterGeneration
         {
             var character = new CharacterSheet(CharacterStrategy.Default());
             character.Inventory.CoinPurse.SetValue(50000);
-            var strategy = new CharacterStrategy();
 
-            subject.ExecuteStep(character, strategy);
+            subject.ExecuteStep(character);
             Assert.True(character.Inventory.CoinPurse.Value >= 30000);
             Assert.True(character.Inventory.All.Count() >= 1);
         }
@@ -52,7 +51,7 @@ namespace Tests.Actions.CharacterGeneration
         {
             var character = new CharacterSheet(CharacterStrategy.Default());
             character.Inventory.CoinPurse.SetValue(200);
-            subject.ExecuteStep(character, new CharacterStrategy());
+            subject.ExecuteStep(character);
             Assert.True(character.Inventory.All.Count() >= 1);
         }
 
@@ -61,7 +60,7 @@ namespace Tests.Actions.CharacterGeneration
         {
             var character = new CharacterSheet(CharacterStrategy.Default());
             character.Inventory.CoinPurse.SetValue(1);
-            subject.ExecuteStep(character, new CharacterStrategy());
+            subject.ExecuteStep(character);
             Assert.Empty(character.Inventory.All);
         }
     }

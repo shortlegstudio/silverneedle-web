@@ -19,7 +19,7 @@ namespace SilverNeedle.Actions.CharacterGeneration
             ignorePrequisites = configuration.GetBoolOptional("ignore-prerequisites");
         }
 
-        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
+        public void ExecuteStep(CharacterSheet character)
         {
             var token = new FeatToken(options, ignorePrequisites);
             character.Add(token);

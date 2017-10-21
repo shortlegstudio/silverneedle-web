@@ -18,7 +18,7 @@ namespace SilverNeedle.Actions.CharacterGeneration
             skills = GatewayProvider.Get<Skill>();
         }
 
-        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
+        public void ExecuteStep(CharacterSheet character)
         {
             character.SkillRanks.FillSkills(skills.All());
             character.InitializeComponents();

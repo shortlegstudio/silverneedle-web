@@ -23,7 +23,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.Background
             this.descriptors = descriptors;
         }
 
-        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
+        public void ExecuteStep(CharacterSheet character)
         {
             var storyTemplate = descriptors.Find("background-story").Words.ChooseOne();
             var expansion = new PhraseTemplate(storyTemplate);

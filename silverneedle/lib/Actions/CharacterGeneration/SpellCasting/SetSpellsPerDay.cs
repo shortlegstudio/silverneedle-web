@@ -10,7 +10,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.SpellCasting
 
     public class SetSpellsPerDay : ICharacterDesignStep
     {
-        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
+        public void ExecuteStep(CharacterSheet character)
         {
             if(!character.Contains<SpellCasting>())
                 return;

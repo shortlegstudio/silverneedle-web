@@ -9,7 +9,7 @@ namespace SilverNeedle.Actions.CharacterGeneration
 
     public class NotifyComponentsOfLevelUp : ICharacterDesignStep
     {
-        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
+        public void ExecuteStep(CharacterSheet character)
         {
             var levelsUp = character.GetAll<IImprovesWithLevels>();
             foreach(var l in levelsUp)

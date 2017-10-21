@@ -19,7 +19,7 @@ namespace SilverNeedle.Actions.CharacterGeneration
             ideals = GatewayProvider.Get<Ideal>();
         }
 
-        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
+        public void ExecuteStep(CharacterSheet character)
         {
             Random(character);
         }

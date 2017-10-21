@@ -22,12 +22,12 @@ namespace Tests.Actions.CharacterGeneration
             var mockDesigner = new Mock<CharacterDesigner>();
             
             // Set up a character designer
-            mockDesigner.Setup(x => x.ExecuteStep(character, build));
+            mockDesigner.Setup(x => x.ExecuteStep(character));
             mockDesigner.Setup(x => x.Matches("hello")).Returns(true);
             var gateway = EntityGateway<CharacterDesigner>.LoadWithSingleItem(mockDesigner.Object);
 
             var executer = new DesignerExecuterStep("hello", gateway);
-            executer.ExecuteStep(character, build);
+            executer.ExecuteStep(character);
             mockDesigner.VerifyAll();
         }
     }

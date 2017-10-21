@@ -10,9 +10,9 @@ namespace SilverNeedle.Actions.CharacterGeneration
 {
     public class AlignmentSelector : ICharacterDesignStep
     {
-        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
+        public void ExecuteStep(CharacterSheet character)
         {
-            character.Alignment = strategy.FavoredAlignments.ChooseRandomly();
+            character.Alignment = character.Strategy.FavoredAlignments.ChooseRandomly();
         }
     }
 }

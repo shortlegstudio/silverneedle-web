@@ -23,7 +23,7 @@ namespace Tests.Actions
             character.AbilityScores.SetScore(AbilityScoreTypes.Constitution, 12);
             
             var hpRoller = new InitialHitPoints();
-            hpRoller.ExecuteStep(character, new CharacterStrategy());
+            hpRoller.ExecuteStep(character);
 
             Assert.Equal(9, character.MaxHitPoints);
             Assert.Equal(9, character.CurrentHitPoints);

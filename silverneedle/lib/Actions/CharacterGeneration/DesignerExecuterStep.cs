@@ -25,10 +25,10 @@ namespace SilverNeedle.Actions.CharacterGeneration
             this.gateway = gateway;
         }
 
-        public virtual void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
+        public virtual void ExecuteStep(CharacterSheet character)
         {
             var designer = FindDesigner(designerName);
-            designer.ExecuteStep(character, strategy);
+            designer.ExecuteStep(character);
         }
 
         private CharacterDesigner FindDesigner(string name)

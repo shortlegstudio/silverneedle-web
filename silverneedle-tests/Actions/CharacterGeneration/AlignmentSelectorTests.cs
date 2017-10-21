@@ -15,8 +15,8 @@ namespace Tests.Actions.CharacterGeneration
         public void ChoosesAnAlignmentFromPossibleAlignments()
         {
             var selector = new AlignmentSelector();
-            var character = new CharacterSheet(CharacterStrategy.Default());
             var strat = new CharacterStrategy();            
+            var character = new CharacterSheet(strat);
             strat.FavoredAlignments.Disable(CharacterAlignment.ChaoticEvil);
             strat.FavoredAlignments.Disable(CharacterAlignment.ChaoticGood);
             strat.FavoredAlignments.Disable(CharacterAlignment.ChaoticNeutral);
@@ -25,7 +25,7 @@ namespace Tests.Actions.CharacterGeneration
             strat.FavoredAlignments.Disable(CharacterAlignment.LawfulNeutral);
             strat.FavoredAlignments.Disable(CharacterAlignment.NeutralEvil);
             strat.FavoredAlignments.Disable(CharacterAlignment.NeutralGood);
-            selector.ExecuteStep(character, strat);
+            selector.ExecuteStep(character);
             Assert.Equal(character.Alignment, CharacterAlignment.Neutral);
         }
     }

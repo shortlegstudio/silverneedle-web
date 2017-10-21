@@ -128,8 +128,9 @@ namespace SilverNeedle.Actions.CharacterGeneration
             size.SetSize(race.SizeSetting, race.HeightRange.Roll(), race.WeightRange.Roll());
         }
 
-        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
+        public void ExecuteStep(CharacterSheet character)
         {
+            var strategy = character.Strategy;
             ChooseRace(character, strategy.Races);
             strategy.AddLanguagesKnown(character.Race.KnownLanguages);
             strategy.AddLanguageChoices(character.Race.AvailableLanguages);

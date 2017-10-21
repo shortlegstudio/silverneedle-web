@@ -21,7 +21,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
             var build = new AddBonusLanguages(data);
             var strategy = new CharacterStrategy();
             var character = new CharacterSheet(strategy);
-            build.ExecuteStep(character, strategy);
+            build.ExecuteStep(character);
             Assert.NotStrictEqual(strategy.LanguageChoices, new string[] { "elvish", "draconic"});
         }
     }

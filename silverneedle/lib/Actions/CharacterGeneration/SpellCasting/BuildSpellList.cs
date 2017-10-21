@@ -27,8 +27,9 @@ namespace SilverNeedle.Actions.CharacterGeneration.SpellCasting
             this.spellLists = spellLists;
             this.spells = spells;
         }
-        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
+        public void ExecuteStep(CharacterSheet character)
         {
+            var strategy = character.Strategy;
             if(!character.Contains<SpellCasting>())
                 return;
 

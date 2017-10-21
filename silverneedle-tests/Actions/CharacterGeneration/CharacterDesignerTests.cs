@@ -48,7 +48,7 @@ namespace Tests.Actions.CharacterGeneration
         {
             var strategy = CharacterStrategy.Default();
             var characterSheet = new CharacterSheet(strategy);
-            subject.ExecuteStep(characterSheet, strategy);
+            subject.ExecuteStep(characterSheet);
             Assert.Equal("Dummy One", characterSheet.Name);
             Assert.Equal(16, characterSheet.AbilityScores.GetScore(AbilityScoreTypes.Strength));
         }
@@ -69,7 +69,7 @@ namespace Tests.Actions.CharacterGeneration
             character.SetClass(new Class());
 
             var designer = new CharacterDesigner(data);
-            designer.ExecuteStep(character, build);
+            designer.ExecuteStep(character);
             Assert.Equal(designer.DesignerType, CharacterDesigner.Type.LevelUp);
             Assert.Equal(character.Level, 5);
             Assert.Equal(character.Age, 4);
@@ -90,13 +90,13 @@ namespace Tests.Actions.CharacterGeneration
             var character = new CharacterSheet(build);
 
             var designer = new CharacterDesigner(data);
-            Assert.Throws<System.InvalidOperationException>(() => designer.ExecuteStep(character, build));
+            Assert.Throws<System.InvalidOperationException>(() => designer.ExecuteStep(character));
         }
     }
 
     public class DummyStepOne : ICharacterDesignStep
     {
-        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
+        public void ExecuteStep(CharacterSheet character)
         {
             character.FirstName = "Dummy";
             character.LastName = "One";
@@ -105,7 +105,7 @@ namespace Tests.Actions.CharacterGeneration
 
     public class DummyStepTwo : ICharacterDesignStep
     {
-        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
+        public void ExecuteStep(CharacterSheet character)
         {
             character.AbilityScores.SetScore(AbilityScoreTypes.Strength, 16);
         }
@@ -113,7 +113,7 @@ namespace Tests.Actions.CharacterGeneration
 
     public class DummyStepLevelUp : ICharacterDesignStep
     {
-        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
+        public void ExecuteStep(CharacterSheet character)
         {
             character.Age += 1;
             character.SetLevel(character.Level + 1);

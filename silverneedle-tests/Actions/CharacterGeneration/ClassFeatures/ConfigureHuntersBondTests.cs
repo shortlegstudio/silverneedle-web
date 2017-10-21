@@ -21,7 +21,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
             options.SetValue("bonds", new string[] { "wolf", "cat", "tiger", "elephant", "giraffe" });
             var step = new ConfigureHuntersBond(options);
             var character = new CharacterSheet(CharacterStrategy.Default());
-            step.ExecuteStep(character, new CharacterStrategy());
+            step.ExecuteStep(character);
 
             var bond = character.Get<HuntersBond>();
             Assert.Contains(bond.Bond, options.GetList("bonds"));

@@ -19,7 +19,7 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
             var character = new CharacterSheet(CharacterStrategy.Default());
             character.SetClass(Class.None);
             var subject = new ConfigureSpellCasting();
-            subject.ExecuteStep(character, new CharacterStrategy());
+            subject.ExecuteStep(character);
         }
     }
 }

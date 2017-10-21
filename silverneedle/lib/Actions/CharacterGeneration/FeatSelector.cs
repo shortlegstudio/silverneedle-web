@@ -72,9 +72,9 @@ namespace SilverNeedle.Actions.CharacterGeneration
             return (feat.IsQualified(character) || token.IgnorePrerequisites) && token.Qualifies(feat);
         }
 
-        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
+        public void ExecuteStep(CharacterSheet character)
         {
-            SelectFeats(character, strategy.FavoredFeats);
+            SelectFeats(character, character.Strategy.FavoredFeats);
         }
     }
 }

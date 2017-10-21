@@ -24,7 +24,7 @@ namespace SilverNeedle.Actions.CharacterGeneration
         }
 
 
-        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
+        public void ExecuteStep(CharacterSheet character)
         {
             //TODO: Max prices should be specified by strategy
             //TODO: Very similiar to other purchasing routines just slightly different...

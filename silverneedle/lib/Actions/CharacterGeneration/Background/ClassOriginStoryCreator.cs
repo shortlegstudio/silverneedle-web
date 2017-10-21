@@ -33,7 +33,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.Background
             return origins.Origins.ChooseRandomly();            
         }
 
-        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
+        public void ExecuteStep(CharacterSheet character)
         {
             character.History.ClassOriginStory = CreateStory(character.Class.Name);
         }

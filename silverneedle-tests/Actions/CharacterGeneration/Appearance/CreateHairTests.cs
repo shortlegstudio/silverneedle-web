@@ -23,7 +23,7 @@ namespace Tests.Actions.CharacterGeneration.Appearance
 
             var subject = new CreateHair(EntityGateway<HairColor>.LoadFromList(colors), EntityGateway<HairStyle>.LoadFromList(styles));
             var character = new CharacterSheet(CharacterStrategy.Default());
-            subject.ExecuteStep(character, new CharacterStrategy());
+            subject.ExecuteStep(character);
             Assert.Equal(colors[0], character.Appearance.HairColor);
             Assert.Equal(styles[0], character.Appearance.HairStyle);
         }

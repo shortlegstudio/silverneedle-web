@@ -22,7 +22,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
             var character = new CharacterSheet(CharacterStrategy.Default());
             character.Add(favEnemy);
             var upgrade = new UpgradeFavoredEnemy();
-            upgrade.ExecuteStep(character, new CharacterStrategy());
+            upgrade.ExecuteStep(character);
             Assert.Equal(favEnemy.Bonus(ct), 4);
         }
     }

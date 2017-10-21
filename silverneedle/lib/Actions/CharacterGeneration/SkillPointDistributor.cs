@@ -92,8 +92,9 @@ namespace SilverNeedle.Actions.CharacterGeneration
             return null;
         }
 
-        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
+        public void ExecuteStep(CharacterSheet character)
         {
+            var strategy = character.Strategy;
             AssignSkillPoints(character.SkillRanks, strategy.FavoredSkills, character.GetSkillPointsPerLevel(), character.Level);
         }
     }

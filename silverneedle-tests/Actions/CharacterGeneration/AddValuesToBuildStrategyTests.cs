@@ -15,13 +15,13 @@ namespace Tests.Actions.CharacterGeneration
         [Fact]
         public void AddsASingleEntryToStrategy()
         {
-            var strat = new CharacterStrategy();
             var bob = CharacterTestTemplates.AverageBob();
+            var strat = bob.Strategy;
 
             var configure = new MemoryStore();
             configure.SetValue("table-name", new string[] { "value" });
             var step = new AddValuesToBuildStrategy(configure);
-            step.ExecuteStep(bob, strat);
+            step.ExecuteStep(bob);
             Assert.Equal("value", strat.ChooseOption<string>("table-name"));
         }
     }

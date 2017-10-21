@@ -27,7 +27,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
         public void AddsSneakAttackIfNotAlreadyConfigured()
         {
             var character = new CharacterSheet(CharacterStrategy.Default());
-            subject.ExecuteStep(character, new CharacterStrategy());
+            subject.ExecuteStep(character);
             Assert.NotNull(character.Get<SneakAttack>());
         }
 
@@ -38,7 +38,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
             var sneak = new SneakAttack();
             sneak.SetDamage("1d6");
             character.Add(sneak);
-            subject.ExecuteStep(character, new CharacterStrategy());
+            subject.ExecuteStep(character);
             Assert.Equal(sneak.Damage, "2d6");
         }
     }

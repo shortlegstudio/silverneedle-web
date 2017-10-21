@@ -26,10 +26,10 @@ namespace Tests.Actions.CharacterGeneration
             var purchase = new PurchaseClothing(EntityGateway<Clothes>.LoadFromList(clothes));
             var bob = CharacterTestTemplates.AverageBob();
             bob.Inventory.CoinPurse.AddGold(200);
-            var strategy = new CharacterStrategy();
+            var strategy = bob.Strategy;
             strategy.AddCustomValue("clothes", "Outfit", 1);
 
-            purchase.ExecuteStep(bob, strategy);
+            purchase.ExecuteStep(bob);
             Assert.NotNull(bob.Inventory.Find(clothes[0]));
         }
 
@@ -40,9 +40,8 @@ namespace Tests.Actions.CharacterGeneration
             var purchase = new PurchaseClothing(EntityGateway<Clothes>.LoadWithSingleItem(clothes));
             var bob = CharacterTestTemplates.AverageBob();
             bob.Inventory.CoinPurse.AddGold(1);
-            var strategy = new CharacterStrategy();
 
-            purchase.ExecuteStep(bob, strategy);
+            purchase.ExecuteStep(bob);
             Assert.Null(bob.Inventory.Find(clothes));
         }
     }

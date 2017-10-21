@@ -23,9 +23,9 @@ namespace SilverNeedle.Actions.CharacterGeneration.Personality
         {
             this.colors = GatewayProvider.Get<Color>();
         }
-        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
+        public void ExecuteStep(CharacterSheet character)
         {
-            var choices = this.colors.Choose(strategy.FavoriteColorCount);
+            var choices = this.colors.Choose(character.Strategy.FavoriteColorCount);
             character.Get<Likes>().SetFavoriteColors(choices);
         }
     }

@@ -64,6 +64,8 @@ namespace SilverNeedle.Characters
 
         public ComponentBag Components { get; private set; }
 
+        public CharacterStrategy Strategy { get { return this.Get<CharacterStrategy>(); } }
+
         /// <summary>
         /// Gets or sets the name.
         /// </summary>

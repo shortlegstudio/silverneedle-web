@@ -17,11 +17,11 @@ namespace Tests.Actions.CharacterGeneration
             var character = CharacterTestTemplates.AverageBob();
             character.Add(new AbilityScoreToken(2, "Racial Choice"));
 
-            var strategy = new CharacterStrategy();
+            var strategy = character.Strategy;
             strategy.FavoredAbilities.AddEntry(AbilityScoreTypes.Strength, 100000);
 
             var abilityPointAssigner = new AbilityPointAssigner();
-            abilityPointAssigner.ExecuteStep(character, strategy);
+            abilityPointAssigner.ExecuteStep(character);
 
             Assert.Equal(12, character.AbilityScores.GetScore(AbilityScoreTypes.Strength));
         }

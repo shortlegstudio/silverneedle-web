@@ -54,7 +54,7 @@ namespace Tests.Actions
             var character = new CharacterSheet(buildStrategy);
             character.Add(new FeatToken());
             
-            selector.ExecuteStep(character, buildStrategy);
+            selector.ExecuteStep(character);
             Assert.Equal(powerattack, character.Feats.First()); 
 
         }
@@ -70,7 +70,7 @@ namespace Tests.Actions
                 var character = new CharacterSheet(buildStrategy);
                 character.Add(new FeatToken());
 
-                selector.ExecuteStep(character, buildStrategy);
+                selector.ExecuteStep(character);
                 Assert.Equal(powerattack, character.Feats.First());
             }            
         } 
@@ -87,7 +87,7 @@ namespace Tests.Actions
                 var character = new CharacterSheet(buildStrategy);
                 character.Add(new FeatToken("metamagic"));
 
-                selector.ExecuteStep(character, buildStrategy);
+                selector.ExecuteStep(character);
                 Assert.Equal(empowerspell, character.Feats.First());
             }            
         }
@@ -104,7 +104,7 @@ namespace Tests.Actions
                 character.Add(new FeatToken("metamagic"));
                 character.Add(new FeatToken());
 
-                selector.ExecuteStep(character, buildStrategy);
+                selector.ExecuteStep(character);
                 Assert.True(character.Feats.Contains(empowerspell));
                 Assert.True(character.Feats.Contains(powerattack));
             }        
@@ -118,7 +118,7 @@ namespace Tests.Actions
             var character = new CharacterSheet(buildStrategy);
             character.Add(new FeatToken());
 
-            selector.ExecuteStep(character, buildStrategy);
+            selector.ExecuteStep(character);
             Assert.Equal(0, character.FeatTokens.Count());
         }
 
@@ -128,7 +128,7 @@ namespace Tests.Actions
             var buildStrategy = new CharacterStrategy();
             var character = new CharacterSheet(buildStrategy);
             character.Add(new FeatToken());
-            selector.ExecuteStep(character, buildStrategy);
+            selector.ExecuteStep(character);
             Assert.True(character.Feats.First() == powerattack || character.Feats.First() == empowerspell);
         }
 
@@ -141,7 +141,7 @@ namespace Tests.Actions
             var character = new CharacterSheet(buildStrategy);
             character.Add(new FeatToken("Empower Spell"));
 
-            selector.ExecuteStep(character, buildStrategy);
+            selector.ExecuteStep(character);
             Assert.Contains(empowerspell, character.Feats);
         }
 
@@ -151,7 +151,7 @@ namespace Tests.Actions
             Assert.True(cleave.Prerequisites.Count > 0);
             var bob = CharacterTestTemplates.AverageBob();
             bob.Add(new FeatToken(new string[] { "cleave" } , true));
-            selector.ExecuteStep(bob, new CharacterStrategy());
+            selector.ExecuteStep(bob);
             Assert.Contains(cleave, bob.Feats);
         }
 
@@ -162,7 +162,7 @@ namespace Tests.Actions
             bob.Add(new FeatToken(new string[] { "impossible" }, false));
             Assert.Throws(
                 typeof(CharacterGeneratorStepFailedException), 
-                () => selector.ExecuteStep(bob, new CharacterStrategy())
+                () => selector.ExecuteStep(bob)
             ); 
         }
     }

@@ -62,7 +62,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.Background
 
         }
 
-        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
+        public void ExecuteStep(CharacterSheet character)
         {
             var history = character.Get<History>();
             NameParents(history.FamilyTree, character.Race.Name, character.LastName);

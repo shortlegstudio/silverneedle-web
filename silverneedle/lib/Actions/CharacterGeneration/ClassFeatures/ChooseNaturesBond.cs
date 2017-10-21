@@ -22,7 +22,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
         {
             GetAvailableDomains(configuration, domains);
         }
-        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
+        public void ExecuteStep(CharacterSheet character)
         {
             character.Add(domains.ChooseOne());
         }

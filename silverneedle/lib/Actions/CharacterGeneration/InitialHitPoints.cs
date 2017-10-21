@@ -12,7 +12,7 @@ namespace SilverNeedle.Actions.CharacterGeneration
     /// </summary>
     public class InitialHitPoints : ICharacterDesignStep
     {
-        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
+        public void ExecuteStep(CharacterSheet character)
         {
             int hp = (int)character.Class.HitDice + character.AbilityScores.GetModifier(AbilityScoreTypes.Constitution);
             character.IncreaseHitPoints(hp);

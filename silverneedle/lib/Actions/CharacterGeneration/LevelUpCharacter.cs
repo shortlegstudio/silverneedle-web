@@ -49,7 +49,7 @@ namespace SilverNeedle.Actions.CharacterGeneration
             }
         }
 
-        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
+        public void ExecuteStep(CharacterSheet character)
         {
             LevelUp(character);
         }

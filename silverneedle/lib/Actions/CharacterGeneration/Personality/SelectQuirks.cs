@@ -21,9 +21,9 @@ namespace SilverNeedle.Actions.CharacterGeneration.Personality
             this.quirkGateway= GatewayProvider.Get<QuirkTemplate>();
         }
 
-        public void ExecuteStep(CharacterSheet character, CharacterStrategy strategy)
+        public void ExecuteStep(CharacterSheet character)
         {
-            var selected = quirkGateway.Choose(strategy.QuirkCount);
+            var selected = quirkGateway.Choose(character.Strategy.QuirkCount);
             var quirks = new Quirks();
             foreach(var q in selected)
             {

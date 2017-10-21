@@ -17,11 +17,11 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
         public void AddsLanguagesToCharacterForFree()
         {
             var bob = CharacterTestTemplates.AverageBob();
-            var strategy = new CharacterStrategy();
+            var strategy = bob.Strategy;
             var objectProps = new MemoryStore();
             objectProps.SetValue("languages", new string[] { "Druidic" , "Draconic" });
             var freeLanguages = new AddFreeLanguages(objectProps);
-            freeLanguages.ExecuteStep(bob, strategy);
+            freeLanguages.ExecuteStep(bob);
             Assert.Contains("Druidic", strategy.LanguagesKnown);
             Assert.Contains("Draconic", strategy.LanguagesKnown);
             Assert.Equal(2, strategy.LanguagesKnown.Count());

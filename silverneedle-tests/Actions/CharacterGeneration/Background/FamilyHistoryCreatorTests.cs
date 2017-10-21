@@ -19,7 +19,7 @@ namespace Tests.Actions
         {
             var generator = new FamilyHistoryCreator();
             var character = CharacterTestTemplates.AverageBob();
-            generator.ExecuteStep(character, new CharacterStrategy());
+            generator.ExecuteStep(character);
             
             var familyTree = character.Get<History>().FamilyTree;
 
@@ -41,7 +41,7 @@ namespace Tests.Actions
             var history = character.Get<History>();
 
             var gen = new FamilyHistoryCreator();
-            gen.ExecuteStep(character, new CharacterStrategy());
+            gen.ExecuteStep(character);
             var names = history.FamilyTree.FatherName + " " + history.FamilyTree.MotherName;
             Assert.Contains("BarOrSomethingCrazyThatWontHappenAccidentally", names);
         }
@@ -57,7 +57,7 @@ namespace Tests.Actions
             var occGateway = EntityGateway<Occupation>.LoadWithSingleItem(peasant);
             
             var historyCreator = new FamilyHistoryCreator(occGateway);
-            historyCreator.ExecuteStep(bob, new CharacterStrategy());
+            historyCreator.ExecuteStep(bob);
 
             Assert.Equal(peasant, bob.Get<History>().FamilyTree.Father.Get<Occupation>());
             Assert.Equal(peasant, bob.Get<History>().FamilyTree.Mother.Get<Occupation>());
@@ -68,7 +68,7 @@ namespace Tests.Actions
         {
             var bob = CharacterTestTemplates.AverageBob();
             var historyCreator = new FamilyHistoryCreator();
-            historyCreator.ExecuteStep(bob, new CharacterStrategy());
+            historyCreator.ExecuteStep(bob);
             
             Assert.Equal(Occupation.Unemployed(), bob.Get<History>().FamilyTree.Father.Get<Occupation>());
             Assert.Equal(Occupation.Unemployed(), bob.Get<History>().FamilyTree.Mother.Get<Occupation>());
