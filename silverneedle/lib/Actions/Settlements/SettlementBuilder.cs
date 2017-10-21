@@ -21,8 +21,8 @@ namespace SilverNeedle.Actions.Settlements
             var settlement = new Settlement();
             for(int i = 0; i < population; i++)
             {
-                var character = new CharacterSheet();
                 var strategy = stratGateway.Find("inhabitant");
+                var character = new CharacterSheet(strategy);
                 characterBuilder.ExecuteStep(character, strategy);
                 settlement.AddInhabitant(character);
             }

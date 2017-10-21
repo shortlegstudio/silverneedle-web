@@ -61,6 +61,12 @@ namespace SilverNeedle.Characters
         public PrerequisiteList Prerequisites { get; set; }
 
         /// <summary>
+        /// Gets or sets the tags for categorizing this feat.
+        /// </summary>
+        /// <value>The tags for this feat.</value>
+        public IList<string> Tags { get; set; }
+
+        /// <summary>
         /// Gets a value indicating whether this instance is combat feat.
         /// </summary>
         /// <value><c>true</c> if this instance is combat feat; otherwise, <c>false</c>.</value>
@@ -87,11 +93,6 @@ namespace SilverNeedle.Characters
             get { return this.Tags.Contains("itemcreation"); } 
         }
 
-        /// <summary>
-        /// Gets or sets the tags for categorizing this feat.
-        /// </summary>
-        /// <value>The tags for this feat.</value>
-        public IList<string> Tags { get; set; }
 
         /// <summary>
         /// Figures out if the character is qualified.

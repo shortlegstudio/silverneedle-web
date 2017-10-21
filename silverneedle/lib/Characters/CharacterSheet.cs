@@ -22,9 +22,14 @@ namespace SilverNeedle.Characters
     /// <remarks>This should only delegate to proper objects to perform actions. There should not be specific rule logic here</remarks>
     public class CharacterSheet 
     {
-        public CharacterSheet() 
+        public CharacterSheet() : this(new CharacterStrategy())
+        {
+
+        }
+        public CharacterSheet(CharacterStrategy strategy) 
         {
             this.Components = new ComponentBag();
+            this.Components.Add(strategy);
             //TODO: Should component.add perform initialize and we 
             //provide a group add to add everything that might be needed
             this.Components.Add(new AbilityScores());

@@ -12,6 +12,11 @@ namespace SilverNeedle.Characters
 
     public class CharacterStrategy : IGatewayObject, IGatewayCopy<CharacterStrategy>
     {
+
+        public static CharacterStrategy None()
+        {
+            return new CharacterStrategy();
+        }
         public CharacterStrategy()
         {
             Classes = new WeightedOptionTable<string>();

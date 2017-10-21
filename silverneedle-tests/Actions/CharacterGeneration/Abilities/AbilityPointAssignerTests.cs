@@ -14,8 +14,7 @@ namespace Tests.Actions.CharacterGeneration
         [Fact]
         public void AssignsAbilityPointsBasedOnStrategy()
         {
-            var character = new CharacterSheet();
-            character.AbilityScores.SetScore(AbilityScoreTypes.Strength, 10);
+            var character = CharacterTestTemplates.AverageBob();
             character.Add(new AbilityScoreToken(2, "Racial Choice"));
 
             var strategy = new CharacterStrategy();
