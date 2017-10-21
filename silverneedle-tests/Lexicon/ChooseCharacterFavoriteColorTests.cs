@@ -27,6 +27,16 @@ namespace Tests.Lexicon
             var result = handleBarsTemplate(new CharacterContext(bob).CreateObject());
             Assert.Equal("Red", result);
         }
+
+        [Fact]
+        public void IfCharacterDoesNotHaveFavoriteColorsJustUseBlack()
+        {
+            var bob = CharacterTestTemplates.AverageBob();
+            ChooseCharacterFavoriteColor.CreateAndRegister();
+            var handleBarsTemplate = Handlebars.Compile("{{choose-favorite-color}}");
+            var result = handleBarsTemplate(new CharacterContext(bob).CreateObject());
+            Assert.Equal("black", result);
+        }
     }    
 
     

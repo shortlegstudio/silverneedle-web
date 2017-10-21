@@ -154,5 +154,16 @@ namespace Tests.Actions
             selector.ExecuteStep(bob, new CharacterStrategy());
             Assert.Contains(cleave, bob.Feats);
         }
+
+        [Fact]
+        public void ThrowExceptionIfAFeatTokenCannotResolveProperly()
+        {
+            var bob = CharacterTestTemplates.AverageBob();
+            bob.Add(new FeatToken(new string[] { "impossible" }, false));
+            Assert.Throws(
+                typeof(CharacterGeneratorStepFailedException), 
+                () => selector.ExecuteStep(bob, new CharacterStrategy())
+            ); 
+        }
     }
 }

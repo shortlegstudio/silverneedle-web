@@ -26,8 +26,16 @@ namespace SilverNeedle.Lexicon
         {
             var character = context.charactersheet as CharacterSheet;
             var likes = character.Get<Likes>();
-            var color = likes.FavoriteColors.ChooseOne();
-            writer.Write(color.Name);
+
+            if(likes.FavoriteColors.HasChoices())
+            {
+                var color = likes.FavoriteColors.ChooseOne();
+                writer.Write(color.Name);
+            }
+            else
+            {
+                writer.Write("black");
+            }
         }
 
         private void RegisterHelper()
