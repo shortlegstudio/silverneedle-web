@@ -48,5 +48,11 @@ namespace Tests.Characters.Feats
             generic.Add(skillFocus);
             Assert.Equal(3, generic.SkillRanks.GetScore("Climb"));
         }
+
+        public void ShouldBeNamedProperlyAndStuff()
+        {
+            var skillFocus = new SkillFocus();
+            Assert.Equal("Skill Focus", skillFocus.Name);
+        }
     }
 }

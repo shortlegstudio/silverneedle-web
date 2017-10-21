@@ -6,10 +6,17 @@
 
 namespace SilverNeedle.Characters.Feats
 {
+    using SilverNeedle.Serialization;   
     using SilverNeedle.Utility;
+
     public class SkillFocus : Feat, IComponent
     {
         private DelegateStatModifier statModifier;
+        public SkillFocus()
+        {
+            this.Name = "Skill Focus";
+        }
+        public SkillFocus(IObjectStore configure) : base(configure) { }
         public void Initialize(ComponentBag components)
         {
             var strategy = components.Get<CharacterStrategy>();
