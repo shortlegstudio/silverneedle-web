@@ -6,12 +6,15 @@
 
 namespace SilverNeedle.Characters.Feats
 {
+    using System.Collections.Generic;
+    using System.Linq;
     using SilverNeedle.Serialization;   
     using SilverNeedle.Utility;
 
     public class SkillFocus : Feat, IComponent
     {
         private DelegateStatModifier statModifier;
+        public CharacterSkill CharacterSkill { get; private set; }
         public SkillFocus()
         {
             this.Name = "Skill Focus";
@@ -21,30 +24,47 @@ namespace SilverNeedle.Characters.Feats
         {
             var strategy = components.Get<CharacterStrategy>();
             var skills = components.Get<SkillRanks>();
+            var skillTable = GetSkillTable(skills, strategy);
+            DisableOptionsThatAlreadyHaveSkillFocus(skillTable, components.GetAll<SkillFocus>());
+            var skillName = skillTable.ChooseRandomly();
+            this.CharacterSkill = skills.GetSkill(skillName);
+            ApplyBonusToSkill();
+        }
+
+        private WeightedOptionTable<string> GetSkillTable(SkillRanks skills, CharacterStrategy strategy)
+        {
             if(strategy.FavoredSkills.IsEmpty)
             {
-                var skill = skills.GetSkills().ChooseOne();
-                ApplyBonusToSkill(skill);
+                return skills.GetSkills().Select(x => x.Name).CreateFlatTable();
             }
             else
             {
-                var skillName = strategy.FavoredSkills.ChooseRandomly();
-                var skill = skills.GetSkill(skillName);
-                ApplyBonusToSkill(skill);
+                return strategy.FavoredSkills;
             }
         }
 
-        private void ApplyBonusToSkill(CharacterSkill skill)
+        private void DisableOptionsThatAlreadyHaveSkillFocus(WeightedOptionTable<string> skillTable, IEnumerable<SkillFocus> existingSkillFocuses)
+        {
+            foreach(var sf in existingSkillFocuses)
+            {
+                if(sf != this)
+                {
+                    skillTable.Disable(sf.CharacterSkill.Name);
+                }
+            }
+        }
+
+        private void ApplyBonusToSkill()
         {
             statModifier = new DelegateStatModifier(
-                skill.Name,
+                this.CharacterSkill.Name,
                 "bonus",
                 this.Name,
                 () => {
-                    return skill.Ranks >= 10 ? 6 : 3;
+                    return this.CharacterSkill.Ranks >= 10 ? 6 : 3;
                 }
             );
-            skill.AddModifier(statModifier);
+            this.CharacterSkill.AddModifier(statModifier);
         }
     }
 }

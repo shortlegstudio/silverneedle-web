@@ -24,6 +24,15 @@ namespace Tests.Characters.Feats
         }
 
         [Fact]
+        public void TracksTheSkillThatWasSelected()
+        {
+            var generic = CharacterTestTemplates.WithSkills(new string[] { "Climb" });
+            var skillFocus = new SkillFocus();
+            generic.Add(skillFocus);
+            Assert.Equal(generic.SkillRanks.GetSkill("Climb"), skillFocus.CharacterSkill);
+        }
+
+        [Fact]
         public void AtTenRanksProvideABonusOfSix()
         {
             var generic = CharacterTestTemplates.WithSkills(new string[] { "Climb", "Swim", "Perception" });
@@ -49,10 +58,24 @@ namespace Tests.Characters.Feats
             Assert.Equal(3, generic.SkillRanks.GetScore("Climb"));
         }
 
-        public void ShouldBeNamedProperlyAndStuff()
+        [Fact]
+        public void ShouldStartBeNamedProperlyAndStuff()
         {
             var skillFocus = new SkillFocus();
             Assert.Equal("Skill Focus", skillFocus.Name);
+        }
+
+        [Fact]
+        [Repeat(1000)]
+        public void AddingASecondSkillFocusSelectsADifferentSkill()
+        {
+            var genericCharacter = CharacterTestTemplates.WithSkills(new string[] { "Climb", "Swim" });
+            var skillFocus = new SkillFocus();
+            genericCharacter.Add(skillFocus);
+            var skillFocus2 = new SkillFocus();
+            genericCharacter.Add(skillFocus2);
+            Assert.Equal(3, genericCharacter.SkillRanks.GetScore("Climb"));
+            Assert.Equal(3, genericCharacter.SkillRanks.GetScore("Swim"));
         }
     }
 }
