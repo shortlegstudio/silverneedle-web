@@ -17,6 +17,7 @@ namespace Tests.Characters {
         Feat CombatExpertise;
         Feat PowerAttack;
         Feat CraftWand;
+        Feat MultipleSelect;
 
 
         public FeatTests() {
@@ -31,6 +32,7 @@ namespace Tests.Characters {
             CombatExpertise = list.First(x => x.Name == "Combat Expertise");
             PowerAttack = list.First(x => x.Name == "Power Attack");
             CraftWand = list.First(x => x.Name == "Craft Wand");
+            MultipleSelect = list.First(x => x.Name == "Multiple Select");
         }
             
 
@@ -114,6 +116,47 @@ namespace Tests.Characters {
             Assert.False (Acrobatic.IsItemCreation);
         }
 
+        [Fact]
+        public void SomeFeatsAllowYouToSelectMultipleTimes()
+        {
+            Assert.True(MultipleSelect.AllowMultiple);
+        }
+
+        [Fact]
+        public void SupportCopying()
+        {
+            var feat = Acrobatic.Copy();
+            Assert.Equal(Acrobatic.Name, feat.Name);
+            Assert.Equal(Acrobatic.Description, feat.Description);
+            Assert.Equal(Acrobatic.Modifiers.Count(), feat.Modifiers.Count());
+            var multi = MultipleSelect.Copy();
+            Assert.True(multi.AllowMultiple);
+        }
+
+        [Fact]
+        public void ComparesFeatsByNameWhetherTheyAreEqual()
+        {
+            var copy = Acrobatic.Copy();
+            Assert.True(copy.Equals(Acrobatic));
+        }
+
+        [Fact]
+        public void AllowsMultipleFeatsToBeQualifiedForCharacter()
+        {
+            var multi1 = MultipleSelect.Copy();
+            var multi2 = MultipleSelect.Copy();
+
+            var character = CharacterTestTemplates.AverageBob();
+            character.Add(multi1);
+            Assert.True(multi2.IsQualified(character));
+        }
+
+        public void IfNoConfigurationAvailableCopyWontWork()
+        {
+            var feat = new Feat();
+            Assert.Throws(typeof(System.InvalidOperationException), () => feat.Copy());
+        }
+
         private const string FeatYamlFile = @"--- 
 - feat: 
   name: Acrobatic
@@ -139,6 +182,9 @@ namespace Tests.Characters {
   name: Craft Wand
   tags: [ itemcreation ]
   description: Make Wands
+- feat:
+  name: Multiple Select
+  allow-multiple: true
 ...";
     }
 }

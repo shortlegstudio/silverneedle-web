@@ -112,17 +112,6 @@ namespace Tests.Characters
         }
 
         [Fact]
-        public void AddingAFeatCouldAddOffensiveAbilities() 
-        {
-            CharacterSheet sheet = new CharacterSheet(CharacterStrategy.Default());
-            var feat = new Feat();
-            feat.SpecialAbilities.Add(
-                new SpecialAbility("Sneak Attack 1d6", "Offensive"));
-            sheet.Add(feat);
-            Assert.True(sheet.Offense.OffensiveAbilities.Count() > 0);
-        }
-
-        [Fact]
         public void AddingTraitsCouldAddSpecialQualities()
         {
             CharacterSheet sheet = new CharacterSheet(CharacterStrategy.Default());

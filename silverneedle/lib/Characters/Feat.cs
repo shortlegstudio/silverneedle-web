@@ -16,7 +16,7 @@ namespace SilverNeedle.Characters
     /// Represents a feat ability for a character that allows it to perform
     /// special and advanced abilities
     /// </summary>
-    public class Feat : IModifiesStats, IProvidesSpecialAbilities, IGatewayObject
+    public class Feat : IModifiesStats, IGatewayObject, IGatewayCopy<Feat>
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Characters.Feat"/> class.
@@ -24,7 +24,6 @@ namespace SilverNeedle.Characters
         public Feat()
         {
             this.Modifiers = new List<IStatModifier>();
-            this.SpecialAbilities = new List<SpecialAbility>();
             this.Prerequisites = new PrerequisiteList();
             this.Tags = new List<string>();
         }
@@ -32,6 +31,16 @@ namespace SilverNeedle.Characters
         public Feat(IObjectStore data) : this()
         {
             LoadObject(data);
+        }
+
+        protected Feat(Feat copy) : this()
+        {
+            this.Name = copy.Name;
+            this.Description = copy.Description;
+            this.AllowMultiple = copy.AllowMultiple;
+            this.Modifiers = copy.Modifiers;
+            this.Prerequisites = copy.Prerequisites;
+            this.Tags = copy.Tags;
         }
 
         /// <summary>
@@ -52,8 +61,6 @@ namespace SilverNeedle.Characters
         /// <value>The modifiers for stats effected by this feat.</value>
         public IList<IStatModifier> Modifiers { get; private set; }
 
-        public IList<SpecialAbility> SpecialAbilities { get; private set; }
-
         /// <summary>
         /// Gets the prerequisites.
         /// </summary>
@@ -65,6 +72,7 @@ namespace SilverNeedle.Characters
         /// </summary>
         /// <value>The tags for this feat.</value>
         public IList<string> Tags { get; set; }
+        public bool AllowMultiple { get; private set; }
 
         /// <summary>
         /// Gets a value indicating whether this instance is combat feat.
@@ -102,7 +110,7 @@ namespace SilverNeedle.Characters
         public bool IsQualified(CharacterSheet character)
         {
             return Prerequisites.IsQualified(character) 
-                && !character.Feats.Contains(this);
+                && (!character.Feats.Contains(this) || this.AllowMultiple);
         }
 
         public override string ToString()
@@ -119,7 +127,8 @@ namespace SilverNeedle.Characters
         {
             Name = data.GetString("name"); 
             ShortLog.DebugFormat("Loading Feat: {0}", Name);
-            Description = data.GetString("description");
+            Description = data.GetStringOptional("description");
+            AllowMultiple = data.GetBoolOptional("allow-multiple");
 
             // Get Any skill Modifiers if they exist
             var skills = data.GetObjectOptional("modifiers");
@@ -153,6 +162,21 @@ namespace SilverNeedle.Characters
             var feat = new Feat();
             feat.Name = name;
             return feat;
+        }
+
+        public Feat Copy()
+        {
+            return new Feat(this);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if(obj != null && obj is Feat)
+            {
+                var feat = (Feat)obj;
+                return feat.Name == this.Name;
+            }
+            return false;
         }
     }
 }

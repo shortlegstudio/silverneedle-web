@@ -129,7 +129,8 @@ namespace Tests.Actions
             var character = new CharacterSheet(buildStrategy);
             character.Add(new FeatToken());
             selector.ExecuteStep(character);
-            Assert.True(character.Feats.First() == powerattack || character.Feats.First() == empowerspell);
+            Assert.True(character.Feats.First().Equals(powerattack) || 
+                character.Feats.First().Equals(empowerspell));
         }
 
         [Fact]
