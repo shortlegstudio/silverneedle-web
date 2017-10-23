@@ -17,14 +17,14 @@ namespace SilverNeedle.Characters.Prerequisites
             /// <param name="value">Value to meet the requirements.</param>
             public BaseAttackBonusPrerequisite(string value)
             {
-                this.AttackBonus = value;
+                this.AttackBonus = value.ToInteger();
             }
 
             /// <summary>
             /// Gets or sets the attack bonus.
             /// </summary>
             /// <value>The attack bonus.</value>
-            public string AttackBonus { get; set; }
+            public int AttackBonus { get; set; }
 
             /// <summary>
             /// Determines whether this instance is qualified the specified character.
@@ -33,7 +33,7 @@ namespace SilverNeedle.Characters.Prerequisites
             /// <param name="character">Character to assess qualification.</param>
             public bool IsQualified(CharacterSheet character)
             {
-                return false;
+                return character.Offense.BaseAttackBonus.TotalValue >= AttackBonus;
             }
         }
   

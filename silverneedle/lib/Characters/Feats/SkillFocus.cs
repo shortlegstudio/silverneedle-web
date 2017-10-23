@@ -20,6 +20,7 @@ namespace SilverNeedle.Characters.Feats
             this.Name = "Skill Focus";
         }
         public SkillFocus(IObjectStore configure) : base(configure) { }
+        public SkillFocus(SkillFocus copy) : base(copy) { }
         public void Initialize(ComponentBag components)
         {
             var strategy = components.Get<CharacterStrategy>();
@@ -29,6 +30,11 @@ namespace SilverNeedle.Characters.Feats
             var skillName = skillTable.ChooseRandomly();
             this.CharacterSkill = skills.GetSkill(skillName);
             ApplyBonusToSkill();
+        }
+
+        public override Feat Copy()
+        {
+            return new SkillFocus(this);
         }
 
         private WeightedOptionTable<string> GetSkillTable(SkillRanks skills, CharacterStrategy strategy)

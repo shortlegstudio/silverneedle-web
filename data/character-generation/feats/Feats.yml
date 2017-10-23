@@ -1242,12 +1242,12 @@
 - feat:
   name: Weapon Focus
   tags: [ combat ]
+  custom-implementation: SilverNeedle.Characters.Feats.WeaponFocus
   description: >
     Choose one type of weapon. You can also choose unarmed strike or grapple (
     or ray, if you are a spellcaster) as your weapon for the purposes of this
-    feat.
+    feat. (Multiple selection not set to limit being selected too often)
   prerequisites:
-    - feat: Weapon Proficiency
     - baseattackbonus: 1
 - feat:
   name: Weapon Specialization

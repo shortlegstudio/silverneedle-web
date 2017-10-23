@@ -164,7 +164,7 @@ namespace SilverNeedle.Characters
             return feat;
         }
 
-        public Feat Copy()
+        public virtual Feat Copy()
         {
             return new Feat(this);
         }
@@ -177,6 +177,11 @@ namespace SilverNeedle.Characters
                 return feat.Name == this.Name;
             }
             return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return this.Name.GetHashCode();
         }
     }
 }
