@@ -41,6 +41,12 @@ namespace SilverNeedle.Characters.Feats
             return new WeaponFocus(this);
         }
 
+        public override bool IsQualified(CharacterSheet character)
+        {
+            var result = base.IsQualified(character);
+            return result && !character.Contains<WeaponFocus>();
+        }
+
         public void Initialize(ComponentBag components)
         {
             var offense = components.Get<OffenseStats>();

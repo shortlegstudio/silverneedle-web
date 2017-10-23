@@ -107,7 +107,7 @@ namespace SilverNeedle.Characters
         /// </summary>
         /// <param name="character">Character to validate.</param>
         /// <returns>true if the character is qualified</returns>
-        public bool IsQualified(CharacterSheet character)
+        public virtual bool IsQualified(CharacterSheet character)
         {
             return Prerequisites.IsQualified(character) 
                 && (!character.Feats.Contains(this) || this.AllowMultiple);
