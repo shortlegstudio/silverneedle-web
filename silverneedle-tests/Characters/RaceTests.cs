@@ -1,4 +1,9 @@
-﻿using System.Collections.Generic;
+﻿// Copyright (c) 2017 Trevor Redfern
+// 
+// This software is released under the MIT License.
+// https://opensource.org/licenses/MIT
+
+using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 using SilverNeedle.Characters;

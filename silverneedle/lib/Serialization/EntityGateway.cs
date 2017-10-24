@@ -11,7 +11,7 @@ using SilverNeedle.Utility;
 
 namespace SilverNeedle.Serialization 
 {
-    public class EntityGateway<T> : IEntityGateway where T : IGatewayObject
+    public class EntityGateway<T> where T : IGatewayObject
     {
         private IList<T> dataStore;
         private Type entityType;

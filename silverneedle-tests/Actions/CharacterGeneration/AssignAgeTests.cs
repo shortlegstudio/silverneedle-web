@@ -1,4 +1,9 @@
-﻿using Xunit;
+﻿// Copyright (c) 2017 Trevor Redfern
+// 
+// This software is released under the MIT License.
+// https://opensource.org/licenses/MIT
+
+using Xunit;
 using SilverNeedle.Characters;
 using SilverNeedle.Dice;
 using SilverNeedle.Actions.CharacterGeneration;
