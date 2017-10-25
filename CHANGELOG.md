@@ -1,7 +1,7 @@
 # Change Log
 All notable changes will be tracked in this file. Most likely.
 
-## [Unreleased Changes]
+## 0.3.0.0
 ### Added
 - Druid class is now supported (minus animal companions >^.^< )
 - Add Spell Resistance statistic
@@ -15,6 +15,12 @@ All notable changes will be tracked in this file. Most likely.
 - Improved? Layout of information for character to make it easier to read
 - Broke out rendering of character template information to make it easier to change
 - Reworked traits to be more standard custom-implementation usage
+- Feat Tokens are just components that are added and removed (No longer managed by list)
+- Upgraded to .NET CORE 2.0
+- Standardizing around language of "Select" over "Choose"
+- Updated license headers in source code files
+- Fixed bug that was duplicating the spellcasting for some classes
+
 
 ### Known Issues
 - Animal Companions are not supported yet which makes the druid generation more limited than it should be

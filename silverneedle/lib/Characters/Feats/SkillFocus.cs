@@ -71,6 +71,7 @@ namespace SilverNeedle.Characters.Feats
                 }
             );
             this.CharacterSkill.AddModifier(statModifier);
+            this.Name = "{0} ({1})".Formatted(this.Name, this.CharacterSkill.Name);
         }
     }
 }
