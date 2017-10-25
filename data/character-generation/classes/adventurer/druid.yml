@@ -46,7 +46,7 @@
           languages: [Sylvan]
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddFreeLanguages
           languages: [Druidic]
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ChooseNaturesBond
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectNaturesBond
           domain-options: [Air, Animal, Earth, Fire, Plant, Water, Weather]
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddDomainSpells
           casting-ability: wisdom

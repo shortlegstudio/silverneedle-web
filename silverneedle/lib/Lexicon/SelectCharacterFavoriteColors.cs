@@ -11,14 +11,14 @@ namespace SilverNeedle.Lexicon
     using SilverNeedle;
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.Personalities;
-    public class ChooseCharacterFavoriteColor : ITemplateExpander
+    public class SelectCharacterFavoriteColors : ITemplateExpander
     {
 
-        public static ChooseCharacterFavoriteColor CreateAndRegister()
+        public static SelectCharacterFavoriteColors CreateAndRegister()
         {
-            return new ChooseCharacterFavoriteColor();
+            return new SelectCharacterFavoriteColors();
         }
-        private ChooseCharacterFavoriteColor()
+        private SelectCharacterFavoriteColors()
         {
             RegisterHelper();
         }

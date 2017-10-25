@@ -13,14 +13,14 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Serialization;
 
     
-    public class ChooseFavoredTerrainTests
+    public class SelectFavoredTerrainTests
     {
         [Fact]
-        public void ChooseFromFavoredTerrainList()
+        public void SelectFromFavoredTerrainList()
         {
             var forest = new TerrainType("Forest"); 
             var ctGateway = EntityGateway<TerrainType>.LoadWithSingleItem(forest);
-            var configureStep = new ChooseFavoredTerrain(ctGateway);
+            var configureStep = new SelectFavoredTerrain(ctGateway);
             var character = new CharacterSheet(CharacterStrategy.Default());
             configureStep.ExecuteStep(character);
             
@@ -35,7 +35,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
             var jungle = new TerrainType("Jungle");
             var terrainTypes = new TerrainType[] { forest, jungle }; 
             var ctGateway = EntityGateway<TerrainType>.LoadFromList(terrainTypes);
-            var configureStep = new ChooseFavoredTerrain(ctGateway);
+            var configureStep = new SelectFavoredTerrain(ctGateway);
             var character = new CharacterSheet(CharacterStrategy.Default());
             configureStep.ExecuteStep(character);
             configureStep.ExecuteStep(character);

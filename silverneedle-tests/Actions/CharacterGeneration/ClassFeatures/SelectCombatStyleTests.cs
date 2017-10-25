@@ -11,13 +11,13 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Characters.SpecialAbilities;
 
     
-    public class ChooseCombatStyleTests : RequiresDataFiles
+    public class SelectCombatStyleTests : RequiresDataFiles
     {
         [Fact]
-        public void ChooseACombatStyle()
+        public void SelectACombatStyle()
         {
             var character = new CharacterSheet(CharacterStrategy.Default());
-            var step = new ChooseCombatStyle();
+            var step = new SelectCombatStyle();
             step.ExecuteStep(character);
             Assert.NotNull(character.Get<CombatStyle>()); 
         }

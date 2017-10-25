@@ -13,14 +13,14 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Serialization;
 
     
-    public class ChooseFavoredEnemyTests
+    public class SelectFavoredEnemyTests
     {
         [Fact]
         public void ChooseFromFavoredEnemyList()
         {
             var aberration = new CreatureType("Aberration"); 
             var ctGateway = EntityGateway<CreatureType>.LoadWithSingleItem(aberration);
-            var configureStep = new ChooseFavoredEnemy(ctGateway);
+            var configureStep = new SelectFavoredEnemy(ctGateway);
             var character = new CharacterSheet(CharacterStrategy.Default());
             configureStep.ExecuteStep(character);
             
@@ -35,7 +35,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
             var dragon = new CreatureType("Dragon"); 
             var creatureTypes = new CreatureType[] { aberration, dragon }; 
             var ctGateway = EntityGateway<CreatureType>.LoadFromList(creatureTypes);
-            var configureStep = new ChooseFavoredEnemy(ctGateway);
+            var configureStep = new SelectFavoredEnemy(ctGateway);
             var character = new CharacterSheet(CharacterStrategy.Default());
             configureStep.ExecuteStep(character);
             configureStep.ExecuteStep(character);

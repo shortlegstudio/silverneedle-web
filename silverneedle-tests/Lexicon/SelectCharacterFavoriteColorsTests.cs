@@ -11,7 +11,7 @@ namespace Tests.Lexicon
     using SilverNeedle.Characters.Personalities;
     using SilverNeedle.Lexicon;
 
-    public class ChooseCharacterFavoriteColorTests
+    public class SelectCharacterFavoriteColorsTests
     {
 
         [Fact]
@@ -22,7 +22,7 @@ namespace Tests.Lexicon
             var color = new Color("Red", 255, 0, 0);
             likes.SetFavoriteColors(new Color[] { color });
 
-            ChooseCharacterFavoriteColor.CreateAndRegister();
+            SelectCharacterFavoriteColors.CreateAndRegister();
             var handleBarsTemplate = Handlebars.Compile("{{choose-favorite-color}}");
             var result = handleBarsTemplate(new CharacterContext(bob).CreateObject());
             Assert.Equal("Red", result);
@@ -32,7 +32,7 @@ namespace Tests.Lexicon
         public void IfCharacterDoesNotHaveFavoriteColorsJustUseBlack()
         {
             var bob = CharacterTestTemplates.AverageBob();
-            ChooseCharacterFavoriteColor.CreateAndRegister();
+            SelectCharacterFavoriteColors.CreateAndRegister();
             var handleBarsTemplate = Handlebars.Compile("{{choose-favorite-color}}");
             var result = handleBarsTemplate(new CharacterContext(bob).CreateObject());
             Assert.Equal("black", result);

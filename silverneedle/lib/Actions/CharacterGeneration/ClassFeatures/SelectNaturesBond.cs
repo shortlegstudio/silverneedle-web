@@ -10,15 +10,15 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.Domains;
     using SilverNeedle.Serialization;
-    public class ChooseNaturesBond : ICharacterDesignStep
+    public class SelectNaturesBond : ICharacterDesignStep
     {
         private IEnumerable<Domain> domains;
-        public ChooseNaturesBond(IObjectStore configuration) 
+        public SelectNaturesBond(IObjectStore configuration) 
         {
             GetAvailableDomains(configuration, GatewayProvider.Get<Domain>());
         }
 
-        public ChooseNaturesBond(IObjectStore configuration, EntityGateway<Domain> domains)
+        public SelectNaturesBond(IObjectStore configuration, EntityGateway<Domain> domains)
         {
             GetAvailableDomains(configuration, domains);
         }

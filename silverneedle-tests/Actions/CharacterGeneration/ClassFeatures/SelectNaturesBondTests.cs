@@ -11,7 +11,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Serialization;
     using SilverNeedle.Characters.Domains;
 
-    public class ChooseNaturesBondTests
+    public class SelectNaturesBondTests
     {
         [Fact]
         public void SelectsFromALimitedListOfDomains()
@@ -20,7 +20,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
 
             var configure = new MemoryStore();
             configure.SetValue("domain-options", new string[] { "Air" });
-            var chooser = new ChooseNaturesBond(configure, EntityGateway<Domain>.LoadWithSingleItem(airDomain));
+            var chooser = new SelectNaturesBond(configure, EntityGateway<Domain>.LoadWithSingleItem(airDomain));
 
 
             var donna = CharacterTestTemplates.DruidDonna();

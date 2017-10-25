@@ -9,10 +9,10 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Serialization;
 
-    public class ChooseCombatStyle : ICharacterDesignStep
+    public class SelectCombatStyle : ICharacterDesignStep
     {
         EntityGateway<CombatStyle> combatStyleGateway;
-        public ChooseCombatStyle()
+        public SelectCombatStyle()
         {
             combatStyleGateway = GatewayProvider.Get<CombatStyle>();
         }
