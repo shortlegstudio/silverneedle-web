@@ -44,6 +44,9 @@
     - level: 1
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.BardicKnowledge
+    - level: 2
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.WellVersed
     - level: 5
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.LoreMaster
