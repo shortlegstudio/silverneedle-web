@@ -96,5 +96,10 @@ namespace SilverNeedle.Characters
         {
             get { return this.Name.Contains("Knowledge"); }
         }
+
+        public void RequireTraining(bool setting)
+        {
+            this.TrainingRequired = setting;
+        }
     }
 }

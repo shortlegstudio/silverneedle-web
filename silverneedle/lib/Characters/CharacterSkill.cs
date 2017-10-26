@@ -25,6 +25,7 @@ namespace SilverNeedle.Characters
         /// The skill stats that track modifiers and final scores.
         /// </summary>
         private BasicStat skillStats;
+        private bool bypassTraining;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Characters.CharacterSkill"/> class.
@@ -72,7 +73,7 @@ namespace SilverNeedle.Characters
         { 
             get
             {
-                return !Skill.TrainingRequired || this.Ranks > 0;
+                return !Skill.TrainingRequired || this.Ranks > 0 || this.bypassTraining;
             } 
         }
 
@@ -177,6 +178,11 @@ namespace SilverNeedle.Characters
             }
 
             return sb.ToString();
+        }
+
+        public void CanUseWithoutTraining()
+        {
+            this.bypassTraining = true;
         }
     }
 }

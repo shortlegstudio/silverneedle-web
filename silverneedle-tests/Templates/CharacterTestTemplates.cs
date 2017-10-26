@@ -19,14 +19,17 @@ namespace Tests
             character.InitializeComponents();
             return character;
         }
-        public static CharacterSheet WithSkills(string[] names)
+        public static CharacterSheet WithSkills(this CharacterSheet sheet, string[] names)
         {
-            var skills = CreateWithAverageAbilityScores();
             foreach(var n in names)
             {
-                skills.SkillRanks.AddSkill(new Skill(n, AbilityScoreTypes.Wisdom, false));
+                sheet.SkillRanks.AddSkill(new Skill(n, AbilityScoreTypes.Wisdom, false));
             }
-            return skills;
+            return sheet;
+        }
+        public static CharacterSheet WithSkills(string[] names)
+        {
+            return CreateWithAverageAbilityScores().WithSkills(names);
         }
         public static CharacterSheet AverageBob()
         {
@@ -64,6 +67,14 @@ namespace Tests
             var bad = CreateWithAverageAbilityScores();
             bad.AbilityScores.SetScore(AbilityScoreTypes.Strength, 16);
             return bad;
+        }
+
+        public static CharacterSheet BardyBard()
+        {
+            var bardy = CreateWithAverageAbilityScores();
+            var bard = new Class("Bard");
+            bardy.SetClass(bard);
+            return bardy;
         }
 
     }

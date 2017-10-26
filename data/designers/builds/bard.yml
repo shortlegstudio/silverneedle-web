@@ -1,0 +1,63 @@
+--- !<SilverNeedle.Characters.CharacterStrategy>
+- characterbuild:
+  name: Bard
+  classskillmultiplier: 5
+  baseskillweight: 1
+  charactercreator: default
+  designer: create-adventurer
+  ability-score-roller: SilverNeedle.Actions.CharacterGeneration.Abilities.ThreedSixAbilityScoreGenerator
+  classes:
+    - name: bard
+      weight: 10
+  races:
+    - name: dwarf 
+      weight: 5     
+    - name: elf 
+      weight: 12     
+    - name: human
+      weight: 14
+    - name: half-orc
+      weight: 6
+    - name: half-elf 
+      weight: 8     
+    - name: halfling 
+      weight: 12     
+    - name: gnome 
+      weight: 10     
+  skills:
+    - name: acrobatics
+      weight: 6
+    - name: bluff
+      weight: 12
+    - name: diplomacy
+      weight: 6
+    - name: knowledge arcana
+      weight: 14
+    - name: knowledge dungeoneering
+      weight: 10
+    - name: knowledge local
+      weight: 10
+    - name: knowledge nature
+      weight: 10
+    - name: knowledge religion
+      weight: 10
+    - name: knowledge planes
+      weight: 10
+    - name: perception
+      weight: 15
+    - name: sense motive
+      weight: 10
+    - name: spellcraft
+      weight: 10
+  feats:
+    - name: extra performance
+      weight: 10
+    - name: dodge
+      weight: 8
+  abilities:
+    - name: charisma
+      weight: 26
+    - name: intelligence
+      weight: 14
+    - name: dexterity
+      weight: 10

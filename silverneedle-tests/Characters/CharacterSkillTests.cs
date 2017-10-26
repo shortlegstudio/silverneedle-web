@@ -39,6 +39,20 @@ namespace Tests.Characters {
         }
 
         [Fact]
+        public void SometimesTrainedSkillNeedsToBeFlaggedAsAllowedByACharacter()
+        {
+
+            var skill = new Skill (
+                            "Disable Device",
+                            AbilityScoreTypes.Dexterity,
+                            true
+                        );
+            var charSkill = new CharacterSkill (skill, new AbilityScore(AbilityScoreTypes.Dexterity, 18), false);
+            Assert.False (charSkill.AbleToUse);
+            charSkill.CanUseWithoutTraining();
+            Assert.True(charSkill.AbleToUse);
+        }
+        [Fact]
         public void AddingPointsToSkillsIncreasesTheirScore() {
             var skill = new Skill (
                             "Swim",

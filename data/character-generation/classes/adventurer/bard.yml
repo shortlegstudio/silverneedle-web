@@ -40,3 +40,7 @@
   weaponproficiencies: [simple, longsword, rapier, sap, short sword, shortbow, whip]
   developedage: trained
   startingwealth: 3d6
+  levels:
+    - level: 1
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.BardicKnowledge
