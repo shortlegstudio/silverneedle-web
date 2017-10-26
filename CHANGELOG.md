@@ -1,6 +1,13 @@
 # Change Log
 All notable changes will be tracked in this file. Most likely.
 
+## 0.4.0.0
+### Added
+
+### Changed
+
+### Known Issues
+
 ## 0.3.0.0
 ### Added
 - Druid class is now supported (minus animal companions >^.^< )
