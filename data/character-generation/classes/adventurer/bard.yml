@@ -44,6 +44,9 @@
     - level: 1
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.BardicKnowledge
+    - level: 5
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.LoreMaster
     - level: 10
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.JackOfAllTrades
