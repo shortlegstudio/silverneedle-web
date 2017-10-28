@@ -35,6 +35,8 @@ namespace SilverNeedle.Characters.Magic
 
         public void WatchForSpellCasting(object source, ComponentBagEvent args)
         {
+            //TODO: Change this so that instead of an event which is tricky, that
+            //  instead the spellcasting class grabs all rules that are out there
             var spellcasting = args.Component as SpellCasting;
             if(spellcasting != null)
             {

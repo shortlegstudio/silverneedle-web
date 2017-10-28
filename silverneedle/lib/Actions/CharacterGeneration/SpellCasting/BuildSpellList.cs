@@ -30,10 +30,10 @@ namespace SilverNeedle.Actions.CharacterGeneration.SpellCasting
         public void ExecuteStep(CharacterSheet character)
         {
             var strategy = character.Strategy;
-            if(!character.Contains<SpellCasting>())
+            if(!character.Contains<ISpellCasting>())
                 return;
 
-            foreach(var spellcasting in character.GetAll<SpellCasting>())
+            foreach(var spellcasting in character.GetAll<ISpellCasting>())
             {
                 SpellList spellList;
                 switch(spellcasting.SpellsKnown)
@@ -67,7 +67,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.SpellCasting
             spellbook.AddSpells(1, spellList.Levels[1].Choose(3).ToArray());
         }
 
-        private void AddAllSpells(SpellCasting casting, CharacterStrategy strategy, SpellList spellList)
+        private void AddAllSpells(ISpellCasting casting, CharacterStrategy strategy, SpellList spellList)
         {
             casting.AddSpells(0, spells.FindAll(spellList.Levels[0]).ToArray());
             casting.AddSpells(1, spells.FindAll(spellList.Levels[1]).ToArray());

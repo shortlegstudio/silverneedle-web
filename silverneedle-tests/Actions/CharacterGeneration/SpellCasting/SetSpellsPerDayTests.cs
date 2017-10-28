@@ -40,8 +40,8 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
 
             subject.ExecuteStep(character);
 
-            Assert.Equal(character.Get<SpellCasting>().GetSpellsPerDay(0), 3);
-            Assert.Equal(character.Get<SpellCasting>().GetSpellsPerDay(1), 1);
+            Assert.Equal(3, character.Get<ISpellCasting>().GetSpellsPerDay(0));
+            Assert.Equal(1, character.Get<ISpellCasting>().GetSpellsPerDay(1));
         }
 
         [Fact]
@@ -59,11 +59,11 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
             subject.ExecuteStep(character);
 
             //Level 0 should not change
-            Assert.Equal(character.Get<SpellCasting>().GetSpellsPerDay(0), 3);
+            Assert.Equal(3, character.Get<ISpellCasting>().GetSpellsPerDay(0));
             //Level 1 has a bonus
-            Assert.Equal(character.Get<SpellCasting>().GetSpellsPerDay(1), 3);
+            Assert.Equal(3, character.Get<ISpellCasting>().GetSpellsPerDay(1));
             //Level 2 does not
-            Assert.Equal(character.Get<SpellCasting>().GetSpellsPerDay(2), 1);
+            Assert.Equal(1, character.Get<ISpellCasting>().GetSpellsPerDay(2));
         }
 
         [Fact]
@@ -81,11 +81,11 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
             subject.ExecuteStep(character);
 
             //Level 0 should not change
-            Assert.Equal(character.Get<SpellCasting>().GetSpellsPerDay(0), 3);
+            Assert.Equal(3, spellCasting.GetSpellsPerDay(0));
             //Level 1 has a bonus
-            Assert.Equal(character.Get<SpellCasting>().GetSpellsPerDay(1), 7);
+            Assert.Equal(7, spellCasting.GetSpellsPerDay(1));
             //Level 2 does not
-            Assert.Equal(character.Get<SpellCasting>().GetSpellsPerDay(2), 5);
+            Assert.Equal(5, spellCasting.GetSpellsPerDay(2));
         }
     }
 }

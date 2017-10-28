@@ -22,12 +22,12 @@ namespace SilverNeedle.Characters.Magic
             return 0;
         }
 
-        public override IList<string> GetAvailableSpells(int level)
+        public override IEnumerable<string> GetAvailableSpells(int level)
         {
             if(GetSpellsPerDay(level) > 0)
                 return base.GetAvailableSpells(level); 
 
-            return new List<string>();
+            return new string[] { };
         }
 
         public override int MaxLevel

@@ -9,7 +9,7 @@ namespace SilverNeedle.Characters.Magic
     using System.Linq;
     using SilverNeedle.Spells;
 
-    public class SpellCasting 
+    public class SpellCasting : ISpellCasting
     {
         public const int MAX_SPELL_LEVEL = 10;
         private IDictionary<int, Spell[]> knownSpells;
@@ -56,17 +56,17 @@ namespace SilverNeedle.Characters.Magic
             return DifficultyClass.TotalValue + spellLevel;
         }
 
-        public virtual IList<string> GetAvailableSpells(int level)
+        public virtual IEnumerable<string> GetAvailableSpells(int level)
         {
             if(SpellsKnown == SpellsKnown.Spellbook)
             {
                 var spellbook = inventory.Spellbooks.First();
                 return spellbook.GetSpells(level);
             }
-            return GetCastableSpells(level).Select(spell => spell.Name).ToArray();
+            return GetCastableSpells(level).Select(spell => spell.Name);
         }
 
-        public void AddSpells(int level, Spell[] list)
+        public virtual void AddSpells(int level, IEnumerable<Spell> list)
         {
             ShortLog.DebugFormat("Adding Spells[{0}]: {1}", level.ToString(), list.ToString());
             if(knownSpells.ContainsKey(level))
@@ -75,11 +75,11 @@ namespace SilverNeedle.Characters.Magic
             }
             else
             {
-                knownSpells[level] = list;
+                knownSpells[level] = list.ToArray();
             }
         }
 
-        public void SetSpellsPerDay(int level, int amount)
+        public virtual void SetSpellsPerDay(int level, int amount)
         {
             spellsPerDay[level] = amount;
         }
@@ -91,18 +91,18 @@ namespace SilverNeedle.Characters.Magic
             return spellsPerDay[level];
         }
 
-        public void PrepareSpells(int level, string[] spells)
+        public virtual void PrepareSpells(int level, IEnumerable<string> spells)
         {
-            if(spells.Length == 0)
+            if(spells.Empty())
                 return;
             preparedSpells[level] = knownSpells[level].Where(x => spells.Contains(x.Name)).ToArray();
         } 
 
-        public string[] GetPreparedSpells(int level)
+        public virtual IEnumerable<string> GetPreparedSpells(int level)
         {
             if(!preparedSpells.ContainsKey(level))
                 return new string[] { };
-            return preparedSpells[level].Select(x => x.Name).ToArray();
+            return preparedSpells[level].Select(x => x.Name);
         }
 
         public void AddRule(ISpellCastingRule rule)

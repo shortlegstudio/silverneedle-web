@@ -44,6 +44,54 @@
     - level: 1
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.BardicKnowledge
+        - ability: SilverNeedle.Characters.Magic.SpontaneousCasting
+          spells:
+            list: bard
+            type: arcane
+            ability: charisma
+            known: spontaneous
+            per-day:
+              1: [all, 1]
+              2: [all, 2]
+              3: [all, 3]
+              4: [all, 3, 1]
+              5: [all, 4, 2]
+              6: [all, 4, 3]
+              7: [all, 4, 3, 1]
+              8: [all, 4, 4, 2]
+              9: [all, 5, 4, 3]
+              10: [all, 5, 4, 3, 1]
+              11: [all, 5, 4, 4, 2]
+              12: [all, 5, 5, 4, 3]
+              13: [all, 5, 5, 4, 3, 1]
+              14: [all, 5, 5, 4, 4, 2]
+              15: [all, 5, 5, 5, 4, 3]
+              16: [all, 5, 5, 5, 4, 3, 1]
+              17: [all, 5, 5, 5, 4, 4, 2]
+              18: [all, 5, 5, 5, 5, 4, 3]
+              19: [all, 5, 5, 5, 5, 5, 4]
+              20: [all, 5, 5, 5, 5, 5, 5]
+            known-levels:
+              1: [4, 2]
+              2: [5, 3]
+              3: [6, 4]
+              4: [6, 4, 2]
+              5: [6, 4, 3]
+              6: [6, 4, 4]
+              7: [6, 5, 4, 2]
+              8: [6, 5, 4, 3]
+              9: [6, 5, 4, 4]
+              10: [6, 5, 5, 4, 2]
+              11: [6, 6, 5, 4, 3]
+              12: [6, 6, 5, 4, 4]
+              13: [6, 6, 5, 5, 4, 2]
+              14: [6, 6, 6, 5, 4, 3]
+              15: [6, 6, 6, 5, 4, 4]
+              16: [6, 6, 6, 5, 5, 4, 2]
+              17: [6, 6, 6, 6, 5, 4, 3]
+              18: [6, 6, 6, 6, 5, 4, 4]
+              19: [6, 6, 6, 6, 5, 5, 4]
+              20: [6, 6, 6, 6, 6, 5, 5]
     - level: 2
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.WellVersed

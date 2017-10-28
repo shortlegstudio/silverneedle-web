@@ -93,20 +93,6 @@ namespace SilverNeedle.Characters
             Height = character.Size.Height.ToInchesAndFeet();
             Weight = character.Size.Weight.ToPoundsString();
             Money = character.Inventory.CoinPurse.ToString();
-            SpellsAvailable = new Dictionary<int, string[]>();
-            SpellsPrepared = new Dictionary<int, string[]>();
-
-            if(character.Contains<SpellCasting>())
-            {
-                IsSpellCaster = true;
-                SpellDC = new int[character.Get<SpellCasting>().MaxLevel + 1];
-                for(int i = 0; i <= character.Get<SpellCasting>().MaxLevel; i++)
-                {
-                    SpellsAvailable[i] = character.Get<SpellCasting>().GetAvailableSpells(i).ToArray();
-                    SpellsPrepared[i] = character.Get<SpellCasting>().GetPreparedSpells(i);
-                    SpellDC[i] = character.Get<SpellCasting>().GetDifficultyClass(i);
-                }
-            }
 
             SpecialAbilities = character.SpecialQualities.SpecialAbilities.Select(x => x.Name).ToArray();
         }
@@ -189,8 +175,6 @@ namespace SilverNeedle.Characters
 
         public string PhysicalFeatures { get; private set; }
 
-        public Dictionary<int, string[]> SpellsAvailable { get; private set; }
-        public Dictionary<int, string[]> SpellsPrepared { get; private set; }
         public int[] SpellDC { get; private set; }
         public bool IsSpellCaster { get; private set; }
 

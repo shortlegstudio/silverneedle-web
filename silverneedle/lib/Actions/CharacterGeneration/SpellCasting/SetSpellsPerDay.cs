@@ -12,10 +12,10 @@ namespace SilverNeedle.Actions.CharacterGeneration.SpellCasting
     {
         public void ExecuteStep(CharacterSheet character)
         {
-            if(!character.Contains<SpellCasting>())
+            if(!character.Contains<ISpellCasting>())
                 return;
                 
-            foreach(var spellcasting in character.GetAll<SpellCasting>())
+            foreach(var spellcasting in character.GetAll<ISpellCasting>())
             {
                 ShortLog.Debug("-- SetSpellsPerDay --");
                 ShortLog.DebugFormat("CasterLevel: {0}", spellcasting.CasterLevel.ToString());

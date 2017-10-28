@@ -5,6 +5,7 @@
 
 namespace Tests.Actions.CharacterGeneration.SpellCasting
 {
+    using System.Linq;
     using Xunit;
     using SilverNeedle.Actions.CharacterGeneration.SpellCasting;
     using SilverNeedle.Characters;
@@ -39,8 +40,8 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
             var prepareSpells = new PrepareSpells();
 
             prepareSpells.ExecuteStep(character);
-            Assert.Equal(character.Get<SpellCasting>().GetPreparedSpells(0).Length, 3);
-            Assert.Equal(character.Get<SpellCasting>().GetPreparedSpells(1).Length, 1);
+            Assert.Equal(3, character.Get<ISpellCasting>().GetPreparedSpells(0).Count());
+            Assert.Equal(1, character.Get<ISpellCasting>().GetPreparedSpells(1).Count());
         }
 
         [Fact]
@@ -62,8 +63,8 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
 
             var prepSpells = new PrepareSpells();
             prepSpells.ExecuteStep(character);
-            Assert.Equal(scWizard.GetPreparedSpells(0).Length, 3);
-            Assert.Equal(scCleric.GetPreparedSpells(0).Length, 3);
+            Assert.Equal(3, scWizard.GetPreparedSpells(0).Count());
+            Assert.Equal(3, scCleric.GetPreparedSpells(0).Count());
 
         }
 

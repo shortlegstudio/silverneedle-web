@@ -54,8 +54,8 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
             character.Add(spellcasting);
             subject.ExecuteStep(character);
 
-            Assert.NotStrictEqual(character.Get<SpellCasting>().GetAvailableSpells(0), new string [] { "cantrip1", "cantrip2" });
-            Assert.NotStrictEqual(character.Get<SpellCasting>().GetAvailableSpells(1), 
+            Assert.Equal(character.Get<ISpellCasting>().GetAvailableSpells(0), new string [] { "cantrip1", "cantrip2" });
+            Assert.Equal(character.Get<ISpellCasting>().GetAvailableSpells(1), 
                 new string[] { "level 1-1", "level 1-2", "level 1-3", "level 1-4" });
         }
 

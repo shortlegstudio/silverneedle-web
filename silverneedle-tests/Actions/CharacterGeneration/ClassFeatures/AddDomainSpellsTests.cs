@@ -37,7 +37,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
             var addSpells = new AddDomainSpells(configure, spells);
             addSpells.ExecuteStep(character);
 
-            var spellCasting = character.Get<SpellCasting>();
+            var spellCasting = character.Get<ISpellCasting>();
             Assert.Equal(spellCasting.CastingAbility, character.AbilityScores.GetAbility(AbilityScoreTypes.Wisdom));
             Assert.Equal(spellCasting.GetAvailableSpells(1), new string[] { "air 1"});
             Assert.Equal(spellCasting.GetAvailableSpells(2), new string[] { });
