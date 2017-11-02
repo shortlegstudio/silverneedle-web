@@ -23,6 +23,7 @@ namespace SilverNeedle.Characters.Magic
 
         public string SpellList { get; private set; }
         private BasicStat DifficultyClass { get; set; }
+        public SpellType SpellType { get; private set; }
         private IList<ISpellCastingRule> castingRules;
 
         public virtual int MaxLevel 

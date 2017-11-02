@@ -17,6 +17,7 @@ namespace SilverNeedle.Characters.Magic
         int CasterLevel { get; }
         string SpellList { get; }
         SpellsKnown SpellsKnown { get; }
+        SpellType SpellType { get; }
         IEnumerable<string> GetAvailableSpells(int level);
         IEnumerable<string> GetPreparedSpells(int level);
         int GetSpellsPerDay(int level);
