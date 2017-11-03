@@ -4,7 +4,7 @@
 - name: Gate
   school: conjuration
   subschool: creation or calling
-- name: Geas, Lesser
+- name: Geas - Lesser
   school: enchantment
   subschool: compulsion
   descriptors: [language-dependent, mind-affecting]

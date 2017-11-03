@@ -1,10 +1,39 @@
 --- !<SilverNeedle.Spells.SpellList>
 - class: Bard
   levels:
-    0: []
-    1: []
-    2: []
-    3: []
-    4: []
-    5: []
-    6: []
+    0: [dancing lights, daze, detect magic, flare, ghost sound, know direction,
+      light, lullaby, mage hand, mending, message, open/close, prestidigitation,
+      read magic, resistance, summon instrument]
+    1: [alarm, animate rope, cause fear, charm person, comprehend languages,
+      confusion - lesser, cure light wounds, detect secret doors, disguise self,
+      erase, expeditious retreat, feather fall, grease, hideous laughter, 
+      hypnotism, identify, magic aura, magic mouth, obscure object, remove fear,
+      silent image, sleep, summon monster i, undetectable alignment, unseen servant,
+      ventriloquism]
+    2: [alter self, animal messenger, animal trance, blindness/deafness, blur, 
+      calm emotions, cat's grace, cure moderate wounds, darkness, daze monster,
+      delay poison, detect thoughts, eagle's splendor, enthrall, fox's cunning,
+      glitterdust, heroism, hold person, hypnotic pattern, invisibility, 
+      locate object, minor image, mirror image, misdirection, pyrotechnics, 
+      rage, scare, shatter, silence, sound burst, suggestion, summon monster ii,
+      summon swarm, tongues, whispering wind]
+    3: [blink, charm monster, clairaudience/clairvoyance, confusion, crushing despair,
+      cure serious wounds, daylight, deep slumber, dispel magic, displacement, 
+      fear, gaseous form, geas - lesser, glibness, good hope, haste, illusory script,
+      invisibility sphere, major image, phantom speed, remove curse, scrying, 
+      sculpt sound, secret page, see invisibility, sepia snake sigil, slow,
+      speak with animals, summon monster iii, tiny hut]
+    4: [break enchantment, cure critical wounds, detect scrying, dimension door,
+      dominate person, freedom of movement, hallucinatory terrain, hold monster,
+      invisibility - greater, legend lore, locate creature, modify memory, 
+      neutralize poison, rainbow pattern, repel vermin, secure shelter, 
+      shadow conjuration, shout, speak with plants, summon monster iv, zone of silence]
+    5: [cure light wounds - mass, dispel magic - greater, dream, false vision, 
+      heroism - greater, mind fog, mirage arcana, mislead, nightmare, persistent image, 
+      seeming, shadow evocation, shadow walk, song of discord, suggestion - mass,
+      summon monster v]
+    6: [analyze dweomer, animate objects, cat's grace - mass, charm monster - mass,
+      cure moderate wounds - mass, eagle's splendor - mass, eyebite, find the path,
+      fox's cunning - mass, geas/quest, heroes' feast, irresistible dance, permanent image,
+      programmed image, project image, scrying - greater, shout - greater, 
+      summon monster vi, sympathetic vibration, veil]

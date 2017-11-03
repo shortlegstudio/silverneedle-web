@@ -20,7 +20,7 @@ namespace SilverNeedle.Characters.Magic
         {
             this.SpellList = configuration.GetString("list");
             this.SpellType = configuration.GetEnum<SpellType>("type");
-            this.castingAbilityType = configuration.GetEnum<AbilityScoreTypes>("ability");
+            this.castingAbilityType = configuration.GetEnum<AbilityScoreTypes>("casting-ability");
             var slots = configuration.GetObject("spell-slots");
             foreach(var slot in slots.Keys)
             {
@@ -43,7 +43,7 @@ namespace SilverNeedle.Characters.Magic
 
         public int GetSpellsPerDay(int level)
         {
-            return spellSlots[CasterLevel][level];;
+            return spellSlots[CasterLevel][level] + GetBonusSpellsPerDay(level);
         }
 
         public void AddSpells(int level, IEnumerable<Spell> list)
@@ -80,5 +80,19 @@ namespace SilverNeedle.Characters.Magic
 
         public int CasterLevel { get { return this.Class.Level; } }
         public SpellType SpellType { get; private set; }
+
+        //TODO: This is a general calculation that should be moved to a central
+        //location for all spellcasters
+        private int GetBonusSpellsPerDay(int spellLevel)
+        {
+            if(spellLevel == 0)
+                return 0;
+
+            // Ability: 16 (+3) Spell Level: 3
+            // (3-3 + 4)/4 = 1 
+            // Ability: 20 (+5) Spell Level: 1
+            // (5-1 + 4)/4 = 2 
+            return (CastingAbility.TotalModifier - spellLevel + 4) / 4;
+        }
     }
 }
