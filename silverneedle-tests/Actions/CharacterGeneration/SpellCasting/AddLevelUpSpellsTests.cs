@@ -46,7 +46,7 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
             var cls = new Class();
             cls.Spells.List = "wizard";
             character.SetClass(cls);
-            var spellCasting = new SpellCasting(character.Get<Inventory>(), character.Get<ClassLevel>(), "wizard");
+            var spellCasting = new DivineCasting(character.Get<ClassLevel>(), "wizard");
             character.SetLevel(3);
             character.Add(spellCasting);
             spellCasting.SpellsKnown = SpellsKnown.All;
@@ -69,7 +69,7 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
             cls.Spells.List = "wizard";
             character.SetClass(cls);
             character.SetLevel(3);
-            var scWizard = new SpellCasting(character.Get<Inventory>(), character.Get<ClassLevel>(), "wizard");
+            var scWizard = new DivineCasting(character.Get<ClassLevel>(), "wizard");
             scWizard.SpellsKnown = SpellsKnown.All;
             scWizard.SetSpellsPerDay(0, 1);
             scWizard.SetSpellsPerDay(1, 1);
@@ -77,7 +77,7 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
             scWizard.AddSpells(0, new Spell[] { new Spell("cantrip1", "evocation") });
             scWizard.AddSpells(1, new Spell[] { new Spell("level 1-1", "evocation") });
 
-            var scBard = new SpellCasting(character.Get<Inventory>(), character.Get<ClassLevel>(), "wizard");
+            var scBard = new DivineCasting(character.Get<ClassLevel>(), "wizard");
             scBard.SpellsKnown = SpellsKnown.All;
             scBard.SetSpellsPerDay(0, 1);
             scBard.SetSpellsPerDay(1, 1);
@@ -97,7 +97,7 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
         public void IgnoreDomainSpellCasting()
         {
             var character = new CharacterSheet(CharacterStrategy.Default());
-            character.Add(new DomainSpellCasting(new Inventory(), new ClassLevel(new Class())));
+            character.Add(new DomainSpellCasting(new ClassLevel(new Class())));
             subject.ExecuteStep(character);
             // DOES NOT THROW
         }

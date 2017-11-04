@@ -29,7 +29,7 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
             var character = new CharacterSheet(CharacterStrategy.Default());
             var cls = new Class();
             character.SetClass(cls);
-            var spellCasting = new SpellCasting(character.Get<Inventory>(), character.Get<ClassLevel>(), "wizard");
+            var spellCasting = new DivineCasting(character.Get<ClassLevel>(), "wizard");
             spellCasting.SpellsKnown = SpellsKnown.All;
             spellCasting.AddSpells(0, new Spell[] { new Spell("cantrip1", "conjuration"), new Spell("cantrip2", "evocation"), new Spell("cantrip3", "transmutation"), new Spell("cantrip4", "evocation") });
             spellCasting.AddSpells(1, new Spell[] { new Spell("level1-1", "evocation"), new Spell("level1-2", "evocation"), new Spell("level1-3", "evocation"), new Spell("level1-4", "transmutation") });
@@ -50,8 +50,8 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
             var character = new CharacterSheet(CharacterStrategy.Default());
             var cls = new Class();
             character.SetClass(cls);
-            var scWizard = new SpellCasting(character.Get<Inventory>(), character.Get<ClassLevel>(), "wizard");
-            var scCleric = new SpellCasting(character.Get<Inventory>(), character.Get<ClassLevel>(), "cleric");
+            var scWizard = new DivineCasting(character.Get<ClassLevel>(), "wizard");
+            var scCleric = new DivineCasting(character.Get<ClassLevel>(), "cleric");
             scWizard.SpellsKnown = SpellsKnown.All;
             scWizard.AddSpells(0, new Spell[] { new Spell("cantrip1", "conjuration"), new Spell("cantrip2", "evocation"), new Spell("cantrip3", "transmutation"), new Spell("cantrip4", "evocation") });
             scWizard.SetSpellsPerDay(0, 3);

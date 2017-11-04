@@ -49,7 +49,7 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
             var cls = new Class();
             cls.Spells.List = "wizard";
             character.SetClass(cls);
-            var spellcasting = new SpellCasting(character.Inventory, character.Get<ClassLevel>(), "wizard");
+            var spellcasting = new DivineCasting(character.Get<ClassLevel>(), "wizard");
             spellcasting.SpellsKnown = SpellsKnown.All;
             character.Add(spellcasting);
             subject.ExecuteStep(character);
@@ -78,10 +78,10 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
         public void WorksWithMultiClassedCasters()
         {
             var character = new CharacterSheet(CharacterStrategy.Default());
-            var scWizard = new SpellCasting(character.Inventory, new ClassLevel(new Class()), "wizard");
+            var scWizard = new DivineCasting(new ClassLevel(new Class()), "wizard");
             scWizard.SpellsKnown = SpellsKnown.All;
             character.Add(scWizard);
-            var scBard = new SpellCasting(character.Inventory, new ClassLevel(new Class()), "wizard");
+            var scBard = new DivineCasting(new ClassLevel(new Class()), "wizard");
             scBard.SpellsKnown = SpellsKnown.All;
             character.Add(scBard);
             subject.ExecuteStep(character);
@@ -99,7 +99,7 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
         public void IgnoreDomainSpellCastingSinceThatsHandledDifferently()
         {
             var character = new CharacterSheet(CharacterStrategy.Default());
-            character.Add(new DomainSpellCasting(new Inventory(), new ClassLevel(new Class())));
+            character.Add(new DomainSpellCasting(new ClassLevel(new Class())));
             subject.ExecuteStep(character); 
             // DOES NOT THROW
         }

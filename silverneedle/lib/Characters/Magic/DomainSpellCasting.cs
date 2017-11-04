@@ -7,10 +7,10 @@ namespace SilverNeedle.Characters.Magic
 {
     using System.Collections.Generic;
     
-    public class DomainSpellCasting : SpellCasting
+    public class DomainSpellCasting : DivineCasting
     {
 
-        public DomainSpellCasting(Inventory inventory, ClassLevel sourceClass) : base(inventory, sourceClass, "domain")
+        public DomainSpellCasting(ClassLevel sourceClass) : base(sourceClass, "domain")
         {
             this.SpellsKnown = SilverNeedle.Spells.SpellsKnown.Domain;
         }

@@ -20,32 +20,16 @@ namespace Tests.Characters.Magic
         public void TracksAvailableSpellsForTheCharacter()
         {
             var cls = new ClassLevel(new Class());
-            var spellcasting = new SpellCasting(new Inventory(), cls, "wizard");
-            spellcasting.AddSpells(0, new Spell[] { new Spell("cantrip1", "evocation"), new Spell("cantrip2", "evocation") });
-            Assert.NotStrictEqual(spellcasting.GetAvailableSpells(0), new string[] { "cantrip1", "cantrip2" });
-        }
-
-        [Fact]
-        public void IfDependentOnSpellbookPullsAvailableFromSpellbook()
-        {
-            var inventory = new Inventory();
-            var cls = new ClassLevel(new Class());
-            var spellcasting = new SpellCasting(inventory, cls, "wizard");
-            spellcasting.SpellsKnown = SpellsKnown.Spellbook;
-
-            // Make a spellbook
-            var spellbook = new Spellbook();
-            spellbook.AddSpells(0, new string[] { "cantrip1", "cantrip2" });
-            inventory.AddGear(spellbook);
-
-            Assert.NotStrictEqual(spellcasting.GetAvailableSpells(0), new string[] { "cantrip1", "cantrip2" });
+            var spellcasting = new DivineCasting(cls, "cleric");
+            spellcasting.AddSpells(0, new Spell[] { new Spell("orison1", "evocation"), new Spell("orison2", "evocation") });
+            Assert.Equal(spellcasting.GetAvailableSpells(0), new string[] { "orison1", "orison2" });
         }
 
         [Fact]
         public void MaxLevelIsSetForNowByTheMaxLevelKnown()
         {
             var cls = new ClassLevel(new Class());
-            var spells = new SpellCasting(new Inventory(), cls, "wizard"); 
+            var spells = new DivineCasting(cls, "cleric"); 
             spells.SpellsKnown = SpellsKnown.All;
             spells.AddSpells(0, new Spell[] { new Spell("foo", "bar") });
             spells.AddSpells(1, new Spell[] { new Spell("foo", "bar") });
@@ -58,7 +42,7 @@ namespace Tests.Characters.Magic
         public void CanSpecifyTheNumberOfSpellsPerDay()
         {
             var cls = new ClassLevel(new Class());
-            var spells = new SpellCasting(new Inventory(), cls, "wizard");
+            var spells = new DivineCasting(cls, "cleric");
             spells.SetSpellsPerDay(0, 3);
             spells.SetSpellsPerDay(1, 1);
 
@@ -71,17 +55,17 @@ namespace Tests.Characters.Magic
         public void SpellsCanBePrepared()
         {
             var cls = new ClassLevel(new Class());
-            var spells = new SpellCasting(new Inventory(), cls, "wizard");
-            spells.AddSpells(0, new Spell[] { new Spell("cantrip1", "evocation"), new Spell("cantrip2", "evocation") });
-            spells.PrepareSpells(0, new string[] { "cantrip1" });
-            Assert.NotStrictEqual(spells.GetPreparedSpells(0), new string[] {"cantrip1"});
+            var spells = new DivineCasting(cls, "cleric");
+            spells.AddSpells(0, new Spell[] { new Spell("orison1", "evocation"), new Spell("orison2", "evocation") });
+            spells.PrepareSpells(0, new string[] { "orison1" });
+            Assert.NotStrictEqual(spells.GetPreparedSpells(0), new string[] {"orison1"});
         }
 
         [Fact]
         public void CalculatesTheDCBasedOnSpellLevelAndAbility()
         {
             var cls = new ClassLevel(new Class());
-            var spells = new SpellCasting(new Inventory(), cls, "wizard");
+            var spells = new DivineCasting(cls, "orison");
             var abilityScore = new AbilityScore(AbilityScoreTypes.Intelligence, 18);
             spells.SetCastingAbility(abilityScore);
             Assert.Equal(spells.GetDifficultyClass(0), 14);
@@ -93,26 +77,25 @@ namespace Tests.Characters.Magic
         public void IfAskedForSpellsPastMaxLevelJustReturnZero()
         {
             var cls = new ClassLevel(new Class());
-            var spells = new SpellCasting(new Inventory(), cls, "wizard");
+            var spells = new DivineCasting(cls, "cleric");
             Assert.Equal(spells.GetSpellsPerDay(200), 0);
-
         }
 
         [Fact]
         public void RulesCanBeAppliedToSpellCastingThatLimitsAvailableSpells()
         {
             var cls = new ClassLevel(new Class());
-            var spellcasting = new SpellCasting(new Inventory(), cls, "wizard");
-            spellcasting.AddSpells(0, new Spell[] { new Spell("cantrip1", "conjuration"), new Spell("cantrip2", "evocation") });
+            var spellcasting = new DivineCasting(cls, "cleric");
+            spellcasting.AddSpells(0, new Spell[] { new Spell("orison1", "conjuration"), new Spell("orison2", "evocation") });
             var cannotCastConjuration = new CannotCastConjuration();
             spellcasting.AddRule(cannotCastConjuration);
-            Assert.NotStrictEqual(spellcasting.GetAvailableSpells(0), new string[] { "cantrip2" });
+            Assert.Equal(spellcasting.GetAvailableSpells(0), new string[] { "orison2" });
         }
 
         [Fact]
         public void IfTryingToPrepareSpellsAndThereAreNoKnownSpellsDoNothing()
         {
-            var sc = new SpellCasting(new Inventory(), new ClassLevel(new Class()), "wizard");
+            var sc = new DivineCasting(new ClassLevel(new Class()), "cleric");
             // DOES NOT THROW
             sc.PrepareSpells(0, new string[] { }); 
         }
@@ -120,7 +103,7 @@ namespace Tests.Characters.Magic
         [Fact]
         public void AddingMoreSpellsToTheSpellCasterJustAppendsDoesNotReplace()
         {
-            var sc = new SpellCasting(new Inventory(), new ClassLevel(new Class()), "wizard");
+            var sc = new DivineCasting(new ClassLevel(new Class()), "cleric");
             sc.AddSpells(0, new Spell[] { new Spell("cantrip1", "evocation"), new Spell("cantrip2", "evocation") });
             sc.AddSpells(0, new Spell[] { new Spell("cantrip3", "evocation"), new Spell("cantrip4", "evocation") });
             Assert.NotStrictEqual(sc.GetAvailableSpells(0), new string[] { "cantrip1", "cantrip2", "cantrip3", "cantrip4" });

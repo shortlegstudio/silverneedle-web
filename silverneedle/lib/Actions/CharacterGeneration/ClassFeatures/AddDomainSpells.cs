@@ -33,7 +33,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
             if(domains.Empty())
                 return;
 
-            var domainSpells = new DomainSpellCasting(character.Get<Inventory>(), character.Get<ClassLevel>());
+            var domainSpells = new DomainSpellCasting(character.Get<ClassLevel>());
             domainSpells.SetCastingAbility(character.AbilityScores.GetAbility(castingAbility));
             foreach(var d in domains)
             {

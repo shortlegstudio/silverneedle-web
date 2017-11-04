@@ -9,13 +9,12 @@ namespace SilverNeedle.Characters.Magic
     using System.Linq;
     using SilverNeedle.Spells;
 
-    public class SpellCasting : ISpellCasting
+    public class DivineCasting : ISpellCasting
     {
         public const int MAX_SPELL_LEVEL = 10;
         private IDictionary<int, Spell[]> knownSpells;
         private IDictionary<int, Spell[]> preparedSpells;
         private int[] spellsPerDay;
-        private Inventory inventory;
         public SpellsKnown SpellsKnown { get; set; }
         public ClassLevel Class { get; }
         public int CasterLevel { get { return this.Class.Level; } }
@@ -33,13 +32,12 @@ namespace SilverNeedle.Characters.Magic
                 return knownSpells.Keys.Max(); 
             }
         }
-        public SpellCasting(Inventory inventory, ClassLevel sourceClass, string spellList)
+        public DivineCasting(ClassLevel sourceClass, string spellList)
         {
             this.Class = sourceClass;
             this.knownSpells = new Dictionary<int, Spell[]>();
             this.spellsPerDay = new int[MAX_SPELL_LEVEL];
             this.preparedSpells = new Dictionary<int, Spell[]>();
-            this.inventory = inventory;
             this.DifficultyClass = new BasicStat(StatNames.SpellcastingDC, 10);
             SpellsKnown = SpellsKnown.None;
             this.castingRules = new List<ISpellCastingRule>();
@@ -59,11 +57,6 @@ namespace SilverNeedle.Characters.Magic
 
         public virtual IEnumerable<string> GetAvailableSpells(int level)
         {
-            if(SpellsKnown == SpellsKnown.Spellbook)
-            {
-                var spellbook = inventory.Spellbooks.First();
-                return spellbook.GetSpells(level);
-            }
             return GetCastableSpells(level).Select(spell => spell.Name);
         }
 

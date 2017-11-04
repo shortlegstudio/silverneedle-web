@@ -17,7 +17,7 @@ namespace Tests.Characters.Magic
         {
             var classLevel = new ClassLevel(new Class());
             classLevel.Level = 5;
-            var sc = new DomainSpellCasting(new Inventory(), classLevel);
+            var sc = new DomainSpellCasting(classLevel);
             Assert.Equal(sc.GetSpellsPerDay(1), 1);
             Assert.Equal(sc.GetSpellsPerDay(2), 1);
             Assert.Equal(sc.GetSpellsPerDay(3), 1);
@@ -30,7 +30,7 @@ namespace Tests.Characters.Magic
         {
             var classLevel = new ClassLevel(new Class());
             classLevel.Level = 5;
-            var sc = new DomainSpellCasting(new Inventory(), classLevel);
+            var sc = new DomainSpellCasting(classLevel);
             Assert.Equal(sc.GetSpellsPerDay(0), 0);
         }
 
@@ -39,7 +39,7 @@ namespace Tests.Characters.Magic
         {
             var classLevel = new ClassLevel(new Class());
             classLevel.Level = 5;
-            var sc = new DomainSpellCasting(new Inventory(), classLevel);
+            var sc = new DomainSpellCasting(classLevel);
             Assert.Equal(sc.MaxLevel, 3);
         }
 
@@ -48,7 +48,7 @@ namespace Tests.Characters.Magic
         {
             var classLevel = new ClassLevel(new Class());
             classLevel.Level = 20;
-            var sc = new DomainSpellCasting(new Inventory(), classLevel);
+            var sc = new DomainSpellCasting(classLevel);
             Assert.Equal(sc.MaxLevel, 9);
         }
     }
