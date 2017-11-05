@@ -40,8 +40,8 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
             var prepareSpells = new PrepareSpells();
 
             prepareSpells.ExecuteStep(character);
-            Assert.Equal(3, character.Get<ISpellCasting>().GetPreparedSpells(0).Count());
-            Assert.Equal(1, character.Get<ISpellCasting>().GetPreparedSpells(1).Count());
+            Assert.Equal(3, spellCasting.GetPreparedSpells(0).Count());
+            Assert.Equal(1, spellCasting.GetPreparedSpells(1).Count());
         }
 
         [Fact]

@@ -40,8 +40,8 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
 
             subject.ExecuteStep(character);
 
-            Assert.Equal(3, character.Get<ISpellCasting>().GetSpellsPerDay(0));
-            Assert.Equal(1, character.Get<ISpellCasting>().GetSpellsPerDay(1));
+            Assert.Equal(3, spellCasting.GetSpellsPerDay(0));
+            Assert.Equal(1, spellCasting.GetSpellsPerDay(1));
         }
 
         [Fact]
@@ -59,11 +59,11 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
             subject.ExecuteStep(character);
 
             //Level 0 should not change
-            Assert.Equal(3, character.Get<ISpellCasting>().GetSpellsPerDay(0));
+            Assert.Equal(3, spellCasting.GetSpellsPerDay(0));
             //Level 1 has a bonus
-            Assert.Equal(3, character.Get<ISpellCasting>().GetSpellsPerDay(1));
+            Assert.Equal(3, spellCasting.GetSpellsPerDay(1));
             //Level 2 does not
-            Assert.Equal(1, character.Get<ISpellCasting>().GetSpellsPerDay(2));
+            Assert.Equal(1, spellCasting.GetSpellsPerDay(2));
         }
 
         [Fact]

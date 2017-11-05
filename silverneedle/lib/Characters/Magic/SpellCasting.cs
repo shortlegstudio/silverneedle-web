@@ -35,7 +35,7 @@ namespace SilverNeedle.Characters.Magic
         }
         public virtual AbilityScore CastingAbility { get; private set; }
 
-        public virtual IEnumerable<string> GetAvailableSpells(int level)
+        public virtual IEnumerable<string> GetKnownSpells(int level)
         {
             throw new System.NotImplementedException();
         }

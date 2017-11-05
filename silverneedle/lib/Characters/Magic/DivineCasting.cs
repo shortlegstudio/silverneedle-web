@@ -9,7 +9,7 @@ namespace SilverNeedle.Characters.Magic
     using System.Linq;
     using SilverNeedle.Spells;
 
-    public class DivineCasting : ISpellCasting
+    public class DivineCasting 
     {
         public const int MAX_SPELL_LEVEL = 10;
         private IDictionary<int, Spell[]> knownSpells;

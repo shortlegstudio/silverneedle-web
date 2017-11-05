@@ -15,14 +15,10 @@ namespace SilverNeedle.Characters.Magic
         ClassLevel Class { get; }
         int MaxLevel { get; }
         int CasterLevel { get; }
-        string SpellListName { get; }
-        SpellsKnown SpellsKnown { get; }
         SpellType SpellType { get; }
-        IEnumerable<string> GetAvailableSpells(int level);
+        IEnumerable<string> GetKnownSpells(int level);
         IEnumerable<string> GetPreparedSpells(int level);
         int GetSpellsPerDay(int level);
-        void SetSpellsPerDay(int level, int amount);
-        void AddSpells(int level, IEnumerable<Spell> list);
         void PrepareSpells(int level, IEnumerable<string> listOfSpellNames);
     }
 }

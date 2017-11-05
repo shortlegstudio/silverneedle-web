@@ -54,15 +54,9 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
             character.Add(spellcasting);
             subject.ExecuteStep(character);
 
-            Assert.Equal(character.Get<ISpellCasting>().GetAvailableSpells(0), new string [] { "cantrip1", "cantrip2" });
-            Assert.Equal(character.Get<ISpellCasting>().GetAvailableSpells(1), 
+            Assert.Equal(spellcasting.GetAvailableSpells(0), new string [] { "cantrip1", "cantrip2" });
+            Assert.Equal(spellcasting.GetAvailableSpells(1), 
                 new string[] { "level 1-1", "level 1-2", "level 1-3", "level 1-4" });
-        }
-
-
-        [Fact(Skip="Spontaneous Casters Not Supported")]
-        public void ChoosesSpellsKnownBasedOnClassRulesIfSpontaneousCaster()
-        {
         }
 
         [Fact]

@@ -31,7 +31,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.SpellCasting
 
         public void ExecuteStep(CharacterSheet character)
         {
-            var spellCasting = character.GetAll<ISpellCasting>();
+            var spellCasting = character.GetAll<DivineCasting>();
             foreach(var sc in spellCasting)
             {
                 //TODO: This should be replaced by using the specific implementation
@@ -49,7 +49,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.SpellCasting
         }    
 
 
-        private void HandleALLSpellCaster(ISpellCasting spellCasting)
+        private void HandleALLSpellCaster(DivineCasting spellCasting)
         {
             //check if we have spells for the highest Level
             int maxLevel = spellCasting.MaxLevel;

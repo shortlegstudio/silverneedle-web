@@ -14,18 +14,18 @@ namespace SilverNeedle.Actions.CharacterGeneration.SpellCasting
     {
         public void ExecuteStep(CharacterSheet character)
         {
-            if(character.Get<ISpellCasting>() == null)
+            if(character.Get<DivineCasting>() == null)
                 return;
 
             ShortLog.Debug("-- PrepareSpells --");
-            var spellCastings = character.GetAll<ISpellCasting>();
+            var spellCastings = character.GetAll<DivineCasting>();
             foreach(var sc in spellCastings)
             {
                 Prepare(sc);
             }
         }
 
-        private void Prepare(ISpellCasting spellCasting)
+        private void Prepare(DivineCasting spellCasting)
         {
             ShortLog.DebugFormat("Preparing spells for list: {0}", spellCasting.ToString());
             for(int level = 0; level <= spellCasting.MaxLevel; level++)
