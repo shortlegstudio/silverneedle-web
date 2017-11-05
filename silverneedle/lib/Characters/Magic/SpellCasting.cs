@@ -35,34 +35,9 @@ namespace SilverNeedle.Characters.Magic
         }
         public virtual AbilityScore CastingAbility { get; private set; }
 
-        public virtual IEnumerable<string> GetKnownSpells(int level)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public virtual IEnumerable<string> GetPreparedSpells(int level)
-        {
-            throw new System.NotImplementedException();
-        }
-
         public virtual int GetSpellsPerDay(int level)
         {
             return spellSlots[CasterLevel][level] + GetBonusSpellsPerDay(level);
-        }
-
-        public virtual void AddSpells(int level, IEnumerable<Spell> list)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public virtual void SetSpellsPerDay(int level, int amount)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public  virtual void PrepareSpells(int level, IEnumerable<string> listOfSpellNames)
-        {
-            throw new System.NotImplementedException();
         }
 
         public virtual void Initialize(ComponentBag components)
@@ -70,13 +45,6 @@ namespace SilverNeedle.Characters.Magic
             this.CastingAbility = components.Get<AbilityScores>().GetAbility(castingAbilityType);
             this.Class = components.Get<ClassLevel>();
         }
-
-        public virtual SpellsKnown SpellsKnown
-        {
-            get { return SpellsKnown.None; }
-        }
-
-        public virtual int MaxLevel => throw new System.NotImplementedException();
 
         public virtual string SpellListName { get; private set; }
 
@@ -99,5 +67,6 @@ namespace SilverNeedle.Characters.Magic
             // (5-1 + 4)/4 = 2 
             return (CastingAbility.TotalModifier - spellLevel + 4) / 4;
         }
+
     }
 }

@@ -23,7 +23,6 @@ namespace Tests.Characters.Magic
             Assert.Equal("bard", spellCasting.SpellListName);
             Assert.Equal(SpellType.Arcane, spellCasting.SpellType);
             Assert.Equal(bard.AbilityScores.GetAbility(AbilityScoreTypes.Charisma), spellCasting.CastingAbility);
-            Assert.Equal(SpellsKnown.Spontaneous, spellCasting.SpellsKnown);
             Assert.Equal(4, spellCasting.GetSpellsPerDay(0));
             Assert.Equal(1, spellCasting.GetSpellsPerDay(1));
             bard.SetLevel(2);
@@ -36,27 +35,6 @@ namespace Tests.Characters.Magic
             Assert.Equal(bard.Level, spellCasting.CasterLevel);
         }
 
-        [Fact]
-        public void HighCharismaImprovesSpellsPerDay()
-        {
-            var bard = CharacterTestTemplates.BardyBard();
-            var spellCasting = new SpontaneousCasting(configuration);
-            bard.Add(spellCasting);
-            bard.AbilityScores.SetScore(AbilityScoreTypes.Charisma, 16);
-            Assert.Equal(2, spellCasting.GetSpellsPerDay(1));
-        }
-
-        [Fact]
-        public void CharismaBonusMaxesOutDependingOnModifier()
-        {
-            var bard = CharacterTestTemplates.BardyBard();
-            var spellCasting = new SpontaneousCasting(configuration);
-            bard.Add(spellCasting);
-            bard.SetLevel(3);
-            bard.AbilityScores.SetScore(AbilityScoreTypes.Charisma, 12);
-            Assert.Equal(4, spellCasting.GetSpellsPerDay(1));
-            Assert.Equal(2, spellCasting.GetSpellsPerDay(2));
-        }
         IObjectStore configuration = @"
 list: bard
 type: arcane

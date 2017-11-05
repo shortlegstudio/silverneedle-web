@@ -21,6 +21,7 @@ namespace Tests.Characters.Magic
         {
             spellList = new SpellList();
             spellList.Class = "bard";
+            spellList.Add(1, "magic missile");
             var gateway = EntityGateway<SpellList>.LoadWithSingleItem(spellList);
             bard = CharacterTestTemplates.BardyBard();
             spellCasting = new SpellCasting(configuration, gateway);
@@ -65,6 +66,13 @@ namespace Tests.Characters.Magic
         {
             Assert.Equal(spellList, spellCasting.SpellList);
         }
+
+        [Fact]
+        public void GetKnownSpellsReturnsTheSpellsAvailable()
+        {
+
+        }
+
         IObjectStore configuration = @"
 list: bard
 type: arcane

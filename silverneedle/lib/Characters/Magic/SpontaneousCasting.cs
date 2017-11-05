@@ -17,11 +17,5 @@ namespace SilverNeedle.Characters.Magic
         public SpontaneousCasting(IObjectStore configuration) : base(configuration)
         {
         }
-        
-        public override SpellsKnown SpellsKnown
-        {
-            get { return SpellsKnown.Spontaneous; }
-        }
-        
     }
 }

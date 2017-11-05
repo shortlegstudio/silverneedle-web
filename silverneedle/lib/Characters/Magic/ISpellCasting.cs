@@ -13,12 +13,8 @@ namespace SilverNeedle.Characters.Magic
 
         AbilityScore CastingAbility { get; }
         ClassLevel Class { get; }
-        int MaxLevel { get; }
         int CasterLevel { get; }
         SpellType SpellType { get; }
-        IEnumerable<string> GetKnownSpells(int level);
-        IEnumerable<string> GetPreparedSpells(int level);
         int GetSpellsPerDay(int level);
-        void PrepareSpells(int level, IEnumerable<string> listOfSpellNames);
     }
 }
