@@ -22,5 +22,6 @@ namespace SilverNeedle.Characters.Magic
         {
             get { return SpellsKnown.Spontaneous; }
         }
+        
     }
 }

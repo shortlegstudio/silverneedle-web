@@ -12,18 +12,26 @@ namespace Tests.Characters.Magic
     using SilverNeedle.Spells;
     using SilverNeedle.Utility;
 
-    public class SpontaneousCastingTests
+    public class SpellCastingTests
     {
+        SpellList spellList;
+        CharacterSheet bard;
+        SpellCasting spellCasting;
+        public SpellCastingTests()
+        {
+            spellList = new SpellList();
+            spellList.Class = "bard";
+            var gateway = EntityGateway<SpellList>.LoadWithSingleItem(spellList);
+            bard = CharacterTestTemplates.BardyBard();
+            spellCasting = new SpellCasting(configuration, gateway);
+            bard.Add(spellCasting);
+        }
         [Fact]
         public void LoadsDetailsAboutHowTheSpellsAreManaged()
         {
-            var bard = CharacterTestTemplates.BardyBard();
-            var spellCasting = new SpontaneousCasting(configuration);
-            bard.Add(spellCasting);
             Assert.Equal("bard", spellCasting.SpellListName);
             Assert.Equal(SpellType.Arcane, spellCasting.SpellType);
             Assert.Equal(bard.AbilityScores.GetAbility(AbilityScoreTypes.Charisma), spellCasting.CastingAbility);
-            Assert.Equal(SpellsKnown.Spontaneous, spellCasting.SpellsKnown);
             Assert.Equal(4, spellCasting.GetSpellsPerDay(0));
             Assert.Equal(1, spellCasting.GetSpellsPerDay(1));
             bard.SetLevel(2);
@@ -39,9 +47,6 @@ namespace Tests.Characters.Magic
         [Fact]
         public void HighCharismaImprovesSpellsPerDay()
         {
-            var bard = CharacterTestTemplates.BardyBard();
-            var spellCasting = new SpontaneousCasting(configuration);
-            bard.Add(spellCasting);
             bard.AbilityScores.SetScore(AbilityScoreTypes.Charisma, 16);
             Assert.Equal(2, spellCasting.GetSpellsPerDay(1));
         }
@@ -49,13 +54,16 @@ namespace Tests.Characters.Magic
         [Fact]
         public void CharismaBonusMaxesOutDependingOnModifier()
         {
-            var bard = CharacterTestTemplates.BardyBard();
-            var spellCasting = new SpontaneousCasting(configuration);
-            bard.Add(spellCasting);
             bard.SetLevel(3);
             bard.AbilityScores.SetScore(AbilityScoreTypes.Charisma, 12);
             Assert.Equal(4, spellCasting.GetSpellsPerDay(1));
             Assert.Equal(2, spellCasting.GetSpellsPerDay(2));
+        }
+
+        [Fact]
+        public void LoadsTheSpellList()
+        {
+            Assert.Equal(spellList, spellCasting.SpellList);
         }
         IObjectStore configuration = @"
 list: bard

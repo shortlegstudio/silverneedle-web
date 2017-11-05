@@ -20,7 +20,7 @@ namespace SilverNeedle.Characters.Magic
         public int CasterLevel { get { return this.Class.Level; } }
         public AbilityScore CastingAbility { get; private set; }
 
-        public string SpellList { get; private set; }
+        public string SpellListName { get; private set; }
         private BasicStat DifficultyClass { get; set; }
         public SpellType SpellType { get; private set; }
         private IList<ISpellCastingRule> castingRules;
@@ -41,7 +41,7 @@ namespace SilverNeedle.Characters.Magic
             this.DifficultyClass = new BasicStat(StatNames.SpellcastingDC, 10);
             SpellsKnown = SpellsKnown.None;
             this.castingRules = new List<ISpellCastingRule>();
-            this.SpellList = spellList;
+            this.SpellListName = spellList;
         }
 
         public void SetCastingAbility(AbilityScore ability)
@@ -113,7 +113,7 @@ namespace SilverNeedle.Characters.Magic
 
         public override string ToString()
         {
-            return string.Format("Spellcasting ({0})", this.SpellList);
+            return string.Format("Spellcasting ({0})", this.SpellListName);
         }
     }
 }

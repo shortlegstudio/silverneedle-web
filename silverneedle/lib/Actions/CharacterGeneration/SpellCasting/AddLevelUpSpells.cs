@@ -56,7 +56,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.SpellCasting
             int nextLevel = maxLevel + 1;
             if(spellCasting.GetSpellsPerDay(nextLevel) > 0)
             {
-                var spellList = spellLists.Find(spellCasting.SpellList);    
+                var spellList = spellLists.Find(spellCasting.SpellListName);    
                 spellCasting.AddSpells(nextLevel, spells.FindAll(spellList.Levels[nextLevel]).ToArray());
             }
         }

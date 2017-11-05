@@ -11,13 +11,18 @@ namespace SilverNeedle.Characters.Magic
     using SilverNeedle.Spells;
     using SilverNeedle.Utility;
 
-    public abstract class SpellCasting : ISpellCasting, IComponent
+    public class SpellCasting : ISpellCasting, IComponent
     {
         private AbilityScoreTypes castingAbilityType;
         private Dictionary<int, int[]> spellSlots = new Dictionary<int, int[]>();
-        public SpellCasting(IObjectStore configuration)
+        public SpellCasting(IObjectStore configuration) : this(configuration, GatewayProvider.Get<SpellList>())
         {
-            this.SpellList = configuration.GetString("list");
+
+        }
+        public SpellCasting(IObjectStore configuration, EntityGateway<SpellList> spellLists)
+        {
+            this.SpellListName = configuration.GetString("list");
+            this.SpellList = spellLists.Find(this.SpellListName);
             this.SpellType = configuration.GetEnum<SpellType>("type");
             this.castingAbilityType = configuration.GetEnum<AbilityScoreTypes>("casting-ability");
             var slots = configuration.GetObject("spell-slots");
@@ -73,12 +78,13 @@ namespace SilverNeedle.Characters.Magic
 
         public virtual int MaxLevel => throw new System.NotImplementedException();
 
-        public virtual string SpellList { get; private set; }
+        public virtual string SpellListName { get; private set; }
 
         public virtual ClassLevel Class { get; private set; }
 
         public virtual int CasterLevel { get { return this.Class.Level; } }
         public virtual SpellType SpellType { get; private set; }
+        public SpellList SpellList { get; private set; }
 
         //TODO: This is a general calculation that should be moved to a central
         //location for all spellcasters

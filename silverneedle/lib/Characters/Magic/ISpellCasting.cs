@@ -15,7 +15,7 @@ namespace SilverNeedle.Characters.Magic
         ClassLevel Class { get; }
         int MaxLevel { get; }
         int CasterLevel { get; }
-        string SpellList { get; }
+        string SpellListName { get; }
         SpellsKnown SpellsKnown { get; }
         SpellType SpellType { get; }
         IEnumerable<string> GetAvailableSpells(int level);

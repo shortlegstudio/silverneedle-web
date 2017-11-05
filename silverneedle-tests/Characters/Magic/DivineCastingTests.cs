@@ -14,7 +14,7 @@ namespace Tests.Characters.Magic
     using SilverNeedle.Utility;
 
     
-    public class SpellCastingTests
+    public class DivineCastingTests
     {
         [Fact]
         public void TracksAvailableSpellsForTheCharacter()

@@ -39,12 +39,12 @@ namespace SilverNeedle.Actions.CharacterGeneration.SpellCasting
                 switch(spellcasting.SpellsKnown)
                 {
                     case SpellsKnown.Spellbook:
-                        spellList = spellLists.Find(spellcasting.SpellList);
+                        spellList = spellLists.Find(spellcasting.SpellListName);
                         BuildSpellbook(character, strategy, spellList);
                         break;
 
                     case SpellsKnown.All:
-                        spellList = spellLists.Find(spellcasting.SpellList);
+                        spellList = spellLists.Find(spellcasting.SpellListName);
                         AddAllSpells(spellcasting, strategy, spellList);
                         break;
                     
