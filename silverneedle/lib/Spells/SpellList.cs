@@ -11,6 +11,8 @@ namespace SilverNeedle.Spells
 
     public class SpellList : IGatewayObject
     {
+        public string Class { get; set; }
+        public Dictionary<int, IList<string>> Levels { get; set; }
         public SpellList()
         {
             Levels = new Dictionary<int, IList<string>>();
@@ -35,11 +37,6 @@ namespace SilverNeedle.Spells
                 Levels[level].Add(spellName);
         }
 
-        public IEnumerable<KeyValuePair<int, IList<string>>> FilterByMaxLevel(int maxLevel)
-        {
-            return this.Levels.Where(x => x.Key <= maxLevel);
-        }
-
         private void AddLevelIfMissing(int level)
         {
             if(!Levels.ContainsKey(level))
@@ -48,10 +45,21 @@ namespace SilverNeedle.Spells
             }
         }
 
-        public string Class { get; set; }
+        public IEnumerable<KeyValuePair<int, IList<string>>> FilterByMaxLevel(int maxLevel)
+        {
+            return this.Levels.Where(x => x.Key <= maxLevel);
+        }
 
-        //TODO: Refactor this to be abstracted away
-        public Dictionary<int, IList<string>> Levels { get; set; }
+        public int GetSpellLevel(string spellName)
+        {
+            foreach(var spells in this.Levels)
+            {
+                if(spells.Value.Contains(spellName))
+                    return spells.Key;
+            }
+
+            throw new SpellNotFoundException(spellName);
+        }
 
         public bool Matches(string cls)
         {

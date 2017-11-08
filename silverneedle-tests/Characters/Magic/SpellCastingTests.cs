@@ -67,12 +67,6 @@ namespace Tests.Characters.Magic
             Assert.Equal(spellList, spellCasting.SpellList);
         }
 
-        [Fact]
-        public void GetKnownSpellsReturnsTheSpellsAvailable()
-        {
-
-        }
-
         IObjectStore configuration = @"
 list: bard
 type: arcane

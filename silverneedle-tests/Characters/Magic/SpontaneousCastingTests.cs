@@ -14,26 +14,53 @@ namespace Tests.Characters.Magic
 
     public class SpontaneousCastingTests
     {
-        [Fact]
-        public void LoadsDetailsAboutHowTheSpellsAreManaged()
+        CharacterSheet bard;
+        SpellList spellList;
+        SpontaneousCasting spellCasting;
+        public SpontaneousCastingTests()
         {
-            var bard = CharacterTestTemplates.BardyBard();
-            var spellCasting = new SpontaneousCasting(configuration);
+            spellList = new SpellList();
+            spellList.Class = "bard";
+            spellList.Add(0, "cantrip1");
+            spellList.Add(0, "cantrip2");
+            spellList.Add(1, "level1.1");
+            spellList.Add(1, "level1.2");
+            spellList.Add(2, "level2.1");
+            spellList.Add(2, "level2.2");
+            bard = CharacterTestTemplates.BardyBard();
+            spellCasting = new SpontaneousCasting(configuration, EntityGateway<SpellList>.LoadWithSingleItem(spellList));
             bard.Add(spellCasting);
-            Assert.Equal("bard", spellCasting.SpellListName);
-            Assert.Equal(SpellType.Arcane, spellCasting.SpellType);
-            Assert.Equal(bard.AbilityScores.GetAbility(AbilityScoreTypes.Charisma), spellCasting.CastingAbility);
-            Assert.Equal(4, spellCasting.GetSpellsPerDay(0));
-            Assert.Equal(1, spellCasting.GetSpellsPerDay(1));
-            bard.SetLevel(2);
-            Assert.Equal(5, spellCasting.GetSpellsPerDay(0));
-            Assert.Equal(2, spellCasting.GetSpellsPerDay(1));
-            bard.SetLevel(3);
-            Assert.Equal(6, spellCasting.GetSpellsPerDay(0));
-            Assert.Equal(3, spellCasting.GetSpellsPerDay(1));
-            Assert.Equal(bard.Class, spellCasting.Class.Class);
-            Assert.Equal(bard.Level, spellCasting.CasterLevel);
         }
+
+        [Fact]
+        public void SpontaneousCastersHaveLimitedKnownSpells()
+        {
+            Assert.Equal(4, spellCasting.GetKnownSpellCount(0));
+            Assert.Equal(2, spellCasting.GetKnownSpellCount(1));
+            bard.SetLevel(3);
+
+            Assert.Equal(6, spellCasting.GetKnownSpellCount(0));
+            Assert.Equal(4, spellCasting.GetKnownSpellCount(1));
+            Assert.Equal(1, spellCasting.GetKnownSpellCount(2));
+        }
+
+        [Fact]
+        public void AskingForKnownSpellsAtALevelUnknownJustReturnsZero()
+        {
+            Assert.Equal(0, spellCasting.GetKnownSpellCount(6));
+        }
+
+        [Fact]
+        public void SpontaneousCastersNeedToBeToldWhatSpellsTheyKnow()
+        {
+            spellCasting.LearnSpell("cantrip1");
+            spellCasting.LearnSpell("cantrip2");
+            spellCasting.LearnSpell("level1.1");
+            Assert.Equal(new string[] { "cantrip1", "cantrip2" }, spellCasting.GetReadySpells(0));
+            Assert.Equal(new string[] { "level1.1" }, spellCasting.GetReadySpells(1));
+        }
+
+
 
         IObjectStore configuration = @"
 list: bard
@@ -46,7 +73,7 @@ spell-slots:
 spells-known:
   1: [4, 2]
   2: [5, 3]
-  3: [6, 4]
+  3: [6, 4, 1]
 ".ParseYaml();
     }
 }

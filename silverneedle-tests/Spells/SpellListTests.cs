@@ -49,5 +49,20 @@ namespace Tests.Spells
             Assert.Equal(new string[] { "Cure Light Wounds"}, spellList.Levels[1]);
         }
 
+        [Fact]
+        public void CanReturnASpellsLevelFromTheName()
+        {
+            var spellList = new SpellList();
+            spellList.Add(3, "Fireball");
+            Assert.Equal(3, spellList.GetSpellLevel("Fireball"));
+        }
+
+        [Fact]
+        public void IfSpellIsNotFoundThrowException()
+        {
+            var spellList = new SpellList();
+            Assert.Throws(typeof(SpellNotFoundException), () => spellList.GetSpellLevel("Super Awesome Spell"));
+        }
+
     }
 }
