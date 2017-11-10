@@ -44,6 +44,11 @@
     - level: 1
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.BardicKnowledge
+        - ability: SilverNeedle.Characters.SpecialAbilities.BardicPerformanceAbility
+        - ability: SilverNeedle.Characters.SpecialAbilities.BardicPerformances.Countersong
+        - ability: SilverNeedle.Characters.SpecialAbilities.BardicPerformances.Distraction
+        - ability: SilverNeedle.Characters.SpecialAbilities.BardicPerformances.Fascinate
+        - ability: SilverNeedle.Characters.SpecialAbilities.BardicPerformances.InspireCourage
         - ability: SilverNeedle.Characters.Magic.SpontaneousCasting
           list: bard
           type: arcane
@@ -99,6 +104,8 @@
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 3
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.BardicPerformances.InspireCompetence
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 4
@@ -110,15 +117,21 @@
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 6
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.BardicPerformances.Suggestion
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 7
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 8
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.BardicPerformances.DirgeOfDoom
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 9
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.BardicPerformances.InspireGreatness
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 10
@@ -130,15 +143,21 @@
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 12
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.BardicPerformances.SoothingPerformance
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 13
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 14
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.BardicPerformances.FrighteningTune
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 15
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.BardicPerformances.InspireHeroics
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 16
@@ -148,11 +167,15 @@
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 18
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.BardicPerformances.MassSuggestion
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 19
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 20
+      abilities:
+        - ability: SilverNeedle.Characters.SpecialAbilities.BardicPerformances.DeadlyPerformance
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells

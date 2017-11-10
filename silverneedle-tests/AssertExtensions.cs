@@ -15,5 +15,10 @@ namespace Tests
         {
             Assert.Equal(expected.OrderBy(x => x), actual.OrderBy(y => y));
         }
+
+        public static void Contains<T>(T expected, IEnumerable<T> collection)
+        {
+            Assert.True(collection.Contains(expected));
+        }
     }
 }

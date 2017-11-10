@@ -25,6 +25,11 @@ namespace SilverNeedle
             return Inflector.Capitalize(source);
         }
 
+        public static string Titlize(this string source)
+        {
+            return Inflector.Titleize(source);
+        }
+
         public static bool EqualsIgnoreCase(this string source, string compare)
         {
             return string.Equals(source, compare, StringComparison.OrdinalIgnoreCase);
