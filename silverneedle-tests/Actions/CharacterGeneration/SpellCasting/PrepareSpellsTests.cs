@@ -67,10 +67,5 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
             Assert.Equal(3, scCleric.GetPreparedSpells(0).Count());
 
         }
-
-        [Fact(Skip="Spontaneous Casters not Supported")]
-        public void SetAllSpellsAsPreparedIfASpontaneousCaster()
-        {
-        }
     }
 }

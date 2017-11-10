@@ -11,10 +11,9 @@ namespace SilverNeedle.Characters.Magic
     public interface ISpellCasting
     {
 
-        AbilityScore CastingAbility { get; }
-        ClassLevel Class { get; }
-        int CasterLevel { get; }
-        SpellType SpellType { get; }
-        int GetSpellsPerDay(int level);
+        string SpellListName { get; }
+        int GetHighestSpellLevelKnown();
+        IEnumerable<string> GetReadySpells(int spellLevel);
+        int GetDifficultyClass(int spellLevel);
     }
 }

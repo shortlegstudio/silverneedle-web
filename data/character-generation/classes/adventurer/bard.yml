@@ -70,7 +70,7 @@
             18: [6, 5, 5, 5, 5, 4, 3]
             19: [6, 5, 5, 5, 5, 5, 4]
             20: [6, 5, 5, 5, 5, 5, 5]
-          known-levels:
+          spells-known:
             1: [4, 2]
             2: [5, 3]
             3: [6, 4]
@@ -91,12 +91,68 @@
             18: [6, 6, 6, 6, 5, 4, 4]
             19: [6, 6, 6, 6, 5, 5, 4]
             20: [6, 6, 6, 6, 6, 5, 5]
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 2
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.WellVersed
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
+    - level: 3
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
+    - level: 4
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 5
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.LoreMaster
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
+    - level: 6
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
+    - level: 7
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
+    - level: 8
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
+    - level: 9
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 10
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.JackOfAllTrades
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
+    - level: 11
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
+    - level: 12
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
+    - level: 13
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
+    - level: 14
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
+    - level: 15
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
+    - level: 16
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
+    - level: 17
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
+    - level: 18
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
+    - level: 19
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
+    - level: 20
+      class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells

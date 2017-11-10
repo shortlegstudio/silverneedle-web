@@ -1,6 +1,6 @@
 @using SilverNeedle.Characters.Magic;
 @{
-    var spellCasting = ViewData["spell-casting"] as DivineCasting;
+    var spellCasting = ViewData["spell-casting"] as ISpellCasting;
 }
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -16,14 +16,14 @@
                 </tr>
             </thead>
             <tbody>
-                @for(int spellLevel = 0; spellLevel <= spellCasting.MaxLevel; spellLevel++)
+                @for(int spellLevel = 0; spellLevel <= spellCasting.GetHighestSpellLevelKnown(); spellLevel++)
                 {
                     <tr>
                         <td>@spellLevel</td>
                         <td>@spellCasting.GetDifficultyClass(spellLevel)</td>
                         <td>
                             <ul class="commalist" style="padding: 0">
-                                @{ var spells = spellCasting.GetPreparedSpells(spellLevel); }
+                                @{ var spells = spellCasting.GetReadySpells(spellLevel); }
                                 @foreach(var s in spells)
                                 { <li>@s</li> } 
                             </ul>

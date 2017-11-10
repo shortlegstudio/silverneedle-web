@@ -60,6 +60,12 @@ namespace Tests.Characters.Magic
             Assert.Equal(new string[] { "level1.1" }, spellCasting.GetReadySpells(1));
         }
 
+        [Fact]
+        public void GettingReadySpellsFromBeyondLevelKnownReturnsEmptyList()
+        {
+            Assert.Equal(new string[] { }, spellCasting.GetReadySpells(90));
+        }
+
 
 
         IObjectStore configuration = @"

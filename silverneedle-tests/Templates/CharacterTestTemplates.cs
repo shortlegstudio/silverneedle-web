@@ -7,6 +7,10 @@ namespace Tests
 {
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.Background;
+    using SilverNeedle.Characters.Magic;
+    using SilverNeedle.Serialization;
+    using SilverNeedle.Spells;
+    using SilverNeedle.Utility;
     public static class CharacterTestTemplates
     {
         private static CharacterSheet CreateWithAverageAbilityScores()
@@ -77,5 +81,37 @@ namespace Tests
             return bardy;
         }
 
+        public static CharacterSheet WithSpontaneousCasting(this CharacterSheet character)
+        {
+            var spellcastingConfigurationYaml = @"---
+list: " + character.Class.Name + @"
+type: arcane
+casting-ability: charisma
+spell-slots:
+  1: [4, 1]
+  2: [5, 2]
+  3: [6, 3, 2]
+spells-known:
+  1: [4, 2]
+  2: [5, 3]
+  3: [6, 4, 1]
+";
+            var spellcastingConfiguration = spellcastingConfigurationYaml.ParseYaml();
+            var spellList = new SpellList();
+            spellList.Class = character.Class.Name;
+            //Add a bunch of spells
+            for(int level = 0; level < 10; level++)
+            {
+                for(int spellCount = 0; spellCount < 15; spellCount++)
+                {
+                    spellList.Add(level, string.Format("spell {0}-{1}", level, spellCount));
+                }
+            }
+
+            var spellCasting = new SpontaneousCasting(spellcastingConfiguration, EntityGateway<SpellList>.LoadWithSingleItem(spellList));
+            character.Add(spellCasting);
+            return character;
+
+        }
     }
 }

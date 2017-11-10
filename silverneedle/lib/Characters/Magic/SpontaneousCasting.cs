@@ -35,12 +35,12 @@ namespace SilverNeedle.Characters.Magic
 
         public int GetKnownSpellCount(int level)
         {
-            if(level > HighestLevelSpellKnown())
+            if(level > GetHighestSpellLevelKnown())
                 return 0;
             return knownSpells[this.CasterLevel][level];
         }
 
-        private int HighestLevelSpellKnown()
+        public override int GetHighestSpellLevelKnown()
         {
             return knownSpells[this.CasterLevel].Length - 1;
         }
@@ -57,8 +57,11 @@ namespace SilverNeedle.Characters.Magic
             
         }
 
-        public IEnumerable<string> GetReadySpells(int spellLevel)
+        public override IEnumerable<string> GetReadySpells(int spellLevel)
         {
+            if(!learnedSpells.ContainsKey(spellLevel))
+                return new string[] { };
+            
             return learnedSpells[spellLevel];
         }
 

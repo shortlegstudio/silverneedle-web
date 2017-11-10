@@ -16,14 +16,14 @@ namespace SilverNeedle.Actions.CharacterGeneration
 
             if(level != null)
             {
-                foreach(var step in level.Steps)
-                {
-                    step.ExecuteStep(character);
-                }
-
                 foreach(var ability in level.Abilities)
                 {
                     character.Add(ability);
+                }
+
+                foreach(var step in level.Steps)
+                {
+                    step.ExecuteStep(character);
                 }
             }
         }

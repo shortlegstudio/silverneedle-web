@@ -45,11 +45,36 @@ namespace Tests.Actions.CharacterGeneration
             Assert.NotNull(character.Components.Get<Evasion>());
         }
 
+        [Fact]
+        public void AbilitiesRunBeforeSteps()
+        {
+            var cls = new Class();
+            var level = new Level(1);
+            var customStep = new CharacterDesignStepDependentOnAbility();
+            level.Steps.Add(customStep);
+            level.AddAbility("SilverNeedle.Characters.SpecialAbilities.Evasion", new MemoryStore());
+            cls.Levels.Add(level);
+            var character = new CharacterSheet(CharacterStrategy.Default());
+            character.SetClass(cls);
+            var subject = new ProcessCustomClassFeatures();
+            subject.ExecuteStep(character);
+            Assert.NotNull(customStep.Evasion);
+        }
+
         public class DummyCharacterDesignStep : ICharacterDesignStep
         {
             public void ExecuteStep(CharacterSheet character)
             {
                 character.FirstName = "I Ran!";
+            }
+        }
+
+        public class CharacterDesignStepDependentOnAbility : ICharacterDesignStep
+        {
+            public Evasion Evasion { get; private set; }
+            public void ExecuteStep(CharacterSheet character)
+            {
+                Evasion = character.Get<Evasion>();
             }
         }
     }

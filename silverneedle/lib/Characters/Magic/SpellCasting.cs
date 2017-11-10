@@ -15,6 +15,12 @@ namespace SilverNeedle.Characters.Magic
     {
         private AbilityScoreTypes castingAbilityType;
         private Dictionary<int, int[]> spellSlots = new Dictionary<int, int[]>();
+        public virtual AbilityScore CastingAbility { get; private set; }
+        public virtual string SpellListName { get; private set; }
+        public virtual ClassLevel Class { get; private set; }
+        public virtual int CasterLevel { get { return this.Class.Level; } }
+        public virtual SpellType SpellType { get; private set; }
+        public SpellList SpellList { get; private set; }
         public SpellCasting(IObjectStore configuration) : this(configuration, GatewayProvider.Get<SpellList>())
         {
 
@@ -31,9 +37,7 @@ namespace SilverNeedle.Characters.Magic
                 var spellCounts = slots.GetList(slot).Select(x => x.ToInteger()).ToArray();
                 spellSlots.Add(slot.ToInteger(), spellCounts);
             }
-
         }
-        public virtual AbilityScore CastingAbility { get; private set; }
 
         public virtual int GetSpellsPerDay(int level)
         {
@@ -46,16 +50,23 @@ namespace SilverNeedle.Characters.Magic
             this.Class = components.Get<ClassLevel>();
         }
 
-        public virtual string SpellListName { get; private set; }
 
-        public virtual ClassLevel Class { get; private set; }
 
-        public virtual int CasterLevel { get { return this.Class.Level; } }
-        public virtual SpellType SpellType { get; private set; }
-        public SpellList SpellList { get; private set; }
+        public virtual int GetHighestSpellLevelKnown()
+        {
+            return 0;
+        }
 
-        //TODO: This is a general calculation that should be moved to a central
-        //location for all spellcasters
+        public virtual IEnumerable<string> GetReadySpells(int spellLevel)
+        {
+            return new string[] { };
+        }
+
+        public virtual int GetDifficultyClass(int spellLevel)
+        {
+            return 10 + this.CastingAbility.TotalModifier + spellLevel;
+        }
+
         protected int GetBonusSpellsPerDay(int spellLevel)
         {
             if(spellLevel == 0)

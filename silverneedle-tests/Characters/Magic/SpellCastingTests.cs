@@ -67,6 +67,15 @@ namespace Tests.Characters.Magic
             Assert.Equal(spellList, spellCasting.SpellList);
         }
 
+        [Fact]
+        public void DifficultyClassIsDependentOnLevelAndCastingAbility()
+        {
+            bard.AbilityScores.SetScore(AbilityScoreTypes.Charisma, 16);
+            Assert.Equal(13, spellCasting.GetDifficultyClass(0));
+            Assert.Equal(14, spellCasting.GetDifficultyClass(1));
+
+        }
+
         IObjectStore configuration = @"
 list: bard
 type: arcane

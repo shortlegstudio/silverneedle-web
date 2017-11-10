@@ -64,7 +64,16 @@
                 </div>
             </div>
             <div class="row">
-                @foreach(var sc in charFull.GetAll<SpellCasting>())
+                @foreach(var sc in charFull.GetAll<ISpellCasting>())
+                {
+                    <div class="col-sm-12 no-padding">
+                        @{ Html.RenderPartial("_spell-casting", 
+                        new ViewDataDictionary(this.ViewData) {
+                            { "spell-casting", sc }
+                        }); }
+                    </div>
+                }
+                @foreach(var sc in charFull.GetAll<DivineCasting>())
                 {
                     <div class="col-sm-12 no-padding">
                         @{ Html.RenderPartial("_spell-list", 
