@@ -35,6 +35,11 @@ namespace SilverNeedle
             return string.Equals(source, compare, StringComparison.OrdinalIgnoreCase);
         }
 
+        public static bool ContainsIgnoreCase(this string source, string searchFor)
+        {
+            return source.IndexOf(searchFor, 0, StringComparison.OrdinalIgnoreCase) >= 0;
+        }
+
         /// <summary>
         /// Parses by new line and comma, trims resulting strings.
         /// </summary>

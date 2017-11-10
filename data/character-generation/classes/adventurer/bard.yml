@@ -101,8 +101,10 @@
     - level: 2
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.WellVersed
+        - ability: SilverNeedle.Characters.SpecialAbilities.VersatilePerformance
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectVersatilePerformance
     - level: 3
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.BardicPerformances.InspireCompetence
@@ -121,6 +123,7 @@
         - ability: SilverNeedle.Characters.SpecialAbilities.BardicPerformances.Suggestion
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectVersatilePerformance
     - level: 7
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
@@ -139,6 +142,7 @@
         - ability: SilverNeedle.Characters.SpecialAbilities.JackOfAllTrades
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectVersatilePerformance
     - level: 11
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
@@ -155,6 +159,7 @@
         - ability: SilverNeedle.Characters.SpecialAbilities.BardicPerformances.FrighteningTune
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectVersatilePerformance
     - level: 15
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.BardicPerformances.InspireHeroics
@@ -171,6 +176,7 @@
         - ability: SilverNeedle.Characters.SpecialAbilities.BardicPerformances.MassSuggestion
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectVersatilePerformance
     - level: 19
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
