@@ -1,0 +1,21 @@
+--- !<SilverNeedle.Characters.SpecialAbilities.Bloodline>
+- name: Aberrant
+  class-skill: knowledge dungeoneering
+  bonus-spells: 
+    3: enlarge person
+    5: see invisibility
+    7: tongues
+    9: black tentacles
+    11: feeblemind
+    13: veil
+    15: plane shift
+    17: mind blank
+    19: shapechange
+  bonus-feats: [combat casting, improved disarm, improved grapple, improve initiative, 
+    improve unarmed strike, iron will, silent spell, skill focus "knowledge dungeoneering"]
+  powers:
+    1: SilverNeedle.Characters.Attacks.AcidicRay
+    3: SilverNeedle.Characters.SpecialAbilities.LongLimbs
+    9: SilverNeedle.Characters.SpecialAbilities.UnusualAnatomy
+    15: SilverNeedle.Characters.SpecialAbilities.AlienResistance
+    20: SilverNeedle.Characters.SpecialAbilities.AberrantForm

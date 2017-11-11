@@ -71,6 +71,7 @@
             19: [9, 5, 5, 4, 4, 4, 3, 3, 3, 2]
             20: [9, 5, 5, 4, 4, 4, 3, 3, 3, 3]
       class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectBloodline
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 2
       class-feature-steps:

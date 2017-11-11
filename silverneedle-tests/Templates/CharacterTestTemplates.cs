@@ -5,6 +5,8 @@
 
 namespace Tests
 {
+    using System.Collections.Generic;
+    using System.Linq;
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.Background;
     using SilverNeedle.Characters.Magic;
@@ -23,7 +25,13 @@ namespace Tests
             character.InitializeComponents();
             return character;
         }
-        public static CharacterSheet WithSkills(this CharacterSheet sheet, string[] names)
+
+        public static CharacterSheet WithSkills(this CharacterSheet sheet)
+        {
+            var skills = GatewayProvider.All<Skill>().Select(x => x.Name);
+            return sheet.WithSkills(skills);
+        }
+        public static CharacterSheet WithSkills(this CharacterSheet sheet, IEnumerable<string> names)
         {
             foreach(var n in names)
             {

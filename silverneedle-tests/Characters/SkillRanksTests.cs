@@ -178,6 +178,13 @@ namespace Tests.Characters
             Assert.NotNull(climbStat);
         }
 
+        [Fact]
+        public void GetSkillIsCaseInsensitive()
+        {
+            var xx = Subject.GetSkill("climb");
+            Assert.NotNull(xx);
+        }
+
         class MockMod : IModifiesStats
         {
             public IList<IStatModifier> Modifiers { get; set; }
