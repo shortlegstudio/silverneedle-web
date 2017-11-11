@@ -1,0 +1,51 @@
+--- !<SilverNeedle.Characters.CharacterStrategy>
+- characterbuild:
+  name: Sorcerer
+  classskillmultiplier: 5
+  baseskillweight: 1
+  charactercreator: default
+  designer: create-adventurer
+  ability-score-roller: SilverNeedle.Actions.CharacterGeneration.Abilities.ThreedSixAbilityScoreGenerator
+  classes:
+    - name: sorcerer
+      weight: 10
+  races:
+    - name: dwarf 
+      weight: 5     
+    - name: elf 
+      weight: 10     
+    - name: human
+      weight: 16
+    - name: half-orc
+      weight: 8
+    - name: half-elf 
+      weight: 14     
+    - name: halfling 
+      weight: 12     
+    - name: gnome 
+      weight: 12     
+  skills:
+    - name: bluff
+      weight: 12
+    - name: fly
+      weight: 6
+    - name: intimidate
+      weight: 10
+    - name: knowledge arcana
+      weight: 14
+    - name: perception
+      weight: 15
+    - name: spellcraft
+      weight: 10
+    - name: use magical device
+      weight: 5
+  feats:
+    - name: dodge
+      weight: 8
+  abilities:
+    - name: charisma
+      weight: 26
+    - name: constitution
+      weight: 14
+    - name: dexterity
+      weight: 10

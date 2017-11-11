@@ -96,7 +96,7 @@ namespace SilverNeedle.Utility
 
         public bool HasOption(T option)
         {
-            return All.Any(x => x.Option.Equals(option));
+            return FindEntry(option) != null;
         }
 
         public IEnumerable<T> UniqueList()
@@ -132,7 +132,16 @@ namespace SilverNeedle.Utility
 
         private TableEntry FindEntry(T option) 
         {
-            return table.First(x => option.Equals(x.Option));
+            if(option is String)
+            {
+                return PerformCaseInsensitiveFind(option.ToString());
+            }
+            return table.FirstOrDefault(x => option.Equals(x.Option));
+        }
+
+        private TableEntry PerformCaseInsensitiveFind(string option)
+        {
+            return table.FirstOrDefault(x => option.EqualsIgnoreCase(x.Option.ToString()));
         }
 
         private void RecalculateTable()

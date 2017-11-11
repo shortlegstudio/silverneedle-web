@@ -55,6 +55,7 @@ namespace SilverNeedle.Characters.Feats
             {
                 if(sf != this)
                 {
+                    ShortLog.DebugFormat("Skill Focus - Disable Skill {0}", sf.CharacterSkill.Name);
                     skillTable.Disable(sf.CharacterSkill.Name);
                 }
             }

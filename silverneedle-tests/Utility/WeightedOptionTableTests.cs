@@ -58,6 +58,17 @@ namespace Tests.Utility
         }
 
         [Fact]
+        public void BecauseStringComparisonsCanBeMessyIfFindingEntryByStringUseCaseInsensitiveIfString()
+        {
+            var table = new WeightedOptionTable<string>();
+            table.AddEntry("Foo", 1);
+            table.AddEntry("Bar", 2);
+
+            table.Disable("foo"); 
+            Assert.Equal(1, table.Enabled.Count());
+            Assert.True(table.HasOption("bar"));
+        }
+
         public void EntriesCanBeDisabledWhichForcesADifferentOptionToBeChosen()
         {
             var table = new WeightedOptionTable<string>();
