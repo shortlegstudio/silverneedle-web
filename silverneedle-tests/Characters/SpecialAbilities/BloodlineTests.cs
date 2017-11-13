@@ -6,12 +6,14 @@
 namespace Tests.Characters.SpecialAbilities
 {
     using SilverNeedle.Characters;
+    using SilverNeedle.Characters.Attacks;
+    using SilverNeedle.Characters.Magic;
     using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
     using Xunit;
 
-    public class BloodlineTests
+    public class BloodlineTests : RequiresDataFiles
     {
         private Bloodline aberrant;
         public BloodlineTests()
@@ -23,9 +25,9 @@ namespace Tests.Characters.SpecialAbilities
         [Fact]
         public void AddingToCharacterGrantsNewClassSkill()
         {
-            var character = CharacterTestTemplates.AverageBob().WithSkills(new string[] { "Knowledge (Dungeoneering)"});
+            var character = CharacterTestTemplates.AverageBob().WithSkills(new string[] { "Knowledge Dungeoneering"});
             character.Add(aberrant);
-            Assert.True(character.SkillRanks.GetSkill("Knowledge (Dungeoneering)").ClassSkill);
+            Assert.True(character.SkillRanks.GetSkill("Knowledge Dungeoneering").ClassSkill);
         }
 
         [Fact]
@@ -64,7 +66,7 @@ namespace Tests.Characters.SpecialAbilities
 
         private string bloodlineYaml = @"---
 name: Aberrant
-class-skill: knowledge (dungeoneering)
+class-skill: knowledge dungeoneering
 bonus-spells: 
   3: enlarge person
   5: see invisibility

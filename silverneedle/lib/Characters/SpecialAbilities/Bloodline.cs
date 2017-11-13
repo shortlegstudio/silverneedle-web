@@ -16,6 +16,15 @@ namespace SilverNeedle.Characters.SpecialAbilities
         private string[] bonusFeats;
         private string classSkill;
         private string bloodlineName;
+
+        private Bloodline(string name, string classSkill, Dictionary<int, string> powers, Dictionary<int, string> bonusSpells, string[] bonusFeats)
+        {
+            this.bloodlineName = name;
+            this.classSkill = classSkill;
+            this.powers = powers;
+            this.bonusFeats = bonusFeats;
+            this.bonusSpells = bonusSpells;
+        }
         public Bloodline(IObjectStore configuration) : base()
         {
             bloodlineName = configuration.GetString("name");
@@ -61,12 +70,16 @@ namespace SilverNeedle.Characters.SpecialAbilities
         {
             var skills = components.Get<SkillRanks>();
             skills.GetSkill(classSkill).ClassSkill = true;
-
         }
 
         public bool Matches(string name)
         {
             return this.Name.EqualsIgnoreCase(name);
+        }
+
+        public static Bloodline CreateWithValues(string name, string classSkill, Dictionary<int, string> powers, Dictionary<int, string> bonusSpells, string[] bonusFeats)
+        {
+            return new Bloodline(name, classSkill, powers, bonusSpells, bonusFeats);
         }
     }
 }

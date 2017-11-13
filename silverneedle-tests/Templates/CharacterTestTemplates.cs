@@ -89,6 +89,13 @@ namespace Tests
             return bardy;
         }
 
+        public static CharacterSheet Sorcerer()
+        {
+            var sorcerer = CreateWithAverageAbilityScores();
+            sorcerer.SetClass(new Class("sorcerer"));
+            return sorcerer;
+        }
+
         public static CharacterSheet WithSpontaneousCasting(this CharacterSheet character)
         {
             var spellcastingConfigurationYaml = @"---

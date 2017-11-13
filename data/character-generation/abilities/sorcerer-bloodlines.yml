@@ -15,7 +15,7 @@
     improve unarmed strike, iron will, silent spell, skill focus "knowledge dungeoneering"]
   powers:
     1: SilverNeedle.Characters.Attacks.AcidicRay
-    3: SilverNeedle.Characters.SpecialAbilities.LongLimbs
-    9: SilverNeedle.Characters.SpecialAbilities.UnusualAnatomy
-    15: SilverNeedle.Characters.SpecialAbilities.AlienResistance
-    20: SilverNeedle.Characters.SpecialAbilities.AberrantForm
+    3: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.LongLimbs
+    9: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.UnusualAnatomy
+    15: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.AlienResistance
+    20: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.AberrantForm
