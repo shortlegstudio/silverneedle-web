@@ -5,8 +5,22 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
-    public class AlienResistance : SpecialAbility, IBloodlinePower
-    {
+    using SilverNeedle.Utility;
 
+    public class AlienResistance : SpecialAbility, IBloodlinePower, IComponent
+    {
+        private IStatModifier spellResistance;
+        public void Initialize(ComponentBag components)
+        {
+            var classLevel = components.Get<ClassLevel>();
+            spellResistance = new DelegateStatModifier(
+                "Spell Resistance",
+                "base",
+                this.Name,
+                () => { return 10 + classLevel.Level; }
+            );
+            var def = components.Get<DefenseStats>();
+            def.SpellResistance.AddModifier(spellResistance);
+        }
     }
 }

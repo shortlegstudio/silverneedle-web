@@ -5,8 +5,34 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
-    public class LongLimbs : SpecialAbility, IBloodlinePower
-    {
+    using SilverNeedle.Utility;
 
+    public class LongLimbs : SpecialAbility, IBloodlinePower, IComponent
+    {
+        private ClassLevel sourceClass;
+        public void Initialize(ComponentBag components)
+        {
+            sourceClass = components.Get<ClassLevel>();
+        }
+
+        public override string Name 
+        {
+            get
+            {
+                return "{0} ({1} ft)".Formatted(base.Name, this.Reach);
+            }
+        }
+
+        public int Reach
+        {
+            get
+            {
+                if(sourceClass.Level >= 17)
+                    return 15;
+                if(sourceClass.Level >= 11)
+                    return 10;
+                return 5;
+            }
+        }
     }
 }
