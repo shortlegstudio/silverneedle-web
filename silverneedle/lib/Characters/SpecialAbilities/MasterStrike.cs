@@ -16,8 +16,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
             var rogueLevel = components.Get<ClassLevel>();
             var intelligence = components.Get<AbilityScores>().GetAbility(AbilityScoreTypes.Intelligence);
             Attack = new MasterStrikeAttack(rogueLevel, intelligence);
-            var offense = components.Get<OffenseStats>();
-            offense.AddAttack(Attack);
+            components.Add(this.Attack);
         }
 
         public class MasterStrikeAttack : WeaponAttack

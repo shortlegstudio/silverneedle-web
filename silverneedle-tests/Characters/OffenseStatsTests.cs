@@ -205,14 +205,6 @@ namespace Tests.Characters {
         }
 
         [Fact]
-        public void CanAddSpecialAttacksToStats()
-        {
-            var attack = new WeaponAttack();
-            smallStats.AddAttack(attack);
-            Assert.Contains(attack, smallStats.Attacks());
-        }
-
-        [Fact]
         public void MasterworkWeaponsProvideImprovedAttackBonus()
         {
             var mwkLongsword = new MasterworkWeapon(Longsword());

@@ -24,8 +24,7 @@ namespace SilverNeedle.Characters.Domains
         {
             clericLevel = components.Get<ClassLevel>();
             this.lightningAttack = new LightningArcAttack(components);
-            var offense = components.Get<OffenseStats>();
-            offense.AddAttack(lightningAttack);
+            components.Add(this.lightningAttack);
         }
 
         public void LeveledUp(ComponentBag components)

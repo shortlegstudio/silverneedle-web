@@ -22,8 +22,7 @@ namespace SilverNeedle.Characters.Domains
         {
             clericLevel = components.Get<ClassLevel>();
             this.acidDart = new AcidDart(clericLevel, components.Get<AbilityScores>().GetAbility(AbilityScoreTypes.Wisdom));
-            var offense = components.Get<OffenseStats>();
-            offense.AddAttack(acidDart);
+            components.Add(acidDart);
         }
 
         public void LeveledUp(ComponentBag components)

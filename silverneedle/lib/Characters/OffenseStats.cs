@@ -62,7 +62,7 @@ namespace SilverNeedle.Characters
         private List<SpecialAbility> offensiveAbilities;
 
         private List<IWeaponModifier> weaponModifiers;
-        private List<IAttackStatistic> customAttacks;
+        private ComponentBag components;
 
         public IEnumerable<IWeaponModifier> WeaponModifiers { get { return weaponModifiers; } }
 
@@ -81,11 +81,11 @@ namespace SilverNeedle.Characters
             this.WeaponProficiencies = new List<WeaponProficiency>();
             this.offensiveAbilities = new List<SpecialAbility>();
             this.weaponModifiers = new List<IWeaponModifier>();
-            this.customAttacks = new List<IAttackStatistic>();
         }
 
         public void Initialize(ComponentBag components)
         {
+            this.components = components;
             var abilities = components.Get<AbilityScores>();
             this.Strength = abilities.GetAbility(AbilityScoreTypes.Strength);
             this.Dexterity = abilities.GetAbility(AbilityScoreTypes.Dexterity);
@@ -248,7 +248,7 @@ namespace SilverNeedle.Characters
                 );
             }
 
-            attacks.AddRange(customAttacks);
+            attacks.AddRange(GetSpecialAttacks());
 
             return attacks;
         }
@@ -262,11 +262,10 @@ namespace SilverNeedle.Characters
             BaseAttackBonus.AddModifier(new ValueStatModifier(characterClass.BaseAttackBonusRate, string.Format("{0} Level", characterClass.Name)));            
         }
 
-        public void AddAttack(IAttackStatistic newAttack)
+        private IEnumerable<IAttackStatistic> GetSpecialAttacks()
         {
-            this.customAttacks.Add(newAttack);
+            return this.components.GetAll<IAttackStatistic>();
         }
-
         private WeaponAttack CreateAttack(AttackTypes attackType, IWeapon weapon) 
         {
             WeaponAttack atk = null;

@@ -14,8 +14,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
         public void Initialize(ComponentBag components)
         {
             this.ChannelAttack = new ChannelEnergyAttack(components);
-            var offense = components.Get<OffenseStats>();
-            offense.AddAttack(ChannelAttack);
+            components.Add(ChannelAttack);
         }
 
     }

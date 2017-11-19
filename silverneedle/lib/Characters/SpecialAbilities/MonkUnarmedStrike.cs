@@ -38,7 +38,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
             var strength = components.Get<AbilityScores>().GetAbility(AbilityScoreTypes.Strength);
             var size = components.Get<SizeStats>().Size;
             Attack = new MeleeAttack(offense, strength, size, Weapon);
-            offense.AddAttack(Attack);
+            components.Add(Attack);
         }
 
         public string GetDamage()

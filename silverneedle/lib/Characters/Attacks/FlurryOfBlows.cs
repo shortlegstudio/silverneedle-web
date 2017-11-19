@@ -53,7 +53,6 @@ namespace SilverNeedle.Characters.Attacks
             this.DamageModifier.AddModifier(strength.UniversalStatModifier);
             var monk = components.Get<MonkUnarmedStrike>();
             this.unarmedStrike = monk.Weapon;
-            components.Get<OffenseStats>().AddAttack(this);
             this.size = components.Get<SizeStats>().Size;
         }
 

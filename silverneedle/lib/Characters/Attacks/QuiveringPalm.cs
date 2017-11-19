@@ -27,7 +27,6 @@ namespace SilverNeedle.Characters.Attacks
                 "Monk",
                 () => { return monkLevels.Level / 2; })
             );
-            components.Get<OffenseStats>().AddAttack(this);
         }
 
         public override string ToString()

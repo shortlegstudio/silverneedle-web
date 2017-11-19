@@ -34,8 +34,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
         public void Initialize(ComponentBag components)
         {
-            var offense = components.Get<OffenseStats>();
-            offense.AddAttack(this.Attack);
+            components.Add(this.Attack);
         }
 
         public class SneakAttackAttackStatistic : WeaponAttack

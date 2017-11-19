@@ -24,8 +24,7 @@ namespace SilverNeedle.Characters.Domains
         {
             clericLevel = components.Get<ClassLevel>();
             this.fireBolt = new FireBolt(clericLevel, components.Get<AbilityScores>().GetAbility(AbilityScoreTypes.Wisdom));
-            var offense = components.Get<OffenseStats>();
-            offense.AddAttack(fireBolt);
+            components.Add(fireBolt);
         }
 
         public void LeveledUp(ComponentBag components)
