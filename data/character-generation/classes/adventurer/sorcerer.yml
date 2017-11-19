@@ -81,18 +81,24 @@
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddBloodlinePower
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddBloodlineBonusSpell
+          spell-level: 1
     - level: 4
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 5
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddBloodlineBonusSpell
+          spell-level: 2
     - level: 6
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 7
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddBloodlineBonusSpell
+          spell-level: 3
     - level: 8
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
@@ -100,18 +106,24 @@
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddBloodlinePower
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddBloodlineBonusSpell
+          spell-level: 4
     - level: 10
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 11
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddBloodlineBonusSpell
+          spell-level: 5
     - level: 12
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 13
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddBloodlineBonusSpell
+          spell-level: 6
     - level: 14
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
@@ -119,18 +131,24 @@
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddBloodlinePower
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddBloodlineBonusSpell
+          spell-level: 7
     - level: 16
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 17
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddBloodlineBonusSpell
+          spell-level: 8
     - level: 18
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 19
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddBloodlineBonusSpell
+          spell-level: 9
     - level: 20
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells

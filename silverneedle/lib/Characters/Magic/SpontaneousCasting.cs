@@ -48,13 +48,17 @@ namespace SilverNeedle.Characters.Magic
         public void LearnSpell(string spellName)
         {
             var spellLevel = SpellList.GetSpellLevel(spellName);
+            LearnSpell(spellLevel, spellName);
+        }
+
+        public void LearnSpell(int spellLevel, string spellName)
+        {
             if(!learnedSpells.ContainsKey(spellLevel))
             {
                 learnedSpells.Add(spellLevel, new List<string>());
             }
 
             learnedSpells[spellLevel].Add(spellName);
-            
         }
 
         public override IEnumerable<string> GetReadySpells(int spellLevel)
