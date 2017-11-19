@@ -153,7 +153,7 @@ namespace SilverNeedle.Characters
         /// </summary>
         /// <returns>The conditional score.</returns>
         /// <param name="condition">Condition to score the skill in.</param>
-        public int GetConditionalScore(string condition)
+        public int GetConditionalValue(string condition)
         {
             return this.Score(condition);
         }
@@ -168,7 +168,7 @@ namespace SilverNeedle.Characters
             sb.AppendFormat("{0} {1}", this.Name, this.Score().ToModifierString());
 
             var mods = this.ConditionalModifiers.Select(
-                x => string.Format("{0} {1}", this.GetConditionalScore(x).ToModifierString(), x));
+                x => string.Format("{0} {1}", this.GetConditionalValue(x).ToModifierString(), x));
 
             if (mods.Count() > 0)
             {

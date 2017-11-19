@@ -66,9 +66,9 @@ namespace SilverNeedle.Characters.Attacks
 
         public string Name { get; private set; }
 
-        public BasicStat AttackBonus { get; private set; }
+        public IStatistic AttackBonus { get; private set; }
 
-        public BasicStat DamageModifier { get; private set; }
+        public IStatistic DamageModifier { get; private set; }
 
         public virtual Cup Damage 
         { 
@@ -84,13 +84,13 @@ namespace SilverNeedle.Characters.Attacks
 
         public AttackTypes AttackType { get { return AttackTypes.Melee; } }
 
-        public BasicStat CriticalModifier { get; private set; }
+        public IStatistic CriticalModifier { get; private set; }
 
         public int CriticalThreat { get; private set; }
         public int SaveDC { get { return 0; } }
         public int Range { get { return 0; } }
 
-        public override string ToString()
+        public string DisplayString()
         {
             if(unarmedStrike == null)
                 return "Flurry of Blows - not initialized";

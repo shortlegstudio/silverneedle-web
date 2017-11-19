@@ -9,15 +9,16 @@ namespace SilverNeedle.Characters.Attacks
     public interface IAttackStatistic
     {
         string Name { get; }
-        BasicStat AttackBonus { get; }
-        BasicStat DamageModifier { get; }
+        IStatistic AttackBonus { get; }
+        IStatistic DamageModifier { get; }
         Cup Damage { get; }
         int NumberOfAttacks { get; }
         AttackTypes AttackType { get; }
-        BasicStat CriticalModifier { get; }
+        IStatistic CriticalModifier { get; }
         int CriticalThreat { get; }
         int SaveDC { get; }
         int Range { get; }
         string AttackBonusString();
+        string DisplayString();
     }
 }

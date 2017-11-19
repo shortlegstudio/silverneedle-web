@@ -42,7 +42,7 @@ namespace SilverNeedle.Characters
             MovementSpeed = character.Movement.MovementSpeed.ToString();
             MovementSquares = character.Movement.BaseSquares.ToString();
             AttackTypes = character.Offense.Attacks().Select(x => x.AttackType.ToString()).ToArray();
-            Attacks = character.Offense.Attacks().Select(x => x.ToString()).ToArray();
+            Attacks = character.Offense.Attacks().Select(x => x.DisplayString()).ToArray();
             SpecialAttacks = character.Offense.OffensiveAbilities.Select(x => x.Condition).ToArray();
             Strength = character.AbilityScores.GetScore(AbilityScoreTypes.Strength).ToString();
             StrengthModifier = character.AbilityScores.GetModifier(AbilityScoreTypes.Strength).ToModifierString();

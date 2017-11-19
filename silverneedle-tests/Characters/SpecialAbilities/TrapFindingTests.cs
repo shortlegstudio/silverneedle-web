@@ -26,8 +26,8 @@ namespace Tests.Characters.SpecialAbilities
 
             var disable = character.SkillRanks.GetSkill("Disable Device");
             var perception = character.SkillRanks.GetSkill("Perception");
-            Assert.Equal(disable.GetConditionalScore("traps"), disable.Score() + 2);
-            Assert.Equal(perception.GetConditionalScore("traps"), perception.Score() + 2);
+            Assert.Equal(disable.GetConditionalValue("traps"), disable.Score() + 2);
+            Assert.Equal(perception.GetConditionalValue("traps"), perception.Score() + 2);
         }
     }
 }

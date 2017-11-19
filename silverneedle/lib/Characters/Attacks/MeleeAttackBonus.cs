@@ -13,6 +13,11 @@ namespace SilverNeedle.Characters.Attacks
         public int TotalValue { get { return baseMeleeAttackBonus.TotalValue; } }
         private BasicStat baseMeleeAttackBonus = new BasicStat("Melee Attack Bonus");
 
+        public int GetConditionalValue(string condition)
+        {
+            return baseMeleeAttackBonus.GetConditionalValue(condition);
+        }
+
         public void AddModifier(IStatModifier modifier)
         {
             baseMeleeAttackBonus.AddModifier(modifier);

@@ -30,10 +30,10 @@ namespace Tests.Characters.Attacks
             var flurry = new FlurryOfBlows(table);
             monk.Add(flurry);
             Assert.Equal(2, flurry.NumberOfAttacks);
-            Assert.Contains("-1/-1", flurry.ToString());
+            Assert.Contains("-1/-1", flurry.DisplayString());
             monk.SetLevel(3);
             Assert.Equal(3, flurry.NumberOfAttacks);
-            Assert.Contains("+1/+1/-1", flurry.ToString());
+            Assert.Contains("+1/+1/-1", flurry.DisplayString());
 
         }
 
@@ -46,7 +46,7 @@ namespace Tests.Characters.Attacks
             var flurry = new FlurryOfBlows(table);
             monk.Add(flurry);
             monk.AbilityScores.SetScore(AbilityScoreTypes.Strength, 16);
-            Assert.Contains("+2/+2", flurry.ToString());
+            Assert.Contains("+2/+2", flurry.DisplayString());
         }
 
         [Fact]

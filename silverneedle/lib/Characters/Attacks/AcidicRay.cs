@@ -8,31 +8,71 @@ namespace SilverNeedle.Characters.Attacks
 {
     using SilverNeedle.Dice;
     using SilverNeedle.Characters.SpecialAbilities.BloodlinePowers;
-    public class AcidicRay : IAttackStatistic, IBloodlinePower
+    using SilverNeedle.Utility;
+    public class AcidicRay : IAttackStatistic, IBloodlinePower, IComponent
     {
-        public string Name => throw new System.NotImplementedException();
+        private OffenseStats offense;
+        private ClassLevel sorcererLevels;
+        private AbilityScore charisma;
+        public string Name { get { return "Acidic Ray"; } }
 
-        public BasicStat AttackBonus => throw new System.NotImplementedException();
+        public IStatistic AttackBonus { get { return this.offense.RangeAttackBonus; } }
 
-        public BasicStat DamageModifier => throw new System.NotImplementedException();
+        public IStatistic DamageModifier { get; private set; }
 
-        public Cup Damage => throw new System.NotImplementedException();
+        public Cup Damage 
+        { 
+            get
+            {
+                var dmg = new Cup(Die.D6());
+                dmg.Modifier = DamageModifier.TotalValue;
+                return dmg;
+            }
+        }
 
-        public int NumberOfAttacks => throw new System.NotImplementedException();
+        public int NumberOfAttacks { get { return 1; } }
 
-        public AttackTypes AttackType => throw new System.NotImplementedException();
+        public AttackTypes AttackType { get { return AttackTypes.Special; } }
 
-        public BasicStat CriticalModifier => throw new System.NotImplementedException();
+        public IStatistic CriticalModifier { get; private set; }
 
-        public int CriticalThreat => throw new System.NotImplementedException();
+        public int CriticalThreat { get { return 20; } }
 
-        public int SaveDC => throw new System.NotImplementedException();
+        public int SaveDC { get { return 0; } }
 
-        public int Range => throw new System.NotImplementedException();
+        public int Range { get { return 30; } }
 
         public string AttackBonusString()
         {
-            throw new System.NotImplementedException();
+            return AttackBonus.TotalValue.ToModifierString();
+        }
+
+        public int UsesPerDay { get { return 3 + charisma.TotalModifier; } }
+
+        public AcidicRay()
+        {
+            this.DamageModifier = new BasicStat("Acidic Ray Damage Modifier");
+            this.CriticalModifier = new BasicStat("Acidic Ray Critical Modifier", 2);
+        }
+
+        public void Initialize(ComponentBag components)
+        {
+            this.offense = components.Get<OffenseStats>();
+            this.sorcererLevels = components.Get<ClassLevel>();
+            this.charisma = components.Get<AbilityScores>().GetAbility(AbilityScoreTypes.Charisma);
+            this.DamageModifier.AddModifier(new DelegateStatModifier(this.DamageModifier.Name, "bonus", this.Name, () => { return this.sorcererLevels.Level / 2; }));
+        }
+
+        public string DisplayString()
+        {
+            
+            return string.Format(
+                "{0}/day {1} {2} ({3} acid) {4}",
+                this.UsesPerDay,
+                this.Name,
+                this.AttackBonusString(),
+                this.Damage,
+                this.Range.ToRangeString());
         }
     }
 }

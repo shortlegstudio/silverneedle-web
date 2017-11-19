@@ -22,7 +22,7 @@ namespace Tests.Characters.Attacks
             sword.Damage = "1d6";
             var attack = new MeleeAttack(bob.Offense, bob.AbilityScores.GetAbility(AbilityScoreTypes.Strength), bob.Size.Size, sword);
             Assert.Equal(2, attack.NumberOfAttacks);
-            Assert.Contains("Sword +6/+1", attack.ToString());
+            Assert.Contains("Sword +6/+1", attack.DisplayString());
         }
 
         [Fact]

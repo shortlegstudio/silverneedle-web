@@ -19,6 +19,11 @@ namespace SilverNeedle.Characters.Attacks
             baseRangeAttackBonus.AddModifier(modifier);
         }
 
+        public int GetConditionalValue(string condition)
+        {
+            return baseRangeAttackBonus.GetConditionalValue(condition);
+        }
+
         public void Initialize(ComponentBag components)
         {
             var offenseStats = components.Get<OffenseStats>();

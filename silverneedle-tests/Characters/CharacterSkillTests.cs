@@ -144,7 +144,7 @@ namespace Tests.Characters {
             var adj = new ConditionalStatModifier(new ValueStatModifier("Eat", 3, "bonus", "High in Fiber"), "Celery");
             charSkill.AddModifier(adj);
             Assert.Equal(1, charSkill.ConditionalModifiers.Count());
-            Assert.Equal(3, charSkill.GetConditionalScore("Celery"));
+            Assert.Equal(3, charSkill.GetConditionalValue("Celery"));
             Assert.Equal(0, charSkill.Score());
             Assert.Equal("Eat +0 (+3 Celery)", charSkill.ToString());
         }
@@ -158,7 +158,7 @@ namespace Tests.Characters {
             var adj = new ConditionalStatModifier(new ValueStatModifier("Eat", 3, "bonus", "High in Fiber"), "Celery");
             charSkill.AddModifier(adj);
             Assert.Equal(1, charSkill.ConditionalModifiers.Count());
-            Assert.Equal(4, charSkill.GetConditionalScore("Celery"));
+            Assert.Equal(4, charSkill.GetConditionalValue("Celery"));
             Assert.Equal(1, charSkill.Score());
             Assert.Equal("Eat +1 (+4 Celery)", charSkill.ToString());
         }

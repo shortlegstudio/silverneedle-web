@@ -25,7 +25,7 @@ namespace Tests.Characters.SpecialAbilities
             var track = new Track();
             character.Add(track);
             var survivalSkill = character.SkillRanks.GetSkill("Survival");
-            Assert.Equal(survivalSkill.GetConditionalScore("track"), survivalSkill.Score() + 2);
+            Assert.Equal(survivalSkill.GetConditionalValue("track"), survivalSkill.Score() + 2);
             Assert.Equal(track.Name, "Track +2");
         }
     }

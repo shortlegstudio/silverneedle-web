@@ -14,11 +14,12 @@ namespace SilverNeedle.Characters.Attacks
     /// </summary>
     public class WeaponAttack : IAttackStatistic
     {
+        private BasicStat attackBonus;
         protected OffenseStats offenseAbilities;
         protected CharacterSize size;
         public WeaponAttack()
         {
-            this.AttackBonus = new BasicStat(string.Format("Attack Bonus"), 0);
+            this.attackBonus = new BasicStat(string.Format("Attack Bonus"), 0);
         }
         public WeaponAttack(OffenseStats offense, CharacterSize size, IWeaponAttackStatistics weapon)
         {
@@ -32,9 +33,9 @@ namespace SilverNeedle.Characters.Attacks
 
             this.CriticalModifier = new BasicStat(string.Format("{0} Critical Modifier", weapon.Name), weapon.CriticalModifier);
 
-            this.AttackBonus = new BasicStat(string.Format("{0} Attack Bonus", weapon.Name), weapon.AttackModifier);
-            this.AttackBonus.AddModifier(new WeaponProficiencyAttackModifier(this.offenseAbilities, this.Weapon));
-            this.AttackBonus.AddModifiers(MultipleAttackBonusModifier.GetConditionalMultipleAttackModifiers());
+            this.attackBonus = new BasicStat(string.Format("{0} Attack Bonus", weapon.Name), weapon.AttackModifier);
+            this.attackBonus.AddModifier(new WeaponProficiencyAttackModifier(this.offenseAbilities, this.Weapon));
+            this.attackBonus.AddModifiers(MultipleAttackBonusModifier.GetConditionalMultipleAttackModifiers());
 
             this.DamageModifier = new BasicStat(string.Format("{0} Damage Modifier", weapon.Name), 0);
             foreach(var weaponModifier in offense.WeaponModifiers)
@@ -76,10 +77,10 @@ namespace SilverNeedle.Characters.Attacks
         /// <summary>
         /// Gets or sets the attack bonus.
         /// </summary>
-        public virtual BasicStat AttackBonus { get; private set; }
-        public virtual BasicStat DamageModifier { get; private set; }
+        public virtual IStatistic AttackBonus { get { return this.attackBonus; } }
+        public virtual IStatistic DamageModifier { get; private set; }
         public virtual AttackTypes AttackType { get; protected set; }
-        public virtual BasicStat CriticalModifier { get; private set; }
+        public virtual IStatistic CriticalModifier { get; private set; }
         public virtual int CriticalThreat { get; protected set; }
         public virtual int SaveDC { get; protected set; }
         public string DamageType { get; protected set; }
@@ -97,7 +98,7 @@ namespace SilverNeedle.Characters.Attacks
         /// Returns a <see cref="System.String"/> that represents the current <see cref="SilverNeedle.Characters.OffenseStats+AttackStatistic"/>.
         /// </summary>
         /// <returns>A <see cref="System.String"/> that represents the current <see cref="SilverNeedle.Characters.OffenseStats+AttackStatistic"/>.</returns>
-        public override string ToString()
+        public string DisplayString()
         {
             
             return string.Format(
