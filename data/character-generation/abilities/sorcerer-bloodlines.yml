@@ -19,3 +19,23 @@
     9: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.UnusualAnatomy
     15: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.AlienResistance
     20: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.AberrantForm
+- name: Abyssal
+  class-skill: knowledge planes
+  bonus-spells: 
+    3: cause fear
+    5: bull's strength
+    7: rage
+    9: stoneskin
+    11: dismissal
+    13: transformation
+    15: greater teleport
+    17: unholy aura
+    19: summon monster ix
+  bonus-feats: [augment summoning, cleave, empower spell, great fortitude, improved bull rush, 
+    improved sunder, power attack, skill focus - knowledge planes]
+  powers:
+    1: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.Claws
+    3: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.DemonResistances
+    9: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.StrengthOfTheAbyss
+    15: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.AddedSummonings
+    20: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.DemonicMight

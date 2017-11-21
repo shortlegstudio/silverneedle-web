@@ -10,7 +10,6 @@ namespace SilverNeedle.Characters.Attacks
     {
         string Name { get; }
         IStatistic AttackBonus { get; }
-        IStatistic DamageModifier { get; }
         Cup Damage { get; }
         int NumberOfAttacks { get; }
         AttackTypes AttackType { get; }
