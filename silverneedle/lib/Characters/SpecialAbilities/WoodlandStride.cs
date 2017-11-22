@@ -3,9 +3,11 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
+
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class WoodlandStride : SpecialAbility
+    using SilverNeedle.Characters.SpecialAbilities.BloodlinePowers;
+    public class WoodlandStride : SpecialAbility, IBloodlinePower
     {
         
     }

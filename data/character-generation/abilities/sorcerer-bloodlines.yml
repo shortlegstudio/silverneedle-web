@@ -101,3 +101,103 @@
     9: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.ItWasMeantToBe
     15: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.WithinReach
     20: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.DestinyRealized
+- name: Draconic
+  class-skill: [perception]
+  bonus-spells: 
+    3: mage armor
+    5: resist energy
+    7: fly
+    9: fear
+    11: spell resistance
+    13: form of the dragon i
+    15: form of the dragon ii
+    17: form of the dragon iii
+    19: wish
+  bonus-feats: [blind-fight, great fortitude, improved initiative, power attack, quicken spell,
+    skill focus(fly), skill focus(knowledge arcana), toughness]
+  powers:
+    1: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.Claws
+    3: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.DragonResistances
+    9: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.BreathWeapon
+    15: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.Wings
+    20: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.PowerOfWyrms
+- name: Elemental
+  class-skill: [knowledge planes]
+  bonus-spells: 
+    3: burning hands
+    5: scorching ray
+    7: protection from energy
+    9: elemental body i
+    11: elemental body ii
+    13: elemental body iii
+    15: elemental body iv
+    17: summon monster viii
+    19: elemental swarm
+  bonus-feats: [dodge, empower spell, great fortitude, improved initiative, lightning reflexes,
+    power attack, skill focus(knowledge planes), weapon finesse]
+  powers:
+    1: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.ElementalRay
+    3: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.ElementalResistance
+    9: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.ElementalBlast
+    15: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.ElementalMovement
+    20: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.ElementalBody
+- name: Fey
+  class-skill: [knowledge nature]
+  bonus-spells: 
+    3: entangle
+    5: hideous laughter
+    7: deep slumber
+    9: poison
+    11: tree stride
+    13: mislead
+    15: phase door
+    17: irresistible dance
+    19: shapechange
+  bonus-feats: [dodge, improved initiative, lightning reflexes, mobility, point blank shot, 
+    precise shot, quicken spell, skill focus(knowledge nature)]
+  powers:
+    1: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.LaughingTouch
+    3: SilverNeedle.Characters.SpecialAbilities.WoodlandStride
+    9: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.FleetingGlance
+    15: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.FeyMagic
+    20: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.SoulOfTheFey
+- name: Infernal
+  class-skill: [diplomacy]
+  bonus-spells: 
+    3: protection from good
+    5: scorching Ray
+    7: suggestion
+    9: charm monster
+    11: dominate person
+    13: planar binding
+    15: greater teleport
+    17: power word stun
+    19: meteor swarm
+  bonus-feats: [blind-fight, combat expertise, deceitful, extend spell, improved disarm,
+    iron will, skill focus(knowledge planes), spell penetration]
+  powers:
+    1: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.CorruptingTouch
+    3: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.InfernalResistances
+    9: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.Hellfire
+    15: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.OnDarkWings
+    20: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.PowerOfThePit
+- name: Undead
+  class-skill: [knowledge religion]
+  bonus-spells: 
+    3: chill touch
+    5: false life
+    7: vampiric touch
+    9: animate dead
+    11: waves of fatigue
+    13: undeath to death
+    15: finger of death
+    17: horrid wilting
+    19: energy drain
+  bonus-feats: [combat casting, diehard, endurance, iron will, skill focus(knowledge religion), 
+    spell focus, still spell, toughness]
+  powers:
+    1: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.GraveTouch
+    3: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.DeathsGift
+    9: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.GraspOfTheDead
+    15: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.IncorporealForm
+    20: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.OneOfUs
