@@ -14,13 +14,13 @@ namespace SilverNeedle.Characters.SpecialAbilities
         private Dictionary<int, string> powers = new Dictionary<int, string>();
         private Dictionary<int, string> bonusSpells = new Dictionary<int, string>();
         private string[] bonusFeats;
-        private string classSkill;
+        private string[] classSkillOptions;
         private string bloodlineName;
 
-        private Bloodline(string name, string classSkill, Dictionary<int, string> powers, Dictionary<int, string> bonusSpells, string[] bonusFeats)
+        private Bloodline(string name, string[] classSkillOptions, Dictionary<int, string> powers, Dictionary<int, string> bonusSpells, string[] bonusFeats)
         {
             this.bloodlineName = name;
-            this.classSkill = classSkill;
+            this.classSkillOptions = classSkillOptions;
             this.powers = powers;
             this.bonusFeats = bonusFeats;
             this.bonusSpells = bonusSpells;
@@ -28,7 +28,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
         public Bloodline(IObjectStore configuration) : base()
         {
             bloodlineName = configuration.GetString("name");
-            classSkill = configuration.GetString("class-skill");
+            classSkillOptions = configuration.GetList("class-skill");
             var bonuses = configuration.GetObject("bonus-spells");
             foreach(var level in bonuses.Keys)
             {
@@ -69,7 +69,14 @@ namespace SilverNeedle.Characters.SpecialAbilities
         public void Initialize(ComponentBag components)
         {
             var skills = components.Get<SkillRanks>();
-            skills.GetSkill(classSkill).ClassSkill = true;
+            var strategy = components.Get<CharacterStrategy>();
+            AssignClassSkill(skills, strategy);
+        }
+
+        private void AssignClassSkill(SkillRanks skillRanks, CharacterStrategy strategy)
+        {
+            var chooseSkill = classSkillOptions.ChooseOne();
+            skillRanks.GetSkill(chooseSkill).ClassSkill = true;
         }
 
         public bool Matches(string name)
@@ -77,9 +84,9 @@ namespace SilverNeedle.Characters.SpecialAbilities
             return this.Name.EqualsIgnoreCase(name);
         }
 
-        public static Bloodline CreateWithValues(string name, string classSkill, Dictionary<int, string> powers, Dictionary<int, string> bonusSpells, string[] bonusFeats)
+        public static Bloodline CreateWithValues(string name, string[] classSkillOptions, Dictionary<int, string> powers, Dictionary<int, string> bonusSpells, string[] bonusFeats)
         {
-            return new Bloodline(name, classSkill, powers, bonusSpells, bonusFeats);
+            return new Bloodline(name, classSkillOptions, powers, bonusSpells, bonusFeats);
         }
     }
 }

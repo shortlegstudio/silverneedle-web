@@ -1,6 +1,6 @@
 --- !<SilverNeedle.Characters.SpecialAbilities.Bloodline>
 - name: Aberrant
-  class-skill: knowledge dungeoneering
+  class-skill: [knowledge dungeoneering]
   bonus-spells: 
     3: enlarge person
     5: see invisibility
@@ -12,7 +12,7 @@
     17: mind blank
     19: shapechange
   bonus-feats: [combat casting, improved disarm, improved grapple, improve initiative, 
-    improve unarmed strike, iron will, silent spell, skill focus "knowledge dungeoneering"]
+    improve unarmed strike, iron will, silent spell, skill focus(knowledge dungeoneering)]
   powers:
     1: SilverNeedle.Characters.Attacks.AcidicRay
     3: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.LongLimbs
@@ -20,7 +20,7 @@
     15: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.AlienResistance
     20: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.AberrantForm
 - name: Abyssal
-  class-skill: knowledge planes
+  class-skill: [knowledge planes]
   bonus-spells: 
     3: cause fear
     5: bull's strength
@@ -32,10 +32,52 @@
     17: unholy aura
     19: summon monster ix
   bonus-feats: [augment summoning, cleave, empower spell, great fortitude, improved bull rush, 
-    improved sunder, power attack, skill focus - knowledge planes]
+    improved sunder, power attack, skill focus(knowledge planes)]
   powers:
     1: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.Claws
     3: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.DemonResistances
     9: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.StrengthOfTheAbyss
     15: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.AddedSummonings
     20: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.DemonicMight
+- name: Arcane
+  class-skill: [knowledge arcana, knowledge dungeoneering, Knowledge Engineering, Knowledge Geography,
+    Knowledge History, Knowledge Local, Knowledge Nature, Knowledge Nobility, Knowledge Planes,
+    Knowledge Religion]
+  bonus-spells: 
+    3: identify
+    5: invisibility
+    7: dispel magic
+    9: dimension door
+    11: overland fight
+    13: true seeing
+    15: greater teleport
+    17: power word stun
+    19: wish
+  bonus-feats: [combat casting, improved counterspell, improved initiative, iron will, scribe scroll,
+    skill focus(knowledge arcana), spell focus, still spell]
+  powers:
+    1: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.ArcaneBond
+    3: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.MetamagicAdept
+    9: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.NewArcana
+    15: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.SchoolPower
+    20: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.ArcaneApotheosis
+- name: Celestial
+  class-skill: [Heal]
+  bonus-spells: 
+    3: bless
+    5: resist energy
+    7: magic circle against evil
+    9: remove curse
+    11: flame strike
+    13: greater dispel magic
+    15: banishment
+    17: sunburst
+    19: gate
+  bonus-feats: [dodge, extend spell, iron will, mobility, mounted combat, ride-by attack,
+    skill focus(knowledge religion), weapon finesse]
+  powers:
+    1: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.HeavenlyFire
+    3: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.CelestialResistances
+    9: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.WingsOfHeaven
+    15: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.Conviction
+    20: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.Ascension

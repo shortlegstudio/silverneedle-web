@@ -19,7 +19,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
         {
             var bloodline = Bloodline.CreateWithValues(
                 "draconic",
-                "perception",
+                new string [] { "perception" },
                 new Dictionary<int, string>() { { 3, "SilverNeedle.Characters.Attacks.AcidicRay" }},
                 new Dictionary<int, string>(),
                 new string[] { }

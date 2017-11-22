@@ -23,7 +23,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
                 .WithSpontaneousCasting();
             var bloodline = Bloodline.CreateWithValues(
                 "aberrant", 
-                "perception", 
+                new string[] { "perception" },
                 new Dictionary<int, string>(),
                 new Dictionary<int, string> { { 1, "some random spell" } },
                 new string[] { });
