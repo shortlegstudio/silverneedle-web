@@ -81,3 +81,23 @@
     9: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.WingsOfHeaven
     15: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.Conviction
     20: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.Ascension
+- name: Destined
+  class-skill: [knowledge history]
+  bonus-spells: 
+    3: alarm
+    5: blur
+    7: protection from energy
+    9: freedom of movement
+    11: break enchantment
+    13: mislead
+    15: spell turning
+    17: moment of prescience
+    19: foresight
+  bonus-feats: [arcane strike, diehard, endurance, leadership, lightning reflexes,
+    maximize spell, skill focus(knowledge history), weapon focus]
+  powers:
+    1: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.TouchOfDestiny
+    3: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.Fated
+    9: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.ItWasMeantToBe
+    15: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.WithinReach
+    20: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.DestinyRealized
