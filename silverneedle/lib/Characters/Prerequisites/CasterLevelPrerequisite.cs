@@ -3,6 +3,8 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
+using SilverNeedle.Characters.Magic;
+
 namespace SilverNeedle.Characters.Prerequisites
 {
         /// <summary>
@@ -15,16 +17,16 @@ namespace SilverNeedle.Characters.Prerequisites
             /// <see cref="CasterLevelPrerequisite"/> class.
             /// </summary>
             /// <param name="value">Value to meet the requirements.</param>
-            public CasterLevelPrerequisite(string value)
+            public CasterLevelPrerequisite(string casterLevel)
             {
-                this.CasterLevel = value;
+                this.CasterLevel = casterLevel.ToInteger();
             }
 
             /// <summary>
             /// Gets or sets the caster level.
             /// </summary>
             /// <value>The caster level.</value>
-            public string CasterLevel { get; set; }
+            public int CasterLevel { get; private set; }
 
             /// <summary>
             /// Determines whether this instance is qualified the specified character.
@@ -33,7 +35,11 @@ namespace SilverNeedle.Characters.Prerequisites
             /// <param name="character">Character to assess qualification.</param>
             public bool IsQualified(CharacterSheet character)
             {
-                return false;
+                var spellcasting = character.Get<ISpellCasting>();
+                if(spellcasting == null)
+                    return false;
+
+                return spellcasting.CasterLevel >= this.CasterLevel;
             }
         }
     

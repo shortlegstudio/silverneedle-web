@@ -8,6 +8,7 @@ namespace SilverNeedle.Characters.Prerequisites
     using System.Collections.Generic;
     using System.Linq;
     using SilverNeedle.Serialization;
+    using SilverNeedle.Utility;
 
     /// <summary>
     /// Prerequisites needed to be able to use a feat
@@ -94,6 +95,9 @@ namespace SilverNeedle.Characters.Prerequisites
                         break;
                     case "ability":
                         newreq = new SpecialAbilityPrerequisite(prereq.GetString(key));
+                        break;
+                    case "custom":
+                        newreq = prereq.GetString(key).Instantiate<IPrerequisite>();
                         break;
                     default:
                         throw new KeyNotFoundException(key);

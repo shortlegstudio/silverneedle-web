@@ -9,7 +9,7 @@ namespace SilverNeedle.Characters.Magic
     using System.Linq;
     using SilverNeedle.Spells;
 
-    public class DivineCasting 
+    public class DivineCasting : ISpellCasting
     {
         public const int MAX_SPELL_LEVEL = 10;
         private IDictionary<int, Spell[]> knownSpells;
@@ -24,6 +24,15 @@ namespace SilverNeedle.Characters.Magic
         private BasicStat DifficultyClass { get; set; }
         public SpellType SpellType { get; private set; }
         private IList<ISpellCastingRule> castingRules;
+        public int GetHighestSpellLevelKnown()
+        {
+            return MaxLevel;
+        }
+
+        public IEnumerable<string> GetReadySpells(int spellLevel)
+        {
+            return GetCastableSpells(spellLevel).Select(x => x.Name);
+        }
 
         public virtual int MaxLevel 
         { 

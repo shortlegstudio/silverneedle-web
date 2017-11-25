@@ -15,5 +15,7 @@ namespace SilverNeedle.Characters.Magic
         int GetHighestSpellLevelKnown();
         IEnumerable<string> GetReadySpells(int spellLevel);
         int GetDifficultyClass(int spellLevel);
+        int CasterLevel { get; }
+        SpellType SpellType { get; }
     }
 }

@@ -40,7 +40,21 @@
     - name: use magical device
       weight: 5
   feats:
+    - name: brew potion
+      weight: 8
+    - name: craft magic arms and armor
+      weight: 8
+    - name: craft rod
+      weight: 8
+    - name: craft staff
+      weight: 8
+    - name: craft wand
+      weight: 8
+    - name: craft wondrous item
+      weight: 8
     - name: dodge
+      weight: 6
+    - name: forge ring
       weight: 8
   abilities:
     - name: charisma

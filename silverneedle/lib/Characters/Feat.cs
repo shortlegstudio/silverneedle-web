@@ -183,5 +183,12 @@ namespace SilverNeedle.Characters
         {
             return this.Name.GetHashCode();
         }
+
+        public static Feat Create(string name)
+        {
+            var feat = new Feat();
+            feat.Name = name;
+            return feat;
+        }
     }
 }

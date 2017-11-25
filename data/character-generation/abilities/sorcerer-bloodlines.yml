@@ -11,8 +11,8 @@
     15: plane shift
     17: mind blank
     19: shapechange
-  bonus-feats: [combat casting, improved disarm, improved grapple, improve initiative, 
-    improve unarmed strike, iron will, silent spell, skill focus(knowledge dungeoneering)]
+  bonus-feats: [combat casting, improved disarm, improved grapple, improved initiative, 
+    improved unarmed strike, iron will, silent spell, skill focus(knowledge dungeoneering)]
   powers:
     1: SilverNeedle.Characters.Attacks.AcidicRay
     3: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.LongLimbs
@@ -153,7 +153,7 @@
     15: phase door
     17: irresistible dance
     19: shapechange
-  bonus-feats: [dodge, improved initiative, lightning reflexes, mobility, point blank shot, 
+  bonus-feats: [dodge, improved initiative, lightning reflexes, mobility, point-blank shot, 
     precise shot, quicken spell, skill focus(knowledge nature)]
   powers:
     1: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.LaughingTouch

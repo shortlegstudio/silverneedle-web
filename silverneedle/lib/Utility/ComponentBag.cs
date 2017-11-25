@@ -70,6 +70,11 @@ namespace SilverNeedle.Utility
             return Get<T>() != null;
         }
 
+        public bool Contains(object obj)
+        {
+            return components.Contains(obj);
+        }
+
         public void ApplyStatModifiers(IEnumerable<IStatModifier> statModifiers)
         {
             foreach(var mod in statModifiers)

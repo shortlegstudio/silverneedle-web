@@ -92,7 +92,7 @@
     You draw upon your arcane power to enhance
     your weapons with magical energy.
   prerequisites:
-    - classfeature: Arcane Spellcaster
+    - custom: SilverNeedle.Characters.Prerequisites.IsArcaneSpellCaster
 - feat:
   name: Armor Proficiency (Heavy)
   description: You are skilled at wearing heavy armor.
@@ -338,7 +338,7 @@
     You can increase the power of your spells, causing them more damage.
   tags: [ metamagic ]
   prerequisite:
-    - classfeature: Spellcaster
+    - custom: SilverNeedle.Characters.Prerequisites.IsSpellCaster
 - feat:
   name: Endurance
   description: Harsh conditions or long exertions do not easily tire you.
@@ -347,14 +347,14 @@
   tags: [ metamagic ]
   description: You can increase the range of your spells.
   prerequisites:
-    - classfeature: Spellcaster
+    - custom: SilverNeedle.Characters.Prerequisites.IsSpellCaster
 - feat:
   name: Eschew Materials
   description: >
     You can cast many spells without needing to utilize minor material
     components.
   prerequisites:
-    - classfeature: Spellcaster
+    - custom: SilverNeedle.Characters.Prerequisites.IsSpellCaster
 - feat:
   name: Exhausting Critical
   description: Your critical hits cause opponents to become exhausted.
@@ -376,7 +376,7 @@
   name: Extend Spell
   description: You can make your spells last twice as long
   prerequisites:
-    - classfeature: Spellcaster
+    - custom: SilverNeedle.Characters.Prerequisites.IsSpellCaster
   tags: [ metamagic ]
 - feat:
   name: Extra Channel
@@ -588,7 +588,7 @@
   tags: [ metamagic ]
   description: You can cast spells as if they were a higher level.
   prerequisites:
-    - classfeature: Spellcaster
+    - custom: SilverNeedle.Characters.Prerequisites.IsSpellCaster
 - feat:
   name: Improved Bull Rush
   description: You are skilled at pushing your foes around.
@@ -748,7 +748,7 @@
   name: Leadership
   description: You attract followers to your cause.
 - feat:
-  name: Lighting Reflexes
+  name: Lightning Reflexes
   description: You have faster reflexes than normal.
   modifiers:
     - stat: Reflex
@@ -805,7 +805,7 @@
   name: Maximize Spell
   description: Your spells have the maximum possible effect.
   prerequisites:
-    - classfeature: Spellcaster
+    - custom: SilverNeedle.Characters.Prerequisites.IsSpellCaster
   tags: [ metamagic ]
 - feat:
   name: Medusa's Wrath
@@ -910,7 +910,7 @@
   tags: [ metamagic ]
   description: You can cast spells in a fraction of the normal time.
   prerequisites:
-    - classfeature: Spellcaster
+    - custom: SilverNeedle.Characters.Prerequisites.IsSpellCaster
 - feat:
   name: Rapid Reload
   tags: [ combat ]
@@ -1029,7 +1029,7 @@
   tags: [ metamagic ]
   description: Youc an cast your spells without making any sound
   prerequisites:
-    - classfeature: Spellcaster
+    - custom: SilverNeedle.Characters.Prerequisites.IsSpellCaster
 - feat:
   name: Simple Weapon Proficiency
   tags: [ combat ]
@@ -1055,7 +1055,7 @@
     Choose a school of magic. Any spells you cast of that school are more
     difficult to resist.
   prerequisites:
-    - classfeature: Arcane Spellcaster
+    - custom: SilverNeedle.Characters.Prerequisites.IsArcaneSpellCaster
 - feat:
   name: Spell Mastery
   description: >
@@ -1068,7 +1068,7 @@
   description: >
     Your spells break through spell resistance more easily than most.
   prerequisites:
-    - classfeature: Spellcaster
+    - custom: SilverNeedle.Characters.Prerequisites.IsSpellCaster
 - feat:
   name: Spellbreaker
   tags: [ combat ]
@@ -1131,7 +1131,7 @@
   tags: [ metamagic ]
   description: You can cast spells without moving
   prerequisites:
-    - classfeature: Arcane Spellcaster
+    - custom: SilverNeedle.Characters.Prerequisites.IsArcaneSpellCaster
 - feat:
   name: Strike Back
   tags: [ combat ]
@@ -1278,7 +1278,7 @@
   tags: [ metamagic ]
   description: You can cast your spells so that they occupy a larger space.
   prerequisites:
-    - classfeature: Spellcaster
+    - custom: SilverNeedle.Characters.Prerequisites.IsSpellCaster
 - feat:
   name: Wind Stance
   tags: [ combat ]
