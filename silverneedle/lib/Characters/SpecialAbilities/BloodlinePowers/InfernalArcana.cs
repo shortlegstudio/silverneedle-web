@@ -5,9 +5,9 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
-    public class InfernalArcana : SpecialAbility, IBloodlineArcana
+    public class InfernalArcana : BloodlineArcana
     {
 
-        public string BonusAbility { get; private set; }
+        public override string BonusAbility { get { return string.Empty; } }
     }
 }

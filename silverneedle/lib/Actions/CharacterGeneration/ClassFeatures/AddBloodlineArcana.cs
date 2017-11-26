@@ -15,7 +15,7 @@ namespace  SilverNeedle.Actions.CharacterGeneration.ClassFeatures
         public void ExecuteStep(CharacterSheet character)
         {
             var bloodline = character.Get<Bloodline>();
-            var arcana = bloodline.BloodlineArcana.Instantiate<IBloodlineArcana>();
+            var arcana = bloodline.BloodlineArcana.Instantiate<BloodlineArcana>();
             character.Add(arcana);
         }
     }

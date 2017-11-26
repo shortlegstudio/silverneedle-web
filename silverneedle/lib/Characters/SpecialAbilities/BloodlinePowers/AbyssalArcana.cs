@@ -5,9 +5,18 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
-    public class AbyssalArcana : SpecialAbility, IBloodlineArcana
+    using SilverNeedle.Utility;
+    public class AbyssalArcana : BloodlineArcana, IComponent
     {
+        private ClassLevel sorcererLevel;
 
-        public string BonusAbility { get; private set; }
+        public override string BonusAbility 
+        { 
+            get { return "summoned creatures gain DR {0}/good".Formatted(sorcererLevel.Level/2); } 
+        }
+        public void Initialize(ComponentBag components)
+        {
+            sorcererLevel = components.Get<ClassLevel>();
+        }
     }
 }

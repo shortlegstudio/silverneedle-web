@@ -5,21 +5,14 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
-    public class AberrantArcana : SpecialAbility, IBloodlineArcana
+    public class AberrantArcana : BloodlineArcana
     {
-        public string BonusAbility { get; private set; }
+        public override string BonusAbility { get { return bonusAbility; } }
+        private string bonusAbility;
 
         public AberrantArcana()
         {
-            BonusAbility = "+50% duration polymorph spells";
-        }
-
-        public override string Name 
-        {
-            get 
-            {
-                return "{0} ({1})".Formatted(base.Name, this.BonusAbility);
-            }
+            bonusAbility = "+50% duration polymorph spells";
         }
     }
 }
