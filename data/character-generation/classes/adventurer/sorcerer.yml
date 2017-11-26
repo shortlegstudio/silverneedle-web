@@ -73,6 +73,7 @@
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectBloodline
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddBloodlinePower
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddBloodlineArcana
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
         - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
           options: [Eschew Materials]

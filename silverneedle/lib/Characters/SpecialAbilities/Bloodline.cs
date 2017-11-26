@@ -28,6 +28,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
         public Bloodline(IObjectStore configuration) : base()
         {
             bloodlineName = configuration.GetString("name");
+            BloodlineArcana = configuration.GetString("arcana");
             classSkillOptions = configuration.GetList("class-skill");
             var bonuses = configuration.GetObject("bonus-spells");
             foreach(var level in bonuses.Keys)
@@ -44,6 +45,8 @@ namespace SilverNeedle.Characters.SpecialAbilities
             bonusFeats = configuration.GetList("bonus-feats");
             this.Name = string.Format("{0} ({1})", base.Name, bloodlineName);
         }
+
+        public string BloodlineArcana { get; private set; }
 
         public string GetBonusSpell(int level)
         {

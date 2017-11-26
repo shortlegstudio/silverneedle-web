@@ -79,8 +79,16 @@ namespace Tests.Characters.SpecialAbilities
             );
         }
 
+        [Fact]
+        public void ProvidesAnArcana()
+        {
+            Assert.Equal("SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.AberrantArcana",
+                aberrant.BloodlineArcana);
+        }
+
         private string bloodlineYaml = @"---
 name: Aberrant
+arcana: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.AberrantArcana
 class-skill: [knowledge dungeoneering]
 bonus-spells: 
   3: enlarge person
