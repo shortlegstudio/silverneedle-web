@@ -3,10 +3,41 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
+
 namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
-    public class WingsOfHeaven : SpecialAbility, IBloodlinePower
+    using SilverNeedle.Utility;
+    public class WingsOfHeaven : SpecialAbility, IBloodlinePower, IComponent
     {
+        private ClassLevel sorcererLevel;
+        private ComponentBag components;
+        private bool IsAscended()
+        {
+            return components.Contains<Ascension>();
+        }
 
+        public void Initialize(ComponentBag components)
+        {
+            this.components = components;
+            sorcererLevel = components.Get<ClassLevel>();
+        }
+
+        public int MinutesPerDay 
+        { 
+            get 
+            { 
+                if(IsAscended())
+                    return int.MaxValue;
+                return sorcererLevel.Level; 
+            } 
+        }
+
+        public override string Name
+        {
+            get 
+            { 
+                return "{0} ({1} minutes/day)".Formatted(base.Name, IsAscended() ? "unlimited" : MinutesPerDay.ToString()); 
+            }
+        }
     }
 }

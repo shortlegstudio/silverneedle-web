@@ -5,9 +5,19 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
-    public class CelestialArcana : BloodlineArcana
+    using SilverNeedle.Utility;
+    public class CelestialArcana : BloodlineArcana, IComponent
     {
+        private ClassLevel sorcererLevel;
 
-        public override string BonusAbility { get { return string.Empty; } }
+        public override string BonusAbility 
+        { 
+            get { return "summoned creatures gain DR {0}/evil".Formatted(sorcererLevel.Level/2); } 
+        }
+
+        public void Initialize(ComponentBag components)
+        {
+            sorcererLevel = components.Get<ClassLevel>();
+        }
     }
 }
