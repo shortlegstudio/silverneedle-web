@@ -45,6 +45,8 @@
     - template: '{{pronoun}} owns a pair of glasses even though {{pronoun}} does not need them.'
     - template: '{{pronoun}} carries a small book and is constantly recording notes in it.'
     - template: '{{pronoun}} has a fine {{descriptor "common"}} that was passed down by {{possessivepronoun}} {{descriptor "relative"}}.'
+    - template: '{{pronoun}} carries around {{possessivepronoun}} {{choose "relative"}} ashes.'
+    - template: '{{pronoun}} carries around the bones of {{possessivepronoun}} {{choose "relative"}}.'
 - name: food
   descriptors:
     - diet: [carnivore, omnivore, pescatarian, vegetarian, vegan ]

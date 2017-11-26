@@ -8,5 +8,6 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
     public class ArcaneArcana : SpecialAbility, IBloodlineArcana
     {
 
+        public string BonusAbility { get; private set; }
     }
 }

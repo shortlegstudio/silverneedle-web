@@ -7,6 +7,6 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
     public interface IBloodlineArcana
     {
-
+        string BonusAbility { get; }
     }
 }

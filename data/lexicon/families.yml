@@ -2,4 +2,6 @@
 - name: parent
   words: [father, mother]
 - name: relative
-  words: ['{{choose "parent"}}', uncle, aunt, cousin, grandfather, grandmother]
+  words: ['{{choose "parent"}}', uncle, aunt, cousin, grandfather, grandmother, sister, brother]
+- name: sibling
+  words: [brother, sister]
