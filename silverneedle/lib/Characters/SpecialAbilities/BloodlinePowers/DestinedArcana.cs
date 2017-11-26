@@ -8,6 +8,6 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
     public class DestinedArcana : BloodlineArcana
     {
 
-        public override string BonusAbility { get { return string.Empty; } }
+        public override string BonusAbility { get { return "luck bonus on saves when personal-range spells cast"; } }
     }
 }

@@ -5,8 +5,29 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
-    public class ItWasMeantToBe : SpecialAbility, IBloodlinePower
+    using SilverNeedle.Utility;
+    public class ItWasMeantToBe : SpecialAbility, IBloodlinePower, IComponent
     {
+        private ClassLevel sorcererLevels;
+        public void Initialize(ComponentBag components)
+        {
+            sorcererLevels = components.Get<ClassLevel>();
+        }
 
+        public int UsesPerDay
+        {
+            get
+            {
+                return sorcererLevels.Level >= 17 ? 2 : 1;
+            }
+        }
+
+        public override string Name
+        {
+            get
+            {
+                return "{0} ({1}/day)".Formatted(base.Name, UsesPerDay);
+            }
+        }
     }
 }
