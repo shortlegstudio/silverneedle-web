@@ -110,6 +110,17 @@ namespace Tests.Serialization
             Assert.IsType<TestObject>(two);
         }
 
+        [Fact]
+        public void CustomLoaderCanBeUsedToExpandAndInstantiateAGroupOfEntities()
+        {
+            var data = new MemoryStore();
+            data.SetValue("loader", "Tests.Serialization.EntityGatewayTests+TestObjectLoader");
+            var gateway = EntityGateway<TestObject>.LoadFromObjectStore(new IObjectStore[] { data });
+            var all = gateway.All();
+            Assert.Equal(3, all.Count());
+            Assert.Equal("Loader 1", all.First().Name);
+        }
+
         [ObjectStoreSerializable]
         public class AlwaysFresh : IGatewayObject, IGatewayCopy<AlwaysFresh>
         {
@@ -170,6 +181,19 @@ namespace Tests.Serialization
             public TestObjectCustom(IObjectStore data) : base(data)
             {
 
+            }
+        }
+
+        public class TestObjectLoader : IGatewayLoader<TestObject>
+        {
+            public IEnumerable<TestObject> Load(IObjectStore configuration)
+            {
+                return new TestObject[] 
+                {
+                    new TestObject("Loader 1"),
+                    new TestObject("Loader 2"),
+                    new TestObject("Loader 3")
+                };
             }
         }
     }

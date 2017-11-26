@@ -135,14 +135,33 @@ namespace SilverNeedle.Serialization
         private void LoadObjects(IEnumerable<IObjectStore> data)
         {
             foreach(var d in data) {
-                T obj = InstantiateObject(d);
-                
-                if(isDeserializable)
+                if(d.HasKey("loader"))
                 {
-                    d.Deserialize<T>(obj); 
+                    CreateFromLoader(d);
                 }
-                dataStore.Add(obj);
+                else
+                {
+                    CreateStandard(d);
+                }
             }
+        }
+
+        private void CreateFromLoader(IObjectStore d)
+        {
+            var loader = d.GetString("loader").Instantiate<IGatewayLoader<T>>();
+            var entities = loader.Load(d);
+            dataStore.Add(entities);
+        }
+
+        private void CreateStandard(IObjectStore d)
+        {
+            T obj = InstantiateObject(d);
+                
+            if(isDeserializable)
+            {
+                d.Deserialize<T>(obj); 
+            }
+            dataStore.Add(obj);
         }
 
         private T InstantiateObject(IObjectStore objectInformation)

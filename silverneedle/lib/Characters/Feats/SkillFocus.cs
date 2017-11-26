@@ -14,22 +14,45 @@ namespace SilverNeedle.Characters.Feats
     public class SkillFocus : Feat, IComponent
     {
         private DelegateStatModifier statModifier;
+        public string SkillName { get; private set; }
         public CharacterSkill CharacterSkill { get; private set; }
         public SkillFocus()
         {
             this.Name = "Skill Focus";
         }
+        public SkillFocus(string skillName) : this()
+        {
+            SetSkillFocus(skillName);
+        }
         public SkillFocus(IObjectStore configure) : base(configure) { }
-        public SkillFocus(SkillFocus copy) : base(copy) { }
+        public SkillFocus(SkillFocus copy) : base(copy) 
+        { 
+            this.SkillName = copy.SkillName;
+            this.Name = copy.Name;
+        }
+        public void SetSkillFocus(string skillName)
+        {
+            this.SkillName = skillName;
+            this.Name = "Skill Focus({1})".Formatted(this.Name, this.SkillName.Titlize());
+        }
         public void Initialize(ComponentBag components)
+        {
+            if(string.IsNullOrEmpty(this.SkillName))
+            {
+                SelectSkillFocus(components);
+            }
+            var skills = components.Get<SkillRanks>();
+            this.CharacterSkill = skills.GetSkill(SkillName);
+            ApplyBonusToSkill();
+        }
+
+        private void SelectSkillFocus(ComponentBag components)
         {
             var strategy = components.Get<CharacterStrategy>();
             var skills = components.Get<SkillRanks>();
             var skillTable = GetSkillTable(skills, strategy);
             DisableOptionsThatAlreadyHaveSkillFocus(skillTable, components.GetAll<SkillFocus>());
-            var skillName = skillTable.ChooseRandomly();
-            this.CharacterSkill = skills.GetSkill(skillName);
-            ApplyBonusToSkill();
+            SetSkillFocus(skillTable.ChooseRandomly());
         }
 
         public override Feat Copy()
@@ -72,7 +95,6 @@ namespace SilverNeedle.Characters.Feats
                 }
             );
             this.CharacterSkill.AddModifier(statModifier);
-            this.Name = "{0} ({1})".Formatted(this.Name, this.CharacterSkill.Name);
         }
     }
 }

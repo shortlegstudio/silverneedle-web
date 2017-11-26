@@ -19,8 +19,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
         [Fact]
         public void ChoosesAFeatFromTheAvailableFeats()
         {
-            var someFeat = new Feat();
-            someFeat.Name = "Feat One";
+            var someFeat = Feat.Named("Feat One");
             var gateway = EntityGateway<Feat>.LoadWithSingleItem(someFeat);
             var yaml = @"
 - name: Archery

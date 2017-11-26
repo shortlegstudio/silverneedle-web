@@ -14,6 +14,7 @@ namespace SilverNeedle.Characters
     /// </summary>
     public class FeatToken
     {
+        public const string IGNORE_GENERIC_TAG = "ignore-generic-token";
         private IList<string> tags = new List<string>();
         public FeatToken(string tag)
         {
@@ -40,7 +41,9 @@ namespace SilverNeedle.Characters
         {
             //Empty list always is true
             if (tags.Count == 0)
-                return true;
+            {
+                return !feat.Tags.Contains(IGNORE_GENERIC_TAG);
+            }
 
                             
             return tags.Any(x => feat.Tags.Contains(x) || feat.Name.EqualsIgnoreCase(x));

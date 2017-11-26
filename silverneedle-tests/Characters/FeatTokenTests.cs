@@ -36,8 +36,7 @@ namespace Tests.Characters {
         [Fact]
         public void FeatTokensCanMatchByNameAsWell()
         {
-            var feat = new Feat();
-            feat.Name = "Turtle Snapper";
+            var feat = Feat.Named("Turtle Snapper");
             var featToken = new FeatToken("Turtle Snapper");
             Assert.True(featToken.Qualifies(feat));
         }
@@ -51,6 +50,15 @@ namespace Tests.Characters {
 
             Assert.True(featToken.Qualifies(dodge));
             Assert.True(featToken.Qualifies(mobility));
+        }
+
+        [Fact]
+        public void IfFeatIsTaggedAsRequireSpecificTokenIgnoreEmptyToken()
+        {
+            var featToken = new FeatToken();
+            var specialFeat = Feat.Named("Foo");
+            specialFeat.Tags.Add("ignore-generic-token"); 
+            Assert.False(featToken.Qualifies(specialFeat));
         }
     }
 }

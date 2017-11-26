@@ -26,15 +26,12 @@ namespace Tests.Actions
 
         public FeatSelectorTests()
         {
-            powerattack = new Feat();
-            powerattack.Name = "Power Attack";
+            powerattack = Feat.Named("Power Attack");
 
-            cleave = new Feat();
-            cleave.Name = "Cleave";
+            cleave = Feat.Named("Cleave");
             cleave.Prerequisites.Add(new FeatPrerequisite("power attack"));
 
-            empowerspell = new Feat();
-            empowerspell.Name = "Empower Spell";
+            empowerspell = Feat.Named("Empower Spell");
             empowerspell.Tags.Add("metamagic");
 
             var list = new List<Feat>();

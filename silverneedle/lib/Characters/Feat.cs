@@ -47,7 +47,7 @@ namespace SilverNeedle.Characters
         /// Gets or sets the name.
         /// </summary>
         /// <value>The name of the feat.</value>
-        public string Name { get; set; }
+        public string Name { get; protected set; }
 
         /// <summary>
         /// Gets or sets the description of the feat

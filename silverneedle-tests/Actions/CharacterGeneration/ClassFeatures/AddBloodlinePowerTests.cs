@@ -12,7 +12,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Characters.Attacks;
 
-    public class AddBloodlinePowerTests
+    public class AddBloodlinePowerTests : RequiresDataFiles
     {
         [Fact]
         public void AddsAPowerThatIsAvailableAtCurrentLevel()

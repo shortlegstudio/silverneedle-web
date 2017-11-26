@@ -1037,8 +1037,8 @@
 - feat:
   name: Skill Focus
   description: Choose a skill. You are particularly adept at that skill.
-  allow-multiple: true
   custom-implementation: SilverNeedle.Characters.Feats.SkillFocus
+  loader: SilverNeedle.Characters.Feats.LoadSkillFocusFeatsForEachSkill
 - feat:
   name: Snatch Arrows
   tags: [ combat ]

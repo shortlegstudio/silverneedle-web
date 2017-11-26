@@ -77,5 +77,25 @@ namespace Tests.Characters.Feats
             Assert.Equal(3, genericCharacter.SkillRanks.GetScore("Climb"));
             Assert.Equal(3, genericCharacter.SkillRanks.GetScore("Swim"));
         }
+
+        [Fact]
+        [Repeat(500)]
+        public void SkillFocusCanBeInitializedForASpecificSkill()
+        {
+            var skillFocus = new SkillFocus("climb");
+            var genericCharacter = CharacterTestTemplates.WithSkills(new string[] { "Climb", "Swim" });
+            genericCharacter.Add(skillFocus);
+            Assert.Equal(3, genericCharacter.SkillRanks.GetScore("Climb"));
+        }
+
+
+        [Fact]
+        public void CopyingSpecificSkillFocusRetainsSkill()
+        {
+            var skillFocus = new SkillFocus("Climb");
+            var copy = skillFocus.Copy() as SkillFocus;
+            Assert.Equal("Climb", copy.SkillName);
+            Assert.Equal("Skill Focus(Climb)", copy.Name);
+        }
     }
 }

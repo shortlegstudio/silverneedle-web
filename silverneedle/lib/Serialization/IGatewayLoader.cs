@@ -5,8 +5,9 @@
 
 namespace SilverNeedle.Serialization
 {
-    public interface IGatewayObject
+    using System.Collections.Generic;
+    public interface IGatewayLoader<T>
     {
-        bool Matches(string name);
+        IEnumerable<T> Load(IObjectStore configuration);
     }
 }
