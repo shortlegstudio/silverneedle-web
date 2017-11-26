@@ -5,8 +5,23 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
-    public class NewArcana : SpecialAbility, IBloodlinePower
-    {
+    using SilverNeedle.Characters.Magic;
+    using SilverNeedle.Utility;
 
+    public class NewArcana : SpecialAbility, IBloodlinePower, IImprovesWithLevels, IComponent
+    {
+        public void LeveledUp(ComponentBag components)
+        {
+            var clsLevel = components.Get<ClassLevel>();
+            if(clsLevel.Level == 13 || clsLevel.Level == 17)
+            {
+                components.Add(LearnSpellToken.FromList("sorcerer-wizard"));
+            }
+        }
+
+        public void Initialize(ComponentBag components)
+        {
+            components.Add(LearnSpellToken.FromList("sorcerer-wizard"));
+        }
     }
 }

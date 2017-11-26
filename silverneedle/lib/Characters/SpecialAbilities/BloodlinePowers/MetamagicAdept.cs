@@ -5,8 +5,25 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
-    public class MetamagicAdept : SpecialAbility, IBloodlinePower
-    {
+    using SilverNeedle.Utility;
 
+    public class MetamagicAdept : SpecialAbility, IBloodlinePower, IComponent
+    {
+        private ClassLevel sorcererLevel;
+
+        public void Initialize(ComponentBag components)
+        {
+            sorcererLevel = components.Get<ClassLevel>();
+        }
+
+        public int UsesPerDay
+        {
+            get { return 1 + (sorcererLevel.Level - 3) / 4; }
+        }
+
+        public override string Name
+        {
+            get { return "{0} {1}/day".Formatted(base.Name, UsesPerDay); }
+        }
     }
 }

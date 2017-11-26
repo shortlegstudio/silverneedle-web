@@ -7,7 +7,6 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
     public class ArcaneArcana : BloodlineArcana
     {
-
-        public override string BonusAbility { get { return string.Empty; } }
+        public override string BonusAbility { get { return "+1 DC for metamagic spells that increase spell level"; } }
     }
 }

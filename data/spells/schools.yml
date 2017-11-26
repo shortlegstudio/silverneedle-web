@@ -1,0 +1,9 @@
+--- !<SilverNeedle.Spells.School>
+- name: Abjuration
+- name: Conjuration
+- name: Divination
+- name: Enchantment
+- name: Evocation
+- name: Illusion
+- name: Necromancy
+- name: Transmutation
