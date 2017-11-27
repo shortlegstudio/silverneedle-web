@@ -55,6 +55,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 
         public int Range { get { return 0; } }
         public int RoundsPerDay { get { return 3 + charisma.TotalModifier; } }
+        public string BonusDamageType { get; set; }
 
         public string AttackBonusString()
         {
@@ -75,7 +76,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
         private string BonusDamage()
         {
             if(this.sorcererLevel.Level >= 11)
-                return " plus 1d6 fire";
+                return " plus 1d6 " + BonusDamageType;
             return string.Empty;
         }
 
@@ -98,6 +99,16 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
             this.AttackBonus = new BasicStat("Claw Attack Bonus");
             this.AttackBonus.AddModifier(new StatisticStatModifier(this.AttackBonus.Name, offense.MeleeAttackBonus));
             this.sorcererLevel = components.Get<ClassLevel>();
+
+            if(components.Contains<IDraconicBloodline>())
+            {
+                var bloodline = components.Get<IDraconicBloodline>();
+                BonusDamageType = bloodline.DragonType.EnergyType;
+            }
+            else
+            {
+                BonusDamageType = "fire";
+            }
         }
     }
 }

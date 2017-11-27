@@ -107,6 +107,7 @@
     15: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.WithinReach
     20: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.DestinyRealized
 - name: Draconic
+  custom-implementation: SilverNeedle.Characters.SpecialAbilities.DraconicBloodline
   arcana: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.DraconicArcana
   class-skill: [perception]
   bonus-spells: 

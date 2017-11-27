@@ -17,7 +17,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
         private string[] classSkillOptions;
         private string bloodlineName;
 
-        private Bloodline(string name, string[] classSkillOptions, Dictionary<int, string> powers, Dictionary<int, string> bonusSpells, string[] bonusFeats)
+        protected Bloodline(string name, string[] classSkillOptions, Dictionary<int, string> powers, Dictionary<int, string> bonusSpells, string[] bonusFeats)
         {
             this.bloodlineName = name;
             this.classSkillOptions = classSkillOptions;
@@ -69,7 +69,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
             return bonusFeats;
         }
 
-        public void Initialize(ComponentBag components)
+        public virtual void Initialize(ComponentBag components)
         {
             var skills = components.Get<SkillRanks>();
             var strategy = components.Get<CharacterStrategy>();

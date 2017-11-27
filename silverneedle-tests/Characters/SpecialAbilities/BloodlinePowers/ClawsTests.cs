@@ -6,9 +6,12 @@
 namespace Tests.Characters.SpecialAbilities.BloodlinePowers
 {
     using Xunit;
-    using SilverNeedle.Characters.SpecialAbilities.BloodlinePowers;
+    using Moq;
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.Attacks;
+    using SilverNeedle.Characters.SpecialAbilities;
+    using SilverNeedle.Characters.SpecialAbilities.BloodlinePowers;
+
 
     public class ClawsTests
     {
@@ -78,6 +81,22 @@ namespace Tests.Characters.SpecialAbilities.BloodlinePowers
             sorcerer.Add(claws);
             sorcerer.SetLevel(11);
             Assert.Contains("1d6 fire", claws.DisplayString());
+        }
+
+        [Fact]
+        public void DraconicBloodlineDoesBonusDamageOfType()
+        {
+            var sorcerer = CharacterTestTemplates.Sorcerer();
+            var draconic = new Mock<IDraconicBloodline>();
+            var dragonType = new DragonType();
+            dragonType.EnergyType = "cold";
+            draconic.Setup(x => x.DragonType).Returns(dragonType);
+            sorcerer.Add(draconic.Object);
+            
+            var claws = new Claws();
+            sorcerer.Add(claws);
+            sorcerer.SetLevel(11);
+            Assert.Contains("1d6 cold", claws.DisplayString());
         }
     }
 }
