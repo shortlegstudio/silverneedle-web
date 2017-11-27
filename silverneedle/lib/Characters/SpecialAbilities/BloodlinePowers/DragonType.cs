@@ -15,7 +15,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
         [ObjectStore("energy-type")]
         public string EnergyType { get; set; }
         [ObjectStore("breath-range")]
-        public string BreathRange { get; set; }
+        public int BreathRange { get; set; }
         [ObjectStore("breath-shape")]
         public string BreathShape { get; set; }
 
