@@ -5,9 +5,16 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
-    public class ElementalArcana : BloodlineArcana
+    using SilverNeedle.Utility;
+    public class ElementalArcana : BloodlineArcana, IComponent
     {
+        private ElementalType elementalType;
 
-        public override string BonusAbility { get { return string.Empty; } }
+        public override string BonusAbility { get { return "change energy damage spells to {0}".Formatted(elementalType.EnergyType); } }
+
+        public void Initialize(ComponentBag components)
+        {
+            elementalType = components.Get<ElementalType>();
+        }
     }
 }

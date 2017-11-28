@@ -1,0 +1,17 @@
+--- !<SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.ElementalType>
+- name: Air
+  energy-type: electricity
+  movement-speed: 60
+  movement-type: fly
+- name: Earth
+  energy-type: acid
+  movement-speed: 30
+  movement-type: burrow
+- name: Fire
+  energy-type: fire
+  movement-speed: 30
+  movement-type: base
+- name: Water
+  energy-type: cold
+  movement-speed: 60
+  movement-type: swim
