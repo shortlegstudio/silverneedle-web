@@ -27,7 +27,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 
         public int NumberOfAttacks => throw new System.NotImplementedException();
 
-        public AttackTypes AttackType => throw new System.NotImplementedException();
+        public AttackTypes AttackType { get { return AttackTypes.Special; } }
 
         public IStatistic CriticalModifier => throw new System.NotImplementedException();
 

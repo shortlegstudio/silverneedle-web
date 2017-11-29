@@ -12,7 +12,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Characters;
     using SilverNeedle.Serialization;
 
-    public class AddBloodlineBonusFeatTests
+    public class AddBloodlineBonusFeatTests : RequiresDataFiles
     {
         [Fact]
         public void AddsAFeatTokenFromTheListOfOptions()
