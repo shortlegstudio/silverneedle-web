@@ -5,8 +5,29 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
-    public class FleetingGlance : SpecialAbility, IBloodlinePower
-    {
+    using SilverNeedle.Utility;
 
+    public class FleetingGlance : SpecialAbility, IBloodlinePower, IComponent
+    {
+        private ClassLevel sorcererLevel;
+        public int RoundsPerDay
+        {
+            get { return sorcererLevel.Level; }
+        }
+        public void Initialize(ComponentBag components)
+        {
+            sorcererLevel = components.Get<ClassLevel>();
+        }
+
+        public override string Name
+        {
+            get
+            {
+                return "{0} rounds/day - {1}".Formatted(
+                    RoundsPerDay,
+                    base.Name
+                );
+            }
+        }
     }
 }

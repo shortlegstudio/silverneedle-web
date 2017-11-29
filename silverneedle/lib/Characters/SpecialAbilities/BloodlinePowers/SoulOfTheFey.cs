@@ -5,8 +5,17 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
-    public class SoulOfTheFey : SpecialAbility, IBloodlinePower
-    {
+    using SilverNeedle.Utility;
 
+    public class SoulOfTheFey : SpecialAbility, IBloodlinePower, IComponent
+    {
+        public void Initialize(ComponentBag components)
+        {
+            var defense = components.Get<DefenseStats>();
+            defense.AddImmunity("poison");
+            defense.AddDamageResistance(new DamageResistance(10, "cold iron"));
+
+            components.Add(new SpellBasedAbility("Shadow Walk", 1));
+        }
     }
 }
