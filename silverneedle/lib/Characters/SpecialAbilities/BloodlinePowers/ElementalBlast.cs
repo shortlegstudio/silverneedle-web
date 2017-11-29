@@ -50,7 +50,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
             {
                 if(sorcererLevels.Level >= 20)
                     return 3;
-                if(sorcererLevels.Level > 17)
+                if(sorcererLevels.Level >= 17)
                     return 2;
                 return 1;
             }

@@ -5,8 +5,31 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
-    public class CorruptingTouch : SpecialAbility, IBloodlinePower
-    {
+    using SilverNeedle.Utility;
 
+    public class CorruptingTouch : SpecialAbility, IBloodlinePower, IComponent
+    {
+        private AbilityScore charisma;
+        private ClassLevel sorcererLevels;
+        public int UsesPerDay
+        {
+            get
+            {
+                return 3 + charisma.TotalModifier;
+            }
+        }
+
+        public int RoundsDuration
+        {
+            get
+            {
+                return (sorcererLevels.Level / 2).AtLeast(1);
+            }
+        }
+        public void Initialize(ComponentBag components)
+        {
+            this.charisma = components.Get<AbilityScores>().GetAbility(AbilityScoreTypes.Charisma);
+            this.sorcererLevels = components.Get<ClassLevel>();
+        }
     }
 }

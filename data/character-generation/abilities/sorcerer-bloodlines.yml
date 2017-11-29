@@ -130,6 +130,7 @@
     20: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.PowerOfWyrms
 - name: Elemental
   arcana: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.ElementalArcana
+  custom-implementation: SilverNeedle.Characters.SpecialAbilities.ElementalBloodline
   class-skill: [knowledge planes]
   bonus-spells: 
     3: burning hands

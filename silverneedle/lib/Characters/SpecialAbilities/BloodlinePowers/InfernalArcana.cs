@@ -8,6 +8,6 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
     public class InfernalArcana : BloodlineArcana
     {
 
-        public override string BonusAbility { get { return string.Empty; } }
+        public override string BonusAbility { get { return "+2 DC for charm spells"; } }
     }
 }
