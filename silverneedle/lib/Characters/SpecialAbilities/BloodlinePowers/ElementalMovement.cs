@@ -5,8 +5,19 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
-    public class ElementalMovement : SpecialAbility, IBloodlinePower
-    {
+    using SilverNeedle.Utility;
 
+    public class ElementalMovement : SpecialAbility, IBloodlinePower, IComponent
+    {
+        ElementalType elementalType;
+        public void Initialize(ComponentBag components)
+        {
+            elementalType = components.Get<ElementalType>();
+            this.Name = "{0} ({1} {2})".Formatted(
+                base.Name,
+                elementalType.MovementSpeed.ToRangeString(),
+                elementalType.MovementType
+            );
+        }
     }
 }

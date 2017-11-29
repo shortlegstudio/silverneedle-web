@@ -5,8 +5,17 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
-    public class ElementalBody : SpecialAbility, IBloodlinePower
-    {
+    using SilverNeedle.Utility;
 
+    public class ElementalBody : SpecialAbility, IBloodlinePower, IComponent
+    {
+        public void Initialize(ComponentBag components)
+        {
+            var defense = components.Get<DefenseStats>();
+            var elementalType = components.Get<ElementalType>();
+            defense.AddImmunity("sneak attacks");
+            defense.AddImmunity("critical hits");
+            defense.AddImmunity(elementalType.EnergyType);
+        }
     }
 }
