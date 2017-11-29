@@ -5,8 +5,35 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
-    public class IncorporealForm : SpecialAbility, IBloodlinePower
+    using SilverNeedle.Utility;
+    public class IncorporealForm : SpecialAbility, IBloodlinePower, IComponent
     {
+        private ClassLevel  sorcererLevels;
+        public int RoundsPerDay
+        {
+            get { return sorcererLevels.Level; }
+        }
 
+        public int UsesPerDay
+        {
+            get { return 1; }
+        }
+
+        public void Initialize(ComponentBag components)
+        {
+            sorcererLevels = components.Get<ClassLevel>();
+        }
+
+        public override string Name
+        {
+            get
+            {
+                return "{0}/day {1} {2}/rounds".Formatted(
+                    UsesPerDay,
+                    base.Name,
+                    RoundsPerDay
+                );
+            }
+        }
     }
 }

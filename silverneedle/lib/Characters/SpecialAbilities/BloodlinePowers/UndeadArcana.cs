@@ -8,6 +8,6 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
     public class UndeadArcana : BloodlineArcana
     {
 
-        public override string BonusAbility { get { return string.Empty; } }
+        public override string BonusAbility { get { return "corporeal undead affected by humanoid-affecting spells"; } }
     }
 }
