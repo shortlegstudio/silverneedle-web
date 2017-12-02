@@ -96,6 +96,13 @@ namespace Tests
             return sorcerer;
         }
 
+        public static CharacterSheet Wizard()
+        {
+            var wizard = CreateWithAverageAbilityScores();
+            wizard.SetClass(new Class("wizard"));
+            return wizard;
+        }
+
         public static CharacterSheet WithSpontaneousCasting(this CharacterSheet character)
         {
             var spellcastingConfigurationYaml = @"---

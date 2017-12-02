@@ -1,0 +1,67 @@
+--- !<SilverNeedle.Characters.CharacterStrategy>
+- characterbuild:
+  name: Wizard
+  classskillmultiplier: 5
+  baseskillweight: 1
+  charactercreator: default
+  designer: create-adventurer
+  ability-score-roller: SilverNeedle.Actions.CharacterGeneration.Abilities.ThreedSixAbilityScoreGenerator
+  classes:
+    - name: wizard
+      weight: 10
+  races:
+    - name: dwarf 
+      weight: 5     
+    - name: elf 
+      weight: 10     
+    - name: human
+      weight: 16
+    - name: half-orc
+      weight: 8
+    - name: half-elf 
+      weight: 14     
+    - name: halfling 
+      weight: 12     
+    - name: gnome 
+      weight: 12     
+  skills:
+    - name: fly
+      weight: 6
+    - name: knowledge arcana
+      weight: 14
+    - name: knowledge dungeoneering
+      weight: 14
+    - name: knowledge local
+      weight: 14
+    - name: knowledge planes
+      weight: 14
+    - name: knowledge religion
+      weight: 14
+    - name: linguistics
+      weight: 15
+    - name: spellcraft
+      weight: 25
+  feats:
+    - name: brew potion
+      weight: 8
+    - name: craft magic arms and armor
+      weight: 8
+    - name: craft rod
+      weight: 8
+    - name: craft staff
+      weight: 8
+    - name: craft wand
+      weight: 8
+    - name: craft wondrous item
+      weight: 8
+    - name: dodge
+      weight: 6
+    - name: forge ring
+      weight: 8
+  abilities:
+    - name: intelligence
+      weight: 260
+    - name: constitution
+      weight: 14
+    - name: dexterity
+      weight: 10

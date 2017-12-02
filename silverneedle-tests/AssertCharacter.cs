@@ -41,5 +41,13 @@ namespace Tests
                 string.Format("Expected immunity to {0}", damageType)
             );
         }
+
+        public static void IsCarrying<T>(CharacterSheet character)
+        {
+            Assert.True(
+                character.Inventory.GearOfType<T>().Count() > 0,
+                string.Format("Expected to be carrying a {0}", typeof(T))
+            );
+        }
     }
 }

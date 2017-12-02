@@ -63,6 +63,11 @@ namespace SilverNeedle.Characters.Magic
 
         public override IEnumerable<string> GetReadySpells(int spellLevel)
         {
+            return GetKnownSpells(spellLevel);
+        }
+
+        public override IEnumerable<string> GetKnownSpells(int spellLevel)
+        {
             if(!learnedSpells.ContainsKey(spellLevel))
                 return new string[] { };
             

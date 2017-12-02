@@ -31,6 +31,11 @@ namespace SilverNeedle.Characters.Magic
 
         public IEnumerable<string> GetReadySpells(int spellLevel)
         {
+            return GetPreparedSpells(spellLevel);
+        }
+
+        public IEnumerable<string> GetKnownSpells(int spellLevel)
+        {
             return GetCastableSpells(spellLevel).Select(x => x.Name);
         }
 

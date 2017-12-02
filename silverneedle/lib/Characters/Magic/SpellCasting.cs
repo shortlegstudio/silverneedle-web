@@ -62,6 +62,11 @@ namespace SilverNeedle.Characters.Magic
             return new string[] { };
         }
 
+        public virtual IEnumerable<string> GetKnownSpells(int spellLevel)
+        {
+            return new string[] { };
+        }
+
         public virtual int GetDifficultyClass(int spellLevel)
         {
             return 10 + this.CastingAbility.TotalModifier + spellLevel;

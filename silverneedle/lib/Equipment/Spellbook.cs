@@ -8,6 +8,7 @@ namespace SilverNeedle.Equipment
     using System.Collections.Generic;
     public class Spellbook : Gear
     {
+        private IDictionary<int, IList<string>> Spells { get; set; }
         //TODO: Hardcoded prices and weight are probably bad... 
         public Spellbook() : base("Spellbook", 1500, 3) 
         {
@@ -15,16 +16,25 @@ namespace SilverNeedle.Equipment
             GroupSimilar = false;
         }
 
-        public void AddSpells(int level, IList<string> spells)
+        public void AddSpells(int level, IEnumerable<string> spells)
         {
-            this.Spells[level] = spells;
+            GetLevelList(level).Add(spells);
         }
 
-        public IList<string> GetSpells(int level)
+        public IEnumerable<string> GetSpells(int level)
         {
+            return GetLevelList(level);
+        }
+
+        private IList<string> GetLevelList(int level)
+        {
+
+            if(!Spells.ContainsKey(level))
+            {
+                Spells.Add(level, new List<string>());
+            }
             return Spells[level];
-        }
 
-        private IDictionary<int, IList<string>> Spells { get; set; }
+        }
     }
 }
