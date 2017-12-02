@@ -41,6 +41,27 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
         }
 
         [Fact]
+        public void WillAddTheModifierToNumericSlotsIfSetToTrue()
+        {
+            var configuration = new MemoryStore();
+            configuration.SetValue(
+                "spells",
+                new string[] { "all", "3" }
+            );
+            configuration.SetValue("add-modifier", true);
+
+            var step = new AddSpellsToSpellbook(configuration);
+            var wizard = CharacterTestTemplates.Wizard().WithSpellbookCasting();
+            wizard.AbilityScores.SetScore(AbilityScoreTypes.Intelligence, 16);
+            step.ExecuteStep(wizard);
+            var casting = wizard.Get<ISpellCasting>();
+            Assert.Equal(
+                6, 
+                casting.GetKnownSpells(1).Count()
+            );
+        }
+
+        [Fact]
         public void ContainsASelectionOfOtherLevelSpells()
         {
             var casting = wizard.Get<ISpellCasting>();
@@ -48,6 +69,12 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
                 3,
                 casting.GetKnownSpells(1).Count()
             );
+        }
+        
+        [Fact]
+        public void DoNotAddSpellsThatAlreadyExist()
+        {
+
         }
     }
 }

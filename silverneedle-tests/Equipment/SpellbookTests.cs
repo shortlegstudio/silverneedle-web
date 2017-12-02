@@ -24,5 +24,13 @@ namespace Tests.Equipment
             var book = new Spellbook();
             Assert.Equal(new string[] { }, book.GetSpells(0));
         }
+
+        [Fact]
+        public void KnowsWhetherTheSpellExistsInTheList()
+        {
+            var book = new Spellbook();
+            book.AddSpells(0, new string[] { "light", "foo" });
+            Assert.True(book.ContainsSpell(0, "light"));
+        }
     }
 }

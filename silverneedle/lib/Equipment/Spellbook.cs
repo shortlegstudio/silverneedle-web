@@ -6,6 +6,8 @@
 namespace SilverNeedle.Equipment
 {
     using System.Collections.Generic;
+    using System.Linq;
+    using SilverNeedle.Utility;
     public class Spellbook : Gear
     {
         private IDictionary<int, IList<string>> Spells { get; set; }
@@ -35,6 +37,11 @@ namespace SilverNeedle.Equipment
             }
             return Spells[level];
 
+        }
+
+        public bool ContainsSpell(int level, string name)
+        {
+            return GetSpells(level).Any(x => x.EqualsIgnoreCase(name));
         }
     }
 }

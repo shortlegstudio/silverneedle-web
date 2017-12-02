@@ -14,9 +14,11 @@ namespace SilverNeedle.Actions.CharacterGeneration.SpellCasting
     public class AddSpellsToSpellbook : ICharacterDesignStep
     {
         private string[] spellsToAdd;
+        private bool addModifier = false;
         public AddSpellsToSpellbook(IObjectStore configuration)
         {
             spellsToAdd = configuration.GetList("spells");
+            addModifier = configuration.GetBoolOptional("add-modifier");
         }
         public void ExecuteStep(CharacterSheet character)
         {
@@ -32,9 +34,13 @@ namespace SilverNeedle.Actions.CharacterGeneration.SpellCasting
                 else
                 {
                     int spellsToChoose = spellsToAdd[level].ToInteger();
+                    if(addModifier)
+                        spellsToChoose += casting.CastingAbility.TotalModifier;
+
                     book.AddSpells(
                         level,
-                        spellList.GetSpells(level).Choose(spellsToChoose)
+                        spellList.GetSpells(level).Where(x => !book.ContainsSpell(level, x))
+                        .Choose(spellsToChoose)
                     );
                 }
             }

@@ -19,5 +19,6 @@ namespace SilverNeedle.Characters.Magic
         int GetDifficultyClass(int spellLevel);
         int CasterLevel { get; }
         SpellType SpellType { get; }
+        AbilityScore CastingAbility { get; }
     }
 }
