@@ -135,5 +135,30 @@ spells-known:
             return character;
 
         }
+
+        public static CharacterSheet WithSpellbookCasting(this CharacterSheet character)
+        {
+            var spellcastingConfigurationYaml = @"---
+list: " + character.Class.Name + @"
+type: arcane
+casting-ability: intelligence
+spell-slots:
+  1: [3, 2]
+  2: [4, 3]
+  3: [4, 3, 2]
+";
+            var spellList = new SpellList();
+            spellList.Class = character.Class.Name;
+            //Add a bunch of spells
+            for(int level = 0; level < 10; level++)
+            {
+                for(int spellCount = 0; spellCount < 15; spellCount++)
+                {
+                    spellList.Add(level, string.Format("spell {0}-{1}", level, spellCount));
+                }
+            }
+            character.Add(new SpellbookCasting(spellcastingConfigurationYaml.ParseYaml(), EntityGateway<SpellList>.LoadWithSingleItem(spellList)));
+            return character;
+        }
     }
 }

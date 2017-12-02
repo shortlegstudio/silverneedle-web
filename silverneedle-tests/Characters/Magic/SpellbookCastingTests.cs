@@ -82,6 +82,15 @@ namespace Tests.Characters.Magic
             );
         }
 
+        [Fact]
+        public void IfNoSpellsArePreparedForALevelJustReturnEmptyStringArray()
+        {
+            Assert.Equal(
+                new string[] { },
+                casting.GetReadySpells(70)
+            );
+        }
+
         private string spellbookYaml = @"---
 list: sorcerer-wizard
 type: arcane

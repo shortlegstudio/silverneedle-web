@@ -1,0 +1,6 @@
+--- !<SilverNeedle.Actions.CharacterGeneration.CharacterDesigner>
+- build-steps:
+  name: finalize-spellcaster
+  type: normal
+  steps: 
+    - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.PrepareSpells

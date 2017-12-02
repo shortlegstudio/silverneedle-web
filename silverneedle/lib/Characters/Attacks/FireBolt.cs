@@ -38,7 +38,7 @@ namespace SilverNeedle.Characters.Attacks
             }
         }
 
-        public override string ToString()
+        public override string DisplayString()
         {
             return string.Format("Fire Bolt {0}' ({1} {2})", this.Range.ToString(), this.Damage.ToString(), this.DamageType);
         }

@@ -27,7 +27,7 @@ namespace Tests.Characters.Domains
             var icicle = character.Offense.Attacks().OfType<Icicle>().First();
             Assert.Equal(icicle.UsesPerDay, 6);
             Assert.Equal(icicle.Damage.ToString(), "1d6+1");
-            Assert.Equal(icicle.ToString(), "Icicle 30' (1d6+1 cold)");
+            Assert.Equal(icicle.DisplayString(), "Icicle 30' (1d6+1 cold)");
         }
 
         [Fact]

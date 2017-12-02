@@ -41,6 +41,9 @@ namespace SilverNeedle.Characters.Magic
 
         public virtual int GetSpellsPerDay(int level)
         {
+            if(spellSlots[CasterLevel].Length <= level)
+                return 0;
+
             return spellSlots[CasterLevel][level] + GetBonusSpellsPerDay(level);
         }
 
@@ -54,7 +57,7 @@ namespace SilverNeedle.Characters.Magic
 
         public virtual int GetHighestSpellLevelKnown()
         {
-            return 0;
+            return spellSlots[CasterLevel].Length - 1;
         }
 
         public virtual IEnumerable<string> GetReadySpells(int spellLevel)

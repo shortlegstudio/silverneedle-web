@@ -29,7 +29,7 @@ namespace SilverNeedle.Characters.Attacks
             );
         }
 
-        public override string ToString()
+        public override string DisplayString()
         {
             return "{0} (Fort DC: {1})".Formatted(this.Name, this.SaveDC);
         }

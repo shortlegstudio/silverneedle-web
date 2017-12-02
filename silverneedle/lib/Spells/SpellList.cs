@@ -61,6 +61,11 @@ namespace SilverNeedle.Spells
             throw new SpellNotFoundException(spellName);
         }
 
+        public IEnumerable<string> GetSpells(int level)
+        {
+            return Levels[level];
+        }
+
         public bool Matches(string cls)
         {
             return Class.EqualsIgnoreCase(cls);

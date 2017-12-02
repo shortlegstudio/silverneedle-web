@@ -13,13 +13,18 @@ namespace SilverNeedle.Characters.Magic
     using SilverNeedle.Spells;
     using SilverNeedle.Utility;
 
-    public class SpellbookCasting : SpellCasting
+    public class SpellbookCasting : SpellCasting, ICastingPerparation
     {
         private Spellbook spellbook;
         private Dictionary<int, IList<string>> preparedSpells = new Dictionary<int, IList<string>>();
         private Inventory inventory;
         public SpellbookCasting(IObjectStore configuration) : base(configuration)
         {
+        }
+
+        public SpellbookCasting(IObjectStore configuration, EntityGateway<SpellList> spellLists) : base(configuration, spellLists)
+        {
+
         }
 
         public override void Initialize(ComponentBag components)
@@ -50,7 +55,17 @@ namespace SilverNeedle.Characters.Magic
 
         public override IEnumerable<string> GetReadySpells(int spellLevel)
         {
+            if(!this.preparedSpells.ContainsKey(spellLevel))
+                return new string[] { };
             return this.preparedSpells[spellLevel];
+        }
+
+        public void PrepareSpells(int level, IEnumerable<string> spells)
+        {
+            foreach(var spell in spells)
+            {
+                PrepareSpell(level, spell);
+            }
         }
     }
 }

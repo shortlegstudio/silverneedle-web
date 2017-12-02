@@ -43,5 +43,10 @@ namespace SilverNeedle.Characters.Attacks
         {
             return string.Format("{0} (DC: {1}, {2})", Name, SaveDC, Damage.ToString());
         }
+
+        public override string DisplayString()
+        {
+            return string.Format("{0} (DC: {1}, {2})", Name, SaveDC, Damage.ToString());
+        }
     }
 }

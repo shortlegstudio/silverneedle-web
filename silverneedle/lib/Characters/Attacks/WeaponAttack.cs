@@ -98,7 +98,7 @@ namespace SilverNeedle.Characters.Attacks
         /// Returns a <see cref="System.String"/> that represents the current <see cref="SilverNeedle.Characters.OffenseStats+AttackStatistic"/>.
         /// </summary>
         /// <returns>A <see cref="System.String"/> that represents the current <see cref="SilverNeedle.Characters.OffenseStats+AttackStatistic"/>.</returns>
-        public string DisplayString()
+        public virtual string DisplayString()
         {
             
             return string.Format(

@@ -9,13 +9,14 @@ namespace SilverNeedle.Characters.Magic
     using System.Linq;
     using SilverNeedle.Spells;
 
-    public class DivineCasting : ISpellCasting
+    public class DivineCasting : ISpellCasting, ICastingPerparation
     {
         public const int MAX_SPELL_LEVEL = 10;
         private IDictionary<int, Spell[]> knownSpells;
-        private IDictionary<int, Spell[]> preparedSpells;
+        private IDictionary<int, IList<Spell>> preparedSpells;
         private int[] spellsPerDay;
         public SpellsKnown SpellsKnown { get; set; }
+        public SpellList SpellList => throw new System.NotImplementedException();
         public ClassLevel Class { get; }
         public int CasterLevel { get { return this.Class.Level; } }
         public AbilityScore CastingAbility { get; private set; }
@@ -46,12 +47,14 @@ namespace SilverNeedle.Characters.Magic
                 return knownSpells.Keys.Max(); 
             }
         }
+
+
         public DivineCasting(ClassLevel sourceClass, string spellList)
         {
             this.Class = sourceClass;
             this.knownSpells = new Dictionary<int, Spell[]>();
             this.spellsPerDay = new int[MAX_SPELL_LEVEL];
-            this.preparedSpells = new Dictionary<int, Spell[]>();
+            this.preparedSpells = new Dictionary<int, IList<Spell>>();
             this.DifficultyClass = new BasicStat(StatNames.SpellcastingDC, 10);
             SpellsKnown = SpellsKnown.None;
             this.castingRules = new List<ISpellCastingRule>();
@@ -103,8 +106,19 @@ namespace SilverNeedle.Characters.Magic
         {
             if(spells.Empty())
                 return;
-            preparedSpells[level] = knownSpells[level].Where(x => spells.Contains(x.Name)).ToArray();
+            foreach(var spell in spells)
+            {
+                PrepareSpell(level, spell);
+            }
         } 
+
+        public void PrepareSpell(int level, string spell)
+        {
+            if(!preparedSpells.ContainsKey(level))
+                preparedSpells[level] = new List<Spell>();
+
+            preparedSpells[level].Add(knownSpells[level].First(x => x.Name == spell));
+        }
 
         public virtual IEnumerable<string> GetPreparedSpells(int level)
         {
@@ -129,5 +143,6 @@ namespace SilverNeedle.Characters.Magic
         {
             return string.Format("Spellcasting ({0})", this.SpellListName);
         }
+
     }
 }

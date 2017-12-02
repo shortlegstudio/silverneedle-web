@@ -14,24 +14,34 @@ namespace SilverNeedle.Actions.CharacterGeneration.SpellCasting
     {
         public void ExecuteStep(CharacterSheet character)
         {
-            if(character.Get<DivineCasting>() == null)
+            if(character.Get<ICastingPerparation>() == null)
                 return;
 
             ShortLog.Debug("-- PrepareSpells --");
-            var spellCastings = character.GetAll<DivineCasting>();
+            var spellCastings = character.GetAll<ICastingPerparation>();
             foreach(var sc in spellCastings)
             {
                 Prepare(sc);
             }
         }
 
-        private void Prepare(DivineCasting spellCasting)
+        private void Prepare(ICastingPerparation spellCasting)
         {
-            ShortLog.DebugFormat("Preparing spells for list: {0}", spellCasting.ToString());
-            for(int level = 0; level <= spellCasting.MaxLevel; level++)
+            for(int level = 0; spellCasting.GetSpellsPerDay(level) > 0; level++)
             {
                 int spellCount = spellCasting.GetSpellsPerDay(level);
-                var spells = spellCasting.GetAvailableSpells(level).Choose(spellCount);
+                var spellsAvailable = spellCasting.GetKnownSpells(level).ToArray();
+                ShortLog.DebugFormat(
+                    "Preparing spells from [Level: {0}, Slots: {1}, Spells: {2}]",
+                    level,
+                    spellCount,
+                    string.Join(", ", spellsAvailable)
+                );
+
+                if(spellsAvailable.Length < spellCount)
+                    spellCount = spellsAvailable.Length;
+
+                var spells = spellsAvailable.Choose(spellCount); 
                 spellCasting.PrepareSpells(level, spells.ToArray());
             }
         }

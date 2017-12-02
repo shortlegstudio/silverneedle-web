@@ -10,6 +10,5 @@
     - step: SilverNeedle.Actions.CharacterGeneration.FeatSelector
     - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SetSpellsPerDay
     - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddLevelUpSpells
-    - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.PrepareSpells
     - step: SilverNeedle.Actions.CharacterGeneration.ProcessCustomClassFeatures
     - step: SilverNeedle.Actions.CharacterGeneration.NotifyComponentsOfLevelUp

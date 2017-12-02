@@ -76,6 +76,21 @@ namespace Tests.Characters.Magic
 
         }
 
+        [Fact]
+        public void IfNoSlotsForLevelJustReturnZero()
+        {
+            Assert.Equal(0, spellCasting.GetSpellsPerDay(16));
+        }
+
+        [Fact]
+        public void HighestSpellLevelKnownCalculatedFromWhatSpellSlotsAreAvailable()
+        {
+            Assert.Equal(1, spellCasting.GetHighestSpellLevelKnown());
+            bard.SetLevel(3);
+
+            Assert.Equal(2, spellCasting.GetHighestSpellLevelKnown());
+        }
+
         IObjectStore configuration = @"
 list: bard
 type: arcane

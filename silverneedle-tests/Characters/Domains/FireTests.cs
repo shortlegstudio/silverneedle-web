@@ -27,7 +27,7 @@ namespace Tests.Characters.Domains
             var acidDart = character.Offense.Attacks().OfType<FireBolt>().First();
             Assert.Equal(acidDart.UsesPerDay, 6);
             Assert.Equal(acidDart.Damage.ToString(), "1d6+1");
-            Assert.Equal(acidDart.ToString(), "Fire Bolt 30' (1d6+1 fire)");
+            Assert.Equal(acidDart.DisplayString(), "Fire Bolt 30' (1d6+1 fire)");
         }
 
         [Fact]
