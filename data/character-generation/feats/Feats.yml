@@ -140,7 +140,7 @@
 - feat:
   name: Brew Potion
   description: You can create magic potions.
-  itemcreation: yes
+  tags: [ itemcreation ]
   prerequisites:
     - casterlevel: 3
 - feat:

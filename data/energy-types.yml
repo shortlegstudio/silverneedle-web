@@ -1,0 +1,6 @@
+--- !<SilverNeedle.EnergyType>
+- name: acid
+- name: cold
+- name: electricity
+- name: fire
+- name: sonic

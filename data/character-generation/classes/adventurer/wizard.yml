@@ -30,7 +30,7 @@
   levels:
     - level: 1
       abilities:
-        - ability: SilverNeedle.Characters.Magic.SpellbookCasting
+        - ability: SilverNeedle.Characters.Magic.WizardCasting
           list: sorcerer-wizard
           type: arcane
           casting-ability: intelligence
@@ -57,6 +57,8 @@
             19: [4, 4, 4, 4, 4, 4, 4, 4, 3, 3]
             20: [4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
       class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddBonusLanguages
+          languages: [Draconic]
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
           spells: [all, 3]
           add-modifier: true
@@ -79,6 +81,8 @@
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
           spells: [0, 0, 0, 2]
+        - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
+          options: [metamagic, itemcreation, Spell Mastery]
     - level: 6
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
@@ -99,6 +103,8 @@
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
           spells: [0, 0, 0, 0, 0, 2]
+        - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
+          options: [metamagic, itemcreation, Spell Mastery]
     - level: 11
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
@@ -119,6 +125,8 @@
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
           spells: [0, 0, 0, 0, 0, 0, 0, 0, 2]
+        - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
+          options: [metamagic, itemcreation, Spell Mastery]
     - level: 16
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
@@ -139,3 +147,5 @@
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
           spells: [0, 0, 0, 0, 0, 0, 0, 0, 1, 1]
+        - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
+          options: [metamagic, itemcreation, Spell Mastery]

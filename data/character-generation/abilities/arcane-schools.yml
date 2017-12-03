@@ -1,0 +1,71 @@
+--- !<SilverNeedle.Characters.Magic.ArcaneSchool>
+- name: Abjuration
+  abilities:
+    - ability: SilverNeedle.Characters.SpecialAbilities.AbjurationResistance
+      level: 1
+    - ability: SilverNeedle.Characters.SpecialAbilities.ProtectiveWard
+      level: 1
+    - ability: SilverNeedle.Characters.SpecialAbilities.EnergyAbsorption
+      level: 6
+- name: Conjuration
+  abilities:
+    - ability: SilverNeedle.Characters.SpecialAbilities.SummonersCharm
+      level: 1
+    - ability: SilverNeedle.Characters.SpecialAbilities.AcidDart
+      level: 1
+    - ability: SilverNeedle.Characters.SpecialAbilities.DimensionalSteps
+      level: 8
+- name: Divination
+  abilities:
+    - ability: SilverNeedle.Characters.SpecialAbilities.Forewarned
+      level: 1
+    - ability: SilverNeedle.Characters.SpecialAbilities.DivinersFortune
+      level: 1
+    - ability: SilverNeedle.Characters.SpecialAbilities.ScryingAdept
+      level: 8
+- name: Enchantment
+  abilities:
+    - ability: SilverNeedle.Characters.SpecialAbilities.EnchantingSmile
+      level: 1
+    - ability: SilverNeedle.Characters.SpecialAbilities.DazingTouch
+      level: 1
+    - ability: SilverNeedle.Characters.SpecialAbilities.AuraOfDespair
+      level: 8
+- name: Evocation
+  abilities:
+    - ability: SilverNeedle.Characters.SpecialAbilities.IntenseSpells
+      level: 1
+    - ability: SilverNeedle.Characters.SpecialAbilities.ForceMissile
+      level: 1
+    - ability: SilverNeedle.Characters.SpecialAbilities.ElementalWall
+      level: 8
+- name: Illusion
+  abilities:
+    - ability: SilverNeedle.Characters.SpecialAbilities.ExtendedIllusions
+      level: 1
+    - ability: SilverNeedle.Characters.SpecialAbilities.BlindingRay
+      level: 1
+    - ability: SilverNeedle.Characters.SpecialAbilities.InvisibilityField
+      level: 8
+- name: Necromancy
+  abilities:
+    - ability: SilverNeedle.Characters.SpecialAbilities.PowerOverUndead
+      level: 1
+    - ability: SilverNeedle.Characters.SpecialAbilities.GraveTouch
+      level: 1
+    - ability: SilverNeedle.Characters.SpecialAbilities.LifeSight
+      level: 8
+- name: Transmutation
+  abilities:
+    - ability: SilverNeedle.Characters.SpecialAbilities.PhysicalEnchantment
+      level: 1
+    - ability: SilverNeedle.Characters.SpecialAbilities.TelekineticFist
+      level: 1
+    - ability: SilverNeedle.Characters.SpecialAbilities.ChangeShape
+      level: 8
+- name: Universalist
+  abilities:
+    - ability: SilverNeedle.Characters.SpecialAbilities.HandOfTheApprentice
+      level: 1
+    - ability: SilverNeedle.Characters.SpecialAbilities.MetamagicMastery
+      level: 8
