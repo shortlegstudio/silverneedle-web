@@ -11,6 +11,7 @@ namespace SilverNeedle.Characters.Magic
 
     public interface IArcaneSchool : IComponent, IImprovesWithLevels, IGatewayObject
     {
+        bool NoOppositionSchools { get; }
         string Name { get; }
         IEnumerable<IObjectStore> GetAbilities();
 

@@ -25,7 +25,7 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
             );
 
             var step = new AddSpellsToSpellbook(configuration);
-            wizard = CharacterTestTemplates.Wizard().WithSpellbookCasting();
+            wizard = CharacterTestTemplates.Wizard().WithWizardCasting();
             step.ExecuteStep(wizard);
             
         }
@@ -51,7 +51,7 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
             configuration.SetValue("add-modifier", true);
 
             var step = new AddSpellsToSpellbook(configuration);
-            var wizard = CharacterTestTemplates.Wizard().WithSpellbookCasting();
+            var wizard = CharacterTestTemplates.Wizard().WithWizardCasting();
             wizard.AbilityScores.SetScore(AbilityScoreTypes.Intelligence, 16);
             step.ExecuteStep(wizard);
             var casting = wizard.Get<ISpellCasting>();

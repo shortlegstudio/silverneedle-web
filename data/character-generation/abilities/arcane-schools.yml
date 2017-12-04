@@ -64,6 +64,7 @@
     - ability: SilverNeedle.Characters.SpecialAbilities.ChangeShape
       level: 8
 - name: Universalist
+  no-opposition-schools: true
   abilities:
     - ability: SilverNeedle.Characters.SpecialAbilities.HandOfTheApprentice
       level: 1
