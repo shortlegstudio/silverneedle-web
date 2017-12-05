@@ -136,7 +136,7 @@ spells-known:
 
         }
 
-        public static CharacterSheet WithSpellbookCasting(this CharacterSheet character)
+        public static CharacterSheet WithWizardCasting(this CharacterSheet character)
         {
             var spellcastingConfigurationYaml = @"---
 list: " + character.Class.Name + @"
@@ -157,7 +157,7 @@ spell-slots:
                     spellList.Add(level, string.Format("spell {0}-{1}", level, spellCount));
                 }
             }
-            character.Add(new SpellbookCasting(spellcastingConfigurationYaml.ParseYaml(), EntityGateway<SpellList>.LoadWithSingleItem(spellList)));
+            character.Add(new WizardCasting(spellcastingConfigurationYaml.ParseYaml(), EntityGateway<SpellList>.LoadWithSingleItem(spellList)));
             return character;
         }
     }

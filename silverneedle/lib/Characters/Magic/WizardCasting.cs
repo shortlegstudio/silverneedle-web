@@ -19,5 +19,12 @@ namespace SilverNeedle.Characters.Magic
         {
 
         }
+
+        public IArcaneSchool FocusSchool { get; private set; }
+
+        public void SetFocusSchool(IArcaneSchool school)
+        {
+            this.FocusSchool = school;
+        }
     }
 }

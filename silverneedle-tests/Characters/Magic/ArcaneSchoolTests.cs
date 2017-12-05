@@ -37,5 +37,20 @@ abilities:
              );
 
         }
+
+        [Fact]
+        public void UniversalistIsFlaggedToAvoidOppositionSchools()
+        {
+
+            var configuration = @"---
+name: Universalist
+no-opposition-schools: true
+abilities:
+  - ability: SomePowerString1
+    level: 1
+".ParseYaml();
+            var school = new ArcaneSchool(configuration);
+            Assert.True(school.NoOppositionSchools);
+        }
     }
 }

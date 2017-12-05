@@ -13,10 +13,12 @@ namespace SilverNeedle.Characters.Magic
     {
         private IObjectStore abilities;
         public string Name { get; private set; }
+        public bool NoOppositionSchools { get; private set; }
         public ArcaneSchool(IObjectStore configuration)
         {
             this.abilities = configuration.GetObject("abilities");
             this.Name = configuration.GetString("name");
+            this.NoOppositionSchools = configuration.GetBoolOptional("no-opposition-schools");
         }
         public IEnumerable<IObjectStore> GetAbilities()
         {
