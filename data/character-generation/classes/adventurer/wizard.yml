@@ -60,6 +60,7 @@
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddBonusLanguages
           languages: [Draconic]
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectArcaneSchool
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectArcaneOppositionSchools
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
           spells: [all, 3]
           add-modifier: true

@@ -14,6 +14,7 @@ namespace SilverNeedle.Characters.Magic
         private IObjectStore abilities;
         public string Name { get; private set; }
         public bool NoOppositionSchools { get; private set; }
+        private ArcaneSchool() { }
         public ArcaneSchool(IObjectStore configuration)
         {
             this.abilities = configuration.GetObject("abilities");
@@ -38,6 +39,14 @@ namespace SilverNeedle.Characters.Magic
         public bool Matches(string name)
         {
             return this.Name.EqualsIgnoreCase(name);
+        }
+
+        public static ArcaneSchool CreateForTesting(string name, bool ignoreOpposition)
+        {
+            var arcane = new ArcaneSchool();
+            arcane.Name = name;
+            arcane.NoOppositionSchools = ignoreOpposition;
+            return arcane;
         }
     }
 }

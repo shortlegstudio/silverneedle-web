@@ -8,7 +8,10 @@
         <h3 class="panel-title"> Spell Casting (@spellCasting.SpellListName) </h3>
         @if(wizardCasting != null)
         {
-            <h6>Arcane School: @wizardCasting.FocusSchool.Name</h6>
+            <h6>
+                Arcane School: @wizardCasting.FocusSchool.Name
+                Opposition Schools: @string.Join(", ", wizardCasting.OppositionSchools.Select(x => x.Name))
+            </h6>
         }
     </div>
     <div class="panel-table">

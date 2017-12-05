@@ -5,6 +5,8 @@
 
 namespace SilverNeedle.Characters.Magic
 {
+    using System.Collections.Generic;
+    using System.Linq;
     using SilverNeedle.Serialization;
     using SilverNeedle.Spells;
 
@@ -21,10 +23,17 @@ namespace SilverNeedle.Characters.Magic
         }
 
         public IArcaneSchool FocusSchool { get; private set; }
+        public IEnumerable<IArcaneSchool> OppositionSchools { get { return oppositionSchools; } } 
+        private IList<IArcaneSchool> oppositionSchools = new List<IArcaneSchool>();
 
         public void SetFocusSchool(IArcaneSchool school)
         {
             this.FocusSchool = school;
+        }
+
+        public void SetOppositionSchools(IEnumerable<IArcaneSchool> schools)
+        {
+            this.oppositionSchools = schools.ToList();
         }
     }
 }
