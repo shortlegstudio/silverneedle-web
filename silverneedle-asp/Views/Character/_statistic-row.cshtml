@@ -1,5 +1,5 @@
 <tr class="statistic-row">
-    <td class="statistic-row-name">@ViewData["statistic-title"]</div>
+    <td class="statistic-row-name">@ViewData["statistic-title"]
     @if(ViewData["statistic-score"] != null)
     {
         <td><span class="statistic-score">@ViewData["statistic-score"]</span></td>
@@ -7,7 +7,7 @@
     @if(ViewData["statistic-modifier"] != null)
     {
         var colorCoding = "statistic-neutral";
-        @if(ViewData["statistic-modifier"].ToString().Contains("+"))
+        if(ViewData["statistic-modifier"].ToString().Contains("+"))
         {
             colorCoding = "statistic-positive";
         }

@@ -8,7 +8,7 @@
     @if(!string.IsNullOrEmpty(ViewData["statistic-modifier"] as string))
     {
         var colorCoding = "statistic-neutral";
-        @if(ViewData["statistic-modifier"].ToString().Contains("+"))
+        if(ViewData["statistic-modifier"].ToString().Contains("+"))
         {
             colorCoding = "statistic-positive";
         }
