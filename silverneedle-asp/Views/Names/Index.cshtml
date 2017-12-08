@@ -11,7 +11,7 @@
     </h1>
   </div>
 @foreach(var category in names){
-    @if(lastRace != category.Race) 
+    if(lastRace != category.Race) 
     { 
       lastRace=category.Race;
       <div class="col-md-12"><h3 style="border-bottom: 1px solid gray;">@category.Race</h3></div> 
