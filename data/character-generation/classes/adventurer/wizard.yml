@@ -67,86 +67,106 @@
         - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
           options: [Scribe Scroll]
           ignore-prerequisites: true
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
     - level: 2
       class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
           spells: [0, 2]
     - level: 3
       class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
           spells: [0, 0, 2]
     - level: 4
       class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
           spells: [0, 0, 2]
     - level: 5
       class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
           spells: [0, 0, 0, 2]
         - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
           options: [metamagic, itemcreation, Spell Mastery]
     - level: 6
       class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
           spells: [0, 0, 0, 2]
     - level: 7
       class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
           spells: [0, 0, 0, 0, 2]
     - level: 8
       class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
           spells: [0, 0, 0, 0, 2]
     - level: 9
       class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
           spells: [0, 0, 0, 0, 0, 2]
     - level: 10
       class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
           spells: [0, 0, 0, 0, 0, 2]
         - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
           options: [metamagic, itemcreation, Spell Mastery]
     - level: 11
       class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
           spells: [0, 0, 0, 0, 0, 0, 2]
     - level: 12
       class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
           spells: [0, 0, 0, 0, 0, 0, 2]
     - level: 13
       class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
           spells: [0, 0, 0, 0, 0, 0, 0, 2]
     - level: 14
       class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
           spells: [0, 0, 0, 0, 0, 0, 0, 2]
     - level: 15
       class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
           spells: [0, 0, 0, 0, 0, 0, 0, 0, 2]
         - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
           options: [metamagic, itemcreation, Spell Mastery]
     - level: 16
       class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
           spells: [0, 0, 0, 0, 0, 0, 0, 0, 2]
     - level: 17
       class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
           spells: [0, 0, 0, 0, 0, 0, 0, 0, 0, 2]
     - level: 18
       class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
           spells: [0, 0, 0, 0, 0, 0, 1, 0, 0, 1]
     - level: 19
       class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
           spells: [0, 0, 0, 0, 0, 0, 0, 1, 0, 1]
     - level: 20
       class-feature-steps:
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
           spells: [0, 0, 0, 0, 0, 0, 0, 0, 1, 1]
         - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken

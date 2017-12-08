@@ -9,7 +9,7 @@ namespace SilverNeedle.Characters.Magic
     using SilverNeedle.Utility;
     using SilverNeedle.Serialization;
 
-    public interface IArcaneSchool : IComponent, IImprovesWithLevels, IGatewayObject
+    public interface IArcaneSchool : IGatewayObject
     {
         bool NoOppositionSchools { get; }
         string Name { get; }

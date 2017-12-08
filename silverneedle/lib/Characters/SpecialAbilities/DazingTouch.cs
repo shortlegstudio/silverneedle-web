@@ -17,5 +17,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
         {
             this.wisdom = wisdom;
         }
+
+        public DazingTouch() { }
     }
 }

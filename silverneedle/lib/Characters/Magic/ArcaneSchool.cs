@@ -25,20 +25,19 @@ namespace SilverNeedle.Characters.Magic
         {
             return abilities.Children;
         }
-
-        public virtual void Initialize(ComponentBag components)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public virtual void LeveledUp(ComponentBag components)
-        {
-            throw new System.NotImplementedException();
-        }
-
         public bool Matches(string name)
         {
             return this.Name.EqualsIgnoreCase(name);
+        }
+
+        public void AddPower(int level, string fullTypeName)
+        {
+            var obj = new MemoryStore();
+            obj.SetValue("level", level);
+            obj.SetValue("ability", fullTypeName);
+
+            var memstore = (MemoryStore)abilities;
+            memstore.AddListItem(obj);
         }
 
         public static ArcaneSchool CreateForTesting(string name, bool ignoreOpposition)
@@ -46,6 +45,7 @@ namespace SilverNeedle.Characters.Magic
             var arcane = new ArcaneSchool();
             arcane.Name = name;
             arcane.NoOppositionSchools = ignoreOpposition;
+            arcane.abilities = new MemoryStore();
             return arcane;
         }
     }
