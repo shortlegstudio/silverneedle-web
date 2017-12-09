@@ -5,8 +5,31 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class DivinersFortune : SpecialAbility
-    {
+    using SilverNeedle.Utility;
 
+    public class DivinersFortune : SpecialAbility, IComponent
+    {
+        private ClassLevel sourceLevel;
+        private AbilityScore baseAbility;
+        public void Initialize(ComponentBag components)
+        {
+            sourceLevel = components.Get<ClassLevel>();
+            baseAbility = components.Get<AbilityScores>().GetAbility(AbilityScoreTypes.Intelligence);
+        }
+
+        public int Bonus
+        {
+            get { return (sourceLevel.Level/2).AtLeast(1); }
+        }
+
+        public int UsesPerDay
+        {
+            get { return 3 + baseAbility.TotalModifier; }
+        }
+
+        public override string Name
+        {
+            get { return "{0} {1} ({2}/day)".Formatted(base.Name, Bonus.ToModifierString(), UsesPerDay); }
+        }
     }
 }
