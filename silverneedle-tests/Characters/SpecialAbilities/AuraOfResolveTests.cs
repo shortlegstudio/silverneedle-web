@@ -19,8 +19,7 @@ namespace Tests.Characters.SpecialAbilities
             var character = new CharacterSheet(CharacterStrategy.Default());
             character.Add(new AuraOfResolve());
             var defense = character.Get<DefenseStats>();
-            var resolve = defense.Immunities.First();
-            Assert.Equal(resolve.Condition, "Charms");
+            AssertCharacter.IsImmuneTo("Charms", character);
         }
     }
 }

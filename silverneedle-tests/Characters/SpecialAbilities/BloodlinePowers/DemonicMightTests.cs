@@ -21,8 +21,8 @@ namespace Tests.Characters.SpecialAbilities.BloodlinePowers
             AssertExtensions.Contains("acid", sorcerer.Defense.DamageResistance.Select(x => x.DamageType));
             AssertExtensions.Contains("cold", sorcerer.Defense.DamageResistance.Select(x => x.DamageType));
             AssertExtensions.Contains("fire", sorcerer.Defense.DamageResistance.Select(x => x.DamageType));
-            AssertExtensions.Contains("electricity", sorcerer.Defense.Immunities.Select(x => x.Condition));
-            AssertExtensions.Contains("poison", sorcerer.Defense.Immunities.Select(x => x.Condition));
+            AssertCharacter.IsImmuneTo("electricity", sorcerer);
+            AssertCharacter.IsImmuneTo("poison", sorcerer);
         }
     }
 

@@ -18,9 +18,7 @@ namespace Tests.Characters.SpecialAbilities
         {
             var character = new CharacterSheet(CharacterStrategy.Default());
             character.Add(new AuraOfCourage());
-            var defense = character.Get<DefenseStats>();
-            var fear = defense.Immunities.First();
-            Assert.Equal(fear.Condition, "Fear");
+            AssertCharacter.IsImmuneTo("Fear", character);
         }
     }
 }

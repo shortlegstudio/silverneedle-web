@@ -37,7 +37,7 @@ namespace Tests
         {
             Assert.True(
                 character.Defense.Immunities.Any(x =>
-                x.Condition == damageType),
+                x.DamageType == damageType),
                 string.Format("Expected immunity to {0}", damageType)
             );
         }

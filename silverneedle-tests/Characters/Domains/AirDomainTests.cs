@@ -62,8 +62,7 @@ namespace Tests.Characters.Domains
             airDomain.LeveledUp(character.Components);
 
             Assert.Equal(elec.Amount, 0);
-            var immune = character.Defense.Immunities.First();
-            Assert.Equal(immune.Condition, "electricity");
+            AssertCharacter.IsImmuneTo("electricity", character);
 
         }
     }

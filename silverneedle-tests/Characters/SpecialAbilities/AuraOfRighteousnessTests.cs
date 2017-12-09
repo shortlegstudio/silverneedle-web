@@ -29,9 +29,7 @@ namespace Tests.Characters.SpecialAbilities
         {
             var character = new CharacterSheet(CharacterStrategy.Default());
             character.Add(new AuraOfRighteousness());
-            var defense = character.Get<DefenseStats>();
-            var righteous = defense.Immunities.First();
-            Assert.Equal(righteous.Condition, "Compulsion");
+            AssertCharacter.IsImmuneTo("Compulsion", character);
         }
     }
 }

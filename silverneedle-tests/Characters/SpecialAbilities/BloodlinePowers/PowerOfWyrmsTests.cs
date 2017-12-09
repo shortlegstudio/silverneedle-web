@@ -34,10 +34,9 @@ namespace Tests.Characters.SpecialAbilities.BloodlinePowers
         [Fact]
         public void GrantsImmunities()
         {
-            var def = sorcerer.Get<DefenseStats>();
-            AssertExtensions.Contains("electricity", def.Immunities.Select(x => x.Condition));
-            AssertExtensions.Contains("paralysis", def.Immunities.Select(x => x.Condition));
-            AssertExtensions.Contains("sleep", def.Immunities.Select(x => x.Condition));
+            AssertCharacter.IsImmuneTo("electricity", sorcerer);
+            AssertCharacter.IsImmuneTo("paralysis", sorcerer);
+            AssertCharacter.IsImmuneTo("sleep", sorcerer);
         }
 
         [Fact]

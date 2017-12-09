@@ -165,9 +165,12 @@ namespace SilverNeedle.Characters
 
         public IStatistic SpellResistance { get; private set; }
 
-        public IEnumerable<SpecialAbility> Immunities
+        public IEnumerable<DamageResistance> Immunities
         {
-            get { return specialAbilities.Where(x => string.Equals(x.Type, ImmunitiesName)); }
+            get 
+            { 
+                return specialAbilities.OfType<DamageResistance>().Where(x => x.IsImmune()); 
+            }
         }
 
         public IEnumerable<SpecialAbility> DefensiveAbilities
@@ -178,7 +181,13 @@ namespace SilverNeedle.Characters
             }
         }
 
-        public IEnumerable<DamageResistance> DamageResistance { get { return specialAbilities.OfType<DamageResistance>(); } }
+        public IEnumerable<DamageResistance> DamageResistance 
+        { 
+            get 
+            { 
+                return specialAbilities.OfType<DamageResistance>().Where(x => x.IsImmune() == false); 
+            } 
+        }
 
         public BasicStat BaseArmorClass { get; private set; }
 
@@ -290,6 +299,8 @@ namespace SilverNeedle.Characters
                 switch (ability.Type)
                 {
                     case ImmunitiesName:
+                        AddImmunity(ability.Condition);
+                        break;
                     case DefensiveAbilitiesName:
                         this.specialAbilities.Add(ability);
                         break;
@@ -345,7 +356,7 @@ namespace SilverNeedle.Characters
 
         public void AddImmunity(string immunity)
         {
-            this.specialAbilities.Add(new SpecialAbility(immunity, ImmunitiesName));
+            this.specialAbilities.Add(SilverNeedle.Characters.DamageResistance.CreateImmunity(immunity));
         }
     }
 }

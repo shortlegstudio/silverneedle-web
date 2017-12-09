@@ -50,8 +50,7 @@ namespace Tests.Characters.Domains
             domain.LeveledUp(character.Components);
 
             Assert.Equal(acid.Amount, 0);
-            var immune = character.Defense.Immunities.First();
-            Assert.Equal(immune.Condition, "cold");
+            AssertCharacter.IsImmuneTo("cold", character);
         }
     }
 }

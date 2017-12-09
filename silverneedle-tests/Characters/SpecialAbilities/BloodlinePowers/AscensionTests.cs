@@ -26,9 +26,9 @@ namespace Tests.Characters.SpecialAbilities.BloodlinePowers
                 dr.DamageType == "fire" && dr.Amount == 10)
             );
 
-            AssertExtensions.Contains("acid", sorcerer.Defense.Immunities.Select(x => x.Condition));
-            AssertExtensions.Contains("cold", sorcerer.Defense.Immunities.Select(x => x.Condition));
-            AssertExtensions.Contains("petrification", sorcerer.Defense.Immunities.Select(x => x.Condition));
+            AssertCharacter.IsImmuneTo("acid", sorcerer);
+            AssertCharacter.IsImmuneTo("cold", sorcerer);
+            AssertCharacter.IsImmuneTo("petrification", sorcerer);
             
             Assert.Equal(4, sorcerer.Defense.FortitudeSave.GetConditionalValue("poison"));
         }

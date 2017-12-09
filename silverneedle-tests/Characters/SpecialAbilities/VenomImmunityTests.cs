@@ -18,7 +18,7 @@ namespace Tests.Characters.SpecialAbilities
             var bob = CharacterTestTemplates.AverageBob();
             var venom = new VenomImmunity();
             bob.Add(venom);
-            Assert.Equal(new string[] { "poison" }, bob.Defense.Immunities.Select(imm => imm.Condition));
+            AssertCharacter.IsImmuneTo("poison", bob);
         }
     }
 

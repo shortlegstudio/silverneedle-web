@@ -1,4 +1,4 @@
---- !<SilverNeedle.EnergyType>
+--- !<SilverNeedle.Core.EnergyType>
 - name: acid
 - name: cold
 - name: electricity

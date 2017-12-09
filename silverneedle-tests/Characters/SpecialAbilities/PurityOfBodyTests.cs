@@ -16,7 +16,7 @@ namespace Tests.Characters.SpecialAbilities
         {
             var monk = CharacterTestTemplates.MarkyMonk();
             monk.Add(new PurityOfBody());
-            Assert.Contains("disease", monk.Defense.Immunities.Select(x => x.Condition));
+            AssertCharacter.IsImmuneTo("disease", monk);
         }
     }
 }

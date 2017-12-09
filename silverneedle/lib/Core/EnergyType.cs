@@ -8,7 +8,7 @@ namespace SilverNeedle.Core
     using SilverNeedle.Serialization;
 
     [ObjectStoreSerializable]
-    public class EnergyType : IGatewayObject
+    public class EnergyType : IGatewayObject, IDamageType
     {
         [ObjectStore("name")]
         public string Name { get; set; }

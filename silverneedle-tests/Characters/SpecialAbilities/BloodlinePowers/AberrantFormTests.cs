@@ -19,9 +19,8 @@ namespace Tests.Characters.SpecialAbilities.BloodlinePowers
             var sorc = CharacterTestTemplates.Sorcerer();
             var aberrant = new AberrantForm();
             sorc.Add(aberrant);
-            var immuneConditions = sorc.Defense.Immunities.Select(x => x.Condition);
-            AssertExtensions.Contains("Criticals", immuneConditions);
-            AssertExtensions.Contains("Sneak Attacks", immuneConditions);
+            AssertCharacter.IsImmuneTo("Criticals", sorc);
+            AssertCharacter.IsImmuneTo("Sneak Attacks", sorc);
         }
 
         [Fact]

@@ -182,7 +182,7 @@ namespace Tests.Characters {
             var immune = new ImmunityModifier();
             emptyStats.ProcessSpecialAbilities(immune);
 
-            Assert.Equal("vs. Fire", emptyStats.Immunities.First().Condition);
+            Assert.Equal("vs. Fire", emptyStats.Immunities.First().DamageType);
             Assert.Equal("Evasion", emptyStats.DefensiveAbilities.First().Condition);
         }
 
