@@ -11,8 +11,9 @@
   abilities:
     - ability: SilverNeedle.Characters.SpecialAbilities.SummonersCharm
       level: 1
-    - ability: SilverNeedle.Characters.SpecialAbilities.AcidDart
+    - ability: SilverNeedle.Characters.Attacks.AcidDart
       level: 1
+      base-ability: intelligence
     - ability: SilverNeedle.Characters.SpecialAbilities.DimensionalSteps
       level: 8
 - name: Divination

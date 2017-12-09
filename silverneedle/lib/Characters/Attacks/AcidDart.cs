@@ -7,17 +7,29 @@ namespace SilverNeedle.Characters.Attacks
 {
     using System;
     using SilverNeedle.Dice;
-    public class AcidDart : WeaponAttack
+    using SilverNeedle.Serialization;
+    using SilverNeedle.Utility;
+
+    public class AcidDart : WeaponAttack, IComponent
     {
         private ClassLevel source;
         private AbilityScore baseAbility;
-        public AcidDart(ClassLevel source, AbilityScore baseAbility)
+        private AbilityScoreTypes baseAbilityType;
+        
+        private AcidDart()
         {
-            this.source = source;
-            this.baseAbility = baseAbility;
             this.AttackType = AttackTypes.Ranged;
             this.DamageType = "acid";
             this.Range = 30;
+        }
+        public AcidDart(IObjectStore configuration) : this()
+        {
+            baseAbilityType = configuration.GetEnum<AbilityScoreTypes>("base-ability");
+        }
+        public AcidDart(ClassLevel source, AbilityScore baseAbility) : this()
+        {
+            this.source = source;
+            this.baseAbility = baseAbility;
         }
 
         public override Cup Damage
@@ -41,6 +53,15 @@ namespace SilverNeedle.Characters.Attacks
         public override string DisplayString()
         {
             return string.Format("Acid Dart {0}' ({1} {2})", this.Range.ToString(), this.Damage.ToString(), this.DamageType);
+        }
+
+        public void Initialize(ComponentBag components)
+        {
+            if(baseAbility == null)
+            {
+                source = components.Get<ClassLevel>();
+                baseAbility = components.Get<AbilityScores>().GetAbility(baseAbilityType);
+            }
         }
     }
 }

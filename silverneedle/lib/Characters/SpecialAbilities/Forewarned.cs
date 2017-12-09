@@ -5,8 +5,23 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class Forewarned : SpecialAbility
+    using SilverNeedle.Utility;
+    public class Forewarned : SpecialAbility, IComponent
     {
+        private ClassLevel sourceLevel;
+        private DelegateStatModifier initModifier;
 
+        public void Initialize(ComponentBag components)
+        {
+            sourceLevel = components.Get<ClassLevel>();
+            var init = components.Get<Initiative>();
+            initModifier = new DelegateStatModifier(
+                init.Name, 
+                "bonus", 
+                this.Name, 
+                () => { return (sourceLevel.Level/2).AtLeast(1); 
+            });
+            init.AddModifier(initModifier);
+        }
     }
 }
