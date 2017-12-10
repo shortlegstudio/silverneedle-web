@@ -49,5 +49,13 @@ namespace Tests
                 string.Format("Expected to be carrying a {0}", typeof(T))
             );
         }
+
+        public static void HasFeatToken(string tokenTag, CharacterSheet character)
+        {
+            var tokens = character.FeatTokens;
+            Assert.True(
+                tokens.Any(x => x.Tags.Contains(tokenTag))
+            );
+        }
     }
 }

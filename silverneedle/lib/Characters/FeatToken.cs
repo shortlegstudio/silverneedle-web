@@ -33,6 +33,11 @@ namespace SilverNeedle.Characters
             this.IgnorePrerequisites = ignorePrerequisites;
         }
 
+        public FeatToken(string option, bool ignorePrerequisites) : this(option)
+        {
+            this.IgnorePrerequisites = ignorePrerequisites;
+        }
+
         public FeatToken() { }
         public IEnumerable<string> Tags { get { return this.tags; } }
         public bool IgnorePrerequisites { get; private set; }

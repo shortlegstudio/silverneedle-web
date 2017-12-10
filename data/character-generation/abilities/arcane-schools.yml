@@ -54,6 +54,7 @@
     - ability: SilverNeedle.Characters.SpecialAbilities.PowerOverUndead
       level: 1
     - ability: SilverNeedle.Characters.SpecialAbilities.GraveTouch
+      base-ability: intelligence
       level: 1
     - ability: SilverNeedle.Characters.SpecialAbilities.LifeSight
       level: 8

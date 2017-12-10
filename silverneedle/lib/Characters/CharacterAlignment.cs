@@ -59,4 +59,21 @@ namespace SilverNeedle.Characters
         /// </summary>
         ChaoticEvil
     }
+
+    public static class CharacterAlignmentExtensions
+    {
+        public static bool IsGood(this CharacterAlignment alignment)
+        {
+            return alignment == CharacterAlignment.ChaoticGood ||
+                alignment == CharacterAlignment.NeutralGood ||
+                alignment == CharacterAlignment.LawfulGood;
+        }
+
+        public static bool IsEvil(this CharacterAlignment alignment)
+        {
+            return alignment == CharacterAlignment.ChaoticEvil ||
+                alignment == CharacterAlignment.NeutralEvil ||
+                alignment == CharacterAlignment.LawfulEvil;
+        }
+    }
 }

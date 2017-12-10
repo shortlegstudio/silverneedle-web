@@ -5,8 +5,30 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class PowerOverUndead : SpecialAbility
+    using SilverNeedle.Utility;
+
+    public class PowerOverUndead : SpecialAbility, IComponent
     {
-        
+        public void Initialize(ComponentBag components)
+        {
+            var alignment = components.Get<CharacterAlignment>();
+            var good = new FeatToken("Turn Undead", true);
+            var evil = new FeatToken("Command Undead", true);
+
+            if(alignment.IsGood())
+            {
+                components.Add(good);
+            }
+            else if(alignment.IsEvil())
+            {
+                components.Add(evil);
+            }
+            else
+            {
+                components.Add(new FeatToken[] { good, evil }.ChooseOne());
+            }
+
+
+        }
     }
 }
