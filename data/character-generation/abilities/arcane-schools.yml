@@ -29,6 +29,7 @@
     - ability: SilverNeedle.Characters.SpecialAbilities.EnchantingSmile
       level: 1
     - ability: SilverNeedle.Characters.SpecialAbilities.DazingTouch
+      base-ability: intelligence
       level: 1
     - ability: SilverNeedle.Characters.SpecialAbilities.AuraOfDespair
       level: 8

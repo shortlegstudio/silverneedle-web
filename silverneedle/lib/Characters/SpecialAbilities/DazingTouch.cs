@@ -5,19 +5,34 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class DazingTouch : SpecialAbility
+    using SilverNeedle.Serialization;
+    using SilverNeedle.Utility;
+
+    public class DazingTouch : SpecialAbility, IComponent
     {
-        private AbilityScore wisdom;
+        private AbilityScore baseAbility;
+        private AbilityScoreTypes baseAbilityType;
         public int UsesPerDay
         {
-            get { return 3 + wisdom.TotalModifier; }
+            get { return 3 + baseAbility.TotalModifier; }
         }
 
-        public DazingTouch(AbilityScore wisdom)
+        public DazingTouch(AbilityScore baseAbility)
         {
-            this.wisdom = wisdom;
+            this.baseAbility = baseAbility;
         }
 
-        public DazingTouch() { }
+        public DazingTouch(IObjectStore configuration)
+        { 
+            baseAbilityType = configuration.GetEnum<AbilityScoreTypes>("base-ability");
+        }
+
+        public void Initialize(ComponentBag components)
+        {
+            if(baseAbility == null)
+            {
+                baseAbility = components.Get<AbilityScores>().GetAbility(baseAbilityType);
+            }
+        }
     }
 }

@@ -5,8 +5,27 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class AuraOfDespair : SpecialAbility
+    using SilverNeedle.Utility;
+    public class AuraOfDespair : SpecialAbility, IComponent
     {
-        
+        private ClassLevel sourceLevel;
+
+        public int RoundsPerDay
+        {
+            get
+            {
+                return sourceLevel.Level;
+            }
+        }
+
+        public void Initialize(ComponentBag components)
+        {
+            sourceLevel = components.Get<ClassLevel>();
+        }
+
+        public override string Name
+        {
+            get { return "{0} ({1} rounds/day)".Formatted(base.Name, RoundsPerDay); }
+        }
     }
 }

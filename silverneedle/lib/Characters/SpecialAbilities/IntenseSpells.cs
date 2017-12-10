@@ -5,8 +5,31 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class IntenseSpells : SpecialAbility
+    using SilverNeedle.Utility;
+
+    public class IntenseSpells : SpecialAbility, IComponent
     {
-        
+        private ClassLevel sourceLevel;
+
+        public int BonusDamage
+        {
+            get
+            {
+                return (sourceLevel.Level / 2).AtLeast(1);
+            }
+        }
+
+        public void Initialize(ComponentBag components)
+        {
+            sourceLevel = components.Get<ClassLevel>();
+        }
+
+        public override string Name
+        {
+            get
+            {
+                return "{0} ({1} spell damage)".Formatted(base.Name, BonusDamage.ToModifierString());
+            }
+        }
     }
 }
