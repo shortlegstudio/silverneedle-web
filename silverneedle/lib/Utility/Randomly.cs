@@ -50,5 +50,10 @@ namespace SilverNeedle
         {
             return (float)(systemRandom.NextDouble() * (max - min)) + min;
         }
+
+        public static bool TrueFalse()
+        {
+            return new bool[] { true, false }.ChooseOne();
+        }
     }
 }

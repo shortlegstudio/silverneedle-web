@@ -38,6 +38,11 @@ namespace SilverNeedle.Dice
             this.Modifier = modifier;
         }
 
+        public Cup(Die die, int modifier) : this(die)
+        {
+            this.Modifier = modifier;
+        }
+
         public Cup(Die die) : this()
         {
             this.AddDie(die);

@@ -60,7 +60,7 @@
       level: 8
 - name: Transmutation
   abilities:
-    - ability: SilverNeedle.Characters.SpecialAbilities.PhysicalEnchantment
+    - ability: SilverNeedle.Characters.SpecialAbilities.PhysicalEnhancement
       level: 1
     - ability: SilverNeedle.Characters.SpecialAbilities.TelekineticFist
       level: 1

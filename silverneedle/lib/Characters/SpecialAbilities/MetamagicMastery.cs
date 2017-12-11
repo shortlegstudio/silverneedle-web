@@ -5,8 +5,23 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class MetamagicMastery : SpecialAbility
+    using SilverNeedle.Utility;
+    public class MetamagicMastery : SpecialAbility, IComponent
     {
+        private ClassLevel sourceLevel;
+        public void Initialize(ComponentBag components)
+        {
+            sourceLevel = components.Get<ClassLevel>();
+        }
 
+        public int UsesPerDay
+        {
+            get { return (sourceLevel.Level - 6) / 2; }
+        }
+
+        public override string Name
+        {
+            get { return "{0} ({1}/day)".Formatted(base.Name, UsesPerDay); }
+        }
     }
 }

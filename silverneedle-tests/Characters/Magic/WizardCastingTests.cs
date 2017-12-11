@@ -10,6 +10,15 @@ namespace Tests.Characters.Magic
 
     public class WizardCastingTests
     {
-
+        [Fact]
+        public void DontUseOpposingSchoolSpellsForAvailableSpellList()
+        {
+            var wizard = CharacterTestTemplates.Wizard().WithWizardCasting();
+            var casting = wizard.Get<WizardCasting>();
+            var oppSchool = ArcaneSchool.CreateForTesting("Evocation", false);
+            casting.SetOppositionSchools(
+                new IArcaneSchool[] { oppSchool }
+            );
+        }
     }
 }

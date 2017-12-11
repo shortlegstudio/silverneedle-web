@@ -51,7 +51,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
                 get { return DiceStrings.ParseDice(sneakAttack.Damage); }
             }
 
-            public override string ToString()
+            public override string DisplayString()
             {
                 return string.Format("{0} {1}", this.Name, this.Damage);
             }

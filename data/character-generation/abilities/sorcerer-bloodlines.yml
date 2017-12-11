@@ -59,7 +59,7 @@
   bonus-feats: [combat casting, improved counterspell, improved initiative, iron will, scribe scroll,
     skill focus(knowledge arcana), spell focus, still spell]
   powers:
-    1: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.ArcaneBond
+    1: SilverNeedle.Characters.SpecialAbilities.ArcaneBond
     3: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.MetamagicAdept
     9: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.NewArcana
     15: SilverNeedle.Characters.SpecialAbilities.BloodlinePowers.SchoolPower
