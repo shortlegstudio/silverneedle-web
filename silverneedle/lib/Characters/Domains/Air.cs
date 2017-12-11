@@ -78,7 +78,7 @@ namespace SilverNeedle.Characters.Domains
                 }
             }
 
-            public override string ToString()
+            public override string DisplayString()
             {
                 return string.Format("Lightning Arc {0}' ({1} {2})", this.Range.ToString(), this.Damage.ToString(), this.DamageType);
             }

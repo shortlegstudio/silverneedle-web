@@ -40,7 +40,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
             }
 
 
-            public override string ToString()
+            public override string DisplayString()
             {
                 return string.Format("{0} (DC {1})", this.Name, this.SaveDC);
             }
