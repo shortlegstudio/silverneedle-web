@@ -87,5 +87,10 @@ namespace SilverNeedle.Characters.Magic
             return (CastingAbility.TotalModifier - spellLevel + 4) / 4;
         }
 
+        public bool HasSpells(int spellLevel)
+        {
+            return GetSpellsPerDay(spellLevel) > 0;
+        }
+
     }
 }

@@ -144,5 +144,9 @@ namespace SilverNeedle.Characters.Magic
             return string.Format("Spellcasting ({0})", this.SpellListName);
         }
 
+        public bool HasSpells(int spellLevel)
+        {
+            return GetSpellsPerDay(spellLevel) > 0;
+        }
     }
 }

@@ -83,6 +83,13 @@ namespace Tests.Characters.Magic
         }
 
         [Fact]
+        public void HasSpellsReturnsTrueIfSpellsAvailable()
+        {
+            Assert.True(spellCasting.HasSpells(0));
+            Assert.False(spellCasting.HasSpells(8));
+        }
+
+        [Fact]
         public void HighestSpellLevelKnownCalculatedFromWhatSpellSlotsAreAvailable()
         {
             Assert.Equal(1, spellCasting.GetHighestSpellLevelKnown());

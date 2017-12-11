@@ -20,5 +20,6 @@ namespace SilverNeedle.Characters.Magic
         int CasterLevel { get; }
         SpellType SpellType { get; }
         AbilityScore CastingAbility { get; }
+        bool HasSpells(int spellLevel);
     }
 }

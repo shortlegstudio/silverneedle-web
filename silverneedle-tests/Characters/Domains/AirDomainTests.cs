@@ -39,7 +39,7 @@ namespace Tests.Characters.Domains
             var lightning = character.Offense.Attacks().OfType<Air.LightningArcAttack>().First();
             Assert.Equal(lightning.UsesPerDay, 6);
             Assert.Equal(lightning.Damage.ToString(), "1d6+1");
-            Assert.Equal(lightning.ToString(), "Lightning Arc 30' (1d6+1 electricity)");
+            Assert.Equal(lightning.DisplayString(), "Lightning Arc 30' (1d6+1 electricity)");
         }
 
         [Fact]

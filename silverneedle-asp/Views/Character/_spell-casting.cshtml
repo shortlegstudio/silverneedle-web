@@ -26,17 +26,20 @@
             <tbody>
                 @for(int spellLevel = 0; spellLevel <= spellCasting.GetHighestSpellLevelKnown(); spellLevel++)
                 {
-                    <tr>
-                        <td>@spellLevel</td>
-                        <td>@spellCasting.GetDifficultyClass(spellLevel)</td>
-                        <td>
-                            <ul class="commalist" style="padding: 0">
-                                @{ var spells = spellCasting.GetReadySpells(spellLevel); }
-                                @foreach(var s in spells)
-                                { <li>@s</li> } 
-                            </ul>
-                        </td>
-                    </tr>
+                    if(spellCasting.HasSpells(spellLevel))
+                    {
+                        <tr>
+                            <td>@spellLevel</td>
+                            <td>@spellCasting.GetDifficultyClass(spellLevel)</td>
+                            <td>
+                                <ul class="commalist" style="padding: 0">
+                                    @{ var spells = spellCasting.GetReadySpells(spellLevel); }
+                                    @foreach(var s in spells)
+                                    { <li>@s</li> } 
+                                </ul>
+                            </td>
+                        </tr>
+                    }
                 }
             </tbody>
         </table>
