@@ -57,29 +57,26 @@ namespace Tests
             return bob;
         }
 
+        private static CharacterSheet CreateWithClass(string className)
+        {
+            var character = CreateWithAverageAbilityScores();
+            var cls = new Class(className);
+            character.SetClass(cls);
+            return character;
+        }
+
         public static CharacterSheet DruidDonna()
         {
-            var donna = CreateWithAverageAbilityScores();
-            var druid = new Class("Druid");
-            donna.SetClass(druid);
-
-            return donna;
+            return CreateWithClass("Druid");
         }
         public static CharacterSheet Cleric()
         {
-            var cleric = CreateWithAverageAbilityScores();
-            var cls = new Class("Cleric");
-            cleric.SetClass(cls);
-
-            return cleric;
+            return CreateWithClass("Cleric");
         }
 
         public static CharacterSheet MarkyMonk()
         {
-            var marky = CreateWithAverageAbilityScores();
-            var monk = new Class("Monk");
-            marky.SetClass(monk);
-            return marky;
+            return CreateWithClass("Monk");
         }
 
         public static CharacterSheet StrongBad()
@@ -91,24 +88,22 @@ namespace Tests
 
         public static CharacterSheet BardyBard()
         {
-            var bardy = CreateWithAverageAbilityScores();
-            var bard = new Class("Bard");
-            bardy.SetClass(bard);
-            return bardy;
+            return CreateWithClass("Bard");
         }
 
         public static CharacterSheet Sorcerer()
         {
-            var sorcerer = CreateWithAverageAbilityScores();
-            sorcerer.SetClass(new Class("sorcerer"));
-            return sorcerer;
+            return CreateWithClass("sorcerer");
         }
 
         public static CharacterSheet Wizard()
         {
-            var wizard = CreateWithAverageAbilityScores();
-            wizard.SetClass(new Class("wizard"));
-            return wizard;
+            return CreateWithClass("wizard");
+        }
+
+        public static CharacterSheet Ranger()
+        {
+            return CreateWithClass("ranger");
         }
 
         public static CharacterSheet WithSpontaneousCasting(this CharacterSheet character)
@@ -159,6 +154,22 @@ spell-slots:
   1: [3, 2]
   2: [4, 3]
   3: [4, 3, 2]
+";
+            var spellList = CreateGenericSpellList(character.Class.Name);
+            character.Add(new DivineCastingNew(spellcastingConfigurationYaml.ParseYaml(), EntityGateway<SpellList>.LoadWithSingleItem(spellList)));
+            return character;
+        }
+
+        public static CharacterSheet WithDivineCastingNoOrisons(this CharacterSheet character)
+        {
+            var spellcastingConfigurationYaml = @"---
+list: " + character.Class.Name + @"
+type: divine
+casting-ability: wisdom
+spell-slots:
+  1: [0, 2]
+  2: [0, 3]
+  3: [0, 3, 2]
 ";
             var spellList = CreateGenericSpellList(character.Class.Name);
             character.Add(new DivineCastingNew(spellcastingConfigurationYaml.ParseYaml(), EntityGateway<SpellList>.LoadWithSingleItem(spellList)));

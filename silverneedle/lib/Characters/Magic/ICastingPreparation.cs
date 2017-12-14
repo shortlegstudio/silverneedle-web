@@ -12,5 +12,6 @@ namespace SilverNeedle.Characters.Magic
         void PrepareSpell(int level, string spell);
         void PrepareSpells(int level, IEnumerable<string> spells);
         IEnumerable<string> GetKnownSpells(int level);
+        int GetHighestSpellLevelKnown();
     }
 }

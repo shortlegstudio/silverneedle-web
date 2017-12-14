@@ -67,5 +67,16 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
             Assert.Equal(3, scCleric.GetPreparedSpells(0).Count());
 
         }
+
+        [Fact]
+        public void IfCasterHasNoCantripsShouldStillPrepareLevelOneSpells()
+        {
+            var character = CharacterTestTemplates.Ranger().WithDivineCastingNoOrisons();
+            var casting = character.Get<ISpellCasting>();
+            var prepSpells = new PrepareSpells();
+            prepSpells.ExecuteStep(character);
+            Assert.NotEmpty(casting.GetReadySpells(1));
+
+        }
     }
 }

@@ -27,7 +27,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.SpellCasting
 
         private void Prepare(ICastingPerparation spellCasting)
         {
-            for(int level = 0; spellCasting.GetSpellsPerDay(level) > 0; level++)
+            for(int level = 0; level <= spellCasting.GetHighestSpellLevelKnown(); level++)
             {
                 int spellCount = spellCasting.GetSpellsPerDay(level);
                 var spellsAvailable = spellCasting.GetKnownSpells(level).ToArray();
