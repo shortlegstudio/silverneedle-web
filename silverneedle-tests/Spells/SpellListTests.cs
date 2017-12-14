@@ -64,5 +64,12 @@ namespace Tests.Spells
             Assert.Throws(typeof(SpellNotFoundException), () => spellList.GetSpellLevel("Super Awesome Spell"));
         }
 
+        [Fact]
+        public void ReturnEmptyListIfLevelDoesNotExists()
+        {
+            var spellList = new SpellList();
+            AssertExtensions.EquivalentLists(new string[] { }, spellList.GetSpells(0));
+        }
+
     }
 }

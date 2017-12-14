@@ -1,6 +1,6 @@
 
-Microsoft Visual Studio Solution File, Format Version 15.00
-# Visual Studio 2017
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "silverneedle", "silverneedle\silverneedle.csproj", "{231EEF09-A7D9-4028-B020-70551B920B42}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "silverneedle-asp", "silverneedle-asp\silverneedle-asp.csproj", "{DA855D3E-5DED-4120-BFD1-41D9C2BF5D3A}"

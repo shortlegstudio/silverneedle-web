@@ -65,6 +65,14 @@ namespace Tests
 
             return donna;
         }
+        public static CharacterSheet Cleric()
+        {
+            var cleric = CreateWithAverageAbilityScores();
+            var cls = new Class("Cleric");
+            cleric.SetClass(cls);
+
+            return cleric;
+        }
 
         public static CharacterSheet MarkyMonk()
         {
@@ -119,17 +127,7 @@ spells-known:
   3: [6, 4, 1]
 ";
             var spellcastingConfiguration = spellcastingConfigurationYaml.ParseYaml();
-            var spellList = new SpellList();
-            spellList.Class = character.Class.Name;
-            //Add a bunch of spells
-            for(int level = 0; level < 10; level++)
-            {
-                for(int spellCount = 0; spellCount < 15; spellCount++)
-                {
-                    spellList.Add(level, string.Format("spell {0}-{1}", level, spellCount));
-                }
-            }
-
+            var spellList = CreateGenericSpellList(character.Class.Name);
             var spellCasting = new SpontaneousCasting(spellcastingConfiguration, EntityGateway<SpellList>.LoadWithSingleItem(spellList));
             character.Add(spellCasting);
             return character;
@@ -147,8 +145,30 @@ spell-slots:
   2: [4, 3]
   3: [4, 3, 2]
 ";
+            var spellList = CreateGenericSpellList(character.Class.Name);
+            character.Add(new WizardCasting(spellcastingConfigurationYaml.ParseYaml(), EntityGateway<SpellList>.LoadWithSingleItem(spellList)));
+            return character;
+        }
+        public static CharacterSheet WithDivineCasting(this CharacterSheet character)
+        {
+            var spellcastingConfigurationYaml = @"---
+list: " + character.Class.Name + @"
+type: divine
+casting-ability: wisdom
+spell-slots:
+  1: [3, 2]
+  2: [4, 3]
+  3: [4, 3, 2]
+";
+            var spellList = CreateGenericSpellList(character.Class.Name);
+            character.Add(new DivineCastingNew(spellcastingConfigurationYaml.ParseYaml(), EntityGateway<SpellList>.LoadWithSingleItem(spellList)));
+            return character;
+        }
+
+        private static SpellList CreateGenericSpellList(string className)
+        {
             var spellList = new SpellList();
-            spellList.Class = character.Class.Name;
+            spellList.Class = className;
             //Add a bunch of spells
             for(int level = 0; level < 10; level++)
             {
@@ -157,8 +177,8 @@ spell-slots:
                     spellList.Add(level, string.Format("spell {0}-{1}", level, spellCount));
                 }
             }
-            character.Add(new WizardCasting(spellcastingConfigurationYaml.ParseYaml(), EntityGateway<SpellList>.LoadWithSingleItem(spellList)));
-            return character;
+
+            return spellList;
         }
     }
 }

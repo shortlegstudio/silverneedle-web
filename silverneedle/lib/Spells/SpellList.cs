@@ -63,6 +63,8 @@ namespace SilverNeedle.Spells
 
         public IEnumerable<string> GetSpells(int level)
         {
+            if(!Levels.ContainsKey(level))
+                return new string[] { };
             return Levels[level];
         }
 

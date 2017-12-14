@@ -6,8 +6,11 @@
 namespace Tests
 {
     using System.Linq;
+    using System.Collections.Generic;
     using Xunit;
     using SilverNeedle.Characters;
+    using SilverNeedle.Characters.Magic;
+
     public static class AssertCharacter
     {
         public static void HasDamageResistance(CharacterSheet character, string damageType, int amount)
@@ -56,6 +59,13 @@ namespace Tests
             Assert.True(
                 tokens.Any(x => x.Tags.Contains(tokenTag))
             );
+        }
+
+        public static void KnowsSpells(int spellLevel, IEnumerable<string> spells, CharacterSheet character)
+        {
+            var casting = character.Get<ISpellCasting>();
+            var knownSpells = casting.GetKnownSpells(spellLevel);
+            AssertExtensions.EquivalentLists(spells, knownSpells);
         }
     }
 }

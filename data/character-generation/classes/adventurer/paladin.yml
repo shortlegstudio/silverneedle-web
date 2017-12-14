@@ -48,6 +48,31 @@
     - level: 4
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.ChannelEnergy
+        - ability: SilverNeedle.Characters.Magic.DivineCastingNew
+          list: paladin
+          type: divine
+          casting-ability: charisma
+          spell-slots:
+            1: []
+            2: []
+            3: []
+            4: [0, 0]
+            5: [0, 1]
+            6: [0, 1]
+            7: [0, 1, 0]
+            8: [0, 1, 1]
+            9: [0, 2, 1]
+            10: [0, 2, 1, 0]
+            11: [0, 2, 1, 1]
+            12: [0, 2, 2, 1]
+            13: [0, 3, 2, 1, 0]
+            14: [0, 3, 2, 1, 1]
+            15: [0, 3, 2, 2, 1]
+            16: [0, 3, 3, 2, 1]
+            17: [0, 4, 3, 2, 1]
+            18: [0, 4, 3, 2, 2]
+            19: [0, 4, 3, 3, 2]
+            20: [0, 4, 4, 3, 3]
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSmiteEvil
           uses-per-day: 2
@@ -104,29 +129,3 @@
     - level: 20
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.HolyChampion
-  spells:
-    list: paladin
-    type: divine
-    known: all
-    ability: charisma
-    per-day:
-      1: []
-      2: []
-      3: []
-      4: [0, 0]
-      5: [0, 1]
-      6: [0, 1]
-      7: [0, 1, 0]
-      8: [0, 1, 1]
-      9: [0, 2, 1]
-      10: [0, 2, 1, 0]
-      11: [0, 2, 1, 1]
-      12: [0, 2, 2, 1]
-      13: [0, 3, 2, 1, 0]
-      14: [0, 3, 2, 1, 1]
-      15: [0, 3, 2, 2, 1]
-      16: [0, 3, 3, 2, 1]
-      17: [0, 4, 3, 2, 1]
-      18: [0, 4, 3, 2, 2]
-      19: [0, 4, 3, 3, 2]
-      20: [0, 4, 4, 3, 3]
