@@ -5,6 +5,8 @@
 
 namespace SilverNeedle.Spells
 {
+    using System.Collections.Generic;
+    using System.Linq;
     using SilverNeedle.Serialization;
 
     public class Spell : IGatewayObject
@@ -17,10 +19,15 @@ namespace SilverNeedle.Spells
             Descriptors = data.GetListOptional("descriptors");
         }
 
-        public Spell(string spellName, string school)
+        public Spell(string spellName, string school) : this(spellName, school, new string[] { })
+        {
+        }
+
+        public Spell(string spellName, string school, IEnumerable<string> descriptors)
         {
             this.Name = spellName;
             this.School = school;
+            this.Descriptors = descriptors.ToArray();
         }
 
         public string Name { get; set; }

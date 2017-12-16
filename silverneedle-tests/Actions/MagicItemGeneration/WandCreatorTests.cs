@@ -18,9 +18,8 @@ namespace Tests.Actions.MagicItemGeneration
         [Fact]
         public void WandsUtilizeAvailableListsToMakeWandsThatMakeSense()
         {
-            var spellList = new SpellList();
-            spellList.Class = "Cleric";
-            spellList.Levels.Add(1, new string[] { "Cure Light Wounds" });
+            var spellList = SpellList.CreateForTesting("wizard");
+            spellList.Add(1, "Cure Light Wounds");
             var cure = new Spell("Cure Light Wounds", "healing");
             var spellGateway = EntityGateway<Spell>.LoadWithSingleItem(cure);
             var spellListGateway = EntityGateway<SpellList>.LoadWithSingleItem(spellList); 
@@ -40,9 +39,8 @@ namespace Tests.Actions.MagicItemGeneration
         [InlineData(4, 2100000)]
         public void WandsGetMoreExpensiveWithLevels(int level, int expectedValue)
         {
-            var spellList = new SpellList();
-            spellList.Class = "Cleric";
-            spellList.Levels.Add(level, new string[] { "Cure Light Wounds" });
+            var spellList = SpellList.CreateForTesting("wizard");
+            spellList.Add(level, "Cure Light Wounds");
             var cure = new Spell("Cure Light Wounds", "healing");
             var spellGateway = EntityGateway<Spell>.LoadWithSingleItem(cure);
             var spellListGateway = EntityGateway<SpellList>.LoadWithSingleItem(spellList); 

@@ -35,7 +35,7 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
         {
             var casting = wizard.Get<ISpellCasting>();
             Assert.Equal(
-                casting.SpellList.GetSpells(0),
+                casting.SpellList.GetAllSpells(0),
                 casting.GetKnownSpells(0)
             );
         }

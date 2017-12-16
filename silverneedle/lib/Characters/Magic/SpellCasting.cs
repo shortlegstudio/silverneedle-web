@@ -21,6 +21,7 @@ namespace SilverNeedle.Characters.Magic
         public virtual int CasterLevel { get { return this.Class.Level; } }
         public virtual SpellType SpellType { get; private set; }
         public SpellList SpellList { get; private set; }
+        protected ComponentBag components; 
         public SpellCasting(IObjectStore configuration) : this(configuration, GatewayProvider.Get<SpellList>())
         {
 
@@ -49,6 +50,7 @@ namespace SilverNeedle.Characters.Magic
 
         public virtual void Initialize(ComponentBag components)
         {
+            this.components = components;
             this.CastingAbility = components.Get<AbilityScores>().GetAbility(castingAbilityType);
             this.Class = components.Get<ClassLevel>();
         }

@@ -29,7 +29,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.SpellCasting
             {
                 if(spellsToAdd[level].EqualsIgnoreCase("ALL"))
                 {
-                    book.AddSpells(level, spellList.GetSpells(level));
+                    book.AddSpells(level, spellList.GetSpells(level, character.GetAll<ISpellCastingRule>()));
                 }
                 else
                 {
@@ -39,7 +39,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.SpellCasting
 
                     book.AddSpells(
                         level,
-                        spellList.GetSpells(level).Where(x => !book.ContainsSpell(level, x))
+                        spellList.GetSpells(level, character.GetAll<ISpellCastingRule>()).Where(x => !book.ContainsSpell(level, x))
                         .Choose(spellsToChoose)
                     );
                 }

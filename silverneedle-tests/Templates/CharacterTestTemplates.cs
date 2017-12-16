@@ -156,9 +156,9 @@ spell-slots:
             var casting = character.Get<SpellbookCasting>();
             var spellList = casting.SpellList;
             var spellbook = character.Inventory.Spellbooks.First();
-            foreach(var i in spellList.Levels.Keys)
+            for(int i = spellList.GetLowestSpellLevel(); i <= spellList.GetHighestSpellLevel(); i++)
             {
-                spellbook.AddSpells(i, spellList.GetSpells(i));
+                spellbook.AddSpells(i, spellList.GetAllSpells(i));
             }
             return character;
         }
@@ -196,8 +196,7 @@ spell-slots:
 
         private static SpellList CreateGenericSpellList(string className)
         {
-            var spellList = new SpellList();
-            spellList.Class = className;
+            var spellList = SpellList.CreateForTesting(className);
             //Add a bunch of spells
             for(int level = 0; level < 10; level++)
             {

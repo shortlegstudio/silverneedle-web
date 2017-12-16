@@ -45,7 +45,7 @@ namespace SilverNeedle.Characters.Magic
 
         public IEnumerable<string> GetKnownSpells(int spellLevel)
         {
-            return SpellList.GetSpells(spellLevel);
+            return SpellList.GetAllSpells(spellLevel);
         }
 
         public IEnumerable<string> GetReadySpells(int spellLevel)

@@ -22,7 +22,7 @@ namespace SilverNeedle.Characters.Magic
 
         public override IEnumerable<string> GetKnownSpells(int spellLevel)
         {
-            return SpellList.GetSpells(spellLevel);
+            return SpellList.GetSpells(spellLevel, this.components.GetAll<ISpellCastingRule>());
         }
 
         public void PrepareSpell(int level, string spell)

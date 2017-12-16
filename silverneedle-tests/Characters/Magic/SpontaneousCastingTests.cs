@@ -19,8 +19,7 @@ namespace Tests.Characters.Magic
         SpontaneousCasting spellCasting;
         public SpontaneousCastingTests()
         {
-            spellList = new SpellList();
-            spellList.Class = "bard";
+            spellList = SpellList.CreateForTesting("bard");
             spellList.Add(0, "cantrip1");
             spellList.Add(0, "cantrip2");
             spellList.Add(1, "level1.1");

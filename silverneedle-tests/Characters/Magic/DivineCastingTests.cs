@@ -18,8 +18,8 @@ namespace Tests.Characters.Magic
             var cleric = CharacterTestTemplates.Cleric().WithDivineCasting();
             var casting = cleric.Get<DivineCasting>();
             var spellList = casting.SpellList;
-            AssertCharacter.KnowsSpells(0, spellList.GetSpells(0), cleric);
-            AssertCharacter.KnowsSpells(1, spellList.GetSpells(1), cleric);
+            AssertCharacter.KnowsSpells(0, spellList.GetAllSpells(0), cleric);
+            AssertCharacter.KnowsSpells(1, spellList.GetAllSpells(1), cleric);
 
         }
 

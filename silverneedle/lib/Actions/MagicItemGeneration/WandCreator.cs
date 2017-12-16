@@ -33,10 +33,10 @@ namespace SilverNeedle.Actions.MagicItemGeneration
         {
             // choose from available spell Lists.
             var list = spellLists.Where(x => classes.Any(cls => x.Matches(cls))).ChooseOne();
-            var spellLevel = list.Levels.ChooseOne();
-            var spellName = spellLevel.Value.ChooseOne();
+            var spellLevel = Randomly.Range(list.GetLowestSpellLevel(), list.GetHighestSpellLevel());
+            var spellName = list.GetAllSpells(spellLevel).ChooseOne();
             var spell = spells.Find(spellName);
-            var value = 75000 * (spellLevel.Key) * (spellLevel.Key + spellLevel.Key - 1);
+            var value = 75000 * (spellLevel) * (spellLevel + spellLevel - 1);
             var wand = new Wand(spell, 50, value);
             return wand;
         }

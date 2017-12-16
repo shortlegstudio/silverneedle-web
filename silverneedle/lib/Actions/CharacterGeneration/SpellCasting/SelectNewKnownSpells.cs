@@ -20,16 +20,11 @@ namespace SilverNeedle.Actions.CharacterGeneration.SpellCasting
 
                 if(spellsToLearn > 0)
                 {
-                    SelectAdditionalSpells(spellCasting, spellLevel, spellsToLearn);
+                    var spells = spellCasting.SpellList.GetSpells(spellLevel, character.GetAll<ISpellCastingRule>()).Choose(spellsToLearn);
+                    foreach(var s in spells)
+                        spellCasting.LearnSpell(s);
                 }
             }
-        }
-
-        private void SelectAdditionalSpells(SpontaneousCasting casting, int spellLevel, int numberOfSpells)
-        {
-            var spells = casting.SpellList.Levels[spellLevel].Choose(numberOfSpells);
-            foreach(var s in spells)
-                casting.LearnSpell(s);
         }
     }
 }

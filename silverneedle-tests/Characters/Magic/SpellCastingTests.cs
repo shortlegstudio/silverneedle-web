@@ -19,8 +19,7 @@ namespace Tests.Characters.Magic
         SpellCasting spellCasting;
         public SpellCastingTests()
         {
-            spellList = new SpellList();
-            spellList.Class = "bard";
+            spellList = SpellList.CreateForTesting("bard");
             spellList.Add(1, "magic missile");
             var gateway = EntityGateway<SpellList>.LoadWithSingleItem(spellList);
             bard = CharacterTestTemplates.BardyBard();

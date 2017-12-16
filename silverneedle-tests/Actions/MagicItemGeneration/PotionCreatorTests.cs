@@ -19,8 +19,7 @@ namespace Tests.Actions.MagicItemGeneration
         [InlineData(3, 75000)]
         public void SelectAPotionFromAListOfSpellsAndChargesProperly(int level, int value)
         {
-            var spellList = new SpellList();
-            spellList.Class = "Wizard";
+            var spellList = SpellList.CreateForTesting("cleric");
             spellList.Add(level, "Cure Light Wounds");
             var cureSpell = new Spell("Cure Light Wounds", "healing");
             var spellLists = EntityGateway<SpellList>.LoadWithSingleItem(spellList);
@@ -37,8 +36,7 @@ namespace Tests.Actions.MagicItemGeneration
         [Repeat(100)]
         public void MaxSpellLevelIsLevel3()
         {
-            var spellList = new SpellList();
-            spellList.Class = "Wizard";
+            var spellList = SpellList.CreateForTesting("cleric");
             spellList.Add(1, "Cure Light Wounds");
             spellList.Add(4, "Cure Serious Wounds");
             var cureSpell = new Spell("Cure Light Wounds", "healing");
