@@ -13,38 +13,20 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
 
     public class AddDomainSpells : ICharacterDesignStep
     {
-        private EntityGateway<Spell> spellGateway;
-        private string castingAbility;
+        private IObjectStore configuration;
 
         public AddDomainSpells(IObjectStore configuration)
         {
-            spellGateway = GatewayProvider.Get<Spell>();
-            castingAbility = configuration.GetString("casting-ability");
+            this.configuration = configuration;
         }
 
-        public AddDomainSpells(IObjectStore configuration, EntityGateway<Spell> spellGateway)
-        {
-            this.spellGateway = spellGateway;
-            castingAbility = configuration.GetString("casting-ability");
-        }
         public void ExecuteStep(CharacterSheet character)
         {
             var domains = character.GetAll<Domain>();
             if(domains.Empty())
                 return;
 
-            var domainSpells = new DomainSpellCasting(character.Get<ClassLevel>());
-            domainSpells.SetCastingAbility(character.AbilityScores.GetAbility(castingAbility));
-            foreach(var d in domains)
-            {
-                for(int i = 0; i < d.Spells.Length; i++)
-                {
-                    //Domain spells start at level 1
-                    domainSpells.AddSpells(i + 1, 
-                        new Spell[] { spellGateway.Find(d.Spells[i]) }
-                    );
-                }
-            }
+            var domainSpells = new DomainCastingNew(configuration);
             character.Add(domainSpells);
         }
     }

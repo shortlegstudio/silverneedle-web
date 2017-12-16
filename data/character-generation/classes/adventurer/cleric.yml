@@ -62,5 +62,7 @@
           clothes: [Cleric's vestments, Peasant's outfit, Traveler's outfit]
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectDomains
           count: 2
+        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddDomainSpells
+          casting-ability: wisdom
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddBonusLanguages
           languages: [celestial, abyssal, infernal]

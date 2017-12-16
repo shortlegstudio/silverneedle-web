@@ -21,34 +21,17 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
         {
             var character = new CharacterSheet(CharacterStrategy.Default());
             character.SetClass(new Class());
-            var configureAir = new MemoryStore();
-            configureAir.SetValue("name", "Air");
-            configureAir.SetValue("spells", new string[] { "air 1", "air 2"} );
-            var domain = new Domain(configureAir);
+            var domain = Domain.CreateForTesting("Air", new string[] { "air 1", "air 2"});
             character.Add(domain);
 
-
-            var spells = EntityGateway<Spell>.LoadFromList(
-                new Spell[] { new Spell("air 1", "evocation"), new Spell("air 2", "evoccation")}
-            );
             var configure = new MemoryStore();
             configure.SetValue("casting-ability", "wisdom");
 
-            var addSpells = new AddDomainSpells(configure, spells);
+            var addSpells = new AddDomainSpells(configure);
             addSpells.ExecuteStep(character);
 
-            var spellCasting = character.Get<DomainSpellCasting>();
-            Assert.Equal(spellCasting.CastingAbility, character.AbilityScores.GetAbility(AbilityScoreTypes.Wisdom));
-            Assert.Equal(spellCasting.GetAvailableSpells(1), new string[] { "air 1"});
-            Assert.Equal(spellCasting.GetAvailableSpells(2), new string[] { });
-            Assert.Equal(spellCasting.GetSpellsPerDay(1), 1);
-            Assert.Equal(spellCasting.GetSpellsPerDay(2), 0);
-
-            character.SetLevel(4);
-
-            Assert.Equal(spellCasting.GetSpellsPerDay(2), 1);
-            Assert.Equal(spellCasting.GetSpellsPerDay(3), 0);
-            Assert.Equal(spellCasting.GetAvailableSpells(2), new string[] { "air 2"});
+            var spellCasting = character.Get<DomainCastingNew>();
+            Assert.NotNull(spellCasting);
         }
 
         [Fact]
@@ -57,10 +40,10 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
             var bob = CharacterTestTemplates.AverageBob();
             var configure = new MemoryStore();
             configure.SetValue("casting-ability", "wisdom");
-            var addDomainSpells = new AddDomainSpells(configure, EntityGateway<Spell>.Empty());
+            var addDomainSpells = new AddDomainSpells(configure);
 
             addDomainSpells.ExecuteStep(bob);
-            Assert.Null(bob.Get<DomainSpellCasting>());
+            Assert.Null(bob.Get<DomainCastingNew>());
         }
     }
 }
