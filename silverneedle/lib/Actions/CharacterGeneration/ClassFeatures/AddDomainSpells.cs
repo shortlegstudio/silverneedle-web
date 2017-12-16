@@ -26,7 +26,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
             if(domains.Empty())
                 return;
 
-            var domainSpells = new DomainCastingNew(configuration);
+            var domainSpells = new DomainCasting(configuration);
             character.Add(domainSpells);
         }
     }

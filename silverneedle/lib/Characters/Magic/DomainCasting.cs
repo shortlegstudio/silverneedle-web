@@ -12,13 +12,13 @@ namespace SilverNeedle.Characters.Magic
     using SilverNeedle.Spells;
     using SilverNeedle.Utility;
 
-    public class DomainCastingNew : ISpellCasting, IComponent, ICastingPreparation
+    public class DomainCasting : ISpellCasting, IComponent, ICastingPreparation
     {
         private ClassLevel sourceClass;
         private IEnumerable<Domain> domains;
         private Dictionary<int, IList<string>> readySpells = new Dictionary<int, IList<string>>();
         private AbilityScoreTypes castingAbilityType;
-        public DomainCastingNew(IObjectStore configuration)
+        public DomainCasting(IObjectStore configuration)
         {
             castingAbilityType = configuration.GetEnum<AbilityScoreTypes>("casting-ability");
         }

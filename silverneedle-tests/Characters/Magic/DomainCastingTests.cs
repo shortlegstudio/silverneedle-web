@@ -11,18 +11,18 @@ namespace Tests.Characters.Magic
     using SilverNeedle.Characters.Domains;
     using SilverNeedle.Serialization;
 
-    public class DomainCastingNewTests
+    public class DomainCastingTests
     {
         private CharacterSheet cleric;
-        private DomainCastingNew domainCasting;
-        public DomainCastingNewTests()
+        private DomainCasting domainCasting;
+        public DomainCastingTests()
         {
             cleric = CharacterTestTemplates.Cleric();
             var domain = Domain.CreateForTesting("air", new string[] { "air-1", "air-2" });
             var domain2 = Domain.CreateForTesting("earth", new string[] { "earth-1", "earth-2" });
             var config = new MemoryStore();
             config.SetValue("casting-ability", "wisdom");
-            domainCasting = new DomainCastingNew(config);
+            domainCasting = new DomainCasting(config);
             cleric.Add(domain);
             cleric.Add(domain2);
             cleric.Add(domainCasting);

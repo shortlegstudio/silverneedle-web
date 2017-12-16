@@ -30,7 +30,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
             var addSpells = new AddDomainSpells(configure);
             addSpells.ExecuteStep(character);
 
-            var spellCasting = character.Get<DomainCastingNew>();
+            var spellCasting = character.Get<DomainCasting>();
             Assert.NotNull(spellCasting);
         }
 
@@ -43,7 +43,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
             var addDomainSpells = new AddDomainSpells(configure);
 
             addDomainSpells.ExecuteStep(bob);
-            Assert.Null(bob.Get<DomainCastingNew>());
+            Assert.Null(bob.Get<DomainCasting>());
         }
     }
 }
