@@ -41,7 +41,7 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
         {
             var character = CharacterTestTemplates.Wizard().WithWizardCasting().WithDivineCasting().FillSpellbook();
             var scWizard = character.Get<WizardCasting>();
-            var scCleric = character.Get<DivineCastingNew>();
+            var scCleric = character.Get<DivineCasting>();
 
             var prepSpells = new PrepareSpells();
             prepSpells.ExecuteStep(character);

@@ -10,13 +10,13 @@ namespace Tests.Characters.Magic
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.Magic;
 
-    public class DivineCastingNewTests
+    public class DivineCastingTests
     {
         [Fact]
         public void DivineCastersKnowAllSpellsAvailableAtTime()
         {
             var cleric = CharacterTestTemplates.Cleric().WithDivineCasting();
-            var casting = cleric.Get<DivineCastingNew>();
+            var casting = cleric.Get<DivineCasting>();
             var spellList = casting.SpellList;
             AssertCharacter.KnowsSpells(0, spellList.GetSpells(0), cleric);
             AssertCharacter.KnowsSpells(1, spellList.GetSpells(1), cleric);
@@ -27,7 +27,7 @@ namespace Tests.Characters.Magic
         public void CanReadySpellsFromListOfAvailableSpells()
         {
             var cleric = CharacterTestTemplates.Cleric().WithDivineCasting();
-            var casting = cleric.Get<DivineCastingNew>();
+            var casting = cleric.Get<DivineCasting>();
             var spellList = casting.SpellList;
             casting.PrepareSpell(0, "spell 0-1");
             casting.PrepareSpell(1, "spell 1-1");
@@ -39,7 +39,7 @@ namespace Tests.Characters.Magic
         public void GetReadySpellsReturnsEmptyListIfNoSpellsAreReady()
         {
             var cleric = CharacterTestTemplates.Cleric().WithDivineCasting();
-            var casting = cleric.Get<DivineCastingNew>();
+            var casting = cleric.Get<DivineCasting>();
             AssertExtensions.EquivalentLists(new string[] { }, casting.GetReadySpells(6));
         }
     }

@@ -174,7 +174,7 @@ spell-slots:
   3: [4, 3, 2]
 ";
             var spellList = CreateGenericSpellList(character.Class.Name);
-            character.Add(new DivineCastingNew(spellcastingConfigurationYaml.ParseYaml(), EntityGateway<SpellList>.LoadWithSingleItem(spellList)));
+            character.Add(new DivineCasting(spellcastingConfigurationYaml.ParseYaml(), EntityGateway<SpellList>.LoadWithSingleItem(spellList)));
             return character;
         }
 
@@ -190,7 +190,7 @@ spell-slots:
   3: [0, 3, 2]
 ";
             var spellList = CreateGenericSpellList(character.Class.Name);
-            character.Add(new DivineCastingNew(spellcastingConfigurationYaml.ParseYaml(), EntityGateway<SpellList>.LoadWithSingleItem(spellList)));
+            character.Add(new DivineCasting(spellcastingConfigurationYaml.ParseYaml(), EntityGateway<SpellList>.LoadWithSingleItem(spellList)));
             return character;
         }
 

@@ -9,14 +9,14 @@ namespace SilverNeedle.Characters.Magic
     using System.Collections.Generic;
     using SilverNeedle.Serialization;
     using SilverNeedle.Spells;
-    public class DivineCastingNew : SpellCasting, ICastingPreparation
+    public class DivineCasting : SpellCasting, ICastingPreparation
     {
         private Dictionary<int, IList<string>> readySpells = new Dictionary<int, IList<string>>();
-        public DivineCastingNew(IObjectStore configuration) : base(configuration)
+        public DivineCasting(IObjectStore configuration) : base(configuration)
         {
         }
 
-        public DivineCastingNew(IObjectStore configuration, EntityGateway<SpellList> spellLists) : base(configuration, spellLists)
+        public DivineCasting(IObjectStore configuration, EntityGateway<SpellList> spellLists) : base(configuration, spellLists)
         {
         }
 

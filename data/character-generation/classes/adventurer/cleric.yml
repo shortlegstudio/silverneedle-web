@@ -32,7 +32,7 @@
         - ability: SilverNeedle.Characters.SpecialAbilities.AuraOfAlignment
         - ability: SilverNeedle.Characters.SpecialAbilities.SpontaneousCastingCleric
         - ability: SilverNeedle.Characters.Magic.CannotCastSpellsOfOpposingAlignment
-        - ability: SilverNeedle.Characters.Magic.DivineCastingNew
+        - ability: SilverNeedle.Characters.Magic.DivineCasting
           list: cleric
           type: divine
           casting-ability: wisdom

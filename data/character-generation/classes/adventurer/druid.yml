@@ -39,7 +39,7 @@
               modifier: 2
               type: bonus
         - ability: SilverNeedle.Characters.SpecialAbilities.WildEmpathy
-        - ability: SilverNeedle.Characters.Magic.DivineCastingNew
+        - ability: SilverNeedle.Characters.Magic.DivineCasting
           list: druid
           type: divine
           casting-ability: wisdom

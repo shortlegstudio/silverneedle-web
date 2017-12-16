@@ -48,7 +48,7 @@
     - level: 4
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.ChannelEnergy
-        - ability: SilverNeedle.Characters.Magic.DivineCastingNew
+        - ability: SilverNeedle.Characters.Magic.DivineCasting
           list: paladin
           type: divine
           casting-ability: charisma
