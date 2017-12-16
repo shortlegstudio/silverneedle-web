@@ -184,32 +184,6 @@ namespace Tests.Characters {
         {
             Assert.Equal(Monk.CustomBuildStep, "SilverNeedle.Namespace.ClassName");
         }
-
-        [Fact]
-        public void ClassesWithoutSpellsAreMarkedAsSuch()
-        {
-            Assert.False(Monk.HasSpells);
-        }
-
-        [Fact]
-        public void DefaultClassHasNoSpells()
-        {
-            var cls = new Class();
-            Assert.False(cls.HasSpells);
-        }
-
-        [Fact]
-        public void ClassesCanHaveASpellList()
-        {
-            Assert.Equal(Wizard.Spells.List, "wizard");
-            Assert.Equal(Wizard.Spells.Known, SilverNeedle.Spells.SpellsKnown.Spellbook);
-            Assert.Equal(Wizard.Spells.Type, SilverNeedle.Spells.SpellType.Arcane);
-            Assert.Equal(Wizard.Spells.Ability, AbilityScoreTypes.Intelligence);
-            Assert.Equal(Wizard.Spells.PerDay[1], new int[] { 3, 1 });
-            Assert.Equal(Wizard.Spells.PerDay[2], new int[] { 3, 2 });
-            Assert.Equal(Wizard.Spells.PerDay[3], new int[] { 4, 2, 1 });
-            Assert.True(Wizard.HasSpells);
-        }
         private const string ClassYamlFile = @"--- 
 - class: 
   name: Fighter
@@ -271,17 +245,6 @@ namespace Tests.Characters {
   will: 0.667
   weaponproficiencies: [club, dagger, crossbow]
   developedage: Studied 
-  spells:
-    list: wizard
-    type: arcane
-    known: spellbook
-    ability: intelligence
-    per-day:
-      1: [3, 1]
-      2: [3, 2]
-      3: [4, 2, 1]
-      4: [4, 3, 2]
-      5: [4, 4, 2, 1]
   levels:
     - level: 1      
     - level: 2

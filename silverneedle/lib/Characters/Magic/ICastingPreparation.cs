@@ -6,7 +6,7 @@
 namespace SilverNeedle.Characters.Magic
 {
     using System.Collections.Generic;
-    public interface ICastingPerparation
+    public interface ICastingPreparation
     {
         int GetSpellsPerDay(int level);
         void PrepareSpell(int level, string spell);

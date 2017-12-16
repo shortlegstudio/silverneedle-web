@@ -26,45 +26,27 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
         [Fact]
         public void SelectsUniqueListOfSpellsDependingOnAvailableSlots()
         {
-            var character = new CharacterSheet(CharacterStrategy.Default());
-            var cls = new Class();
-            character.SetClass(cls);
-            var spellCasting = new DivineCasting(character.Get<ClassLevel>(), "wizard");
-            spellCasting.SpellsKnown = SpellsKnown.All;
-            spellCasting.AddSpells(0, new Spell[] { new Spell("cantrip1", "conjuration"), new Spell("cantrip2", "evocation"), new Spell("cantrip3", "transmutation"), new Spell("cantrip4", "evocation") });
-            spellCasting.AddSpells(1, new Spell[] { new Spell("level1-1", "evocation"), new Spell("level1-2", "evocation"), new Spell("level1-3", "evocation"), new Spell("level1-4", "transmutation") });
-            spellCasting.SetSpellsPerDay(0, 3);
-            spellCasting.SetSpellsPerDay(1, 1);
-            character.Add(spellCasting);
+            var character = CharacterTestTemplates.Wizard().WithWizardCasting().FillSpellbook();
+            var spellCasting = character.Get<ISpellCasting>();
 
             var prepareSpells = new PrepareSpells();
 
             prepareSpells.ExecuteStep(character);
-            Assert.Equal(3, spellCasting.GetPreparedSpells(0).Count());
-            Assert.Equal(1, spellCasting.GetPreparedSpells(1).Count());
+            Assert.Equal(3, spellCasting.GetReadySpells(0).Count());
+            Assert.Equal(2, spellCasting.GetReadySpells(1).Count());
         }
 
         [Fact]
         public void PreparesSpellsFromMultipleSpellCastingClassesIfAvailable()
         {
-            var character = new CharacterSheet(CharacterStrategy.Default());
-            var cls = new Class();
-            character.SetClass(cls);
-            var scWizard = new DivineCasting(character.Get<ClassLevel>(), "wizard");
-            var scCleric = new DivineCasting(character.Get<ClassLevel>(), "cleric");
-            scWizard.SpellsKnown = SpellsKnown.All;
-            scWizard.AddSpells(0, new Spell[] { new Spell("cantrip1", "conjuration"), new Spell("cantrip2", "evocation"), new Spell("cantrip3", "transmutation"), new Spell("cantrip4", "evocation") });
-            scWizard.SetSpellsPerDay(0, 3);
-            scCleric.SpellsKnown = SpellsKnown.All;
-            scCleric.AddSpells(0, new Spell[] { new Spell("orison1", "conjuration"), new Spell("orison2", "evocation"), new Spell("cantrip3", "transmutation"), new Spell("cantrip4", "evocation") });
-            scCleric.SetSpellsPerDay(0, 3);
-            character.Add(scWizard);
-            character.Add(scCleric);
+            var character = CharacterTestTemplates.Wizard().WithWizardCasting().WithDivineCasting().FillSpellbook();
+            var scWizard = character.Get<WizardCasting>();
+            var scCleric = character.Get<DivineCastingNew>();
 
             var prepSpells = new PrepareSpells();
             prepSpells.ExecuteStep(character);
-            Assert.Equal(3, scWizard.GetPreparedSpells(0).Count());
-            Assert.Equal(3, scCleric.GetPreparedSpells(0).Count());
+            Assert.Equal(3, scWizard.GetReadySpells(0).Count());
+            Assert.Equal(3, scCleric.GetReadySpells(0).Count());
 
         }
 

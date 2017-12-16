@@ -141,7 +141,25 @@ spell-slots:
   3: [4, 3, 2]
 ";
             var spellList = CreateGenericSpellList(character.Class.Name);
-            character.Add(new WizardCasting(spellcastingConfigurationYaml.ParseYaml(), EntityGateway<SpellList>.LoadWithSingleItem(spellList)));
+            var casting = new WizardCasting(
+                spellcastingConfigurationYaml.ParseYaml(), 
+                EntityGateway<SpellList>.LoadWithSingleItem(spellList)
+            );
+            character.Add(casting);
+
+            return character;
+        }
+
+        public static CharacterSheet FillSpellbook(this CharacterSheet character)
+        {
+
+            var casting = character.Get<SpellbookCasting>();
+            var spellList = casting.SpellList;
+            var spellbook = character.Inventory.Spellbooks.First();
+            foreach(var i in spellList.Levels.Keys)
+            {
+                spellbook.AddSpells(i, spellList.GetSpells(i));
+            }
             return character;
         }
         public static CharacterSheet WithDivineCasting(this CharacterSheet character)

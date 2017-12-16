@@ -12,7 +12,7 @@ namespace SilverNeedle.Characters.Magic
     using SilverNeedle.Spells;
     using SilverNeedle.Utility;
 
-    public class DomainCastingNew : ISpellCasting, IComponent, ICastingPerparation
+    public class DomainCastingNew : ISpellCasting, IComponent, ICastingPreparation
     {
         private ClassLevel sourceClass;
         private IEnumerable<Domain> domains;

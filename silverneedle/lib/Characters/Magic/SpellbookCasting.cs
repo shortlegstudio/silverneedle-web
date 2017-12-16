@@ -13,7 +13,7 @@ namespace SilverNeedle.Characters.Magic
     using SilverNeedle.Spells;
     using SilverNeedle.Utility;
 
-    public class SpellbookCasting : SpellCasting, ICastingPerparation
+    public class SpellbookCasting : SpellCasting, ICastingPreparation
     {
         private Spellbook spellbook;
         private Dictionary<int, IList<string>> preparedSpells = new Dictionary<int, IList<string>>();

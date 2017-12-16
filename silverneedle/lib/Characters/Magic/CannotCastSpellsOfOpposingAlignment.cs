@@ -30,18 +30,6 @@ namespace SilverNeedle.Characters.Magic
         public void Initialize(ComponentBag components)
         {
             this.components = components;
-            this.components.Added += this.WatchForSpellCasting;
-        }
-
-        public void WatchForSpellCasting(object source, ComponentBagEvent args)
-        {
-            //TODO: Change this so that instead of an event which is tricky, that
-            //  instead the spellcasting class grabs all rules that are out there
-            var spellcasting = args.Component as DivineCasting;
-            if(spellcasting != null)
-            {
-                spellcasting.AddRule(this);
-            }
         }
 
         private string[] GetInvalidDescriptors(CharacterAlignment alignment)

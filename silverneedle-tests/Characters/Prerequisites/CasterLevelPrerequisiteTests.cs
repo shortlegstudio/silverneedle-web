@@ -15,9 +15,8 @@ namespace Tests.Characters.Prerequisites
         [Fact]
         public void RequiresASpellCastingAbilityWithCorrectCasterLevel()
         {
-            var character = CharacterTestTemplates.DruidDonna();
-            var spellCasting = new DivineCasting(character.Get<ClassLevel>(), "Druid");
-            character.Add(spellCasting);
+            var character = CharacterTestTemplates.DruidDonna().WithDivineCasting();
+            var spellCasting = character.Get<ISpellCasting>();
             var prereq = new CasterLevelPrerequisite("3");
             Assert.False(prereq.IsQualified(character));
             character.SetLevel(3);

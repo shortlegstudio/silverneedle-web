@@ -41,7 +41,6 @@ namespace SilverNeedle.Characters
             this.ArmorProficiencies = new List<string>();
             this.WeaponProficiencies = new List<string>();
             this.Levels = new List<Level>();
-            this.Spells = new SpellRules();
         }
 
         public Class(IObjectStore data) : this()
@@ -123,9 +122,6 @@ namespace SilverNeedle.Characters
 
         public string CustomBuildStep { get; set; }
 
-        public SpellRules Spells { get; set; }
-
-        public bool HasSpells { get { return Spells.Known != SilverNeedle.Spells.SpellsKnown.None; } }
 
         /// <summary>
         /// Gets a value indicating whether this class has a good fortitude save.
@@ -241,51 +237,11 @@ namespace SilverNeedle.Characters
             {
                 StartingWealthDice = DiceStrings.ParseDice(dice);
             }
-
-            var spells = data.GetObjectOptional("spells").SafeLoad<SpellRules>();
-            if (spells != null)
-            {
-                this.Spells = spells;
-            }
         }
 
         public bool Matches(string name)
         {
             return Name.EqualsIgnoreCase(name);
-        }
-
-        public class SpellRules 
-        {
-            public SpellRules()
-            {
-                Known = SilverNeedle.Spells.SpellsKnown.None;
-                PerDay = new Dictionary<int, int[]>();
-            }
-            public SpellRules(IObjectStore data) : this()
-            {
-                List = data.GetString("list");
-                Known = data.GetEnum<SilverNeedle.Spells.SpellsKnown>("known");
-                Type = data.GetEnum<SilverNeedle.Spells.SpellType>("type");
-                Ability = data.GetEnum<AbilityScoreTypes>("ability");
-                var perdaySpells = data.GetObject("per-day");
-                BuildPerDayTable(perdaySpells);
-            }
-
-            private void BuildPerDayTable(IObjectStore perdaySpells)
-            {
-                foreach(var level in perdaySpells.Keys)
-                {
-                    var spells = perdaySpells.GetList(level).Select(x => int.Parse(x));
-                    PerDay[int.Parse(level)] =  spells.ToArray();
-                }
-            }
-
-            public string List { get; set; }
-            public SilverNeedle.Spells.SpellsKnown Known { get; set; }
-            public SilverNeedle.Spells.SpellType Type { get; set; }
-            
-            public AbilityScoreTypes Ability { get; set; }
-            public Dictionary<int, int[]> PerDay { get; set; }
         }
     }
 }

@@ -73,15 +73,6 @@
                         }); }
                     </div>
                 }
-                @foreach(var sc in charFull.GetAll<DivineCasting>())
-                {
-                    <div class="col-sm-12 no-padding">
-                        @{ Html.RenderPartial("_spell-list", 
-                        new ViewDataDictionary(this.ViewData) {
-                            { "spell-casting", sc }
-                        }); }
-                    </div>
-                }
                 @if(domains.Count() > 0)
                 {
                     <div class="col-sm-12 no-padding">
