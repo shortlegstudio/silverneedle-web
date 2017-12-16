@@ -27,6 +27,11 @@ namespace SilverNeedle
             return (int)Math.Max(val, min);
         }
 
+        public static int AtMost(this int val, int max)
+        {
+            return (int)Math.Min(val, max);
+        }
+
         public static int Ceiling(this float val)
         {
             return (int)Math.Ceiling(val);

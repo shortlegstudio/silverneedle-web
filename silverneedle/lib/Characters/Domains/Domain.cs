@@ -5,11 +5,15 @@
 
 namespace SilverNeedle.Characters.Domains
 {
+    using System.Collections.Generic;
+    using System.Linq;
     using SilverNeedle.Serialization;
 
     public class Domain : IGatewayObject
     {
         public string Name { get; set; }
+
+        private Domain() { }
 
         public Domain(IObjectStore configure)
         {
@@ -28,5 +32,13 @@ namespace SilverNeedle.Characters.Domains
         }
 
         public string[] Spells { get; set; }
+
+        public static Domain CreateForTesting(string name, IEnumerable<string> spells)
+        {
+            var d = new Domain();
+            d.Name = name;
+            d.Spells = spells.ToArray();
+            return d;
+        }
     }
 }
