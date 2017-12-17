@@ -11,6 +11,7 @@ namespace SilverNeedle.Characters
     using SilverNeedle.Spells;
     using SilverNeedle.Characters.Magic;
     using SilverNeedle.Characters.Personalities;
+    using SilverNeedle.Characters.Senses;
     using SilverNeedle.Utility;
     
     public class CharacterSheetTextView
@@ -189,7 +190,7 @@ namespace SilverNeedle.Characters
         {
             string senses = string.Join(
                 ", ",
-                character.SpecialQualities.SightAbilities.Select(x => x.Condition).ToArray());
+                character.GetAll<ISense>().Select(x => x.DisplayString()).ToArray());
             return senses;
         }
 

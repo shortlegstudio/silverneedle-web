@@ -53,7 +53,7 @@ namespace Tests
 
             var human = new Race();
             human.Name = "Human";
-            bob.SetRace(human);
+            bob.Add(human);
             return bob;
         }
 

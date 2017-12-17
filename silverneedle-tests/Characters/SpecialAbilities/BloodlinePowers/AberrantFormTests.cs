@@ -40,8 +40,8 @@ namespace Tests.Characters.SpecialAbilities.BloodlinePowers
             var sorc = CharacterTestTemplates.Sorcerer();
             var aberrant = new AberrantForm();
             sorc.Add(aberrant);
-            var sense = sorc.SpecialQualities.SightAbilities.First(x => x is Blindsight);
-            Assert.Equal("Blindsight (50 ft)", sense.Condition);
+            var sense = sorc.GetAll<ISense>().First(x => x is Blindsight);
+            Assert.Equal("Blindsight 50ft", sense.DisplayString());
         }
     }
 }

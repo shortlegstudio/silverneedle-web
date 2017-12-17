@@ -1,13 +1,15 @@
 --- !<SilverNeedle.Characters.Race>
 - race:
   name: Half-Orc
+  attributes:
+    - type: SilverNeedle.Characters.Senses.Darkvision
+      range: 60
   size: Medium
   height: 2d12+58
   weight: 14d12+150
   abilities:
     choose: 2
   traits:
-    - Darkvision
     - Intimidating
     - Orc Blood
     - Orc Ferocity

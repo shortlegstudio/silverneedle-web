@@ -7,11 +7,16 @@
 namespace SilverNeedle.Characters.Senses
 {
     using SilverNeedle.Utility;
-    public class Blindsense : SpecialAbilities.SpecialAbility
+    public class Blindsense : ISense, INameByType
     {
-        public Blindsense(int rangeInFeet) : base("Blindsense ({0})".Formatted(rangeInFeet.ToRangeString()), "Sight")
+        public int Range { get; private set; }
+        public Blindsense(int rangeInFeet) 
         {
-
+            this.Range = rangeInFeet;
+        }
+        public string DisplayString()
+        {
+            return "{0} {1}ft".Formatted(this.Name(), Range); 
         }
     }
 }

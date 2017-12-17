@@ -35,7 +35,7 @@ namespace Tests.Actions
             var race = new Race();
             race.Name = "Human";
             var character = CharacterTestTemplates.AverageBob();
-            character.SetRace(race);
+            character.Add(race);
             character.FirstName = "Foo";
             character.LastName = "BarOrSomethingCrazyThatWontHappenAccidentally";
             var history = character.Get<History>();

@@ -70,7 +70,6 @@ namespace Tests.Characters
         [Fact]
         public void RacesHaveTraitsThatTheCanPullFrom()
         {
-            Assert.Contains("Darkvision", dwarf.Traits);
             Assert.Contains("Hardy", dwarf.Traits);
             Assert.Contains("Halfling Luck", halfling.Traits);
         }
@@ -112,9 +111,20 @@ namespace Tests.Characters
             Assert.Equal(25, halfling.BaseMovementSpeed);
         }
 
+        [Fact]
+        public void HasAttributesLoadedThatSpecifySpecialAbilities()
+        {
+            AssertExtensions.Contains("SilverNeedle.Character.Senses.Darkvision",
+                dwarf.Attributes.Select(x => x.TypeName)
+            );
+        }
+
         private const string RaceYamlFile = @"--- 
 - race: 
   name: Dwarf
+  attributes:
+    - type: SilverNeedle.Character.Senses.Darkvision
+      range: 60
   abilities: 
     constitution: 2
     wisdom: 2
@@ -123,7 +133,6 @@ namespace Tests.Characters
   height: 2d4+45
   weight: 14d4+120
   traits:
-    - Darkvision
     - Hardy
   languages: 
     known: [Common, Dwarven]

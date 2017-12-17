@@ -5,13 +5,17 @@
 
 namespace SilverNeedle.Characters.Senses
 {
-    public class Blindsight : ISense, INameByType
+    using SilverNeedle.Characters.SpecialAbilities;
+    using SilverNeedle.Serialization;
+
+    public class Darkvision : ISense, INameByType
     {
         public int Range { get; private set; }
-        public Blindsight(int rangeInFeet) 
+        public Darkvision(IObjectStore configuration)
         {
-            this.Range = rangeInFeet;
+            Range = configuration.GetInteger("range");
         }
+
         public string DisplayString()
         {
             return "{0} {1}ft".Formatted(this.Name(), Range); 

@@ -14,7 +14,6 @@ namespace SilverNeedle.Characters
     {
         private const string SpecialAbilityName = "Ability";
 
-        private const string SightAbilityName = "Sight";
 
         private ComponentBag components;
 
@@ -25,15 +24,6 @@ namespace SilverNeedle.Characters
                 return components.GetAll<SpecialAbility>();
             }
         }
-
-        public IEnumerable<SpecialAbility> SightAbilities
-        {
-            get
-            {
-                return this.SpecialAbilities.Where(x => string.Equals(x.Type, SightAbilityName));
-            }
-        }
-
         public void Initialize(ComponentBag components)
         {
             this.components = components;

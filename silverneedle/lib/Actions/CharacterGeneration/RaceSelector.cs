@@ -60,7 +60,7 @@ namespace SilverNeedle.Actions.CharacterGeneration
         /// <param name="race">Race to assign.</param>
         public void SetRace(CharacterSheet character, Race race)
         {
-            character.SetRace(race);
+            character.Add(race);
 
             this.SetSpeedForRace(character, race);
             this.SetTraitsForRace(character, race);

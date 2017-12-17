@@ -257,15 +257,6 @@ namespace SilverNeedle.Characters
         }
 
         /// <summary>
-        /// Sets the race.
-        /// </summary>
-        /// <param name="race">The race for the character.</param>
-        public void SetRace(Race race)
-        {
-            this.Components.Add(race);
-        }
-
-        /// <summary>
         /// Sets the level of the character
         /// </summary>
         /// <param name="level">Character's level</param>

@@ -1,6 +1,8 @@
 --- !<SilverNeedle.Characters.Race>
 - race:
   name: Gnome
+  attributes:
+    - type: SilverNeedle.Characters.Senses.LowLightVision
   size: Small
   height: 2d4+36
   weight: 2d4+35
@@ -9,7 +11,6 @@
     dexterity: 2
     charisma: 2
   traits:
-    - Low-Light Vision
     - Slow Speed
     - Defensive Training (Gnomes)
     - Gnome Magic

@@ -25,16 +25,5 @@ namespace Tests.Characters
             bag.Add(new SpecialAbility());
             Assert.Equal(sq.SpecialAbilities.Count(), 2);
         }
-
-        [Fact]
-        public void BreaksOutSightBasedAbilities()
-        {
-            var bag = new ComponentBag();
-            var sq = new SpecialQualities();
-            sq.Initialize(bag);
-            var darkVision = new SpecialAbility("Darkvision", "Sight");
-            bag.Add(darkVision);
-            Assert.Contains(darkVision, sq.SightAbilities);
-        }
     }
 }

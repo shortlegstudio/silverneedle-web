@@ -5,12 +5,16 @@
 
 namespace SilverNeedle.Characters.Senses
 {
-    using SilverNeedle.Utility;
-    public class PerfectDarkvision : SpecialAbilities.SpecialAbility
+    public class PerfectDarkvision : INameByType, ISense
     {
-        public PerfectDarkvision(int rangeInFeet) : base("Perfect Darkvision ({0})".Formatted(rangeInFeet.ToRangeString()), "Sight")
+        public int Range { get; private set; }
+        public PerfectDarkvision(int rangeInFeet) 
         {
-
+            this.Range = rangeInFeet;
+        }
+        public string DisplayString()
+        {
+            return "{0} {1}ft".Formatted(this.Name(), Range); 
         }
     }
 }

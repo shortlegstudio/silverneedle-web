@@ -12,7 +12,7 @@ namespace SilverNeedle.Characters
     /// <summary>
     /// Represents a race for a character. This is selected once
     /// </summary>
-    public class Race : IGatewayObject
+    public class Race : CharacterFeature, IGatewayObject
     {
         public static Race None { get { return new Race(); } }
         /// <summary>
@@ -26,8 +26,12 @@ namespace SilverNeedle.Characters
             this.KnownLanguages = new List<string>();
         }
 
-        public Race(IObjectStore data) : this()
+        public Race(IObjectStore data) : base(data)
         {
+            this.AbilityModifiers = new List<AbilityScoreAdjustment>();
+            this.Traits = new List<string>();
+            this.AvailableLanguages = new List<string>();
+            this.KnownLanguages = new List<string>();
             LoadObject(data);
         }
 
