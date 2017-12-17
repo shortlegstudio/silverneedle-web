@@ -30,5 +30,23 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
             Assert.Equal(spellCasting.GetKnownSpellCount(1), spellCasting.GetReadySpells(1).Count());
             Assert.Equal(spellCasting.GetKnownSpellCount(2), spellCasting.GetReadySpells(2).Count());
         }
+
+        [Theory]
+        [Repeat(100)]
+        public void DoNotSelectTheSameSpellTwice()
+        {
+            var bard = CharacterTestTemplates.BardyBard().WithSpontaneousCasting(6);
+            var selector = new SelectNewKnownSpells();
+            selector.ExecuteStep(bard);
+            bard.SetLevel(2);
+            selector.ExecuteStep(bard);
+            bard.SetLevel(3);
+            selector.ExecuteStep(bard);
+            var spellCasting = bard.Get<SpontaneousCasting>();
+            Assert.NotEmpty(spellCasting.GetReadySpells(0));
+            Assert.NotEmpty(spellCasting.GetReadySpells(1));
+            AssertExtensions.ListIsUnique(spellCasting.GetReadySpells(0));
+            AssertExtensions.ListIsUnique(spellCasting.GetReadySpells(1));
+        }
     }
 }

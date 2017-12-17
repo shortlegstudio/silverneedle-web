@@ -20,5 +20,15 @@ namespace Tests
         {
             Assert.True(collection.Contains(expected));
         }
+
+        public static void ListIsUnique<T>(IEnumerable<T> list)
+        {
+            var uniqueSet = new HashSet<T>(list);
+
+            Assert.Equal(
+                uniqueSet.Count(),
+                list.Count()
+            );
+        }
     }
 }

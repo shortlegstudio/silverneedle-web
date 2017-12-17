@@ -74,5 +74,10 @@ namespace SilverNeedle.Characters.Magic
             return learnedSpells[spellLevel];
         }
 
+        public bool CanLearnSpell(int level, string spellName)
+        {
+            return !GetKnownSpells(level).Contains(spellName);
+        }
+
     }
 }

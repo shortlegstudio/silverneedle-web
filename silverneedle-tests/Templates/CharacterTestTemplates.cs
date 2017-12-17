@@ -108,6 +108,11 @@ namespace Tests
 
         public static CharacterSheet WithSpontaneousCasting(this CharacterSheet character)
         {
+            return WithSpontaneousCasting(character, 15);
+        }
+
+        public static CharacterSheet WithSpontaneousCasting(this CharacterSheet character, int spellsPerLevel)
+        {
             var spellcastingConfigurationYaml = @"---
 list: " + character.Class.Name + @"
 type: arcane
@@ -122,7 +127,7 @@ spells-known:
   3: [6, 4, 1]
 ";
             var spellcastingConfiguration = spellcastingConfigurationYaml.ParseYaml();
-            var spellList = CreateGenericSpellList(character.Class.Name);
+            var spellList = CreateGenericSpellList(character.Class.Name, spellsPerLevel);
             var spellCasting = new SpontaneousCasting(spellcastingConfiguration, EntityGateway<SpellList>.LoadWithSingleItem(spellList));
             character.Add(spellCasting);
             return character;
@@ -196,11 +201,15 @@ spell-slots:
 
         private static SpellList CreateGenericSpellList(string className)
         {
+            return CreateGenericSpellList(className, 15);
+        }
+        private static SpellList CreateGenericSpellList(string className, int spellsPerLevel)
+        {
             var spellList = SpellList.CreateForTesting(className);
             //Add a bunch of spells
             for(int level = 0; level < 10; level++)
             {
-                for(int spellCount = 0; spellCount < 15; spellCount++)
+                for(int spellCount = 0; spellCount < spellsPerLevel; spellCount++)
                 {
                     spellList.Add(level, string.Format("spell {0}-{1}", level, spellCount));
                 }

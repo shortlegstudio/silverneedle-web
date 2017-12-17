@@ -20,7 +20,9 @@ namespace SilverNeedle.Actions.CharacterGeneration.SpellCasting
 
                 if(spellsToLearn > 0)
                 {
-                    var spells = spellCasting.SpellList.GetSpells(spellLevel, character.GetAll<ISpellCastingRule>()).Choose(spellsToLearn);
+                    var spells = spellCasting.SpellList.GetSpells(spellLevel, character.GetAll<ISpellCastingRule>())
+                        .Where(s => spellCasting.CanLearnSpell(spellLevel, s))
+                        .Choose(spellsToLearn);
                     foreach(var s in spells)
                         spellCasting.LearnSpell(s);
                 }
