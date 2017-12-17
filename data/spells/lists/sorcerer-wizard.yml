@@ -32,7 +32,7 @@
       invisibility sphere, major image, gentle repose, halt undead, ray of exhaustion,
       vampiric touch, beast shape i, blink, flame arrow, fly, gaseous form, haste,
       keen edge, magic weapon - greater, secret page, shrink item, slow, water breathing]
-    4: [dimensional anchor, fire trap, globe of invisibility - lesser, remove curse,
+    4: [dimensional anchor, fire trap, globe of invulnerability - lesser, remove curse,
       stoneskin, black tentacles, dimension door, minor creation, secure shelter,
       solid fog, summon monster iv, arcane eye, detect scrying, locate creature,
       scrying, charm monster, confusion, crushing despair, geas - lesser, fire shield,
@@ -45,11 +45,11 @@
       major creation, planar binding - lesser, secret chest, summon monster v, 
       teleport, wall of stone, contact other plane, prying eyes, telepathic bond, 
       dominate person, feeblemind, hold monster, mind fog, symbol of sleep, cone of cold,
-      interposing hold, sending, wall of force, dream, false vision, mirage arcana, 
+      interposing hand, sending, wall of force, dream, false vision, mirage arcana, 
       nightmare, persistent image, seeming, shadow evocation, blight, magic jar,
       symbol of pain, waves of fatigue, animal growth, baleful polymorph, beast shape iii,
       elemental body ii, fabricate, overland flight, passwall, plant shape i, polymorph,
-      telekinesis, transmute mud to rock, transmute to rock to mud, permanency]
+      telekinesis, transmute mud to rock, transmute rock to mud, permanency]
     6: [antimagic field, dispel magic - greater, globe of invulnerability, guards and wards,
       repulsion, acid fog, planar binding, summon monster vi, wall of iron, analyze dweomer,
       legend lore, true seeing, geas/quest, heroism - greater, suggestion - mass,
@@ -74,7 +74,7 @@
       moment of prescience, prying eyes - greater, antipathy, binding, charm monster - mass,
       demand, irresistible dance, power word stun, symbol of insanity, sympathy,
       clenched fist, polar ray, shout - greater, sunburst, telekinetic sphere, 
-      scinitillating pattern, screen, shadow evocation - greater, clone, create greater undead,
+      scintillating pattern, screen, shadow evocation - greater, clone, create greater undead,
       horrid wilting, symbol of death, form of the dragon iii, giant form ii, iron body,
       polymorph any object, temporal stasis]
     9: [freedom, imprisonment, mage's disjunction, prismatic sphere, gate, refuge,
