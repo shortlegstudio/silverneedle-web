@@ -27,7 +27,7 @@ Global
 		{32D367C1-CBDA-4BC5-9683-FCC3E08DC625}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		description = Alpine Albino
-		version = 0.3
+		description = Crazy Camembert
+		version = 0.4
 	EndGlobalSection
 EndGlobal

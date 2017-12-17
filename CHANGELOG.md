@@ -3,10 +3,19 @@ All notable changes will be tracked in this file. Most likely.
 
 ## 0.4.0.0
 ### Added
+- Bard Class
+- Sorcerer Class
+- Wizard Class
 
 ### Changed
+- Fixed issues with spellcasting, specifically divine casters
+- Redesigned the spellcasting implementation to be more universal and manageable
+- Improved method of adding custom attacks, and in general working towards design of adding items to component bag versus monkeying around in classes that shouldn't be.
 
 ### Known Issues
+- Draconic bloodline is doing some weird things
+- Bonus spells can get selected before the character would receive them for free. Defeats the purpose
+- Energy Resistance is all wrong
 
 ## 0.3.0.0
 ### Added
