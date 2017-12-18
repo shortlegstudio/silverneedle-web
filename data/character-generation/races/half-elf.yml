@@ -3,13 +3,14 @@
   name: Half-Elf
   attributes:
     - type: SilverNeedle.Characters.Senses.LowLightVision
+    - type: SilverNeedle.Characters.FeatToken
+      tags: [Skill Focus]
   size: Medium
   height: 2d8+62
   weight: 10d8+110
   abilities:
     choose: 2
   traits:
-    - Adaptability
     - Elf Blood
     - Elven Immunities
     - Keen Senses

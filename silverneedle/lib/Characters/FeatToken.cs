@@ -7,6 +7,7 @@ namespace SilverNeedle.Characters
 {
     using System.Collections.Generic;
     using System.Linq;
+    using SilverNeedle.Serialization;
 
     /// <summary>
     /// Represents an option to select a feat. Allows for setting specific restrictions on 
@@ -21,6 +22,12 @@ namespace SilverNeedle.Characters
             if(!string.IsNullOrEmpty(tag)) {
                 tags.Add(tag);
             }
+        }
+
+        public FeatToken(IObjectStore configuration)
+        {
+            this.tags.Add(configuration.GetListOptional("tags"));
+            this.IgnorePrerequisites = configuration.GetBoolOptional("ignore-prerequisites");
         }
 
         public FeatToken(IEnumerable<string> options)

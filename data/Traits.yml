@@ -1,20 +1,5 @@
 --- !<SilverNeedle.Characters.Trait>
 - trait:
-  name: Adaptability
-  description: Half-Elves receive Skill Focus as a bonus feat at 1st Level.
-  custom-implementation: SilverNeedle.Characters.Traits.Adaptability
-- trait:
-  name: Bonus Feat
-  description: Gain a bonus feat at level one
-  custom-implementation: SilverNeedle.Characters.Traits.BonusFeat
-- trait:
-  name: Darkvision
-  description: See in the dark up to 60 feet.
-  tags: [ sense ]
-  special:
-    - type: Sight
-      condition: Darkvision
-- trait:
   name: Defensive Training (Dwarves)
   description: >
     Dwarves get a +4 dodge bonus to AC against monsters of the giant subtype.
@@ -173,13 +158,6 @@
     - stat: Perception
       type: racial
       modifier: 2
-- trait:
-  name: Low-Light Vision
-  description: Can see in low light like normal light.
-  tags: [ sense ]
-  special:
-    - type: Sight
-      condition: Low-Light Vision
 - trait:
   name: Multitalented
   description: >
