@@ -46,28 +46,6 @@ namespace Tests.Characters
         }
 
         [Fact]
-        public void HumansCanChooseAbilityModifier()
-        {
-            var mod = human.AbilityModifiers.First();
-            Assert.True(mod.ChooseAny);
-            Assert.Equal(2, mod.Modifier);
-
-        }
-
-        [Fact]
-        public void DwarvesHaveSpecificAbilitiesToModifier()
-        {
-            var cons = dwarf.AbilityModifiers.First(x => x.AbilityName == AbilityScoreTypes.Constitution);
-            Assert.Equal(2, cons.Modifier);
-
-            var wis = dwarf.AbilityModifiers.First(x => x.AbilityName == AbilityScoreTypes.Wisdom);
-            Assert.Equal(2, wis.Modifier);
-
-            var cha = dwarf.AbilityModifiers.First(x => x.AbilityName == AbilityScoreTypes.Charisma);
-            Assert.Equal(-2, cha.Modifier);
-        }
-
-        [Fact]
         public void RacesHaveTraitsThatTheCanPullFrom()
         {
             Assert.Contains("Hardy", dwarf.Traits);
@@ -125,10 +103,6 @@ namespace Tests.Characters
   attributes:
     - type: SilverNeedle.Character.Senses.Darkvision
       range: 60
-  abilities: 
-    constitution: 2
-    wisdom: 2
-    charisma: -2
   size: Medium
   height: 2d4+45
   weight: 14d4+120
@@ -140,10 +114,6 @@ namespace Tests.Characters
   basemovementspeed: 20
 - race: 
   name: Elf
-  abilities:
-    constitution: 2
-    wisdom: 2
-    charisma: -2
   size: Medium
   height: 64+2d8
   weight: 14d4+120
@@ -156,8 +126,6 @@ namespace Tests.Characters
   basemovementspeed: 100
 - race:
   name: Human
-  abilities:
-    choose: 2
   size: Medium
   height: 2d10+58
   weight: 10d10+120
@@ -173,10 +141,6 @@ namespace Tests.Characters
   size: Small
   height: 2d4+32
   weight: 14d4+120
-  abilities:
-    constitution: 2
-    wisdom: 2
-    charisma: -2
   traits:
     - Halfling Luck
     - Foobar

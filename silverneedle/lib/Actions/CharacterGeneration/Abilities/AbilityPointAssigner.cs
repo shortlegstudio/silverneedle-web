@@ -17,7 +17,7 @@ namespace SilverNeedle.Actions.CharacterGeneration
             foreach(var token in tokens)
             {
                 var modifier = token.CreateAdjustment(abilities.ChooseRandomly());
-                character.AbilityScores.AddModifier(modifier);
+                character.Add(modifier);
             }            
         }
 

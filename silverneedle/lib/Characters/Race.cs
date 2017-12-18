@@ -20,7 +20,6 @@ namespace SilverNeedle.Characters
         /// </summary>
         public Race()
         {
-            this.AbilityModifiers = new List<AbilityScoreAdjustment>();
             this.Traits = new List<string>();
             this.AvailableLanguages = new List<string>();
             this.KnownLanguages = new List<string>();
@@ -28,7 +27,6 @@ namespace SilverNeedle.Characters
 
         public Race(IObjectStore data) : base(data)
         {
-            this.AbilityModifiers = new List<AbilityScoreAdjustment>();
             this.Traits = new List<string>();
             this.AvailableLanguages = new List<string>();
             this.KnownLanguages = new List<string>();
@@ -40,12 +38,6 @@ namespace SilverNeedle.Characters
         /// </summary>
         /// <value>The name.</value>
         public string Name { get; set; }
-
-        /// <summary>
-        /// Gets the ability modifiers.
-        /// </summary>
-        /// <value>The ability modifiers.</value>
-        public IList<AbilityScoreAdjustment> AbilityModifiers { get; private set; }
 
         /// <summary>
         /// Gets the traits.
@@ -103,26 +95,6 @@ namespace SilverNeedle.Characters
             SizeSetting = (CharacterSize)System.Enum.Parse(typeof(CharacterSize), data.GetString("size"));
             HeightRange = DiceStrings.ParseDice(data.GetString("height"));
             WeightRange = DiceStrings.ParseDice(data.GetString("weight"));
-
-            var abilities = data.GetObject("abilities");
-            foreach (var ability in abilities.ChildrenToDictionary())
-            {
-                var modifier = new AbilityScoreAdjustment();
-                modifier.Reason = "Racial Trait";
-                modifier.Modifier = int.Parse(ability.Value);
-
-                // Special case is races that can choose
-                if (string.Compare(ability.Key, "choose", true) == 0)
-                {
-                    modifier.ChooseAny = true;
-                }
-                else
-                {
-                    modifier.AbilityName = AbilityScore.GetType(ability.Key);
-                }
-
-                AbilityModifiers.Add(modifier);
-            }
 
             var traits = data.GetObjectOptional("traits");
             if(traits != null)

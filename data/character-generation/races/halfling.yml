@@ -4,10 +4,6 @@
   size: Small
   height: 2d4+32
   weight: 2d4+30
-  abilities:
-    strength: -2
-    dexterity: 2
-    constitution: 2
   traits:
     - Halfling Luck
     - Slow Speed
@@ -19,3 +15,16 @@
     known: [Common, Halfling]
     available: [Dwarven, Elven, Gnome, Goblin]
   basemovementspeed: 20
+  attributes:
+    - type: SilverNeedle.ValueStatModifier
+      name: dexterity
+      modifier: 2
+      modifier-type: racial
+    - type: SilverNeedle.ValueStatModifier
+      name: constitution
+      modifier: 2
+      modifier-type: racial
+    - type: SilverNeedle.ValueStatModifier
+      name: strength
+      modifier: -2
+      modifier-type: racial

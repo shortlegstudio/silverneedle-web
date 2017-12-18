@@ -5,6 +5,7 @@
 
 namespace SilverNeedle.Characters
 {
+    using SilverNeedle.Serialization;
     /// <summary>
     /// Represents the ability to allocate ability points to an attribute of 
     /// the character's choosing. 
@@ -13,6 +14,7 @@ namespace SilverNeedle.Characters
     {
         private int amount;
         private string source;
+        private string type;
 
         public AbilityScoreToken(int amount, string source)
         {
@@ -20,14 +22,23 @@ namespace SilverNeedle.Characters
             this.source = source;
         }
 
-
-        public AbilityScoreAdjustment CreateAdjustment(AbilityScoreTypes abilityScore)
+        public AbilityScoreToken(IObjectStore configuration)
         {
-            var modifier = new AbilityScoreAdjustment();
-            modifier.AbilityName = abilityScore;
-            modifier.Modifier = amount;
-            modifier.Reason = source;
-            return modifier;
+            this.amount = configuration.GetInteger("modifier");
+            this.type = configuration.GetString("modifier-type");
+            this.source = configuration.GetString("modifier-type");
+            
+        }
+
+
+        public IStatModifier CreateAdjustment(AbilityScoreTypes abilityScore)
+        {
+            return new ValueStatModifier(
+                abilityScore.ToString(),
+                this.amount,
+                this.type,
+                this.source
+            );
         }
 
     }

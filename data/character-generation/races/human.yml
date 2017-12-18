@@ -4,13 +4,14 @@
   size: Medium
   height: 2d10+58
   weight: 10d10+120
-  abilities:
-    choose: 2
   languages:
     known: [Common]
     available: [ALL]
   basemovementspeed: 30
   attributes:
+    - type: SilverNeedle.Characters.AbilityScoreToken
+      modifier: 2
+      modifier-type: racial
     - type: SilverNeedle.Characters.FeatToken
     - type: SilverNeedle.ValueStatModifier
       name: Skill Points

@@ -1,15 +1,9 @@
 --- !<SilverNeedle.Characters.Race>
 - race:
   name: Half-Elf
-  attributes:
-    - type: SilverNeedle.Characters.Senses.LowLightVision
-    - type: SilverNeedle.Characters.FeatToken
-      tags: [Skill Focus]
   size: Medium
   height: 2d8+62
   weight: 10d8+110
-  abilities:
-    choose: 2
   traits:
     - Elf Blood
     - Elven Immunities
@@ -19,3 +13,10 @@
     known: [Common, Elven]
     available: [ALL]
   basemovementspeed: 30
+  attributes:
+    - type: SilverNeedle.Characters.AbilityScoreToken
+      modifier: 2
+      modifier-type: racial
+    - type: SilverNeedle.Characters.Senses.LowLightVision
+    - type: SilverNeedle.Characters.FeatToken
+      tags: [Skill Focus]

@@ -140,12 +140,6 @@ namespace SilverNeedle.Characters
             }
         }
 
-        public void AddModifier(AbilityScoreAdjustment adj)
-        {
-            var a = GetAbility(adj.AbilityName);
-            a.AddModifier(adj);
-        }
-
         public void ProcessModifier(IModifiesStats modifier)
         {
             throw new NotImplementedException();

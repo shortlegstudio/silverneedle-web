@@ -117,7 +117,10 @@ namespace Tests.Characters {
             var charSkill = new CharacterSkill (skill, ability, false);
 
             var oldVal = charSkill.Score();
-            var adjustment = new AbilityScoreAdjustment();
+            var adjustment = new ValueStatModifier(
+                2,
+                "enhancement"
+            );
             adjustment.Modifier = 6;
             ability.AddModifier(adjustment);
             Assert.True(charSkill.Score() > oldVal);

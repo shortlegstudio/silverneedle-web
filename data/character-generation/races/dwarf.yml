@@ -1,14 +1,6 @@
 --- !<SilverNeedle.Characters.Race>
 - race:
   name: Dwarf
-  attributes:
-    - type: SilverNeedle.Characters.SpecialAbilities.SlowAndSteady
-    - type: SilverNeedle.Characters.Senses.Darkvision
-      range: 60
-  abilities:
-    strength: 2
-    wisdom: 2
-    charisma: -2
   size: Medium
   height: 2d4+45
   weight: 14d4+150
@@ -24,3 +16,19 @@
     known: [Common, Dwarven]
     available: [Giant, Gnome, Goblin, Orc, Terran, Undercommon]
   basemovementspeed: 20
+  attributes:
+    - type: SilverNeedle.ValueStatModifier
+      name: strength
+      modifier: 2
+      modifier-type: racial
+    - type: SilverNeedle.ValueStatModifier
+      name: wisdom
+      modifier: 2
+      modifier-type: racial
+    - type: SilverNeedle.ValueStatModifier
+      name: charisma
+      modifier: -2
+      modifier-type: racial
+    - type: SilverNeedle.Characters.SpecialAbilities.SlowAndSteady
+    - type: SilverNeedle.Characters.Senses.Darkvision
+      range: 60

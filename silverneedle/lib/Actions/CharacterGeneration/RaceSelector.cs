@@ -64,7 +64,6 @@ namespace SilverNeedle.Actions.CharacterGeneration
 
             this.SetSpeedForRace(character, race);
             this.SetTraitsForRace(character, race);
-            this.SetAbilityScoresForRace(character, race);
             this.SetSizeForRace(character.Size, race);
         }
 
@@ -91,28 +90,6 @@ namespace SilverNeedle.Actions.CharacterGeneration
             {
                 var t = this.traitGateway.All().First(x => x.Name == trait);
                 character.Add(t);
-            }
-        }
-
-        /// <summary>
-        /// Sets the ability scores for race.
-        /// </summary>
-        /// <param name="abilities">Abilities for adjustments.</param>
-        /// <param name="race">Race selected.</param>
-        private void SetAbilityScoresForRace(CharacterSheet character, Race race)
-        {
-            // Add Ability Modifiers
-            foreach (var adj in race.AbilityModifiers)
-            {
-                if (adj.ChooseAny)
-                {
-                    character.Add(new AbilityScoreToken((int)adj.Modifier, adj.Reason));
-                }
-                else
-                {
-                    var a = character.AbilityScores.GetAbility(adj.AbilityName);
-                    a.AddModifier(adj);
-                }
             }
         }
 

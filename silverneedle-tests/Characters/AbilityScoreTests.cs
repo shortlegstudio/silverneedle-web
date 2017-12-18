@@ -5,6 +5,7 @@
 
 namespace Tests.Characters {
     using Xunit;
+    using SilverNeedle;
     using SilverNeedle.Characters;
 
     
@@ -47,9 +48,12 @@ namespace Tests.Characters {
         [Fact]
         public void YouCanAddAnAdjustmentToAdjustTheTotals() {
             var score = new AbilityScore (AbilityScoreTypes.Strength, 15);
-            var adj = new AbilityScoreAdjustment ();
-            adj.AbilityName = AbilityScoreTypes.Strength;
-            adj.Modifier = 2;
+            var adj = new ValueStatModifier (
+                "Strength",
+                2,
+                "racial",
+                "test"
+            );
 
             score.AddModifier (adj);
             Assert.Equal (17, score.TotalValue);

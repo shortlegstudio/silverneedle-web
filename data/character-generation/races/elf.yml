@@ -1,15 +1,9 @@
 --- !<SilverNeedle.Characters.Race>
 - race:
   name: Elf
-  attributes:
-    - type: SilverNeedle.Characters.Senses.LowLightVision
   size: Medium
   height: 2d8+64
   weight: 6d8+100
-  abilities:
-    dexterity: 2
-    intelligence: 2
-    constitution: -2
   traits:
     - Elven Immunities
     - Elven Magic
@@ -19,3 +13,17 @@
     known: [Common, Elven]
     available: [Celestial, Draconic, Gnoll, Gnome, Goblin, Orc, Sylvan]
   basemovementspeed: 30
+  attributes:
+    - type: SilverNeedle.ValueStatModifier
+      name: dexterity
+      modifier: 2
+      modifier-type: racial
+    - type: SilverNeedle.ValueStatModifier
+      name: intelligence
+      modifier: 2
+      modifier-type: racial
+    - type: SilverNeedle.ValueStatModifier
+      name: constitution
+      modifier: -2
+      modifier-type: racial
+    - type: SilverNeedle.Characters.Senses.LowLightVision
