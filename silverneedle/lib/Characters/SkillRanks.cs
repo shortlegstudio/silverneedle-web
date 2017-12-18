@@ -32,7 +32,7 @@ namespace SilverNeedle.Characters
         private IDictionary<string, CharacterSkill> skills;
         private AbilityScores abilityScores;
 
-        private BasicStat BonusSkillPoints = new BasicStat(StatNames.BonusSkillPoints);
+        private BasicStat BonusSkillPoints = new BasicStat(StatNames.SkillPoints);
 
         public BasicStat ArmorCheckPenalty { get; private set; }
 

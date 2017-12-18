@@ -33,7 +33,7 @@ namespace SilverNeedle.Characters
         public const string ReflexSave = "Reflex";
         public const string FortitudeSave = "Fortitude";
 
-        public const string BonusSkillPoints = "Bonus Skill Points";
+        public const string SkillPoints = "Skill Points";
 
         public const string ArmorCheckPenalty = "Armor Check Penalty";
 

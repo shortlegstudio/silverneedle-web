@@ -124,12 +124,14 @@ namespace SilverNeedle.Characters
                 AbilityModifiers.Add(modifier);
             }
 
-            var traits = data.GetObject("traits");
-            foreach (var trait in traits.Children)
+            var traits = data.GetObjectOptional("traits");
+            if(traits != null)
             {
-                Traits.Add(trait.Value);
+                foreach (var trait in traits.Children)
+                {
+                    Traits.Add(trait.Value);
+                }
             }
-
             var languages = data.GetObject("languages");
             KnownLanguages.Add(languages.GetListOptional("known"));
             AvailableLanguages.Add(languages.GetListOptional("available"));

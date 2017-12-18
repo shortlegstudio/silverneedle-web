@@ -20,7 +20,7 @@ namespace SilverNeedle
         {
             this.StatisticName = configuration.GetString("name");
             this.Modifier = configuration.GetFloat("modifier");
-            this.Type = configuration.GetString("type");
+            this.Type = configuration.GetString("modifier-type");
             this.Reason = configuration.GetStringOptional("reason");
         }
 

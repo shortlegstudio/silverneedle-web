@@ -22,7 +22,7 @@ namespace Tests.Stats
             var nature = new MemoryStore();
             nature.SetValue("name", "Perception");
             nature.SetValue("modifier", 2);
-            nature.SetValue("type", "bonus");
+            nature.SetValue("modifier-type", "bonus");
             modifiers.AddListItem(nature);
             configuration.SetValue("modifiers", modifiers);
 
@@ -42,7 +42,7 @@ namespace Tests.Stats
             var nature = new MemoryStore();
             nature.SetValue("name", "Made Up Statistic");
             nature.SetValue("modifier", 2);
-            nature.SetValue("type", "bonus");
+            nature.SetValue("modifier-type", "bonus");
             modifiers.AddListItem(nature);
             configuration.SetValue("modifiers", modifiers);
             var modifySkill = new StatisticModifyingComponent(configuration);
@@ -59,7 +59,7 @@ namespace Tests.Stats
             var saves = new MemoryStore();
             saves.SetValue("name", "Will");
             saves.SetValue("modifier", 4);
-            saves.SetValue("type", "bonus");
+            saves.SetValue("modifier-type", "bonus");
             saves.SetValue("condition", "vs. Smoke");
             condModifiers.AddListItem(saves);
             configuration.SetValue("conditional-modifiers", condModifiers);

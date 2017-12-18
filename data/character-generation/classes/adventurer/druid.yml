@@ -34,10 +34,10 @@
           modifiers:
             - name: Knowledge Nature
               modifier: 2
-              type: bonus
+              modifier-type: bonus
             - name: Survival
               modifier: 2
-              type: bonus
+              modifier-type: bonus
         - ability: SilverNeedle.Characters.SpecialAbilities.WildEmpathy
         - ability: SilverNeedle.Characters.Magic.DivineCasting
           list: druid
@@ -87,15 +87,15 @@
           conditional-modifiers:
             - name: Fortitude
               modifier: 4
-              type: bonus
+              modifier-type: bonus
               condition: vs. Fey
             - name: Reflex
               modifier: 4
-              type: bonus
+              modifier-type: bonus
               condition: vs. Fey
             - name: Will
               modifier: 4
-              type: bonus
+              modifier-type: bonus
               condition: vs. Fey
         - ability: SilverNeedle.Characters.SpecialAbilities.WildShape
     - level: 9

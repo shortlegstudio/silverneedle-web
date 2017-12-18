@@ -167,7 +167,7 @@ namespace Tests.Characters
         public void ProvidesAccessToTheStatisticsItProvides()
         {
             var stats = Subject.Statistics.Select(x => x.Name);
-            Assert.Contains(StatNames.BonusSkillPoints, stats);
+            Assert.Contains(StatNames.SkillPoints, stats);
             Assert.Contains(StatNames.ArmorCheckPenalty, stats);
         }
 
