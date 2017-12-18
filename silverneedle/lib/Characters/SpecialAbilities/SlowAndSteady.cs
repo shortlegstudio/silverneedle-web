@@ -10,10 +10,14 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using SilverNeedle.Equipment;
     using SilverNeedle.Serialization;
 
-    public class SlowAndSteady : DelegateStatModifier
+    public class SlowAndSteady : DelegateStatModifier, IComponent
     {
         private Inventory inventory;
-        public SlowAndSteady(ComponentBag components) : base(StatNames.ArmorMovementPenalty, "trait", "Slow and Steady")
+        public SlowAndSteady() : base(StatNames.ArmorMovementPenalty, "trait", "Slow and Steady")
+        {
+        }
+
+        public void Initialize(ComponentBag components)
         {
             this.inventory = components.Get<Inventory>();
             this.Calculation = NegateArmorMovement;

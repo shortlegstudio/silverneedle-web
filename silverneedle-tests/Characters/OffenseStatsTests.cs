@@ -17,32 +17,23 @@ namespace Tests.Characters {
 
     
     public class OffenseStatsTests {
+        CharacterSheet character;
         OffenseStats smallStats;
         Inventory inventory;
         MeleeAttackBonus meleeAttackBonus;
         RangeAttackBonus rangeAttackBonus;
 
         public OffenseStatsTests() {
-            var abilities = new AbilityScores ();
+            character = CharacterTestTemplates.AverageBob();
+            var abilities = character.Get<AbilityScores>();
             abilities.SetScore (AbilityScoreTypes.Strength, 16);
             abilities.SetScore (AbilityScoreTypes.Dexterity, 14);
-            var size = new SizeStats (CharacterSize.Small, 1,1);
-
-            inventory = new Inventory();
-            smallStats = new OffenseStats ();
-            meleeAttackBonus = new MeleeAttackBonus();
-            rangeAttackBonus = new RangeAttackBonus();
-
-            var components = new ComponentBag();
-            components.Add(abilities);
-            components.Add(size);
-            components.Add(smallStats);
-            components.Add(inventory);
-            components.Add(meleeAttackBonus);
-            components.Add(rangeAttackBonus);
-            smallStats.Initialize(components);
-            meleeAttackBonus.Initialize(components);
-            rangeAttackBonus.Initialize(components);
+            var size = character.Get<SizeStats>();
+            size.SetSize(CharacterSize.Small, 1, 1);
+            inventory = character.Get<Inventory>();
+            smallStats = character.Get<OffenseStats>();
+            meleeAttackBonus = character.Get<MeleeAttackBonus>();
+            rangeAttackBonus = character.Get<RangeAttackBonus>();
         }
 
         [Fact]

@@ -191,13 +191,6 @@
   description: Speed of only 20 feet instead of 30 feet.
   tags: [ move ]
 - trait:
-  custom-implementation: SilverNeedle.Characters.Traits.SlowAndSteady
-  name: Slow and Steady
-  description: >
-    Dwarves have a base speed of 20 feet, but their speed is never modified
-    by armor or encumberance.
-  tags: [ move ]
-- trait:
   name: Stability
   description: >
     Dwarves receive a +4 racial bonus to their Combat Maneuver Defensive when

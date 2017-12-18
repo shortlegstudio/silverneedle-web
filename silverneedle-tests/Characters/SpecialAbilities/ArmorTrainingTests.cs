@@ -18,20 +18,14 @@ namespace Tests.Characters
         [Fact]
         public void RegistersModifiersWithStats()
         {
-            var defStats = new DefenseStats();
-            var abilityScores = new AbilityScores();
-            var skillRanks = new SkillRanks(new Skill[] { new Skill("Test", AbilityScoreTypes.Strength, false)},abilityScores);
+            var character = CharacterTestTemplates.AverageBob().WithSkills(new string[] { "Test" });
+            var defStats = character.Get<DefenseStats>();
+            var abilityScores = character.Get<AbilityScores>();
+            var skillRanks = character.Get<SkillRanks>();
+            var moveStats = character.Get<MovementStats>();
             var armorTrain = new ArmorTraining();
-            var moveStats = new MovementStats();
             armorTrain.SetLevel(2);
-            var bag = new ComponentBag();
-            bag.Add(defStats);
-            bag.Add(armorTrain);
-            bag.Add(abilityScores);
-            bag.Add(skillRanks);
-            bag.Add(moveStats);
-
-            armorTrain.Initialize(bag);
+            character.Add(armorTrain);
 
             // Max Dex Bonus
             var maxDex = defStats.MaxDexterityBonus;

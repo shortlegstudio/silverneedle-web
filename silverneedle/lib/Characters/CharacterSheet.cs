@@ -25,26 +25,26 @@ namespace SilverNeedle.Characters
         public CharacterSheet(CharacterStrategy strategy) 
         {
             this.Components = new ComponentBag();
-            this.Components.Add(strategy);
-            //TODO: Should component.add perform initialize and we 
-            //provide a group add to add everything that might be needed
-            this.Components.Add(new AbilityScores());
-            this.Components.Add(new SizeStats());
-            this.Components.Add(new Inventory());
-            this.Components.Add(new List<Language>());
-            this.Components.Add(new SpecialQualities());
-            this.Components.Add(new History());
-            this.Components.Add(new OffenseStats());
-            this.Components.Add(new MeleeAttackBonus());
-            this.Components.Add(new RangeAttackBonus());
-            this.Components.Add(new DefenseStats());
-            this.Components.Add(new MovementStats());
-            this.Components.Add(new CharacterAppearance());
-            this.Components.Add(new SkillRanks(this.AbilityScores));
-            this.Components.Add(new Initiative(this.AbilityScores));
-
-            this.Components.Add(new PersonalityType("ESTJ"));
-            this.Components.Add(new Likes());
+            var abilityScores = new AbilityScores();
+            this.Components.AddNoInitialize(new object[] { 
+                strategy,
+                abilityScores,
+                new SizeStats(),
+                new Inventory(),
+                new List<Language>(),
+                new SpecialQualities(),
+                new History(),
+                new OffenseStats(),
+                new MeleeAttackBonus(),
+                new RangeAttackBonus(),
+                new DefenseStats(), 
+                new MovementStats(),
+                new CharacterAppearance(),
+                new SkillRanks(abilityScores),
+                new Initiative(abilityScores),
+                new PersonalityType("ESTJ"),
+                new Likes()
+            });
         }
 
         public void InitializeComponents()
@@ -344,8 +344,6 @@ namespace SilverNeedle.Characters
             var abilities = feature as IProvidesSpecialAbilities;
             if(abilities != null)
                 this.ProcessSpecialAbilities(abilities);
-
-            InitializeComponent(feature);
         }
 
         public T Get<T>()

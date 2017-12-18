@@ -2,6 +2,7 @@
 - race:
   name: Dwarf
   attributes:
+    - type: SilverNeedle.Characters.SpecialAbilities.SlowAndSteady
     - type: SilverNeedle.Characters.Senses.Darkvision
       range: 60
   abilities:
@@ -12,7 +13,6 @@
   height: 2d4+45
   weight: 14d4+150
   traits:
-    - Slow and Steady
     - Defensive Training (Dwarves)
     - Greed
     - Hatred vs Orcs and Goblins

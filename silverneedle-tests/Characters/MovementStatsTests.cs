@@ -24,14 +24,12 @@ namespace Tests.Characters
             bag30.Add(inventory);
             move30 = new MovementStats();
             bag30.Add(move30);
-            move30.Initialize(bag30);
             move30.SetBaseSpeed(30);
 
             var bag20 = new ComponentBag();
             bag20.Add(inventory);
             move20 = new MovementStats();
             bag20.Add(move20);
-            move20.Initialize(bag20);
             move20.SetBaseSpeed(20);
         }
 

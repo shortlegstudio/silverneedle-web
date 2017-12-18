@@ -35,12 +35,24 @@ namespace SilverNeedle.Utility
             {
                 OnComponentAdded(obj);
             } 
+            InitializeComponent(obj);
+
+            if(obj is IStatModifier)
+            {
+                ApplyStatModifier((IStatModifier)obj);
+            }
         }
 
         public void Add(params object[] objects)
         {
             foreach(var o in objects)
                 Add(o);
+        }
+
+        public void AddNoInitialize(object[] objects)
+        {
+            foreach(var o in objects)
+                components.Add(o);
         }
 
         public void Remove<T>()
@@ -116,6 +128,15 @@ namespace SilverNeedle.Utility
             if(this.Added != null)
             {
                 this.Added(this, args);
+            }
+        }
+
+        private void InitializeComponent(object obj)
+        {
+            var comp = obj as IComponent;
+            if(comp != null)
+            {
+                comp.Initialize(this);
             }
         }
     }

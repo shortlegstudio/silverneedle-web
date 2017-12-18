@@ -17,26 +17,23 @@ namespace Tests.Characters.SpecialAbilities
         [Fact]
         public void AddsWeaponCriticalDamageModifierToOffenseStats()
         {
-            var offStats = new OffenseStats();
-            var components = new ComponentBag();
-            components.Add(offStats);
+            var character = CharacterTestTemplates.AverageBob();
+            var offStats = character.Get<OffenseStats>();
             var weapon = new Weapon();
-
             var master = new WeaponMastery(weapon);
-            master.Initialize(components);
+            character.Add(master);
             Assert.Contains(master.WeaponCriticalDamageBonus, offStats.WeaponModifiers);
         }
 
         [Fact]
         public void WorksWithMasterworkVersionsOfWeapons()
         {
-            var offStats = new OffenseStats();
-            var components = new ComponentBag();
-            components.Add(offStats);
+            var character = CharacterTestTemplates.AverageBob();
+            var offStats = character.Get<OffenseStats>();
             var weapon = new Weapon();
             var master = new WeaponMastery(weapon);
             var masterworkWeapon = new MasterworkWeapon(weapon);
-            master.Initialize(components);
+            character.Add(master);
             Assert.Contains(master.WeaponCriticalDamageBonus, offStats.WeaponModifiers);
             Assert.True(master.WeaponCriticalDamageBonus.WeaponQualifies(masterworkWeapon));
         }

@@ -16,12 +16,11 @@ namespace Tests.Characters.SpecialAbilities
         [Fact]
         public void AddsDamageResistanceToDefenseStats()
         {
-            var bag = new ComponentBag();
-            var defstats = new DefenseStats();
-            bag.Add(defstats);
+            var character = CharacterTestTemplates.AverageBob();
+            var defstats = character.Get<DefenseStats>();
 
             var am = new ArmorMastery(5, "-");
-            am.Initialize(bag);
+            character.Add(am);
             Assert.Contains(am.DamageResistance, defstats.DamageResistance);
         }
     }
