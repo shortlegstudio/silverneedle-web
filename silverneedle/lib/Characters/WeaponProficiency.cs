@@ -5,58 +5,56 @@
 
 namespace SilverNeedle.Characters
 {
+    using System.Text.RegularExpressions;
     using Inflector;
     using SilverNeedle.Equipment;
+    using SilverNeedle.Serialization;
 
-    /// <summary>
-    /// Weapon proficiency is the ability to use a weapon
-    /// </summary>
     public class WeaponProficiency
     {
-        /// <summary>
-        /// Whether this represents a whole training level of weaponry.
-        /// </summary>
-        private bool isLevel;
+        private string[] proficiencyList;
 
-        /// <summary>
-        /// The training level if this is for weapon levels
-        /// </summary>
-        private WeaponTrainingLevel trainingLevel;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SilverNeedle.Characters.WeaponProficiency"/> class.
-        /// </summary>
-        /// <param name="proficiency">Proficiency weapon to add</param>
         public WeaponProficiency(string proficiency)
         {
-            this.Name = Inflector.Humanize(proficiency);
-            this.isLevel = EnumHelpers.TryParse<WeaponTrainingLevel>(proficiency, true, out this.trainingLevel);
-
-            // Append a descriptive string so we know this is a group of weapons
-            if (this.isLevel)
-            {
-                this.Name += " weapons";
-            }
+            this.proficiencyList = new string[] {
+                proficiency
+            };
         }
 
-        /// <summary>
-        /// Gets the name.
-        /// </summary>
-        /// <value>The name.</value>
-        public string Name { get; private set; }
+        public WeaponProficiency(IObjectStore configuration)
+        {
+            this.proficiencyList = configuration.GetList("weapons");
+        }
 
-        /// <summary>
-        /// Determines whether this instance is proficient the specified wpn.
-        /// </summary>
-        /// <returns><c>true</c> if this instance is proficient the specified wpn; otherwise, <c>false</c>.</returns>
-        /// <param name="weapon">Weapon to validate proficiency.</param>
+        public string Name 
+        { 
+            get { return string.Join(", ", proficiencyList); }
+        }
+
         public bool IsProficient(IWeaponAttackStatistics weapon)
         {
-            if (this.isLevel)
+            bool passes = false;
+            foreach(var prof in proficiencyList)
             {
-                return weapon.Level == this.trainingLevel;
+                WeaponTrainingLevel trainingLevel;
+                if(EnumHelpers.TryParse<WeaponTrainingLevel>(prof, true, out trainingLevel))
+                {
+                    passes = weapon.Level == trainingLevel;
+                }
+                else if(prof.Contains("\""))
+                {
+                    var result = Regex.Match(prof, "[\\w\\s]*");
+                    passes = weapon.ProficiencyName.ContainsIgnoreCase(result.Value);
+                }
+                else
+                {
+                    passes = weapon.ProficiencyName.EqualsIgnoreCase(prof);
+                }
+
+                if(passes)
+                    return true;
             }
-            return weapon.ProficiencyName.EqualsIgnoreCase(this.Name);
+            return false;
         }
     }
 }

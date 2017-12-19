@@ -13,7 +13,7 @@ namespace SilverNeedle.Characters
         public const string Intelligence = "Intelligence";
         public const string Wisdom = "Wisdom";
         public const string Charisma = "Charisma";
-        public const string BaseAttackBonus = "BAB";
+        public const string BaseAttackBonus = "Base Attack Bonus";
         public const string MeleeAttackBonus = "Melee Attack Bonus";
         public const string RangeAttackBonus = "Range Attack Bonus";
         public const string CMD = "CMD";

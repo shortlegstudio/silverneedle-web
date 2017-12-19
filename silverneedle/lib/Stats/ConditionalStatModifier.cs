@@ -3,10 +3,9 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-using System;
-
 namespace SilverNeedle
 {
+    using SilverNeedle.Serialization;
     /// <summary>
     /// A Conditional stat modifier only modifies a statistic when a condition is met
     /// </summary>
@@ -21,6 +20,12 @@ namespace SilverNeedle
         {
             this.baseModifier = baseModifier;
             this.Condition = condition;
+        }
+
+        public ConditionalStatModifier(IObjectStore configuration)
+        {
+            this.baseModifier = new ValueStatModifier(configuration);
+            this.Condition = configuration.GetString("condition");
         }
 
         private IStatModifier baseModifier;

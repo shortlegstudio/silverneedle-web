@@ -4,14 +4,6 @@
   size: Medium
   height: 2d4+45
   weight: 14d4+150
-  traits:
-    - Defensive Training (Dwarves)
-    - Greed
-    - Hatred vs Orcs and Goblins
-    - Hardy
-    - Stability
-    - Stonecunning
-    - Weapon Familiarity
   languages:
     known: [Common, Dwarven]
     available: [Giant, Gnome, Goblin, Orc, Terran, Undercommon]
@@ -29,6 +21,59 @@
       name: charisma
       modifier: -2
       modifier-type: racial
+    - type: SilverNeedle.ConditionalStatModifier
+      name: CMD
+      modifier: 4
+      modifier-type: racial
+      condition: Bull Rush
+      reason: Stability Trait
+    - type: SilverNeedle.ConditionalStatModifier
+      name: CMD
+      modifier: 4
+      modifier-type: racial
+      condition: Trip
+      reason: Stability Trait
+    - type: SilverNeedle.ConditionalStatModifier
+      name: Armor Class
+      modifier: 4
+      modifier-type: dodge
+      condition: humanoid (giant)
+      reason: Defensive Training Trait
+    - type: SilverNeedle.ConditionalStatModifier
+      name: Perception
+      modifier: 2
+      modifier-type: racial
+      condition: Stonework
+      reason: Stonecunning
+    - type: SilverNeedle.ConditionalStatModifier
+      name: Appraise
+      modifier: 2
+      modifier-type: racial
+      condition: Gemstones
+      reason: Greed Trait
+    - type: SilverNeedle.ConditionalStatModifier
+      name: Base Attack Bonus
+      modifier: 1
+      modifier-type: racial
+      condition: Orc, Goblinoid
+      reason: Hatred Trait
+    - type: SilverNeedle.ConditionalStatModifier
+      name: Fortitude
+      modifier: 2
+      modifier-type: racial
+      condition: Spells
+    - type: SilverNeedle.ConditionalStatModifier
+      name: Reflex
+      modifier: 2
+      modifier-type: racial
+      condition: Spells
+    - type: SilverNeedle.ConditionalStatModifier
+      name: Will
+      modifier: 2
+      modifier-type: racial
+      condition: Spells
     - type: SilverNeedle.Characters.SpecialAbilities.SlowAndSteady
     - type: SilverNeedle.Characters.Senses.Darkvision
       range: 60
+    - type: SilverNeedle.Characters.WeaponProficiency
+      weapons: [battleaxe, heavy pick, warhammer, "dwarven"]
