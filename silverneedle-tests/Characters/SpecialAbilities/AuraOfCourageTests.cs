@@ -16,7 +16,7 @@ namespace Tests.Characters.SpecialAbilities
         [Fact]
         public void AuraOfCourageEnablesImmunityToFear()
         {
-            var character = new CharacterSheet(CharacterStrategy.Default());
+            var character = CharacterTestTemplates.AverageBob();
             character.Add(new AuraOfCourage());
             AssertCharacter.IsImmuneTo("Fear", character);
         }

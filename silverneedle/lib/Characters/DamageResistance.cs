@@ -8,7 +8,7 @@ namespace SilverNeedle.Characters
     using System;
     using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Core;
-    public class DamageResistance : SpecialAbility
+    public class DamageResistance : SpecialAbility, IResistance
     {
         public const int IMMUNITY_THRESHOLD = 10000;
         public DamageResistance(int amnt, string damageType) 
@@ -37,9 +37,9 @@ namespace SilverNeedle.Characters
             set { this.amount.SetValue(value); }
         }
 
-        public bool IsImmune()
+        public bool IsImmune
         {
-            return Amount >= IMMUNITY_THRESHOLD;
+            get { return Amount >= IMMUNITY_THRESHOLD; }
         }
 
         public override string ToString() 

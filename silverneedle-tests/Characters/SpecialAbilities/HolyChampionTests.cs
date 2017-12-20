@@ -16,7 +16,7 @@ namespace Tests.Characters.SpecialAbilities
         public CharacterSheet paladin;
         public HolyChampionTests()
         {
-            this.paladin = new CharacterSheet(CharacterStrategy.Default());
+            this.paladin = CharacterTestTemplates.AverageBob();
             var cls = new Class();
             cls.Name = "Paladin";
             paladin.SetClass(cls);

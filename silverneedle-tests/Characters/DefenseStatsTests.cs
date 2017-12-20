@@ -16,31 +16,22 @@ namespace Tests.Characters {
 
     
     public class DefenseStatsTests {
+        CharacterSheet character;
         DefenseStats basicStats;
         DefenseStats emptyStats;
 
         public DefenseStatsTests() {
-            var abilities = new AbilityScores ();
-            abilities.SetScore (AbilityScoreTypes.Strength, 16);
-            abilities.SetScore (AbilityScoreTypes.Dexterity, 16);
-            abilities.SetScore (AbilityScoreTypes.Constitution, 9);
-            abilities.SetScore (AbilityScoreTypes.Wisdom, 12);
-            var size = new SizeStats (CharacterSize.Small);
-            var bag = new ComponentBag();
-            bag.Add(abilities);
-            bag.Add(size);
-            bag.Add(new Inventory());
+            character = CharacterTestTemplates.AverageBob();
+            character.AbilityScores.SetScore (AbilityScoreTypes.Strength, 16);
+            character.AbilityScores.SetScore (AbilityScoreTypes.Dexterity, 16);
+            character.AbilityScores.SetScore (AbilityScoreTypes.Constitution, 9);
+            character.AbilityScores.SetScore (AbilityScoreTypes.Wisdom, 12);
+            character.Size.SetSize(CharacterSize.Small, 1, 1);
 
-            basicStats = new DefenseStats ();
-            basicStats.Initialize(bag);
+            basicStats = character.Get<DefenseStats>();
 
-
-            var emptyBag = new ComponentBag();
-            emptyBag.Add(new AbilityScores());
-            emptyBag.Add(new SizeStats());
-            emptyBag.Add(new Inventory());
-            emptyStats = new DefenseStats();
-            emptyStats.Initialize(emptyBag);
+            var emptyCharacter = CharacterTestTemplates.AverageBob();
+            emptyStats = emptyCharacter.Get<DefenseStats>();
         }
 
         [Fact]

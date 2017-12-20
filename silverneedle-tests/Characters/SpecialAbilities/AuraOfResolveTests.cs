@@ -16,7 +16,7 @@ namespace Tests.Characters.SpecialAbilities
         [Fact]
         public void AuraOfResolveEnablesImmunityToCharms()
         {
-            var character = new CharacterSheet(CharacterStrategy.Default());
+            var character = CharacterTestTemplates.AverageBob();
             character.Add(new AuraOfResolve());
             var defense = character.Get<DefenseStats>();
             AssertCharacter.IsImmuneTo("Charms", character);

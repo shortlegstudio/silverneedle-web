@@ -103,7 +103,7 @@ namespace Tests.Characters
         [Fact]
         public void AddingATraitWillTriggerAddingImmunities()
         {
-            CharacterSheet sheet = new CharacterSheet(CharacterStrategy.Default());
+            CharacterSheet sheet = CharacterTestTemplates.AverageBob();
             var trait = new Trait();
             trait.SpecialAbilities.Add(
                 new SpecialAbility("vs. Spells", "Immunity"));
@@ -114,7 +114,7 @@ namespace Tests.Characters
         [Fact]
         public void AddingTraitsCouldAddSpecialQualities()
         {
-            CharacterSheet sheet = new CharacterSheet(CharacterStrategy.Default());
+            CharacterSheet sheet = CharacterTestTemplates.AverageBob();
             sheet.InitializeComponents();
             var trait = new Trait();
             trait.SpecialAbilities.Add(

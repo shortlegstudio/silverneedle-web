@@ -16,7 +16,7 @@ namespace Tests.Characters.SpecialAbilities
         [Fact]
         public void EnablesImmunityToDisease()
         {
-            var character = new CharacterSheet(CharacterStrategy.Default());
+            var character = CharacterTestTemplates.AverageBob();
             character.Add(new DivineHealth());
             var defense = character.Get<DefenseStats>();
             AssertCharacter.IsImmuneTo("Disease", character);

@@ -63,6 +63,7 @@ namespace SilverNeedle.Characters
         private const string ImmunitiesName = "Immunity";
 
         private const string DefensiveAbilitiesName = "Defensive";
+        private ComponentBag components;
 
         /// <summary>
         /// The armor proficiencies of the character
@@ -98,6 +99,7 @@ namespace SilverNeedle.Characters
 
         public void Initialize(ComponentBag components)
         {
+            this.components = components;
             var abilities = components.Get<AbilityScores>(); 
             var size = components.Get<SizeStats>();
             this.inventory = components.Get<Inventory>();
@@ -165,11 +167,11 @@ namespace SilverNeedle.Characters
 
         public IStatistic SpellResistance { get; private set; }
 
-        public IEnumerable<DamageResistance> Immunities
+        public IEnumerable<IResistance> Immunities
         {
             get 
             { 
-                return specialAbilities.OfType<DamageResistance>().Where(x => x.IsImmune()); 
+                return components.GetAll<IResistance>().Where(x => x.IsImmune);
             }
         }
 
@@ -185,7 +187,7 @@ namespace SilverNeedle.Characters
         { 
             get 
             { 
-                return specialAbilities.OfType<DamageResistance>().Where(x => x.IsImmune() == false); 
+                return components.GetAll<DamageResistance>().Where(x => !x.IsImmune);
             } 
         }
 
@@ -335,7 +337,7 @@ namespace SilverNeedle.Characters
             var current = this.DamageResistance.FirstOrDefault(x => x.DamageType == dr.DamageType);
             if (current == null)
             {
-                this.specialAbilities.Add(dr);
+                this.components.Add(dr);
             }
             else
             {
@@ -356,7 +358,7 @@ namespace SilverNeedle.Characters
 
         public void AddImmunity(string immunity)
         {
-            this.specialAbilities.Add(SilverNeedle.Characters.DamageResistance.CreateImmunity(immunity));
+            this.components.Add(new Immunity(immunity));
         }
     }
 }

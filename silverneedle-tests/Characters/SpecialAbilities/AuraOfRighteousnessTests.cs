@@ -16,7 +16,7 @@ namespace Tests.Characters.SpecialAbilities
         [Fact]
         public void EnablesDamageResistanceAgainstEvil()
         {
-            var character = new CharacterSheet(CharacterStrategy.Default());
+            var character = CharacterTestTemplates.AverageBob();
             character.Add(new AuraOfRighteousness());
             var defense = character.Get<DefenseStats>();
             var dr = defense.DamageResistance.First();
@@ -27,7 +27,7 @@ namespace Tests.Characters.SpecialAbilities
         [Fact]
         public void ProvidesImmunityToCompulsion()
         {
-            var character = new CharacterSheet(CharacterStrategy.Default());
+            var character = CharacterTestTemplates.AverageBob();
             character.Add(new AuraOfRighteousness());
             AssertCharacter.IsImmuneTo("Compulsion", character);
         }
