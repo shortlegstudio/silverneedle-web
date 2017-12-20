@@ -14,8 +14,12 @@
     available: [Abyssal, Draconic, Giant, Gnoll, Goblin]
   basemovementspeed: 30
   attributes:
-    - type: SilverNeedle.Characters.AbilityScoreToken
-      modifier: 2
-      modifier-type: racial
-    - type: SilverNeedle.Characters.Senses.Darkvision
-      range: 60
+    - attribute: Half-Orc Ability Modifiers
+      items:
+        - type: SilverNeedle.Characters.AbilityScoreToken
+          modifier: 2
+          modifier-type: racial
+    - attribute: Darkvision
+      items:
+        - type: SilverNeedle.Characters.Senses.Darkvision
+          range: 60

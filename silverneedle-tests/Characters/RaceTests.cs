@@ -92,8 +92,8 @@ namespace Tests.Characters
         [Fact]
         public void HasAttributesLoadedThatSpecifySpecialAbilities()
         {
-            AssertExtensions.Contains("SilverNeedle.Character.Senses.Darkvision",
-                dwarf.Attributes.Select(x => x.TypeName)
+            AssertExtensions.Contains("Darkvision",
+                dwarf.Attributes.Select(x => x.Name)
             );
         }
 
@@ -101,8 +101,10 @@ namespace Tests.Characters
 - race: 
   name: Dwarf
   attributes:
-    - type: SilverNeedle.Character.Senses.Darkvision
-      range: 60
+    - attribute: Darkvision
+      items:
+        - type: SilverNeedle.Character.Senses.Darkvision
+          range: 60
   size: Medium
   height: 2d4+45
   weight: 14d4+120

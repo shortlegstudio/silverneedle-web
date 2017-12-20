@@ -14,9 +14,15 @@
     available: [ALL]
   basemovementspeed: 30
   attributes:
-    - type: SilverNeedle.Characters.AbilityScoreToken
-      modifier: 2
-      modifier-type: racial
-    - type: SilverNeedle.Characters.Senses.LowLightVision
-    - type: SilverNeedle.Characters.FeatToken
-      tags: [Skill Focus]
+    - attribute: Half-Elf Ability Modifiers
+      items:
+        - type: SilverNeedle.Characters.AbilityScoreToken
+          modifier: 2
+          modifier-type: racial
+    - attribute: Low Light Vision
+      items:
+        - type: SilverNeedle.Characters.Senses.LowLightVision
+    - attribute: Adaptibility
+      items:
+        - type: SilverNeedle.Characters.FeatToken
+          tags: [Skill Focus]

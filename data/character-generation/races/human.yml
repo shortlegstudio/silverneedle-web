@@ -9,12 +9,17 @@
     available: [ALL]
   basemovementspeed: 30
   attributes:
-    - type: SilverNeedle.Characters.AbilityScoreToken
-      modifier: 2
-      modifier-type: racial
-    - type: SilverNeedle.Characters.FeatToken
-    - type: SilverNeedle.ValueStatModifier
-      name: Skill Points
-      modifier: 1
-      modifier-type: racial
-      reason: Skilled Trait
+    - attribute: Human Ability Modifiers
+      items:
+        - type: SilverNeedle.Characters.AbilityScoreToken
+          modifier: 2
+          modifier-type: racial
+    - attribute: Bonus Feat
+      items:
+        - type: SilverNeedle.Characters.FeatToken
+    - attribute: Skilled
+      items:
+        - type: SilverNeedle.ValueStatModifier
+          name: Skill Points
+          modifier: 1
+          modifier-type: racial

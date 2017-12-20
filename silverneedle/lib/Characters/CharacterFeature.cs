@@ -9,7 +9,7 @@ namespace SilverNeedle.Characters
     using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
-    public class CharacterFeature: IComponent
+    public class CharacterFeature : IComponent
     {
         private IList<CharacterFeatureAttribute> attributes = new List<CharacterFeatureAttribute>();
         protected CharacterFeature() 
@@ -33,8 +33,7 @@ namespace SilverNeedle.Characters
         {
             foreach(var attr in Attributes)
             {
-                object instance = attr.TypeName.Instantiate<object>(attr.Configuration);
-                components.Add(instance);
+                components.Add(attr);
             }
         }
 

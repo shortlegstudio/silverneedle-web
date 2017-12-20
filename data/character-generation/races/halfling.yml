@@ -16,15 +16,17 @@
     available: [Dwarven, Elven, Gnome, Goblin]
   basemovementspeed: 20
   attributes:
-    - type: SilverNeedle.ValueStatModifier
-      name: dexterity
-      modifier: 2
-      modifier-type: racial
-    - type: SilverNeedle.ValueStatModifier
-      name: constitution
-      modifier: 2
-      modifier-type: racial
-    - type: SilverNeedle.ValueStatModifier
-      name: strength
-      modifier: -2
-      modifier-type: racial
+    - attribute: Halfling Ability Modifiers
+      items:
+        - type: SilverNeedle.ValueStatModifier
+          name: dexterity
+          modifier: 2
+          modifier-type: racial
+        - type: SilverNeedle.ValueStatModifier
+          name: constitution
+          modifier: 2
+          modifier-type: racial
+        - type: SilverNeedle.ValueStatModifier
+          name: strength
+          modifier: -2
+          modifier-type: racial

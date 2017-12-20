@@ -18,16 +18,20 @@
     available: [Draconic, Dwarven, Elven, Giant, Goblin, Orc]
   basemovementspeed: 20
   attributes:
-    - type: SilverNeedle.ValueStatModifier
-      name: dexterity
-      modifier: 2
-      modifier-type: racial
-    - type: SilverNeedle.ValueStatModifier
-      name: charisma
-      modifier: 2
-      modifier-type: racial
-    - type: SilverNeedle.ValueStatModifier
-      name: strength
-      modifier: -2
-      modifier-type: racial
-    - type: SilverNeedle.Characters.Senses.LowLightVision
+    - attribute: Gnome Ability Modifiers  
+      items:
+        - type: SilverNeedle.ValueStatModifier
+          name: dexterity
+          modifier: 2
+          modifier-type: racial
+        - type: SilverNeedle.ValueStatModifier
+          name: charisma
+          modifier: 2
+          modifier-type: racial
+        - type: SilverNeedle.ValueStatModifier
+          name: strength
+          modifier: -2
+          modifier-type: racial
+    - attribute: Low Light Vision
+      items:
+        - type: SilverNeedle.Characters.Senses.LowLightVision

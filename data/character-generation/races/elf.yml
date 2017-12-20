@@ -9,46 +9,58 @@
     available: [Celestial, Draconic, Gnoll, Gnome, Goblin, Orc, Sylvan]
   basemovementspeed: 30
   attributes:
-    - type: SilverNeedle.ValueStatModifier
-      name: dexterity
-      modifier: 2
-      modifier-type: racial
-    - type: SilverNeedle.ValueStatModifier
-      name: intelligence
-      modifier: 2
-      modifier-type: racial
-    - type: SilverNeedle.ValueStatModifier
-      name: constitution
-      modifier: -2
-      modifier-type: racial
-    - type: SilverNeedle.ValueStatModifier
-      name: Perception
-      modifier-type: racial
-      modifier: 2
-    - type: SilverNeedle.ConditionalStatModifier
-      name: Spellcraft
-      modifier: 2
-      modifier-type: racial
-      condition: identify magic items
-    - type: SilverNeedle.Characters.Senses.LowLightVision
-    - type: SilverNeedle.Characters.Immunity
-      damage-type: magical sleep
-    - type: SilverNeedle.ConditionalStatModifier
-      name: Will
-      modifier: 2
-      modifier-type: racial
-      condition: enchantment
-    - type: SilverNeedle.ConditionalStatModifier
-      name: Fortitude
-      modifier: 2
-      modifier-type: racial
-      condition: enchantment
-    - type: SilverNeedle.ConditionalStatModifier
-      name: Reflex
-      modifier: 2
-      modifier-type: racial
-      condition: enchantment
-    - type: SilverNeedle.Characters.WeaponProficiency
-      weapons: ["longbow", longsword, rapier, "shortbow"]
-    - type: SilverNeedle.Characters.WeaponProficiencyExoticToMartial
-      weapons: ["elven"]
+    - attribute: Elvish Ability Modifiers
+      items:
+        - type: SilverNeedle.ValueStatModifier
+          name: dexterity
+          modifier: 2
+          modifier-type: racial
+        - type: SilverNeedle.ValueStatModifier
+          name: intelligence
+          modifier: 2
+          modifier-type: racial
+        - type: SilverNeedle.ValueStatModifier
+          name: constitution
+          modifier: -2
+          modifier-type: racial
+    - attribute: Keen Senses
+      items:
+        - type: SilverNeedle.ValueStatModifier
+          name: Perception
+          modifier-type: racial
+          modifier: 2
+    - attribute: Elven Magic
+      items:
+        - type: SilverNeedle.ConditionalStatModifier
+          name: Spellcraft
+          modifier: 2
+          modifier-type: racial
+          condition: identify magic items
+    - attribute: Low Light Vision
+      items:
+        - type: SilverNeedle.Characters.Senses.LowLightVision
+    - attribute: Elvish Immunities
+      items:
+        - type: SilverNeedle.Characters.Immunity
+          damage-type: magical sleep
+        - type: SilverNeedle.ConditionalStatModifier
+          name: Will
+          modifier: 2
+          modifier-type: racial
+          condition: enchantment
+        - type: SilverNeedle.ConditionalStatModifier
+          name: Fortitude
+          modifier: 2
+          modifier-type: racial
+          condition: enchantment
+        - type: SilverNeedle.ConditionalStatModifier
+          name: Reflex
+          modifier: 2
+          modifier-type: racial
+          condition: enchantment
+    - attribute: Weapon Familiarity
+      items:
+        - type: SilverNeedle.Characters.WeaponProficiency
+          weapons: ["longbow", longsword, rapier, "shortbow"]
+        - type: SilverNeedle.Characters.WeaponProficiencyExoticToMartial
+          weapons: ["elven"]

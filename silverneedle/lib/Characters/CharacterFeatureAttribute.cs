@@ -6,14 +6,27 @@
 namespace SilverNeedle.Characters
 {
     using SilverNeedle.Serialization;
-    public class CharacterFeatureAttribute
+    using SilverNeedle.Utility;
+
+    public class CharacterFeatureAttribute : IComponent
     {
-        public string TypeName { get; private set; }
+        public string Name { get; private set; }
+        private IObjectStore Items { get; set; }
         public IObjectStore Configuration { get; private set; }
         public CharacterFeatureAttribute(IObjectStore configuration)
         {
-            this.TypeName = configuration.GetString("type");
-            this.Configuration = configuration;
+            this.Name = configuration.GetString("attribute");
+            this.Items = configuration.GetObject("items");
+        }
+
+        public void Initialize(ComponentBag components)
+        {
+            foreach(var item in this.Items.Children)
+            {
+                var typename = item.GetString("type");
+                var instance = typename.Instantiate<object>(item);
+                components.Add(instance);
+            }
         }
     }
 }
