@@ -4,11 +4,6 @@
   size: Medium
   height: 2d12+58
   weight: 14d12+150
-  traits:
-    - Intimidating
-    - Orc Blood
-    - Orc Ferocity
-    - Weapon Familiarity
   languages:
     known: [Common, Orc]
     available: [Abyssal, Draconic, Giant, Gnoll, Goblin]
@@ -23,3 +18,18 @@
       items:
         - type: SilverNeedle.Characters.Senses.Darkvision
           range: 60
+    - attribute: Intimidating
+      items:
+        - type: SilverNeedle.ValueStatModifier
+          name: Intimidate
+          modifier: 2
+          modifier-type: racial
+    - attribute: Orc Ferocity
+      items:
+        - type: SilverNeedle.Characters.SpecialAbilities.OrcFerocity
+    - attribute: Weapon Familiarity
+      items:
+        - type: SilverNeedle.Characters.WeaponProficiency
+          weapons: [greataxe, falchion]
+        - type: SilverNeedle.Characters.WeaponProficiencyExoticToMartial
+          weapons: ["orc"]

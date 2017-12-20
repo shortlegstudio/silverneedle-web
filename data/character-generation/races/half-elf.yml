@@ -4,11 +4,6 @@
   size: Medium
   height: 2d8+62
   weight: 10d8+110
-  traits:
-    - Elf Blood
-    - Elven Immunities
-    - Keen Senses
-    - Multitalented
   languages:
     known: [Common, Elven]
     available: [ALL]
@@ -26,3 +21,31 @@
       items:
         - type: SilverNeedle.Characters.FeatToken
           tags: [Skill Focus]
+    - attribute: Keen Senses
+      items:
+        - type: SilverNeedle.ValueStatModifier
+          name: Perception
+          modifier: 2
+          modifier-type: racial
+    - attribute: Multitalented
+      items:
+        - type: SilverNeedle.Characters.FavoredClassToken
+    - attribute: Elvish Immunities
+      items:
+        - type: SilverNeedle.Characters.Immunity
+          damage-type: magical sleep
+        - type: SilverNeedle.ConditionalStatModifier
+          name: Will
+          modifier: 2
+          modifier-type: racial
+          condition: enchantment
+        - type: SilverNeedle.ConditionalStatModifier
+          name: Fortitude
+          modifier: 2
+          modifier-type: racial
+          condition: enchantment
+        - type: SilverNeedle.ConditionalStatModifier
+          name: Reflex
+          modifier: 2
+          modifier-type: racial
+          condition: enchantment
