@@ -76,4 +76,6 @@
     - type: SilverNeedle.Characters.Senses.Darkvision
       range: 60
     - type: SilverNeedle.Characters.WeaponProficiency
-      weapons: [battleaxe, heavy pick, warhammer, "dwarven"]
+      weapons: [battleaxe, heavy pick, warhammer]
+    - type: SilverNeedle.Characters.WeaponProficiencyExoticToMartial
+      weapons: ["dwarven"]

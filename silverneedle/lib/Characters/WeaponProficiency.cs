@@ -12,7 +12,7 @@ namespace SilverNeedle.Characters
 
     public class WeaponProficiency
     {
-        private string[] proficiencyList;
+        protected string[] proficiencyList;
 
         public WeaponProficiency(string proficiency)
         {
@@ -31,7 +31,7 @@ namespace SilverNeedle.Characters
             get { return string.Join(", ", proficiencyList); }
         }
 
-        public bool IsProficient(IWeaponAttackStatistics weapon)
+        public virtual bool IsProficient(IWeaponAttackStatistics weapon)
         {
             bool passes = false;
             foreach(var prof in proficiencyList)
@@ -43,7 +43,7 @@ namespace SilverNeedle.Characters
                 }
                 else if(prof.Contains("\""))
                 {
-                    var result = Regex.Match(prof, "[\\w\\s]*");
+                    var result = Regex.Match(prof, "[\\w\\s]+");
                     passes = weapon.ProficiencyName.ContainsIgnoreCase(result.Value);
                 }
                 else

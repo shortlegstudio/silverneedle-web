@@ -43,7 +43,7 @@ namespace Tests.Actions {
             subject = new PurchaseMeleeWeapon (shop);
 
             var proficiencies = new string[] { "simple" };
-            character = new CharacterSheet(CharacterStrategy.Default());                
+            character = CharacterTestTemplates.AverageBob();
             character.Inventory.CoinPurse.SetValue(30000);
             character.Offense.AddWeaponProficiencies(proficiencies);
 
@@ -56,7 +56,7 @@ namespace Tests.Actions {
             //Bad test, but good enough for now
             var action = new PurchaseMeleeWeapon (shop);
             var proficiencies = new string[] { "simple", "martial" };
-            var character = new CharacterSheet(CharacterStrategy.Default());                
+            var character = CharacterTestTemplates.AverageBob();
             character.Inventory.CoinPurse.SetValue(30000);
             character.Offense.AddWeaponProficiencies(proficiencies);
 
@@ -79,7 +79,7 @@ namespace Tests.Actions {
         public void IfNoAppropriateItemsAreFoundAssignNothing()
         {
             var action = new PurchaseMeleeWeapon (shop);
-            var character = new CharacterSheet(CharacterStrategy.Default());
+            var character = CharacterTestTemplates.AverageBob();
             //With no specification nothing should match
             action.ExecuteStep(character);
             Assert.Empty(character.Inventory.Weapons);

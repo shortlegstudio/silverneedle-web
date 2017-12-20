@@ -87,6 +87,10 @@ namespace Tests.Characters
             var dwarvenShovel = new Weapon();
             dwarvenShovel.Name = "Ancient Dwarven Shovel of DOOM";
             Assert.True(prof.IsProficient(dwarvenShovel));
+
+            var elvishComb = new Weapon();
+            elvishComb.Name = "Handy Elvish Comb of Prettiness";
+            Assert.False(prof.IsProficient(elvishComb));
         }
     }
 }

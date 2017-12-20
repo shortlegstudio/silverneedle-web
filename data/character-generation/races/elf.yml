@@ -8,7 +8,6 @@
     - Elven Immunities
     - Elven Magic
     - Keen Senses
-    - Weapon Familiarity
   languages:
     known: [Common, Elven]
     available: [Celestial, Draconic, Gnoll, Gnome, Goblin, Orc, Sylvan]
@@ -27,3 +26,7 @@
       modifier: -2
       modifier-type: racial
     - type: SilverNeedle.Characters.Senses.LowLightVision
+    - type: SilverNeedle.Characters.WeaponProficieny
+      weapons: ["longbow", longsword, rapier, "shortbow"]
+    - type: SilverNeedle.Characters.WeaponProficiencyExoticToMartial
+      weapons: ["elven"]

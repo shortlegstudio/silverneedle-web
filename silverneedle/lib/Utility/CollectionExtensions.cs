@@ -120,5 +120,10 @@ namespace SilverNeedle
         {
             return source.Where(x => !exclude.Contains(x));
         }
+
+        public static IEnumerable<T> Exclude<T>(this IEnumerable<T> source, T exclude)
+        {
+            return source.Where(x => !exclude.Equals(x));
+        }
     }
 }

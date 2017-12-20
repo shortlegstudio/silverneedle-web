@@ -78,7 +78,6 @@ namespace SilverNeedle.Characters
             this.BaseAttackBonus = new BaseAttackBonus();
             this.CombatManeuverDefense = new BasicStat(StatNames.CMD, 10);
             this.CombatManeuverBonus = new BasicStat(StatNames.CMB);
-            this.WeaponProficiencies = new List<WeaponProficiency>();
             this.offensiveAbilities = new List<SpecialAbility>();
             this.weaponModifiers = new List<IWeaponModifier>();
         }
@@ -113,7 +112,7 @@ namespace SilverNeedle.Characters
         /// Gets the weapon proficiencies.
         /// </summary>
         /// <value>The weapon proficiencies for the character.</value>
-        public IList<WeaponProficiency> WeaponProficiencies { get; private set; }
+        public IEnumerable<WeaponProficiency> WeaponProficiencies { get { return components.GetAll<WeaponProficiency>(); } }
 
         /// <summary>
         /// Gets the base attack bonus.
@@ -206,7 +205,7 @@ namespace SilverNeedle.Characters
         /// <param name="proficiency">Proficiency to add.</param>
         public void AddWeaponProficiency(string proficiency)
         {
-            this.WeaponProficiencies.Add(new WeaponProficiency(proficiency));
+            this.components.Add(new WeaponProficiency(proficiency));
         }
 
         /// <summary>

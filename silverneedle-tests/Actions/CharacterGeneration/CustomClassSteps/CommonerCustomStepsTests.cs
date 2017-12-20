@@ -16,11 +16,11 @@ namespace Tests.Actions.CharacterGeneration.CustomClassSteps
         [Fact]
         public void SelectsASingleSimpleWeaponProficiency()
         {
-            var character = new CharacterSheet(CharacterStrategy.Default());
+            var character = CharacterTestTemplates.AverageBob();
 
             var subject = new CommonerCustomSteps();
             subject.ExecuteStep(character);
-            Assert.Equal(character.Offense.WeaponProficiencies.Count, 1);
+            Assert.Equal(character.Offense.WeaponProficiencies.Count(), 1);
         }
     }
 }

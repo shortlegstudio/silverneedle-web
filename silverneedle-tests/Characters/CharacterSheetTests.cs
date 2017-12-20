@@ -60,7 +60,7 @@ namespace Tests.Characters
         [Fact]
         public void AssigningClassUpdatesWeaponProficiencies()
         {
-            var sheet = new CharacterSheet(CharacterStrategy.Default());
+            var sheet = CharacterTestTemplates.AverageBob();
             var fighter = new Class();
             fighter.WeaponProficiencies.Add("martial");
             fighter.WeaponProficiencies.Add("simple");
