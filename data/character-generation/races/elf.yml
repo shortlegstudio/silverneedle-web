@@ -4,10 +4,6 @@
   size: Medium
   height: 2d8+64
   weight: 6d8+100
-  traits:
-    - Elven Immunities
-    - Elven Magic
-    - Keen Senses
   languages:
     known: [Common, Elven]
     available: [Celestial, Draconic, Gnoll, Gnome, Goblin, Orc, Sylvan]
@@ -25,8 +21,34 @@
       name: constitution
       modifier: -2
       modifier-type: racial
+    - type: SilverNeedle.ValueStatModifier
+      name: Perception
+      modifier-type: racial
+      modifier: 2
+    - type: SilverNeedle.ConditionalStatModifier
+      name: Spellcraft
+      modifier: 2
+      modifier-type: racial
+      condition: identify magic items
     - type: SilverNeedle.Characters.Senses.LowLightVision
-    - type: SilverNeedle.Characters.WeaponProficieny
+    - type: SilverNeedle.Characters.Immunity
+      damage-type: magical sleep
+    - type: SilverNeedle.ConditionalStatModifier
+      name: Will
+      modifier: 2
+      modifier-type: racial
+      condition: enchantment
+    - type: SilverNeedle.ConditionalStatModifier
+      name: Fortitude
+      modifier: 2
+      modifier-type: racial
+      condition: enchantment
+    - type: SilverNeedle.ConditionalStatModifier
+      name: Reflex
+      modifier: 2
+      modifier-type: racial
+      condition: enchantment
+    - type: SilverNeedle.Characters.WeaponProficiency
       weapons: ["longbow", longsword, rapier, "shortbow"]
     - type: SilverNeedle.Characters.WeaponProficiencyExoticToMartial
       weapons: ["elven"]

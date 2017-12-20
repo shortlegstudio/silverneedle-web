@@ -5,6 +5,8 @@
 
 namespace SilverNeedle.Characters
 {
+    using SilverNeedle.Serialization;
+
     public class Immunity  : IResistance
     {
         public string DamageType { get; private set; }
@@ -12,6 +14,11 @@ namespace SilverNeedle.Characters
         public Immunity(string immunity)
         {
             DamageType = immunity;
+        }
+
+        public Immunity(IObjectStore configuration)
+        {
+            this.DamageType = configuration.GetString("damage-type");
         }
 
         public override string ToString()
