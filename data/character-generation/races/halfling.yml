@@ -4,13 +4,6 @@
   size: Small
   height: 2d4+32
   weight: 2d4+30
-  traits:
-    - Halfling Luck
-    - Slow Speed
-    - Fearless
-    - Keen Senses
-    - Sure-Footed
-    - Weapon Familiarity
   languages:
     known: [Common, Halfling]
     available: [Dwarven, Elven, Gnome, Goblin]
@@ -30,3 +23,45 @@
           name: strength
           modifier: -2
           modifier-type: racial
+    - attribute: Halfling Luck
+      items:
+        - type: SilverNeedle.ValueStatModifier
+          name: Will
+          modifier: 1
+          modifier-type: racial
+        - type: SilverNeedle.ValueStatModifier
+          name: Fortitude
+          modifier: 1
+          modifier-type: racial
+        - type: SilverNeedle.ValueStatModifier
+          name: Reflex
+          modifier: 1
+          modifier-type: racial
+    - attribute: Fearless
+      items:
+        - type: SilverNeedle.ConditionalStatModifier
+          name: Will
+          modifier: 2
+          modifier-type: racial
+          condition: Fear
+    - attribute: Keen Senses
+      items:
+        - type: SilverNeedle.ValueStatModifier
+          name: Perception
+          modifier: 2
+          modifier-type: racial
+    - attribute: Sure-Footed
+      items:
+        - type: SilverNeedle.ValueStatModifier
+          name: Acrobatics
+          modifier: 2
+          modifier-type: racial
+        - type: SilverNeedle.ValueStatModifier
+          name: Climb
+          modifier: 2
+          modifier-type: racial
+    - attribute: Weapon Familiarity
+      items:
+        - type: SilverNeedle.Characters.WeaponProficiencyExoticToMartial
+          weapons: ["halfling"]
+
