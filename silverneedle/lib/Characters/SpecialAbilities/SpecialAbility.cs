@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class SpecialAbility
+    public class SpecialAbility : IAbility
     {
         public SpecialAbility()
         {
@@ -22,6 +22,8 @@ namespace SilverNeedle.Characters.SpecialAbilities
         public string Type { get; set; }
 
         public virtual string Name { get; protected set; }
+
+        public virtual string DisplayString() { return Name; }
     }
 }
 

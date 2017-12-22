@@ -95,7 +95,7 @@ namespace SilverNeedle.Characters
             Weight = character.Size.Weight.ToPoundsString();
             Money = character.Inventory.CoinPurse.ToString();
 
-            SpecialAbilities = character.SpecialQualities.SpecialAbilities.Select(x => x.Name).ToArray();
+            SpecialAbilities = character.Abilities.Select(x => x.DisplayString()).ToArray();
         }
 
         public string Name { get; private set; }

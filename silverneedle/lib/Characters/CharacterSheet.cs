@@ -32,7 +32,6 @@ namespace SilverNeedle.Characters
                 new SizeStats(),
                 new Inventory(),
                 new List<Language>(),
-                new SpecialQualities(),
                 new History(),
                 new OffenseStats(),
                 new MeleeAttackBonus(),
@@ -232,7 +231,7 @@ namespace SilverNeedle.Characters
 
         public History History { get { return this.Get<History>(); } }
 
-        public SpecialQualities SpecialQualities { get { return this.Get<SpecialQualities>(); } }
+        public IEnumerable<IAbility> Abilities { get { return this.GetAll<IAbility>(); } }
 
         /// <summary>
         /// Sets this character to Level 1 in specified class

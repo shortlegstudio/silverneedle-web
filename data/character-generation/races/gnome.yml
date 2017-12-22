@@ -40,16 +40,16 @@
       name: Gnome Magic - Spell Like Abilities
       prerequisites: charisma 11
       items:
-        - type: SilverNeedle.Characters.Magic.SpellLikeAbility
+        - type: SilverNeedle.Characters.SpecialAbilities.SpellLikeAbility
           spell: dancing lights
           per-day: 1
-        - type: SilverNeedle.Characters.Magic.SpellLikeAbility
+        - type: SilverNeedle.Characters.SpecialAbilities.SpellLikeAbility
           spell: ghost sound
           per-day: 1
-        - type: SilverNeedle.Characters.Magic.SpellLikeAbility
+        - type: SilverNeedle.Characters.SpecialAbilities.SpellLikeAbility
           spell: prestidigitation
           per-day: 1
-        - type: SilverNeedle.Characters.Magic.SpellLikeAbility
+        - type: SilverNeedle.Characters.SpecialAbilities.SpellLikeAbility
           spell: speak with animals
           per-day: 1
     - attribute: SilverNeedle.Characters.Trait

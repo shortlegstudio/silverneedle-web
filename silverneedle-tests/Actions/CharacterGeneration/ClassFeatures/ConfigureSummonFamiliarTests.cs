@@ -33,7 +33,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
             character.InitializeComponents();
             subject.ExecuteStep(character);
 
-            var summon = character.SpecialQualities.SpecialAbilities.First() as SummonFamiliar;
+            var summon = character.Abilities.First() as SummonFamiliar;
             Assert.Equal(summon.Familiar, bat);
         }
 

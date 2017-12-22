@@ -24,8 +24,8 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
             var character = new CharacterSheet(CharacterStrategy.Default());
             character.InitializeComponents();
             step.ExecuteStep(character);
-            var ability = character.SpecialQualities.SpecialAbilities.First();
-            Assert.IsType<SilverNeedle.Characters.SpecialAbilities.ArmorTraining>(ability);
+            var ability = character.Get<ArmorTraining>();
+            Assert.NotNull(ability);
         }
 
         [Fact]
