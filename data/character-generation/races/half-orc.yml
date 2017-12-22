@@ -9,25 +9,30 @@
     available: [Abyssal, Draconic, Giant, Gnoll, Goblin]
   basemovementspeed: 30
   attributes:
-    - attribute: Half-Orc Ability Modifiers
+    - attribute: 
+      name: Half-Orc Ability Modifiers
       items:
         - type: SilverNeedle.Characters.AbilityScoreToken
           modifier: 2
           modifier-type: racial
-    - attribute: Darkvision
+    - attribute: SilverNeedle.Characters.Trait
+      name: Darkvision
       items:
         - type: SilverNeedle.Characters.Senses.Darkvision
           range: 60
-    - attribute: Intimidating
+    - attribute: SilverNeedle.Characters.Trait
+      name: Intimidating
       items:
         - type: SilverNeedle.ValueStatModifier
           name: Intimidate
           modifier: 2
           modifier-type: racial
-    - attribute: Orc Ferocity
+    - attribute: SilverNeedle.Characters.Trait
+      name: Orc Ferocity
       items:
         - type: SilverNeedle.Characters.SpecialAbilities.OrcFerocity
-    - attribute: Weapon Familiarity
+    - attribute: SilverNeedle.Characters.Trait
+      name: Weapon Familiarity
       items:
         - type: SilverNeedle.Characters.WeaponProficiency
           weapons: [greataxe, falchion]

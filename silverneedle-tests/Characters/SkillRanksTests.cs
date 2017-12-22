@@ -116,17 +116,6 @@ namespace Tests.Characters
         }
 
         [Fact]
-        public void SkillPointsPerLevelCanHaveBonuses() 
-        {
-            _abilityScores.SetScore(AbilityScoreTypes.Intelligence, 10);
-            
-            var trait = new Trait();
-            trait.Modifiers.Add(new ValueStatModifier("Skill Points", 1, "bonus", "trait"));
-            Subject.ProcessModifier(trait);
-            Assert.Equal(1, Subject.BonusSkillPointsPerLevel());
-        }
-
-        [Fact]
         public void SkillPointsPerLevelIsBasedOnIntelligence() {
             _abilityScores.SetScore(AbilityScoreTypes.Intelligence, 16);
             Assert.Equal(3, Subject.BonusSkillPointsPerLevel());

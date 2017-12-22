@@ -46,13 +46,6 @@ namespace Tests.Characters
         }
 
         [Fact]
-        public void RacesHaveTraitsThatTheCanPullFrom()
-        {
-            Assert.Contains("Hardy", dwarf.Traits);
-            Assert.Contains("Halfling Luck", halfling.Traits);
-        }
-
-        [Fact]
         public void RacesHaveSizeInformation()
         {
             Assert.Equal(CharacterSize.Medium, dwarf.SizeSetting);
@@ -101,15 +94,14 @@ namespace Tests.Characters
 - race: 
   name: Dwarf
   attributes:
-    - attribute: Darkvision
+    - attribute: SilverNeedle.Characters.Trait
+      name: Darkvision
       items:
         - type: SilverNeedle.Character.Senses.Darkvision
           range: 60
   size: Medium
   height: 2d4+45
   weight: 14d4+120
-  traits:
-    - Hardy
   languages: 
     known: [Common, Dwarven]
     available: [Giant, Gnome, Goblin, Orc, Terran, Undercommon]
@@ -119,9 +111,6 @@ namespace Tests.Characters
   size: Medium
   height: 64+2d8
   weight: 14d4+120
-  traits:
-    - Elfy Stuff
-    - Smart Guys
   languages: 
     known: [Common, Dwarven]
     available: [Giant, Gnome, Goblin, Orc, Terrain, Undercommon]
@@ -131,9 +120,6 @@ namespace Tests.Characters
   size: Medium
   height: 2d10+58
   weight: 10d10+120
-  traits:
-    - Boring Stuff
-    - Extra Skill Point
   languages: 
     known: [ Common ]
     available: [ ALL ]
@@ -143,9 +129,6 @@ namespace Tests.Characters
   size: Small
   height: 2d4+32
   weight: 14d4+120
-  traits:
-    - Halfling Luck
-    - Foobar
   languages: 
     known: [Common, Halfling]
     available: [ Gnome ]

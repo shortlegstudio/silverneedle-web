@@ -9,7 +9,7 @@ namespace SilverNeedle.Characters
     using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
-    public class CharacterFeature : IComponent
+    public class CharacterFeature : IComponent, ICharacterFeature
     {
         private IList<CharacterFeatureAttribute> attributes = new List<CharacterFeatureAttribute>();
         protected CharacterFeature() 
@@ -21,7 +21,7 @@ namespace SilverNeedle.Characters
             LoadAttributes(configuration);
         }
 
-        public IEnumerable<CharacterFeatureAttribute> Attributes
+        public IEnumerable<ICharacterFeatureAttribute> Attributes
         {
             get
             {
@@ -45,9 +45,13 @@ namespace SilverNeedle.Characters
 
             foreach(var attr in configValues.Children)
             {
-               this.attributes.Add(
-                   new CharacterFeatureAttribute(attr)
-               );
+                var attributeType = attr.GetString("attribute");
+                if(string.IsNullOrEmpty(attributeType))
+                    attributeType = "SilverNeedle.Characters.CharacterFeatureAttribute";
+
+                this.attributes.Add(
+                    attributeType.Instantiate<CharacterFeatureAttribute>(attr)
+                );
             }
         }
     }

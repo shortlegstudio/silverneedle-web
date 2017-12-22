@@ -19,7 +19,8 @@ namespace Tests.Characters
             var character = CharacterTestTemplates.AverageBob();
             var yaml = @"---
 attributes:
-  - attribute: Test Attr
+  - attribute: 
+    name: Test Attr
     items:
       - type: Tests.Characters.CharacterFeatureTests+DummyFeature
         value: 10";

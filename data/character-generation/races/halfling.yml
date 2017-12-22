@@ -9,7 +9,8 @@
     available: [Dwarven, Elven, Gnome, Goblin]
   basemovementspeed: 20
   attributes:
-    - attribute: Halfling Ability Modifiers
+    - attribute: 
+      name: Halfling Ability Modifiers
       items:
         - type: SilverNeedle.ValueStatModifier
           name: dexterity
@@ -23,7 +24,8 @@
           name: strength
           modifier: -2
           modifier-type: racial
-    - attribute: Halfling Luck
+    - attribute: SilverNeedle.Characters.Trait
+      name: Halfling Luck
       items:
         - type: SilverNeedle.ValueStatModifier
           name: Will
@@ -37,20 +39,23 @@
           name: Reflex
           modifier: 1
           modifier-type: racial
-    - attribute: Fearless
+    - attribute: SilverNeedle.Characters.Trait
+      name: Fearless
       items:
         - type: SilverNeedle.ConditionalStatModifier
           name: Will
           modifier: 2
           modifier-type: racial
           condition: Fear
-    - attribute: Keen Senses
+    - attribute: SilverNeedle.Characters.Trait
+      name: Keen Senses
       items:
         - type: SilverNeedle.ValueStatModifier
           name: Perception
           modifier: 2
           modifier-type: racial
-    - attribute: Sure-Footed
+    - attribute: SilverNeedle.Characters.Trait
+      name: Sure-Footed
       items:
         - type: SilverNeedle.ValueStatModifier
           name: Acrobatics
@@ -60,7 +65,8 @@
           name: Climb
           modifier: 2
           modifier-type: racial
-    - attribute: Weapon Familiarity
+    - attribute: SilverNeedle.Characters.Trait
+      name: Weapon Familiarity
       items:
         - type: SilverNeedle.Characters.WeaponProficiencyExoticToMartial
           weapons: ["halfling"]

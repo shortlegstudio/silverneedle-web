@@ -9,28 +9,34 @@
     available: [ALL]
   basemovementspeed: 30
   attributes:
-    - attribute: Half-Elf Ability Modifiers
+    - attribute: 
+      name: Half-Elf Ability Modifiers
       items:
         - type: SilverNeedle.Characters.AbilityScoreToken
           modifier: 2
           modifier-type: racial
-    - attribute: Low Light Vision
+    - attribute: SilverNeedle.Characters.Trait
+      name: Low Light Vision
       items:
         - type: SilverNeedle.Characters.Senses.LowLightVision
-    - attribute: Adaptibility
+    - attribute: SilverNeedle.Characters.Trait
+      name: Adaptibility
       items:
         - type: SilverNeedle.Characters.FeatToken
           tags: [Skill Focus]
-    - attribute: Keen Senses
+    - attribute: SilverNeedle.Characters.Trait
+      name: Keen Senses
       items:
         - type: SilverNeedle.ValueStatModifier
           name: Perception
           modifier: 2
           modifier-type: racial
-    - attribute: Multitalented
+    - attribute: SilverNeedle.Characters.Trait
+      name: Multitalented
       items:
         - type: SilverNeedle.Characters.FavoredClassToken
-    - attribute: Elvish Immunities
+    - attribute: SilverNeedle.Characters.Trait
+      name: Elvish Immunities
       items:
         - type: SilverNeedle.Characters.Immunity
           damage-type: magical sleep

@@ -9,7 +9,8 @@
     available: [Celestial, Draconic, Gnoll, Gnome, Goblin, Orc, Sylvan]
   basemovementspeed: 30
   attributes:
-    - attribute: Elvish Ability Modifiers
+    - attribute: 
+      name: Elvish Ability Modifiers
       items:
         - type: SilverNeedle.ValueStatModifier
           name: dexterity
@@ -23,23 +24,27 @@
           name: constitution
           modifier: -2
           modifier-type: racial
-    - attribute: Keen Senses
+    - attribute: SilverNeedle.Characters.Trait
+      name: Keen Senses
       items:
         - type: SilverNeedle.ValueStatModifier
           name: Perception
           modifier-type: racial
           modifier: 2
-    - attribute: Elven Magic
+    - attribute: SilverNeedle.Characters.Trait
+      name: Elven Magic
       items:
         - type: SilverNeedle.ConditionalStatModifier
           name: Spellcraft
           modifier: 2
           modifier-type: racial
           condition: identify magic items
-    - attribute: Low Light Vision
+    - attribute: SilverNeedle.Characters.Trait
+      name: Low Light Vision
       items:
         - type: SilverNeedle.Characters.Senses.LowLightVision
-    - attribute: Elvish Immunities
+    - attribute: SilverNeedle.Characters.Trait
+      name: Elvish Immunities
       items:
         - type: SilverNeedle.Characters.Immunity
           damage-type: magical sleep
@@ -58,7 +63,8 @@
           modifier: 2
           modifier-type: racial
           condition: enchantment
-    - attribute: Weapon Familiarity
+    - attribute: SilverNeedle.Characters.Trait
+      name: Weapon Familiarity
       items:
         - type: SilverNeedle.Characters.WeaponProficiency
           weapons: ["longbow", longsword, rapier, "shortbow"]

@@ -20,14 +20,12 @@ namespace SilverNeedle.Characters
         /// </summary>
         public Race()
         {
-            this.Traits = new List<string>();
             this.AvailableLanguages = new List<string>();
             this.KnownLanguages = new List<string>();
         }
 
         public Race(IObjectStore data) : base(data)
         {
-            this.Traits = new List<string>();
             this.AvailableLanguages = new List<string>();
             this.KnownLanguages = new List<string>();
             LoadObject(data);
@@ -38,12 +36,6 @@ namespace SilverNeedle.Characters
         /// </summary>
         /// <value>The name.</value>
         public string Name { get; set; }
-
-        /// <summary>
-        /// Gets the traits.
-        /// </summary>
-        /// <value>The traits.</value>
-        public IList<string> Traits { get; private set; }
 
         /// <summary>
         /// Gets the known languages that a character of this race will always know
@@ -95,21 +87,11 @@ namespace SilverNeedle.Characters
             SizeSetting = (CharacterSize)System.Enum.Parse(typeof(CharacterSize), data.GetString("size"));
             HeightRange = DiceStrings.ParseDice(data.GetString("height"));
             WeightRange = DiceStrings.ParseDice(data.GetString("weight"));
+            BaseMovementSpeed = data.GetInteger("basemovementspeed");
 
-            var traits = data.GetObjectOptional("traits");
-            if(traits != null)
-            {
-                foreach (var trait in traits.Children)
-                {
-                    Traits.Add(trait.Value);
-                }
-            }
             var languages = data.GetObject("languages");
             KnownLanguages.Add(languages.GetListOptional("known"));
             AvailableLanguages.Add(languages.GetListOptional("available"));
-
-            // Get Speed
-            BaseMovementSpeed = data.GetInteger("basemovementspeed");
         }
     }
 }

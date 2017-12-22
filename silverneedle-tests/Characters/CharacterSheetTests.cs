@@ -88,42 +88,6 @@ namespace Tests.Characters
         }
 
         [Fact]
-        public void AddingATraitToWillSaveBoostsDefense()
-        {
-            CharacterSheet sheet = new CharacterSheet(CharacterStrategy.Default());
-            var trait = new Trait();
-            trait.Modifiers.Add(
-                new ValueStatModifier("Will", 10, "Trait", "Cause")
-            );
-            var oldScore = sheet.Defense.WillSave.TotalValue;
-            sheet.Add(trait);
-            Assert.Equal(oldScore + 10, sheet.Defense.WillSave.TotalValue);
-        }
-
-        [Fact]
-        public void AddingATraitWillTriggerAddingImmunities()
-        {
-            CharacterSheet sheet = CharacterTestTemplates.AverageBob();
-            var trait = new Trait();
-            trait.SpecialAbilities.Add(
-                new SpecialAbility("vs. Spells", "Immunity"));
-            sheet.Add(trait);
-            Assert.True(sheet.Defense.Immunities.Count() > 0);
-        }
-
-        [Fact]
-        public void AddingTraitsCouldAddSpecialQualities()
-        {
-            CharacterSheet sheet = CharacterTestTemplates.AverageBob();
-            sheet.InitializeComponents();
-            var trait = new Trait();
-            trait.SpecialAbilities.Add(
-                new SpecialAbility("vs. Spells", "Ability"));
-            sheet.Add(trait);
-            Assert.True(sheet.SpecialQualities.SpecialAbilities.Count() > 0);
-        }
-
-        [Fact]
         public void ExposeAllStats()
         {
             var character = new CharacterSheet(CharacterStrategy.Default());

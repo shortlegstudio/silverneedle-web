@@ -16,11 +16,6 @@ namespace SilverNeedle.Actions.CharacterGeneration
     /// </summary>
     public class RaceSelector : ICharacterDesignStep
     {
-        /// <summary>
-        /// The trait gateway provides access to all traits
-        /// </summary>
-        private EntityGateway<Trait> traitGateway;
-
         private EntityGateway<Race> raceGateway;
 
         /// <summary>
@@ -28,15 +23,13 @@ namespace SilverNeedle.Actions.CharacterGeneration
         /// </summary>
         /// <param name="races">Races gateway to load from.</param>
         /// <param name="traitGateway">Trait gateway.</param>
-        public RaceSelector(EntityGateway<Race> raceGateway, EntityGateway<Trait> traitGateway)
+        public RaceSelector(EntityGateway<Race> raceGateway)
         {
-            this.traitGateway = traitGateway;
             this.raceGateway = raceGateway;
         }
 
         public RaceSelector()
         {
-            this.traitGateway = GatewayProvider.Get<Trait>();
             this.raceGateway = GatewayProvider.Get<Race>();
         }
 
@@ -63,7 +56,6 @@ namespace SilverNeedle.Actions.CharacterGeneration
             character.Add(race);
 
             this.SetSpeedForRace(character, race);
-            this.SetTraitsForRace(character, race);
             this.SetSizeForRace(character.Size, race);
         }
 
@@ -76,21 +68,6 @@ namespace SilverNeedle.Actions.CharacterGeneration
         {
             // Update Speed
             character.Movement.SetBaseSpeed(race.BaseMovementSpeed);
-        }
-
-        /// <summary>
-        /// Sets the traits for race.
-        /// </summary>
-        /// <param name="character">Charactet to assign traits to.</param>
-        /// <param name="race">Race selected.</param>
-        private void SetTraitsForRace(CharacterSheet character, Race race)
-        {
-            // Add Traits
-            foreach (var trait in race.Traits)
-            {
-                var t = this.traitGateway.All().First(x => x.Name == trait);
-                character.Add(t);
-            }
         }
 
         /// <summary>

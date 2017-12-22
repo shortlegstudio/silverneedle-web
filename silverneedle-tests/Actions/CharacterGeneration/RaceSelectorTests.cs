@@ -19,12 +19,10 @@ namespace Tests.Actions
     public class RaceSelectorTests
     {
         private EntityGateway<Race> raceGateway;
-        private EntityGateway<Trait> traitGateway;
 
         private Race elf;
 
         private Race human;
-        private Trait elfTrait;
         private RaceSelector raceSelectorSubject;
 
         public RaceSelectorTests()
@@ -32,7 +30,6 @@ namespace Tests.Actions
             // Create a race
             elf = new Race();
             elf.Name = "Elfy";
-            elf.Traits.Add("Elfy");
             elf.SizeSetting = CharacterSize.Medium;
             elf.HeightRange = DiceStrings.ParseDice("10d6");
             elf.WeightRange = DiceStrings.ParseDice("20d8");
@@ -53,27 +50,10 @@ namespace Tests.Actions
             list.Add(elf);
             list.Add(human);
 
-            //Set up the trait
-            elfTrait = new Trait();
-            elfTrait.Name = "Elfy";
-            var traitList = new List<Trait>();
-            traitList.Add(elfTrait);
-
             // Configure Gateways
             raceGateway = EntityGateway<Race>.LoadFromList(list);
-            traitGateway = EntityGateway<Trait>.LoadFromList(traitList);
             
-            raceSelectorSubject = new RaceSelector(raceGateway, traitGateway);
-        }
-
-        [Fact]
-        public void SettingRaceLoadsTraits()
-        {
-            var sheet = new CharacterSheet(CharacterStrategy.Default());
-
-            raceSelectorSubject.SetRace(sheet, elf);
-            Assert.Equal(elf, sheet.Race);
-            Assert.True(sheet.Traits.Any(x => x == elfTrait));
+            raceSelectorSubject = new RaceSelector(raceGateway);
         }
 
         [Fact]
@@ -86,7 +66,7 @@ namespace Tests.Actions
             smallGuy.HeightRange = DiceStrings.ParseDice("2d4+10");
             smallGuy.WeightRange = DiceStrings.ParseDice("2d4+100");
 
-            var assign = new RaceSelector(raceGateway, traitGateway);
+            var assign = new RaceSelector(raceGateway);
             raceSelectorSubject.SetRace(sheet, smallGuy);
             Assert.Equal(CharacterSize.Small, sheet.Size.Size);
             Assert.True(sheet.Size.Height >= 12);

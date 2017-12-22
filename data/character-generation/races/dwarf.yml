@@ -9,7 +9,8 @@
     available: [Giant, Gnome, Goblin, Orc, Terran, Undercommon]
   basemovementspeed: 20
   attributes:
-    - attribute: Dwarf Ability Modifiers
+    - attribute: 
+      name: Dwarf Ability Modifiers
       items:
         - type: SilverNeedle.ValueStatModifier
           name: strength
@@ -23,7 +24,8 @@
           name: charisma
           modifier: -2
           modifier-type: racial
-    - attribute: Stability
+    - attribute: SilverNeedle.Characters.Trait
+      name: Stability
       items:
         - type: SilverNeedle.ConditionalStatModifier
           name: CMD
@@ -35,35 +37,40 @@
           modifier: 4
           modifier-type: racial
           condition: Trip
-    - attribute: Defensive Training
+    - attribute: SilverNeedle.Characters.Trait
+      name: Defensive Training
       items:
         - type: SilverNeedle.ConditionalStatModifier
           name: Armor Class
           modifier: 4
           modifier-type: dodge
           condition: humanoid (giant)
-    - attribute: Stonecunning
+    - attribute: SilverNeedle.Characters.Trait
+      name: Stonecunning
       items:
         - type: SilverNeedle.ConditionalStatModifier
           name: Perception
           modifier: 2
           modifier-type: racial
           condition: Stonework
-    - attribute: Greed
+    - attribute: SilverNeedle.Characters.Trait
+      name: Greed
       items:
         - type: SilverNeedle.ConditionalStatModifier
           name: Appraise
           modifier: 2
           modifier-type: racial
           condition: Gemstones
-    - attribute: Hatred
+    - attribute: SilverNeedle.Characters.Trait
+      name: Hatred
       items:
         - type: SilverNeedle.ConditionalStatModifier
           name: Base Attack Bonus
           modifier: 1
           modifier-type: racial
           condition: Orc, Goblinoid
-    - attribute: Hardy
+    - attribute: SilverNeedle.Characters.Trait
+      name: Hardy
       items:
         - type: SilverNeedle.ConditionalStatModifier
           name: Fortitude
@@ -80,14 +87,17 @@
           modifier: 2
           modifier-type: racial
           condition: Poison, Spells
-    - attribute: Slow and Steady
+    - attribute: SilverNeedle.Characters.Trait
+      name: Slow and Steady
       items:
         - type: SilverNeedle.Characters.SpecialAbilities.SlowAndSteady
-    - attribute: Darkvision
+    - attribute: SilverNeedle.Characters.Trait
+      name: Darkvision
       items:
         - type: SilverNeedle.Characters.Senses.Darkvision
           range: 60
-    - attribute: Weapon Familiarity
+    - attribute: SilverNeedle.Characters.Trait
+      name: Weapon Familiarity
       items:
         - type: SilverNeedle.Characters.WeaponProficiency
           weapons: [battleaxe, heavy pick, warhammer]

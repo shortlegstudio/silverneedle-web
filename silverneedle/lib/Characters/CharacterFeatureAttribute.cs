@@ -8,14 +8,13 @@ namespace SilverNeedle.Characters
     using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
-    public class CharacterFeatureAttribute : IComponent
+    public class CharacterFeatureAttribute : IComponent, ICharacterFeatureAttribute
     {
-        public string Name { get; private set; }
+        public virtual string Name { get; private set; }
         private IObjectStore Items { get; set; }
-        public IObjectStore Configuration { get; private set; }
         public CharacterFeatureAttribute(IObjectStore configuration)
         {
-            this.Name = configuration.GetString("attribute");
+            this.Name = configuration.GetString("name");
             this.Items = configuration.GetObject("items");
         }
 

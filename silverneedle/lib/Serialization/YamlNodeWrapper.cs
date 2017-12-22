@@ -266,10 +266,9 @@ namespace SilverNeedle.Serialization
                 var item = this.mappingNode.Children[new YamlScalarNode(key)];
                 return new YamlObjectStore(item);
             }
-            catch
+            catch(Exception ex)
             {
-                ShortLog.ErrorFormat("Yaml Node not found: {0}", key);
-                throw;
+                throw new ObjectStoreKeyNotFoundException(this, key, ex);
             }
         }
 

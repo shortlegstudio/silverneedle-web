@@ -9,7 +9,8 @@
     available: [Draconic, Dwarven, Elven, Giant, Goblin, Orc]
   basemovementspeed: 20
   attributes:
-    - attribute: Gnome Ability Modifiers  
+    - attribute: 
+      name: Gnome Ability Modifiers  
       items:
         - type: SilverNeedle.ValueStatModifier
           name: dexterity
@@ -23,17 +24,20 @@
           name: strength
           modifier: -2
           modifier-type: racial
-    - attribute: Low Light Vision
+    - attribute: SilverNeedle.Characters.Trait
+      name: Low Light Vision
       items:
         - type: SilverNeedle.Characters.Senses.LowLightVision
-    - attribute: Defensive Training
+    - attribute: SilverNeedle.Characters.Trait
+      name: Defensive Training
       items:
         - type: SilverNeedle.ConditionalStatModifier
           name: Armor Class
           modifier: 4
           modifier-type: dodge
           condition: Humanoid (giant)
-    - attribute: Gnome Magic - Spell Like Abilities
+    - attribute: SilverNeedle.Characters.Trait
+      name: Gnome Magic - Spell Like Abilities
       prerequisites: charisma 11
       items:
         - type: SilverNeedle.Characters.Magic.SpellLikeAbility
@@ -48,19 +52,22 @@
         - type: SilverNeedle.Characters.Magic.SpellLikeAbility
           spell: speak with animals
           per-day: 1
-    - attribute: Gnome Magic - Illusion Spells
+    - attribute: SilverNeedle.Characters.Trait
+      name: Gnome Magic - Illusion Spells
       items:
         - type: SilverNeedle.Characters.Magic.SpellDifficultyClassModifier
           school: illusion
           modifier: 1
-    - attribute: Hatred
+    - attribute: SilverNeedle.Characters.Trait
+      name: Hatred
       items:
         - type: SilverNeedle.ConditionalStatModifier
           name: Base Attack Bonus
           modifier: 1
           modifier-type: racial
           condition: Reptilian, Goblinoid
-    - attribute: Illusion Resistance
+    - attribute: SilverNeedle.Characters.Trait
+      name: Illusion Resistance
       items:
         - type: SilverNeedle.ConditionalStatModifier
           name: Fortitude
@@ -77,19 +84,22 @@
           modifier: 2
           modifier-type: racial
           condition: Illusions
-    - attribute: Keen Senses
+    - attribute: SilverNeedle.Characters.Trait
+      name: Keen Senses
       items:
         - type: SilverNeedle.ValueStatModifier
           name: Perception
           modifier-type: racial
           modifier: 2
-    - attribute: Obsessive
+    - attribute: SilverNeedle.Characters.Trait
+      name: Obsessive
       items:
         - type: SilverNeedle.Characters.SkillModifierToken
           skills: ["craft", "profession"]
           modifier: 2
           modifier-type: racial
-    - attribute: Weapon Familiarity
+    - attribute: SilverNeedle.Characters.Trait
+      name: Weapon Familiarity
       items:
         - type: SilverNeedle.Characters.WeaponProficiencyExoticToMartial
           weapons: ["gnomish"]

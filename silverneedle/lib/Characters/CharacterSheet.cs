@@ -163,7 +163,7 @@ namespace SilverNeedle.Characters
         /// Gets the traits.
         /// </summary>
         /// <value>The character's traits.</value>
-        public IEnumerable<Trait> Traits { get { return this.GetAll<Trait>(); } }
+        public IEnumerable<ITrait> Traits { get { return this.GetAll<ITrait>(); } }
 
         /// <summary>
         /// Gets the feats.
