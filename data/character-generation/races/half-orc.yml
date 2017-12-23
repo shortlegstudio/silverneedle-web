@@ -37,4 +37,4 @@
         - type: SilverNeedle.Characters.WeaponProficiency
           weapons: [greataxe, falchion]
         - type: SilverNeedle.Characters.WeaponProficiencyExoticToMartial
-          weapons: ["orc"]
+          weapons: ["%orc%"]

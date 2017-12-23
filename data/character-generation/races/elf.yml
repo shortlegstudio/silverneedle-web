@@ -69,4 +69,4 @@
         - type: SilverNeedle.Characters.WeaponProficiency
           weapons: ["longbow", longsword, rapier, "shortbow"]
         - type: SilverNeedle.Characters.WeaponProficiencyExoticToMartial
-          weapons: ["elven"]
+          weapons: ["%elven%"]

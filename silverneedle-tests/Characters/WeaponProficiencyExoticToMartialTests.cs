@@ -16,7 +16,7 @@ namespace Tests.Characters
         public void WeaponsAreTreatedAsMartialForDeterminingProficiencyLevel()
         {
             var config = new MemoryStore();
-            config.SetValue("weapons", new string[] { "\"dwarven\"" });
+            config.SetValue("weapons", new string[] { "%dwarven%" });
             var exotic = new WeaponProficiencyExoticToMartial(config);
             var martial = new WeaponProficiency("martial");
             var bob = CharacterTestTemplates.AverageBob();

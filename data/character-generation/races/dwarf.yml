@@ -102,4 +102,4 @@
         - type: SilverNeedle.Characters.WeaponProficiency
           weapons: [battleaxe, heavy pick, warhammer]
         - type: SilverNeedle.Characters.WeaponProficiencyExoticToMartial
-          weapons: ["dwarven"]
+          weapons: ["%dwarven%"]

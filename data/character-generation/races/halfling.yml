@@ -69,5 +69,5 @@
       name: Weapon Familiarity
       items:
         - type: SilverNeedle.Characters.WeaponProficiencyExoticToMartial
-          weapons: ["halfling"]
+          weapons: ["%halfling%"]
 

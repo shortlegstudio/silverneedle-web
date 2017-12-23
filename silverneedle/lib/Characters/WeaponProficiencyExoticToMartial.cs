@@ -23,8 +23,7 @@ namespace SilverNeedle.Characters
             {
                 foreach(var prof in proficiencyList)
                 {
-                    var result = Regex.Match(prof, "[\\w\\s]+");
-                    if(weapon.Name.ContainsIgnoreCase(result.Value))
+                    if(weapon.Name.SearchFor(prof))
                     {
                         return CheckWeaponAgainstOtherProficienciesAsIfMartial(weapon);
                     }
