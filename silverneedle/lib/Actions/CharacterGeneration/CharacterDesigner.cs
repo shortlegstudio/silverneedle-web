@@ -40,7 +40,7 @@ namespace SilverNeedle.Actions.CharacterGeneration
                 {
                     var typeName = step.GetString("step");
                     ShortLog.DebugFormat("Adding Build Step: {0}", typeName);
-                    var item = typeName.Instantiate<ICharacterDesignStep>();
+                    var item = typeName.Instantiate<ICharacterDesignStep>(step);
                     designSteps.Add(item);
                 } 
                 else if (step.HasKey("designer"))

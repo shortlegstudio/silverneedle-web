@@ -75,6 +75,7 @@ namespace Tests.Actions.CharacterGeneration
             Assert.Equal(character.Age, 4);
         }
 
+        [Fact]
         public void IfLevelUpDoesNotIncrementLevelThrowException()
         {
             var data = new MemoryStore();
@@ -91,6 +92,26 @@ namespace Tests.Actions.CharacterGeneration
 
             var designer = new CharacterDesigner(data);
             Assert.Throws<System.InvalidOperationException>(() => designer.ExecuteStep(character));
+        }
+
+        [Fact]
+        public void PassInConfigurationDataToStepIfAppropriate()
+        {
+            var data = new MemoryStore();
+            data.SetValue("name", "Test One");
+            var configureStep = new MemoryStore();
+            configureStep.SetValue("step", "Tests.Actions.CharacterGeneration.DummyStepWithConfiguration");
+            configureStep.SetValue("other-option", "fourteen");
+
+            var steps = new MemoryStore();
+            steps.AddListItem(configureStep);
+            data.SetValue("steps", steps);
+
+            var designer = new CharacterDesigner(data);
+            var character = CharacterTestTemplates.AverageBob();
+            designer.ExecuteStep(character);
+            Assert.Equal(configureStep, character.Get<IObjectStore>());
+            Assert.Equal("fourteen", configureStep.GetString("other-option"));
         }
     }
 
@@ -117,6 +138,19 @@ namespace Tests.Actions.CharacterGeneration
         {
             character.Age += 1;
             character.SetLevel(character.Level + 1);
+        }
+    }
+
+    public class DummyStepWithConfiguration : ICharacterDesignStep
+    {
+        private IObjectStore configuration;
+        public DummyStepWithConfiguration(IObjectStore configuration)
+        {
+            this.configuration = configuration;
+        }
+        public void ExecuteStep(CharacterSheet character)
+        {
+            character.Add(configuration);
         }
     }
 }
