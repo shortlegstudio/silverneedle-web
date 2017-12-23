@@ -3,8 +3,7 @@
   name: create-default
   type: normal
   steps: 
-    - step: SilverNeedle.Actions.CharacterGeneration.InitializeCharacterSheet
-    - step: SilverNeedle.Actions.CharacterGeneration.AddUniversalFeatToken
+    - designer: initialize-character
     - step: SilverNeedle.Actions.CharacterGeneration.Abilities.CreateAbilityScores
     - step: SilverNeedle.Actions.CharacterGeneration.RaceSelector
     - step: SilverNeedle.Actions.CharacterGeneration.GenderSelector

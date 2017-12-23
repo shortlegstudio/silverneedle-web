@@ -14,7 +14,15 @@
       <a asp-area="" asp-controller="Character" asp-action="Character" asp-route-strategy="@ViewData["strategy"]" asp-route-level="@ViewData["level"]" asp-route-scores="@ViewData["scores"]" class="btn btn-lg btn-primary pull-right hidden-print" role="button">Regenerate</a>
     </h1>
     <h4>@character.Alignment @character.Gender @character.Race</h4> 
-    <h5>@character.Class @character.Level</h5>
+    <h5>@character.Class @character.Level
+    <small>Favored: 
+    @foreach(var f in charFull.GetAll<FavoredClass>())
+    {
+        @f.ClassName
+        @:&nbsp;
+    }
+    </small>
+    </h5>
     <div class="row">
         <div class="col-sm-8">
             <div class="row">

@@ -1,0 +1,10 @@
+--- !<SilverNeedle.Actions.CharacterGeneration.CharacterDesigner>
+- build-steps:
+  name: initialize-character
+  type: normal
+  steps: 
+    - step: SilverNeedle.Actions.CharacterGeneration.InitializeCharacterSheet
+    - step: SilverNeedle.Actions.CharacterGeneration.AddToCharacter
+      type: SilverNeedle.Characters.FeatToken
+    - step: SilverNeedle.Actions.CharacterGeneration.AddToCharacter
+      type: SilverNeedle.Characters.FavoredClassToken
