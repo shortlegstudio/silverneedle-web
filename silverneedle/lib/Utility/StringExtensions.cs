@@ -60,5 +60,22 @@ namespace SilverNeedle
         {
             return string.Format(format, values);
         }
+
+        public static bool IsSearchString(this string subject)
+        {
+            var trimmedSearch = Regex.Match(subject, "%([\\w\\s]+)%");
+            return trimmedSearch.Success;
+        }
+
+        public static bool SearchFor(this string subject, string searchString)
+        {
+            if(searchString.IsSearchString())
+            {
+                var trimmedSearch = Regex.Match(searchString, "%([\\w\\s]+)%");
+                return subject.ContainsIgnoreCase(trimmedSearch.Groups[1].Value);
+            }
+
+            return subject.EqualsIgnoreCase(searchString);
+        }
     }
 }

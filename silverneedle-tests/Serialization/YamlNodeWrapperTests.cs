@@ -55,5 +55,14 @@ list:
             Assert.Equal(new string[] { "one", "two", "three"}, items);
         }
 
+        [Fact]
+        public void ReturnsPercentageSignsInListsIfStillThere()
+        {
+            string list = @"---
+list: [""%foo%"", ""%bar%""]";
+            var parsed = list.ParseYaml();
+            Assert.Equal(new string [] { "%foo%", "%bar%" }, parsed.GetList("list"));
+        }
+
     }
 }
