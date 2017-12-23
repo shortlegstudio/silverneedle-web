@@ -18,6 +18,7 @@ namespace SilverNeedle.Actions.CharacterGeneration
             {
                 var matchingSkills = character.SkillRanks.GetSkills().Where(x => token.Qualifies(x.Skill));
                 var chosen = matchingSkills.ChooseOne();
+                ShortLog.DebugFormat("Skill Modifier Token assigned to {0}", chosen.Skill.Name);
                 chosen.AddModifier(token.CreateModifier(chosen.Skill));
             }
         }

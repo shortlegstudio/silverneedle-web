@@ -1,0 +1,7 @@
+--- !<SilverNeedle.Actions.CharacterGeneration.CharacterDesigner>
+- build-steps:
+  name: process-tokens
+  type: normal
+  steps: 
+    - step: SilverNeedle.Actions.CharacterGeneration.FeatSelector
+    - step: SilverNeedle.Actions.CharacterGeneration.ProcessSkillModifierToken

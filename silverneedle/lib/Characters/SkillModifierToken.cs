@@ -6,6 +6,7 @@
 namespace SilverNeedle.Characters
 {
     using System.Collections.Generic;
+    using System.Linq;
     using System.Text.RegularExpressions;
     using SilverNeedle.Serialization;
 
@@ -25,6 +26,13 @@ namespace SilverNeedle.Characters
             configuration.Deserialize(this);
         }
 
+        public SkillModifierToken(IEnumerable<string> skills, int modifier, string type)
+        {
+            this.Skills = skills.ToArray();
+            this.Modifier = modifier;
+            this.ModifierType = type;
+        }
+
         public bool Qualifies(Skill skill)
         {
             bool matches = false;
@@ -36,6 +44,16 @@ namespace SilverNeedle.Characters
             }
 
             return matches;
+        }
+
+        public IStatModifier CreateModifier(Skill skill)
+        {
+            return new ValueStatModifier(
+                skill.Name,
+                Modifier,
+                ModifierType,
+                "Skill Modifier Token"
+            );
         }
     }
 }

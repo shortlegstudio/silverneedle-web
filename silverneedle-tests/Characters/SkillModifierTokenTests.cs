@@ -37,5 +37,17 @@ modifier-type: racial";
             var skill = new Skill("Craft (Shoes)", AbilityScoreTypes.Intelligence, false);
             Assert.True(token.Qualifies(skill));
         }
+
+        [Fact]
+        public void CreatesTheModifierForASkill()
+        {
+            var token = new SkillModifierToken(new string[] { "Climb" }, 2, "trait");
+            var skill = new Skill("Climb", AbilityScoreTypes.Strength, false);
+            var modifier = token.CreateModifier(skill);
+
+            Assert.Equal("Climb", modifier.StatisticName);
+            Assert.Equal(2, modifier.Modifier);
+            Assert.Equal("trait", modifier.Type);
+        }
     }
 }

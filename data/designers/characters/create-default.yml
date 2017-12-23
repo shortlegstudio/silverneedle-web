@@ -19,5 +19,6 @@
     - step: SilverNeedle.Actions.CharacterGeneration.SkillPointDistributor
     - step: SilverNeedle.Actions.CharacterGeneration.AlignmentSelector
     - step: SilverNeedle.Actions.CharacterGeneration.LanguageSelector
+    - designer: process-tokens
     - designer: create-appearance
     - designer: create-personality

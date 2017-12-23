@@ -10,3 +10,4 @@
     - step: SilverNeedle.Actions.CharacterGeneration.FeatSelector
     - step: SilverNeedle.Actions.CharacterGeneration.ProcessCustomClassFeatures
     - step: SilverNeedle.Actions.CharacterGeneration.NotifyComponentsOfLevelUp
+    - designer: process-tokens
