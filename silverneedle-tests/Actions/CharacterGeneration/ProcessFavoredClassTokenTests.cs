@@ -11,7 +11,7 @@ namespace Tests.Actions.CharacterGeneration
     using SilverNeedle.Characters;
     using SilverNeedle.Serialization;
 
-    public class ProcessFavoredClassTokenTests
+    public class ProcessFavoredClassTokenTests : RequiresDataFiles
     {
         [Fact]
         public void ChoosesClassCharacterHasIfNotAlreadyChosen()

@@ -9,7 +9,7 @@ namespace SilverNeedle.Actions.CharacterGeneration
     using SilverNeedle.Characters;
     using SilverNeedle.Serialization;
 
-    public class ProcessFavoredClassToken : ICharacterDesignStep
+    public class ProcessFavoredClassToken : TokenProcessor<FavoredClassToken>
     {
         private EntityGateway<Class> classes;
 
@@ -21,23 +21,19 @@ namespace SilverNeedle.Actions.CharacterGeneration
         {
             this.classes = classGateway;
         }
-        public void ExecuteStep(CharacterSheet character)
+
+        protected override void ProcessToken(CharacterSheet character, FavoredClassToken token)
         {
-            foreach(var token in character.GetAll<FavoredClassToken>())
+            var chosen = character.GetAll<FavoredClass>();
+            if(!chosen.Any(x => x.Qualifies(character.Class)))
             {
-                var chosen = character.GetAll<FavoredClass>();
-                if(!chosen.Any(x => x.Qualifies(character.Class)))
-                {
-                    character.Add(new FavoredClass(character.Class.Name));
-                }
-                else
-                {
-                    var options = this.classes.Where(cls => !chosen.Any(fav => fav.Qualifies(cls)));
-                    var selected = options.ChooseOne();
-                    character.Add(new FavoredClass(selected.Name));
-                }
-
-
+                character.Add(new FavoredClass(character.Class.Name));
+            }
+            else
+            {
+                var options = this.classes.Where(cls => !chosen.Any(fav => fav.Qualifies(cls)));
+                var selected = options.ChooseOne();
+                character.Add(new FavoredClass(selected.Name));
             }
         }
     }
