@@ -8,20 +8,18 @@ namespace SilverNeedle.Characters
     using System;
     using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Core;
-    public class DamageResistance : SpecialAbility, IResistance
+    public class EnergyResistance : IResistance, IAbility
     {
         public const int IMMUNITY_THRESHOLD = 10000;
-        public DamageResistance(int amnt, string damageType) 
+        public EnergyResistance(int amnt, string damageType) 
         {
             this.DamageType = damageType;
-            this.Name = StatNames.DamageResistance + " " + damageType;
             this.amount = new BasicStat(this.Name, amnt);
         }
 
-        public DamageResistance(IDamageType damageType, Func<float> calculation)
+        public EnergyResistance(IDamageType damageType, Func<float> calculation)
         {
             DamageType = damageType.Name;
-            this.Name = StatNames.DamageResistance + " " + damageType;
             this.amount = new BasicStat(this.Name);
             this.amount.AddModifier(
                 new DelegateStatModifier(this.Name, "-", "-", calculation)
@@ -30,6 +28,7 @@ namespace SilverNeedle.Characters
 
         private BasicStat amount;
 
+        public string Name { get { return "Energy Resistance ({0})".Formatted(DamageType); } }
         public string DamageType { get; private set; }
         public int Amount 
         { 
@@ -52,9 +51,14 @@ namespace SilverNeedle.Characters
             Amount = IMMUNITY_THRESHOLD;
         }
 
-        public static DamageResistance CreateImmunity(string damageType)
+        public static EnergyResistance CreateImmunity(string damageType)
         {
-            return new DamageResistance(IMMUNITY_THRESHOLD, damageType);
+            return new EnergyResistance(IMMUNITY_THRESHOLD, damageType);
+        }
+
+        public string DisplayString()
+        {
+            return "{0} {1}".Formatted(this.DamageType, this.Amount);
         }
     }
 }

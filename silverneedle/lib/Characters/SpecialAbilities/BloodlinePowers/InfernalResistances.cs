@@ -9,13 +9,13 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 
     public class InfernalResistances : SpecialAbility, IBloodlinePower, IComponent, IImprovesWithLevels
     {
-        private DamageResistance fireResistance;
+        private EnergyResistance fireResistance;
         private ConditionalStatModifier saveModifier;
         private ClassLevel sorcererLevels;
         public void Initialize(ComponentContainer components)
         {
             sorcererLevels = components.Get<ClassLevel>();
-            fireResistance = new DamageResistance(5, "fire");
+            fireResistance = new EnergyResistance(5, "fire");
             components.Get<DefenseStats>().AddDamageResistance(fireResistance);
             saveModifier = new ConditionalStatModifier
             (

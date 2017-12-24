@@ -11,7 +11,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
         public void Initialize(ComponentContainer components)
         {
             var def = components.Get<DefenseStats>();
-            def.AddDamageResistance(new DamageResistance(10, "chaotic"));
+            def.AddDamageResistance(new EnergyResistance(10, "chaotic"));
         }
     }
 }

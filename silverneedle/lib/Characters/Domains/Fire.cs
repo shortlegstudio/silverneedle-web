@@ -13,7 +13,7 @@ namespace SilverNeedle.Characters.Domains
     {
         private ClassLevel clericLevel;
         private FireBolt fireBolt;
-        private DamageResistance fireResistance;
+        private EnergyResistance fireResistance;
 
         public Fire(IObjectStore data) : base(data)
         {
@@ -32,7 +32,7 @@ namespace SilverNeedle.Characters.Domains
             var defenseStats = components.Get<DefenseStats>();
             if(clericLevel.Level == 6)
             {
-                fireResistance = new DamageResistance(10, "fire");
+                fireResistance = new EnergyResistance(10, "fire");
                 defenseStats.AddDamageResistance(fireResistance);
             } 
 

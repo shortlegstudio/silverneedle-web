@@ -15,9 +15,9 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
             defense.AddImmunity("poison");
 
             //Damage resistances
-            defense.AddDamageResistance(new DamageResistance(10, "acid"));
-            defense.AddDamageResistance(new DamageResistance(10, "cold"));
-            defense.AddDamageResistance(new DamageResistance(10, "fire"));
+            defense.AddDamageResistance(new EnergyResistance(10, "acid"));
+            defense.AddDamageResistance(new EnergyResistance(10, "cold"));
+            defense.AddDamageResistance(new EnergyResistance(10, "fire"));
         }
     }
 }

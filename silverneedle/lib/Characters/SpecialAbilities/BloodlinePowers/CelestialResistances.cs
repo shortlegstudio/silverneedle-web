@@ -9,12 +9,12 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 
     public class CelestialResistances : SpecialAbility, IBloodlinePower, IComponent, IImprovesWithLevels
     {
-        private DamageResistance drCold;
-        private DamageResistance drAcid;
+        private EnergyResistance drCold;
+        private EnergyResistance drAcid;
         public void Initialize(ComponentContainer components)
         {
-            drCold = new DamageResistance(5, "cold");
-            drAcid = new DamageResistance(5, "acid");
+            drCold = new EnergyResistance(5, "cold");
+            drAcid = new EnergyResistance(5, "acid");
             var defense = components.Get<DefenseStats>();
             defense.AddDamageResistance(drCold);
             defense.AddDamageResistance(drAcid);

@@ -10,13 +10,13 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
     public class DeathsGift : SpecialAbility, IBloodlinePower, IComponent, IImprovesWithLevels
     {
         private ClassLevel sorcererLevels;
-        private DamageResistance coldResistance;
-        private DamageResistance nonLethal;
+        private EnergyResistance coldResistance;
+        private EnergyResistance nonLethal;
         public void Initialize(ComponentContainer components)
         {
             sorcererLevels = components.Get<ClassLevel>();
-            coldResistance = new DamageResistance(5, "cold");
-            nonLethal = new DamageResistance(5, "- against nonlethal");
+            coldResistance = new EnergyResistance(5, "cold");
+            nonLethal = new EnergyResistance(5, "- against nonlethal");
             var defense = components.Get<DefenseStats>();
             defense.AddDamageResistance(coldResistance);
             defense.AddDamageResistance(nonLethal);

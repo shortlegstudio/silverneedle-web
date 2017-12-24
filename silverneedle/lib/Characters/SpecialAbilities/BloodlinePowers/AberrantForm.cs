@@ -16,7 +16,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
             def.AddImmunity("Criticals");
             def.AddImmunity("Sneak Attacks");
 
-            def.AddDamageResistance(new DamageResistance(5, "-"));
+            def.AddDamageResistance(new EnergyResistance(5, "-"));
             components.Add(new Blindsight(50));
         }
     }

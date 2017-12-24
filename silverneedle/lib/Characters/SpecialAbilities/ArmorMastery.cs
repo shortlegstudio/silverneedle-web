@@ -8,10 +8,10 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using SilverNeedle.Utility;
     public class ArmorMastery : SpecialAbility, IComponent
     {
-        public DamageResistance DamageResistance { get; private set; }
+        public EnergyResistance DamageResistance { get; private set; }
         public ArmorMastery(int amount, string damageType)
         {
-            this.DamageResistance = new DamageResistance(amount, damageType);
+            this.DamageResistance = new EnergyResistance(amount, damageType);
             this.Name = "Armor Mastery";
         }   
 

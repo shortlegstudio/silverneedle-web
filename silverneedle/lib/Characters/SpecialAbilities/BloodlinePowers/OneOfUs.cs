@@ -16,7 +16,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
             defense.AddImmunity("nonlethal");
             defense.AddImmunity("paralysis");
             defense.AddImmunity("sleep");
-            defense.AddDamageResistance(new DamageResistance(5, "-"));
+            defense.AddDamageResistance(new EnergyResistance(5, "-"));
 
             var modifier = new ConditionalStatModifier(
                 new ValueStatModifier(4, this.Name),

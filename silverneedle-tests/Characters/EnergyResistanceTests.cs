@@ -9,25 +9,26 @@ namespace Tests.Characters
     using SilverNeedle.Characters;
     using SilverNeedle.Core;
 
-    public class DamageResistanceTests
+    public class EnergyResistanceTests
     {
         [Fact]
-        public void DamageResistanceCanBeCalculated()
+        public void EnergyResistanceCanBeCalculated()
         {
             var energyType = new EnergyType();
             energyType.Name = "Fire";
-            var dr = new DamageResistance(
+            var dr = new EnergyResistance(
                 energyType,
                 () => { return 6 * 10; }
             );
             Assert.Equal("Fire", dr.DamageType);
             Assert.Equal(60, dr.Amount);
+            Assert.Equal("Fire 60", dr.DisplayString());
         }
 
         [Fact]
         public void CanBeMarkedAsImmunity()
         {
-            var dr = new DamageResistance(5, "fire");
+            var dr = new EnergyResistance(5, "fire");
             dr.SetToImmunity();
             var character = CharacterTestTemplates.AverageBob();
             character.Defense.AddDamageResistance(dr);
@@ -36,9 +37,9 @@ namespace Tests.Characters
         }
 
         [Fact]
-        public void DamageResistanceOverTenThousandIsEqualToImmunity()
+        public void EnergyResistanceOverTenThousandIsEqualToImmunity()
         {
-            var dr = new DamageResistance(10000, "fire");
+            var dr = new EnergyResistance(10000, "fire");
             var character = CharacterTestTemplates.AverageBob();
             character.Defense.AddDamageResistance(dr);
             AssertCharacter.IsImmuneTo("fire", character);

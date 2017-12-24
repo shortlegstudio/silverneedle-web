@@ -8,13 +8,13 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
     using SilverNeedle.Utility;
     public class ElementalResistance : SpecialAbility, IBloodlinePower, IComponent, IImprovesWithLevels
     {
-        private DamageResistance resistance; 
+        private EnergyResistance resistance; 
         private ClassLevel sorcerer;
         public void Initialize(ComponentContainer components)
         {
             sorcerer = components.Get<ClassLevel>();
             var elementType = components.Get<ElementalType>();
-            resistance = new DamageResistance(10, elementType.EnergyType);
+            resistance = new EnergyResistance(10, elementType.EnergyType);
             var defense = components.Get<DefenseStats>();
             defense.AddDamageResistance(resistance);
         }

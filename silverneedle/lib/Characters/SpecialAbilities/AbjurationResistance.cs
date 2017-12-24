@@ -12,7 +12,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     public class AbjurationResistance : SpecialAbility, IComponent
     {
         private EntityGateway<EnergyType> energyTypes;
-        private DamageResistance damageResistance;
+        private EnergyResistance damageResistance;
         private ClassLevel sourceLevels;
         public AbjurationResistance() : this(GatewayProvider.Get<EnergyType>())
         {
@@ -28,7 +28,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
         {
             this.sourceLevels = components.Get<ClassLevel>();
             var energyType = energyTypes.ChooseOne();
-            damageResistance = new DamageResistance(energyType, CalculateResistance);
+            damageResistance = new EnergyResistance(energyType, CalculateResistance);
             var defense = components.Get<DefenseStats>();
             defense.AddDamageResistance(damageResistance);
         }
@@ -36,7 +36,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
         private float CalculateResistance()
         {
             if(sourceLevels.Level >= 20)
-                return DamageResistance.IMMUNITY_THRESHOLD;
+                return EnergyResistance.IMMUNITY_THRESHOLD;
             
             if(sourceLevels.Level >= 11)
                 return 10;

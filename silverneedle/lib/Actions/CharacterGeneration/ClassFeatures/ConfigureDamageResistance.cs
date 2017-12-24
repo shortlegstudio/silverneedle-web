@@ -22,7 +22,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
         }
         public void ExecuteStep(CharacterSheet character)
         {
-            var dr = new DamageResistance(Amount, Type);
+            var dr = new EnergyResistance(Amount, Type);
             character.Defense.AddDamageResistance(dr);
         }
     }

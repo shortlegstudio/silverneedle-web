@@ -183,11 +183,11 @@ namespace SilverNeedle.Characters
             }
         }
 
-        public IEnumerable<DamageResistance> DamageResistance 
+        public IEnumerable<EnergyResistance> DamageResistance 
         { 
             get 
             { 
-                return components.GetAll<DamageResistance>().Where(x => !x.IsImmune);
+                return components.GetAll<EnergyResistance>().Where(x => !x.IsImmune);
             } 
         }
 
@@ -332,7 +332,7 @@ namespace SilverNeedle.Characters
             this.armorProficiencies.Add(new ArmorProficiency(prof));
         }
 
-        public void AddDamageResistance(DamageResistance dr)
+        public void AddDamageResistance(EnergyResistance dr)
         {
             var current = this.DamageResistance.FirstOrDefault(x => x.DamageType == dr.DamageType);
             if (current == null)

@@ -14,7 +14,7 @@ namespace SilverNeedle.Characters.Domains
     {
         private ClassLevel clericLevel;
         private LightningArcAttack lightningAttack; 
-        private DamageResistance electricity;
+        private EnergyResistance electricity;
         public Air(IObjectStore data) : base(data)
         {
             
@@ -32,7 +32,7 @@ namespace SilverNeedle.Characters.Domains
             var defenseStats = components.Get<DefenseStats>();
             if(clericLevel.Level == 6)
             {
-                electricity = new DamageResistance(10, "electricity");
+                electricity = new EnergyResistance(10, "electricity");
                 defenseStats.AddDamageResistance(electricity);
             } 
 

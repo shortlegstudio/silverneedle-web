@@ -13,7 +13,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
         {
             var defense = components.Get<DefenseStats>();
             defense.AddImmunity("Compulsion");
-            defense.AddDamageResistance(new DamageResistance(5, "evil"));
+            defense.AddDamageResistance(new EnergyResistance(5, "evil"));
         }
     }
 }

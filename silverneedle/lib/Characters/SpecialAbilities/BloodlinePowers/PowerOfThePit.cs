@@ -14,8 +14,8 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
             var defense = components.Get<DefenseStats>();
             defense.AddImmunity("fire");
             defense.AddImmunity("poison");
-            defense.AddDamageResistance(new DamageResistance(10, "acid"));
-            defense.AddDamageResistance(new DamageResistance(10, "cold"));
+            defense.AddDamageResistance(new EnergyResistance(10, "acid"));
+            defense.AddDamageResistance(new EnergyResistance(10, "cold"));
             components.Add(new Senses.PerfectDarkvision(60));
 
         }

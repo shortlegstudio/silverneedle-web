@@ -13,7 +13,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
         {
             var defense = components.Get<DefenseStats>();
             defense.AddImmunity("poison");
-            defense.AddDamageResistance(new DamageResistance(10, "cold iron"));
+            defense.AddDamageResistance(new EnergyResistance(10, "cold iron"));
 
             components.Add(new SpellBasedAbility("Shadow Walk", 1));
         }

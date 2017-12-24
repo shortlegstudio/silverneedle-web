@@ -220,7 +220,7 @@ namespace Tests.Characters {
         [Fact]
         public void CanHaveDamageResistance()
         {
-            var dr = new DamageResistance(5, "-");
+            var dr = new EnergyResistance(5, "-");
             basicStats.AddDamageResistance(dr);
             Assert.Contains(dr, basicStats.DamageResistance);
         }
@@ -228,7 +228,7 @@ namespace Tests.Characters {
         [Fact]
         public void AddingTheSameTypeOfDamageResistanceStacks()
         {
-            var dr = new DamageResistance(1, "-");
+            var dr = new EnergyResistance(1, "-");
             basicStats.AddDamageResistance(dr);
             basicStats.AddDamageResistance(dr);
             Assert.Equal(basicStats.DamageResistance.First().Amount, 2);

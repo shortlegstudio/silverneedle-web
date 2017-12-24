@@ -11,7 +11,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
         public void Initialize(ComponentContainer components)
         {
             var def = components.Get<DefenseStats>();
-            def.AddDamageResistance(new DamageResistance(5, "evil"));
+            def.AddDamageResistance(new EnergyResistance(5, "evil"));
             var lay = components.Get<LayOnHands>();
             lay.MaximizeAmount = true;
 

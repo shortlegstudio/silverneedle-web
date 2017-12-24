@@ -12,7 +12,7 @@ namespace SilverNeedle.Characters.Domains
     {
         private ClassLevel clericLevel;
         private AcidDart acidDart; 
-        private DamageResistance acidResistance;
+        private EnergyResistance acidResistance;
         public Earth(IObjectStore data) : base(data)
         {
             
@@ -30,7 +30,7 @@ namespace SilverNeedle.Characters.Domains
             var defenseStats = components.Get<DefenseStats>();
             if(clericLevel.Level == 6)
             {
-                acidResistance = new DamageResistance(10, "acid");
+                acidResistance = new EnergyResistance(10, "acid");
                 defenseStats.AddDamageResistance(acidResistance);
             } 
 

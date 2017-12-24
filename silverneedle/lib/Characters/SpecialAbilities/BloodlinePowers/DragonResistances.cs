@@ -9,7 +9,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 
     public class DragonResistances : SpecialAbility, IBloodlinePower, IComponent, IImprovesWithLevels
     {
-        private DamageResistance damageResistance;
+        private EnergyResistance damageResistance;
         private IStatModifier naturalArmor;
         private ClassLevel sorcererLevels;
 
@@ -17,7 +17,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
         {
             var dragon = components.Get<IDraconicBloodline>();
             var energyType = dragon.DragonType.EnergyType;
-            damageResistance = new DamageResistance(5, energyType);
+            damageResistance = new EnergyResistance(5, energyType);
             var defense = components.Get<DefenseStats>();
             defense.AddDamageResistance(damageResistance);
 

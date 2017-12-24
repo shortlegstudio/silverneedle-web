@@ -12,8 +12,8 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
         public void Initialize(ComponentContainer components)
         {
             var defense = components.Get<DefenseStats>();
-            var drElectricity = new DamageResistance(10, "electricity");
-            var drFire = new DamageResistance(10, "fire");
+            var drElectricity = new EnergyResistance(10, "electricity");
+            var drFire = new EnergyResistance(10, "fire");
             defense.AddDamageResistance(drElectricity);
             defense.AddDamageResistance(drFire);
             defense.AddImmunity("acid");

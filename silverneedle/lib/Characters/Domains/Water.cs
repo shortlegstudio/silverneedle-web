@@ -12,7 +12,7 @@ namespace SilverNeedle.Characters.Domains
     {
         private ClassLevel clericLevel;
         private Icicle icicle;
-        private DamageResistance coldResistance;
+        private EnergyResistance coldResistance;
 
         public Water(IObjectStore data) : base(data)
         {
@@ -31,7 +31,7 @@ namespace SilverNeedle.Characters.Domains
             var defenseStats = components.Get<DefenseStats>();
             if(clericLevel.Level == 6)
             {
-                coldResistance = new DamageResistance(10, "cold");
+                coldResistance = new EnergyResistance(10, "cold");
                 defenseStats.AddDamageResistance(coldResistance);
             } 
 
