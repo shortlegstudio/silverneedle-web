@@ -158,7 +158,7 @@ namespace Tests.Characters
         public class CompAbility : SpecialAbility, IComponent
         {
             public bool Called { get; private set; }
-            public void Initialize(ComponentBag bag)
+            public void Initialize(ComponentContainer bag)
             {
                 Called = true;
             }

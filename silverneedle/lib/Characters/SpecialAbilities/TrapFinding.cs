@@ -12,7 +12,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     {
         public ConditionalStatModifier PerceptionModifier { get; private set; }
         public ConditionalStatModifier DisableDeviceModifier { get; private set; }
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             var rogueLevel = components.Get<ClassLevel>();
             PerceptionModifier = new ConditionalStatModifier(

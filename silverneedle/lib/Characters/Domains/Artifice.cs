@@ -21,14 +21,14 @@ namespace SilverNeedle.Characters.Domains
             
         }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             sourceClass = components.Get<ClassLevel>();
             artificerTouch = new ArtificerTouch(components.Get<AbilityScores>().GetAbility(AbilityScoreTypes.Wisdom));
             components.Add(artificerTouch);
         }
 
-        public void LeveledUp(ComponentBag components)
+        public void LeveledUp(ComponentContainer components)
         {
             if(sourceClass.Level == 8)
             {

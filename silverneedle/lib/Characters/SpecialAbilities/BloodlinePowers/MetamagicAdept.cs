@@ -11,7 +11,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
     {
         private ClassLevel sorcererLevel;
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             sorcererLevel = components.Get<ClassLevel>();
         }

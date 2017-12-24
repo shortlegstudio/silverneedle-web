@@ -9,7 +9,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
     public class AuraOfRighteousness : SpecialAbility, IComponent
     {
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             var defense = components.Get<DefenseStats>();
             defense.AddImmunity("Compulsion");

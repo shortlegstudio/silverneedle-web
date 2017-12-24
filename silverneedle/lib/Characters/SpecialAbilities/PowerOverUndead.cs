@@ -9,7 +9,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
     public class PowerOverUndead : SpecialAbility, IComponent
     {
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             var alignment = components.Get<CharacterAlignment>();
             var good = new FeatToken("Turn Undead", true);

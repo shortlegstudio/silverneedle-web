@@ -36,7 +36,7 @@ namespace SilverNeedle.Characters.Attacks
             this.CriticalModifier = new BasicStat("Flurry of Blows Critical Modifier", 2);
         }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             this.monkLevels = components.Get<ClassLevel>();
             for(int i = 1; i < 10; i++)

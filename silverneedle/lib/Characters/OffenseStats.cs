@@ -62,7 +62,7 @@ namespace SilverNeedle.Characters
         private List<SpecialAbility> offensiveAbilities;
 
         private List<IWeaponModifier> weaponModifiers;
-        private ComponentBag components;
+        private ComponentContainer components;
 
         public IEnumerable<IWeaponModifier> WeaponModifiers { get { return weaponModifiers; } }
 
@@ -82,7 +82,7 @@ namespace SilverNeedle.Characters
             this.weaponModifiers = new List<IWeaponModifier>();
         }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             this.components = components;
             var abilities = components.Get<AbilityScores>();

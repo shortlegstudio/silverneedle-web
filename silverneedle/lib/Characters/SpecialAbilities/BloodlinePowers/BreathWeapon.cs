@@ -77,7 +77,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
             );
         }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             this.sorcererLevels = components.Get<ClassLevel>();
             var bloodline = components.Get<IDraconicBloodline>();

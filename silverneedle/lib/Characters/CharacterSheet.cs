@@ -24,7 +24,7 @@ namespace SilverNeedle.Characters
     {
         public CharacterSheet(CharacterStrategy strategy) 
         {
-            this.Components = new ComponentBag();
+            this.Components = new ComponentContainer();
             var abilityScores = new AbilityScores();
             this.Components.AddNoInitialize(new object[] { 
                 strategy,
@@ -61,7 +61,7 @@ namespace SilverNeedle.Characters
         /// Occurs when modified.
         /// </summary>
 
-        public ComponentBag Components { get; private set; }
+        public ComponentContainer Components { get; private set; }
 
         public CharacterStrategy Strategy { get { return this.Get<CharacterStrategy>(); } }
 

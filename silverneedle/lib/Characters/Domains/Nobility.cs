@@ -20,14 +20,14 @@ namespace SilverNeedle.Characters.Domains
             
         }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             source = components.Get<ClassLevel>();
             inspire = new InspiringWord(components.Get<AbilityScores>().GetAbility(AbilityScoreTypes.Wisdom));
             components.Add(inspire);
         }
 
-        public void LeveledUp(ComponentBag components)
+        public void LeveledUp(ComponentContainer components)
         {
             if(source.Level == 8)
             {

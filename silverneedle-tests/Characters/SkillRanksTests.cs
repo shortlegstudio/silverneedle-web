@@ -138,7 +138,7 @@ namespace Tests.Characters
             var armor = new Armor();
             armor.ArmorCheckPenalty = -3;
             inventory.EquipItem(armor);
-            var bag = new ComponentBag();
+            var bag = new ComponentContainer();
             bag.Add(inventory);
 
             Subject.Initialize(bag);

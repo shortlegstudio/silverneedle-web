@@ -18,7 +18,7 @@ namespace SilverNeedle.Characters.Magic
             return !(casting.OppositionSchools.Any(x => x.Name.EqualsIgnoreCase(spell.School)));
         }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             casting = components.Get<WizardCasting>();
         }

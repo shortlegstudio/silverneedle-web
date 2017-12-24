@@ -19,14 +19,14 @@ namespace Tests.Characters
 
         public MovementStatsTests()
         {
-            var bag30 = new ComponentBag();
+            var bag30 = new ComponentContainer();
             inventory = new Inventory();
             bag30.Add(inventory);
             move30 = new MovementStats();
             bag30.Add(move30);
             move30.SetBaseSpeed(30);
 
-            var bag20 = new ComponentBag();
+            var bag20 = new ComponentContainer();
             bag20.Add(inventory);
             move20 = new MovementStats();
             bag20.Add(move20);

@@ -9,7 +9,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     public class StillMind : SpecialAbility, IComponent
     {
         private IStatModifier enchantModifier;
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             enchantModifier = new ConditionalStatModifier(
                 new ValueStatModifier(2, "bonus"),

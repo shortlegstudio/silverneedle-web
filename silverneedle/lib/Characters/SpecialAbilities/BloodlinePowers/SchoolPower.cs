@@ -13,7 +13,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
     {
         public School School { get; private set; } 
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             this.School = GatewayProvider.All<School>().ChooseOne();
         }

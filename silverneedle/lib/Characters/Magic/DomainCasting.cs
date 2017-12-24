@@ -70,7 +70,7 @@ namespace SilverNeedle.Characters.Magic
             return GetSpellsPerDay(spellLevel) > 0;
         }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             sourceClass = components.Get<ClassLevel>();
             domains = components.GetAll<Domain>();

@@ -11,7 +11,7 @@ namespace SilverNeedle.Characters
     using SilverNeedle.Utility;
     public class WeaponProficiencyExoticToMartial : WeaponProficiency, IComponent
     {
-        private ComponentBag components;
+        private ComponentContainer components;
         public WeaponProficiencyExoticToMartial(IObjectStore configuration) : base(configuration)
         {
 
@@ -32,7 +32,7 @@ namespace SilverNeedle.Characters
             return false;
         }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             this.components = components;
         }

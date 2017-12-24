@@ -7,6 +7,6 @@ namespace SilverNeedle.Utility
 {
     public interface IComponent
     {
-        void Initialize(ComponentBag components);
+        void Initialize(ComponentContainer components);
     }
 }

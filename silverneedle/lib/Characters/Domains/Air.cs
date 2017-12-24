@@ -20,14 +20,14 @@ namespace SilverNeedle.Characters.Domains
             
         }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             clericLevel = components.Get<ClassLevel>();
             this.lightningAttack = new LightningArcAttack(components);
             components.Add(this.lightningAttack);
         }
 
-        public void LeveledUp(ComponentBag components)
+        public void LeveledUp(ComponentContainer components)
         {
             var defenseStats = components.Get<DefenseStats>();
             if(clericLevel.Level == 6)
@@ -51,7 +51,7 @@ namespace SilverNeedle.Characters.Domains
         {
             private ClassLevel clericLevel;
             private AbilityScore wisdom;
-            public LightningArcAttack(ComponentBag components)
+            public LightningArcAttack(ComponentContainer components)
             {
                 clericLevel = components.Get<ClassLevel>();
                 wisdom = components.Get<AbilityScores>().GetAbility(AbilityScoreTypes.Wisdom);

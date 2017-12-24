@@ -43,7 +43,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
         public ValueStatModifier ACModifier { get; private set; }
         public ValueStatModifier WillModifier { get; private set; }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             components.ApplyStatModifiers(
                 new IStatModifier[] { WillModifier, StrengthModifier, ConstitutionModifier, ACModifier}

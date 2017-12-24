@@ -63,7 +63,7 @@ namespace SilverNeedle.Characters
         private const string ImmunitiesName = "Immunity";
 
         private const string DefensiveAbilitiesName = "Defensive";
-        private ComponentBag components;
+        private ComponentContainer components;
 
         /// <summary>
         /// The armor proficiencies of the character
@@ -97,7 +97,7 @@ namespace SilverNeedle.Characters
             this.SpellResistance = new BasicStat(StatNames.SpellResistance);
         }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             this.components = components;
             var abilities = components.Get<AbilityScores>(); 

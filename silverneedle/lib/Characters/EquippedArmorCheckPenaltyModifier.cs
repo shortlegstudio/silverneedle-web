@@ -12,7 +12,7 @@ namespace SilverNeedle.Characters
     {
         private Inventory inventory;
 
-        public EquippedArmorCheckPenaltyModifier(ComponentBag bag) :
+        public EquippedArmorCheckPenaltyModifier(ComponentContainer bag) :
             base(StatNames.ArmorCheckPenalty, "Armor", "Armor")
         {
             this.Calculation = ArmorCheckPenalty;

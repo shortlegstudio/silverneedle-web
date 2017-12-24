@@ -55,7 +55,7 @@ namespace SilverNeedle.Characters.Attacks
             return string.Format("Acid Dart {0}' ({1} {2})", this.Range.ToString(), this.Damage.ToString(), this.DamageType);
         }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             if(baseAbility == null)
             {

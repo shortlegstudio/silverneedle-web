@@ -47,7 +47,7 @@ namespace SilverNeedle.Characters.Feats
             return result && !character.Contains<WeaponFocus>();
         }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             var offense = components.Get<OffenseStats>();
             var possibileWeapons = GetWeapons().FindByProficient(offense.WeaponProficiencies).CreateFlatTable();

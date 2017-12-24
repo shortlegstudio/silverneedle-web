@@ -23,7 +23,7 @@ namespace SilverNeedle.Characters.Attacks
             baseMeleeAttackBonus.AddModifier(modifier);
         }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             var offenseStats = components.Get<OffenseStats>();
             var abilityScores = components.Get<AbilityScores>();

@@ -19,7 +19,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
         {
             monkAbilities = Serialization.GatewayProvider.Find<DataTable>("Monk Abilities");
         }
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             monkLevel = components.Get<ClassLevel>();
         }

@@ -47,7 +47,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
             this.Name = string.Format("Armor Training {0}", this.Level);
         }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             ArmorMovementBonusModifier = new ArmorMovementModifier(components);
             components.ApplyStatModifier(MaxDexBonusModifier);
@@ -61,7 +61,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
             private Inventory inventory;
             private ArmorTraining training;
             private MovementStats movementStats;
-            public ArmorMovementModifier(ComponentBag components) : base(StatNames.ArmorMovementPenalty, "Armor Training", "Armor Training")
+            public ArmorMovementModifier(ComponentContainer components) : base(StatNames.ArmorMovementPenalty, "Armor Training", "Armor Training")
             {
                 this.inventory = components.Get<Inventory>();
                 this.training = components.Get<ArmorTraining>();

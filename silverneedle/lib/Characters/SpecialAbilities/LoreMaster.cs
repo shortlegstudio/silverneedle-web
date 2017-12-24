@@ -17,7 +17,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
                 return 1 + (bardLevels.Level - 5) / 6;
             }
         }
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             bardLevels = components.Get<ClassLevel>();
         }

@@ -9,7 +9,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
     public class Fated : SpecialAbility, IBloodlinePower, IComponent
     {
         private ClassLevel sorcerer;
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             sorcerer = components.Get<ClassLevel>();
         }

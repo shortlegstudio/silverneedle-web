@@ -10,7 +10,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
     using SilverNeedle.Utility;
     public class AberrantForm : SpecialAbility, IBloodlinePower, IComponent
     {
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             var def = components.Get<DefenseStats>();
             def.AddImmunity("Criticals");

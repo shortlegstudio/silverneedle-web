@@ -13,7 +13,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
         private IStatModifier naturalArmor;
         private ClassLevel sorcererLevels;
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             var dragon = components.Get<IDraconicBloodline>();
             var energyType = dragon.DragonType.EnergyType;
@@ -32,7 +32,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
             components.ApplyStatModifier(naturalArmor);
         }
 
-        public void LeveledUp(ComponentBag components)
+        public void LeveledUp(ComponentContainer components)
         {
             if(sorcererLevels.Level == 9)
             {

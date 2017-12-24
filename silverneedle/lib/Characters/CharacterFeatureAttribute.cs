@@ -18,7 +18,7 @@ namespace SilverNeedle.Characters
             this.Items = configuration.GetObject("items");
         }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             foreach(var item in this.Items.Children)
             {

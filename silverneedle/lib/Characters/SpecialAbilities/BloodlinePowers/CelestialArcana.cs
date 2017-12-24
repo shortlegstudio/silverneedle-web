@@ -15,7 +15,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
             get { return "summoned creatures gain DR {0}/evil".Formatted(sorcererLevel.Level/2); } 
         }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             sorcererLevel = components.Get<ClassLevel>();
         }

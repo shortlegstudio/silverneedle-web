@@ -35,7 +35,7 @@ namespace SilverNeedle.Characters.Feats
             this.SkillName = skillName;
             this.Name = "Skill Focus({1})".Formatted(this.Name, this.SkillName.Titlize());
         }
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             if(string.IsNullOrEmpty(this.SkillName))
             {
@@ -46,7 +46,7 @@ namespace SilverNeedle.Characters.Feats
             ApplyBonusToSkill();
         }
 
-        private void SelectSkillFocus(ComponentBag components)
+        private void SelectSkillFocus(ComponentContainer components)
         {
             var strategy = components.Get<CharacterStrategy>();
             var skills = components.Get<SkillRanks>();

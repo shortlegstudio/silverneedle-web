@@ -10,7 +10,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     {
         private IStatModifier skillBonusModifier;
         private ClassLevel sourceLevel;
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             sourceLevel = components.Get<ClassLevel>();
             skillBonusModifier = new DelegateStatModifier(

@@ -19,7 +19,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
             get { return 1; }
         }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             sorcererLevels = components.Get<ClassLevel>();
         }

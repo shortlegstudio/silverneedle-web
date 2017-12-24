@@ -14,7 +14,7 @@ namespace SilverNeedle.Characters
     {
         private Inventory inventory;
 
-        public EquippedArmorClassModifier(ComponentBag components)
+        public EquippedArmorClassModifier(ComponentContainer components)
         {
             this.inventory = components.Get<Inventory>();            
         }

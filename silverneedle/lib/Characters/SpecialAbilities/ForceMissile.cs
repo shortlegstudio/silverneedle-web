@@ -36,7 +36,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
             get { return "{0} {1} ({2}/day)".Formatted(base.Name, Damage, UsesPerDay); }
         }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             baseAbility = components.Get<AbilityScores>().GetAbility(AbilityScoreTypes.Intelligence);
             intenseSpells = components.Get<IntenseSpells>();

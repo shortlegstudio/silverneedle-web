@@ -21,14 +21,14 @@ namespace SilverNeedle.Characters.Domains
             
         }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             source = components.Get<ClassLevel>();
             touchGlory = new TouchOfGlory(components.Get<AbilityScores>().GetAbility(AbilityScoreTypes.Wisdom));
             components.Add(touchGlory);
         }
 
-        public void LeveledUp(ComponentBag components)
+        public void LeveledUp(ComponentContainer components)
         {
             if(source.Level == 8)
             {

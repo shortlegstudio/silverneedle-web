@@ -8,7 +8,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using SilverNeedle.Utility;
     public class ImprovedQuarry : SpecialAbility, IComponent
     {
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             components.Remove<Quarry>();
         }

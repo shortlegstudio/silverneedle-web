@@ -9,14 +9,13 @@ namespace SilverNeedle.Utility
     using System.Collections.Generic;
     using System.Linq;
 
-    public class ComponentBag
+    public class ComponentContainer
     {
-        public event EventHandler<ComponentBagEvent> Added;
         public IList<object> All { get { return this.components; } }
 
         private List<object> components;
 
-        public ComponentBag()
+        public ComponentContainer()
         {
             components = new List<object>();
         }
@@ -30,11 +29,6 @@ namespace SilverNeedle.Utility
                     return;
             }
             components.Add(obj);
-
-            foreach(var notify in components.OfType<IComponent>())
-            {
-                OnComponentAdded(obj);
-            } 
             InitializeComponent(obj);
 
             if(obj is IStatModifier)
@@ -122,16 +116,6 @@ namespace SilverNeedle.Utility
             return GetAllStats().Where(x => x.Name.EqualsIgnoreCase(name)).OfType<T>().FirstOrDefault();
         }
 
-        private void OnComponentAdded(object component)
-        {
-            var args = new ComponentBagEvent();
-            args.Component = component;
-            if(this.Added != null)
-            {
-                this.Added(this, args);
-            }
-        }
-
         private void InitializeComponent(object obj)
         {
             var comp = obj as IComponent;
@@ -140,10 +124,5 @@ namespace SilverNeedle.Utility
                 comp.Initialize(this);
             }
         }
-    }
-
-    public class ComponentBagEvent
-    {
-        public object Component; 
     }
 }

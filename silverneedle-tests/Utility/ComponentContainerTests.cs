@@ -9,7 +9,7 @@ namespace Tests.Utility
     using SilverNeedle;
     using SilverNeedle.Utility;
     
-    public class ComponentBagTests
+    public class ComponentContainerTests
     {
 
     }

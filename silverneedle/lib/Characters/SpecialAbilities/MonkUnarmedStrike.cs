@@ -30,7 +30,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
             this.damageTable = damageTable;
         }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             monkLevels = components.Get<ClassLevel>();
             Weapon = new UnarmedMonk(this);

@@ -9,7 +9,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
     using SilverNeedle.Utility;
     public class PowerOfWyrms : SpecialAbility, IBloodlinePower, IComponent
     {
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             var draconic = components.Get<IDraconicBloodline>();
             var dragonType = draconic.DragonType;

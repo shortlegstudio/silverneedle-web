@@ -10,7 +10,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
     public class ElementalMovement : SpecialAbility, IBloodlinePower, IComponent
     {
         ElementalType elementalType;
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             elementalType = components.Get<ElementalType>();
             this.Name = "{0} ({1} {2})".Formatted(

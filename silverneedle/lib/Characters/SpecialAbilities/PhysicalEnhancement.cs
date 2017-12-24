@@ -11,7 +11,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     {
         private IStatModifier modifier;
         private ClassLevel sourceLevel;
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             this.sourceLevel = components.Get<ClassLevel>();
             modifier = new DelegateStatModifier(

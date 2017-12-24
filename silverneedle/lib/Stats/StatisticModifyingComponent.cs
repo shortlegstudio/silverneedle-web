@@ -38,7 +38,7 @@ namespace SilverNeedle
             }
         }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             foreach(var mod in modifiers)
             {

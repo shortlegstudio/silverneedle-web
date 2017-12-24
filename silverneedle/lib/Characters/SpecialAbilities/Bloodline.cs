@@ -69,7 +69,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
             return bonusFeats;
         }
 
-        public virtual void Initialize(ComponentBag components)
+        public virtual void Initialize(ComponentContainer components)
         {
             var skills = components.Get<SkillRanks>();
             var strategy = components.Get<CharacterStrategy>();

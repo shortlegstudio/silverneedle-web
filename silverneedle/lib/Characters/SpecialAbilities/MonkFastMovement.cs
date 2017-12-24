@@ -20,7 +20,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
         {
             this.monkAbilities = monkAbilities;
         }
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             monkLevels = components.Get<ClassLevel>();
             movementModifier = new DelegateStatModifier(StatNames.BaseMovementSpeed, "Bonus", "Monk Fast Movement", this.Modifier);

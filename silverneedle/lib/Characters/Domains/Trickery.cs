@@ -20,7 +20,7 @@ namespace SilverNeedle.Characters.Domains
             
         }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             source = components.Get<ClassLevel>();
             copycat = new Copycat(components.Get<AbilityScores>().GetAbility(AbilityScoreTypes.Wisdom));
@@ -31,7 +31,7 @@ namespace SilverNeedle.Characters.Domains
             skills.SetClassSkill("Stealth");
         }
 
-        public void LeveledUp(ComponentBag components)
+        public void LeveledUp(ComponentContainer components)
         {
             if(source.Level == 8)
             {

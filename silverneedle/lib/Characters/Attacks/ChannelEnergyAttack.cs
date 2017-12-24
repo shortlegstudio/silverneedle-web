@@ -11,7 +11,7 @@ namespace SilverNeedle.Characters.Attacks
     {
         private AbilityScore charisma;
         private ClassLevel classLevel;
-        public ChannelEnergyAttack(ComponentBag components)
+        public ChannelEnergyAttack(ComponentContainer components)
         {
             this.charisma = components.Get<AbilityScores>().GetAbility(AbilityScoreTypes.Charisma);
             this.classLevel = components.Get<ClassLevel>();

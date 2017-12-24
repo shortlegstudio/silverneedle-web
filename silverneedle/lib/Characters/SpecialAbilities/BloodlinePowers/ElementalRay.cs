@@ -65,7 +65,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
             );
         }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             sorcererLevels = components.Get<ClassLevel>();
             CriticalModifier = new BasicStat("Elemental Ray Critical Modifier", 2);

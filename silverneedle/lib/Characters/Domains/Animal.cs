@@ -20,14 +20,14 @@ namespace SilverNeedle.Characters.Domains
             
         }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             sourceClass = components.Get<ClassLevel>();
             speakWithAnimals = new SpeakWithAnimals();
             components.Add(speakWithAnimals);
         }
 
-        public void LeveledUp(ComponentBag components)
+        public void LeveledUp(ComponentContainer components)
         {
             if(sourceClass.Level == 4)
             {

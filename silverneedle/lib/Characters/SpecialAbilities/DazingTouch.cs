@@ -27,7 +27,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
             baseAbilityType = configuration.GetEnum<AbilityScoreTypes>("base-ability");
         }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             if(baseAbility == null)
             {

@@ -29,7 +29,7 @@ namespace SilverNeedle.Characters
             }
         }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             foreach(var attr in Attributes)
             {

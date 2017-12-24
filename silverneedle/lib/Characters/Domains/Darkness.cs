@@ -21,7 +21,7 @@ namespace SilverNeedle.Characters.Domains
             
         }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             source = components.Get<ClassLevel>();
             touchOfDarkness = new TouchOfDarkness(components.Get<AbilityScores>().GetAbility(AbilityScoreTypes.Wisdom));
@@ -29,7 +29,7 @@ namespace SilverNeedle.Characters.Domains
             components.Add(new FeatToken("Blind-Fight"));
         }
 
-        public void LeveledUp(ComponentBag components)
+        public void LeveledUp(ComponentContainer components)
         {
             if(source.Level == 8)
             {

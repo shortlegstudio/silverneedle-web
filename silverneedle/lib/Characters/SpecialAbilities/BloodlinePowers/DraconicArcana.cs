@@ -13,7 +13,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 
         public override string BonusAbility { get { return "{0} spells deal +1 damage per die".Formatted(dragonType.EnergyType); } }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             var bloodline = components.Get<IDraconicBloodline>();
             this.dragonType = bloodline.DragonType;

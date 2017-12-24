@@ -11,7 +11,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
     {
         private DamageResistance drCold;
         private DamageResistance drAcid;
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             drCold = new DamageResistance(5, "cold");
             drAcid = new DamageResistance(5, "acid");
@@ -20,7 +20,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
             defense.AddDamageResistance(drAcid);
         }
 
-        public void LeveledUp(ComponentBag components)
+        public void LeveledUp(ComponentContainer components)
         {
             var level = components.Get<ClassLevel>();
             if(level.Level == 9)

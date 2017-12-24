@@ -10,7 +10,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using SilverNeedle.Utility;
     public class BardicKnowledge : SpecialAbility, IComponent
     {
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             var bard = components.Get<ClassLevel>();
             var skills = components.Get<SkillRanks>();

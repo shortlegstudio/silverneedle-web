@@ -32,7 +32,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
             }
         }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             components.Add(this.Attack);
         }

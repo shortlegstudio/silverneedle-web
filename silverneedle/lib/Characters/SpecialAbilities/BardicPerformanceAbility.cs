@@ -14,7 +14,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     {
         private const int BASE_ROUNDS_PER_DAY = 4;
         private BasicStat roundsPerDay = new BasicStat("Bardic Performance Rounds per Day", BASE_ROUNDS_PER_DAY);
-        private ComponentBag components;
+        private ComponentContainer components;
         public int RoundsPerDay
         {
             get { return roundsPerDay.TotalValue; }
@@ -25,7 +25,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
             get { return components.GetAll<IBardicPerformance>(); }
         }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             this.components = components;
             var abilityScores = components.Get<AbilityScores>();

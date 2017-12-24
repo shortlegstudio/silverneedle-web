@@ -36,7 +36,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
         public WeaponAttackModifier WeaponAttackBonus { get; private set; }
         public WeaponDamageModifier WeaponDamageBonus { get; private set; }
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             var offStats = components.Get<OffenseStats>();
             offStats.AddWeaponModifier(WeaponAttackBonus);

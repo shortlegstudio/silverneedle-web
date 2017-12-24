@@ -55,7 +55,7 @@ namespace SilverNeedle.Characters.Attacks
             this.CriticalModifier = new BasicStat("Acidic Ray Critical Modifier", 2);
         }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             this.offense = components.Get<OffenseStats>();
             this.sorcererLevels = components.Get<ClassLevel>();

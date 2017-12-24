@@ -19,14 +19,14 @@ namespace SilverNeedle.Characters.Domains
             
         }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             clericLevel = components.Get<ClassLevel>();
             this.icicle = new Icicle(clericLevel, components.Get<AbilityScores>().GetAbility(AbilityScoreTypes.Wisdom));
             components.Add(this.icicle);
         }
 
-        public void LeveledUp(ComponentBag components)
+        public void LeveledUp(ComponentContainer components)
         {
             var defenseStats = components.Get<DefenseStats>();
             if(clericLevel.Level == 6)

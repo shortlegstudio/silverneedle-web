@@ -22,7 +22,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
                 return 10 + ((sourceLevel.Level - 8) / 4) * 10;
             }
         }
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             sourceLevel = components.Get<ClassLevel>();
         }

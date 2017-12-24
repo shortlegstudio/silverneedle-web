@@ -11,7 +11,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
         private ClassLevel sourceLevel;
         private DelegateStatModifier initModifier;
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             sourceLevel = components.Get<ClassLevel>();
             var init = components.Get<Initiative>();

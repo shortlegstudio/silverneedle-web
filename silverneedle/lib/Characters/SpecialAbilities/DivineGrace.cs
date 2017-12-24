@@ -12,7 +12,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     public class DivineGrace : SpecialAbility, IComponent
     {
         public PositiveAbilityStatModifier SaveBonus { get ; private set; }
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             var abilityScores = components.Get<AbilityScores>();
             var defense = components.Get<DefenseStats>();

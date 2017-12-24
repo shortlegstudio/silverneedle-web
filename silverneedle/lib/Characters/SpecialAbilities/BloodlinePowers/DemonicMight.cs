@@ -8,7 +8,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
     using SilverNeedle.Utility;
     public class DemonicMight : SpecialAbility, IComponent, IBloodlinePower
     {
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             var defense = components.Get<DefenseStats>();
             defense.AddImmunity("electricity");

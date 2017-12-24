@@ -11,12 +11,12 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using SilverNeedle.Utility;
     public class KiPool : SpecialAbility, IComponent
     {
-        private ComponentBag components;
+        private ComponentContainer components;
         public KiPool()
         {
             KiPoints = new BasicStat("Ki Points", 0);
         }
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             var wisdom = components.Get<AbilityScores>().GetAbility(AbilityScoreTypes.Wisdom);
             KiPoints.AddModifier(wisdom.UniversalStatModifier);

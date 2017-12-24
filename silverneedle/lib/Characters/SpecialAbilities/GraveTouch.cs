@@ -42,7 +42,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
             }
         }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             sourceLevels = components.Get<ClassLevel>();
             baseAbility = components.Get<AbilityScores>().GetAbility(baseAbilityType);

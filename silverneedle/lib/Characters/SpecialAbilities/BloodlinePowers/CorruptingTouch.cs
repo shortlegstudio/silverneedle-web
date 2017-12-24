@@ -26,7 +26,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
                 return (sorcererLevels.Level / 2).AtLeast(1);
             }
         }
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             this.charisma = components.Get<AbilityScores>().GetAbility(AbilityScoreTypes.Charisma);
             this.sorcererLevels = components.Get<ClassLevel>();

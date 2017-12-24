@@ -13,7 +13,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
         private ConditionalStatModifier bardicPerformanceModifier;
         private ConditionalStatModifier languageDependentModifier;
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             sonicModifier = new ConditionalStatModifier(new ValueStatModifier(4, "bonus"), "sonic");
             bardicPerformanceModifier = new ConditionalStatModifier(new ValueStatModifier(4, "bonus"), "bardic performance");

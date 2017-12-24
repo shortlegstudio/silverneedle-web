@@ -15,7 +15,7 @@ namespace Tests.Characters
     {
         [Fact]
         public void UnEquippedArmorMakesNoDifference() {
-            var bag = new ComponentBag(); 
+            var bag = new ComponentContainer(); 
             var inv = new Inventory ();
             bag.Add(inv);
             var mod = new EquippedArmorClassModifier(bag);
@@ -29,7 +29,7 @@ namespace Tests.Characters
 
         [Fact]
         public void EquippedArmorIncreasesYourDefenseAndYourFlatFootedDefenseButNotTouchDefense() {
-            var bag = new ComponentBag();
+            var bag = new ComponentContainer();
             var inventory = new Inventory ();
             bag.Add(inventory);
             var mod = new EquippedArmorClassModifier(bag);

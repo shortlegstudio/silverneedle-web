@@ -24,7 +24,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
             this.energyTypes = energyTypes;
         }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             this.sourceLevels = components.Get<ClassLevel>();
             var energyType = energyTypes.ChooseOne();

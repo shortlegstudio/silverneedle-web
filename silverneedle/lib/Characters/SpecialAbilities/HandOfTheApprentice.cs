@@ -10,7 +10,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     public class HandOfTheApprentice : SpecialAbility, IComponent
     {
         private AbilityScore baseAbility;
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             baseAbility = components.Get<AbilityScores>().GetAbility(AbilityScoreTypes.Intelligence);
         }

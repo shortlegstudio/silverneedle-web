@@ -8,14 +8,14 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using SilverNeedle.Utility;
     public class JackOfAllTrades : SpecialAbility, IComponent, IImprovesWithLevels
     {
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             var bardLevel = components.Get<ClassLevel>();
             var skillRanks = components.Get<SkillRanks>();
             UpdateSkills(skillRanks, bardLevel.Level);
         }
 
-        public void LeveledUp(ComponentBag components)
+        public void LeveledUp(ComponentContainer components)
         {
             var bardLevel = components.Get<ClassLevel>();
             var skillRanks = components.Get<SkillRanks>();

@@ -21,7 +21,7 @@ namespace Tests.Characters.SpecialAbilities
             var size = new SizeStats();
             var inventory = new Inventory();
             var offStat = new OffenseStats();
-            var components = new ComponentBag();
+            var components = new ComponentContainer();
             components.Add(abilities, size, inventory, offStat);
 
             var weaponTraining = new WeaponTraining(WeaponGroup.LightBlades, 1);

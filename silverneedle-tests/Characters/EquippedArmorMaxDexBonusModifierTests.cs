@@ -15,7 +15,7 @@ namespace Tests.Characters
         [Fact]
         public void IfNoEquippedArmorReturnTenThousand()
         {
-            var bag = new ComponentBag();
+            var bag = new ComponentContainer();
             bag.Add(new Inventory());
             var mod = new EquippedArmorMaxDexBonuxModifier(bag);
             Assert.Equal(mod.Modifier, 10000);

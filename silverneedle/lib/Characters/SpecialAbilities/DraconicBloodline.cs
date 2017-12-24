@@ -18,7 +18,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
         }
 
-        public override void Initialize(ComponentBag components)
+        public override void Initialize(ComponentContainer components)
         {
             base.Initialize(components);
             this.DragonType = GatewayProvider.All<DragonType>().ChooseOne();

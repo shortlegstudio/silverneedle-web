@@ -24,7 +24,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BardicPerformances
             }
         }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             this.bardLevel = components.Get<ClassLevel>();
         }

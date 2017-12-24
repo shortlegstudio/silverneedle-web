@@ -10,7 +10,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
     public class DivineHealth : SpecialAbility, IComponent
     {
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             var def = components.Get<DefenseStats>();
             def.AddImmunity("Disease");

@@ -17,7 +17,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
         {
         }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             this.inventory = components.Get<Inventory>();
             this.Calculation = NegateArmorMovement;

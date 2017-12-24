@@ -30,7 +30,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
         private ClassLevel paladinLevel;
         private AbilityScore charismaScore; 
         
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             paladinLevel = components.GetAll<ClassLevel>().First(x => x.Class.Name.EqualsIgnoreCase("paladin"));
             charismaScore = components.Get<AbilityScores>().GetAbility(AbilityScoreTypes.Charisma);

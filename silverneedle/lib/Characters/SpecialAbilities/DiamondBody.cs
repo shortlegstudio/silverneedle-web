@@ -9,7 +9,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 {
     public class DiamondBody : SpecialAbility, IComponent
     {
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             components.Get<DefenseStats>().AddImmunity("poison");
         }

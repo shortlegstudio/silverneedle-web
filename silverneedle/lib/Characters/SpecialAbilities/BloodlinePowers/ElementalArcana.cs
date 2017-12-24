@@ -12,7 +12,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 
         public override string BonusAbility { get { return "change energy damage spells to {0}".Formatted(elementalType.EnergyType); } }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             elementalType = components.Get<ElementalType>();
         }

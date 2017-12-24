@@ -10,7 +10,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using SilverNeedle.Utility;
     public class AuraOfCourage : SpecialAbility, IComponent
     {
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             var def = components.Get<DefenseStats>();
             def.AddImmunity("Fear");

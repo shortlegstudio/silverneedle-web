@@ -10,7 +10,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
     {
         private DamageResistance resistance; 
         private ClassLevel sorcerer;
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             sorcerer = components.Get<ClassLevel>();
             var elementType = components.Get<ElementalType>();
@@ -19,7 +19,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
             defense.AddDamageResistance(resistance);
         }
 
-        public void LeveledUp(ComponentBag components)
+        public void LeveledUp(ComponentContainer components)
         {
             if(sorcerer.Level == 9)
                 resistance.Amount = 20;

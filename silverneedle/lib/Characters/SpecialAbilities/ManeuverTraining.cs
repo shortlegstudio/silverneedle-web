@@ -12,7 +12,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
         IStatistic baseAttackBonus;
         ClassLevel monkLevels; 
         
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             baseAttackBonus = components.FindStat(StatNames.BaseAttackBonus);
             monkLevels = components.Get<ClassLevel>();

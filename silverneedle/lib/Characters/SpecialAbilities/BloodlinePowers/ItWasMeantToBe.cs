@@ -9,7 +9,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
     public class ItWasMeantToBe : SpecialAbility, IBloodlinePower, IComponent
     {
         private ClassLevel sorcererLevels;
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             sorcererLevels = components.Get<ClassLevel>();
         }

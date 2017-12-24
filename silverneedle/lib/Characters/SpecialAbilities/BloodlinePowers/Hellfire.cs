@@ -70,7 +70,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
             );
         }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             this.sorcererLevels = components.Get<ClassLevel>();
             this.charisma = components.Get<AbilityScores>().GetAbility(AbilityScoreTypes.Charisma);

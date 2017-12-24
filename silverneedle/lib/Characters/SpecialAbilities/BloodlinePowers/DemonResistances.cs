@@ -11,7 +11,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
     {
         private ConditionalStatModifier poisonResistance;
         private DamageResistance damageResistance;
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             var level = components.Get<ClassLevel>();
             poisonResistance = new ConditionalStatModifier(new DelegateStatModifier("saves", "bonus", this.Name, () => { return level.Level >= 9 ? 4 : 2; }), "poison");
@@ -23,7 +23,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
             defense.AddDamageResistance(damageResistance);
         }
 
-        public void LeveledUp(ComponentBag components)
+        public void LeveledUp(ComponentContainer components)
         {
             var level = components.Get<ClassLevel>();
             if(level.Level >= 9)

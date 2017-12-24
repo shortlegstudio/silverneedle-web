@@ -11,7 +11,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     {
         public MasterStrikeAttack Attack { get; private set; }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             var rogueLevel = components.Get<ClassLevel>();
             var intelligence = components.Get<AbilityScores>().GetAbility(AbilityScoreTypes.Intelligence);

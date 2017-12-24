@@ -10,13 +10,13 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
     public class WingsOfHeaven : SpecialAbility, IBloodlinePower, IComponent
     {
         private ClassLevel sorcererLevel;
-        private ComponentBag components;
+        private ComponentContainer components;
         private bool IsAscended()
         {
             return components.Contains<Ascension>();
         }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             this.components = components;
             sorcererLevel = components.Get<ClassLevel>();

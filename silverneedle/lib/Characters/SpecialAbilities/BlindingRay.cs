@@ -16,7 +16,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
             get { return 3 + baseAbility.TotalModifier; }
         }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             baseAbility = components.Get<AbilityScores>().GetAbility(AbilityScoreTypes.Intelligence);
         }

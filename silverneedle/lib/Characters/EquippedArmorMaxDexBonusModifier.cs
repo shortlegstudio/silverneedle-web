@@ -12,7 +12,7 @@ namespace SilverNeedle.Characters
     public class EquippedArmorMaxDexBonuxModifier : IStatModifier
     {
         private Inventory inventory;
-        public EquippedArmorMaxDexBonuxModifier(ComponentBag components)
+        public EquippedArmorMaxDexBonuxModifier(ComponentContainer components)
         {
             inventory = components.Get<Inventory>();
         }

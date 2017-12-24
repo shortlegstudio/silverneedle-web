@@ -24,7 +24,7 @@ namespace SilverNeedle.Characters.Attacks
             return baseRangeAttackBonus.GetConditionalValue(condition);
         }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             var offenseStats = components.Get<OffenseStats>();
             var abilityScores = components.Get<AbilityScores>();

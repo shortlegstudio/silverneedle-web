@@ -8,7 +8,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using SilverNeedle.Utility;
     public class TongueOfSunAndMoon : IComponent
     {
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             var tongue = new Language("Tongue of Sun and Moon", "Can speak to any living thing");
             components.Add(tongue);

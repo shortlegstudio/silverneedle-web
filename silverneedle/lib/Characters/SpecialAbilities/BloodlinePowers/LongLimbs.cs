@@ -10,7 +10,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
     public class LongLimbs : SpecialAbility, IBloodlinePower, IComponent
     {
         private ClassLevel sourceClass;
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             sourceClass = components.Get<ClassLevel>();
         }

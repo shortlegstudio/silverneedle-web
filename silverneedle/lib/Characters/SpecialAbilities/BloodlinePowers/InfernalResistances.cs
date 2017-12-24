@@ -12,7 +12,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
         private DamageResistance fireResistance;
         private ConditionalStatModifier saveModifier;
         private ClassLevel sorcererLevels;
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             sorcererLevels = components.Get<ClassLevel>();
             fireResistance = new DamageResistance(5, "fire");
@@ -31,7 +31,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
             defense.WillSave.AddModifier(saveModifier);
         }
 
-        public void LeveledUp(ComponentBag components)
+        public void LeveledUp(ComponentContainer components)
         {
             if(sorcererLevels.Level == 9)
                 fireResistance.Amount = 10;

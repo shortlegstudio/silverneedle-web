@@ -25,7 +25,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
         public int Speed { get; private set; }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             components.ApplyStatModifier(MovementModifier);
             inventory = components.Get<Inventory>();

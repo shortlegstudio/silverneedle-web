@@ -10,7 +10,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     {
         private ClassLevel rangerLevel;
         private ConditionalStatModifier trackingModifier;
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             rangerLevel = components.Get<ClassLevel>();
             trackingModifier = new ConditionalStatModifier(

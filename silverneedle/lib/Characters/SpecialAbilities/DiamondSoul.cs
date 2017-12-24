@@ -10,7 +10,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     {
         private IStatModifier spellResistanceModifier;
         private ClassLevel monkLevel;
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             monkLevel = components.Get<ClassLevel>();
             spellResistanceModifier = new DelegateStatModifier(

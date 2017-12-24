@@ -188,7 +188,7 @@ namespace SilverNeedle.Characters
             );
         }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             ArmorCheckPenalty.AddModifier(new EquippedArmorCheckPenaltyModifier(components));
             var armorCheckSkills = GetSkills().Where(x => x.Skill.UseArmorCheckPenalty);

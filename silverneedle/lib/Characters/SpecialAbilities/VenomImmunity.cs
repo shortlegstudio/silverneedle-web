@@ -8,7 +8,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using SilverNeedle.Utility;
     public class VenomImmunity : SpecialAbility, IComponent
     {
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             var def = components.Get<DefenseStats>();
             def.AddImmunity("poison");

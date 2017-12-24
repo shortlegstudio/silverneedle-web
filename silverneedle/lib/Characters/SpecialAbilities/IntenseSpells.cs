@@ -19,7 +19,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
             }
         }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             sourceLevel = components.Get<ClassLevel>();
         }

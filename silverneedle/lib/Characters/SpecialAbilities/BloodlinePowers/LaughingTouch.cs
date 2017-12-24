@@ -18,7 +18,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
                 return 3 + charisma.TotalModifier;
             }
         }
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             charisma = components.Get<AbilityScores>().GetAbility(AbilityScoreTypes.Charisma);
         }

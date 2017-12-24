@@ -39,7 +39,7 @@ namespace SilverNeedle.Characters
             this.ArmorMovementPenalty.Maximum = 0;
         }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             this.ArmorMovementPenalty.AddModifier(new EquippedArmorMovementModifier(components));
         }

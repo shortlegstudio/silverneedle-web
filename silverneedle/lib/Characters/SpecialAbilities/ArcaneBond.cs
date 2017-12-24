@@ -34,7 +34,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
                 new Gear("ring", 0, 0)
             };
         }
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             if(Randomly.TrueFalse())
             {

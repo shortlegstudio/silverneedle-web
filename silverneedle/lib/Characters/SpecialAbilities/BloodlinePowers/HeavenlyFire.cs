@@ -57,7 +57,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
             );
         }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             this.offense = components.Get<OffenseStats>();
             this.charisma = components.Get<AbilityScores>().GetAbility(AbilityScoreTypes.Charisma);

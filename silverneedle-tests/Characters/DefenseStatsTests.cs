@@ -116,7 +116,7 @@ namespace Tests.Characters {
 
         [Fact]
         public void EquippedArmorIncreasesYourDefenseAndYourFlatFootedDefenseButNotTouchDefense() {
-            var bag = new ComponentBag();
+            var bag = new ComponentContainer();
             var inventory = new Inventory ();
             bag.Add(inventory);
             bag.Add(new AbilityScores());
@@ -180,7 +180,7 @@ namespace Tests.Characters {
         [Fact]
         public void ArmorCanLimitTheMaxDexterityBonus()
         {
-            var bag = new ComponentBag();
+            var bag = new ComponentContainer();
             var inventory = new Inventory ();
             bag.Add(inventory);
             var abilities = new AbilityScores();

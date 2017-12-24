@@ -15,7 +15,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
             this.Name = "Armor Mastery";
         }   
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             components.Get<DefenseStats>().AddDamageResistance(this.DamageResistance);
         }

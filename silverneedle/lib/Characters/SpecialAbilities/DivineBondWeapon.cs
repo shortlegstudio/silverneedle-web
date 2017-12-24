@@ -35,7 +35,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
             }
         }
         private ClassLevel paladinLevel;
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             this.paladinLevel = components.Get<ClassLevel>();
         }

@@ -17,7 +17,7 @@ namespace SilverNeedle.Characters.Attacks
             protected set { throw new NotImplementedException(); }
         }
 
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             this.AttackType = AttackTypes.Special;
             saveDC.AddModifier(components.Get<AbilityScores>().GetAbility(AbilityScoreTypes.Wisdom).UniversalStatModifier);

@@ -11,7 +11,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     public class ChannelEnergy : SpecialAbility, IComponent
     {
         public ChannelEnergyAttack ChannelAttack { get; private set; }
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             this.ChannelAttack = new ChannelEnergyAttack(components);
             components.Add(ChannelAttack);

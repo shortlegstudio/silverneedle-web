@@ -8,6 +8,6 @@ namespace SilverNeedle.Characters
     using SilverNeedle.Utility;
     public interface IImprovesWithLevels
     {
-        void LeveledUp(ComponentBag components);
+        void LeveledUp(ComponentContainer components);
     }
 }

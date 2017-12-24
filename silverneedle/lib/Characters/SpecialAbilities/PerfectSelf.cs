@@ -8,7 +8,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using SilverNeedle.Utility;
     public class PerfectSelf : SpecialAbility, IComponent
     {
-        public void Initialize(ComponentBag components)
+        public void Initialize(ComponentContainer components)
         {
             var def = components.Get<DefenseStats>();
             def.AddDamageResistance(new DamageResistance(10, "chaotic"));
