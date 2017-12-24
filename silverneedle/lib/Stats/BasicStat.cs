@@ -10,6 +10,7 @@ namespace SilverNeedle
     using System.Linq;
     using System.Text;
     using SilverNeedle.Characters;
+    using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
     /// <summary>
@@ -20,6 +21,7 @@ namespace SilverNeedle
     /// </summary>
     public class BasicStat : IStatistic
     {
+        [ObjectStore("name")]
         public string Name { get; private set; }
         /// <summary>
         /// Tracks all modifiers associated with this stat
@@ -30,18 +32,26 @@ namespace SilverNeedle
         /// The conditional modifiers. This is a HACK and should be handled more gracefully
         /// </summary>
         private IList<ConditionalStatModifier> conditionalModifiers;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SilverNeedle.BasicStat"/> class.
-        /// </summary>
-        public BasicStat(string name)
+        protected BasicStat()
         {
-            this.Name = name; 
             this.statModifiers = new List<IStatModifier>();
             this.conditionalModifiers = new List<ConditionalStatModifier>();
             this.Maximum = 123456789; //Set default max to weird number in case it comes into play in the future
             this.Minimum = -123456789; //Set default max to weird number in case it comes into play in the future
             this.UseModifierString = true;
+        }
+
+        public BasicStat(IObjectStore configuration) : this()
+        { 
+            configuration.Deserialize(this);
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SilverNeedle.BasicStat"/> class.
+        /// </summary>
+        public BasicStat(string name) : this()
+        {
+            this.Name = name; 
         }
 
         /// <summary>
@@ -58,6 +68,7 @@ namespace SilverNeedle
         /// Gets or sets the base value of the stat
         /// </summary>
         /// <value>The base value.</value>
+        [ObjectStore("base-value")]
         public int BaseValue { get; protected set; }
 
         /// <summary>
@@ -73,9 +84,12 @@ namespace SilverNeedle
             } 
         }
 
+        [ObjectStoreOptional("show-as-modifier", true)]
         public bool UseModifierString { get; set; }
 
+        [ObjectStoreOptional("maximum", int.MaxValue)]
         public int Maximum { get; set; }
+        [ObjectStoreOptional("minimum", int.MinValue)]
         public int Minimum { get; set; }
 
         /// <summary>
@@ -231,6 +245,11 @@ namespace SilverNeedle
         protected virtual int CalculateTotalValue()
         {
             return Math.Max(Minimum, Math.Min(this.Maximum, this.BaseValue + this.SumBasicModifiers())); 
+        }
+
+        public virtual bool Matches(string name)
+        {
+            return this.Name.EqualsIgnoreCase(name);
         }
     }
 }

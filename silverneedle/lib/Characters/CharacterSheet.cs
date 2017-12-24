@@ -48,7 +48,7 @@ namespace SilverNeedle.Characters
 
         public void InitializeComponents()
         {
-            var components = this.Components.GetAll<IComponent>();
+            var components = this.Components.GetAll<IComponent>().ToList();
             foreach(var c in components)
             {
                 c.Initialize(this.Components);
@@ -201,13 +201,7 @@ namespace SilverNeedle.Characters
         /// Gets or sets the max hit points.
         /// </summary>
         /// <value>The character's maximum hit points.</value>
-        public int MaxHitPoints { get; private set; }
-
-        /// <summary>
-        /// Gets or sets the current hit points.
-        /// </summary>
-        /// <value>The character's current hit points.</value>
-        public int CurrentHitPoints { get; private set; }
+        public IStatistic HitPoints { get { return this.FindStat(StatNames.HitPoints); } }
 
         /// <summary>
         /// Gets the offense stats.
@@ -276,26 +270,6 @@ namespace SilverNeedle.Characters
             return Class.SkillPoints + SkillRanks.BonusSkillPointsPerLevel();
         }
 
-        /// <summary>
-        /// Sets the hit points for the character. Sets both maximum and current
-        /// </summary>
-        /// <param name="hitPoints">new max and current hit points</param>
-        public void SetMaxHitPoints(int hitPoints)
-        {
-            this.MaxHitPoints = hitPoints;
-        }
-
-        public void SetCurrentHitPoints(int hp)
-        {
-            this.CurrentHitPoints = hp;
-        }
-
-        public void IncreaseHitPoints(int hp)
-        {
-            this.MaxHitPoints += hp;
-            this.CurrentHitPoints += hp;
-        }
-
         private void InitializeComponent(object obj)
         {
             var component = obj as IComponent;
@@ -330,6 +304,12 @@ namespace SilverNeedle.Characters
             {
                 Add(abl);
             }
+        }
+
+        public void AddRange(IEnumerable<object> features)
+        {
+            foreach(var f in features)
+                Add(f);
         }
 
         public void Add<T>(T feature)

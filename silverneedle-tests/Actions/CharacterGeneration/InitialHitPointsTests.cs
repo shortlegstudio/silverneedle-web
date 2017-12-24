@@ -11,12 +11,12 @@ namespace Tests.Actions
     using SilverNeedle.Dice;
 
     
-    public class InitialHitPointsTests
+    public class InitialHitPointsTests : RequiresDataFiles
     {
         [Fact]
         public void MaxHitPointsAssignsTheCharacterHPToClassHDPlusConModifier() 
         {
-            var character = new CharacterSheet(CharacterStrategy.Default());
+            var character = CharacterTestTemplates.AverageBob().FullInitialize();
             var cls = new Class();
             cls.HitDice = DiceSides.d8;
             character.SetClass(cls);
@@ -25,8 +25,7 @@ namespace Tests.Actions
             var hpRoller = new InitialHitPoints();
             hpRoller.ExecuteStep(character);
 
-            Assert.Equal(9, character.MaxHitPoints);
-            Assert.Equal(9, character.CurrentHitPoints);
+            Assert.Equal(9, character.HitPoints.TotalValue);
         }
     }
 }

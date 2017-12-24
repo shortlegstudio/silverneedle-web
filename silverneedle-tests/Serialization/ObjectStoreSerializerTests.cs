@@ -25,6 +25,7 @@ namespace Tests.Serialization
             Assert.Equal(test.FloatNumber, 37.5f);
             Assert.NotStrictEqual(test.ListOfValues, new string[] { "one", "two", "three", "four" });
             Assert.Equal(test.Optional, "");
+            Assert.Equal("defaultString", test.OptionalWithDefault);
         }
 
         //TODO: Question? If the property is invalid what should be the expected behavior?
@@ -42,8 +43,11 @@ namespace Tests.Serialization
             [ObjectStore("list")]
             public string[] ListOfValues { get; set; }
 
-            [ObjectStore("optional", true)]
+            [ObjectStoreOptional("optional")]
             public string Optional { get; set; }
+            
+            [ObjectStoreOptional("optional-default", "defaultString")]
+            public string OptionalWithDefault { get; set; }
 
             public string IgnoreMe { get; set; }
 

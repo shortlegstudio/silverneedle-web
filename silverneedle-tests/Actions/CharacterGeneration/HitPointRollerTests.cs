@@ -11,24 +11,21 @@ namespace Tests.Actions
     using SilverNeedle.Dice;
 
     
-    public class HitPointRollerTests
+    public class HitPointRollerTests : RequiresDataFiles
     {
         [Fact]
         public void LevelUpRollerAddsSomeNumberOfHPBasedOnHitDiePlusCon() 
         {
-            var character = new CharacterSheet(CharacterStrategy.Default());
+            var character = CharacterTestTemplates.AverageBob().FullInitialize();
             var cls = new Class();
             cls.HitDice = DiceSides.d8;
             character.AbilityScores.SetScore(AbilityScoreTypes.Constitution, 12);
             character.SetClass(cls);
-            character.IncreaseHitPoints(9);
             
             var hpRoller = new HitPointRoller();
             hpRoller.ExecuteStep(character);
 
-            Assert.True(character.MaxHitPoints > 10);
-            Assert.True(character.CurrentHitPoints > 10);
-
+            Assert.True(character.HitPoints.TotalValue >= 2);
         }
     }
 }

@@ -26,6 +26,13 @@ namespace Tests
             return character;
         }
 
+        public static CharacterSheet FullInitialize(this CharacterSheet sheet)
+        {
+            var initialize = new SilverNeedle.Actions.CharacterGeneration.InitializeCharacterSheet();
+            initialize.ExecuteStep(sheet);
+            return sheet;
+        }
+
         public static CharacterSheet WithSkills(this CharacterSheet sheet)
         {
             var skills = GatewayProvider.All<Skill>().Select(x => x.Name);

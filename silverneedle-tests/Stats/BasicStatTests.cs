@@ -9,6 +9,7 @@ namespace Tests.Stats
     using Xunit;
     using System.Linq;
     using SilverNeedle;
+    using SilverNeedle.Utility;
 
     public class BasicStatTests {
         [Fact]
@@ -110,6 +111,19 @@ namespace Tests.Stats
                 new ValueStatModifier(-2, "Penalty")
             );
             Assert.Equal(stat.Modifiers.Count(), 3);
+        }
+
+        [Fact]
+        public void CanLoadStatFromConfiguration()
+        {
+            var yaml = @"---
+name: Stat Name
+base-value: 2";
+            var stat = new BasicStat(yaml.ParseYaml());
+            Assert.Equal("Stat Name", stat.Name);
+            Assert.Equal(2, stat.BaseValue);
+            Assert.Equal(int.MinValue, stat.Minimum);
+            Assert.Equal(int.MaxValue, stat.Maximum);
         }
     }
 }

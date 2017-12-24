@@ -16,15 +16,15 @@ namespace SilverNeedle.Serialization
         IEnumerable<IObjectStore> Children { get; }
         bool HasChildren { get; }
         string GetString(string key);
-        string GetStringOptional(string key);
+        string GetStringOptional(string key, string defaultValue = "");
         int GetInteger(string key);
-        int GetIntegerOptional(string key);
+        int GetIntegerOptional(string key, int defaultValue = 0);
         float GetFloat(string key);
-        float GetFloatOptional(string key);
+        float GetFloatOptional(string key, float defaultValue = 0);
 
         T GetEnum<T>(string key);
         bool GetBool(string key);
-        bool GetBoolOptional(string key);
+        bool GetBoolOptional(string key, bool defaultValue = false);
 
         string[] GetList(string key);
         string[] GetListOptional(string key);

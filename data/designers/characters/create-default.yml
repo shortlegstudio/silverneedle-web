@@ -10,14 +10,13 @@
     - step: SilverNeedle.Actions.NamingThings.NameCharacter
     - designer: create-background
     - designer: class-selection
-    - step: SilverNeedle.Actions.CharacterGeneration.AbilityPointAssigner
-    - step: SilverNeedle.Actions.CharacterGeneration.FeatSelector
+    - designer: process-tokens
+    - step: SilverNeedle.Actions.CharacterGeneration.ApplyFavoredClassBonus
     - step: SilverNeedle.Actions.CharacterGeneration.InitialHitPoints
     - step: SilverNeedle.Actions.CharacterGeneration.AssignAge
     - step: SilverNeedle.Actions.CharacterGeneration.Background.ClassOriginStoryCreator
     - step: SilverNeedle.Actions.CharacterGeneration.SkillPointDistributor
     - step: SilverNeedle.Actions.CharacterGeneration.AlignmentSelector
     - step: SilverNeedle.Actions.CharacterGeneration.LanguageSelector
-    - designer: process-tokens
     - designer: create-appearance
     - designer: create-personality

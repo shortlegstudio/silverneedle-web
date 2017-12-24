@@ -30,10 +30,10 @@ namespace Tests.Serialization
         }
 
         [Fact]
-        public void GetStringOptionalReturnsAnEmptyStringIfKeyIsMissing()
+        public void GetStringOptionalReturnsNullIfKeyIsMissing()
         {
             var memStore = new MemoryStore();
-            Assert.Equal("", memStore.GetStringOptional("missingKey"));
+            Assert.Equal(null, memStore.GetStringOptional("missingKey"));
         }
 
         [Fact]

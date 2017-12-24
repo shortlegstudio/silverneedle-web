@@ -132,7 +132,7 @@ namespace SilverNeedle.Serialization
         /// </summary>
         /// <returns>The string of the key or null if key is not found</returns>
         /// <param name="key">Key to lookup in node</param>
-        public string GetStringOptional(string key)
+        public string GetStringOptional(string key, string defaultValue = null)
         {
             var item = this.GetObjectOptional(key);
             if (item != null)
@@ -140,7 +140,7 @@ namespace SilverNeedle.Serialization
                 return item.Value;
             }
 
-            return null;
+            return defaultValue;
         }
 
         /// <summary>
@@ -180,12 +180,12 @@ namespace SilverNeedle.Serialization
         /// </summary>
         /// <returns><c>true</c>, if bool optional was gotten, <c>false</c> otherwise.</returns>
         /// <param name="key">Key to lookup in YAML node</param>
-        public bool GetBoolOptional(string key)
+        public bool GetBoolOptional(string key, bool defaultValue = false)
         {
             if(HasKey(key))
                 return GetBool(key);
 
-            return false;
+            return defaultValue;
         }
 
         /// <summary>
@@ -193,12 +193,12 @@ namespace SilverNeedle.Serialization
         /// </summary>
         /// <returns>The integer value found, 0 otherwise.</returns>
         /// <param name="key">Key to lookup in YAML node</param>
-        public int GetIntegerOptional(string key)
+        public int GetIntegerOptional(string key, int defaultValue = 0)
         {
             var v = this.GetStringOptional(key);
             if (v == null)
             {
-                return 0;
+                return defaultValue;
             }
 
             return int.Parse(v);
@@ -224,12 +224,12 @@ namespace SilverNeedle.Serialization
             return float.Parse(this.GetString(key));
         }
 
-        public float GetFloatOptional(string key)
+        public float GetFloatOptional(string key, float defaultValue = 0)
         {
             var v = GetStringOptional(key);
             if (v == null)
             {
-                return 0;
+                return defaultValue;
             }
             return float.Parse(v);
         }

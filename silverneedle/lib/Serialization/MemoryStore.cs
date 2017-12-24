@@ -64,12 +64,12 @@ namespace SilverNeedle.Serialization
             return Boolean.Parse(this.GetString(key));
         }
 
-        public bool GetBoolOptional(string key)
+        public bool GetBoolOptional(string key, bool defaultValue = false)
         {
             if(HasKey(key))
                 return GetBool(key);
 
-            return false;
+            return defaultValue;
         }
 
         public T GetEnum<T>(string key)
@@ -82,7 +82,7 @@ namespace SilverNeedle.Serialization
             return float.Parse(GetString(key));
         }
 
-        public float GetFloatOptional(string key)
+        public float GetFloatOptional(string key, float defaultValue = 0)
         {
             throw new NotImplementedException();
         }
@@ -92,7 +92,7 @@ namespace SilverNeedle.Serialization
             return int.Parse(GetString(key));
         }
 
-        public int GetIntegerOptional(string key)
+        public int GetIntegerOptional(string key, int defaultValue = 0)
         {
             throw new NotImplementedException();
         }
@@ -136,12 +136,12 @@ namespace SilverNeedle.Serialization
             return dataStore[key].Value;
         }
 
-        public string GetStringOptional(string key)
+        public string GetStringOptional(string key, string defaultValue = null)
         {
             if(HasKey(key))
                 return GetString(key);
             
-            return "";            
+            return defaultValue;            
         }
 
         public bool HasKey(string key)

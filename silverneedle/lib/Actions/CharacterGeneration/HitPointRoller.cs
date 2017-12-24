@@ -17,10 +17,16 @@ namespace SilverNeedle.Actions.CharacterGeneration
         {
             var cup = new Cup();
             cup.AddDie(new Die(character.Class.HitDice));
-            cup.Modifier = character.AbilityScores.GetModifier(AbilityScoreTypes.Constitution);
             var roll = cup.Roll();
-            
-            character.IncreaseHitPoints(roll);            
+            var modifier = new ValueStatModifier
+            (
+                roll,
+                "Level up HP"
+            );
+            var hitpoints = character.FindStat(StatNames.HitPoints);
+            hitpoints.AddModifier(modifier);
+            hitpoints.AddModifier(character.AbilityScores.GetAbility(AbilityScoreTypes.Constitution).UniversalStatModifier);
+
         }
     }
 }

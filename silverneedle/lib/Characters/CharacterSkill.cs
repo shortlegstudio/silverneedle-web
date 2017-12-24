@@ -184,5 +184,10 @@ namespace SilverNeedle.Characters
         {
             this.bypassTraining = true;
         }
+
+        public bool Matches(string name)
+        {
+            return this.Name.EqualsIgnoreCase(name);
+        }
     }
 }

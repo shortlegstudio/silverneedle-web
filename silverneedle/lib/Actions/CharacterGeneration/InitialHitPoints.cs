@@ -14,8 +14,13 @@ namespace SilverNeedle.Actions.CharacterGeneration
     {
         public void ExecuteStep(CharacterSheet character)
         {
-            int hp = (int)character.Class.HitDice + character.AbilityScores.GetModifier(AbilityScoreTypes.Constitution);
-            character.IncreaseHitPoints(hp);
+            var baseHitpoints = new ValueStatModifier(
+                (int)character.Class.HitDice,
+                "base-hit-points"
+            );
+            var hitpoints = character.FindStat(StatNames.HitPoints);
+            hitpoints.AddModifier(baseHitpoints);
+            hitpoints.AddModifier(character.AbilityScores.GetAbility(AbilityScoreTypes.Constitution).UniversalStatModifier);
         }
     }
 }

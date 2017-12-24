@@ -12,14 +12,19 @@ namespace SilverNeedle.Actions.CharacterGeneration
     public class InitializeCharacterSheet : ICharacterDesignStep
     {
         EntityGateway<Skill> skills;
+        EntityGateway<CharacterSheetSetup> setups;
 
         public InitializeCharacterSheet()
         {
             skills = GatewayProvider.Get<Skill>();
+
+            setups = GatewayProvider.Get<CharacterSheetSetup>();
         }
 
         public void ExecuteStep(CharacterSheet character)
         {
+            var configure = setups.Find("default");
+            character.Add(configure);
             character.SkillRanks.FillSkills(skills.All());
             character.InitializeComponents();
         }

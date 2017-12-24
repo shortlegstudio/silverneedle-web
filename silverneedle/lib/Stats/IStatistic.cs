@@ -6,7 +6,9 @@
 namespace SilverNeedle
 {
     using System.Collections.Generic;
-    public interface IStatistic
+    using SilverNeedle.Serialization;
+
+    public interface IStatistic : IGatewayObject
     {
         string Name { get; }
         void AddModifier(IStatModifier modifier);

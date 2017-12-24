@@ -108,7 +108,8 @@ namespace SilverNeedle.Utility
 
         public IEnumerable<IStatistic> GetAllStats()
         {
-            return GetAll<IStatTracker>().SelectMany(x => x.Statistics);
+            return GetAll<IStatTracker>().SelectMany(x => x.Statistics)
+                .Union(GetAll<IStatistic>());
         }
 
         public IStatistic FindStat(string name)

@@ -1,0 +1,5 @@
+--- !<SilverNeedle.Characters.FavoredClassOption>
+- type: SilverNeedle.ValueStatModifier
+  name: Hit Points
+  modifier: 1
+  modifier-type: favored-class

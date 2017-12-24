@@ -34,7 +34,7 @@ namespace SilverNeedle.Characters
             TouchArmorClass = character.Defense.TouchArmorClass.TotalValue.ToString();
             FlatFootedArmorClass = character.Defense.FlatFootedArmorClass.TotalValue.ToString();
             SpellResistance = character.Defense.SpellResistance.TotalValue.ToString();
-            HitPoints = character.MaxHitPoints.ToString();
+            HitPoints = character.HitPoints.TotalValue.ToString();
             FortitudeSave = character.Defense.FortitudeSave.ToString();
             ReflexSave = character.Defense.ReflexSave.ToString();
             WillSave = character.Defense.WillSave.ToString();

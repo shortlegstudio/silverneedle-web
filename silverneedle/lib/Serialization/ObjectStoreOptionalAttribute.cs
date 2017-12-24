@@ -11,5 +11,10 @@ namespace SilverNeedle.Serialization
         {
 
         }
+
+        public ObjectStoreOptionalAttribute(string name, object val) : base(name, true, val)
+        {
+
+        }
     }
 }

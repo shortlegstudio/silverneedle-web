@@ -36,5 +36,10 @@ namespace SilverNeedle.Characters.Attacks
                 sizeStats.PositiveSizeModifier
             );
         }
+
+        public bool Matches(string name)
+        {
+            return this.Name.EqualsIgnoreCase(name);
+        }
     }
 }

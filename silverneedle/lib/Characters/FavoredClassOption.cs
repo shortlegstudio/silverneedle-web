@@ -8,7 +8,7 @@ namespace SilverNeedle.Characters
     using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
-    public class FavoredClassOption
+    public class FavoredClassOption : IGatewayObject
     {
         private IObjectStore optionConfiguration;
         public FavoredClassOption(IObjectStore configuration)
@@ -20,6 +20,11 @@ namespace SilverNeedle.Characters
         {
             var typeName = optionConfiguration.GetString("type");
             return typeName.Instantiate<IStatModifier>(optionConfiguration);
+        }
+
+        public bool Matches(string name)
+        {
+            return false;
         }
     }
 }

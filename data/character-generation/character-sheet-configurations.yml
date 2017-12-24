@@ -1,0 +1,9 @@
+--- !<SilverNeedle.Characters.CharacterSheetSetup>
+- name: default
+  attributes:
+    - attribute:
+      name: Statistics
+      items:
+        - type: SilverNeedle.BasicStat
+          name: Hit Points
+          base-value: 0
