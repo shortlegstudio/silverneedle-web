@@ -75,10 +75,11 @@
           type: bonus
           condition: traps
     - level: 7
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureDamageResistance
-          amount: 1
-          type: "-"
+      abilities:
+        - ability: SilverNeedle.Characters.DamageReduction
+          name: Barbarian Damage Reduction
+          base-value: 1
+          bypass-type: "-"
     - level: 8
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRagePower
@@ -95,11 +96,13 @@
           type: bonus
           condition: traps
     - level: 10
+      abilities:
+        - ability: SilverNeedle.ValueStatModifier
+          name: Barbarian Damage Reduction
+          modifier: 1
+          modifier-type: class-bonus
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRagePower
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureDamageResistance
-          amount: 1
-          type: "-"
     - level: 11
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureRage
@@ -122,10 +125,11 @@
           type: bonus
           condition: traps
     - level: 13
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureDamageResistance
-          amount: 1
-          type: "-"
+      abilities:
+        - ability: SilverNeedle.ValueStatModifier
+          name: Barbarian Damage Reduction
+          modifier: 1
+          modifier-type: class-bonus
     - level: 14
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRagePower
@@ -148,11 +152,13 @@
           type: bonus
           condition: traps
     - level: 16
+      abilities:
+        - ability: SilverNeedle.ValueStatModifier
+          name: Barbarian Damage Reduction
+          modifier: 1
+          modifier-type: class-bonus
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRagePower
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureDamageResistance
-          amount: 1
-          type: "-"
     - level: 17
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.TirelessRage
@@ -171,10 +177,11 @@
           type: bonus
           condition: traps
     - level: 19
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureDamageResistance
-          amount: 1
-          type: "-"
+      abilities:
+        - ability: SilverNeedle.ValueStatModifier
+          name: Barbarian Damage Reduction
+          modifier: 1
+          modifier-type: class-bonus
     - level: 20
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRagePower

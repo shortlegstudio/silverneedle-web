@@ -38,7 +38,7 @@ namespace SilverNeedle.Characters
             FortitudeSave = character.Defense.FortitudeSave.ToString();
             ReflexSave = character.Defense.ReflexSave.ToString();
             WillSave = character.Defense.WillSave.ToString();
-            DamageResistance = character.Defense.DamageResistance.Select(x => x.ToString()).ToArray();
+            DamageResistance = character.Defense.EnergyResistance.Select(x => x.DisplayString()).ToArray();
             Immunities = character.Defense.Immunities.Select(x => x.DamageType).ToArray();
             MovementSpeed = character.Movement.MovementSpeed.ToString();
             MovementSquares = character.Movement.BaseSquares.ToString();

@@ -1,3 +1,4 @@
+@using System.Linq;
 @using SilverNeedle.Characters;
 @{
     var character = (CharacterSheetTextView)ViewData["Character"];
@@ -28,6 +29,11 @@
                 { "statistic-title", "Will" },
                 { "statistic-score", @character.WillSave } }); }
             @{
+                var dr = charFull.Defense.DamageReduction.Select(x => x.DisplayString());
+                var stringDR = string.Join(", ", dr);
+                Html.RenderPartial("_statistic-row", new ViewDataDictionary(this.ViewData) {
+                    { "statistic-title", "Damage Reduction" },
+                    { "statistic-notes", @stringDR } }); 
                 var damageResistance = string.Join(", ", character.DamageResistance);
                 Html.RenderPartial("_statistic-row", new ViewDataDictionary(this.ViewData) {
                     { "statistic-title", "Damage Resistance" },
@@ -38,6 +44,7 @@
                     { "statistic-title", "Immunities" },
                     { "statistic-notes", @immunities } }); 
             }
+
         </tbody>
     </table>
 </div>

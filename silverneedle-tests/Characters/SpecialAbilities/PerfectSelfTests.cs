@@ -18,7 +18,7 @@ namespace Tests.Characters.SpecialAbilities
             var monk = CharacterTestTemplates.MarkyMonk();
             monk.Add(new PerfectSelf());
             var defense = monk.Get<DefenseStats>();
-            var dr = defense.DamageResistance.First();
+            var dr = defense.EnergyResistance.First();
             Assert.Equal(10, dr.Amount);
             Assert.Equal("chaotic", dr.DamageType);
         }

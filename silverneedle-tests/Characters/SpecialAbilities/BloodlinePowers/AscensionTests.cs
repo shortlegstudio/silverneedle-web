@@ -18,11 +18,11 @@ namespace Tests.Characters.SpecialAbilities.BloodlinePowers
             var ascension = new Ascension();
             sorcerer.Add(ascension);
             Assert.True(
-                sorcerer.Defense.DamageResistance.Any(dr =>
+                sorcerer.Defense.EnergyResistance.Any(dr =>
                 dr.DamageType == "electricity" && dr.Amount == 10)
             );
             Assert.True(
-                sorcerer.Defense.DamageResistance.Any(dr =>
+                sorcerer.Defense.EnergyResistance.Any(dr =>
                 dr.DamageType == "fire" && dr.Amount == 10)
             );
 

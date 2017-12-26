@@ -24,11 +24,11 @@ namespace Tests.Characters.SpecialAbilities.BloodlinePowers
         [Fact]
         public void GrantsResistanceToColdAndNonLethalDamage()
         {
-            AssertCharacter.HasDamageResistance("- against nonlethal", 5, sorcerer);
+            AssertCharacter.HasDamageReduction("- vs. nonlethal", 5, sorcerer);
             AssertCharacter.HasResistanceTo("cold", 5, sorcerer);
             sorcerer.SetLevel(9);
             gift.LeveledUp(sorcerer.Components);
-            AssertCharacter.HasDamageResistance("- against nonlethal", 10, sorcerer);
+            AssertCharacter.HasDamageReduction("- vs. nonlethal", 10, sorcerer);
             AssertCharacter.HasResistanceTo("cold", 10, sorcerer);
         }
     }

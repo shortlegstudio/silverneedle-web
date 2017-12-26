@@ -11,15 +11,20 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
     {
         private ClassLevel sorcererLevels;
         private EnergyResistance coldResistance;
-        private EnergyResistance nonLethal;
+        private DamageReduction nonLethal;
         public void Initialize(ComponentContainer components)
         {
             sorcererLevels = components.Get<ClassLevel>();
             coldResistance = new EnergyResistance(5, "cold");
-            nonLethal = new EnergyResistance(5, "- against nonlethal");
-            var defense = components.Get<DefenseStats>();
-            defense.AddDamageResistance(coldResistance);
-            defense.AddDamageResistance(nonLethal);
+            nonLethal = new DamageReduction("- vs. nonlethal", 0);
+            nonLethal.AddModifier(new DelegateStatModifier(
+                nonLethal.Name,
+                "level-up",
+                this.Name,
+                () => { return sorcererLevels.Level >= 9 ? 10 : 5; }
+            ));
+            components.Add(coldResistance);
+            components.Add(nonLethal);
         }
 
         public void LeveledUp(ComponentContainer components)
@@ -27,7 +32,6 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
             if(sorcererLevels.Level == 9)
             {
                 coldResistance.Amount = 10;
-                nonLethal.Amount = 10;
             }
         }
     }

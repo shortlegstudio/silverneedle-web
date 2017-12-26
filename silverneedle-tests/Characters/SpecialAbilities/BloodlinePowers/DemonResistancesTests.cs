@@ -17,14 +17,14 @@ namespace Tests.Characters.SpecialAbilities.BloodlinePowers
             var sorcerer = CharacterTestTemplates.Sorcerer();
             var demon = new DemonResistances();
             sorcerer.Add(demon);
-            Assert.Equal(5, sorcerer.Defense.DamageResistance.First().Amount);
-            Assert.Equal("electricity", sorcerer.Defense.DamageResistance.First().DamageType);
+            Assert.Equal(5, sorcerer.Defense.EnergyResistance.First().Amount);
+            Assert.Equal("electricity", sorcerer.Defense.EnergyResistance.First().DamageType);
             Assert.Equal(2, sorcerer.Defense.FortitudeSave.GetConditionalValue("poison"));
 
             sorcerer.SetLevel(9);
             //TODO: Hack for damage resistance
             demon.LeveledUp(sorcerer.Components);
-            Assert.Equal(10, sorcerer.Defense.DamageResistance.First().Amount);
+            Assert.Equal(10, sorcerer.Defense.EnergyResistance.First().Amount);
             Assert.Equal(4, sorcerer.Defense.FortitudeSave.GetConditionalValue("poison"));
         }
     }

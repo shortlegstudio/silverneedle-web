@@ -33,7 +33,7 @@ namespace Tests.Characters
             var character = CharacterTestTemplates.AverageBob();
             character.Defense.AddDamageResistance(dr);
             AssertCharacter.IsImmuneTo("fire", character);
-            Assert.Empty(character.Defense.DamageResistance);
+            Assert.Empty(character.Defense.EnergyResistance);
         }
 
         [Fact]

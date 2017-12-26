@@ -29,7 +29,7 @@ namespace Tests.Characters.SpecialAbilities.BloodlinePowers
             var sorc = CharacterTestTemplates.Sorcerer();
             var aberrant = new AberrantForm();
             sorc.Add(aberrant);
-            var dr = sorc.Defense.DamageResistance.First();
+            var dr = sorc.Defense.EnergyResistance.First();
             Assert.Equal(5, dr.Amount);
             Assert.Equal("-", dr.DamageType);
         }

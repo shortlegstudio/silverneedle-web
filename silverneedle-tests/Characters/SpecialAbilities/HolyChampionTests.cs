@@ -29,7 +29,7 @@ namespace Tests.Characters.SpecialAbilities
         public void AddsDamageResistance()
         {
             var def = paladin.Get<DefenseStats>();
-            var dr = def.DamageResistance.First();
+            var dr = def.EnergyResistance.First();
             Assert.Equal(dr.Amount, 5);
             Assert.Equal(dr.DamageType, "evil");
         }

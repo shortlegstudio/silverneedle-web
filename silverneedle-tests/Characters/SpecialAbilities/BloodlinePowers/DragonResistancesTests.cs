@@ -33,7 +33,7 @@ namespace Tests.Characters.SpecialAbilities.BloodlinePowers
         public void AddDamageResistanceBasedOnEnergyType()
         {
             var defense = sorcerer.Get<DefenseStats>();
-            var resist = defense.DamageResistance.First();
+            var resist = defense.EnergyResistance.First();
             Assert.Equal("cold", resist.DamageType);
             Assert.Equal(5, resist.Amount);
 

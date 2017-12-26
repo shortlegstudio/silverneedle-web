@@ -9,5 +9,6 @@ namespace SilverNeedle.Characters
     {
         bool IsImmune { get; }
         string DamageType { get; }
+        string DisplayString();
     }
 }

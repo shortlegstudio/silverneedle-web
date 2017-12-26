@@ -32,7 +32,7 @@ namespace Tests.Characters.SpecialAbilities.BloodlinePowers
         [Fact]
         public void GrantsDR()
         {
-            AssertCharacter.HasDamageResistance("-", 5,  sorcerer);
+            AssertCharacter.HasDamageReduction("-", 5,  sorcerer);
         }
 
         [Fact]

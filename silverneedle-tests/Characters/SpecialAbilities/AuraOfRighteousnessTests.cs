@@ -19,7 +19,7 @@ namespace Tests.Characters.SpecialAbilities
             var character = CharacterTestTemplates.AverageBob();
             character.Add(new AuraOfRighteousness());
             var defense = character.Get<DefenseStats>();
-            var dr = defense.DamageResistance.First();
+            var dr = defense.EnergyResistance.First();
             Assert.Equal(dr.DamageType, "evil");
             Assert.Equal(dr.Amount, 5);
         }

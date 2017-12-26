@@ -37,7 +37,7 @@ namespace Tests.Characters.Domains
             character.SetLevel(6);
             domain.LeveledUp(character.Components);
 
-            var acid = character.Defense.DamageResistance.First();
+            var acid = character.Defense.EnergyResistance.First();
             Assert.Equal(acid.DamageType, "acid");
             Assert.Equal(acid.Amount, 10);
 

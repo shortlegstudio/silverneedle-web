@@ -222,17 +222,7 @@ namespace Tests.Characters {
         {
             var dr = new EnergyResistance(5, "-");
             basicStats.AddDamageResistance(dr);
-            Assert.Contains(dr, basicStats.DamageResistance);
-        }
-
-        [Fact]
-        public void AddingTheSameTypeOfDamageResistanceStacks()
-        {
-            var dr = new EnergyResistance(1, "-");
-            basicStats.AddDamageResistance(dr);
-            basicStats.AddDamageResistance(dr);
-            Assert.Equal(basicStats.DamageResistance.First().Amount, 2);
-
+            Assert.Contains(dr, basicStats.EnergyResistance);
         }
 
         class MockMod : IModifiesStats {

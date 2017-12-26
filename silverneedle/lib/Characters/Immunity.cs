@@ -21,7 +21,7 @@ namespace SilverNeedle.Characters
             this.DamageType = configuration.GetString("damage-type");
         }
 
-        public override string ToString()
+        public string DisplayString()
         {
             return "{0} Immunity".Formatted(DamageType);
         }

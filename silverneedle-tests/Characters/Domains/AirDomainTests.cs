@@ -49,7 +49,7 @@ namespace Tests.Characters.Domains
             character.SetLevel(6);
             airDomain.LeveledUp(character.Components);
 
-            var elec = character.Defense.DamageResistance.First();
+            var elec = character.Defense.EnergyResistance.First();
             Assert.Equal(elec.DamageType, "electricity");
             Assert.Equal(elec.Amount, 10);
 

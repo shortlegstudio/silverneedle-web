@@ -21,7 +21,7 @@ namespace Tests.Characters.SpecialAbilities
 
             var am = new ArmorMastery(5, "-");
             character.Add(am);
-            Assert.Contains(am.DamageResistance, defstats.DamageResistance);
+            Assert.Contains(am.DamageResistance, defstats.EnergyResistance);
         }
     }
 }

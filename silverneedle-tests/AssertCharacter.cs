@@ -20,16 +20,23 @@ namespace Tests
 
         public static void HasDamageResistance(string damageType, int amount, CharacterSheet character)
         {
-            Assert.True(character.Defense.DamageResistance.Any(
+            Assert.True(character.Defense.EnergyResistance.Any(
                 dr => dr.DamageType == damageType &&
                     dr.Amount == amount
                 ), string.Format("Expected damage resistance {0}/{1}", amount, damageType)
             );
         }
 
+        public static void HasDamageReduction(string bypassType, int amount, CharacterSheet character)
+        {
+            Assert.True(character.Defense.DamageReduction.Any(
+                dr => dr.BypassType == bypassType && dr.TotalValue == amount
+            ), string.Format("Expected damage reduction {0}/{1}", amount, bypassType));
+        }
+
         public static void HasResistanceTo(string damageType, int amount, CharacterSheet character)
         {
-            Assert.True(character.Defense.DamageResistance.Any(
+            Assert.True(character.Defense.EnergyResistance.Any(
                 dr => dr.DamageType == damageType &&
                     dr.Amount == amount
                 ), string.Format("Expected damage resistance {0}/{1}", amount, damageType)

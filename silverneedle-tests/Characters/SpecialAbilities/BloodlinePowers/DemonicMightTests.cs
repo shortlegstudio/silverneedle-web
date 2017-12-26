@@ -18,9 +18,9 @@ namespace Tests.Characters.SpecialAbilities.BloodlinePowers
             var might = new DemonicMight();
             sorcerer.Add(might);
 
-            AssertExtensions.Contains("acid", sorcerer.Defense.DamageResistance.Select(x => x.DamageType));
-            AssertExtensions.Contains("cold", sorcerer.Defense.DamageResistance.Select(x => x.DamageType));
-            AssertExtensions.Contains("fire", sorcerer.Defense.DamageResistance.Select(x => x.DamageType));
+            AssertExtensions.Contains("acid", sorcerer.Defense.EnergyResistance.Select(x => x.DamageType));
+            AssertExtensions.Contains("cold", sorcerer.Defense.EnergyResistance.Select(x => x.DamageType));
+            AssertExtensions.Contains("fire", sorcerer.Defense.EnergyResistance.Select(x => x.DamageType));
             AssertCharacter.IsImmuneTo("electricity", sorcerer);
             AssertCharacter.IsImmuneTo("poison", sorcerer);
         }
