@@ -10,6 +10,7 @@ namespace Tests.Characters.Attacks
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.Attacks;
     using SilverNeedle.Characters.SpecialAbilities;
+using SilverNeedle.Serialization;
 
     public class FlurryOfBlowsTests : RequiresDataFiles
     {

@@ -8,6 +8,7 @@ namespace Tests.Characters {
     using SilverNeedle.Characters;
     using System.Linq;
     using SilverNeedle.Dice;
+    using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
     

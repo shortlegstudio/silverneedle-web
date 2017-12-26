@@ -3,11 +3,10 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-namespace SilverNeedle
+namespace SilverNeedle.Serialization
 {
     using System.Collections.Generic;
     using System.Linq;
-    using SilverNeedle.Serialization;
     public class DataTable : IGatewayObject
     {
         public string Name { get; private set; }

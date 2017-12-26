@@ -7,6 +7,7 @@ namespace Tests.Characters {
     using System.Linq;
     using Xunit;
     using SilverNeedle.Characters;
+    using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
 	

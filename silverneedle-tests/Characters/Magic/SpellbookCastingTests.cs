@@ -11,6 +11,7 @@ namespace Tests.Characters.Magic
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.Magic;
     using SilverNeedle.Equipment;
+    using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
     public class SpellbookCastingTests : RequiresDataFiles

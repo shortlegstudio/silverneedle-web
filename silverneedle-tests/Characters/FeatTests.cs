@@ -9,6 +9,7 @@ namespace Tests.Characters {
     using Xunit;
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.Prerequisites;
+    using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
     
     

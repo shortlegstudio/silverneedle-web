@@ -9,6 +9,7 @@ namespace Tests.Characters.SpecialAbilities
     using Xunit;
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.SpecialAbilities;
+    using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
     

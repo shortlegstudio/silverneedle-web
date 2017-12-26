@@ -8,7 +8,7 @@ namespace Tests.Actions.CharacterGeneration
     using Xunit;
     using SilverNeedle.Actions.CharacterGeneration;
     using SilverNeedle.Characters;
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
 
     public class AddToCharacterTests
     {

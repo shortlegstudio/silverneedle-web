@@ -7,6 +7,7 @@ using Xunit;
 using SilverNeedle;
 using SilverNeedle.Characters.Background;
 using System.Linq;
+using SilverNeedle.Serialization;
 using SilverNeedle.Utility;
 
 namespace Tests.Characters.Background

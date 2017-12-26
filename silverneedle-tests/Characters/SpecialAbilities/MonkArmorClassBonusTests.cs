@@ -9,6 +9,7 @@ namespace Tests.Characters.SpecialAbilities
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Equipment;
+    using SilverNeedle.Serialization;
 
     public class MonkArmorClassBonusTests : RequiresDataFiles
     {
@@ -32,7 +33,7 @@ namespace Tests.Characters.SpecialAbilities
         {
             var monk = CharacterTestTemplates.MarkyMonk();
             var oldAC = monk.Defense.ArmorClass.TotalValue;
-            var dataTable = new SilverNeedle.DataTable("monk abilities");
+            var dataTable = new DataTable("monk abilities");
             dataTable.SetColumns(new string[] {"ac-bonus" } );
             dataTable.AddRow("1", new string[] { "0" });
             dataTable.AddRow("2", new string[] { "1" });

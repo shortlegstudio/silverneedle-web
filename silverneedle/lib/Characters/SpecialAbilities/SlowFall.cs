@@ -5,6 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
+    using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
     public class SlowFall : SpecialAbility, IComponent
     {

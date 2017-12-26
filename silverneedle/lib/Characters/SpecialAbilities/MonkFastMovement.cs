@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    using SilverNeedle;
+    using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
     public class MonkFastMovement : SpecialAbility, IComponent
     {

@@ -3,7 +3,7 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-namespace Tests
+namespace Tests.Serialization
 {
     using System.Collections.Generic;
     using Xunit;

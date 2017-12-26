@@ -3,11 +3,10 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-namespace SilverNeedle.Utility
+namespace SilverNeedle.Serialization
 {
     using System.IO;
     using YamlDotNet.RepresentationModel;
-    using SilverNeedle.Serialization;
 
     /// <summary>
     /// Helper methods for dealing with Yaml

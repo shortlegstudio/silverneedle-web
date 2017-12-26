@@ -7,6 +7,7 @@ namespace Tests.Characters
 {
     using Xunit;
     using SilverNeedle.Characters;
+    using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
     public class FavoredClassOptionTests

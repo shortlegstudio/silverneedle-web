@@ -1,4 +1,4 @@
---- !<SilverNeedle.DataTable>
+--- !<SilverNeedle.Serialization.DataTable>
 - name: Monk Abilities
   columns: [unarmed-damage, ac-bonus, fast-movement, slow-fall, flurry-of-blows]
   table:

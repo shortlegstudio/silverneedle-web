@@ -8,6 +8,7 @@ namespace Tests.Characters {
     using Xunit;
     using SilverNeedle.Characters;
     using SilverNeedle.Dice;
+    using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
     
     public class ClassTests {

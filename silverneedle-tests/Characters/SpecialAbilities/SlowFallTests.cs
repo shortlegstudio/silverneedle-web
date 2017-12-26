@@ -8,6 +8,7 @@ namespace Tests.Characters.SpecialAbilities
     using Xunit;
     using SilverNeedle;
     using SilverNeedle.Characters.SpecialAbilities;
+    using SilverNeedle.Serialization;
     public class SlowFallTests
     {
         [Fact]

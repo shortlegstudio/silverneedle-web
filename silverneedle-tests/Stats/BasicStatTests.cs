@@ -9,6 +9,7 @@ namespace Tests.Stats
     using Xunit;
     using System.Linq;
     using SilverNeedle;
+    using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
     public class BasicStatTests {

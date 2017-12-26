@@ -7,7 +7,7 @@ namespace Tests.Characters
 {
     using Xunit;
     using SilverNeedle.Characters;
-    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
     using Moq;
 
     public class SkillModifierTokenTests

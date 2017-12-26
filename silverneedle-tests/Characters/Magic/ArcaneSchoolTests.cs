@@ -8,6 +8,7 @@ namespace Tests.Characters.Magic
     using System.Linq;
     using Xunit;
     using SilverNeedle.Characters.Magic;
+    using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
     public class ArcaneSchoolTests
