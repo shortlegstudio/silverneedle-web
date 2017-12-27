@@ -142,14 +142,6 @@ namespace Tests.Characters {
         }
 
         [Fact]
-        public void TracksSpecialAttackAbilities()
-        {
-            var special = new SpecialAttacks();
-            smallStats.ProcessSpecialAbilities(special);
-            Assert.True(smallStats.OffensiveAbilities.Count() > 0);
-        }
-
-        [Fact]
         public void LevelsUpCombatStatsBasedOnClass()
         {
             var cls = new Class();
@@ -230,17 +222,6 @@ namespace Tests.Characters {
                 Modifiers = new List<IStatModifier>();
                 Modifiers.Add(new ValueStatModifier("CMD", 1, "racial", "Trait"));
                 Modifiers.Add(new ValueStatModifier("CMB", 1, "racial", "Trait"));
-            }
-        }
-
-        class SpecialAttacks : IProvidesSpecialAbilities 
-        {
-            public IList<SpecialAbility> SpecialAbilities { get; set; }
-
-            public SpecialAttacks() {
-                SpecialAbilities = new List<SpecialAbility>();
-                SpecialAbilities.Add(new SpecialAbility("Sneak Attack 1d6", "Offensive"));
-
             }
         }
     }

@@ -34,8 +34,6 @@ namespace SilverNeedle.Characters
         /// </summary>
         private const string CombatManeuverBonusStatName = "CMB";
 
-        private const string OffensiveAbilitiesName = "Offensive";
-
         public IEnumerable<IStatistic> Statistics
         {
             get 
@@ -59,8 +57,6 @@ namespace SilverNeedle.Characters
         /// </summary>
         private Inventory inventory;
 
-        private List<SpecialAbility> offensiveAbilities;
-
         private List<IWeaponModifier> weaponModifiers;
         private ComponentContainer components;
 
@@ -78,7 +74,6 @@ namespace SilverNeedle.Characters
             this.BaseAttackBonus = new BaseAttackBonus();
             this.CombatManeuverDefense = new BasicStat(StatNames.CMD, 10);
             this.CombatManeuverBonus = new BasicStat(StatNames.CMB);
-            this.offensiveAbilities = new List<SpecialAbility>();
             this.weaponModifiers = new List<IWeaponModifier>();
         }
 
@@ -119,14 +114,6 @@ namespace SilverNeedle.Characters
         /// </summary>
         /// <value>The base attack bonus.</value>
         public BaseAttackBonus BaseAttackBonus { get; private set; }
-
-        public IEnumerable<SpecialAbility> OffensiveAbilities
-        {
-            get
-            {
-                return offensiveAbilities;
-            }
-        }
 
         /// <summary>
         /// Gets or sets the ability scores.
@@ -172,20 +159,6 @@ namespace SilverNeedle.Characters
                 }
             }
         }
-
-        public void ProcessSpecialAbilities(IProvidesSpecialAbilities abilities)
-        {
-            foreach (var ability in abilities.SpecialAbilities)
-            {
-                switch (ability.Type)
-                {
-                    case OffensiveAbilitiesName:
-                        offensiveAbilities.Add(ability);
-                        break;
-                }
-            }
-        }
-
 
         /// <summary>
         /// Adds a weapon proficiencies.

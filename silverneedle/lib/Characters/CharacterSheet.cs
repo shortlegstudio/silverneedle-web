@@ -296,16 +296,6 @@ namespace SilverNeedle.Characters
             this.Offense.ProcessModifier(modifier);
         }
 
-        public void ProcessSpecialAbilities(IProvidesSpecialAbilities abilities)
-        {
-            this.Defense.ProcessSpecialAbilities(abilities);
-            this.Offense.ProcessSpecialAbilities(abilities);
-            foreach(var abl in abilities.SpecialAbilities)
-            {
-                Add(abl);
-            }
-        }
-
         public void AddRange(IEnumerable<object> features)
         {
             foreach(var f in features)
@@ -319,10 +309,6 @@ namespace SilverNeedle.Characters
             var statMod = feature as IModifiesStats;
             if(statMod != null)
                 this.ProcessStatModifier(statMod);
-
-            var abilities = feature as IProvidesSpecialAbilities;
-            if(abilities != null)
-                this.ProcessSpecialAbilities(abilities);
         }
 
         public T Get<T>()

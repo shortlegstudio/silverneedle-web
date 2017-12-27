@@ -169,15 +169,6 @@ namespace Tests.Characters {
         }
 
         [Fact]
-        public void CanTrackImmunitiesAndOtherSpecialAbilites() {
-            var immune = new ImmunityModifier();
-            emptyStats.ProcessSpecialAbilities(immune);
-
-            Assert.Equal("vs. Fire", emptyStats.Immunities.First().DamageType);
-            Assert.Equal("Evasion", emptyStats.DefensiveAbilities.First().Condition);
-        }
-
-        [Fact]
         public void ArmorCanLimitTheMaxDexterityBonus()
         {
             var bag = new ComponentContainer();
@@ -234,17 +225,6 @@ namespace Tests.Characters {
             Modifiers.Add(new ValueStatModifier("Will", 1, "Halfing Luck", "Trait"));
             Modifiers.Add(new ValueStatModifier("Reflex", 1, "Halfing Luck", "Trait"));
             Modifiers.Add(new ValueStatModifier("Fortitude", 1, "Halfing Luck", "Trait"));
-        }
-    }
-
-    class ImmunityModifier : IProvidesSpecialAbilities {
-        public IList<SpecialAbility> SpecialAbilities { get; set; }
-
-        public ImmunityModifier() 
-        {
-            SpecialAbilities = new List<SpecialAbility>();
-            SpecialAbilities.Add(new SpecialAbility("vs. Fire", "Immunity"));
-            SpecialAbilities.Add(new SpecialAbility("Evasion", "Defensive"));
         }
     }
 

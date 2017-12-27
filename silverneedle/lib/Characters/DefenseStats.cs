@@ -60,17 +60,13 @@ namespace SilverNeedle.Characters
         /// </summary>
         private const string FortitudeSaveStatName = "Fortitude";
 
-        private const string ImmunitiesName = "Immunity";
 
-        private const string DefensiveAbilitiesName = "Defensive";
         private ComponentContainer components;
 
         /// <summary>
         /// The armor proficiencies of the character
         /// </summary>
         private List<ArmorProficiency> armorProficiencies = new List<ArmorProficiency>();
-
-        private IList<SpecialAbility> specialAbilities;
 
         private Inventory inventory;
 
@@ -93,7 +89,6 @@ namespace SilverNeedle.Characters
             this.FlatFootedArmorClass = new BasicStat(StatNames.FlatFootedArmorClass);
             this.FlatFootedArmorClass.UseModifierString = false;
             this.MaxDexterityBonus = new BasicStat(StatNames.MaxDexterityBonus);
-            this.specialAbilities = new List<SpecialAbility>();
             this.SpellResistance = new BasicStat(StatNames.SpellResistance);
         }
 
@@ -172,14 +167,6 @@ namespace SilverNeedle.Characters
             get 
             { 
                 return components.GetAll<IResistance>().Where(x => x.IsImmune);
-            }
-        }
-
-        public IEnumerable<SpecialAbility> DefensiveAbilities
-        {
-            get
-            {
-                return specialAbilities.Where(x => string.Equals(x.Type, DefensiveAbilitiesName));
             }
         }
 
@@ -299,24 +286,6 @@ namespace SilverNeedle.Characters
             }
 
 
-        }
-
-        public void ProcessSpecialAbilities(IProvidesSpecialAbilities abilities)
-        {
-            // Grab any special abilities that are relevant
-            foreach (var ability in abilities.SpecialAbilities)
-            {
-                switch (ability.Type)
-                {
-                    case ImmunitiesName:
-                        AddImmunity(ability.Condition);
-                        break;
-                    case DefensiveAbilitiesName:
-                        this.specialAbilities.Add(ability);
-                        break;
-                    
-                }
-            }
         }
 
         /// <summary>
