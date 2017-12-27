@@ -22,6 +22,9 @@ namespace SilverNeedle.Utility
 
         public void Add(object obj)
         {
+            if(obj == null)
+                throw new ArgumentNullException("obj");
+
             var unique = obj as IEnsureUniqueComponent;
             if(unique != null)
             {
@@ -39,6 +42,9 @@ namespace SilverNeedle.Utility
 
         public void Add(params object[] objects)
         {
+            if(objects == null)
+                throw new ArgumentNullException("objects");
+
             foreach(var o in objects)
                 Add(o);
         }

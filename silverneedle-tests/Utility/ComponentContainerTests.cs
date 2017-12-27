@@ -11,6 +11,14 @@ namespace Tests.Utility
     
     public class ComponentContainerTests
     {
-
+        [Fact]
+        public void AddingNullComponentResultsInExceptionBeingThrown()
+        {
+            var contain = new ComponentContainer();
+            Assert.Throws(
+                typeof(System.ArgumentNullException),
+                () => contain.Add(null)
+            );
+        }
     }
 }
