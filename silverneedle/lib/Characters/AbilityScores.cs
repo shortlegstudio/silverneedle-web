@@ -8,11 +8,12 @@ namespace SilverNeedle.Characters
     using System;
     using System.Collections.Generic;
     using SilverNeedle;
+    using SilverNeedle.Utility;
 
     /// <summary>
     /// A container that manages all the ability scores for a character
     /// </summary>
-    public class AbilityScores : IStatTracker
+    public class AbilityScores : IStatTracker, IComponent
     {
         /// <summary>
         /// The abilities for this character
@@ -156,6 +157,12 @@ namespace SilverNeedle.Characters
                 var ability = new AbilityScore(v, 0);
                 this.abilities.Add(v, ability);
             }
+        }
+
+        public void Initialize(ComponentContainer components)
+        {
+            foreach(var abl in this.abilities)
+                components.Add(abl.Value);
         }
     }
 }

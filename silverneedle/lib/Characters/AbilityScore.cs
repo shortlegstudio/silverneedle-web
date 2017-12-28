@@ -6,40 +6,47 @@
 namespace SilverNeedle.Characters
 {
     using SilverNeedle;
+    using SilverNeedle.Serialization;
+    using SilverNeedle.Utility;
+
     /// <summary>
     /// An ability score for a character. Examples: Strength, Intelligence, Charisma, ...
     /// </summary>
-    public class AbilityScore : BasicStat, IStatistic
+    public class AbilityScore : BasicStat, IStatistic, IComponent
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SilverNeedle.Characters.AbilityScore"/> class.
-        /// </summary>
-        /// <param name="type">Ability type</param>
-        /// <param name="val">Value for the ability</param>
+        private BasicStat abilityModifier;
         public AbilityScore(AbilityScoreTypes type, int val)
             : base(type.ToString(), val)
         {
             this.Ability = type;
-            this.UniversalStatModifier = new AbilityStatModifier(this);
+            Setup();
         }
 
-    /// <summary>
+        public AbilityScore(IObjectStore configuration) : base(configuration)
+        {
+            this.Ability = this.Name.EnumValue<AbilityScoreTypes>();
+            Setup();
+        }
+
+        private void Setup()
+        {
+            this.UniversalStatModifier = new AbilityStatModifier(this);
+            this.abilityModifier = new BasicStat("{0}-modifier".Formatted(Ability).ToLower());
+            this.abilityModifier.AddModifier(
+                new DelegateStatModifier(
+                    this.abilityModifier.Name,
+                    "calculation",
+                    this.Name,
+                    () => CalculateModifier(this.TotalValue))
+            );
+        }
+
+
+        /// <summary>
         /// Gets or sets the name. Synonomous with AbilityScoreTypes
         /// </summary>
         /// <value>The name of the ability</value>
         public AbilityScoreTypes Ability { get; private set; }
-
-        /// <summary>
-        /// Gets the base modifier. The modifier is the ability score modifier applied to other statistics
-        /// </summary>
-        /// <value>The base modifier.</value>
-        public int BaseModifier
-        {
-            get
-            {
-                return CalculateModifier(this.BaseValue);
-            }
-        }
 
         /// <summary>
         /// Gets the total modifier.
@@ -49,7 +56,7 @@ namespace SilverNeedle.Characters
         {
             get
             {
-                return CalculateModifier(this.TotalValue);
+                return abilityModifier.TotalValue;
             }
         }
 
@@ -80,14 +87,18 @@ namespace SilverNeedle.Characters
         public override string ToString()
         {
             return string.Format(
-                "[AbilityScore: Name={0}, Adjustments={1}, BaseValue={2}, BaseModifier={3}, TotalValue={4}, TotalModifier={5}, SumAdjustments={6}]", 
+                "[AbilityScore: Name={0}, Adjustments={1}, BaseValue={2}, TotalValue={3}, TotalModifier={4}, SumAdjustments={5}]", 
                 this.Ability, 
                 this.Modifiers, 
                 this.BaseValue, 
-                this.BaseModifier, 
                 this.TotalValue, 
                 this.TotalModifier, 
                 this.SumBasicModifiers());
+        }
+
+        public void Initialize(ComponentContainer components)
+        {
+            components.Add(this.abilityModifier);
         }
 
         public AbilityStatModifier UniversalStatModifier { get; private set; }

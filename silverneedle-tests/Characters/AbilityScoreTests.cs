@@ -7,6 +7,8 @@ namespace Tests.Characters {
     using Xunit;
     using SilverNeedle;
     using SilverNeedle.Characters;
+    using SilverNeedle.Serialization;
+    using SilverNeedle.Utility;
 
     
     public class AbilityScoreTests {
@@ -14,29 +16,29 @@ namespace Tests.Characters {
         [Fact]
         public void CalculateModifierScore() {
             var score = new AbilityScore (AbilityScoreTypes.Strength, 18);
-            Assert.Equal (4, score.BaseModifier);
+            Assert.Equal (4, score.TotalModifier);
 
             score = new AbilityScore (AbilityScoreTypes.Strength, 4);
-            Assert.Equal (-3, score.BaseModifier);
+            Assert.Equal (-3, score.TotalModifier);
 
             score = new AbilityScore (AbilityScoreTypes.Strength, 11);
-            Assert.Equal (0, score.BaseModifier);
+            Assert.Equal (0, score.TotalModifier);
 
             score = new AbilityScore (AbilityScoreTypes.Strength, 20);
-            Assert.Equal (5, score.BaseModifier);
+            Assert.Equal (5, score.TotalModifier);
 
             score = new AbilityScore (AbilityScoreTypes.Strength, 12);
-            Assert.Equal (1, score.BaseModifier);
+            Assert.Equal (1, score.TotalModifier);
 
 
             score = new AbilityScore (AbilityScoreTypes.Strength, 8);
-            Assert.Equal (-1, score.BaseModifier);
+            Assert.Equal (-1, score.TotalModifier);
 
             score = new AbilityScore (AbilityScoreTypes.Strength, 9);
-            Assert.Equal (-1, score.BaseModifier);
+            Assert.Equal (-1, score.TotalModifier);
 
             score = new AbilityScore (AbilityScoreTypes.Strength, 6);
-            Assert.Equal (-2, score.BaseModifier);
+            Assert.Equal (-2, score.TotalModifier);
         }
             
         [Fact]
@@ -58,6 +60,33 @@ namespace Tests.Characters {
             score.AddModifier (adj);
             Assert.Equal (17, score.TotalValue);
             Assert.Equal (3, score.TotalModifier);
+        }
+
+        [Fact]
+        public void AddsStatisticComponentsForScoreAndModifierToComponentBag()
+        {
+            var strength = new AbilityScore(AbilityScoreTypes.Strength, 16);
+            var container = new ComponentContainer();
+            container.Add(strength);
+            var score = container.FindStat("strength");
+            var modifier = container.FindStat("strength-modifier");
+
+            Assert.Equal(16, score.TotalValue);
+            Assert.Equal(3, modifier.TotalValue);
+        }
+
+        [Fact]
+        public void LoadsProperlyFromYamlConfiguration()
+        {
+            var yaml = @"---
+name: Strength
+base-value: 0";
+            var strength = new AbilityScore(yaml.ParseYaml());
+            Assert.Equal(0, strength.TotalValue);
+            Assert.Equal(-5, strength.TotalModifier);
+            Assert.Equal(AbilityScoreTypes.Strength, strength.Ability);
+            Assert.Equal("Strength", strength.Name);
+            Assert.NotNull(strength.UniversalStatModifier);
         }
     }
 }
