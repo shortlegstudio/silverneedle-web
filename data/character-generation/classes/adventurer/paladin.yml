@@ -2,17 +2,6 @@
 - class:
   name: Paladin
   skillpoints: 2
-  skills:
-    - Craft
-    - Diplomacy
-    - Handle Animal
-    - Heal
-    - Knowledge Nobility
-    - Knowledge Religion
-    - Profession
-    - Ride
-    - Sense Motive
-    - Spellcraft
   hitdice: d10
   baseattackbonus: 1
   fortitude: 0.667
@@ -22,6 +11,13 @@
   weaponproficiencies: [simple, martial]
   developedage: trained
   startingwealth: 5d6
+  attributes:
+    - attribute:
+      name: Class Skills
+      items:
+        - type: SilverNeedle.Characters.ClassSkills
+          skills: [Craft, Diplomacy, Handle Animal, Heal, Knowledge Nobility, 
+          Knowledge Religion, Profession, Ride, Sense Motive, Spellcraft]
   levels:
     - level: 1
       abilities:

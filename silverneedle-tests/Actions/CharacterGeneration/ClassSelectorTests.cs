@@ -69,20 +69,6 @@ namespace Tests.Actions
         }
 
         [Fact]
-        public void SettingClassAssignsClassSkills()
-        {
-            var character = new CharacterSheet(CharacterStrategy.Default());
-            character.SkillRanks.AddSkill(new Skill("Climb", AbilityScoreTypes.Strength, false));
-            
-            var cls = new Class();
-            cls.AddClassSkill("Climb");
-
-            subject.AssignClass(character, cls);
-
-            Assert.True(character.SkillRanks.GetSkill("Climb").ClassSkill);
-        }
-
-        [Fact]
         public void AddSpecialAbilitiesFromFirstLevelForClass()
         {
             var cls = new Class();

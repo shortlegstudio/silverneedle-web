@@ -2,17 +2,6 @@
 - class:
   name: Fighter
   skillpoints: 2
-  skills:
-    - Climb
-    - Craft
-    - Handle Animal
-    - Intimidate
-    - Knowledge Dungeoneering
-    - Knowledge Engineering
-    - Profession
-    - Ride
-    - Survival
-    - Swim
   hitdice: d10
   baseattackbonus: 1
   fortitude: 0.667
@@ -22,6 +11,13 @@
   weaponproficiencies: [simple, martial]
   developedage: trained
   startingwealth: 5d6
+  attributes:
+    - attribute:
+      name: Class Skills
+      items:
+        - type: SilverNeedle.Characters.ClassSkills
+          skills: [Climb, Craft, Handle Animal, Intimidate, Knowledge Dungeoneering,
+           Knowledge Engineering, Profession, Ride, Survival, Swim]
   levels:
     - level: 1
       class-feature-steps:

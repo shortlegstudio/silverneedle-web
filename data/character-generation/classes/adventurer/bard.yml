@@ -2,35 +2,6 @@
 - class:
   name: Bard
   skillpoints: 6
-  skills:
-    - Acrobatics
-    - Appraise
-    - Bluff
-    - Climb
-    - Craft
-    - Diplomacy
-    - Disguise
-    - Escape Artist
-    - Intimidate
-    - Knowledge Arcana
-    - Knowledge Dungeoneering
-    - Knowledge Engineering
-    - Knowledge Geography
-    - Knowledge History
-    - Knowledge Local
-    - Knowledge Nature
-    - Knowledge Nobility
-    - Knowledge Planes
-    - Knowledge Religion
-    - Linguistics
-    - Perception
-    - Perform
-    - Profession
-    - Sense Motive
-    - Sleight of Hand
-    - Spellcraft
-    - Stealth
-    - Use Magical Device
   hitdice: d6
   baseattackbonus: 0.75
   fortitude: 0.334
@@ -40,6 +11,17 @@
   weaponproficiencies: [simple, longsword, rapier, sap, short sword, shortbow, whip]
   developedage: trained
   startingwealth: 3d6
+  attributes:
+    - attribute:
+      name: Class Skills
+      items:
+        - type: SilverNeedle.Characters.ClassSkills
+          skills: [Acrobatics, Appraise, Bluff, Climb, Craft, Diplomacy, Disguise,
+          Escape Artist, Intimidate, Knowledge Arcana, Knowledge Dungeoneering,
+          Knowledge Engineering, Knowledge Geography, Knowledge History, Knowledge Local,
+          Knowledge Nature, Knowledge Nobility, Knowledge Planes, Knowledge Religion,
+          Linguistics, Perception, Perform, Profession, Sense Motive, Sleight of Hand,
+          Spellcraft, Stealth, Use Magical Device]
   levels:
     - level: 1
       abilities:

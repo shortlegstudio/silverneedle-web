@@ -2,17 +2,6 @@
 - class:
   name: Expert
   skillpoints: 6
-  skills:
-  - Climb
-  - Craft
-  - Handle Animal
-  - Heal
-  - Knowledge Engineering
-  - Knowledge Local
-  - Perception
-  - Profession
-  - Ride
-  - Swim
   hitdice: d8
   baseattackbonus: 0.667
   fortitude: 0.334
@@ -21,6 +10,13 @@
   weaponproficiencies: [simple]
   armorproficiencies: [light]
   developedage: Young
+  attributes: 
+    - attribute: 
+      name: Class Skills
+      items:
+        - type: SilverNeedle.Characters.ClassSkills
+          skills: [ Climb , Craft , Handle Animal , Heal , Knowledge Engineering
+          , Knowledge Local , Perception , Profession , Ride , Swim]
   levels: 
     - level: 1
       class-feature-steps:

@@ -74,5 +74,10 @@ namespace Tests
             var knownSpells = casting.GetKnownSpells(spellLevel);
             AssertExtensions.EquivalentLists(spells, knownSpells);
         }
+
+        public static void HasClassSkill(string className, CharacterSheet character)
+        {
+            Assert.True(character.SkillRanks.GetClassSkills().Any(x => x.Matches(className)));
+        }
     }
 }

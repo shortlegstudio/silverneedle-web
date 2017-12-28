@@ -2,14 +2,6 @@
 - class:
   name: Warrior
   skillpoints: 2
-  skills:
-  - Climb
-  - Craft
-  - Handle Animal
-  - Intimidate
-  - Profession
-  - Ride
-  - Swim
   hitdice: d10
   baseattackbonus: 1
   fortitude: 0.667
@@ -18,6 +10,12 @@
   weaponproficiencies: [simple, martial]
   armorproficiencies: [light, medium, heavy, shield, towershield]
   developedage: Young
+  attributes: 
+    - attribute: 
+      name: Class Skills
+      items:
+        - type: SilverNeedle.Characters.ClassSkills
+          skills: [ Climb , Craft , Handle Animal , Intimidate , Profession , Ride , Swim]
   levels: 
     - level: 1
       class-feature-steps:

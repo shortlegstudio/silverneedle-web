@@ -2,16 +2,6 @@
 - class:
   name: Sorcerer
   skillpoints: 2
-  skills:
-    - Appraise
-    - Bluff
-    - Craft
-    - Fly
-    - Intimidate
-    - Knowledge Arcana
-    - Profession
-    - Spellcraft
-    - Use Magical Device
   hitdice: d6
   baseattackbonus: 0.5
   fortitude: 0.334
@@ -20,6 +10,13 @@
   weaponproficiencies: [simple]
   developedage: young
   startingwealth: 2d6
+  attributes:
+    - attribute:
+      name: Class Skills
+      items:
+        - type: SilverNeedle.Characters.ClassSkills
+          skills: [Appraise , Bluff , Craft , Fly , Intimidate , Knowledge Arcana
+          , Profession , Spellcraft , Use Magical Device]
   levels:
     - level: 1
       abilities:

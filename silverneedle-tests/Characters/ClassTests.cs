@@ -52,15 +52,6 @@ namespace Tests.Characters {
         }
 
         [Fact]
-        public void YamlLoadedClassesShouldHaveClassSkills()
-        {
-            //Validate that the class skills are tracked
-            Assert.True(Fighter.IsClassSkill("Climb"));
-            Assert.True(Fighter.IsClassSkill("Swim"));
-            Assert.False(Fighter.IsClassSkill("Spellcraft"));
-        }
-
-        [Fact]
         public void YamlLoadedClassesShouldHaveSkillPoints()
         {
             Assert.Equal(2, Fighter.SkillPoints);
@@ -73,20 +64,6 @@ namespace Tests.Characters {
             Assert.Equal(DiceSides.d10, Fighter.HitDice);
             Assert.Equal(DiceSides.d8, Monk.HitDice);
             Assert.Equal(DiceSides.d6, Wizard.HitDice);
-        }
-
-        [Fact]
-        public void ClassesGetAllCraftSkillsIfEnabled()
-        {
-            Assert.True(Fighter.IsClassSkill("Craft (Weapons)"));
-            Assert.True(Monk.IsClassSkill("Perform (Dance)"));
-            Assert.False(Fighter.IsClassSkill("Perform (Act)"));
-            Assert.True(Wizard.IsClassSkill("Profession (Farmer)"));
-
-            //Making sure poor implementation is not used
-            Assert.False(Fighter.IsClassSkill("Spellcraft"));
-            Assert.False(Monk.IsClassSkill("Performance Analysis"));
-            Assert.False(Wizard.IsClassSkill("Professional Wrestler"));
         }
 
         [Fact]
@@ -189,11 +166,6 @@ namespace Tests.Characters {
 - class: 
   name: Fighter
   skillpoints: 2
-  skills: 
-    - Climb
-    - Swim
-    - Craft
-    - Profession
   hitdice: d10
   baseattackbonus: 1
   fortitude: 0.667
@@ -203,6 +175,12 @@ namespace Tests.Characters {
   weaponproficiencies: [simple, martial]
   developedage: Trained
   startingwealth: 3d6
+  attributes:
+    - attribute:
+      name: Class Skills
+      items:
+        - type: SilverNeedle.Characters.ClassSkills
+          skills: [Climb, Swim, Craft, Profession]
   levels:
     - level: 1      
     - level: 2
@@ -210,12 +188,6 @@ namespace Tests.Characters {
 - class: 
   name: Monk
   skillpoints: 4
-  skills:
-    - Acrobatics
-    - Climb
-    - Craft
-    - Perform
-    - Profession
   hitdice: d8
   baseattackbonus: 0.75
   fortitude: 0.667
@@ -225,6 +197,12 @@ namespace Tests.Characters {
   developedage: Studied
   startingwealth: 1d6
   custom-build-step: SilverNeedle.Namespace.ClassName
+  attributes:
+    - attribute:
+      name: Class Skills
+      items:
+        - type: SilverNeedle.Characters.ClassSkills
+          skills: [Acrobatics, Climb, Craft, Perform, Profession]
   levels:
     - level: 1      
     - level: 2
@@ -234,11 +212,6 @@ namespace Tests.Characters {
 - class: 
   name: Wizard
   skillpoints: 4
-  skills:
-    - Craft
-    - Profession
-    - Knowledge Arcana
-    - Spellcraft
   hitdice: d6
   baseattackbonus: 0.5
   reflex: 0.334
@@ -246,6 +219,12 @@ namespace Tests.Characters {
   will: 0.667
   weaponproficiencies: [club, dagger, crossbow]
   developedage: Studied 
+  attributes:
+    - attribute:
+      name: Class Skills
+      items:
+        - type: SilverNeedle.Characters.ClassSkills
+          skills: [Craft,  Profession, Knowledge Arcana, Spellcraft]
   levels:
     - level: 1      
     - level: 2

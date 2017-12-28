@@ -44,11 +44,6 @@ namespace SilverNeedle.Actions.CharacterGeneration
         public void AssignClass(CharacterSheet character, Class cls) 
         {
             character.SetClass(cls);
-            
-            foreach(var skill in cls.ClassSkills)
-            {
-                character.SkillRanks.SetClassSkill(skill);
-            }
             var firstClassLevel = cls.GetLevel(1);
             character.ProcessLevel(firstClassLevel);            
         }

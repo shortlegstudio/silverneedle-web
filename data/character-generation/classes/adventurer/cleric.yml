@@ -2,20 +2,6 @@
 - class:
   name: Cleric
   skillpoints: 2
-  skills:
-    - Appraise
-    - Craft
-    - Diplomacy
-    - Heal
-    - Knowledge Arcana
-    - Knowledge History
-    - Knowledge Nobility
-    - Knowledge Planes
-    - Knowledge Religion
-    - Linguistics
-    - Profession
-    - Sense Motive
-    - Spellcraft
   hitdice: d8
   baseattackbonus: 0.75
   fortitude: 0.667
@@ -25,6 +11,14 @@
   weaponproficiencies: [simple]
   developedage: studied
   startingwealth: 4d6
+  attributes:
+    - attribute:
+      name: Class Skills
+      items:
+        - type: SilverNeedle.Characters.ClassSkills
+          skills: [Appraise, Craft, Diplomacy, Heal, Knowledge Arcana, Knowledge History,
+          Knowledge Nobility, Knowledge Planes, Knowledge Religion, Linguistics, 
+          Profession, Sense Motive, Spellcraft]
   levels:
     - level: 1
       abilities:

@@ -2,17 +2,6 @@
 - class:
   name: Barbarian
   skillpoints: 4
-  skills:
-    - Acrobatics
-    - Climb
-    - Craft
-    - Handle Animal
-    - Intimidate
-    - Knowledge Nature
-    - Perception
-    - Ride
-    - Survival
-    - Swim
   hitdice: d12
   baseattackbonus: 1
   fortitude: 0.667
@@ -22,6 +11,13 @@
   weaponproficiencies: [simple, martial]
   developedage: Young
   startingwealth: 3d6
+  attributes: 
+    - attribute: 
+      name: Class Skills
+      items:
+        - type: SilverNeedle.Characters.ClassSkills
+          skills: [Acrobatics, Climb, Craft, Handle Animal, Intimidate, Knowledge Nature,
+          Perception, Ride, Survival, Swim]
   levels:
     - level: 1
       class-feature-steps:

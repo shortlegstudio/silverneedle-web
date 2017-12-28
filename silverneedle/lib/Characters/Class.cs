@@ -16,7 +16,7 @@ namespace SilverNeedle.Characters
   /// <summary>
   /// Represents a character's Class or profession
   /// </summary>
-    public class Class : IGatewayObject
+    public class Class : CharacterFeature, IGatewayObject
     {
         public static Class None { get { return new Class(); } }
 
@@ -37,14 +37,16 @@ namespace SilverNeedle.Characters
         /// </summary>
         public Class()
         {
-            this.ClassSkills = new List<string>();
             this.ArmorProficiencies = new List<string>();
             this.WeaponProficiencies = new List<string>();
             this.Levels = new List<Level>();
         }
 
-        public Class(IObjectStore data) : this()
+        public Class(IObjectStore data) : base(data)
         {
+            this.ArmorProficiencies = new List<string>();
+            this.WeaponProficiencies = new List<string>();
+            this.Levels = new List<Level>();
             LoadFromObjectStore(data);
         }
 
@@ -58,13 +60,6 @@ namespace SilverNeedle.Characters
         /// </summary>
         /// <value>The class name.</value>
         public string Name { get; set; }
-
-        /// <summary>
-        /// Gets or sets the class skills. These are skills this class is more
-        /// capable in.
-        /// </summary>
-        /// <value>The class skills.</value>
-        public IList<string> ClassSkills { get; set; }
 
         /// <summary>
         /// Gets or sets the skill points per level
@@ -150,41 +145,6 @@ namespace SilverNeedle.Characters
             get { return this.WillSaveRate == GoodSaveRate; }
         }
 
-        /// <summary>
-        /// Determines whether this class treats the skill as a class skills.
-        /// </summary>
-        /// <returns><c>true</c> if this skill is a class skill; otherwise, <c>false</c>.</returns>
-        /// <param name="name">Name of the skill.</param>
-        public bool IsClassSkill(string name)
-        {
-            // Craft, Profession, and Perform are special cases 
-            // All skills in that group are considered class skills 
-            // in this case 
-            //
-            // Truncate any skill names like 'Craft (Food)' -> Craft
-            // Profession (Farmer) => Profession
-            // etc...
-            var pattern = "(\\(.*\\))";
-            var skillName = Regex.Replace(name, pattern, string.Empty).Trim();
-            return this.ClassSkills.Any(x => x == skillName);
-        }
-
-        /// <summary>
-        /// Adds a class skill.
-        /// </summary>
-        /// <param name="name">Name of the skill.</param>
-        public void AddClassSkill(string name)
-        {
-            if (!this.IsClassSkill(name))
-            {
-                this.ClassSkills.Add(name);
-            }
-            else
-            {
-                ShortLog.Debug("Not adding class skill as it already is there: " + name);
-            }
-        }
-
         public Level GetLevel(int levelNumber)
         {
             var l = Levels.FirstOrDefault(x => x.Number == levelNumber);
@@ -213,13 +173,6 @@ namespace SilverNeedle.Characters
 
             var weapons = data.GetListOptional("weaponproficiencies");
             WeaponProficiencies.Add(weapons);
-
-            // Get the Skills for this class
-            var skills = data.GetObject("skills").Children;
-            foreach (var s in skills)
-            {
-                AddClassSkill(s.Value);
-            }
 
             //Load Levels
             var levels = data.GetObjectOptional("levels");

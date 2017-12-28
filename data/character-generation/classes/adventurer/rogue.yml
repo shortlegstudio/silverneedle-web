@@ -2,28 +2,6 @@
 - class:
   name: Rogue
   skillpoints: 8
-  skills:
-    - Acrobatics
-    - Appraise
-    - Bluff
-    - Climb
-    - Craft
-    - Diplomacy
-    - Disable Device
-    - Disguise
-    - Escape Artist
-    - Intimidate
-    - Knowledge Dungeoneering
-    - Knowledge Local
-    - Linguistics
-    - Perception
-    - Perform
-    - Profession
-    - Sense Motive
-    - Sleight of Hand
-    - Stealth
-    - Swim
-    - Use Magical Device
   hitdice: d8
   baseattackbonus: 0.75
   fortitude: 0.334
@@ -33,6 +11,15 @@
   weaponproficiencies: [simple, hand crossbow, rapier, sap, shortbow, short sword]
   developedage: young
   startingwealth: 4d6
+  attributes:
+    - attribute:
+      name: Class Skills
+      items:
+        - type: SilverNeedle.Characters.ClassSkills
+          skills: [Acrobatics , Appraise , Bluff , Climb , Craft , Diplomacy , Disable Device
+          , Disguise , Escape Artist , Intimidate , Knowledge Dungeoneering , Knowledge Local
+          , Linguistics , Perception , Perform , Profession , Sense Motive , Sleight of Hand
+          , Stealth , Swim , Use Magical Device]
   levels:
     - level: 1
       abilities:

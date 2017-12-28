@@ -2,21 +2,18 @@
 - class:
   name: Commoner
   skillpoints: 2
-  skills:
-  - Climb
-  - Craft
-  - Handle Animal
-  - Perception
-  - Perform
-  - Profession
-  - Ride
-  - Swim
   hitdice: d6
   baseattackbonus: 0.5
   fortitude: 0.334
   reflex: 0.334
   will: 0.334
   developedage: Young
+  attributes: 
+    - attribute: 
+      name: Class Skills
+      items:
+        - type: SilverNeedle.Characters.ClassSkills
+          skills: [ Climb , Craft , Handle Animal , Perception , Perform , Profession , Ride , Swim]
   levels:
     - level: 1
       class-feature-steps:

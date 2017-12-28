@@ -2,22 +2,6 @@
 - class:
   name: Ranger
   skillpoints: 6
-  skills:
-    - Climb
-    - Craft
-    - Handle Animal
-    - Heal
-    - Intimidate
-    - Knowledge Dungeoneering
-    - Knowledge Geography
-    - Knowledge Nature
-    - Perception
-    - Profession
-    - Ride
-    - Spellcraft
-    - Stealth
-    - Survival
-    - Swim
   hitdice: d10
   baseattackbonus: 1
   fortitude: 0.667
@@ -27,6 +11,14 @@
   weaponproficiencies: [simple, martial]
   developedage: trained
   startingwealth: 5d6
+  attributes:
+    - attribute:
+      name: Class Skills
+      items:
+        - type: SilverNeedle.Characters.ClassSkills
+          skills: [Climb, Craft, Handle Animal, Heal, Intimidate, Knowledge Dungeoneering,
+          Knowledge Geography, Knowledge Nature, Perception, Profession, Ride, Spellcraft,
+          Stealth, Survival, Swim]
   levels:
     - level: 1
       abilities:

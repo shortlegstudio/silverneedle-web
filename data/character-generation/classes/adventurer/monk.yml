@@ -2,21 +2,6 @@
 - class:
   name: Monk
   skillpoints: 4
-  skills:
-    - Acrobatics
-    - Climb
-    - Craft
-    - Escape Artist
-    - Intimidate
-    - Knowledge History
-    - Knowledge Religion
-    - Perception
-    - Perform
-    - Profession
-    - Ride
-    - Sense Motive
-    - Stealth
-    - Swim
   hitdice: d8
   baseattackbonus: 0.75
   fortitude: 0.667
@@ -25,6 +10,13 @@
   weaponproficiencies: [club, light crossbow, heavy crossbow, dagger, handaxe, javelin, kama, nunchaku, quarterstaff, sai, shortspear, short sword, shuriken, siangham, sling, spear, unarmed]
   developedage: studied
   startingwealth: 1d6
+  attributes:
+    - attribute:
+      name: Class Skills
+      items:
+        - type: SilverNeedle.Characters.ClassSkills
+          skills: [Acrobatics, Climb, Craft, Escape Artist, Intimidate, Knowledge History,
+          Knowledge Religion, Perception, Perform, Profession, Ride, Sense Motive, Stealth, Swim]
   levels:
     - level: 1
       abilities:

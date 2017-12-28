@@ -2,20 +2,6 @@
 - class:
   name: Druid
   skillpoints: 4
-  skills:
-    - Climb
-    - Craft
-    - Fly
-    - Handle Animal
-    - Heal
-    - Knowledge Geography
-    - Knowledge Nature
-    - Perception
-    - Profession
-    - Ride
-    - Spellcraft
-    - Survival
-    - Swim
   hitdice: d8
   baseattackbonus: 0.75
   fortitude: 0.667
@@ -25,6 +11,13 @@
   weaponproficiencies: [club, dagger, dart, quarterstaff, scimitar, scythe, sickle, shortspear, sling, spear]
   developedage: studied
   startingwealth: 2d6
+  attributes:
+    - attribute:
+      name: Class Skills
+      items:
+        - type: SilverNeedle.Characters.ClassSkills
+          skills: [Climb, Craft, Fly, Handle Animal, Heal, Knowledge Geography,
+          Knowledge Nature, Perception, Profession, Ride, Spellcraft, Survival, Swim]
   levels:
     - level: 1
       abilities:

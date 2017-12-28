@@ -3,22 +3,6 @@
   name: Wizard
   skillpoints: 2
   skills:
-    - Appraise
-    - Craft
-    - Fly
-    - Knowledge Arcana
-    - Knowledge Dungeoneering
-    - Knowledge Engineering
-    - Knowledge Geography
-    - Knowledge History
-    - Knowledge Local
-    - Knowledge Nature
-    - Knowledge Nobility
-    - Knowledge Planes
-    - Knowledge Religion
-    - Linguistics
-    - Profession
-    - Spellcraft
   hitdice: d6
   baseattackbonus: 0.5
   fortitude: 0.334
@@ -27,6 +11,15 @@
   weaponproficiencies: [club, dagger, heavy crossbow, light crossbow, quarterstaff]
   developedage: studied
   startingwealth: 2d6
+  attributes:
+    - attribute:
+      name: Class Skills
+      items:
+        - type: SilverNeedle.Characters.ClassSkills
+          skills: [ Appraise , Craft , Fly , Knowledge Arcana , Knowledge Dungeoneering
+          , Knowledge Engineering , Knowledge Geography , Knowledge History , Knowledge Local
+          , Knowledge Nature , Knowledge Nobility , Knowledge Planes , Knowledge Religion , Linguistics
+          , Profession , Spellcraft]
   levels:
     - level: 1
       abilities:
