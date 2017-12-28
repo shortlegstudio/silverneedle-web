@@ -48,18 +48,6 @@ namespace SilverNeedle.Characters
         }
 
         /// <summary>
-        /// Gets the ability based on the string name of the ability.
-        /// This can trigger exceptions if the ability does not match a type or if the
-        /// ability is not found in this container
-        /// </summary>
-        /// <returns>The ability that was found.</returns>
-        /// <param name="ability">Ability to find.</param>
-        public AbilityScore GetAbility(string ability)
-        {
-            return this.GetAbility(AbilityScore.GetType(ability));
-        }
-
-        /// <summary>
         /// Gets the score for an ability
         /// </summary>
         /// <returns>The ability score.</returns>
@@ -90,16 +78,6 @@ namespace SilverNeedle.Characters
         }
 
         /// <summary>
-        /// Sets the score for an ability
-        /// </summary>
-        /// <param name="ability">Ability score.</param>
-        /// <param name="val">Value for the new ability score.</param>
-        public void SetScore(string ability, int val)
-        {
-            this.SetScore(AbilityScore.GetType(ability), val);
-        }
-
-        /// <summary>
         /// Gets the modifier for an ability
         /// </summary>
         /// <returns>The modifier score for the ability.</returns>
@@ -107,16 +85,6 @@ namespace SilverNeedle.Characters
         public int GetModifier(AbilityScoreTypes ability)
         {
             return this.abilities[ability].TotalModifier;
-        }
-
-        /// <summary>
-        /// Gets the modifier for an ability
-        /// </summary>
-        /// <returns>The modifier score for the ability.</returns>
-        /// <param name="ability">Ability to find</param>
-        public int GetModifier(string ability)
-        {
-            return this.GetModifier(AbilityScore.GetType(ability));
         }
 
         public AbilityStatModifier GetStatModifier(AbilityScoreTypes ability)
