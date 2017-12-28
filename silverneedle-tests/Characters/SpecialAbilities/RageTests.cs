@@ -37,12 +37,12 @@ namespace Tests.Characters.SpecialAbilities
             data.SetValue("will", 2);
             data.SetValue("armor-class", -2);
             var rage = new Rage(data);
-            var character = new CharacterSheet(CharacterStrategy.Default());
+            var character = CharacterTestTemplates.AverageBob();
             character.Add(rage);
             Assert.Equal(character.Defense.BaseArmorClass.TotalValue, 8);
             Assert.Equal(character.Defense.WillSave.TotalValue, 2);
-            Assert.Equal(character.AbilityScores.GetScore(AbilityScoreTypes.Strength), 4);
-            Assert.Equal(character.AbilityScores.GetScore(AbilityScoreTypes.Constitution), 4);
+            Assert.Equal(14, character.AbilityScores.GetScore(AbilityScoreTypes.Strength));
+            Assert.Equal(14, character.AbilityScores.GetScore(AbilityScoreTypes.Constitution));
         }
 
         [Fact]

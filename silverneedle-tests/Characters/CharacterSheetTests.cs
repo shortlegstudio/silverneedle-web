@@ -90,7 +90,7 @@ namespace Tests.Characters
         [Fact]
         public void ExposeAllStats()
         {
-            var character = new CharacterSheet(CharacterStrategy.Default());
+            var character = CharacterTestTemplates.AverageBob();
             var ac = character.FindStat("Armor Class");
             var str = character.FindStat("Strength");
             var willSave = character.FindStat(StatNames.WillSave);
