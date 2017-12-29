@@ -79,5 +79,13 @@ namespace Tests
         {
             Assert.True(character.SkillRanks.GetClassSkills().Any(x => x.Matches(className)));
         }
+
+        public static void HasWillSave(int modifier, string condition, CharacterSheet character)
+        {
+            Assert.Equal(
+                modifier,
+                character.Defense.WillSave.GetConditionalValue(condition)
+            );
+        }
     }
 }

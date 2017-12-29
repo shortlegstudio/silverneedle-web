@@ -26,15 +26,18 @@
         - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
           options: [combat]
     - level: 2
+      attributes:
+        - attribute:
+          name: Bravery 
+          items:
+            - type: SilverNeedle.ConditionalStatModifier
+              name: Will
+              modifier: 1
+              modifier-type: bonus
+              condition: fear
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
           options: [combat]
-      modifiers:      
-        - name: Bravery +1
-          stat: Will
-          modifier: 1
-          type: bonus
-          condition: fear
     - level: 3
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureArmorTraining
@@ -48,15 +51,18 @@
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureWeaponTraining
           level: 1
     - level: 6
+      attributes:
+        - attribute:
+          name: Bravery +2
+          items:
+            - type: SilverNeedle.ConditionalStatModifier
+              name: Will
+              modifier: 1
+              modifier-type: bonus
+              condition: fear
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
           options: [combat]
-      modifiers:
-        - name: Bravery +2
-          stat: Will
-          modifier: 1
-          type: bonus
-          condition: fear
     - level: 7
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureArmorTraining
@@ -70,15 +76,18 @@
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureWeaponTraining
           level: 2
     - level: 10
+      attributes:
+        - attribute:
+          name: Bravery +3
+          items:
+            - type: SilverNeedle.ConditionalStatModifier
+              name: Will
+              modifier: 1
+              modifier-type: bonus
+              condition: fear
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
           options: [combat]
-      modifiers:
-        - name: Bravery +3
-          stat: Will
-          modifier: 1
-          type: bonus
-          condition: fear
     - level: 11
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureArmorTraining
@@ -92,15 +101,18 @@
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureWeaponTraining
           level: 3
     - level: 14
+      attributes:
+        - attribute:
+          name: Bravery +4
+          items:
+            - type: SilverNeedle.ConditionalStatModifier
+              name: Will
+              modifier: 1
+              modifier-type: bonus
+              condition: fear
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
           options: [combat]
-      modifiers:
-        - name: Bravery +4
-          stat: Will
-          modifier: 1
-          type: bonus
-          condition: fear
     - level: 15
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureArmorTraining
@@ -114,15 +126,18 @@
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureWeaponTraining
           level: 4
     - level: 18
+      attributes:
+        - attribute:
+          name: Bravery +5
+          items:
+            - type: SilverNeedle.ConditionalStatModifier
+              name: Will
+              modifier: 1
+              modifier-type: bonus
+              condition: fear
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
           options: [combat]
-      modifiers:
-        - name: Bravery +5
-          stat: Will
-          modifier: 1
-          type: bonus
-          condition: fear
     - level: 19
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureArmorMastery

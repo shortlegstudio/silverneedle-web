@@ -281,6 +281,7 @@ namespace SilverNeedle.Characters
 
         public void ProcessLevel(Level level)
         {
+            this.Components.Add(level);
             this.Components.ApplyStatModifiers(level.Modifiers);
         }
             

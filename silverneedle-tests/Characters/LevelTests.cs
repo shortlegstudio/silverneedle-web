@@ -22,7 +22,7 @@ namespace Tests.Characters
         private IObjectStore fighter3;
         public LevelTests() 
         {
-            fighter = fighterLevel.ParseYaml().Children.First();
+            fighter = fighterLevel.ParseYaml();
             rogue = rogueLevel.ParseYaml().Children.First();
             adept = adeptLevel.ParseYaml().Children.First();
             fighter3 = fighterLevel3.ParseYaml().Children.First();
@@ -40,13 +40,9 @@ namespace Tests.Characters
         public void LevelsCanModifyStats()
         {
             var level = new Level(fighter);
-            Assert.Equal(1, level.Modifiers.Count);
-            var mod = level.Modifiers.First() as ConditionalStatModifier;
-            Assert.Equal("Will", mod.StatisticName);
-            Assert.Equal(1, mod.Modifier);
-            Assert.Equal("Level (2) Bravery +2", mod.Reason);
-            Assert.Equal("bonus", mod.Type);
-            Assert.Equal("fear", mod.Condition);
+            var character = CharacterTestTemplates.AverageBob();
+            character.Add(level);
+            AssertCharacter.HasWillSave(1, "fear", character);
         }
 
         [Fact]
@@ -86,14 +82,17 @@ namespace Tests.Characters
 
         }
         const string fighterLevel = @"---
-- level: 2
-  modifiers:
-    - name: Bravery +2
-      stat: Will
-      modifier: 1
-      type: bonus
-      condition: fear
-...";
+level: 2
+attributes:
+  - attribute: 
+    name: Bravery +1
+    items:
+      - type: SilverNeedle.ConditionalStatModifier
+        name: Will
+        modifier: 1
+        modifier-type: bonus
+        condition: fear
+";
 
         const string rogueLevel = @"---
 - level: 2

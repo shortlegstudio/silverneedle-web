@@ -12,7 +12,7 @@ namespace SilverNeedle.Characters
     using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
-    public class Level 
+    public class Level : CharacterFeature
     {
         public IList<IStatModifier> Modifiers { get; private set; }
 
@@ -36,8 +36,11 @@ namespace SilverNeedle.Characters
             abilityClassNames = new Dictionary<string, IObjectStore>();
         }
 
-        public Level(IObjectStore objectStore) : this()
+        public Level(IObjectStore objectStore) : base(objectStore)
         {
+            Modifiers = new List<IStatModifier>();
+            Steps = new List<ICharacterDesignStep>();
+            abilityClassNames = new Dictionary<string, IObjectStore>();
             Load(objectStore);
         }
 
