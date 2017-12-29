@@ -28,14 +28,9 @@ namespace SilverNeedle
         /// </summary>
         private IList<IStatModifier> statModifiers;
 
-        /// <summary>
-        /// The conditional modifiers. This is a HACK and should be handled more gracefully
-        /// </summary>
-        private IList<ConditionalStatModifier> conditionalModifiers;
         protected BasicStat()
         {
             this.statModifiers = new List<IStatModifier>();
-            this.conditionalModifiers = new List<ConditionalStatModifier>();
             this.Maximum = 123456789; //Set default max to weird number in case it comes into play in the future
             this.Minimum = -123456789; //Set default max to weird number in case it comes into play in the future
             this.UseModifierString = true;
@@ -110,7 +105,7 @@ namespace SilverNeedle
         /// <value>The sum basic modifiers.</value>
         public virtual int SumBasicModifiers()
         {
-            return this.statModifiers.Sum(x => x.Modifier).FloorToInt(); 
+            return GetStandardModifiers().Sum(x => x.Modifier).FloorToInt(); 
         }
 
         /// <summary>
@@ -120,23 +115,7 @@ namespace SilverNeedle
         /// <remarks>Triggers a modified event even if the Total Value does not change</remarks>
         public void AddModifier(IStatModifier modifier)
         {
-            // HACK: This is a hack job I think. Shouldn't check type to get proper behavior
-            if (modifier is ConditionalStatModifier)
-            {
-                this.AddModifier((ConditionalStatModifier)modifier);
-                return;
-            }
-
             this.statModifiers.Add(modifier);
-        }
-
-        /// <summary>
-        /// Adds a conditional modifier
-        /// </summary>
-        /// <param name="conditional">Conditional modifier to add.</param>
-        public void AddModifier(ConditionalStatModifier conditional)
-        {
-            this.conditionalModifiers.Add(conditional);
         }
 
         public void AddModifiers(params IStatModifier[] modifiers)
@@ -170,7 +149,7 @@ namespace SilverNeedle
         /// <returns>The conditions available to the stat</returns>
         public IEnumerable<string> GetConditions()
         {
-            return this.conditionalModifiers.GroupBy(x => x.Condition).Select(x => x.Key);
+            return this.GetConditionalModifiers().GroupBy(x => x.Condition).Select(x => x.Key);
         }
 
         /// <summary>
@@ -180,7 +159,7 @@ namespace SilverNeedle
         /// <param name="condition">Condition to calculate from</param>
         public int GetConditionalValue(string condition)
         {
-            var conditions = this.conditionalModifiers.Where(x => x.Condition == condition);
+            var conditions = this.GetConditionalModifiers().Where(x => x.Condition == condition);
             return this.TotalValue + (int)conditions.Sum(x => x.Modifier);
         }
 
@@ -250,6 +229,16 @@ namespace SilverNeedle
         public virtual bool Matches(string name)
         {
             return this.Name.EqualsIgnoreCase(name);
+        }
+
+        private IEnumerable<IStatModifier> GetStandardModifiers()
+        {
+            return this.statModifiers.Where(x => string.IsNullOrEmpty(x.Condition));
+        }
+
+        private IEnumerable<IStatModifier> GetConditionalModifiers()
+        {
+            return this.statModifiers.Where(x => !string.IsNullOrEmpty(x.Condition));
         }
     }
 }

@@ -73,5 +73,6 @@ namespace SilverNeedle
         /// </summary>
         /// <value>The name of the statistic.</value>
         public virtual string StatisticName { get; set; }
+        public string Condition { get; set; }
     }
 }

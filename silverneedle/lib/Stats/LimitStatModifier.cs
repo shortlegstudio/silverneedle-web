@@ -41,5 +41,6 @@ namespace SilverNeedle
         public string Type { get { return "Maximum"; } }
 
         public string StatisticName { get { return baseStat.Name; } }
+        public string Condition { get; set; }
     }
 }

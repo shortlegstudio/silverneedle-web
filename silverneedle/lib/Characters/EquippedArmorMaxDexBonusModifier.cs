@@ -31,5 +31,6 @@ namespace SilverNeedle.Characters
 
         public string Type { get { return "Max Dex"; } }
         public string StatisticName { get { return StatNames.MaxDexterityBonus; } }
+        public string Condition { get; set; }
     }
 }

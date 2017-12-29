@@ -17,6 +17,7 @@ namespace SilverNeedle.Characters.Attacks
         public string Type { get { return "Bonus"; } }
 
         public string StatisticName { get { return "Weapon Damage"; } }
+        public string Condition { get; set; }
         public WeaponDamageModifier(string reason, float modifier, Func<IWeaponAttackStatistics, bool> weaponQualifies)
         {
             this.Modifier = modifier;

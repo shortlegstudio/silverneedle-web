@@ -37,5 +37,6 @@ namespace SilverNeedle.Characters
         public string Type { get { return "Armor"; } }
 
         public string StatisticName { get { return StatNames.ArmorClass; } }
+        public string Condition { get; set; }
     }
 }

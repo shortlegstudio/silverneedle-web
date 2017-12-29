@@ -11,5 +11,6 @@ namespace SilverNeedle
         string Reason { get; }
         string Type { get; }
         string StatisticName { get; }
+        string Condition { get; }
     }
 }

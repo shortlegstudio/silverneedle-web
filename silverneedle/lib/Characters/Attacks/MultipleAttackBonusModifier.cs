@@ -20,6 +20,7 @@ namespace SilverNeedle.Characters.Attacks
         public string Type { get { return "penalty"; } }
 
         public string StatisticName { get { return StatNames.BaseAttackBonus; } } 
+        public string Condition { get; set; }
 
         private static IList<ConditionalStatModifier> multipleAttackList;
         private static int attacksToSupport = 10;

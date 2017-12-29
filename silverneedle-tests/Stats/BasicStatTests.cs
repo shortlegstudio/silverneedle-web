@@ -25,7 +25,8 @@ namespace Tests.Stats
         public void StatModifiersCanHaveConditionalModifiers() 
         {
             var stat = new BasicStat("TestStat", 10);
-            var mod = new ConditionalStatModifier(new ValueStatModifier("Skill", 5, "bonus", "Feat"),"vs. Giants");
+            var mod = new ValueStatModifier("Skill", 5, "bonus", "Feat");
+            mod.Condition = "vs. Giants";
             stat.AddModifier(mod);
             Assert.Equal(10, stat.TotalValue);
             Assert.Equal(15, stat.GetConditionalValue("vs. Giants"));

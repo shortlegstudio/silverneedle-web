@@ -18,6 +18,7 @@ namespace SilverNeedle
         public string Type { get; private set; }
 
         public string StatisticName { get; private set; }
+        public string Condition { get; set; }
 
         public DelegateStatModifier(string statName, string type, string reason, Func<float> calculation)
             : this(statName, type, reason)
