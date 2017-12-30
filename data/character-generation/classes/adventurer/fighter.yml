@@ -30,9 +30,12 @@
         - attribute:
           name: Bravery 
           items:
-            - type: SilverNeedle.ConditionalStatModifier
+            - type: SilverNeedle.Characters.CapabilityStatistic
+              name: Bravery
+              base-value: 1
+            - type: SilverNeedle.StatisticStatModifier
               name: Will
-              modifier: 1
+              modifier: Bravery
               modifier-type: bonus
               condition: fear
       class-feature-steps:
@@ -55,11 +58,10 @@
         - attribute:
           name: Bravery +2
           items:
-            - type: SilverNeedle.ConditionalStatModifier
-              name: Will
+            - type: SilverNeedle.ValueStatModifier
+              name: Bravery
               modifier: 1
               modifier-type: bonus
-              condition: fear
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
           options: [combat]
@@ -80,11 +82,10 @@
         - attribute:
           name: Bravery +3
           items:
-            - type: SilverNeedle.ConditionalStatModifier
-              name: Will
+            - type: SilverNeedle.ValueStatModifier
+              name: Bravery
               modifier: 1
               modifier-type: bonus
-              condition: fear
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
           options: [combat]
@@ -105,11 +106,10 @@
         - attribute:
           name: Bravery +4
           items:
-            - type: SilverNeedle.ConditionalStatModifier
-              name: Will
+            - type: SilverNeedle.ValueStatModifier
+              name: Bravery
               modifier: 1
               modifier-type: bonus
-              condition: fear
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
           options: [combat]
@@ -130,11 +130,10 @@
         - attribute:
           name: Bravery +5
           items:
-            - type: SilverNeedle.ConditionalStatModifier
-              name: Will
+            - type: SilverNeedle.ValueStatModifier
+              name: Bravery
               modifier: 1
               modifier-type: bonus
-              condition: fear
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
           options: [combat]

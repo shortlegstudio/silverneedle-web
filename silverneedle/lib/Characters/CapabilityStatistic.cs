@@ -6,12 +6,18 @@
 namespace SilverNeedle.Characters
 {
     using SilverNeedle.Serialization;
+    using SilverNeedle.Utility;
 
-    public class CapabilityStatistic : BasicStat
+    public class CapabilityStatistic : BasicStat, IAbility
     {
         public CapabilityStatistic(IObjectStore configuration) : base(configuration)
         {
 
+        }
+
+        public string DisplayString()
+        {
+            return "{0} {1}".Formatted(this.Name, this.TotalValue.ToModifierString());
         }
     }
 }
