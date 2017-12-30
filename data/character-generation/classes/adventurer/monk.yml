@@ -19,6 +19,19 @@
           Knowledge Religion, Perception, Perform, Profession, Ride, Sense Motive, Stealth, Swim]
   levels:
     - level: 1
+      attributes:
+        - attribute:
+          name: Monk Bonus Feats - Level 1 
+          items:
+            - type: SilverNeedle.Characters.FeatToken
+              tags: [improved unarmed strike]
+              ignore-prerequisites: true
+            - type: SilverNeedle.Characters.FeatToken
+              tags: [stunning fist]
+              ignore-prerequisites: true
+            - type: SilverNeedle.Characters.FeatToken
+              tags: [Catch Off-Guard, Combat Reflexes, Deflect Arrows, Dodge, Improved Grapple, Scorpion Style, Throw Anything]
+              ignore-prerequisites: true
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.MonkArmorClassBonus
         - ability: SilverNeedle.Characters.SpecialAbilities.MonkUnarmedStrike
@@ -28,22 +41,16 @@
           clothes: [Monk's outfit, Peasant's outfit]
         - step: SilverNeedle.Actions.CharacterGeneration.LimitAlignment
           deny: [NeutralGood, ChaoticGood, Neutral, ChaoticNeutral, NeutralEvil, ChaoticEvil]
-        - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
-          options: [Improved Unarmed Strike]
-          ignore-prerequisites: true
-        - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
-          options: [Stunning Fist]
-          ignore-prerequisites: true
-        - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
-          options: [Catch Off-Guard, Combat Reflexes, Deflect Arrows, Dodge, Improved Grapple, Scorpion Style, Throw Anything]
-          ignore-prerequisites: true
     - level: 2
+      attributes:
+        - attribute:
+          name: Monk Bonus Feats - Level 2
+          items:
+            - type: SilverNeedle.Characters.FeatToken
+              tags: [Catch Off-Guard, Combat Reflexes, Deflect Arrows, Dodge, Improved Grapple, Scorpion Style, Throw Anything]
+              ignore-prerequisites: true
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.Evasion
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
-          options: [Catch Off-Guard, Combat Reflexes, Deflect Arrows, Dodge, Improved Grapple, Scorpion Style, Throw Anything]
-          ignore-prerequisites: true
     - level: 3
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.MonkFastMovement
@@ -59,12 +66,14 @@
         - ability: SilverNeedle.Characters.SpecialAbilities.HighJump
         - ability: SilverNeedle.Characters.SpecialAbilities.PurityOfBody
     - level: 6
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
-          options: [Catch Off-Guard, Combat Reflexes, Deflect Arrows, Dodge, Improved Grapple, Scorpion Style, Throw Anything
-            Gorgon's Fist, Improved Bull Rush, Improved Disarm, Improved Feint, Improved Trip, Mobility
-          ]
-          ignore-prerequisites: true
+      attributes:
+        - attribute:
+          name: Monk Bonus Feats - Level 6
+          items:
+            - type: SilverNeedle.Characters.FeatToken
+              tags: [Catch Off-Guard, Combat Reflexes, Deflect Arrows, Dodge, Improved Grapple, Scorpion Style, Throw Anything
+                Gorgon's Fist, Improved Bull Rush, Improved Disarm, Improved Feint, Improved Trip, Mobility ]
+              ignore-prerequisites: true
     - level: 7
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.WholenessOfBody
@@ -74,16 +83,18 @@
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.ImprovedEvasion
     - level: 10
+      attributes:
+        - attribute:
+          name: Monk Bonus Feats - Level 10
+          items:
+            - type: SilverNeedle.Characters.FeatToken
+              tags: [Catch Off-Guard, Combat Reflexes, Deflect Arrows, Dodge, Improved Grapple, Scorpion Style, Throw Anything
+                Gorgon's Fist, Improved Bull Rush, Improved Disarm, Improved Feint, Improved Trip, Mobility, 
+                Improved Critical, Medusa's Wrath, Snatch Arrows, Spring Attack]
+              ignore-prerequisites: true
       abilities:
         - ability: SilverNeedle.Characters.Attacks.KiStrike
           damage-type: lawful
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
-          options: [Catch Off-Guard, Combat Reflexes, Deflect Arrows, Dodge, Improved Grapple, Scorpion Style, Throw Anything
-            Gorgon's Fist, Improved Bull Rush, Improved Disarm, Improved Feint, Improved Trip, Mobility,
-            Improved Critical, Medusa's Wrath, Snatch Arrows, Spring Attack
-          ]
-          ignore-prerequisites: true
     - level: 11
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.DiamondBody
@@ -94,13 +105,15 @@
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.DiamondSoul
     - level: 14
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
-          options: [Catch Off-Guard, Combat Reflexes, Deflect Arrows, Dodge, Improved Grapple, Scorpion Style, Throw Anything
-            Gorgon's Fist, Improved Bull Rush, Improved Disarm, Improved Feint, Improved Trip, Mobility,
-            Improved Critical, Medusa's Wrath, Snatch Arrows, Spring Attack
-          ]
-          ignore-prerequisites: true
+      attributes:
+        - attribute:
+          name: Monk Bonus Feats - Level 14
+          items:
+            - type: SilverNeedle.Characters.FeatToken
+              tags: [Catch Off-Guard, Combat Reflexes, Deflect Arrows, Dodge, Improved Grapple, Scorpion Style, Throw Anything
+                Gorgon's Fist, Improved Bull Rush, Improved Disarm, Improved Feint, Improved Trip, Mobility, 
+                Improved Critical, Medusa's Wrath, Snatch Arrows, Spring Attack]
+              ignore-prerequisites: true
     - level: 15
       abilities:
         - ability: SilverNeedle.Characters.Attacks.QuiveringPalm
@@ -113,13 +126,15 @@
         - ability: SilverNeedle.Characters.SpecialAbilities.TongueOfSunAndMoon
         - ability: SilverNeedle.Characters.SpecialAbilities.TimelessBody
     - level: 18
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
-          options: [Catch Off-Guard, Combat Reflexes, Deflect Arrows, Dodge, Improved Grapple, Scorpion Style, Throw Anything
-            Gorgon's Fist, Improved Bull Rush, Improved Disarm, Improved Feint, Improved Trip, Mobility,
-            Improved Critical, Medusa's Wrath, Snatch Arrows, Spring Attack
-          ]
-          ignore-prerequisites: true
+      attributes:
+        - attribute:
+          name: Monk Bonus Feats - Level 18
+          items:
+            - type: SilverNeedle.Characters.FeatToken
+              tags: [Catch Off-Guard, Combat Reflexes, Deflect Arrows, Dodge, Improved Grapple, Scorpion Style, Throw Anything
+                Gorgon's Fist, Improved Bull Rush, Improved Disarm, Improved Feint, Improved Trip, Mobility, 
+                Improved Critical, Medusa's Wrath, Snatch Arrows, Spring Attack]
+              ignore-prerequisites: true
     - level: 19
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.EmptyBody

@@ -19,6 +19,13 @@
           , Profession , Spellcraft , Use Magical Device]
   levels:
     - level: 1
+      attributes:
+        - attribute:
+          name: Eschew Materials
+          items:
+            - type: SilverNeedle.Characters.FeatToken
+              tags: [Eschew Materials]
+              ignore-prerequisites: true
       abilities:
         - ability: SilverNeedle.Characters.Magic.SpontaneousCasting
           list: sorcerer-wizard
@@ -72,9 +79,6 @@
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddBloodlinePower
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddBloodlineArcana
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
-        - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
-          options: [Eschew Materials]
-          ignore-prerequisites: true
     - level: 2
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells

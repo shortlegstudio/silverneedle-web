@@ -33,9 +33,13 @@
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectCombatStyle
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectCombatStyleFeat
     - level: 3
+      attributes:
+        - attribute:
+          name: Endurance
+          items:
+            - type: SilverNeedle.Characters.FeatToken
+              tags: [Endurance]
       class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
-          options: [Endurance]
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectFavoredTerrain
     - level: 4
       abilities:

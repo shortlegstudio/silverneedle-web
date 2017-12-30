@@ -22,6 +22,13 @@
           , Profession , Spellcraft]
   levels:
     - level: 1
+      attributes:
+        - attribute:
+          name: Scribe Scroll
+          items:
+            - type: SilverNeedle.Characters.FeatToken
+              tags: [Scribe Scroll]
+              ignore-prerequisites: true
       abilities:
         - ability: SilverNeedle.Characters.Magic.WizardCasting
           list: sorcerer-wizard
@@ -59,9 +66,6 @@
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
           spells: [all, 3]
           add-modifier: true
-        - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
-          options: [Scribe Scroll]
-          ignore-prerequisites: true
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
     - level: 2
       class-feature-steps:
@@ -79,12 +83,16 @@
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
           spells: [0, 0, 2]
     - level: 5
+      attributes:
+        - attribute:
+          name: Wizard Bonus Feats - 5
+          items:
+            - type: SilverNeedle.Characters.FeatToken
+              tags: [metamagic, itemcreation, Spell Mastery]
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
           spells: [0, 0, 0, 2]
-        - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
-          options: [metamagic, itemcreation, Spell Mastery]
     - level: 6
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
@@ -106,12 +114,16 @@
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
           spells: [0, 0, 0, 0, 0, 2]
     - level: 10
+      attributes:
+        - attribute:
+          name: Wizard Bonus Feats - 10
+          items:
+            - type: SilverNeedle.Characters.FeatToken
+              tags: [metamagic, itemcreation, Spell Mastery]
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
           spells: [0, 0, 0, 0, 0, 2]
-        - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
-          options: [metamagic, itemcreation, Spell Mastery]
     - level: 11
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
@@ -133,12 +145,16 @@
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
           spells: [0, 0, 0, 0, 0, 0, 0, 2]
     - level: 15
+      attributes:
+        - attribute:
+          name: Wizard Bonus Feats - 15
+          items:
+            - type: SilverNeedle.Characters.FeatToken
+              tags: [metamagic, itemcreation, Spell Mastery]
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
           spells: [0, 0, 0, 0, 0, 0, 0, 0, 2]
-        - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
-          options: [metamagic, itemcreation, Spell Mastery]
     - level: 16
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
@@ -160,9 +176,13 @@
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
           spells: [0, 0, 0, 0, 0, 0, 0, 1, 0, 1]
     - level: 20
+      attributes:
+        - attribute:
+          name: Wizard Bonus Feats - 20
+          items:
+            - type: SilverNeedle.Characters.FeatToken
+              tags: [metamagic, itemcreation, Spell Mastery]
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
           spells: [0, 0, 0, 0, 0, 0, 0, 0, 1, 1]
-        - step: SilverNeedle.Actions.CharacterGeneration.AddBonusFeatToken
-          options: [metamagic, itemcreation, Spell Mastery]
