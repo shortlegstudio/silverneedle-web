@@ -211,10 +211,14 @@
             - type: SilverNeedle.Characters.FeatToken
               tags: [combat]
     - level: 19
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureArmorMastery
-          amount: 5
-          damage-type: "-"
+      attributes: 
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Armor Mastery
+          items:
+            - type: SilverNeedle.Characters.DamageReduction
+              name: Armor Mastery DR
+              base-value: 5
+              bypass-type: "-"
     - level: 20
       attributes: 
         - attribute: SilverNeedle.Characters.ClassFeature
@@ -222,5 +226,7 @@
           items:
             - type: SilverNeedle.Characters.FeatToken
               tags: [combat]
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureWeaponMastery
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Weapon Mastery
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.WeaponMastery

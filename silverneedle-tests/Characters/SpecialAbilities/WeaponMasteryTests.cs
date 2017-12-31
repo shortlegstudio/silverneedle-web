@@ -12,15 +12,14 @@ namespace Tests.Characters.SpecialAbilities
     using SilverNeedle.Utility;
 
     
-    public class WeaponMasteryTests
+    public class WeaponMasteryTests : RequiresDataFiles
     {
         [Fact]
         public void AddsWeaponCriticalDamageModifierToOffenseStats()
         {
             var character = CharacterTestTemplates.AverageBob();
             var offStats = character.Get<OffenseStats>();
-            var weapon = new Weapon();
-            var master = new WeaponMastery(weapon);
+            var master = new WeaponMastery();
             character.Add(master);
             Assert.Contains(master.WeaponCriticalDamageBonus, offStats.WeaponModifiers);
         }
@@ -30,10 +29,10 @@ namespace Tests.Characters.SpecialAbilities
         {
             var character = CharacterTestTemplates.AverageBob();
             var offStats = character.Get<OffenseStats>();
-            var weapon = new Weapon();
-            var master = new WeaponMastery(weapon);
-            var masterworkWeapon = new MasterworkWeapon(weapon);
+            var master = new WeaponMastery();
             character.Add(master);
+            var weapon = master.Weapon;
+            var masterworkWeapon = new MasterworkWeapon(weapon);
             Assert.Contains(master.WeaponCriticalDamageBonus, offStats.WeaponModifiers);
             Assert.True(master.WeaponCriticalDamageBonus.WeaponQualifies(masterworkWeapon));
         }

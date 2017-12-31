@@ -7,25 +7,34 @@ namespace SilverNeedle.Characters.SpecialAbilities
 {
     using SilverNeedle.Characters.Attacks;
     using SilverNeedle.Equipment;
+    using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
-    public class WeaponMastery : SpecialAbility, IComponent
+    public class WeaponMastery : IAbility, IComponent
     {
         public IWeapon Weapon { get; private set; }
         public WeaponCriticalDamageModifier WeaponCriticalDamageBonus { get; private set; }
 
-        public WeaponMastery(IWeapon weapon)
+        public WeaponMastery()
         {
-            this.Weapon = weapon;
-            this.WeaponCriticalDamageBonus = new WeaponCriticalDamageModifier("Weapon Mastery", 1, wpn => 
-                { return wpn.ProficiencyName.EqualsIgnoreCase(Weapon.ProficiencyName); });
-            this.Name = string.Format("Weapon Mastery ({0})", Weapon.ProficiencyName);
+            this.WeaponCriticalDamageBonus = new WeaponCriticalDamageModifier("Weapon Mastery", 1, Qualifies);
+        }
+
+        private bool Qualifies(IWeaponAttackStatistics weapon)
+        {
+            return weapon.ProficiencyName.EqualsIgnoreCase(this.Weapon.ProficiencyName);
         }
 
 
         public void Initialize(ComponentContainer components)
         {
+            this.Weapon = GatewayProvider.Get<Weapon>().ChooseOne();
             components.Get<OffenseStats>().AddWeaponModifier(this.WeaponCriticalDamageBonus);
+        }
+
+        public string DisplayString()
+        {
+            return string.Format("Weapon Mastery ({0})", Weapon.ProficiencyName);
         }
     }
 }
