@@ -38,7 +38,7 @@ namespace Tests.Characters.SpecialAbilities
         public void CreatesANiceNameForTheAbility()
         {
             var training = new WeaponTraining(WeaponGroup.Axes, 3);
-            Assert.Equal(training.Name, "Weapon Training (Axes +3)");
+            Assert.Equal(training.DisplayString(), "Weapon Training (Axes +3)");
         }
     }
 }

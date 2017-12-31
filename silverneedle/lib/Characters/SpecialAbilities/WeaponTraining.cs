@@ -10,14 +10,13 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using SilverNeedle.Equipment;
     using SilverNeedle.Utility;
 
-    public class WeaponTraining : SpecialAbility, IComponent
+    public class WeaponTraining : IAbility, IComponent
     {
         public WeaponTraining(WeaponGroup group, int level)
         {
             this.Group = group;
             this.Level = level;
             QualifyCheck = x => { return x.Group == this.Group; };
-            UpdateName();
             WeaponAttackBonus = new WeaponAttackModifier(
                 "Weapon Training",
                 level,
@@ -48,12 +47,11 @@ namespace SilverNeedle.Characters.SpecialAbilities
             Level = level;
             this.WeaponAttackBonus.Modifier = level;
             this.WeaponDamageBonus.Modifier = level;
-            UpdateName();
         }
 
-        private void UpdateName()
+        public string DisplayString()
         {
-            this.Name = string.Format("Weapon Training ({0} +{1})", this.Group, this.Level);
+            return string.Format("Weapon Training ({0} +{1})", this.Group, this.Level);
         }
     }
 }
