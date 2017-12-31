@@ -57,10 +57,9 @@ namespace SilverNeedle.Characters
         /// </summary>
         private Inventory inventory;
 
-        private List<IWeaponModifier> weaponModifiers;
         private ComponentContainer components;
 
-        public IEnumerable<IWeaponModifier> WeaponModifiers { get { return weaponModifiers; } }
+        public IEnumerable<IWeaponModifier> WeaponModifiers { get { return components.GetAll<IWeaponModifier>(); } }
 
         
 
@@ -74,7 +73,6 @@ namespace SilverNeedle.Characters
             this.BaseAttackBonus = new BaseAttackBonus();
             this.CombatManeuverDefense = new BasicStat(StatNames.CMD, 10);
             this.CombatManeuverBonus = new BasicStat(StatNames.CMB);
-            this.weaponModifiers = new List<IWeaponModifier>();
         }
 
         public void Initialize(ComponentContainer components)
@@ -193,7 +191,7 @@ namespace SilverNeedle.Characters
 
         public void AddWeaponModifier(IWeaponModifier modifier)
         {
-            this.weaponModifiers.Add(modifier);
+            this.components.Add(modifier);
         }
 
         /// <summary>

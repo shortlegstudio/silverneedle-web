@@ -20,5 +20,20 @@ namespace Tests.Utility
                 () => contain.Add(null)
             );
         }
+
+        [Fact]
+        public void StatModifiersShouldApplyToAllMatchingStatistics()
+        {
+            var contain = new ComponentContainer();
+            var stat1 = new BasicStat("A Statistic");
+            var stat2 = new BasicStat("A Statistic");
+            contain.Add(stat1);
+            contain.Add(stat2);
+
+            var mod = new ValueStatModifier("A Statistic", 10, "foo", "bar");
+            contain.Add(mod);
+            Assert.Equal(10, stat1.TotalValue);
+            Assert.Equal(10, stat2.TotalValue);
+        }
     }
 }

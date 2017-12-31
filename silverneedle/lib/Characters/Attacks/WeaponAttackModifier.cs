@@ -10,7 +10,10 @@ namespace SilverNeedle.Characters.Attacks
     using SilverNeedle.Equipment;
     public class WeaponAttackModifier : IStatModifier, IWeaponModifier
     {
-        public float Modifier { get; set; }
+        public float Modifier 
+        { 
+            get { return ModifierCalculation(); }
+        }
 
         public string Reason { get; private set; }
 
@@ -21,16 +24,27 @@ namespace SilverNeedle.Characters.Attacks
 
         public WeaponAttackModifier(string reason, float modifier, Func<IWeaponAttackStatistics, bool> weaponQualifies)
         {
-            this.Modifier = modifier;
+            this.staticModifier = modifier;
+            ModifierCalculation = () => { return this.staticModifier; };
+            this.Reason = reason;
+            this.WeaponQualifies = weaponQualifies;
+        }
+
+        public WeaponAttackModifier(string reason, Func<float> modifier, Func<IWeaponAttackStatistics, bool> weaponQualifies)
+        {
+            ModifierCalculation = modifier;
             this.Reason = reason;
             this.WeaponQualifies = weaponQualifies;
         }
 
         public Func<IWeaponAttackStatistics, bool> WeaponQualifies { get; private set; }
+        private Func<float> ModifierCalculation { get; set; }
 
         public void ApplyModifier(WeaponAttack attack)
         {
             attack.AttackBonus.AddModifier(this);
         }
+
+        private float staticModifier;
     }
 }

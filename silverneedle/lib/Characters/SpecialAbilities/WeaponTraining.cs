@@ -6,52 +6,48 @@
 namespace SilverNeedle.Characters.SpecialAbilities
 {
     using System;
+    using System.Linq;
     using SilverNeedle.Characters.Attacks;
     using SilverNeedle.Equipment;
+    using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
-    public class WeaponTraining : IAbility, IComponent
+    public class WeaponTraining : CapabilityStatistic, IComponent
     {
-        public WeaponTraining(WeaponGroup group, int level)
+        public WeaponTraining(IObjectStore configuration) : base(configuration)
         {
-            this.Group = group;
-            this.Level = level;
-            QualifyCheck = x => { return x.Group == this.Group; };
             WeaponAttackBonus = new WeaponAttackModifier(
                 "Weapon Training",
-                level,
+                () => { return this.TotalValue; } ,
                 QualifyCheck
             );
             WeaponDamageBonus = new WeaponDamageModifier(
                 "Weapon Training",
-                level,
+                () => { return this.TotalValue; },
                 QualifyCheck
             );
         }
 
-        Func<IWeaponAttackStatistics, bool> QualifyCheck;
+        private bool QualifyCheck(IWeaponAttackStatistics weapon)
+        {
+            return weapon.Group == this.Group;
+        }
         public WeaponGroup Group { get; private set; }
-        public int Level { get; private set; }
 
         public WeaponAttackModifier WeaponAttackBonus { get; private set; }
         public WeaponDamageModifier WeaponDamageBonus { get; private set; }
         public void Initialize(ComponentContainer components)
         {
+            var trainings = components.GetAll<WeaponTraining>().Exclude(this);
+            this.Group = EnumHelpers.GetValues<WeaponGroup>().Where(grp => !trainings.Any(already => already.Group == grp)).ChooseOne();
             var offStats = components.Get<OffenseStats>();
             offStats.AddWeaponModifier(WeaponAttackBonus);
             offStats.AddWeaponModifier(WeaponDamageBonus);
         }
 
-        public void SetLevel(int level)
+        public override string DisplayString()
         {
-            Level = level;
-            this.WeaponAttackBonus.Modifier = level;
-            this.WeaponDamageBonus.Modifier = level;
-        }
-
-        public string DisplayString()
-        {
-            return string.Format("Weapon Training ({0} +{1})", this.Group, this.Level);
+            return string.Format("Weapon Training ({0} +{1})", this.Group, this.TotalValue);
         }
     }
 }

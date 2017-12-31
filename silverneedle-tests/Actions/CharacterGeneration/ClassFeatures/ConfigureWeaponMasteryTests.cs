@@ -17,7 +17,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
         public void ChoosesAWeaponForMastery()
         {
             var configure = new ConfigureWeaponMastery();
-            var character = new CharacterSheet(CharacterStrategy.Default());
+            var character = CharacterTestTemplates.AverageBob();
             configure.ExecuteStep(character);
 
             var mastery = character.Components.Get<WeaponMastery>();

@@ -6,39 +6,55 @@
 namespace Tests.Characters.SpecialAbilities
 {
     using Xunit;
+    using SilverNeedle;
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.SpecialAbilities;
-    using SilverNeedle.Equipment;
+    using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
     
     public class WeaponTrainingTests
     {
+            string yaml = @"---
+name: Weapon Training
+base-value: 1";
         [Fact]
         public void RegisterWeaponModifiersWithOffenseStats()
         {
-            var abilities = new AbilityScores();
-            var size = new SizeStats();
-            var inventory = new Inventory();
-            var offStat = new OffenseStats();
-            var components = new ComponentContainer();
-            components.Add(abilities, size, inventory, offStat);
-
-            var weaponTraining = new WeaponTraining(WeaponGroup.LightBlades, 1);
-            weaponTraining.Initialize(components);
-            var mods = offStat.WeaponModifiers;
-            Assert.Contains(weaponTraining.WeaponAttackBonus, mods);
-            Assert.Contains(weaponTraining.WeaponDamageBonus, mods);
-            Assert.Equal(weaponTraining.WeaponAttackBonus.Modifier, 1);
-            Assert.Equal(weaponTraining.WeaponDamageBonus.Modifier, 1);
-            Assert.Equal(weaponTraining.Level, 1);
+            var character = CharacterTestTemplates.AverageBob();
+            var weaponTraining = new WeaponTraining(yaml.ParseYaml());
+            character.Add(weaponTraining);
+            Assert.Equal(1, weaponTraining.WeaponAttackBonus.Modifier);
+            Assert.Equal(1, weaponTraining.WeaponDamageBonus.Modifier);
+            Assert.Equal(1, weaponTraining.TotalValue);
+            Assert.Equal(string.Format("Weapon Training ({0} +1)", weaponTraining.Group), weaponTraining.DisplayString());
         }
 
         [Fact]
-        public void CreatesANiceNameForTheAbility()
+        public void SelectsAUniqueWeaponGroupWhenAddedToCharacter()
         {
-            var training = new WeaponTraining(WeaponGroup.Axes, 3);
-            Assert.Equal(training.DisplayString(), "Weapon Training (Axes +3)");
+            var weaponTraining1 = new WeaponTraining(yaml.ParseYaml());
+            var weaponTraining2 = new WeaponTraining(yaml.ParseYaml());
+            var character = CharacterTestTemplates.AverageBob();
+            character.Add(weaponTraining1);
+            character.Add(weaponTraining2);
+            Assert.NotEqual(weaponTraining1.Group, weaponTraining2.Group);
+        }
+
+        [Fact]
+        public void AddingAModifierWillIncreaseThePowerOfWeaponTraining()
+        {
+            var wt = new WeaponTraining(yaml.ParseYaml());
+            var character = CharacterTestTemplates.AverageBob();
+            character.Add(wt);
+            var modYaml = @"---
+name: Weapon Training
+modifier: 1
+modifier-type: level-up";
+            var modifier = new ValueStatModifier(modYaml.ParseYaml());
+            character.Add(modifier);
+            Assert.Equal(2, wt.TotalValue);
+            Assert.Equal(string.Format("Weapon Training ({0} +2)", wt.Group), wt.DisplayString());
         }
     }
 }

@@ -97,12 +97,16 @@ namespace SilverNeedle.Utility
 
         public void ApplyStatModifier(IStatModifier statModifier)
         {
-            var stat = FindStat(statModifier.StatisticName);
-            if(stat != null)
+            var stats = FindMatchingStats(statModifier.StatisticName);
+
+            if(stats.Empty())
+            {
+                ShortLog.ErrorFormat("Could Not Apply Modifier to Statistic: {0}", statModifier.StatisticName);
+            }
+
+            foreach(var stat in stats)
             {
                 stat.AddModifier(statModifier);
-            } else {
-                ShortLog.ErrorFormat("Could Not Apply Modifier to Statistic: {0}", statModifier.StatisticName);
             }
         }
 
@@ -114,7 +118,12 @@ namespace SilverNeedle.Utility
 
         public IStatistic FindStat(string name)
         {
-            return GetAllStats().FirstOrDefault(x => x.Name.EqualsIgnoreCase(name));
+            return GetAllStats().FirstOrDefault(x => x.Matches(name));
+        }
+
+        public IEnumerable<IStatistic> FindMatchingStats(string name)
+        {
+            return GetAllStats().Where(x => x.Matches(name));
         }
 
         public T FindStat<T>(string name)

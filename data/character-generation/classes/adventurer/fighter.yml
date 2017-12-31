@@ -63,9 +63,13 @@
             - type: SilverNeedle.Characters.FeatToken
               tags: [combat]
     - level: 5
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureWeaponTraining
-          level: 1
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Weapon Training 1
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.WeaponTraining
+              name: Weapon Training
+              base-value: 1
     - level: 6
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
@@ -97,9 +101,17 @@
             - type: SilverNeedle.Characters.FeatToken
               tags: [combat]
     - level: 9
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureWeaponTraining
-          level: 2
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Weapon Training 2
+          items:
+            - type: SilverNeedle.ValueStatModifier
+              name: Weapon Training
+              modifier: 1
+              modifier-type: level-up
+            - type: SilverNeedle.Characters.SpecialAbilities.WeaponTraining
+              name: Weapon Training
+              base-value: 1
     - level: 10
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
@@ -131,9 +143,17 @@
             - type: SilverNeedle.Characters.FeatToken
               tags: [combat]
     - level: 13
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureWeaponTraining
-          level: 3
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Weapon Training 3
+          items:
+            - type: SilverNeedle.ValueStatModifier
+              name: Weapon Training
+              modifier: 1
+              modifier-type: level-up
+            - type: SilverNeedle.Characters.SpecialAbilities.WeaponTraining
+              name: Weapon Training
+              base-value: 1
     - level: 14
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
@@ -165,9 +185,17 @@
             - type: SilverNeedle.Characters.FeatToken
               tags: [combat]
     - level: 17
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureWeaponTraining
-          level: 4
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Weapon Training 4
+          items:
+            - type: SilverNeedle.ValueStatModifier
+              name: Weapon Training
+              modifier: 1
+              modifier-type: level-up
+            - type: SilverNeedle.Characters.SpecialAbilities.WeaponTraining
+              name: Weapon Training
+              base-value: 1
     - level: 18
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature

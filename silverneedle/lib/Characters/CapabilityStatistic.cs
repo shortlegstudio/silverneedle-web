@@ -15,7 +15,7 @@ namespace SilverNeedle.Characters
 
         }
 
-        public string DisplayString()
+        public virtual string DisplayString()
         {
             return "{0} {1}".Formatted(this.Name, this.TotalValue.ToModifierString());
         }
