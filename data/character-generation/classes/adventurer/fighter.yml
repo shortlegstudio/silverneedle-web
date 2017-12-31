@@ -21,7 +21,7 @@
   levels:
     - level: 1
       attributes: 
-        - attribute:
+        - attribute: SilverNeedle.Characters.ClassFeature
           name: Bonus Feat
           items:
             - type: SilverNeedle.Characters.FeatToken
@@ -31,7 +31,7 @@
           clothes: [Cold-weather outfit, Explorer's outfit, Traveler's outfit]
     - level: 2
       attributes:
-        - attribute:
+        - attribute: SilverNeedle.Characters.ClassFeature
           name: Bravery 
           items:
             - type: SilverNeedle.Characters.CapabilityStatistic
@@ -42,14 +42,14 @@
               modifier: Bravery
               modifier-type: bonus
               condition: fear
-        - attribute:
+        - attribute: SilverNeedle.Characters.ClassFeature
           name: Bonus Feat
           items:
             - type: SilverNeedle.Characters.FeatToken
               tags: [combat]
     - level: 3
       attributes:
-        - attribute:
+        - attribute: SilverNeedle.Characters.ClassFeature
           name: Armor Training 1
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.ArmorTraining
@@ -57,7 +57,7 @@
               base-value: 1
     - level: 4
       attributes: 
-        - attribute:
+        - attribute: SilverNeedle.Characters.ClassFeature
           name: Bonus Feat
           items:
             - type: SilverNeedle.Characters.FeatToken
@@ -68,21 +68,21 @@
           level: 1
     - level: 6
       attributes:
-        - attribute:
+        - attribute: SilverNeedle.Characters.ClassFeature
           name: Bravery +2
           items:
             - type: SilverNeedle.ValueStatModifier
               name: Bravery
               modifier: 1
               modifier-type: bonus
-        - attribute:
+        - attribute: SilverNeedle.Characters.ClassFeature
           name: Bonus Feat
           items:
             - type: SilverNeedle.Characters.FeatToken
               tags: [combat]
     - level: 7
       attributes:
-        - attribute:
+        - attribute: SilverNeedle.Characters.ClassFeature
           name: Armor Training 2
           items:
             - type: SilverNeedle.ValueStatModifier
@@ -91,7 +91,7 @@
               modifier-type: level-up
     - level: 8
       attributes: 
-        - attribute:
+        - attribute: SilverNeedle.Characters.ClassFeature
           name: Bonus Feat
           items:
             - type: SilverNeedle.Characters.FeatToken
@@ -102,21 +102,21 @@
           level: 2
     - level: 10
       attributes:
-        - attribute:
+        - attribute: SilverNeedle.Characters.ClassFeature
           name: Bravery +3
           items:
             - type: SilverNeedle.ValueStatModifier
               name: Bravery
               modifier: 1
               modifier-type: bonus
-        - attribute:
+        - attribute: SilverNeedle.Characters.ClassFeature
           name: Bonus Feat
           items:
             - type: SilverNeedle.Characters.FeatToken
               tags: [combat]
     - level: 11
       attributes:
-        - attribute:
+        - attribute: SilverNeedle.Characters.ClassFeature
           name: Armor Training 3
           items:
             - type: SilverNeedle.ValueStatModifier
@@ -125,7 +125,7 @@
               modifier-type: level-up
     - level: 12
       attributes: 
-        - attribute:
+        - attribute: SilverNeedle.Characters.ClassFeature
           name: Bonus Feat
           items:
             - type: SilverNeedle.Characters.FeatToken
@@ -136,21 +136,21 @@
           level: 3
     - level: 14
       attributes:
-        - attribute:
+        - attribute: SilverNeedle.Characters.ClassFeature
           name: Bravery +4
           items:
             - type: SilverNeedle.ValueStatModifier
               name: Bravery
               modifier: 1
               modifier-type: bonus
-        - attribute:
+        - attribute: SilverNeedle.Characters.ClassFeature
           name: Bonus Feat
           items:
             - type: SilverNeedle.Characters.FeatToken
               tags: [combat]
     - level: 15
       attributes:
-        - attribute:
+        - attribute: SilverNeedle.Characters.ClassFeature
           name: Armor Training 4
           items:
             - type: SilverNeedle.ValueStatModifier
@@ -159,7 +159,7 @@
               modifier-type: level-up
     - level: 16
       attributes: 
-        - attribute:
+        - attribute: SilverNeedle.Characters.ClassFeature
           name: Bonus Feat
           items:
             - type: SilverNeedle.Characters.FeatToken
@@ -170,14 +170,14 @@
           level: 4
     - level: 18
       attributes:
-        - attribute:
+        - attribute: SilverNeedle.Characters.ClassFeature
           name: Bravery +5
           items:
             - type: SilverNeedle.ValueStatModifier
               name: Bravery
               modifier: 1
               modifier-type: bonus
-        - attribute:
+        - attribute: SilverNeedle.Characters.ClassFeature
           name: Bonus Feat
           items:
             - type: SilverNeedle.Characters.FeatToken
@@ -189,7 +189,7 @@
           damage-type: "-"
     - level: 20
       attributes: 
-        - attribute:
+        - attribute: SilverNeedle.Characters.ClassFeature
           name: Bonus Feat
           items:
             - type: SilverNeedle.Characters.FeatToken
