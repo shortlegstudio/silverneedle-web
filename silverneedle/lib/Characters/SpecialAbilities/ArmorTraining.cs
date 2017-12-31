@@ -8,28 +8,29 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using System.Collections.Generic;
     using System.Linq;
     using SilverNeedle.Equipment;
+    using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
     /// <summary>
     /// Provides the ability to move at full speed with heavier armors and 
     /// reduces the maximum dex penalty of armor
     /// </summary>
-    public class ArmorTraining : SpecialAbility, IComponent
+    public class ArmorTraining : CapabilityStatistic, IComponent
     {
-        public ArmorTraining()
+        public ArmorTraining(IObjectStore configuration) : base(configuration)
         {
             MaxDexBonusModifier = new DelegateStatModifier(
                 StatNames.MaxDexterityBonus, 
                 "Ability", 
                 "Armor Training",
-                () => {return this.Level; }
+                () => {return this.TotalValue; }
             );
 
             ArmorCheckBonusModifier = new DelegateStatModifier(
                 StatNames.ArmorCheckPenalty,
                 "Ability",
                 "Armor Training",
-                () => { return this.Level; }
+                () => { return this.TotalValue; }
             );
         }
 
@@ -38,14 +39,6 @@ namespace SilverNeedle.Characters.SpecialAbilities
         public IStatModifier ArmorCheckBonusModifier { get; private set; }
 
         public IStatModifier ArmorMovementBonusModifier { get; private set; }
-
-        public int Level { get; private set; }
-
-        public void SetLevel(int level)
-        {
-            this.Level = level;
-            this.Name = string.Format("Armor Training {0}", this.Level);
-        }
 
         public void Initialize(ComponentContainer components)
         {
@@ -72,7 +65,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
             public float CounterArmorMovePenalty()
             {
                 IEnumerable<Armor> armorToNegate;
-                if(training.Level == 1)
+                if(training.TotalValue == 1)
                 {
                     //Counter movement penalty from medium armor
                     armorToNegate = inventory.Equipped<Armor>().Where(x => x.ArmorType == ArmorType.Medium);

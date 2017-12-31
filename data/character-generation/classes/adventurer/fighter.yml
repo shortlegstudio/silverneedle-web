@@ -48,9 +48,13 @@
             - type: SilverNeedle.Characters.FeatToken
               tags: [combat]
     - level: 3
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureArmorTraining
-          level: 1
+      attributes:
+        - attribute:
+          name: Armor Training 1
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.ArmorTraining
+              name: Armor Training
+              base-value: 1
     - level: 4
       attributes: 
         - attribute:
@@ -77,9 +81,14 @@
             - type: SilverNeedle.Characters.FeatToken
               tags: [combat]
     - level: 7
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureArmorTraining
-          level: 2
+      attributes:
+        - attribute:
+          name: Armor Training 2
+          items:
+            - type: SilverNeedle.ValueStatModifier
+              name: Armor Training
+              modifier: 1
+              modifier-type: level-up
     - level: 8
       attributes: 
         - attribute:
@@ -106,9 +115,14 @@
             - type: SilverNeedle.Characters.FeatToken
               tags: [combat]
     - level: 11
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureArmorTraining
-          level: 3
+      attributes:
+        - attribute:
+          name: Armor Training 3
+          items:
+            - type: SilverNeedle.ValueStatModifier
+              name: Armor Training
+              modifier: 1
+              modifier-type: level-up
     - level: 12
       attributes: 
         - attribute:
@@ -135,9 +149,14 @@
             - type: SilverNeedle.Characters.FeatToken
               tags: [combat]
     - level: 15
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureArmorTraining
-          level: 4
+      attributes:
+        - attribute:
+          name: Armor Training 4
+          items:
+            - type: SilverNeedle.ValueStatModifier
+              name: Armor Training
+              modifier: 1
+              modifier-type: level-up
     - level: 16
       attributes: 
         - attribute:

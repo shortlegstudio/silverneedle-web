@@ -19,13 +19,11 @@ namespace Tests.Characters
         private IObjectStore rogue;
         private IObjectStore adept;
 
-        private IObjectStore fighter3;
         public LevelTests() 
         {
             fighter = fighterLevel.ParseYaml();
             rogue = rogueLevel.ParseYaml().Children.First();
             adept = adeptLevel.ParseYaml().Children.First();
-            fighter3 = fighterLevel3.ParseYaml().Children.First();
         }
 
         [Fact]
@@ -51,15 +49,6 @@ namespace Tests.Characters
             var level = new Level(adept);
             Assert.Equal(1, level.Steps.Count);
             Assert.IsType<SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSummonFamiliar>(level.Steps[0]);
-        }
-
-        [Fact]
-        public void CustomFeatureStepsCanSupportExtraData()
-        {
-            var level = new Level(fighter3);
-            Assert.Equal(level.Steps.Count, 1);
-            var step = level.Steps[0] as SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureArmorTraining;
-            Assert.Equal(step.ArmorTrainingLevel, 1);
         }
 
         [Fact]
@@ -114,11 +103,5 @@ attributes:
   abilities:
     - ability: SilverNeedle.Characters.SpecialAbilities.UncannyDodge";
 
-        const string fighterLevel3 = @"---
-- level: 3
-  class-feature-steps:
-    - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureArmorTraining
-      level: 1
-";
     }
 }

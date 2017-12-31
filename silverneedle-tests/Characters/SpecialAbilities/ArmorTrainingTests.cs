@@ -7,9 +7,11 @@
 namespace Tests.Characters 
 {
     using Xunit;
+    using SilverNeedle;
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Equipment;
+    using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
     
@@ -23,8 +25,12 @@ namespace Tests.Characters
             var abilityScores = character.Get<AbilityScores>();
             var skillRanks = character.Get<SkillRanks>();
             var moveStats = character.Get<MovementStats>();
-            var armorTrain = new ArmorTraining();
-            armorTrain.SetLevel(2);
+            var yaml = @"---
+name: Armor Training
+base-value: 1";
+            var armorTrain = new ArmorTraining(yaml.ParseYaml());
+            armorTrain.AddModifier(new ValueStatModifier(1, "level-up"));
+            //Set to second level
             character.Add(armorTrain);
 
             // Max Dex Bonus
@@ -40,9 +46,9 @@ namespace Tests.Characters
             Assert.Contains(armorTrain.ArmorMovementBonusModifier, armorMove.Modifiers);
 
             //Increase ArmorTraining Level Improves Modifiers
-            armorTrain.SetLevel(3);
-            Assert.Equal(armorTrain.MaxDexBonusModifier.Modifier, 3);
-            Assert.Equal(armorTrain.ArmorCheckBonusModifier.Modifier, 3);
+            armorTrain.AddModifier(new ValueStatModifier(1, "level-up"));
+            Assert.Equal(3, armorTrain.MaxDexBonusModifier.Modifier);
+            Assert.Equal(3, armorTrain.ArmorCheckBonusModifier.Modifier);
         }
     }
 }
