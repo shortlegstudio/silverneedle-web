@@ -19,12 +19,6 @@ namespace SilverNeedle.Characters
         }
         public CharacterStrategy()
         {
-            Classes = new WeightedOptionTable<string>();
-            Races = new WeightedOptionTable<string>();
-            FavoredSkills = new WeightedOptionTable<string>();
-            FavoredFeats = new WeightedOptionTable<string>();
-            FavoredAbilities = new WeightedOptionTable<AbilityScoreTypes>();
-            FavoredAlignments = new WeightedOptionTable<CharacterAlignment>();
             BuildAlignmentTable();
             FillInMissingAbilities(FavoredAbilities);
             TargetLevel = 1;
@@ -40,12 +34,6 @@ namespace SilverNeedle.Characters
             QuirkCount = 3;
             FearCount = 1;
             TargetLevel = 1;
-            Classes = new WeightedOptionTable<string>();
-            Races = new WeightedOptionTable<string>();
-            FavoredSkills = new WeightedOptionTable<string>();
-            FavoredFeats = new WeightedOptionTable<string>();
-            FavoredAbilities = new WeightedOptionTable<AbilityScoreTypes>();
-            FavoredAlignments = new WeightedOptionTable<CharacterAlignment>();
             ParseObjectStore(data);
         }
 
@@ -56,12 +44,6 @@ namespace SilverNeedle.Characters
             this.Designer = copy.Designer;
             this.BaseSkillWeight = copy.BaseSkillWeight;
             this.ClassSkillMultiplier = copy.ClassSkillMultiplier;
-            this.Classes = copy.Classes.Copy();
-            this.Races = copy.Races.Copy();
-            this.FavoredSkills = copy.FavoredSkills.Copy();
-            this.FavoredFeats = copy.FavoredFeats.Copy();
-            this.FavoredAbilities = copy.FavoredAbilities.Copy();
-            this.FavoredAlignments = copy.FavoredAlignments.Copy();
             this.QuirkCount = copy.QuirkCount;
             this.FearCount = copy.FearCount;
             this.FavoriteColorCount = copy.FavoriteColorCount;
@@ -75,12 +57,12 @@ namespace SilverNeedle.Characters
         }
         
         public string Name { get; set; }
-        public WeightedOptionTable<string> Classes { get; private set; }
-        public WeightedOptionTable<string> Races { get; private set; }
-        public WeightedOptionTable<string> FavoredSkills { get; private set; }
-        public WeightedOptionTable<string> FavoredFeats { get; private set; }
-        public WeightedOptionTable<AbilityScoreTypes> FavoredAbilities { get; private set; }
-        public WeightedOptionTable<CharacterAlignment> FavoredAlignments { get; private set; }
+        public WeightedOptionTable<string> Classes { get { return GetCustomTable<string>("classes"); } }
+        public WeightedOptionTable<string> Races { get { return GetCustomTable<string>("races"); } }
+        public WeightedOptionTable<string> FavoredSkills { get { return GetCustomTable<string>("favored-skills"); } }
+        public WeightedOptionTable<string> FavoredFeats { get { return GetCustomTable<string>("favored-feats"); } }
+        public WeightedOptionTable<AbilityScoreTypes> FavoredAbilities { get { return GetCustomTable<AbilityScoreTypes>("favored-abilities"); } }
+        public WeightedOptionTable<CharacterAlignment> FavoredAlignments { get { return GetCustomTable<CharacterAlignment>("favored-alignments"); } }
         public IEnumerable<string> LanguageChoices { get { return this.languageChoiceList; } }
         public IEnumerable<string> LanguagesKnown { get { return this.languagesKnownList; } }
 
@@ -96,7 +78,7 @@ namespace SilverNeedle.Characters
 
         private IList<string> languageChoiceList = new List<string>();
         private IList<string> languagesKnownList = new List<string>();
-        private IDictionary<string, WeightedOptionTable<object>> customTables = new Dictionary<string, WeightedOptionTable<object>>();
+        private IDictionary<string, IWeightedOptionTable> customTables = new Dictionary<string, IWeightedOptionTable>();
         public void AddLanguageKnown(string language) { this.languagesKnownList.Add(language); }
         public void AddLanguageChoice(string language) { this.languageChoiceList.Add(language); }
         public void AddLanguagesKnown(IEnumerable<string> languages) { this.languagesKnownList.Add(languages); }
@@ -194,31 +176,31 @@ namespace SilverNeedle.Characters
 
         public T ChooseOption<T>(string tableName)
         {
-            return (T)GetCustomTable(tableName).ChooseRandomly();
+            return GetCustomTable<T>(tableName).ChooseRandomly();
         }
 
         public IEnumerable<T> GetOptions<T>(string tableName)
         {
-            return GetCustomTable(tableName).UniqueList().Cast<T>();
+            return GetCustomTable<T>(tableName).UniqueList();
         }
 
         public void AddCustomValue<T>(string tableName, T value, int weight)
         {
-            var table = GetCustomTable(tableName);
+            var table = GetCustomTable<T>(tableName);
             if(table == null)
             {
             }
             table.AddEntry(value, weight);
         }
 
-        private WeightedOptionTable<object> GetCustomTable(string tableName)
+        private WeightedOptionTable<T> GetCustomTable<T>(string tableName)
         {
             if(customTables.ContainsKey(tableName) == false)
             {
-                customTables[tableName] = new WeightedOptionTable<object>();
+                customTables[tableName] = new WeightedOptionTable<T>();
             }
 
-            return customTables[tableName];
+            return customTables[tableName] as WeightedOptionTable<T>;
         }
     }
 }

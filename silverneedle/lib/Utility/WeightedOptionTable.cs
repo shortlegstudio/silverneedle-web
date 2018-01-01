@@ -15,7 +15,7 @@ namespace SilverNeedle.Utility
     /// 
     /// This allows for weighted randomness that will return complex objects
     /// </summary>
-    public class WeightedOptionTable<T>
+    public class WeightedOptionTable<T> : IWeightedOptionTable
     {
         private List<TableEntry> table;
         private int maxValue;
@@ -101,7 +101,7 @@ namespace SilverNeedle.Utility
 
         public IEnumerable<T> UniqueList()
         {
-            var tempTable = Copy(false);
+            var tempTable = CopyMaintainType(false);
             List<T> list = new List<T>();
             while(!tempTable.IsEmpty) {
                 var opt = tempTable.ChooseRandomly();
@@ -111,7 +111,12 @@ namespace SilverNeedle.Utility
             return list;
         }
 
-        public WeightedOptionTable<T> Copy(bool includeDisabled = true)
+        public WeightedOptionTable<T> CopyMaintainType(bool includeDisabled = true)
+        {
+            return Copy(includeDisabled) as WeightedOptionTable<T>;
+        }
+
+        public IWeightedOptionTable Copy(bool includeDisabled = true)
         {
             //Create temp enabled Table
             var tempTable = new WeightedOptionTable<T>();
