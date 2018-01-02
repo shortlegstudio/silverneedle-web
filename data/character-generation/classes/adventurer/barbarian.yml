@@ -30,34 +30,59 @@
               weight: 10
   levels:
     - level: 1
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Rage
+          items:
+            - type: SilverNeedle.ValueStatModifier
+              name: strength
+              modifier: 4
+              modifier-type: rage
+            - type: SilverNeedle.ValueStatModifier
+              name: constitution
+              modifier: 4
+              modifier-type: rage
+            - type: SilverNeedle.ValueStatModifier
+              name: will
+              modifier: 2
+              modifier-type: rage
+            - type: SilverNeedle.ValueStatModifier
+              name: armor class
+              modifier: -2
+              modifier-type: rage
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Fast Movement
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.FastMovement
+              name: Base Movement Speed
+              modifier: 10
+              modifier-type: class-feature
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.LimitAlignment
           deny: [LawfulEvil, LawfulNeutral, LawfulGood]
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureFastMovement
-          speed: 10
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureRage
-          name: Rage
-          strength: 4
-          constitution: 4
-          will: 2
-          armor-class: -2
     - level: 2
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRagePower
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.UncannyDodge
     - level: 3
-      modifiers:
-        - name: Trap Sense +1 (Reflex)
-          stat: Reflex
-          modifier: 1
-          type: bonus
-          condition: traps
-        - name: Trap Sense +1 (AC)
-          stat: Armor Class
-          modifier: 1
-          type: bonus
-          condition: traps
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Trap Sense 1
+          items:
+            - type: SilverNeedle.Characters.CapabilityStatistic
+              name: Trap Sense
+              base-value: 1
+            - type: SilverNeedle.StatisticStatModifier
+              name: Reflex
+              modifier: Trap Sense
+              modifier-type: bonus
+              condition: traps
+            - type: SilverNeedle.StatisticStatModifier
+              name: Armor Class
+              modifier: Trap Sense
+              modifier-type: bonus
+              condition: traps
     - level: 4
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRagePower
@@ -65,75 +90,85 @@
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.ImprovedUncannyDodge
     - level: 6
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Trap Sense 2
+          items:
+            - type: SilverNeedle.ValueStatModifier
+              name: Trap Sense
+              modifier: 1
+              modifier-type: level-up
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRagePower
-      modifiers:
-        - name: Trap Sense +2 (Reflex)
-          stat: Reflex
-          modifier: 1
-          type: bonus
-          condition: traps
-        - name: Trap Sense +2 (AC)
-          stat: Armor Class
-          modifier: 1
-          type: bonus
-          condition: traps
     - level: 7
-      abilities:
-        - ability: SilverNeedle.Characters.DamageReduction
-          name: Barbarian Damage Reduction
-          base-value: 1
-          bypass-type: "-"
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Barbarian Damage Reduction 1
+          items:
+            - type: SilverNeedle.Characters.DamageReduction
+              name: Barbarian Damage Reduction
+              base-value: 1
+              bypass-type: "-"
     - level: 8
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRagePower
     - level: 9
-      modifiers:
-        - name: Trap Sense +3 (Reflex)
-          stat: Reflex
-          modifier: 1
-          type: bonus
-          condition: traps
-        - name: Trap Sense +3 (AC)
-          stat: Armor Class
-          modifier: 1
-          type: bonus
-          condition: traps
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Trap Sense 3
+          items:
+            - type: SilverNeedle.ValueStatModifier
+              name: Trap Sense
+              modifier: 1
+              modifier-type: level-up
     - level: 10
-      abilities:
-        - ability: SilverNeedle.ValueStatModifier
-          name: Barbarian Damage Reduction
-          modifier: 1
-          modifier-type: class-bonus
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Barbarian Damage Reduction 2
+          items:
+            - type: SilverNeedle.ValueStatModifier
+              name: Barbarian Damage Reduction
+              modifier: 1
+              modifier-type: level-up
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRagePower
     - level: 11
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureRage
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
           name: Greater Rage
-          strength: 6
-          constitution: 6
-          will: 3
+          items:
+            - type: SilverNeedle.ValueStatModifier
+              name: strength
+              modifier: 2
+              modifier-type: rage
+            - type: SilverNeedle.ValueStatModifier
+              name: constitution
+              modifier: 2
+              modifier-type: rage
+            - type: SilverNeedle.ValueStatModifier
+              name: will
+              modifier: 1
+              modifier-type: rage
     - level: 12
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Trap Sense 4
+          items:
+            - type: SilverNeedle.ValueStatModifier
+              name: Trap Sense
+              modifier: 1
+              modifier-type: level-up
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRagePower
-      modifiers:
-        - name: Trap Sense +4 (Reflex)
-          stat: Reflex
-          modifier: 1
-          type: bonus
-          condition: traps
-        - name: Trap Sense +4 (AC)
-          stat: Armor Class
-          modifier: 1
-          type: bonus
-          condition: traps
     - level: 13
-      abilities:
-        - ability: SilverNeedle.ValueStatModifier
-          name: Barbarian Damage Reduction
-          modifier: 1
-          modifier-type: class-bonus
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature 
+          name: Barbarian Damage Reduction 3
+          items:
+            - type: SilverNeedle.ValueStatModifier
+              name: Barbarian Damage Reduction
+              modifier: 1
+              modifier-type: level-up
     - level: 14
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRagePower
@@ -144,53 +179,64 @@
           type: bonus
           condition: vs. Enchantment
     - level: 15
-      modifiers:
-        - name: Trap Sense +5 (Reflex)
-          stat: Reflex
-          modifier: 1
-          type: bonus
-          condition: traps
-        - name: Trap Sense +5 (AC)
-          stat: Armor Class
-          modifier: 1
-          type: bonus
-          condition: traps
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Trap Sense 5
+          items:
+            - type: SilverNeedle.ValueStatModifier
+              name: Trap Sense
+              modifier: 1
+              modifier-type: level-up
     - level: 16
-      abilities:
-        - ability: SilverNeedle.ValueStatModifier
-          name: Barbarian Damage Reduction
-          modifier: 1
-          modifier-type: class-bonus
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature 
+          name: Barbarian Damage Reduction 4
+          items:
+            - type: SilverNeedle.ValueStatModifier
+              name: Barbarian Damage Reduction
+              modifier: 1
+              modifier-type: level-up
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRagePower
     - level: 17
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.TirelessRage
     - level: 18
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Trap Sense 6
+          items:
+            - type: SilverNeedle.ValueStatModifier
+              name: Trap Sense
+              modifier: 1
+              modifier-type: level-up
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRagePower
-      modifiers:
-        - name: Trap Sense +6 (Reflex)
-          stat: Reflex
-          modifier: 1
-          type: bonus
-          condition: traps
-        - name: Trap Sense +6 (AC)
-          stat: Armor Class
-          modifier: 1
-          type: bonus
-          condition: traps
     - level: 19
-      abilities:
-        - ability: SilverNeedle.ValueStatModifier
-          name: Barbarian Damage Reduction
-          modifier: 1
-          modifier-type: class-bonus
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature 
+          name: Barbarian Damage Reduction 5
+          items:
+            - type: SilverNeedle.ValueStatModifier
+              name: Barbarian Damage Reduction
+              modifier: 1
+              modifier-type: level-up
     - level: 20
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Mighty Rage
+          items:
+            - type: SilverNeedle.ValueStatModifier
+              name: strength
+              modifier: 2
+              modifier-type: rage
+            - type: SilverNeedle.ValueStatModifier
+              name: constitution
+              modifier: 2
+              modifier-type: rage
+            - type: SilverNeedle.ValueStatModifier
+              name: will
+              modifier: 1
+              modifier-type: rage
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRagePower
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureRage
-          name: Mighty Rage
-          strength: 8
-          constitution: 8
-          will: 4

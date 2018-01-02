@@ -8,31 +8,40 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using System.Linq;
     using SilverNeedle.Characters;
     using SilverNeedle.Equipment;
+    using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
-    public class FastMovement : SpecialAbility, IComponent
+    public class FastMovement : IStatModifier, IAbility, IComponent
     {
-        public FastMovement(int speed)
+        public FastMovement(IObjectStore configuration)
         {
-            this.Name = "Fast Movement";
-            this.Speed = speed;
-            this.MovementModifier = new DelegateStatModifier(
-                StatNames.BaseMovementSpeed,
-                "bonus",
-                "Fast Movement",
-                MovementBonus
-            );
+            configuration.Deserialize(this);
         }
 
+        [ObjectStore("modifier")]
         public int Speed { get; private set; }
 
         public void Initialize(ComponentContainer components)
         {
-            components.ApplyStatModifier(MovementModifier);
             inventory = components.Get<Inventory>();
         }
 
         private IStatModifier MovementModifier { get; set; }
         private Inventory inventory { get; set; }
+
+        public float Modifier { get { return MovementBonus(); } }
+
+
+        [ObjectStoreOptional("reason")]
+        public string Reason { get; private set; }
+
+        [ObjectStore("modifier-type")]
+        public string Type { get; private set; }
+
+        [ObjectStore("name")]
+        public string StatisticName { get; private set; }
+
+        [ObjectStoreOptional("condition")]
+        public string Condition { get; private set; }
 
         private float MovementBonus()
         {
@@ -40,6 +49,11 @@ namespace SilverNeedle.Characters.SpecialAbilities
                 return 0;
 
             return Speed;
+        }
+
+        public string DisplayString()
+        {
+            return "Fast Movement";
         }
     }
 }
