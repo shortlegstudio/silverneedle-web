@@ -7,7 +7,6 @@
   fortitude: 0.334
   reflex: 0.334
   will: 0.667
-  weaponproficiencies: [simple]
   developedage: Trained
   attributes: 
     - attribute: 
@@ -18,6 +17,11 @@
           , Knowledge Engineering , Knowledge Geography , Knowledge History , Knowledge Local
           , Knowledge Nature , Knowledge Nobility , Knowledge Planes , Knowledge Religion
           , Profession , Spellcraft , Survival]
+    - attribute: SilverNeedle.Characters.ClassFeature
+      name: Weapon Proficiences
+      items:
+        - type: SilverNeedle.Characters.WeaponProficiency
+          weapons: [simple]
     - attribute:
       name: Preferred Clothing
       items:

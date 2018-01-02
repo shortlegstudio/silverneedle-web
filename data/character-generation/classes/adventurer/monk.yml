@@ -7,7 +7,6 @@
   fortitude: 0.667
   reflex: 0.667
   will: 0.667
-  weaponproficiencies: [club, light crossbow, heavy crossbow, dagger, handaxe, javelin, kama, nunchaku, quarterstaff, sai, shortspear, short sword, shuriken, siangham, sling, spear, unarmed]
   developedage: studied
   startingwealth: 1d6
   attributes:
@@ -17,6 +16,11 @@
         - type: SilverNeedle.Characters.ClassSkills
           skills: [Acrobatics, Climb, Craft, Escape Artist, Intimidate, Knowledge History,
           Knowledge Religion, Perception, Perform, Profession, Ride, Sense Motive, Stealth, Swim]
+    - attribute: SilverNeedle.Characters.ClassFeature
+      name: Weapon Proficiences
+      items:
+        - type: SilverNeedle.Characters.WeaponProficiency
+          weapons: [club, light crossbow, heavy crossbow, dagger, handaxe, javelin, kama, nunchaku, quarterstaff, sai, shortspear, short sword, shuriken, siangham, sling, spear, unarmed]
     - attribute:
       name: Preferred Clothing
       items:

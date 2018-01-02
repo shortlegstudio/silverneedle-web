@@ -63,11 +63,6 @@ namespace SilverNeedle.Characters
 
         private ComponentContainer components;
 
-        /// <summary>
-        /// The armor proficiencies of the character
-        /// </summary>
-        private List<ArmorProficiency> armorProficiencies = new List<ArmorProficiency>();
-
         private Inventory inventory;
 
         /// <summary>
@@ -138,7 +133,7 @@ namespace SilverNeedle.Characters
         /// <value>The armor proficiencies.</value>
         public IEnumerable<ArmorProficiency> ArmorProficiencies
         { 
-            get { return this.armorProficiencies; } 
+            get { return this.components.GetAll<ArmorProficiency>(); } 
         }
 
         /// <summary>
@@ -306,7 +301,7 @@ namespace SilverNeedle.Characters
         /// <param name="prof">Proficiency to add.</param>
         public void AddArmorProficiency(string prof)
         {
-            this.armorProficiencies.Add(new ArmorProficiency(prof));
+            this.components.Add(new ArmorProficiency(prof));
         }
 
         public void AddDamageResistance(EnergyResistance dr)

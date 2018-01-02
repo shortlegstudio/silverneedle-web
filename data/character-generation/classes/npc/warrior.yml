@@ -7,8 +7,6 @@
   fortitude: 0.667
   reflex: 0.334
   will: 0.334
-  weaponproficiencies: [simple, martial]
-  armorproficiencies: [light, medium, heavy, shield, towershield]
   developedage: Young
   attributes: 
     - attribute: 
@@ -16,6 +14,16 @@
       items:
         - type: SilverNeedle.Characters.ClassSkills
           skills: [ Climb , Craft , Handle Animal , Intimidate , Profession , Ride , Swim]
+    - attribute: SilverNeedle.Characters.ClassFeature
+      name: Weapon Proficiences
+      items:
+        - type: SilverNeedle.Characters.WeaponProficiency
+          weapons: [simple, martial]
+    - attribute: SilverNeedle.Characters.ClassFeature
+      name: Armor Proficiences
+      items:
+        - type: SilverNeedle.Characters.ArmorProficiency
+          armors: [light, medium, heavy, shield, towershield]
     - attribute:
       name: Preferred Clothing
       items:

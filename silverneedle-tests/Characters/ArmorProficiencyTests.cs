@@ -4,10 +4,12 @@
 // https://opensource.org/licenses/MIT
 
 
-namespace Tests.Characters {
+namespace Tests.Characters 
+{
     using Xunit;
     using SilverNeedle.Characters;
     using SilverNeedle.Equipment;
+    using SilverNeedle.Serialization;
     
     public class ArmorProficiencyTests {
         [Fact]
@@ -31,6 +33,23 @@ namespace Tests.Characters {
             Assert.False(prof.IsProficient(armor));
             armor.Name = "Hide";
             Assert.True(prof.IsProficient(armor));
+        }
+
+        [Fact]
+        public void CanLoadAYamlListThatProvidesProficiencyInformation()
+        {
+            var yaml = @"---
+armors: [light, medium]";
+            var prof = new ArmorProficiency(yaml.ParseYaml());
+            var light = new Armor();
+            light.ArmorType = ArmorType.Light;
+            var medium = new Armor();
+            medium.ArmorType = ArmorType.Medium;
+            var heavy = new Armor();
+            heavy.ArmorType = ArmorType.Heavy;
+            Assert.True(prof.IsProficient(light));
+            Assert.True(prof.IsProficient(medium));
+            Assert.False(prof.IsProficient(heavy));
         }
     }
 }

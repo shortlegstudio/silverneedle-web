@@ -7,8 +7,6 @@
   fortitude: 0.334
   reflex: 0.334
   will: 0.667
-  weaponproficiencies: [simple, martial]
-  armorproficiencies: [light, medium, heavy, shield, towershield]
   developedage: Trained
   attributes: 
     - attribute: 
@@ -20,6 +18,16 @@
           , Knowledge Geography , Knowledge History , Knowledge Local , Knowledge Nature
           , Knowledge Nobility , Knowledge Planes , Knowledge Religion , Linguistics
           , Perception , Perform , Profession , Ride , Sense Motive , Swim , Survival]
+    - attribute: SilverNeedle.Characters.ClassFeature
+      name: Weapon Proficiences
+      items:
+        - type: SilverNeedle.Characters.WeaponProficiency
+          weapons: [simple, martial]
+    - attribute: SilverNeedle.Characters.ClassFeature
+      name: Armor Proficiences
+      items:
+        - type: SilverNeedle.Characters.ArmorProficiency
+          armors: [light, medium, heavy, shield, towershield]
     - attribute:
       name: Preferred Clothing
       items:

@@ -7,8 +7,6 @@
   fortitude: 0.667
   reflex: 0.334
   will: 0.667
-  armorproficiencies: [light, medium]
-  weaponproficiencies: [club, dagger, dart, quarterstaff, scimitar, scythe, sickle, shortspear, sling, spear]
   developedage: studied
   startingwealth: 2d6
   attributes:
@@ -18,6 +16,16 @@
         - type: SilverNeedle.Characters.ClassSkills
           skills: [Climb, Craft, Fly, Handle Animal, Heal, Knowledge Geography,
           Knowledge Nature, Perception, Profession, Ride, Spellcraft, Survival, Swim]
+    - attribute: SilverNeedle.Characters.ClassFeature
+      name: Weapon Proficiences
+      items:
+        - type: SilverNeedle.Characters.WeaponProficiency
+          weapons: [club, dagger, dart, quarterstaff, scimitar, scythe, sickle, shortspear, sling, spear]
+    - attribute: SilverNeedle.Characters.ClassFeature
+      name: Armor Proficiences
+      items:
+        - type: SilverNeedle.Characters.ArmorProficiency
+          armors: [light, medium, shield]
     - attribute:
       name: Preferred Clothing
       items:

@@ -8,7 +8,6 @@
   fortitude: 0.334
   reflex: 0.334
   will: 0.667
-  weaponproficiencies: [club, dagger, heavy crossbow, light crossbow, quarterstaff]
   developedage: studied
   startingwealth: 2d6
   attributes:
@@ -20,6 +19,11 @@
           , Knowledge Engineering , Knowledge Geography , Knowledge History , Knowledge Local
           , Knowledge Nature , Knowledge Nobility , Knowledge Planes , Knowledge Religion , Linguistics
           , Profession , Spellcraft]
+    - attribute: SilverNeedle.Characters.ClassFeature
+      name: Weapon Proficiences
+      items:
+        - type: SilverNeedle.Characters.WeaponProficiency
+          weapons: [club, dagger, heavy crossbow, light crossbow, quarterstaff]
     - attribute:
       name: Preferred Clothing
       items:

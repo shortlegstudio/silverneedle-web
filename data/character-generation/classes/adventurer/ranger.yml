@@ -7,8 +7,6 @@
   fortitude: 0.667
   reflex: 0.667
   will: 0.334
-  armorproficiencies: [light, medium]
-  weaponproficiencies: [simple, martial]
   developedage: trained
   startingwealth: 5d6
   attributes:
@@ -19,6 +17,16 @@
           skills: [Climb, Craft, Handle Animal, Heal, Intimidate, Knowledge Dungeoneering,
           Knowledge Geography, Knowledge Nature, Perception, Profession, Ride, Spellcraft,
           Stealth, Survival, Swim]
+    - attribute: SilverNeedle.Characters.ClassFeature
+      name: Weapon Proficiences
+      items:
+        - type: SilverNeedle.Characters.WeaponProficiency
+          weapons: [simple, martial]
+    - attribute: SilverNeedle.Characters.ClassFeature
+      name: Armor Proficiences
+      items:
+        - type: SilverNeedle.Characters.ArmorProficiency
+          armors: [light, medium, shield]
     - attribute:
       name: Preferred Clothing
       items:

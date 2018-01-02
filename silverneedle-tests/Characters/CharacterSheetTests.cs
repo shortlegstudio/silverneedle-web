@@ -58,36 +58,6 @@ namespace Tests.Characters
         }
 
         [Fact]
-        public void AssigningClassUpdatesWeaponProficiencies()
-        {
-            var sheet = CharacterTestTemplates.AverageBob();
-            var fighter = new Class();
-            fighter.WeaponProficiencies.Add("martial");
-            fighter.WeaponProficiencies.Add("simple");
-            sheet.SetClass(fighter);
-
-            var wpn = new Weapon();
-            wpn.Level = WeaponTrainingLevel.Martial;
-            Assert.True(sheet.Offense.IsProficient(wpn));
-        }
-
-        [Fact]
-        public void AssigningClassUpdatesArmorProficiencies()
-        {
-            var sheet = new CharacterSheet(CharacterStrategy.Default());
-            var fighter = new Class();
-            fighter.ArmorProficiencies.Add("Light");
-            fighter.ArmorProficiencies.Add("Medium");
-            fighter.ArmorProficiencies.Add("Heavy");
-            fighter.ArmorProficiencies.Add("Shields");
-            sheet.SetClass(fighter);
-
-            Armor armor = new Armor();
-            armor.ArmorType = ArmorType.Heavy;
-            Assert.True(sheet.Defense.IsProficient(armor));
-        }
-
-        [Fact]
         public void ExposeAllStats()
         {
             var character = CharacterTestTemplates.AverageBob();

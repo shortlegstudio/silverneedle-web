@@ -35,9 +35,9 @@ namespace Tests.Actions {
             armors.Add(plate);
             
             armorShop = new ArmorShop(armors);
-            proficientCharacter = new CharacterSheet(CharacterStrategy.Default());
+            proficientCharacter = CharacterTestTemplates.AverageBob();
             proficientCharacter.Defense.AddArmorProficiencies(new string[] {"light", "medium", "heavy", "shield"});
-            incapableCharacter = new CharacterSheet(CharacterStrategy.Default());
+            incapableCharacter = CharacterTestTemplates.AverageBob();
 
             subject = new PurchaseArmor(armorShop);
         }

@@ -7,8 +7,6 @@
   fortitude: 0.334
   reflex: 0.667
   will: 0.667
-  armorproficiencies: [light]
-  weaponproficiencies: [simple, longsword, rapier, sap, short sword, shortbow, whip]
   developedage: trained
   startingwealth: 3d6
   attributes:
@@ -22,6 +20,16 @@
           Knowledge Nature, Knowledge Nobility, Knowledge Planes, Knowledge Religion,
           Linguistics, Perception, Perform, Profession, Sense Motive, Sleight of Hand,
           Spellcraft, Stealth, Use Magical Device]
+    - attribute: SilverNeedle.Characters.ClassFeature
+      name: Weapon Proficiences
+      items:
+        - type: SilverNeedle.Characters.WeaponProficiency
+          weapons: [simple, longsword, rapier, sap, short sword, shortbow, whip]
+    - attribute: SilverNeedle.Characters.ClassFeature
+      name: Armor Proficiences
+      items:
+        - type: SilverNeedle.Characters.ArmorProficiency
+          armors: [light, shield]
     - attribute:
       name: Preferred Clothing
       items:

@@ -7,51 +7,50 @@ namespace SilverNeedle.Characters
 {
     using SilverNeedle;
     using SilverNeedle.Equipment;
+    using SilverNeedle.Serialization;
 
-    /// <summary>
-    /// Represents the ability to use a specific piece of armor effectively
-    /// </summary>
     public class ArmorProficiency
     {
-        /// <summary>
-        /// Tracks whether the proficiency represents a whole type of armor
-        /// </summary>
-        private bool isArmorType;
-
-        /// <summary>
-        /// The armor type represented if isArmorType is true
-        /// </summary>
-        private ArmorType armorType;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SilverNeedle.Characters.ArmorProficiency"/> class.
-        /// </summary>
-        /// <param name="proficiency">Armor Proficiency Type.</param>
         public ArmorProficiency(string proficiency)
         {
-            this.Name = proficiency;
-            this.isArmorType = EnumHelpers.TryParse<ArmorType>(proficiency, true, out this.armorType);
+            this.ProficiencyList = new string[] { proficiency };
         }
 
-        /// <summary>
-        /// Gets the name of the proficient armor piece
-        /// </summary>
-        /// <value>The name of this proficiency</value>
-        public string Name { get; private set; }
+        public ArmorProficiency(IObjectStore configuration)
+        {
+            configuration.Deserialize(this);
+        }
 
-        /// <summary>
-        /// Determines whether this instance is proficient with the specified armor.
-        /// </summary>
-        /// <returns><c>true</c> if this instance is proficient with the specified armor; otherwise, <c>false</c>.</returns>
-        /// <param name="armor">Armor to check proficiency in.</param>
+        public string Name 
+        {
+            get { return string.Join(", ", ProficiencyList); }
+        }
+
+        [ObjectStore("armors")]
+        public string[] ProficiencyList { get; private set; }
+
         public bool IsProficient(IArmor armor)
         {
-            if (this.isArmorType)
+            bool passes = false;
+            foreach(var prof in ProficiencyList)
             {
-                return armor.ArmorType == this.armorType;
+                ArmorType armorType;
+                if(EnumHelpers.TryParse<ArmorType>(prof, true, out armorType))
+                {
+                    passes = armor.ArmorType == armorType;
+                }
+                else
+                {
+                    passes = armor.Name.EqualsIgnoreCase(prof);
+                }
+
+                //Exit out if any pass
+                if(passes)
+                    return passes;
             }
 
-            return string.Compare(armor.Name, this.Name, true) == 0;
+            //Nothing should pass, force to false
+            return false;
         }
     }
 }

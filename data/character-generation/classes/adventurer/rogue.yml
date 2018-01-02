@@ -7,8 +7,6 @@
   fortitude: 0.334
   reflex: 0.667
   will: 0.334
-  armorproficiencies: [light]
-  weaponproficiencies: [simple, hand crossbow, rapier, sap, shortbow, short sword]
   developedage: young
   startingwealth: 4d6
   attributes:
@@ -20,6 +18,16 @@
           , Disguise , Escape Artist , Intimidate , Knowledge Dungeoneering , Knowledge Local
           , Linguistics , Perception , Perform , Profession , Sense Motive , Sleight of Hand
           , Stealth , Swim , Use Magical Device]
+    - attribute: SilverNeedle.Characters.ClassFeature
+      name: Weapon Proficiences
+      items:
+        - type: SilverNeedle.Characters.WeaponProficiency
+          weapons: [simple, hand crossbow, rapier, sap, shortbow, short sword]
+    - attribute: SilverNeedle.Characters.ClassFeature
+      name: Armor Proficiences
+      items:
+        - type: SilverNeedle.Characters.ArmorProficiency
+          armors: [light]
     - attribute:
       name: Preferred Clothing
       items:

@@ -7,7 +7,6 @@
   fortitude: 0.334
   reflex: 0.334
   will: 0.667
-  weaponproficiencies: [simple]
   developedage: young
   startingwealth: 2d6
   attributes:
@@ -17,6 +16,11 @@
         - type: SilverNeedle.Characters.ClassSkills
           skills: [Appraise , Bluff , Craft , Fly , Intimidate , Knowledge Arcana
           , Profession , Spellcraft , Use Magical Device]
+    - attribute: SilverNeedle.Characters.ClassFeature
+      name: Weapon Proficiences
+      items:
+        - type: SilverNeedle.Characters.WeaponProficiency
+          weapons: [simple]
     - attribute:
       name: Preferred Clothing
       items:

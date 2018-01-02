@@ -37,15 +37,11 @@ namespace SilverNeedle.Characters
         /// </summary>
         public Class()
         {
-            this.ArmorProficiencies = new List<string>();
-            this.WeaponProficiencies = new List<string>();
             this.Levels = new List<Level>();
         }
 
         public Class(IObjectStore data) : base(data)
         {
-            this.ArmorProficiencies = new List<string>();
-            this.WeaponProficiencies = new List<string>();
             this.Levels = new List<Level>();
             LoadFromObjectStore(data);
         }
@@ -96,18 +92,6 @@ namespace SilverNeedle.Characters
         /// </summary>
         /// <value>The will save rate.</value>
         public float WillSaveRate { get; set; }
-
-        /// <summary>
-        /// Gets or sets the armor proficiencies.
-        /// </summary>
-        /// <value>The armor proficiencies.</value>
-        public IList<string> ArmorProficiencies { get; set; }
-
-        /// <summary>
-        /// Gets or sets the weapon proficiencies.
-        /// </summary>
-        /// <value>The weapon proficiencies.</value>
-        public IList<string> WeaponProficiencies { get; set; }
 
         public ClassDevelopmentAge ClassDevelopmentAge { get; set; }
 
@@ -166,13 +150,6 @@ namespace SilverNeedle.Characters
             WillSaveRate = data.GetFloat("will");
             ClassDevelopmentAge = data.GetEnum<ClassDevelopmentAge>("developedage");
             CustomBuildStep = data.GetStringOptional("custom-build-step");
-
-
-            var armor = data.GetListOptional("armorproficiencies");
-            ArmorProficiencies.Add(armor);
-
-            var weapons = data.GetListOptional("weaponproficiencies");
-            WeaponProficiencies.Add(weapons);
 
             //Load Levels
             var levels = data.GetObjectOptional("levels");

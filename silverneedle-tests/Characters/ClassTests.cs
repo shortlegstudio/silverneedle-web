@@ -99,17 +99,6 @@ namespace Tests.Characters {
         }
 
         [Fact]
-        public void ClassHaveArmorProficiencies()
-        {
-            Assert.True(Fighter.ArmorProficiencies.Contains("heavy"));
-            Assert.True(Fighter.ArmorProficiencies.Contains("medium"));
-            Assert.True(Fighter.ArmorProficiencies.Contains("light"));
-            Assert.True(Monk.ArmorProficiencies.Count == 0);
-            Assert.True(Wizard.ArmorProficiencies.Count == 0);
-
-        }
-
-        [Fact]
         public void ClassKnownTheirGoodSaves()
         {
             Assert.True(Fighter.IsFortitudeGoodSave);
@@ -118,15 +107,6 @@ namespace Tests.Characters {
             Assert.True(Wizard.IsWillGoodSave);
             Assert.False(Wizard.IsFortitudeGoodSave);
             Assert.True(Monk.IsReflexGoodSave);
-        }
-
-        [Fact]
-        public void ClassesHaveWeaponProficiencies()
-        {
-            Assert.True(Fighter.WeaponProficiencies.Contains("martial"));
-            Assert.True(Fighter.WeaponProficiencies.Contains("simple"));
-            Assert.True(Monk.WeaponProficiencies.Contains("monk"));
-            Assert.True(Wizard.WeaponProficiencies.Contains("dagger"));
         }
 
         [Fact]
@@ -171,8 +151,6 @@ namespace Tests.Characters {
   fortitude: 0.667
   reflex: 0.334
   will: 0.334
-  armorproficiencies: [light, medium, heavy]
-  weaponproficiencies: [simple, martial]
   developedage: Trained
   startingwealth: 3d6
   attributes:
@@ -193,7 +171,6 @@ namespace Tests.Characters {
   fortitude: 0.667
   reflex: 0.667
   will: 0.334
-  weaponproficiencies: [simple, monk]
   developedage: Studied
   startingwealth: 1d6
   custom-build-step: SilverNeedle.Namespace.ClassName
@@ -217,7 +194,6 @@ namespace Tests.Characters {
   reflex: 0.334
   fortitude: 0.334
   will: 0.667
-  weaponproficiencies: [club, dagger, crossbow]
   developedage: Studied 
   attributes:
     - attribute:

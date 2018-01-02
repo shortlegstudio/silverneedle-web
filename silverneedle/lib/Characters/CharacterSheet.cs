@@ -233,19 +233,9 @@ namespace SilverNeedle.Characters
         /// <param name="cls">Class of the character</param>
         public void SetClass(Class cls)
         {
-            
-            // TODO: Offense and defense have very different behaviors
             this.Components.Add(cls);
             this.Components.Add(new ClassLevel(cls));
-            
-            // Add Weapon Proficiencies
-            this.Offense.AddWeaponProficiencies(cls.WeaponProficiencies);
-
             this.Offense.LevelUp(cls);
-
-            // Add Armor Proficiencies
-            this.Defense.AddArmorProficiencies(cls.ArmorProficiencies);
-
             this.Defense.LevelUpDefenseStats(cls);
         }
 
