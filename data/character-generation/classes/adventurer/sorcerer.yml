@@ -17,6 +17,14 @@
         - type: SilverNeedle.Characters.ClassSkills
           skills: [Appraise , Bluff , Craft , Fly , Intimidate , Knowledge Arcana
           , Profession , Spellcraft , Use Magical Device]
+    - attribute:
+      name: Preferred Clothing
+      items:
+        - type: SilverNeedle.Characters.CharacterStrategyValue
+          name: clothes
+          values:
+            - name: Peasant's outfit
+              weight: 10
   levels:
     - level: 1
       attributes:

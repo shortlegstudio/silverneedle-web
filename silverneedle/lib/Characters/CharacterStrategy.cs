@@ -95,21 +95,15 @@ namespace SilverNeedle.Characters
                 this.AbilityScoreRoller = typeof(SilverNeedle.Actions.CharacterGeneration.Abilities.AverageAbilityScoreGenerator).FullName;
             }
             
-            // Collections
-            //
-            // Races
             var races = data.GetObject("races");
             BuildWeightedTable(Races, races);
             
-            // Classes
             var classes = data.GetObject("classes");
             BuildWeightedTable(Classes, classes);
             
-            // Skills
             var skills = data.GetObject("skills");
             BuildWeightedTable(FavoredSkills, skills);
             
-            // Feats
             var feats = data.GetObject("feats");
             BuildWeightedTable(FavoredFeats, feats);
 

@@ -18,6 +18,20 @@
         - type: SilverNeedle.Characters.ClassSkills
           skills: [Craft, Diplomacy, Handle Animal, Heal, Knowledge Nobility, 
           Knowledge Religion, Profession, Ride, Sense Motive, Spellcraft]
+    - attribute:
+      name: Preferred Clothing
+      items:
+        - type: SilverNeedle.Characters.CharacterStrategyValue
+          name: clothes
+          values:
+            - name: Cold-weather outfit
+              weight: 10
+            - name: Explorer's outfit
+              weight: 10
+            - name: Noble's outfit
+              weight: 10
+            - name: Traveler's outfit
+              weight: 10
   levels:
     - level: 1
       abilities:
@@ -25,8 +39,6 @@
           type: Good
         - ability: SilverNeedle.Characters.SpecialAbilities.DetectEvil
       class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.AddValuesToBuildStrategy
-          clothes: [Cold-weather outfit, Explorer's outfit, Noble's outfit, Traveler's outfit]
         - step: SilverNeedle.Actions.CharacterGeneration.LimitAlignment
           deny: [LawfulEvil, LawfulNeutral, ChaoticGood, ChaoticNeutral, ChaoticEvil, Neutral, NeutralGood, NeutralEvil]
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSmiteEvil

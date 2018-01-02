@@ -17,6 +17,16 @@
         - type: SilverNeedle.Characters.ClassSkills
           skills: [Acrobatics, Climb, Craft, Escape Artist, Intimidate, Knowledge History,
           Knowledge Religion, Perception, Perform, Profession, Ride, Sense Motive, Stealth, Swim]
+    - attribute:
+      name: Preferred Clothing
+      items:
+        - type: SilverNeedle.Characters.CharacterStrategyValue
+          name: clothes
+          values:
+            - name: Peasant's outfit
+              weight: 10
+            - name: Monk's outfit
+              weight: 30
   levels:
     - level: 1
       attributes:
@@ -37,8 +47,6 @@
         - ability: SilverNeedle.Characters.SpecialAbilities.MonkUnarmedStrike
         - ability: SilverNeedle.Characters.Attacks.FlurryOfBlows
       class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.AddValuesToBuildStrategy
-          clothes: [Monk's outfit, Peasant's outfit]
         - step: SilverNeedle.Actions.CharacterGeneration.LimitAlignment
           deny: [NeutralGood, ChaoticGood, Neutral, ChaoticNeutral, NeutralEvil, ChaoticEvil]
     - level: 2

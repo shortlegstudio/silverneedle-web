@@ -18,6 +18,18 @@
           , Knowledge Engineering , Knowledge Geography , Knowledge History , Knowledge Local
           , Knowledge Nature , Knowledge Nobility , Knowledge Planes , Knowledge Religion
           , Profession , Spellcraft , Survival]
+    - attribute:
+      name: Preferred Clothing
+      items:
+        - type: SilverNeedle.Characters.CharacterStrategyValue
+          name: clothes
+          values:
+            - name: Peasant's outfit
+              weight: 10
+            - name: Cleric's vestments
+              weight: 10
+            - name: Traveler's outfit
+              weight: 10
   levels:
     - level: 1
       abilities:
@@ -46,9 +58,6 @@
             18: [3, 3, 3, 2, 2, 1]
             19: [3, 3, 3, 2, 2, 2]
             20: [3, 3, 3, 2, 2, 2]
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.AddValuesToBuildStrategy
-          clothes: [Cleric's vestments, Peasant's outfit, Traveler's outfit]
     - level: 2
       class-feature-steps: 
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSummonFamiliar

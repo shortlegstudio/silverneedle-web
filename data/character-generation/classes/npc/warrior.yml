@@ -16,8 +16,13 @@
       items:
         - type: SilverNeedle.Characters.ClassSkills
           skills: [ Climb , Craft , Handle Animal , Intimidate , Profession , Ride , Swim]
-  levels: 
-    - level: 1
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.AddValuesToBuildStrategy
-          clothes: [Peasant's outfit, Traveler's outfit]
+    - attribute:
+      name: Preferred Clothing
+      items:
+        - type: SilverNeedle.Characters.CharacterStrategyValue
+          name: clothes
+          values:
+            - name: Peasant's outfit
+              weight: 50
+            - name: Traveler's outfit
+              weight: 10

@@ -20,6 +20,14 @@
           , Knowledge Engineering , Knowledge Geography , Knowledge History , Knowledge Local
           , Knowledge Nature , Knowledge Nobility , Knowledge Planes , Knowledge Religion , Linguistics
           , Profession , Spellcraft]
+    - attribute:
+      name: Preferred Clothing
+      items:
+        - type: SilverNeedle.Characters.CharacterStrategyValue
+          name: clothes
+          values:
+            - name: Peasant's outfit
+              weight: 10
   levels:
     - level: 1
       attributes:

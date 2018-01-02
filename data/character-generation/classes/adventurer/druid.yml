@@ -18,6 +18,16 @@
         - type: SilverNeedle.Characters.ClassSkills
           skills: [Climb, Craft, Fly, Handle Animal, Heal, Knowledge Geography,
           Knowledge Nature, Perception, Profession, Ride, Spellcraft, Survival, Swim]
+    - attribute:
+      name: Preferred Clothing
+      items:
+        - type: SilverNeedle.Characters.CharacterStrategyValue
+          name: clothes
+          values:
+            - name: Peasant's outfit
+              weight: 10
+            - name: Traveler's outfit
+              weight: 10
   levels:
     - level: 1
       abilities:
@@ -58,8 +68,6 @@
             19: [4, 4, 4, 4, 4, 4, 4, 4, 3, 3]
             20: [4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
       class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.AddValuesToBuildStrategy
-          clothes: [Peasant's outfit, Traveler's outfit]
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddBonusLanguages
           languages: [Sylvan]
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddFreeLanguages

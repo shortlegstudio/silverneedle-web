@@ -22,6 +22,16 @@
           Knowledge Nature, Knowledge Nobility, Knowledge Planes, Knowledge Religion,
           Linguistics, Perception, Perform, Profession, Sense Motive, Sleight of Hand,
           Spellcraft, Stealth, Use Magical Device]
+    - attribute:
+      name: Preferred Clothing
+      items:
+        - type: SilverNeedle.Characters.CharacterStrategyValue
+          name: clothes
+          values:
+            - name: Entertainer's outfit
+              weight: 50
+            - name: Traveler's outfit
+              weight: 10
   levels:
     - level: 1
       abilities:

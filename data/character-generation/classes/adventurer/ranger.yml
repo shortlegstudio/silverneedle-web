@@ -19,14 +19,22 @@
           skills: [Climb, Craft, Handle Animal, Heal, Intimidate, Knowledge Dungeoneering,
           Knowledge Geography, Knowledge Nature, Perception, Profession, Ride, Spellcraft,
           Stealth, Survival, Swim]
+    - attribute:
+      name: Preferred Clothing
+      items:
+        - type: SilverNeedle.Characters.CharacterStrategyValue
+          name: clothes
+          values:
+            - name: Explorer's outfit
+              weight: 10
+            - name: Traveler's outfit
+              weight: 10
   levels:
     - level: 1
       abilities:
         - ability: SilverNeedle.Characters.SpecialAbilities.Track
         - ability: SilverNeedle.Characters.SpecialAbilities.WildEmpathy
       class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.AddValuesToBuildStrategy
-          clothes: [Explorer's outfit, Traveler's outfit]
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectFavoredEnemy
     - level: 2
       class-feature-steps:

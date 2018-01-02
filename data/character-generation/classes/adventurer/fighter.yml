@@ -18,6 +18,18 @@
         - type: SilverNeedle.Characters.ClassSkills
           skills: [Climb, Craft, Handle Animal, Intimidate, Knowledge Dungeoneering,
            Knowledge Engineering, Profession, Ride, Survival, Swim]
+    - attribute:
+      name: Preferred Clothing
+      items:
+        - type: SilverNeedle.Characters.CharacterStrategyValue
+          name: clothes
+          values:
+            - name: Cold-weather outfit
+              weight: 10
+            - name: Explorer's outfit
+              weight: 10
+            - name: Traveler's outfit
+              weight: 10
   levels:
     - level: 1
       attributes: 
@@ -26,9 +38,6 @@
           items:
             - type: SilverNeedle.Characters.FeatToken
               tags: [combat]
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.AddValuesToBuildStrategy
-          clothes: [Cold-weather outfit, Explorer's outfit, Traveler's outfit]
     - level: 2
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature

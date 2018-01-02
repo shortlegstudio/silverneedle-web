@@ -17,9 +17,19 @@
         - type: SilverNeedle.Characters.ClassSkills
           skills: [ Climb , Craft , Handle Animal , Heal , Knowledge Engineering
           , Knowledge Local , Perception , Profession , Ride , Swim]
+    - attribute:
+      name: Preferred Clothing
+      items:
+        - type: SilverNeedle.Characters.CharacterStrategyValue
+          name: clothes
+          values:
+            - name: Artisan's outfit
+              weight: 50
+            - name: Entertainer's outfit
+              weight: 5
+            - name: Peasant's outfit
+              weight: 20
   levels: 
     - level: 1
       class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.AddValuesToBuildStrategy
-          clothes: [Artisan's outfit, Entertainer's outfit, Peasant's outfit]
         - step: SilverNeedle.Actions.CharacterGeneration.CustomClassSteps.ExpertCustomSteps

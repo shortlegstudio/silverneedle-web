@@ -19,6 +19,18 @@
           skills: [Appraise, Craft, Diplomacy, Heal, Knowledge Arcana, Knowledge History,
           Knowledge Nobility, Knowledge Planes, Knowledge Religion, Linguistics, 
           Profession, Sense Motive, Spellcraft]
+    - attribute:
+      name: Preferred Clothing
+      items:
+        - type: SilverNeedle.Characters.CharacterStrategyValue
+          name: clothes
+          values:
+            - name: Peasant's outfit
+              weight: 10
+            - name: Cleric's vestments
+              weight: 10
+            - name: Traveler's outfit
+              weight: 10
   levels:
     - level: 1
       abilities:
@@ -52,8 +64,6 @@
             19: [4, 4, 4, 4, 4, 4, 4, 4, 3, 3]
             20: [4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
       class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.AddValuesToBuildStrategy
-          clothes: [Cleric's vestments, Peasant's outfit, Traveler's outfit]
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectDomains
           count: 2
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddDomainSpells
