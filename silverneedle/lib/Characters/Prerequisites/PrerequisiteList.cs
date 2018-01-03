@@ -43,7 +43,7 @@ namespace SilverNeedle.Characters.Prerequisites
                 return true;
             }
 
-            return this.All(x => x.IsQualified(character));
+            return this.All(x => x.IsQualified(character.Components));
         }
 
         /// <summary>
@@ -61,13 +61,8 @@ namespace SilverNeedle.Characters.Prerequisites
                 IPrerequisite newreq = null;
                 switch (key)
                 {
-                    case "strength":
-                    case "dexterity":
-                    case "constitution":
-                    case "intelligence":
-                    case "wisdom":
-                    case "charisma":
-                        newreq = new AbilityPrerequisite(key.EnumValue<AbilityScoreTypes>(), prereq.GetInteger(key));
+                    case "ability":
+                        newreq = new SpecialAbilityPrerequisite(prereq.GetString(key));
                         break;
                     case "baseattackbonus":
                         newreq = new BaseAttackBonusPrerequisite(prereq.GetString(key));
@@ -81,9 +76,6 @@ namespace SilverNeedle.Characters.Prerequisites
                     case "classlevel":
                         newreq = new ClassLevelPrerequisite(prereq.GetString(key));
                         break;
-                    case "feat":
-                        newreq = new FeatPrerequisite(prereq.GetString(key));
-                        break;
                     case "proficiency":
                         newreq = new ProficiencyPrerequisite(prereq.GetString(key));
                         break;
@@ -93,8 +85,13 @@ namespace SilverNeedle.Characters.Prerequisites
                     case "skillranks":
                         newreq = new SkillRankPrerequisite(prereq.GetString(key));
                         break;
-                    case "ability":
-                        newreq = new SpecialAbilityPrerequisite(prereq.GetString(key));
+                    case "strength":
+                    case "dexterity":
+                    case "constitution":
+                    case "intelligence":
+                    case "wisdom":
+                    case "charisma":
+                        newreq = new AbilityPrerequisite(key.EnumValue<AbilityScoreTypes>(), prereq.GetInteger(key));
                         break;
                     case "custom":
                         newreq = prereq.GetString(key).Instantiate<IPrerequisite>();

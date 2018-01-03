@@ -5,15 +5,10 @@
 
 namespace SilverNeedle.Characters.Prerequisites
 {
-    /// <summary>
-    /// Skill rank prerequisite.
-    /// </summary>
+    using SilverNeedle.Utility;
+
     public class SkillRankPrerequisite : IPrerequisite
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SkillRankPrerequisite"/> class.
-        /// </summary>
-        /// <param name="value">Value to meet the requirements.</param>
         public SkillRankPrerequisite(string value)
         {
             var vals = value.Split(' ');
@@ -21,24 +16,11 @@ namespace SilverNeedle.Characters.Prerequisites
             this.Minimum = int.Parse(vals[1]);
         }
 
-        /// <summary>
-        /// Gets or sets the name of the skill.
-        /// </summary>
-        /// <value>The name of the skill.</value>
         public string SkillName { get; set; }
 
-        /// <summary>
-        /// Gets or sets the minimum.
-        /// </summary>
-        /// <value>The minimum.</value>
         public int Minimum { get; set; }
 
-        /// <summary>
-        /// Determines whether this instance is qualified the specified character.
-        /// </summary>
-        /// <returns>true if the character is qualified</returns>
-        /// <param name="character">Character to assess qualification.</param>
-        public bool IsQualified(CharacterSheet character)
+        public bool IsQualified(ComponentContainer components)
         {
             return false;
         }

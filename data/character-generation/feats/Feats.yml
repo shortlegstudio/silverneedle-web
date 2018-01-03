@@ -15,7 +15,7 @@
     You can easily move over and through obstacles.
   prerequisites:
     - dexterity: 15
-    - feat: Nimble Moves
+    - ability: Nimble Moves
 - feat:
   name: Agile Maneuvers
   description: >
@@ -75,15 +75,15 @@
   description: >
     You have masterd the ability to cast spells while wearing armor.
   prerequisites:
-    - feat: Arcane Armor Training
-    - feat: Armor Proficiency (Medium)
+    - ability: Arcane Armor Training
+    - ability: Armor Proficiency (Medium)
     - casterlevel: 7
   tags: [ combat ]
 - feat:
   name: Arcane Armor Training
   description: You have learned how to cast spells while wearing armor.
   prerequisites:
-    - feat: Armor Proficiency (Light)
+    - ability: Armor Proficiency (Light)
     - casterlevel: 3
   tags: [ combat ]
 - feat:
@@ -116,12 +116,12 @@
   name: Augment Summoning
   description: Your summoned creatures are more powerful and robust.
   prerequisites:
-    - feat: Spell Focus (Conjuration)
+    - ability: Spell Focus (Conjuration)
 - feat:
   name: Bleeding Critical
   description: Your critical hits cause opponents to bleed profusely.
   prerequisites:
-    - feat: Critical Focus
+    - ability: Critical Focus
     - baseattackbonus: 11
   combat: yes
   critical: yes
@@ -135,7 +135,7 @@
   description: Your critical hits blind your opponent.
   tags: [combat, critical]
   prerequisites:
-    - feat: Critical Focus
+    - ability: Critical Focus
     - baseattackbonus: 15
 - feat:
   name: Brew Potion
@@ -158,7 +158,7 @@
   description: You can strike two adjacent foes with a single swing.
   tags: [ combat ]
   prerequisites:
-    - feat: Power Attack
+    - ability: Power Attack
     - strength: 13
     - baseattackbonus: 1
 - feat:
@@ -222,15 +222,15 @@
   description: Your critical hits cause two additional effects.
   tags: [ combat ]
   prerequisites:
-    - feat: Critical Focus
+    - ability: Critical Focus
     - classlevel: Fighter 14
 - feat:
   name: Dazzling Display
   description: Your skill with your favored weapon can frighten enemies.
   tags: [ combat ]
   prerequisites:
-    - feat: Weapon Focus
-    - feat: Weapon Proficiency
+    - ability: Weapon Focus
+    - ability: Weapon Proficiency
 - feat:
   name: Deadly Aim
   tags: [ combat ]
@@ -247,18 +247,18 @@
     With a well-placed strike, you can bring a swift and painful end
     to most foes.
   prerequisites:
-    - feat: Dazzling Display
-    - feat: Greater Weapon Focus
-    - feat: Shatter Defenses
-    - feat: Weapon Focus
-    - feat: Weapon Proficiency
+    - ability: Dazzling Display
+    - ability: Greater Weapon Focus
+    - ability: Shatter Defenses
+    - ability: Weapon Focus
+    - ability: Weapon Proficiency
     - baseattackbonus: 11
 - feat:
   name: Deafening Critical
   description: Your critical hits cause enemies to lose their hearing.
   tags: [combat, critical]
   prerequisites:
-    - feat: Critical Focus
+    - ability: Critical Focus
     - baseattackbonus: 13
 - feat:
   name: Deceitful
@@ -284,7 +284,7 @@
   tags: [ combat ]
   prerequisites:
     - dexterity: 13
-    - feat: Improved Unarmed Strike
+    - ability: Improved Unarmed Strike
 - feat:
   name: Deft Hands
   description: You have exceptional manual dexterity.
@@ -295,7 +295,7 @@
     stabilize when grievously injured, but you can remain conscious and continue
     to act even at death's door.
   prerequisites:
-    - feat: Endurance
+    - ability: Endurance
 - feat:
   name: Disruptive
   description: >
@@ -322,7 +322,7 @@
     Your off-hand weapon while dual-wielding strikes with greater power.
   prerequisites:
     - dexterity: 15
-    - feat: Two-Weapon Fighting
+    - ability: Two-Weapon Fighting
   tags: [ combat ]
 - feat:
   name: Elemental Channel
@@ -360,8 +360,8 @@
   description: Your critical hits cause opponents to become exhausted.
   prerequisites:
     - baseattackbonus: 15
-    - feat: Critical Focus
-    - feat: Tiring Critical
+    - ability: Critical Focus
+    - ability: Tiring Critical
   tags: [combat, critical]
 - feat:
   name: Exotic Weapon Proficiency
@@ -414,7 +414,7 @@
   description: You are more accurate at longer ranges
   tags: [ combat ]
   prerequisites:
-    - feat: Point-Blank Shot
+    - ability: Point-Blank Shot
 - feat:
   name: Fleet
   description: You are faster than most.
@@ -429,16 +429,16 @@
   tags: [ combat ]
   description: With one well-placed blow, you leave your target reeling.
   prerequisites:
-    - feat: Improved Unarmed Strik
-    - feat: Scorpion Style
+    - ability: Improved Unarmed Strik
+    - ability: Scorpion Style
     - baseattackbonus: 6
 - feat:
   name: Great Cleave
   tags: [ combat ]
   description: You can strike many adjacent foes with a single blow.
   prerequisites:
-    - feat: Cleave
-    - feat: Power Attack
+    - ability: Cleave
+    - ability: Power Attack
     - baseattackbonus: 4
     - strength: 13
 - feat:
@@ -453,8 +453,8 @@
   tags: [ combat ]
   description: Your bull rush attacks throw enemies off balance.
   prerequisites:
-    - feat: Improved Bull Rush
-    - feat: Power Attack
+    - ability: Improved Bull Rush
+    - ability: Power Attack
     - strength: 13
     - baseattackbonus: 6
 - feat:
@@ -462,8 +462,8 @@
   tags: [ combat ]
   description: You can knock weapons far from an enemy's grasp.
   prerequisites:
-    - feat: Combat Expertise
-    - feat: Improved Disarm
+    - ability: Combat Expertise
+    - ability: Improved Disarm
     - baseattackbonus: 6
     - intelligence: 13
 - feat:
@@ -471,8 +471,8 @@
   description: You are skilled at making foes overreact to your attacks.
   tags: [ combat ]
   prerequisites:
-    - feat: Combat Expertise
-    - feat: Improved Feint
+    - ability: Combat Expertise
+    - ability: Improved Feint
     - baseattackbonus: 6
     - intelligence: 13
 - feat:
@@ -480,8 +480,8 @@
   description: Maintaining a grapple is second nature to you.
   tags: [ combat ]
   prerequisites:
-    - feat: Improved Grapple
-    - feat: Improved Unarmed Strike
+    - ability: Improved Grapple
+    - ability: Improved Unarmed Strike
     - baseattackbonus: 6
     - dexterity: 13
 - feat:
@@ -489,8 +489,8 @@
   tags: [ combat ]
   description: Enemies must dive to avoid your dangerous move.
   prerequisites:
-    - feat: Improved Overrun
-    - feat: Power Attack
+    - ability: Improved Overrun
+    - ability: Power Attack
     - baseattackbonus: 6
     - strength: 13
 - feat:
@@ -498,16 +498,16 @@
   tags: [ combat ]
   description: Your attacks penetrate the defenses of most foes.
   prerequisites:
-    - feat: Penetrating Strik
-    - feat: Weapon Focus
+    - ability: Penetrating Strike
+    - ability: Weapon Focus
     - classlevel: Fighter 16
 - feat:
   name: Greater Shield Focus
   tags: [ combat ]
   description: You are skill at deflecting blows with your shield.
   prerequisites:
-    - feat: Shield Focus
-    - feat: Shield Proficiency
+    - ability: Shield Focus
+    - ability: Shield Proficiency
     - classlevel: Fighter 8
 - feat:
   name: Greater Spell Focus
@@ -515,12 +515,12 @@
     Choose a school of magic to which you have applied the Spell Focus feat.
     Any spells you cast of this school are very hard to resist.
   prerequisites:
-    - feat: Spell Focus
+    - ability: Spell Focus
 - feat:
   name: Greater Spell Penetration
   description: Your spells break through spell resistance more easily than most.
   prerequisites:
-    - feat: Spell Penetration
+    - ability: Spell Penetration
 - feat:
   name: Greater Sunder
   description: >
@@ -528,8 +528,8 @@
     weilders, damaging both item and wielder alike in a single terrific strike.
   tags: [ combat ]
   prerequisites:
-    - feat: Improved Sunder
-    - feat: Power Attack
+    - ability: Improved Sunder
+    - ability: Power Attack
     - baseattackbonus: 6
     - strength: 13
 - feat:
@@ -537,8 +537,8 @@
   description: You can make free attacks on foes that you knock down.
   tags: [ combat ]
   prerequisites:
-    - feat: Combat Expertise
-    - feat: Improved Trip
+    - ability: Combat Expertise
+    - ability: Improved Trip
     - baseattackbonus: 6
     - intelligence: 13
 - feat:
@@ -547,8 +547,8 @@
     You are incredibly skilled at fighting with two weapons at the same time.
   prerequisites:
     - dexterity: 19
-    - feat: Improved Two-Weapon Fighting
-    - feat: Two-Weapon Fighting
+    - ability: Improved Two-Weapon Fighting
+    - ability: Two-Weapon Fighting
     - baseattackbonus: 11
   tags: [ combat ]
 - feat:
@@ -556,8 +556,8 @@
   description: You can make a single attack that deals incredible damage.
   tags: [ combat ]
   prerequisites:
-    - feat: Improved Vital Strik
-    - feat: Vital Strike
+    - ability: Improved Vital Strik
+    - ability: Vital Strike
     - baseattackbonus: 16
 - feat:
   name: Greater Weapon Focus
@@ -567,8 +567,8 @@
     you have already selected Weapon Focus. You are a master of your chosen
     weapon.
   prerequisites:
-    - feat: Weapon Proficiency
-    - feat: Weapon Focus
+    - ability: Weapon Proficiency
+    - ability: Weapon Focus
     - classlevel: Fighter 8
 - feat:
   name: Greater Weapon Specialization
@@ -578,10 +578,10 @@
     you posses the Weapon Specialization feat. Your attacks with the chosen
     weapon are more devastating than normal
   prerequisites:
-    - feat: Weapon Proficiency
-    - feat: Greater Weapon Focus
-    - feat: Weapon Focus
-    - feat: Weapon Specialization
+    - ability: Weapon Proficiency
+    - ability: Greater Weapon Focus
+    - ability: Weapon Focus
+    - ability: Weapon Specialization
     - classlevel: Fighter 12
 - feat:
   name: Heighten Spell
@@ -595,7 +595,7 @@
   tags: [ combat ]
   prerequisites:
     - strength: 13
-    - feat: Power Attack
+    - ability: Power Attack
     - baseattackbonus: 1
 - feat:
   name: Improved Channel
@@ -612,14 +612,14 @@
   description: Attacks made with your chosen weapon are quite deadly.
   tags: [ combat ]
   prerequisites:
-    - feat: Weapon Proficiency
+    - ability: Weapon Proficiency
     - baseattackbonus: 8
 - feat:
   name: Improved Disarm
   description: You are skilled at knocking weapons from a foe's grasp.
   tags: [ combat ]
   prerequisites:
-    - feat: Combat Expertise
+    - ability: Combat Expertise
     - intelligence: 13
 - feat:
   name: Improved Familiar
@@ -634,21 +634,21 @@
   tags: [ combat ]
   prerequisites:
     - intelligence: 13
-    - feat: Combat Expertise
+    - ability: Combat Expertise
 - feat:
   name: Improved Grapple
   description: You are skilled at grappling opponents.
   tags: [ combat ]
   prerequisites:
     - dexterity: 13
-    - feat: Improved Unarmed Strike
+    - ability: Improved Unarmed Strike
 - feat:
   name: Improved Great Fortitude
   description: >
     You can draw upon an inner reserve to resist diseases, poisons and other
     grievous harm.
   prerequisites:
-    - feat: Great Fortitude
+    - ability: Great Fortitude
 - feat:
   name: Improved Initiative
   description: Your quick reflexes allow you to react rapidly to danger.
@@ -661,19 +661,19 @@
   name: Improved Iron Will
   description: Your clarity of thought allows you to resist mental attacks.
   prerequisites:
-    - feat: Iron Will
+    - ability: Iron Will
 - feat:
   name: Improved Lightning Reflexes
   description: You have a knack for avoiding danger all around you.
   prerequisites:
-    - feat: Lightning Reflexes
+    - ability: Lightning Reflexes
 - feat:
   name: Improved Overrun
   description: You are skilled at running down your foes.
   tags: [ combat ]
   prerequisites:
     - strength: 13
-    - feat: Power Attack
+    - ability: Power Attack
     - baseattackbonus: 1
 - feat:
   name: Improved Precise Shot
@@ -681,22 +681,22 @@
   tags: [ combat ]
   prerequisites:
     - dexterity: 19
-    - feat: Point-Blank Shot
-    - feat: Precise Shot
+    - ability: Point-Blank Shot
+    - ability: Precise Shot
     - baseattackbonus: 11
 - feat:
   name: Improved Shield Bash
   description: You can protect yourself with your shield, even if you use it to attack.
   tags: [ combat ]
   prerequisites:
-    - feat: Shield Proficiency
+    - ability: Shield Proficiency
 - feat:
   name: Improved Sunder
   description: You are skilled at damaging your foes' weapons and armor.
   tags: [ combat ]
   prerequisites:
     - strength: 13
-    - feat: Power Attack
+    - ability: Power Attack
     - baseattackbonus: 1
 - feat:
   name: Improved Trip
@@ -704,14 +704,14 @@
   tags: [ combat ]
   prerequisites:
     - intelligence: 13
-    - feat: Combat Expertise
+    - ability: Combat Expertise
 - feat:
   name: Improved Two-Weapon Fighting
   description: You are skilled at fighting with two weapons.
   tags: [ combat ]
   prerequisites:
     - dexterity: 17
-    - feat: Two-Weapon Fighting
+    - ability: Two-Weapon Fighting
     - baseattackbonus: 6
 - feat:
   name: Improved Unarmed Strike
@@ -722,7 +722,7 @@
   description: You can make a single attack that deal a large amount of damage.
   tags: [ combat ]
   prerequisites:
-    - feat: Vital Strike
+    - ability: Vital Strike
     - baseattackbonus: 11
 - feat:
   name: Improvised Weapon Master
@@ -731,7 +731,7 @@
     chair leg to a sack of flour.
   tags: [ combat ]
   prerequisites:
-    - feat: Throw Anything
+    - ability: Throw Anything
     - baseattackbonus: 8
 - feat:
   name: Intimidating Prowess
@@ -762,8 +762,8 @@
   tags: [ combat ]
   prerequisites:
     - dexterity: 17
-    - feat: Dodge
-    - feat: Wind Stance
+    - ability: Dodge
+    - ability: Wind Stance
     - baseattackbonus: 11
 - feat:
   name: Lunge
@@ -788,8 +788,8 @@
   tags: [ combat ]
   prerequisites:
     - dexterity: 17
-    - feat: Point-Blank Shot
-    - feat: Rapid Shot
+    - ability: Point-Blank Shot
+    - ability: Rapid Shot
     - baseattackbonus: 6
 - feat:
   name: Martial Weapon Proficiency
@@ -813,9 +813,9 @@
     You can take advantage of your opponent's confusion, delivering multiple blows.
   tags: [ combat ]
   prerequisites:
-    - feat: Improved Unarmed Strike
-    - feat: Gorgon's Fist
-    - feat: Scorpion Style
+    - ability: Improved Unarmed Strike
+    - ability: Gorgon's Fist
+    - ability: Scorpion Style
     - baseattackbonus: 11
 - feat:
   name: Mobility
@@ -823,14 +823,14 @@
   tags: [ combat ]
   prerequisites:
     - dexterity: 13
-    - feat: Dodge
+    - ability: Dodge
 - feat:
   name: Mounted Archery
   description: You are skilled at making ranged attacks while mounted.
   tags: [ combat ]
   prerequisites:
     - skillranks: Ride 1
-    - feat: Mounted Combat
+    - ability: Mounted Combat
 - feat:
   name: Mounted Combat
   description: You are adept at guiding your mount through combat.
@@ -854,9 +854,9 @@
   tags: [ combat ]
   description: Your attacks are capable of penetrating the defenses of some creatures.
   prerequisites:
-    - feat: Weapon Focus
+    - ability: Weapon Focus
     - classlevel: Fighter 12
-    - feat: Weapon Proficiency
+    - ability: Weapon Proficiency
 - feat:
   name: Persuasive
   description: >
@@ -875,9 +875,9 @@
   tags: [ combat ]
   prerequisites:
     - dexterity: 19
-    - feat: Improved Precise Shot
-    - feat: Point-Blank Shot
-    - feat: Precise Shot
+    - ability: Improved Precise Shot
+    - ability: Point-Blank Shot
+    - ability: Precise Shot
     - baseattackbonus: 16
 - feat:
   name: Point-Blank Shot
@@ -898,7 +898,7 @@
   description: You are adept at firing ranged attacks into melee.
   tags: [ combat ]
   prerequisites:
-    - feat: Point-Blank Shot
+    - ability: Point-Blank Shot
 - feat:
   name: Quick Draw
   tags: [ combat ]
@@ -916,14 +916,14 @@
   tags: [ combat ]
   description: Choose a type of crossbow. You can reload such weapons quickly.
   prerequisites:
-    - feat: Weapon Proficiency (Crossbows)
+    - ability: Weapon Proficiency (Crossbows)
 - feat:
   name: Rapid Shot
   tags: [ combat ]
   description: You can make an additional ranged attack
   prerequisites:
     - dexterity: 13
-    - feat: Point-Blank Shot
+    - ability: Point-Blank Shot
 - feat:
   name: Ride-By Attack
   tags: [ combat ]
@@ -932,7 +932,7 @@
     continue moving.
   prerequisites:
     - skillranks: Ride 1
-    - feat: Mounted Combat
+    - ability: Mounted Combat
 - feat:
   name: Run
   description: You are swift of foot.
@@ -943,7 +943,7 @@
     You can perform an unarmed strike that greatly hampers your target's
     movement.
   prerequisites:
-    - feat: Improved Unarmed Strike
+    - ability: Improved Unarmed Strike
 - feat:
   name: Scribe Scroll
   tags: [ itemcreation ]
@@ -972,26 +972,26 @@
     themselves if you strike them when their defenses are already compromised.
   tags: [ combat ]
   prerequisites:
-    - feat: Weapon Focus
-    - feat: Dazzling Display
+    - ability: Weapon Focus
+    - ability: Dazzling Display
     - baseattackbonus: 4
-    - feat: Weapon Proficiency
+    - ability: Weapon Proficiency
 - feat:
   name: Shield Focus
   tags: [ combat ]
   description: You are skilled at deflecting blows with your shield.
   prerequisites:
-    - feat: Shield Proficiency
+    - ability: Shield Proficiency
     - baseattackbonus: 1
 - feat:
   name: Shield Master
   tags: [ combat ]
   description: Your master of the shield allows you to fight with it without hinderance.
   prerequisites:
-    - feat: Improved Shield Bash
-    - feat: Shield Proficiency
-    - feat: Shield Slam
-    - feat: Two-Weapon Fighting
+    - ability: Improved Shield Bash
+    - ability: Shield Proficiency
+    - ability: Shield Slam
+    - ability: Two-Weapon Fighting
     - baseattackbonus: 11
 - feat:
   name: Shield Proficiency
@@ -1002,9 +1002,9 @@
   tags: [ combat ]
   description: In the right position, your shield can be used to send opponents flying.
   prerequisites:
-    - feat: Improved Shield Bash
-    - feat: Shield Proficiency
-    - feat: Two-Weapon Fighting
+    - ability: Improved Shield Bash
+    - ability: Shield Proficiency
+    - ability: Two-Weapon Fighting
     - baseattackbonus: 6
 - feat:
   name: Shot on the Run
@@ -1013,16 +1013,16 @@
     You can move, fire a ranged weapon, and move again before your foes can react.
   prerequisites:
     - dexterity: 13
-    - feat: Dodge;
-    - feat: Mobility
-    - feat: Point-Blank Shot
+    - ability: Dodge;
+    - ability: Mobility
+    - ability: Point-Blank Shot
     - baseattackbonus: 4
 - feat:
   name: Sickening Critical
   tags: [combat, critical]
   description: Your critical hits cause opponents to become sickened.
   prerequisites:
-    - feat: Critical Focus
+    - ability: Critical Focus
     - baseattackbonus: 11
 - feat:
   name: Silent Spell
@@ -1047,8 +1047,8 @@
     mid-flight.
   prerequisites:
     - dexterity: 15
-    - feat: Deflect Arrows
-    - feat: Improved Unarmed Strike
+    - ability: Deflect Arrows
+    - ability: Improved Unarmed Strike
 - feat:
   name: Spell Focus
   description: >
@@ -1076,7 +1076,7 @@
     You can strike at enemy spellcasters who fail to cast defensively when you
     threaten them.
   prerequisites:
-    - feat: Disruptive
+    - ability: Disruptive
     - classlevel: Fighter 10
 - feat:
   name: Spirited Charge
@@ -1085,8 +1085,8 @@
     Your mounted charge attacks deal a tremendous amount of damage.
   prerequisites:
     - skillranks: Ride 1
-    - feat: Mounted Combat
-    - feat: Ride-By Attack
+    - ability: Mounted Combat
+    - ability: Ride-By Attack
 - feat:
   name: Spring Attack
   tags: [ combat ]
@@ -1094,22 +1094,22 @@
     You can deftly move up to a foe, strike, and withdraw before he can react.
   prerequisites:
     - dexterity: 13
-    - feat: Dodge
-    - feat: Mobility
+    - ability: Dodge
+    - ability: Mobility
     - baseattackbonus: 4
 - feat:
   name: Staggering Critical
   tags: [combat , critical]
   description: Your critical hits cause opponents to slow down.
   prerequisites:
-    - feat: Critical Focus
+    - ability: Critical Focus
     - baseattackbonus: 13
 - feat:
   name: Stand Still
   tags: [ combat ]
   description: You can stop foes that try to move past you.
   prerequisites:
-    - feat: Combat Reflexes
+    - ability: Combat Reflexes
 - feat:
   name: Stealthy
   description: You are good at avoiding unwanted attend and slipping out of bonds.
@@ -1145,8 +1145,8 @@
   tags: [combat , critical]
   description: Your critical hits cause opponents to become stunned.
   prerequisites:
-    - feat: Critical Focus
-    - feat: Staggering Critical
+    - ability: Critical Focus
+    - ability: Staggering Critical
     - baseattackbonus: 17
 - feat:
   name: Stunning Fist
@@ -1155,7 +1155,7 @@
   prerequisites:
     - dexterity: 13
     - wisdom: 13
-    - feat: Improved Unarmed Strike
+    - ability: Improved Unarmed Strike
     - baseattackbonus: 8
 - feat:
   name: Throw Anything
@@ -1173,7 +1173,7 @@
   tags: [ combat ]
   description: You are trained in how to properly us a tower shield.
   prerequisites:
-    - feat: Shield Proficiency
+    - ability: Shield Proficiency
 - feat:
   name: Trample
   tags: [ combat ]
@@ -1181,7 +1181,7 @@
     While mounted, you can ride down opponents and trample them under your mount.
   prerequisites:
     - skillranks: Ride 1
-    - feat: Mounted Combat
+    - ability: Mounted Combat
 - feat:
   name: Turn Undead
   description: >
@@ -1194,7 +1194,7 @@
   tags: [ combat ]
   description: You are skilled at defending yourself while dual-wielding.
   prerequisites:
-    - feat: Two-Weapon Fighting
+    - ability: Two-Weapon Fighting
     - dexterity: 15
 - feat:
   name: Two-Weapon Fighting
@@ -1212,9 +1212,9 @@
     deliver devastating wounds.
   prerequisites:
     - dexterity: 17
-    - feat: Double Slice
-    - feat: Improved Two-Weapon Fighting
-    - feat: Two-Weapon Fighting
+    - ability: Double Slice
+    - ability: Improved Two-Weapon Fighting
+    - ability: Two-Weapon Fighting
     - baseattackbonus: 11
 - feat:
   name: Unseat
@@ -1223,9 +1223,9 @@
   prerequisites:
     - strength: 13
     - skillranks: Ride 1
-    - feat: Mounted Combat
-    - feat: Power Attack
-    - feat: Improved Bull Rush
+    - ability: Mounted Combat
+    - ability: Power Attack
+    - ability: Improved Bull Rush
     - baseattackbonus: 1
 - feat:
   name: Vital Strike
@@ -1258,8 +1258,8 @@
     selected the Weapon Focus feat. You deal extra damage when using this
     weapon.
   prerequisites:
-    - feat: Weapon Proficiency
-    - feat: Weapon Focus
+    - ability: Weapon Proficiency
+    - ability: Weapon Focus
     - classlevel: Fighter 4
 - feat:
   name: Whirlwind Attack
@@ -1268,10 +1268,10 @@
   prerequisites:
     - dexterity: 13
     - intelligence: 13
-    - feat: Combat Expertise
-    - feat: Dodge
-    - feat: Mobility
-    - feat: Spring Attack
+    - ability: Combat Expertise
+    - ability: Dodge
+    - ability: Mobility
+    - ability: Spring Attack
     - baseattackbonus: 4
 - feat:
   name: Widen Spell
@@ -1286,5 +1286,5 @@
     Your erratic movements make it difficult for enemies to pinpoint your location.
   prerequisites:
     - dexterity: 15
-    - feat: Dodge
+    - ability: Dodge
     - baseattackbonus: 6

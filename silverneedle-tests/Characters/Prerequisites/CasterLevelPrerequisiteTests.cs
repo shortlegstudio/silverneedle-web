@@ -18,10 +18,10 @@ namespace Tests.Characters.Prerequisites
             var character = CharacterTestTemplates.DruidDonna().WithDivineCasting();
             var spellCasting = character.Get<ISpellCasting>();
             var prereq = new CasterLevelPrerequisite("3");
-            Assert.False(prereq.IsQualified(character));
+            Assert.False(prereq.IsQualified(character.Components));
             character.SetLevel(3);
             Assert.Equal(3, spellCasting.CasterLevel);
-            Assert.True(prereq.IsQualified(character));
+            Assert.True(prereq.IsQualified(character.Components));
         }
 
         [Fact]
@@ -30,7 +30,7 @@ namespace Tests.Characters.Prerequisites
             var character = CharacterTestTemplates.DruidDonna();
             character.SetLevel(10);
             var prereq = new CasterLevelPrerequisite("3");
-            Assert.False(prereq.IsQualified(character));
+            Assert.False(prereq.IsQualified(character.Components));
         }
 
     }

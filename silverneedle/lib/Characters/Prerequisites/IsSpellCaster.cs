@@ -6,12 +6,13 @@
 namespace SilverNeedle.Characters.Prerequisites
 {
     using SilverNeedle.Characters.Magic;
+    using SilverNeedle.Utility;
 
     public class IsSpellCaster : IPrerequisite
     {
-        public bool IsQualified(CharacterSheet character)
+        public bool IsQualified(ComponentContainer components)
         {
-            return character.Contains<ISpellCasting>();
+            return components.Contains<ISpellCasting>();
         }
     }
 }

@@ -39,9 +39,9 @@ namespace Tests.Characters {
 
         [Fact]
         public void FeatsKnowWhetherYouQualify() {
-            var smartCharacter = new CharacterSheet(CharacterStrategy.Default());
+            var smartCharacter = CharacterTestTemplates.AverageBob();
             smartCharacter.AbilityScores.SetScore (AbilityScoreTypes.Intelligence, 15);
-            var dumbCharacter = new CharacterSheet(CharacterStrategy.Default());
+            var dumbCharacter = CharacterTestTemplates.AverageBob();
             dumbCharacter.AbilityScores.SetScore (AbilityScoreTypes.Intelligence, 5);
 
             var CombatExpertise = new Feat();

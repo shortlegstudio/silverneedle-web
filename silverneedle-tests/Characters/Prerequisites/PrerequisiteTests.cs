@@ -51,7 +51,7 @@ namespace Tests.Characters.Prerequisites
 prerequisites:
   - intelligence: 13
   - race: Elf
-  - feat: Weapon Finesse
+  - ability: Weapon Finesse
   - skillranks: Acrobatics 4
   - ability: darkvision
 ";

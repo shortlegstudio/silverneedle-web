@@ -18,11 +18,11 @@ namespace Tests.Characters.Prerequisites
         {
             var isSpellcaster = new IsArcaneSpellCaster();
             var bob = CharacterTestTemplates.AverageBob();
-            Assert.False(isSpellcaster.IsQualified(bob));
+            Assert.False(isSpellcaster.IsQualified(bob.Components));
             var sc = new Mock<ISpellCasting>();
             sc.SetupGet(p => p.SpellType).Returns(SpellType.Arcane);
             bob.Add(sc.Object);
-            Assert.True(isSpellcaster.IsQualified(bob));
+            Assert.True(isSpellcaster.IsQualified(bob.Components));
         }
 
         [Fact]
@@ -33,7 +33,7 @@ namespace Tests.Characters.Prerequisites
             var sc = new Mock<ISpellCasting>();
             sc.SetupGet(p => p.SpellType).Returns(SpellType.Divine);
             bob.Add(sc.Object);
-            Assert.False(isSpellcaster.IsQualified(bob));
+            Assert.False(isSpellcaster.IsQualified(bob.Components));
         }
     }
 }

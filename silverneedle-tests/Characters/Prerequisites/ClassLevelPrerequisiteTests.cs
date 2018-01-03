@@ -27,7 +27,7 @@ namespace Tests.Characters.Prerequisites
             fighter.Name = "Fighter";
             character.SetClass(fighter);
             character.SetLevel(4);
-            Assert.True(prereq.IsQualified(character));
+            Assert.True(prereq.IsQualified(character.Components));
         }
 
 
@@ -39,7 +39,7 @@ namespace Tests.Characters.Prerequisites
             wizard.Name = "Wizard";
             character.SetClass(wizard);
             character.SetLevel(4);
-            Assert.False(prereq.IsQualified(character));
+            Assert.False(prereq.IsQualified(character.Components));
         }
 
         [Fact]
@@ -50,14 +50,14 @@ namespace Tests.Characters.Prerequisites
             fighter.Name = "Fighter";
             character.SetClass(fighter);
             character.SetLevel(3);
-            Assert.False(prereq.IsQualified(character));
+            Assert.False(prereq.IsQualified(character.Components));
         }
 
         [Fact]
         public void IfCharacterIsNotSetToAClassYouDefinitelyDoNotQualify()
         {
             var character = new CharacterSheet(CharacterStrategy.Default());
-            Assert.False(prereq.IsQualified(character));
+            Assert.False(prereq.IsQualified(character.Components));
         }
     }
 }

@@ -7,6 +7,8 @@ namespace SilverNeedle.Characters.Prerequisites
 {
     using System.Linq;
     using SilverNeedle.Characters.SpecialAbilities;
+    using SilverNeedle.Utility;
+
     public class SpecialAbilityPrerequisite : IPrerequisite
     {
         public string SpecialAbilityName { get; set; }
@@ -20,12 +22,12 @@ namespace SilverNeedle.Characters.Prerequisites
         /// </summary>
         /// <returns>true if the character is qualified</returns>
         /// <param name="character">Character to assess qualification.</param>
-        public bool IsQualified(CharacterSheet character)
+        public bool IsQualified(ComponentContainer components)
         {
             return 
-                character.Components.GetAll<SpecialAbility>().Any(x => x.Name.EqualsIgnoreCase(SpecialAbilityName))
-                || character.Components.GetAll<ITrait>().Any(x => x.Name.EqualsIgnoreCase(SpecialAbilityName))
-                || character.Components.GetAll<Feat>().Any(x => x.Name.EqualsIgnoreCase(SpecialAbilityName));
+                components.GetAll<SpecialAbility>().Any(x => x.Name.EqualsIgnoreCase(SpecialAbilityName))
+                || components.GetAll<ITrait>().Any(x => x.Name.EqualsIgnoreCase(SpecialAbilityName))
+                || components.GetAll<Feat>().Any(x => x.Name.EqualsIgnoreCase(SpecialAbilityName));
         }
     }
 }

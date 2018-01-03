@@ -29,7 +29,7 @@ namespace Tests.Actions
             powerattack = Feat.Named("Power Attack");
 
             cleave = Feat.Named("Cleave");
-            cleave.Prerequisites.Add(new FeatPrerequisite("power attack"));
+            cleave.Prerequisites.Add(new SpecialAbilityPrerequisite("power attack"));
 
             empowerspell = Feat.Named("Empower Spell");
             empowerspell.Tags.Add("metamagic");

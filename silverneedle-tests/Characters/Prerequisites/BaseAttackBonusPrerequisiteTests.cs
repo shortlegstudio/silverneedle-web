@@ -16,9 +16,9 @@ namespace Tests.Characters.Prerequisites
         {
             var bob = CharacterTestTemplates.AverageBob();
             var prereq = new BaseAttackBonusPrerequisite("2");
-            Assert.False(prereq.IsQualified(bob));
+            Assert.False(prereq.IsQualified(bob.Components));
             bob.Offense.BaseAttackBonus.SetValue(2);
-            Assert.True(prereq.IsQualified(bob));
+            Assert.True(prereq.IsQualified(bob.Components));
         }
     }
 }

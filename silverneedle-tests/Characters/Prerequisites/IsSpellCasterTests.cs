@@ -17,10 +17,10 @@ namespace Tests.Characters.Prerequisites
         {
             var isSpellcaster = new IsSpellCaster();
             var bob = CharacterTestTemplates.AverageBob();
-            Assert.False(isSpellcaster.IsQualified(bob));
+            Assert.False(isSpellcaster.IsQualified(bob.Components));
             var sc = new Mock<ISpellCasting>();
             bob.Add(sc.Object);
-            Assert.True(isSpellcaster.IsQualified(bob));
+            Assert.True(isSpellcaster.IsQualified(bob.Components));
         }
     }
 }

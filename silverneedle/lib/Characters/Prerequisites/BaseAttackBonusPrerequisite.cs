@@ -5,36 +5,21 @@
 
 namespace SilverNeedle.Characters.Prerequisites
 {
-          /// <summary>
-        /// Base attack bonus prerequisite.
-        /// </summary>
-        public class BaseAttackBonusPrerequisite : IPrerequisite
+    using SilverNeedle.Utility;
+
+    public class BaseAttackBonusPrerequisite : IPrerequisite
+    {
+        public BaseAttackBonusPrerequisite(string value)
         {
-            /// <summary>
-            /// Initializes a new instance of the
-            /// <see cref="BaseAttackBonusPrerequisite"/> class.
-            /// </summary>
-            /// <param name="value">Value to meet the requirements.</param>
-            public BaseAttackBonusPrerequisite(string value)
-            {
-                this.AttackBonus = value.ToInteger();
-            }
-
-            /// <summary>
-            /// Gets or sets the attack bonus.
-            /// </summary>
-            /// <value>The attack bonus.</value>
-            public int AttackBonus { get; set; }
-
-            /// <summary>
-            /// Determines whether this instance is qualified the specified character.
-            /// </summary>
-            /// <returns>true if the character is qualified</returns>
-            /// <param name="character">Character to assess qualification.</param>
-            public bool IsQualified(CharacterSheet character)
-            {
-                return character.Offense.BaseAttackBonus.TotalValue >= AttackBonus;
-            }
+            this.AttackBonus = value.ToInteger();
         }
-  
+
+        public int AttackBonus { get; set; }
+
+        public bool IsQualified(ComponentContainer components)
+        {
+            return components.FindStat(StatNames.BaseAttackBonus).TotalValue >= AttackBonus;
+        }
+    }
+
 }

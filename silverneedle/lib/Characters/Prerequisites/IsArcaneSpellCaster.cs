@@ -7,13 +7,14 @@ namespace SilverNeedle.Characters.Prerequisites
 {
     using SilverNeedle.Characters.Magic;
     using SilverNeedle.Spells;
+    using SilverNeedle.Utility;
     using System.Linq;
 
     public class IsArcaneSpellCaster : IPrerequisite
     {
-        public bool IsQualified(CharacterSheet character)
+        public bool IsQualified(ComponentContainer components)
         {
-            var sc = character.GetAll<ISpellCasting>();
+            var sc = components.GetAll<ISpellCasting>();
             return sc.Any(x => x.SpellType == SpellType.Arcane);
         }
     }
