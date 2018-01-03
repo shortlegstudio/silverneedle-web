@@ -29,7 +29,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
         public bool IsQualified(CharacterSheet character)
         {
-            return this.Prerequisites.IsQualified(character);
+            return this.Prerequisites.IsQualified(character.Components);
         }
     }
 }

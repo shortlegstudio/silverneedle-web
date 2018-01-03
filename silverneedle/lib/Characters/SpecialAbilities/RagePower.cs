@@ -21,7 +21,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
         public bool IsQualified(CharacterSheet character)
         {
-            return Prerequisites.IsQualified(character);
+            return Prerequisites.IsQualified(character.Components);
         }
 
         public bool Matches(string name)

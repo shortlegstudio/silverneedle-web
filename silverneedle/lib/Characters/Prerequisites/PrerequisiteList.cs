@@ -36,14 +36,14 @@ namespace SilverNeedle.Characters.Prerequisites
         /// </summary>
         /// <returns><c>true</c> if this instance is qualified the specified sheet; otherwise, <c>false</c>.</returns>
         /// <param name="character">Character to check qualifications</param>
-        public bool IsQualified(CharacterSheet character)
+        public bool IsQualified(ComponentContainer components)
         {
             if (this.Count == 0)
             {
                 return true;
             }
 
-            return this.All(x => x.IsQualified(character.Components));
+            return this.All(x => x.IsQualified(components));
         }
 
         /// <summary>
