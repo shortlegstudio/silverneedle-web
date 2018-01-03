@@ -21,6 +21,11 @@
       items:
         - type: SilverNeedle.Characters.WeaponProficiency
           weapons: [club, light crossbow, heavy crossbow, dagger, handaxe, javelin, kama, nunchaku, quarterstaff, sai, shortspear, short sword, shuriken, siangham, sling, spear, unarmed]
+    - attribute: SilverNeedle.Characters.ClassFeature
+      name: Only Lawful Alignments
+      items:
+        - type: SilverNeedle.Characters.LimitAlignment
+          deny: [NeutralGood, ChaoticGood, Neutral, ChaoticNeutral, NeutralEvil, ChaoticEvil]
     - attribute:
       name: Preferred Clothing
       items:
@@ -50,9 +55,6 @@
         - ability: SilverNeedle.Characters.SpecialAbilities.MonkArmorClassBonus
         - ability: SilverNeedle.Characters.SpecialAbilities.MonkUnarmedStrike
         - ability: SilverNeedle.Characters.Attacks.FlurryOfBlows
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.LimitAlignment
-          deny: [NeutralGood, ChaoticGood, Neutral, ChaoticNeutral, NeutralEvil, ChaoticEvil]
     - level: 2
       attributes:
         - attribute:

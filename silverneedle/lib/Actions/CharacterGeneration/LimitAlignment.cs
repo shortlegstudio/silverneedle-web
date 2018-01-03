@@ -4,25 +4,26 @@
 // https://opensource.org/licenses/MIT
 
 
-namespace SilverNeedle.Actions.CharacterGeneration
+namespace SilverNeedle.Characters
 {
     using System;
-    using SilverNeedle.Characters;
+    using SilverNeedle.Utility;
     using SilverNeedle.Serialization;
 
-    public class LimitAlignment : ICharacterDesignStep
+    public class LimitAlignment : IComponent
     {
         string[] denyAlignments; 
         public LimitAlignment(IObjectStore configuration)
         {
             denyAlignments = configuration.GetList("deny");
         }
-        public void ExecuteStep(CharacterSheet character)
+        public void Initialize(ComponentContainer components)
         {
+            var strategy = components.Get<CharacterStrategy>();
             foreach(var deny in denyAlignments)
             {
                 var align = deny.EnumValue<CharacterAlignment>();
-                character.Strategy.FavoredAlignments.Disable(align);
+                strategy.FavoredAlignments.Disable(align);
             }
         }
     }

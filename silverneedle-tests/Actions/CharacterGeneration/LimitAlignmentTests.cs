@@ -18,12 +18,13 @@ namespace Tests.Actions.CharacterGeneration
         public void RemovesAlignmentsFromStrategyIfDenyIsSet()
         {
 
-            var strategy = new CharacterStrategy();
             var data = new MemoryStore();
             data.SetValue("deny", new string[] { "LawfulEvil" , "LawfulNeutral", "LawfulGood" });
-            var step = new LimitAlignment(data);
-            step.ExecuteStep(new CharacterSheet(strategy));
-            var enabled = strategy.FavoredAlignments.Enabled.Select(x => x.Option);
+            var limit = new LimitAlignment(data);
+            var character = CharacterTestTemplates.AverageBob();
+            character.Add(limit);
+
+            var enabled = character.Strategy.FavoredAlignments.Enabled.Select(x => x.Option);
             Assert.DoesNotContain(CharacterAlignment.LawfulEvil, enabled); 
             Assert.DoesNotContain(CharacterAlignment.LawfulGood, enabled); 
             Assert.DoesNotContain(CharacterAlignment.LawfulNeutral, enabled); 

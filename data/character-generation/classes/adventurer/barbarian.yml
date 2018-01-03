@@ -26,6 +26,11 @@
       items:
         - type: SilverNeedle.Characters.ArmorProficiency
           armors: [light, medium, shield]
+    - attribute: SilverNeedle.Characters.ClassFeature
+      name: Only Non-Lawful Alignments
+      items:
+        - type: SilverNeedle.Characters.LimitAlignment
+          deny: [LawfulEvil, LawfulNeutral, LawfulGood]
     - attribute:
       name: Preferred Clothing
       items:
@@ -65,9 +70,6 @@
               name: Base Movement Speed
               modifier: 10
               modifier-type: class-feature
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.LimitAlignment
-          deny: [LawfulEvil, LawfulNeutral, LawfulGood]
     - level: 2
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRagePower

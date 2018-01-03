@@ -27,6 +27,11 @@
       items:
         - type: SilverNeedle.Characters.ArmorProficiency
           armors: [light, medium, heavy, shield]
+    - attribute: SilverNeedle.Characters.ClassFeature
+      name: Lawful Good Alignments
+      items:
+        - type: SilverNeedle.Characters.LimitAlignment
+          deny: [LawfulEvil, LawfulNeutral, ChaoticGood, ChaoticNeutral, ChaoticEvil, Neutral, NeutralGood, NeutralEvil]
     - attribute:
       name: Preferred Clothing
       items:
@@ -48,8 +53,6 @@
           type: Good
         - ability: SilverNeedle.Characters.SpecialAbilities.DetectEvil
       class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.LimitAlignment
-          deny: [LawfulEvil, LawfulNeutral, ChaoticGood, ChaoticNeutral, ChaoticEvil, Neutral, NeutralGood, NeutralEvil]
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSmiteEvil
           uses-per-day: 1
     - level: 2
