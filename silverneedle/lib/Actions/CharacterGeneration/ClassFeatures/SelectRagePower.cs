@@ -26,7 +26,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
         }
         public void ExecuteStep(CharacterSheet character)
         {
-            var options = ragePowers.All().GetAllQualified<RagePower>(character);
+            var options = ragePowers.All().GetAllQualified<RagePower>(character.Components);
             var power = options.ChooseOne();
             character.Add(power);
         }

@@ -5,9 +5,10 @@
 
 namespace SilverNeedle.Characters.Prerequisites
 {
+    using SilverNeedle.Utility;
     public interface IHasPrerequisites
     {
         PrerequisiteList Prerequisites { get; }
-        bool IsQualified(CharacterSheet character);
+        bool IsQualified(ComponentContainer components);
     }
 }

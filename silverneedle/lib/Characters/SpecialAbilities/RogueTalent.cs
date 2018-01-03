@@ -27,9 +27,9 @@ namespace SilverNeedle.Characters.SpecialAbilities
             return this.Name.EqualsIgnoreCase(name);
         }
 
-        public bool IsQualified(CharacterSheet character)
+        public bool IsQualified(Utility.ComponentContainer components)
         {
-            return this.Prerequisites.IsQualified(character.Components);
+            return this.Prerequisites.IsQualified(components);
         }
     }
 }

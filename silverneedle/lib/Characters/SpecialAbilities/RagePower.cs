@@ -19,9 +19,9 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
         public PrerequisiteList Prerequisites { get; private set; }
 
-        public bool IsQualified(CharacterSheet character)
+        public bool IsQualified(Utility.ComponentContainer components)
         {
-            return Prerequisites.IsQualified(character.Components);
+            return Prerequisites.IsQualified(components);
         }
 
         public bool Matches(string name)
