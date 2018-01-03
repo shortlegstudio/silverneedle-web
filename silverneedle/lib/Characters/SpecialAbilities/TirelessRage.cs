@@ -5,11 +5,11 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class TirelessRage : SpecialAbility
+    public class TirelessRage : INameByType, IAbility
     {
-        public TirelessRage()
+        public string DisplayString()
         {
-            this.Name = "Tireless Rage";
+            return this.Name();
         }
     }
 }

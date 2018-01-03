@@ -5,12 +5,11 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class UncannyDodge : SpecialAbility
+    public class UncannyDodge : INameByType, IAbility
     {
-
-        public UncannyDodge()
+        public string DisplayString()
         {
-            this.Name = "Uncanny Dodge";
+            return this.Name();
         }
     }
 }
