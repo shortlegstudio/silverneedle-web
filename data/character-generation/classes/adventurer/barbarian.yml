@@ -76,8 +76,10 @@
           name: Uncanny Dodge
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.UncannyDodge
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRagePower
+        - attribute:
+          name: Rage Power
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.SelectRagePower
     - level: 3
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
@@ -97,8 +99,11 @@
               modifier-type: bonus
               condition: traps
     - level: 4
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRagePower
+      attributes:
+        - attribute:
+          name: Rage Power
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.SelectRagePower
     - level: 5
       attributes:
         - attribute:
@@ -114,8 +119,10 @@
               name: Trap Sense
               modifier: 1
               modifier-type: level-up
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRagePower
+        - attribute:
+          name: Rage Power
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.SelectRagePower
     - level: 7
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
@@ -126,8 +133,11 @@
               base-value: 1
               bypass-type: "-"
     - level: 8
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRagePower
+      attributes:
+        - attribute:
+          name: Rage Power
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.SelectRagePower
     - level: 9
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
@@ -146,8 +156,10 @@
               name: Barbarian Damage Reduction
               modifier: 1
               modifier-type: level-up
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRagePower
+        - attribute:
+          name: Rage Power
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.SelectRagePower
     - level: 11
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
@@ -174,8 +186,10 @@
               name: Trap Sense
               modifier: 1
               modifier-type: level-up
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRagePower
+        - attribute:
+          name: Rage Power
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.SelectRagePower
     - level: 13
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature 
@@ -186,14 +200,19 @@
               modifier: 1
               modifier-type: level-up
     - level: 14
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRagePower
-      modifiers:
-        - name: Indomitable Will
-          stat: Will
-          modifier: 4
-          type: bonus
-          condition: vs. Enchantment
+      attributes:
+        - attribute:
+          name: Indomitable Will
+          items:
+            - type: SilverNeedle.ValueStatModifier
+              name: Will
+              modifier: 4
+              modifier-type: bonus
+              condition: Enchantment
+        - attribute:
+          name: Rage Power
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.SelectRagePower
     - level: 15
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
@@ -212,8 +231,10 @@
               name: Barbarian Damage Reduction
               modifier: 1
               modifier-type: level-up
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRagePower
+        - attribute:
+          name: Rage Power
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.SelectRagePower
     - level: 17
       attributes:
         - attribute:
@@ -229,8 +250,10 @@
               name: Trap Sense
               modifier: 1
               modifier-type: level-up
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRagePower
+        - attribute:
+          name: Rage Power
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.SelectRagePower
     - level: 19
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature 
@@ -257,5 +280,7 @@
               name: will
               modifier: 1
               modifier-type: rage
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRagePower
+        - attribute:
+          name: Rage Power
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.SelectRagePower

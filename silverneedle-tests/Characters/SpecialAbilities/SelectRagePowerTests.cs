@@ -3,11 +3,10 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-namespace Tests.Actions.CharacterGeneration.ClassFeatures
+namespace Tests.Characters.SpecialAbilities
 {
     using System.Collections.Generic;
     using Xunit;
-    using SilverNeedle.Actions.CharacterGeneration.ClassFeatures;
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Serialization;
@@ -39,7 +38,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
         [Fact]
         public void SelectFromRagePowersThatCharacterIsQualifiedFor()
         {
-            ragePowerSelector.ExecuteStep(barbarian);
+            barbarian.Add(ragePowerSelector);
             Assert.Equal(barbarian.Components.Get<RagePower>().Name, "Rage 1");
         }
 
