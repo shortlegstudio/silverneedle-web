@@ -106,8 +106,17 @@ namespace SilverNeedle.Utility
 
             foreach(var stat in stats)
             {
-                stat.AddModifier(statModifier);
+                if(ValidateStatType(stat, statModifier))
+                    stat.AddModifier(statModifier);
             }
+        }
+
+        private bool ValidateStatType(IStatistic statistic, IStatModifier modifier)
+        {
+            if(string.IsNullOrEmpty(modifier.StatisticType))
+                return true;
+            var type = Reflector.FindType(modifier.StatisticType);
+            return statistic.Implements(type);
         }
 
         public IEnumerable<IStatistic> GetAllStats()
@@ -123,7 +132,7 @@ namespace SilverNeedle.Utility
 
         public IEnumerable<IStatistic> FindMatchingStats(string name)
         {
-            return GetAllStats().Where(x => x.Matches(name));
+            return GetAllStats().Where(x => x.Name.SearchFor(name));
         }
 
         public T FindStat<T>(string name)

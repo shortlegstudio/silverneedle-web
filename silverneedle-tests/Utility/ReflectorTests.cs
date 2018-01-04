@@ -30,6 +30,22 @@ namespace Tests.Utility
             Assert.Throws(typeof(TypeNotFoundException), () => "SomeRandomTypeThatCantExist".Instantiate<object>()); 
         }
 
+        [Fact]
+        public void FindsTypesByStringInAnyAssembly()
+        {
+            var name = typeof(DummyOne).FullName;
+            var type = Reflector.FindType(name);
+            Assert.Equal(typeof(DummyOne), type); 
+        }
+
+        [Fact]
+        public void ChecksWhetherClassImplementsAParticularClassOrInterface()
+        {
+            var test = new DummyTwo();
+            Assert.True(test.Implements(typeof(DummyTwo)));
+            Assert.True(test.Implements(typeof(IDummy)));
+        }
+
         public interface IDummy { }
         public class DummyOne : IDummy { }
         public class DummyTwo : IDummy { }

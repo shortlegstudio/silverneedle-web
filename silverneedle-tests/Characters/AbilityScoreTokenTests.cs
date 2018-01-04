@@ -23,7 +23,7 @@ modifier-type: racial";
             var modifier = token.CreateAdjustment(AbilityScoreTypes.Charisma);
             Assert.Equal("Charisma", modifier.StatisticName);
             Assert.Equal(2, modifier.Modifier);
-            Assert.Equal("racial", modifier.Type);
+            Assert.Equal("racial", modifier.ModifierType);
         }
     }
 }

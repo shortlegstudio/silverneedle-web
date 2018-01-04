@@ -17,10 +17,11 @@ namespace SilverNeedle.Characters.Attacks
 
         public string Reason { get; private set; }
 
-        public string Type { get { return "Bonus"; } }
+        public string ModifierType { get { return "Bonus"; } }
         public string Condition { get; set; }
 
         public string StatisticName { get { return "Weapon Attack"; } }
+        public string StatisticType { get; set; }
 
         public WeaponAttackModifier(string reason, float modifier, Func<IWeaponAttackStatistics, bool> weaponQualifies)
         {

@@ -35,5 +35,27 @@ namespace Tests.Utility
             Assert.Equal(10, stat1.TotalValue);
             Assert.Equal(10, stat2.TotalValue);
         }
+
+        [Fact]
+        public void IfStatModifierHasStatisticTypeSetDoNotApplyToUnmatchingTypes()
+        {
+            var contain = new ComponentContainer();
+            var custom = new CustomStatType("Stat");
+            var stat = new BasicStat("Stat 2");
+            var mod = new ValueStatModifier("%stat%", 10, "foo", "bar");
+            mod.StatisticType = "Tests.Utility.CustomStatType";
+
+            contain.Add(custom);
+            contain.Add(stat);
+            contain.Add(mod);
+            Assert.Equal(10, custom.TotalValue);
+            Assert.Equal(0, stat.TotalValue);
+        }
+
+    }
+
+    public class CustomStatType : BasicStat
+    {
+        public CustomStatType(string name) : base(name) { }
     }
 }

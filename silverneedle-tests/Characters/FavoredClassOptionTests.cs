@@ -25,7 +25,7 @@ modifier-type: favored-class
             var mod = option.CreateModifier();
             Assert.Equal("Hit Points", mod.StatisticName);
             Assert.Equal(1, mod.Modifier);
-            Assert.Equal("favored-class", mod.Type);
+            Assert.Equal("favored-class", mod.ModifierType);
         }
     }
 }

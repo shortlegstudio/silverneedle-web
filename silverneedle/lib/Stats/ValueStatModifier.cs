@@ -18,10 +18,7 @@ namespace SilverNeedle
 
         public ValueStatModifier(IObjectStore configuration)
         {
-            this.StatisticName = configuration.GetString("name");
-            this.Modifier = configuration.GetFloat("modifier");
-            this.Type = configuration.GetString("modifier-type");
-            this.Reason = configuration.GetStringOptional("reason");
+            configuration.Deserialize(this);
         }
 
         /// <summary>
@@ -46,7 +43,7 @@ namespace SilverNeedle
         {
             this.Modifier = modifier;
             this.StatisticName = statisticName;
-            this.Type = type;
+            this.ModifierType = type;
             this.Reason = reason;
         }
 
@@ -54,25 +51,32 @@ namespace SilverNeedle
         /// Gets or sets the modifier.
         /// </summary>
         /// <value>The modifier amount for the statistic</value>
+        [ObjectStore("modifier")]
         public virtual float Modifier { get; set; }
 
         /// <summary>
         /// Gets or sets the reason.
         /// </summary>
         /// <value>The reason for the modifier.</value>
+        [ObjectStoreOptional("reason")]
         public virtual string Reason { get; set; }
 
         /// <summary>
         /// Gets or sets the type.
         /// </summary>
         /// <value>The type of modifier this is.</value>
-        public virtual string Type { get; set; }
+        [ObjectStoreOptional("modifier-type")]
+        public virtual string ModifierType { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the statistic.
         /// </summary>
         /// <value>The name of the statistic.</value>
+        [ObjectStore("name")]
         public virtual string StatisticName { get; set; }
+        [ObjectStoreOptional("condition")]
         public string Condition { get; set; }
+        [ObjectStoreOptional("stat-type")]
+        public string StatisticType { get; set; }
     }
 }

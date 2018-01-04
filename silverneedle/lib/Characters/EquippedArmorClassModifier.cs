@@ -34,9 +34,10 @@ namespace SilverNeedle.Characters
 
         public string Reason { get { return "Equipped Armor"; } }
 
-        public string Type { get { return "Armor"; } }
+        public string ModifierType { get { return "Armor"; } }
 
         public string StatisticName { get { return StatNames.ArmorClass; } }
         public string Condition { get; set; }
+        public string StatisticType { get; private set; }
     }
 }

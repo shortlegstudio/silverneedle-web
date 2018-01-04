@@ -35,7 +35,7 @@ namespace SilverNeedle.Characters
             foreach(var prof in ProficiencyList)
             {
                 ArmorType armorType;
-                if(EnumHelpers.TryParse<ArmorType>(prof, true, out armorType))
+                if(System.Enum.TryParse<ArmorType>(prof, true, out armorType))
                 {
                     passes = armor.ArmorType == armorType;
                 }

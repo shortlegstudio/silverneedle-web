@@ -34,29 +34,6 @@ namespace SilverNeedle
             return GetValues<T>().ToList().ChooseOne();
         }
 
-        /// <summary>
-        /// Tries to parse the enum for a value. 
-        /// </summary>
-        /// <returns><c>true</c>, if parse was successful, <c>false</c> otherwise.</returns>
-        /// <param name="value">The value to try and parse from the enum</param>
-        /// <param name="ignorecase">If set to <c>true</c> ignorecase.</param>
-        /// <param name="parsed">The output parameter of the parsed value</param>
-        /// <typeparam name="T">The enum type</typeparam>
-        public static bool TryParse<T>(string value, bool ignorecase, out T parsed) 
-        {
-            parsed = default(T);
-            try 
-            {
-                var result = Enum.Parse(typeof(T), value, ignorecase);
-                parsed = (T)result;
-                return true;
-            }
-            catch 
-            {
-                return false;
-            }
-        }
-
         public static T EnumValue<T>(this string value)
         {
             return (T)Enum.Parse(typeof(T), value, true);

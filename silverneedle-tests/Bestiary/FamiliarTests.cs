@@ -29,7 +29,7 @@ namespace Tests.Bestiary
             Assert.Equal("Bat", familiar.Name);
             Assert.Equal(1, familiar.Modifiers.Count);
             Assert.Equal("Perception", familiar.Modifiers[0].StatisticName);
-            Assert.Equal("bonus", familiar.Modifiers[0].Type);
+            Assert.Equal("bonus", familiar.Modifiers[0].ModifierType);
             Assert.Equal(2, familiar.Modifiers[0].Modifier);
         }
     }

@@ -37,7 +37,7 @@ namespace SilverNeedle.Characters
             foreach(var prof in proficiencyList)
             {
                 WeaponTrainingLevel trainingLevel;
-                if(EnumHelpers.TryParse<WeaponTrainingLevel>(prof, true, out trainingLevel))
+                if(System.Enum.TryParse<WeaponTrainingLevel>(prof, true, out trainingLevel))
                 {
                     passes = weapon.Level == trainingLevel;
                 }

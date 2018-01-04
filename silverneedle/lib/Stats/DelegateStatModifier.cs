@@ -15,10 +15,11 @@ namespace SilverNeedle
 
         public string Reason { get; private set; }
 
-        public string Type { get; private set; }
+        public string ModifierType { get; private set; }
 
         public string StatisticName { get; private set; }
         public string Condition { get; set; }
+        public string StatisticType { get; set; }
 
         public DelegateStatModifier(string statName, string type, string reason, Func<float> calculation)
             : this(statName, type, reason)
@@ -29,7 +30,7 @@ namespace SilverNeedle
         protected DelegateStatModifier(string statName, string type, string reason)
         {
             this.Reason = reason;
-            this.Type = type;
+            this.ModifierType = type;
             this.StatisticName = statName;
         }
     }

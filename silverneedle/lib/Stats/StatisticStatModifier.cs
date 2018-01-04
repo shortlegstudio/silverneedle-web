@@ -21,7 +21,7 @@ namespace SilverNeedle
         {
             statistic = trackingStat;
             this.StatisticName = statisticName;
-            this.Type = type;
+            this.ModifierType = type;
             this.Reason = reason;
             this.TrackingStatName = trackingStat.Name;
         }
@@ -37,16 +37,19 @@ namespace SilverNeedle
         public string Reason { get; private set; }
 
         [ObjectStore("modifier-type")]
-        public string Type { get; private set; }
+        public string ModifierType { get; private set; }
 
         [ObjectStore("name")]
         public string StatisticName { get; private set; }
 
-        [ObjectStore("condition")]
+        [ObjectStoreOptional("condition")]
         public string Condition { get; set; }
 
         [ObjectStore("modifier")]
         public string TrackingStatName { get; private set; }
+
+        [ObjectStoreOptional("stat-type")]
+        public string StatisticType { get; set; }
 
         public void Initialize(ComponentContainer components)
         {

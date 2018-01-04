@@ -24,7 +24,7 @@ condition: spells";
             var modifier = new ConditionalStatModifier(yaml.ParseYaml());
             Assert.Equal("Will", modifier.StatisticName);
             Assert.Equal(2, modifier.Modifier);
-            Assert.Equal("racial", modifier.Type);
+            Assert.Equal("racial", modifier.ModifierType);
             Assert.Equal("spells", modifier.Condition);
         }
     }

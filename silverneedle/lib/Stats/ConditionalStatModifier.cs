@@ -40,8 +40,9 @@ namespace SilverNeedle
 
         public string Reason { get { return baseModifier.Reason; } }
 
-        public string Type { get { return baseModifier.Type; } }
+        public string ModifierType { get { return baseModifier.ModifierType; } }
 
         public string StatisticName { get { return baseModifier.StatisticName; } }
+        public string StatisticType { get { return baseModifier.StatisticType; } }
     }
 }

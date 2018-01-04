@@ -27,8 +27,9 @@ condition: rain
             character.Add(modifier);
             Assert.Equal(3, modifier.Modifier);
             Assert.Equal("hit points", modifier.StatisticName);
-            Assert.Equal("racial", modifier.Type);
+            Assert.Equal("racial", modifier.ModifierType);
             Assert.Equal("rain", modifier.Condition);
         }
+
     }
 }

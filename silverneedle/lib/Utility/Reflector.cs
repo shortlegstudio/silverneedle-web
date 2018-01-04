@@ -75,10 +75,28 @@ namespace SilverNeedle.Utility
                 .ToArray();
         }
 
+        public static bool Implements(this object obj, Type testInterface)
+        {
+            return testInterface.IsInstanceOfType(obj);
+        }
+
         private static bool IsCandidateCompilationLibrary(RuntimeLibrary compilationLibrary)
         {
             return compilationLibrary.Name.StartsWith("silverneedle")
                 || compilationLibrary.Dependencies.Any(d => d.Name.StartsWith("silverneedle"));
+        }
+
+        public static void DebugReflector()
+        {
+            var assemblies = GetAssemblies();
+            foreach(var a in assemblies)
+            {
+                ShortLog.DebugFormat("Loaded Assembly: {0}", a.FullName);
+                foreach(var t in a.GetExportedTypes().OrderBy(x => x.FullName))
+                {
+                    ShortLog.DebugFormat("Exported Type: {0}", t.FullName);
+                }
+            }
         }
     }
 }

@@ -23,9 +23,10 @@ namespace SilverNeedle.Characters.Attacks
 
         public string Reason { get; private set; }
 
-        public string Type { get { return "Bonus"; } }
+        public string ModifierType { get { return "Bonus"; } }
 
         public string StatisticName { get { return "Weapon Critical"; } }
+        public string StatisticType { get; set; }
         public string Condition { get; set; }
 
         public void ApplyModifier(WeaponAttack attack)

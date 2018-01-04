@@ -79,13 +79,13 @@ namespace Tests.Characters {
             Assert.Equal (2, modifiers.Count);
             var skillAdj = modifiers.First ();
             Assert.Equal ("Acrobatics", skillAdj.StatisticName);
-            Assert.Equal("bonus", skillAdj.Type);
+            Assert.Equal("bonus", skillAdj.ModifierType);
             Assert.Equal ("Acrobatic (feat)", skillAdj.Reason);
             Assert.Equal (2, skillAdj.Modifier);
 
             var flyAdj = modifiers.Last ();
             Assert.Equal ("Fly", flyAdj.StatisticName);
-            Assert.Equal("bonus", skillAdj.Type);
+            Assert.Equal("bonus", skillAdj.ModifierType);
             Assert.Equal ("Acrobatic (feat)", skillAdj.Reason);
             Assert.Equal (4, flyAdj.Modifier);
         }

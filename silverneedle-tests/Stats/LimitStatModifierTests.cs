@@ -21,7 +21,7 @@ namespace Tests
             Assert.Equal(mod.Modifier, 1);
             Assert.Equal(mod.StatisticName, "Dex");
             Assert.Equal(mod.Reason, "Max");
-            Assert.Equal(mod.Type, "Maximum");
+            Assert.Equal(mod.ModifierType, "Maximum");
         }
 
         [Fact]

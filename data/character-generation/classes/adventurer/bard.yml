@@ -42,8 +42,28 @@
               weight: 10
   levels:
     - level: 1
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Bardic Knowledge
+          # Bardic Knowledge is created by creating a statistic that tracks the bonus
+          # built up from the Bard Levels. This is then modified based on the levels of bard
+          # The knowledge stats are then modified by the capability of bardic knowledge.
+          items:
+            - type: SilverNeedle.Characters.CapabilityStatistic
+              name: Bardic Knowledge
+              base-value: 0
+            - type: SilverNeedle.Characters.ClassLevelModifier
+              name: Bardic Knowledge
+              class: bard
+              rate: 2
+              minimum: 1
+              modifier-type: bonus
+            - type: SilverNeedle.StatisticStatModifier
+              name: "%knowledge%"
+              stat-type: SilverNeedle.Characters.CharacterSkill
+              modifier: Bardic Knowledge
+              modifier-type: bonus
       abilities:
-        - ability: SilverNeedle.Characters.SpecialAbilities.BardicKnowledge
         - ability: SilverNeedle.Characters.SpecialAbilities.BardicPerformanceAbility
         - ability: SilverNeedle.Characters.SpecialAbilities.BardicPerformances.Countersong
         - ability: SilverNeedle.Characters.SpecialAbilities.BardicPerformances.Distraction

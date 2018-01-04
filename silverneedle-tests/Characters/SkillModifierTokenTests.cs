@@ -47,7 +47,7 @@ modifier-type: racial";
 
             Assert.Equal("Climb", modifier.StatisticName);
             Assert.Equal(2, modifier.Modifier);
-            Assert.Equal("trait", modifier.Type);
+            Assert.Equal("trait", modifier.ModifierType);
         }
     }
 }
