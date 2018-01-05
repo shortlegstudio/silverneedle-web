@@ -70,7 +70,7 @@
         - ability: SilverNeedle.Characters.SpecialAbilities.ChannelEnergy
         - ability: SilverNeedle.Characters.Magic.DivineCasting
           list: paladin
-          type: divine
+          spell-type: divine
           casting-ability: charisma
           spell-slots:
             1: []

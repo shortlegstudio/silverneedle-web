@@ -52,7 +52,7 @@
         - ability: SilverNeedle.Characters.SpecialAbilities.WildEmpathy
         - ability: SilverNeedle.Characters.Magic.DivineCasting
           list: druid
-          type: divine
+          spell-type: divine
           casting-ability: wisdom
           spell-slots:
             1: [3, 1]

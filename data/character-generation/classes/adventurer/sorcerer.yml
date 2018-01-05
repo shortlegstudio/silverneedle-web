@@ -41,7 +41,7 @@
       abilities:
         - ability: SilverNeedle.Characters.Magic.SpontaneousCasting
           list: sorcerer-wizard
-          type: arcane
+          spell-type: arcane
           casting-ability: charisma
           known: spontaneous
           spell-slots:

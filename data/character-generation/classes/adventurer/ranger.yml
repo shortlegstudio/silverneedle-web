@@ -61,7 +61,7 @@
       abilities:
         - ability: SilverNeedle.Characters.Magic.DivineCasting
           list: ranger
-          type: divine
+          spell-type: divine
           casting-ability: wisdom
           spell-slots:
             1: []

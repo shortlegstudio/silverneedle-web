@@ -94,7 +94,7 @@ namespace Tests.Characters.Magic
 
         private string spellbookYaml = @"---
 list: sorcerer-wizard
-type: arcane
+spell-type: arcane
 casting-ability: intelligence
 known: spellbook
 spell-slots:

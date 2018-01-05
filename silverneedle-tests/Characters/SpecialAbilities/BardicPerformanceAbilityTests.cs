@@ -43,7 +43,7 @@ namespace Tests.Characters.SpecialAbilities
             var countersong = new Countersong();
             bard.Add(countersong);
             AssertExtensions.Contains(countersong, performance.Performances);
-            Assert.Equal("Bardic Performance 4 rnds/day (Countersong)", performance.Name);
+            Assert.Equal("Bardic Performance 4 rnds/day (Countersong)", performance.DisplayString());
         }
     }
 }

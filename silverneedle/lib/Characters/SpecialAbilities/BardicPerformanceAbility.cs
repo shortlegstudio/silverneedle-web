@@ -10,7 +10,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using System.Linq;
     using SilverNeedle.Characters.SpecialAbilities.BardicPerformances;
     using SilverNeedle.Utility;
-    public class BardicPerformanceAbility : SpecialAbility, IComponent
+    public class BardicPerformanceAbility : IAbility, IComponent
     {
         private const int BASE_ROUNDS_PER_DAY = 4;
         private BasicStat roundsPerDay = new BasicStat("Bardic Performance Rounds per Day", BASE_ROUNDS_PER_DAY);
@@ -42,15 +42,12 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
         }
 
-        public override string Name
+        public string DisplayString()
         {
-            get
-            {
-                return "Bardic Performance {0} rnds/day ({1})".Formatted(
-                    this.RoundsPerDay,
-                    string.Join(", ", this.Performances.Select(x => x.Description))
-                );
-            }
+            return "Bardic Performance {0} rnds/day ({1})".Formatted(
+                this.RoundsPerDay,
+                string.Join(", ", this.Performances.Select(x => x.Description))
+            );
         }
     }
 }

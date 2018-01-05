@@ -122,7 +122,7 @@ namespace Tests
         {
             var spellcastingConfigurationYaml = @"---
 list: " + character.Class.Name + @"
-type: arcane
+spell-type: arcane
 casting-ability: charisma
 spell-slots:
   1: [4, 1]
@@ -145,7 +145,7 @@ spells-known:
         {
             var spellcastingConfigurationYaml = @"---
 list: " + character.Class.Name + @"
-type: arcane
+spell-type: arcane
 casting-ability: intelligence
 spell-slots:
   1: [3, 2]
@@ -178,7 +178,7 @@ spell-slots:
         {
             var spellcastingConfigurationYaml = @"---
 list: " + character.Class.Name + @"
-type: divine
+spell-type: divine
 casting-ability: wisdom
 spell-slots:
   1: [3, 2]
@@ -194,7 +194,7 @@ spell-slots:
         {
             var spellcastingConfigurationYaml = @"---
 list: " + character.Class.Name + @"
-type: divine
+spell-type: divine
 casting-ability: wisdom
 spell-slots:
   1: [0, 2]

@@ -30,7 +30,7 @@ namespace SilverNeedle.Characters.Magic
         {
             this.SpellListName = configuration.GetString("list");
             this.SpellList = spellLists.Find(this.SpellListName);
-            this.SpellType = configuration.GetEnum<SpellType>("type");
+            this.SpellType = configuration.GetEnum<SpellType>("spell-type");
             this.castingAbilityType = configuration.GetEnum<AbilityScoreTypes>("casting-ability");
             var slots = configuration.GetObject("spell-slots");
             foreach(var slot in slots.Keys)

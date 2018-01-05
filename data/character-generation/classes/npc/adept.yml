@@ -39,7 +39,7 @@
       abilities:
         - ability: SilverNeedle.Characters.Magic.DivineCasting
           list: adept
-          type: divine
+          spell-type: divine
           casting-ability: wisdom
           spell-slots:
             1: [3, 1]

@@ -68,7 +68,7 @@ namespace Tests.Characters.Magic
         }
         IObjectStore configuration = @"
 list: bard
-type: arcane
+spell-type: arcane
 casting-ability: charisma
 spell-slots:
   1: [4, 1]
