@@ -124,15 +124,38 @@
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 2
-      abilities:
-        - ability: SilverNeedle.Characters.SpecialAbilities.WellVersed
-        - ability: SilverNeedle.Characters.SpecialAbilities.VersatilePerformance
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Well Versed
+          items:
+            - type: SilverNeedle.ValueStatModifier
+              name: Fortitude
+              modifier: 4
+              modifier-type: bonus
+              condition: sonic, bardic performance, language-dependent
+            - type: SilverNeedle.ValueStatModifier
+              name: Reflex
+              modifier: 4
+              modifier-type: bonus
+              condition: sonic, bardic performance, language-dependent
+            - type: SilverNeedle.ValueStatModifier
+              name: Will
+              modifier: 4
+              modifier-type: bonus
+              condition: sonic, bardic performance, language-dependent
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Versatile Performance
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.VersatilePerformance
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
         - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectVersatilePerformance
     - level: 3
-      abilities:
-        - ability: SilverNeedle.Characters.SpecialAbilities.BardicPerformances.InspireCompetence
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Inspire Competence
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.BardicPerformances.InspireCompetence
       class-feature-steps:
         - step: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 4
