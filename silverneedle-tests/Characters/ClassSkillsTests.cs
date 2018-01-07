@@ -9,7 +9,7 @@ namespace Tests.Characters
     using SilverNeedle.Characters;
     using SilverNeedle.Serialization;
 
-    public class ClassSkillsTests
+    public class ClassSkillsTests : RequiresDataFiles
     {
         [Fact]
         public void MarksTheAppropriateSkillAsClassSkill()
