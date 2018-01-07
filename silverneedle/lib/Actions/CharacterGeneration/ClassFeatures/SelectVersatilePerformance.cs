@@ -9,12 +9,17 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
     using System.Linq;
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.SpecialAbilities;
-    public class SelectVersatilePerformance : ICharacterDesignStep
+    public class SelectVersatilePerformance : ICharacterDesignStep, ICharacterFeatureCommand
     {
         public void ExecuteStep(CharacterSheet character)
         {
-            var versatilePerformance = character.Get<VersatilePerformance>();
-            var performSkills = character.SkillRanks.GetSkills()
+            Execute(character.Components);
+        }
+        public void Execute(Utility.ComponentContainer components)
+        {
+            var versatilePerformance = components.Get<VersatilePerformance>();
+            var skillRanks = components.Get<SkillRanks>();
+            var performSkills = skillRanks.GetSkills()
                 .Where(x => x.Name.Contains("Perform") && !versatilePerformance.Skills.Contains(x))
                 .GroupBy(x => x.Score());
             var highestGroup = performSkills.Max(x => x.Key);
