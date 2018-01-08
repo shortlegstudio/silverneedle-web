@@ -7,8 +7,11 @@
 namespace SilverNeedle.Characters.SpecialAbilities
 {
     using SilverNeedle.Characters.SpecialAbilities.BloodlinePowers;
-    public class WoodlandStride : SpecialAbility, IBloodlinePower
+    public class WoodlandStride : IAbility, IBloodlinePower, INameByType
     {
-        
+        public string DisplayString()
+        {
+            return this.Name();
+        }
     }
 }

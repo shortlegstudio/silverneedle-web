@@ -8,7 +8,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using System.Linq;
     using SilverNeedle.Utility;
 
-    public class WildShape : SpecialAbility, IComponent
+    public class WildShape : IAbility, IComponent
     {
         private ClassLevel druidLevels;
         public int UsesPerDay
@@ -22,14 +22,11 @@ namespace SilverNeedle.Characters.SpecialAbilities
             }
         }
 
-        public override string Name
+        public string DisplayString()
         {
-            get 
-            { 
-                if(druidLevels.Level == 20)
-                    return string.Format("Wild Shape (at will)");
-                return string.Format("Wild Shape ({0}/day)", UsesPerDay);
-            }
+            if (druidLevels.Level == 20)
+                return string.Format("Wild Shape (at will)");
+            return string.Format("Wild Shape ({0}/day)", UsesPerDay);
         }
 
         public void Initialize(ComponentContainer components)

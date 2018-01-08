@@ -10,7 +10,9 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.Domains;
     using SilverNeedle.Serialization;
-    public class SelectNaturesBond : ICharacterDesignStep
+    using SilverNeedle.Utility;
+
+    public class SelectNaturesBond : ICharacterDesignStep, ICharacterFeatureCommand
     {
         private IEnumerable<Domain> domains;
         public SelectNaturesBond(IObjectStore configuration) 
@@ -22,9 +24,15 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
         {
             GetAvailableDomains(configuration, domains);
         }
+
+        public void Execute(ComponentContainer components)
+        {
+            components.Add(domains.ChooseOne());
+        }
+
         public void ExecuteStep(CharacterSheet character)
         {
-            character.Add(domains.ChooseOne());
+            Execute(character.Components);
         }
 
 

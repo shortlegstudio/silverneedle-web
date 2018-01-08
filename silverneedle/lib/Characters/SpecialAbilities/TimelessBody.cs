@@ -5,8 +5,11 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class TimelessBody : SpecialAbility
+    public class TimelessBody : IAbility, INameByType
     {
-
+        public string DisplayString()
+        {
+            return this.Name();
+        }
     }
 }

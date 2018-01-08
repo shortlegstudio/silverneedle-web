@@ -5,8 +5,11 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class SpontaneousCastingDruid : SpecialAbility
+    public class SpontaneousCastingDruid : IAbility
     {
-
+        public string DisplayString()
+        {
+            return "Spontaneous Casting";
+        }
     }
 }

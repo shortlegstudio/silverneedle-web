@@ -5,8 +5,11 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class TracklessStep : SpecialAbility
+    public class TracklessStep : IAbility, INameByType
     {
-
+        public string DisplayString()
+        {
+            return this.Name();
+        }
     }
 }

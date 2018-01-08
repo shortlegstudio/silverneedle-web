@@ -7,17 +7,24 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
 {
     using SilverNeedle.Characters;
     using SilverNeedle.Serialization;
+    using SilverNeedle.Utility;
 
-    public class AddFreeLanguages : ICharacterDesignStep
+    public class AddFreeLanguages : ICharacterDesignStep, ICharacterFeatureCommand
     {
         string[] languages;
         public AddFreeLanguages(IObjectStore data)
         {
             this.languages = data.GetList("languages");
         }
+
+        public void Execute(ComponentContainer components)
+        {
+            components.Get<CharacterStrategy>().AddLanguagesKnown(this.languages);
+        }
+
         public void ExecuteStep(CharacterSheet character)
         {
-            character.Strategy.AddLanguagesKnown(this.languages);
+            Execute(character.Components);
         }
     }
 }

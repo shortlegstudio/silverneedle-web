@@ -5,8 +5,11 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class WildEmpathy : SpecialAbility
+    public class WildEmpathy : IAbility, INameByType
     {
-        
+        public string DisplayString()
+        {
+            return this.Name();
+        }
     }
 }

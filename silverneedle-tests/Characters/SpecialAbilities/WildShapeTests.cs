@@ -44,7 +44,7 @@ namespace Tests.Characters.SpecialAbilities
 
             donna.SetLevel(18);
             Assert.Equal(8, wildShape.UsesPerDay);
-            Assert.Equal("Wild Shape (8/day)", wildShape.Name);
+            Assert.Equal("Wild Shape (8/day)", wildShape.DisplayString());
         }
 
         [Fact]
@@ -55,7 +55,7 @@ namespace Tests.Characters.SpecialAbilities
             donna.Add(wildShape);
             donna.SetLevel(20);
             Assert.Equal(int.MaxValue, wildShape.UsesPerDay);
-            Assert.Equal("Wild Shape (at will)", wildShape.Name);
+            Assert.Equal("Wild Shape (at will)", wildShape.DisplayString());
         }
     }
 
