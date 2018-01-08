@@ -11,7 +11,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Spells;
     using SilverNeedle.Serialization;
 
-    public class AddDomainSpells : ICharacterDesignStep
+    public class AddDomainSpells : ICharacterDesignStep, ICharacterFeatureCommand
     {
         private IObjectStore configuration;
 
@@ -22,12 +22,17 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
 
         public void ExecuteStep(CharacterSheet character)
         {
-            var domains = character.GetAll<Domain>();
+            Execute(character.Components);
+        }
+
+        public void Execute(Utility.ComponentContainer components)
+        {
+            var domains = components.GetAll<Domain>();
             if(domains.Empty())
                 return;
 
             var domainSpells = new DomainCasting(configuration);
-            character.Add(domainSpells);
+            components.Add(domainSpells);
         }
     }
 }

@@ -30,5 +30,6 @@ namespace Tests.Characters.SpecialAbilities
             Assert.Equal(channelAttack.Damage.ToString(), "2d6");
             Assert.Equal(channelAttack.SaveDC, 13);
         }
+
     }
 }

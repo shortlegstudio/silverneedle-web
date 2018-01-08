@@ -10,7 +10,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Characters.Domains;
     using SilverNeedle.Serialization;
 
-    public class SelectDomains : ICharacterDesignStep
+    public class SelectDomains : ICharacterDesignStep, ICharacterFeatureCommand
     {
         private int domainCount;
         private EntityGateway<Domain> domainsGateway;
@@ -23,12 +23,17 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
 
         public void ExecuteStep(CharacterSheet character)
         {
+            Execute(character.Components);
+        }
+
+        public void Execute(Utility.ComponentContainer components)
+        {
             for(int i = 0; i < domainCount; i++)
             {
-                var currentDoms = character.GetAll<Domain>();
+                var currentDoms = components.GetAll<Domain>();
                 var domains = domainsGateway.Where(d => !currentDoms.Contains(d));
                 var domain = domains.ChooseOne();
-                character.Add(domain);
+                components.Add(domain);
             }
 
         }

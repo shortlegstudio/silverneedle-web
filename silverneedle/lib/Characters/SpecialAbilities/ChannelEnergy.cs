@@ -8,9 +8,15 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using SilverNeedle.Characters.Attacks;
     using SilverNeedle.Dice;
     using SilverNeedle.Utility;
-    public class ChannelEnergy : SpecialAbility, IComponent
+    public class ChannelEnergy : IAbility, IComponent
     {
         public ChannelEnergyAttack ChannelAttack { get; private set; }
+
+        public string DisplayString()
+        {
+            return "Channel Energy";
+        }
+
         public void Initialize(ComponentContainer components)
         {
             this.ChannelAttack = new ChannelEnergyAttack(components);
