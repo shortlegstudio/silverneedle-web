@@ -21,8 +21,8 @@ namespace Tests.Characters.SpecialAbilities
             monk.Add(kiPool);
             monk.Add(new KiStrike("magic"));
             monk.Add(new KiStrike("lawful"));
-            Assert.Contains("magic", kiPool.Name);
-            Assert.Contains("lawful", kiPool.Name);
+            Assert.Contains("magic", kiPool.DisplayString());
+            Assert.Contains("lawful", kiPool.DisplayString());
         }
     }
 }

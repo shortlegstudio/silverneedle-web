@@ -5,25 +5,26 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class SmiteEvil : SpecialAbility
+    using SilverNeedle.Utility;
+    using SilverNeedle.Serialization;
+
+    public class SmiteEvil : IAbility, IComponent
     {
-        public int UsesPerDay { get; private set; }
+        public BasicStat UsesPerDay { get; private set; }
 
-        public SmiteEvil(int uses)
+        public SmiteEvil()
         {
-            this.UsesPerDay = uses;
-            SetName();
+            UsesPerDay = new BasicStat("Smite Evil Uses Per Day", 0);
         }
 
-        public void UpdateUsesPerDay(int newAmount)
+        public void Initialize(ComponentContainer components)
         {
-            this.UsesPerDay = newAmount;
-            this.SetName();
+            components.Add(UsesPerDay);
         }
 
-        private void SetName()
+        public string DisplayString()
         {
-            this.Name = string.Format("Smite Evil {0}/day", UsesPerDay);
+            return string.Format("Smite Evil {0}/day", UsesPerDay.TotalValue);
         }
     }
 }

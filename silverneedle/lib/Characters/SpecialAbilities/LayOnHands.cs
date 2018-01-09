@@ -10,7 +10,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using System.Linq;
     using SilverNeedle.Dice;
     using SilverNeedle.Utility;
-    public class LayOnHands : SpecialAbility, IComponent
+    public class LayOnHands : IAbility, IComponent
     {
         public int UsesPerDay 
         { 
@@ -36,17 +36,9 @@ namespace SilverNeedle.Characters.SpecialAbilities
             charismaScore = components.Get<AbilityScores>().GetAbility(AbilityScoreTypes.Charisma);
         }
 
-        public override string Name 
+        public string DisplayString() 
         {
-            get
-            {
-                // If we are initialized use the updated name
-                if(paladinLevel != null && charismaScore != null)
-                    return string.Format("Lay on Hands ({0}, {1}/day)", this.HealingDice.ToString(), this.UsesPerDay);
-
-                // Use the default name
-                return base.Name;
-            }
+            return string.Format("Lay on Hands ({0}, {1}/day)", this.HealingDice.ToString(), this.UsesPerDay);
         }
 
         public bool MaximizeAmount { get; set; }

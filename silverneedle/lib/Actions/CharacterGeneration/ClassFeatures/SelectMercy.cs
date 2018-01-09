@@ -9,7 +9,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Serialization;
 
-    public class SelectMercy : ICharacterDesignStep
+    public class SelectMercy : ICharacterDesignStep, ICharacterFeatureCommand
     {
         private EntityGateway<Mercy> mercyGateway;
         public SelectMercy() 
@@ -23,14 +23,19 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
         }
         public void ExecuteStep(CharacterSheet character)
         {
-            var mercies = character.Get<Mercies>();
+            Execute(character.Components);
+        }
+
+        public void Execute(Utility.ComponentContainer components)
+        {
+            var mercies = components.Get<Mercies>();
             if(mercies == null)
             {
                 mercies = new Mercies();
-                character.Add(mercies);
+                components.Add(mercies);
             }
 
-            var paladinLevel = character.Get<ClassLevel>();
+            var paladinLevel = components.Get<ClassLevel>();
 
             var selected = mercyGateway.Where(x => x.Level <= paladinLevel.Level && !mercies.MercyList.Contains(x)).ChooseOne();
             mercies.Add(selected);

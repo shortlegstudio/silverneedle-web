@@ -48,104 +48,210 @@
               weight: 10
   levels:
     - level: 1
-      abilities:
-        - ability: SilverNeedle.Characters.SpecialAbilities.Aura
-          type: Good
-        - ability: SilverNeedle.Characters.SpecialAbilities.DetectEvil
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSmiteEvil
-          uses-per-day: 1
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Aura
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.Aura
+              aura-type: Good
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Detect Evil
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.SpellLikeAbility
+              spell: Detect Evil
+              at-will: true
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Smite Evil
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.SmiteEvil
+            - type: SilverNeedle.ValueStatModifier
+              name: Smite Evil Uses Per Day
+              modifier: 1
+              modifier-type: base-level
     - level: 2
-      abilities:
-        - ability: SilverNeedle.Characters.SpecialAbilities.DivineGrace
-        - ability: SilverNeedle.Characters.SpecialAbilities.LayOnHands
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Divine Grace
+          items:
+            - type: SilverNeedle.StatisticStatModifier
+              name: Fortitude
+              modifier: charisma-modifier
+              modifier-type: class-bonus
+            - type: SilverNeedle.StatisticStatModifier
+              name: Reflex
+              modifier: charisma-modifier
+              modifier-type: class-bonus
+            - type: SilverNeedle.StatisticStatModifier
+              name: Will
+              modifier: charisma-modifier
+              modifier-type: class-bonus
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Lay on Hands
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.LayOnHands
     - level: 3
-      abilities:
-        - ability: SilverNeedle.Characters.SpecialAbilities.AuraOfCourage
-        - ability: SilverNeedle.Characters.SpecialAbilities.DivineHealth
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectMercy
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Aura of Courage
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.AuraOfCourage
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Divine Health
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.DivineHealth
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Mercy (3)
+          commands:
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectMercy
     - level: 4
-      abilities:
-        - ability: SilverNeedle.Characters.SpecialAbilities.ChannelEnergy
-        - ability: SilverNeedle.Characters.Magic.DivineCasting
-          list: paladin
-          spell-type: divine
-          casting-ability: charisma
-          spell-slots:
-            1: []
-            2: []
-            3: []
-            4: [0, 0]
-            5: [0, 1]
-            6: [0, 1]
-            7: [0, 1, 0]
-            8: [0, 1, 1]
-            9: [0, 2, 1]
-            10: [0, 2, 1, 0]
-            11: [0, 2, 1, 1]
-            12: [0, 2, 2, 1]
-            13: [0, 3, 2, 1, 0]
-            14: [0, 3, 2, 1, 1]
-            15: [0, 3, 2, 2, 1]
-            16: [0, 3, 3, 2, 1]
-            17: [0, 4, 3, 2, 1]
-            18: [0, 4, 3, 2, 2]
-            19: [0, 4, 3, 3, 2]
-            20: [0, 4, 4, 3, 3]
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSmiteEvil
-          uses-per-day: 2
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Smite Evil (4)
+          items:
+            - type: SilverNeedle.ValueStatModifier
+              name: Smite Evil Uses Per Day
+              modifier: 1
+              modifier-type: level-up
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Channel Energy
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.ChannelEnergy
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Spellcasting
+          items:
+            - type: SilverNeedle.Characters.Magic.DivineCasting
+              list: paladin
+              spell-type: divine
+              casting-ability: charisma
+              spell-slots:
+                1: []
+                2: []
+                3: []
+                4: [0, 0]
+                5: [0, 1]
+                6: [0, 1]
+                7: [0, 1, 0]
+                8: [0, 1, 1]
+                9: [0, 2, 1]
+                10: [0, 2, 1, 0]
+                11: [0, 2, 1, 1]
+                12: [0, 2, 2, 1]
+                13: [0, 3, 2, 1, 0]
+                14: [0, 3, 2, 1, 1]
+                15: [0, 3, 2, 2, 1]
+                16: [0, 3, 3, 2, 1]
+                17: [0, 4, 3, 2, 1]
+                18: [0, 4, 3, 2, 2]
+                19: [0, 4, 3, 3, 2]
+                20: [0, 4, 4, 3, 3]
     - level: 5
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureDivineBond
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Divine Bond
+          commands:
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureDivineBond
     - level: 6
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectMercy
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Mercy (6)
+          commands:
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectMercy
     - level: 7
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSmiteEvil
-          uses-per-day: 3
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Smite Evil (7)
+          items:
+            - type: SilverNeedle.ValueStatModifier
+              name: Smite Evil Uses Per Day
+              modifier: 1
+              modifier-type: level-up
     - level: 8
-      abilities:
-        - ability: SilverNeedle.Characters.SpecialAbilities.AuraOfResolve
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Aura of Resolve
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.AuraOfResolve
     - level: 9
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectMercy
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Mercy (9)
+          commands:
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectMercy
     - level: 10
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSmiteEvil
-          uses-per-day: 4
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Smite Evil (10)
+          items:
+            - type: SilverNeedle.ValueStatModifier
+              name: Smite Evil Uses Per Day
+              modifier: 1
+              modifier-type: level-up
     - level: 11
-      abilities:
-        - ability: SilverNeedle.Characters.SpecialAbilities.AuraOfJustice
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Aura of Justice
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.AuraOfJustice
     - level: 12
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectMercy
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Mercy (12)
+          commands:
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectMercy
     - level: 13
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSmiteEvil
-          uses-per-day: 5
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Smite Evil (15)
+          items:
+            - type: SilverNeedle.ValueStatModifier
+              name: Smite Evil Uses Per Day
+              modifier: 1
+              modifier-type: level-up
     - level: 14
-      abilities:
-        - ability: SilverNeedle.Characters.SpecialAbilities.AuraOfFaith
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Aura of Faith
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.AuraOfFaith
     - level: 15
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectMercy
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Mercy (15)
+          commands:
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectMercy
     - level: 16
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSmiteEvil
-          uses-per-day: 6
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Smite Evil (16)
+          items:
+            - type: SilverNeedle.ValueStatModifier
+              name: Smite Evil Uses Per Day
+              modifier: 1
+              modifier-type: level-up
     - level: 17
-      abilities:
-        - ability: SilverNeedle.Characters.SpecialAbilities.AuraOfRighteousness
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Aura of Righteousness
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.AuraOfRighteousness
     - level: 18
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectMercy
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Mercy (18)
+          commands:
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectMercy
     - level: 19
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSmiteEvil
-          uses-per-day: 7
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Smite Evil (19)
+          items:
+            - type: SilverNeedle.ValueStatModifier
+              name: Smite Evil Uses Per Day
+              modifier: 1
+              modifier-type: level-up
     - level: 20
-      abilities:
-        - ability: SilverNeedle.Characters.SpecialAbilities.HolyChampion
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Holy Champion
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.HolyChampion

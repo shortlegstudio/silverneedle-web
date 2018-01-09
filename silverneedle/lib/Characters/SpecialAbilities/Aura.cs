@@ -7,12 +7,18 @@ namespace SilverNeedle.Characters.SpecialAbilities
 {
     using SilverNeedle.Serialization;
     
-    public class Aura : SpecialAbility { 
+    public class Aura : IAbility 
+    { 
+        [ObjectStore("aura-type")]
         public string AuraType { get; private set; }    
         public Aura(IObjectStore data)
         {
-            this.AuraType = data.GetString("type");
-            this.Name = string.Format("Aura of {0}", this.AuraType);
+            data.Deserialize(this);
+        }
+
+        public string DisplayString()
+        {
+            return "Aura of {0}".Formatted(this.AuraType);
         }
     }
 }

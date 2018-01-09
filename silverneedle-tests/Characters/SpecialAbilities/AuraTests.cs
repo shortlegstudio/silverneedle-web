@@ -18,10 +18,10 @@ namespace Tests.Characters.SpecialAbilities
         public void AurasHaveAType()
         {
             var configure = new MemoryStore();
-            configure.SetValue("type", "Good");
+            configure.SetValue("aura-type", "Good");
             var aura = new Aura(configure);
             Assert.Equal(aura.AuraType, "Good");
-            Assert.Equal(aura.Name, "Aura of Good");
+            Assert.Equal(aura.DisplayString(), "Aura of Good");
         }
     }
 }

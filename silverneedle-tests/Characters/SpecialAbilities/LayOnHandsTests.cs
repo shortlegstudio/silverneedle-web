@@ -41,7 +41,7 @@ namespace Tests.Characters.SpecialAbilities
         [Fact]
         public void NameReflectsUsesAndHealing()
         {
-            Assert.Equal(level4Paladin.Get<LayOnHands>().Name, "Lay on Hands (2d6, 4/day)");
+            Assert.Equal(level4Paladin.Get<LayOnHands>().DisplayString(), "Lay on Hands (2d6, 4/day)");
         }
 
         [Fact]
@@ -50,7 +50,7 @@ namespace Tests.Characters.SpecialAbilities
             var layOn = level4Paladin.Get<LayOnHands>();
             layOn.MaximizeAmount = true;
             Assert.Equal(layOn.HealingDice.Roll(), 12);
-            Assert.Equal(layOn.Name, "Lay on Hands (12 points, 4/day)");
+            Assert.Equal(layOn.DisplayString(), "Lay on Hands (12 points, 4/day)");
         }
     }
 }

@@ -7,13 +7,18 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
 {
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.SpecialAbilities;
-    public class ConfigureDivineBond : ICharacterDesignStep
+    public class ConfigureDivineBond : ICharacterDesignStep, ICharacterFeatureCommand
     {
         public void ExecuteStep(CharacterSheet character)
         {
+            Execute(character.Components);
+        }
+
+        public void Execute(Utility.ComponentContainer components)
+        {
             var list = new SpecialAbility[] { new DivineBondMount(), new DivineBondWeapon() };
             var option = list.ChooseOne();
-            character.Add(option);
+            components.Add(option);
         }
     }
 }
