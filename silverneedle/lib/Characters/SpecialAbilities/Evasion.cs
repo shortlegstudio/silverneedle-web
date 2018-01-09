@@ -5,8 +5,11 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class Evasion : SpecialAbility
+    public class Evasion : IAbility, INameByType
     {
-        
+        public string DisplayString()
+        {
+            return this.Name();
+        }
     }
 }

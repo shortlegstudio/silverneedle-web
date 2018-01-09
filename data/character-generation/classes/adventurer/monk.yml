@@ -39,7 +39,7 @@
   levels:
     - level: 1
       attributes:
-        - attribute:
+        - attribute: SilverNeedle.Characters.ClassFeature
           name: Monk Bonus Feats - Level 1 
           items:
             - type: SilverNeedle.Characters.FeatToken
@@ -51,37 +51,93 @@
             - type: SilverNeedle.Characters.FeatToken
               tags: [Catch Off-Guard, Combat Reflexes, Deflect Arrows, Dodge, Improved Grapple, Scorpion Style, Throw Anything]
               ignore-prerequisites: true
-      abilities:
-        - ability: SilverNeedle.Characters.SpecialAbilities.MonkArmorClassBonus
-        - ability: SilverNeedle.Characters.SpecialAbilities.MonkUnarmedStrike
-        - ability: SilverNeedle.Characters.Attacks.FlurryOfBlows
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Armor Class Bonus
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.MonkArmorClassBonus
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Unarmed Strike
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.MonkUnarmedStrike
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Flurry of Blows
+          items:
+            - type: SilverNeedle.Characters.Attacks.FlurryOfBlows
     - level: 2
       attributes:
-        - attribute:
+        - attribute: SilverNeedle.Characters.ClassFeature
           name: Monk Bonus Feats - Level 2
           items:
             - type: SilverNeedle.Characters.FeatToken
               tags: [Catch Off-Guard, Combat Reflexes, Deflect Arrows, Dodge, Improved Grapple, Scorpion Style, Throw Anything]
               ignore-prerequisites: true
-      abilities:
-        - ability: SilverNeedle.Characters.SpecialAbilities.Evasion
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Evasion
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.Evasion
     - level: 3
-      abilities:
-        - ability: SilverNeedle.Characters.SpecialAbilities.MonkFastMovement
-        - ability: SilverNeedle.Characters.SpecialAbilities.StillMind
-        - ability: SilverNeedle.Characters.SpecialAbilities.ManeuverTraining
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Fast Movement
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.MonkFastMovement
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Still Mind
+          items:
+            - type: SilverNeedle.ValueStatModifier
+              name: Fortitude
+              modifier: 2
+              modifier-type: bonus
+              condition: enchantment
+            - type: SilverNeedle.ValueStatModifier
+              name: Reflex
+              modifier: 2
+              modifier-type: bonus
+              condition: enchantment
+            - type: SilverNeedle.ValueStatModifier
+              name: Will
+              modifier: 2
+              modifier-type: bonus
+              condition: enchantment
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Maneuver Training
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.ManeuverTraining
     - level: 4
-      abilities:
-        - ability: SilverNeedle.Characters.SpecialAbilities.KiPool
-        - ability: SilverNeedle.Characters.Attacks.KiStrike
-          damage-type: magic
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Ki Pool
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.KiPool
+              name: Ki Pool
+              base-value: 0
+            - type: SilverNeedle.StatisticStatModifier
+              name: Ki Pool
+              modifier: wisdom-modifier
+              modifier-type: ability
+            - type: SilverNeedle.Characters.ClassLevelModifier
+              name: Ki Pool
+              class: monk
+              rate: 2
+              modifier-type: class-level
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Ki Strike
+          items:
+            - type: SilverNeedle.Characters.Attacks.KiStrike
+              damage-type: magic
     - level: 5
-      abilities:
-        - ability: SilverNeedle.Characters.SpecialAbilities.HighJump
-        - ability: SilverNeedle.Characters.SpecialAbilities.PurityOfBody
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: High Jump
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.HighJump
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Purity of Body
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.PurityOfBody
     - level: 6
       attributes:
-        - attribute:
+        - attribute: SilverNeedle.Characters.ClassFeature
           name: Monk Bonus Feats - Level 6
           items:
             - type: SilverNeedle.Characters.FeatToken
@@ -89,16 +145,25 @@
                 Gorgon's Fist, Improved Bull Rush, Improved Disarm, Improved Feint, Improved Trip, Mobility ]
               ignore-prerequisites: true
     - level: 7
-      abilities:
-        - ability: SilverNeedle.Characters.SpecialAbilities.WholenessOfBody
-        - ability: SilverNeedle.Characters.Attacks.KiStrike
-          damage-type: cold iron/silver
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Wholeness of Body
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.WholenessOfBody
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Ki Strike (7)
+          items:
+            - type: SilverNeedle.Characters.Attacks.KiStrike
+              damage-type: cold iron/silver
     - level: 9
-      abilities:
-        - ability: SilverNeedle.Characters.SpecialAbilities.ImprovedEvasion
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Improved Evasion
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.ImprovedEvasion
     - level: 10
       attributes:
-        - attribute:
+        - attribute: SilverNeedle.Characters.ClassFeature
           name: Monk Bonus Feats - Level 10
           items:
             - type: SilverNeedle.Characters.FeatToken
@@ -106,21 +171,32 @@
                 Gorgon's Fist, Improved Bull Rush, Improved Disarm, Improved Feint, Improved Trip, Mobility, 
                 Improved Critical, Medusa's Wrath, Snatch Arrows, Spring Attack]
               ignore-prerequisites: true
-      abilities:
-        - ability: SilverNeedle.Characters.Attacks.KiStrike
-          damage-type: lawful
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Ki Strike (10)
+          items:
+            - type: SilverNeedle.Characters.Attacks.KiStrike
+              damage-type: lawful
     - level: 11
-      abilities:
-        - ability: SilverNeedle.Characters.SpecialAbilities.DiamondBody
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Diamond Body
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.DiamondBody
     - level: 12
-      abilities:
-        - ability: SilverNeedle.Characters.SpecialAbilities.AbundantStep
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Abundant Step
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.AbundantStep
     - level: 13
-      abilities:
-        - ability: SilverNeedle.Characters.SpecialAbilities.DiamondSoul
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Diamond Soul
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.DiamondSoul
     - level: 14
       attributes:
-        - attribute:
+        - attribute: SilverNeedle.Characters.ClassFeature
           name: Monk Bonus Feats - Level 14
           items:
             - type: SilverNeedle.Characters.FeatToken
@@ -129,19 +205,31 @@
                 Improved Critical, Medusa's Wrath, Snatch Arrows, Spring Attack]
               ignore-prerequisites: true
     - level: 15
-      abilities:
-        - ability: SilverNeedle.Characters.Attacks.QuiveringPalm
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Quivering Palm
+          items:
+            - type: SilverNeedle.Characters.Attacks.QuiveringPalm
     - level: 16
-      abilities:
-        - ability: SilverNeedle.Characters.Attacks.KiStrike
-          damage-type: adamantine
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Ki Strike (16)
+          items:
+            - type: SilverNeedle.Characters.Attacks.KiStrike
+              damage-type: adamantine
     - level: 17
-      abilities:
-        - ability: SilverNeedle.Characters.SpecialAbilities.TongueOfSunAndMoon
-        - ability: SilverNeedle.Characters.SpecialAbilities.TimelessBody
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Tongue of Sun and Moon
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.TongueOfSunAndMoon
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Timeless Body
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.TimelessBody
     - level: 18
       attributes:
-        - attribute:
+        - attribute: SilverNeedle.Characters.ClassFeature
           name: Monk Bonus Feats - Level 18
           items:
             - type: SilverNeedle.Characters.FeatToken
@@ -150,5 +238,17 @@
                 Improved Critical, Medusa's Wrath, Snatch Arrows, Spring Attack]
               ignore-prerequisites: true
     - level: 19
-      abilities:
-        - ability: SilverNeedle.Characters.SpecialAbilities.EmptyBody
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Empty Body
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.EmptyBody
+    - level: 20
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Perfect Self
+          items:
+            - type: SilverNeedle.Characters.DamageReduction
+              name: Perfect Self DR
+              base-value: 10
+              bypass-type: chaotic

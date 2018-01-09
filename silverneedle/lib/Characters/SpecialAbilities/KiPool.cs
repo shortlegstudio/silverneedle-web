@@ -8,41 +8,22 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using System.Collections.Generic;
     using System.Linq;
     using SilverNeedle.Characters.Attacks;
+    using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
-    public class KiPool : SpecialAbility, IComponent
+    public class KiPool : BasicStat, IAbility, IComponent
     {
         private ComponentContainer components;
-        public KiPool()
+
+        public KiPool() : base("Ki Pool")
         {
-            KiPoints = new BasicStat("Ki Points", 0);
+
+        }
+        public KiPool(IObjectStore configuration) : base(configuration)
+        {
         }
         public void Initialize(ComponentContainer components)
         {
-            var wisdom = components.Get<AbilityScores>().GetAbility(AbilityScoreTypes.Wisdom);
-            KiPoints.AddModifier(wisdom.UniversalStatModifier);
-
-            var monk = components.Get<ClassLevel>();
-            KiPoints.AddModifier(
-                new DelegateStatModifier("Ki Points",
-                    "Monk Levels", "Monk",
-                    () => { return monk.Level / 2; }
-                )
-            );
-
             this.components = components;
-        }
-
-        public IStatistic KiPoints  { get; private set; }
-
-        public override string Name
-        {
-            get
-            {
-                return string.Format("Ki Pool ({0} points {1})",
-                    this.KiPoints.TotalValue,
-                    string.Join(", ", GetKiStrikes().Select(x => x.DamageType))
-                );
-            }
         }
 
         private IEnumerable<KiStrike> GetKiStrikes()
@@ -50,5 +31,12 @@ namespace SilverNeedle.Characters.SpecialAbilities
             return components.GetAll<KiStrike>();
         }
 
+        public string DisplayString()
+        {
+            return string.Format("Ki Pool ({0} points {1})",
+                this.TotalValue,
+                string.Join(", ", GetKiStrikes().Select(x => x.DamageType))
+            );
+        }
     }
 }

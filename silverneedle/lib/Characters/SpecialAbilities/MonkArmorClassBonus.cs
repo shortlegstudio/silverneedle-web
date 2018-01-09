@@ -9,7 +9,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using SilverNeedle.Equipment;
     using SilverNeedle.Utility;
     using SilverNeedle.Serialization;
-    public class MonkArmorClassBonus : SpecialAbility, IComponent
+    public class MonkArmorClassBonus : IComponent, INameByType
     {
         private IStatModifier monkACModifier;
         private AbilityScore wisdom;
@@ -29,7 +29,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
             monkLevels = components.Get<ClassLevel>();
             wisdom = components.FindStat<AbilityScore>(StatNames.Wisdom);
             inventory = components.Get<Inventory>();
-            monkACModifier = new DelegateStatModifier(StatNames.ArmorClass, "bonus", this.Name, Modifier);
+            monkACModifier = new DelegateStatModifier(StatNames.ArmorClass, "bonus", this.Name(), Modifier);
             components.ApplyStatModifier(monkACModifier);
 
         }
