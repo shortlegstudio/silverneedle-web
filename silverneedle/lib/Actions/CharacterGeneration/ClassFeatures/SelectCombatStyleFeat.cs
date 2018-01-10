@@ -11,26 +11,24 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Serialization;
 
-    public class SelectCombatStyleFeat : ICharacterDesignStep
+    public class SelectCombatStyleFeat : ICharacterDesignStep, ICharacterFeatureCommand
     {
-        EntityGateway<Feat> featGateway;
 
         public SelectCombatStyleFeat()
         {
-            featGateway = GatewayProvider.Get<Feat>();
         }
 
-        public SelectCombatStyleFeat(EntityGateway<Feat> featGateway)
-        {
-            this.featGateway = featGateway;
-        }
         public void ExecuteStep(CharacterSheet character)
         {
-            var combatStyle = character.Get<CombatStyle>();
-            var rangerLevel = character.Get<ClassLevel>();
-            var options = combatStyle.GetFeats(rangerLevel.Level);
-            var chosen = featGateway.FindAll(options).Where(x => !character.Feats.Contains(x)).ChooseOne();
-            character.Add(chosen);
+            Execute(character.Components);
+        }
+
+        public void Execute(Utility.ComponentContainer components)
+        {
+            var combatStyle = components.Get<CombatStyle>();
+            var rangerLevel = components.Get<ClassLevel>();
+            var token = new FeatToken(combatStyle.GetFeats(rangerLevel.Level), true);
+            components.Add(token);
         }
     }
 }

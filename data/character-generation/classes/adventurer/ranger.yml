@@ -39,112 +39,188 @@
               weight: 10
   levels:
     - level: 1
-      abilities:
-        - ability: SilverNeedle.Characters.SpecialAbilities.Track
-        - ability: SilverNeedle.Characters.SpecialAbilities.WildEmpathy
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectFavoredEnemy
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Track
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.Track
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Wild Empathy
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.WildEmpathy
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Favored Enemy
+          commands:
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectFavoredEnemy
     - level: 2
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectCombatStyle
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectCombatStyleFeat
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Combat Style
+          commands:
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectCombatStyle
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectCombatStyleFeat
     - level: 3
       attributes:
-        - attribute:
+        - attribute: SilverNeedle.Characters.ClassFeature
           name: Endurance
           items:
             - type: SilverNeedle.Characters.FeatToken
               tags: [Endurance]
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectFavoredTerrain
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Favored Terrain
+          commands:
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectFavoredTerrain
     - level: 4
-      abilities:
-        - ability: SilverNeedle.Characters.Magic.DivineCasting
-          list: ranger
-          spell-type: divine
-          casting-ability: wisdom
-          spell-slots:
-            1: []
-            2: []
-            3: []
-            4: [0, 0]
-            5: [0, 1]
-            6: [0, 1]
-            7: [0, 1, 0]
-            8: [0, 1, 1]
-            9: [0, 2, 1]
-            10: [0, 2, 1, 0]
-            11: [0, 2, 1, 1]
-            12: [0, 2, 2, 1]
-            13: [0, 3, 2, 1, 0]
-            14: [0, 3, 2, 1, 1]
-            15: [0, 3, 2, 2, 1]
-            16: [0, 3, 3, 2, 1]
-            17: [0, 4, 3, 2, 1]
-            18: [0, 4, 3, 2, 2]
-            19: [0, 4, 3, 3, 2]
-            20: [0, 4, 4, 3, 3]
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureHuntersBond
-          bonds: [companions, badger, bird, cat, camel, dire rat, dog, horse, pony, snake, wolf]
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Spellcasting
+          items:
+            - type: SilverNeedle.Characters.Magic.DivineCasting
+              list: ranger
+              spell-type: divine
+              casting-ability: wisdom
+              spell-slots:
+                1: []
+                2: []
+                3: []
+                4: [0, 0]
+                5: [0, 1]
+                6: [0, 1]
+                7: [0, 1, 0]
+                8: [0, 1, 1]
+                9: [0, 2, 1]
+                10: [0, 2, 1, 0]
+                11: [0, 2, 1, 1]
+                12: [0, 2, 2, 1]
+                13: [0, 3, 2, 1, 0]
+                14: [0, 3, 2, 1, 1]
+                15: [0, 3, 2, 2, 1]
+                16: [0, 3, 3, 2, 1]
+                17: [0, 4, 3, 2, 1]
+                18: [0, 4, 3, 2, 2]
+                19: [0, 4, 3, 3, 2]
+                20: [0, 4, 4, 3, 3]
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Hunters Bond
+          commands:
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureHuntersBond
+              bonds: [companions, badger, bird, cat, camel, dire rat, dog, horse, pony, snake, wolf]
     - level: 5
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectFavoredEnemy
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpgradeFavoredEnemy
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Favored Enemy
+          commands:
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectFavoredEnemy
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpgradeFavoredEnemy
     - level: 6
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectCombatStyleFeat
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Combat Style Feat (6)
+          commands:
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectCombatStyleFeat
     - level: 7
-      abilities:
-        - ability: SilverNeedle.Characters.SpecialAbilities.WoodlandStride
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Woodland Stride
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.WoodlandStride
     - level: 8
-      abilities:
-        - ability: SilverNeedle.Characters.SpecialAbilities.SwiftTracker
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectFavoredTerrain
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpgradeFavoredTerrain
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Swift Tracker
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.SwiftTracker
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Favored Terrain (8)
+          commands:
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectFavoredTerrain
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpgradeFavoredTerrain
     - level: 9
-      abilities:
-        - ability: SilverNeedle.Characters.SpecialAbilities.Evasion
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Evasion
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.Evasion
     - level: 10
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectFavoredEnemy
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpgradeFavoredEnemy
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectCombatStyleFeat
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Favored Enemy
+          commands:
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectFavoredEnemy
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpgradeFavoredEnemy
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Combat Style Feat (6)
+          commands:
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectCombatStyleFeat
     - level: 11
-      abilities:
-        - ability: SilverNeedle.Characters.SpecialAbilities.Quarry
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Quarry
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.Quarry
     - level: 12
-      abilities:
-        - ability: SilverNeedle.Characters.SpecialAbilities.Camouflage
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Camouflage
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.Camouflage
     - level: 13
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectFavoredTerrain
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpgradeFavoredTerrain
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Favored Terrain (13)
+          commands:
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectFavoredTerrain
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpgradeFavoredTerrain
     - level: 14
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectCombatStyleFeat
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Combat Style Feat (6)
+          commands:
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectCombatStyleFeat
     - level: 15
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectFavoredEnemy
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpgradeFavoredEnemy
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Favored Enemy
+          commands:
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectFavoredEnemy
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpgradeFavoredEnemy
     - level: 16
-      abilities:
-        - ability: SilverNeedle.Characters.SpecialAbilities.ImprovedEvasion
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Improved Evasion
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.ImprovedEvasion
     - level: 17
-      abilities:
-        - ability: SilverNeedle.Characters.SpecialAbilities.HideInPlainSight
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Hide in Plain Sight
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.HideInPlainSight
     - level: 18
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectFavoredTerrain
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpgradeFavoredTerrain
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectCombatStyleFeat
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Favored Terrain (18)
+          commands:
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectFavoredTerrain
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpgradeFavoredTerrain
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Combat Style Feat (6)
+          commands:
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectCombatStyleFeat
     - level: 19
-      abilities:
-        - ability: SilverNeedle.Characters.SpecialAbilities.ImprovedQuarry
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Improved Quarry
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.ImprovedQuarry
     - level: 20
-      abilities:
-        - ability: SilverNeedle.Characters.SpecialAbilities.MasterHunter
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectFavoredEnemy
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpgradeFavoredEnemy
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Master Hunter
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.MasterHunter
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Favored Enemy
+          commands:
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectFavoredEnemy
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpgradeFavoredEnemy

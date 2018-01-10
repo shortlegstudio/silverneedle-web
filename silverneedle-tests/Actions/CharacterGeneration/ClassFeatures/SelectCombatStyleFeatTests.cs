@@ -19,22 +19,18 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
         [Fact]
         public void ChoosesAFeatFromTheAvailableFeats()
         {
-            var someFeat = Feat.Named("Feat One");
-            var gateway = EntityGateway<Feat>.LoadWithSingleItem(someFeat);
             var yaml = @"
 - name: Archery
   bonus-feats:
     - level: 1
       feats: [feat one]".ParseYaml().Children.First();
             var combatStyle = new CombatStyle(yaml);
-            var character = new CharacterSheet(CharacterStrategy.Default());
-            var cls = new Class();
-            character.SetClass(cls);
+            var character = CharacterTestTemplates.Ranger();
             character.SetLevel(2);
             character.Add(combatStyle);
-            var step = new SelectCombatStyleFeat(gateway);
+            var step = new SelectCombatStyleFeat();
             step.ExecuteStep(character);
-            Assert.Contains(someFeat, character.Feats);
+            AssertCharacter.HasFeatToken("feat one", character);
         }
     }
 

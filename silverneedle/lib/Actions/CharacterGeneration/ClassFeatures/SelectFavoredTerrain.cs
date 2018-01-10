@@ -13,7 +13,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Maps;
     using SilverNeedle.Serialization;
 
-    public class SelectFavoredTerrain : ICharacterDesignStep
+    public class SelectFavoredTerrain : ICharacterDesignStep, ICharacterFeatureCommand
     {
         private EntityGateway<TerrainType> terrainTypeGateway;
 
@@ -29,11 +29,16 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
         
         public void ExecuteStep(CharacterSheet character)
         {
-            var fav = character.Get<FavoredTerrain>();
+            Execute(character.Components);
+        }
+
+        public void Execute(Utility.ComponentContainer components)
+        {
+            var fav = components.Get<FavoredTerrain>();
             if(fav == null)
             {
                 fav = new FavoredTerrain();
-                character.Add(fav);
+                components.Add(fav);
             }
             fav.Add(this.terrainTypeGateway.Where(x => !fav.TerrainTypes.Contains(x)).ChooseOne());
         }

@@ -13,7 +13,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Serialization;
 
-    public class SelectFavoredEnemy : ICharacterDesignStep
+    public class SelectFavoredEnemy : ICharacterDesignStep, ICharacterFeatureCommand
     {
         private EntityGateway<CreatureType> creatureTypeGateway;
 
@@ -29,11 +29,16 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
         
         public void ExecuteStep(CharacterSheet character)
         {
-            var favoredEnemy = character.Get<FavoredEnemy>();
+            Execute(character.Components);
+        }
+
+        public void Execute(Utility.ComponentContainer components)
+        {
+            var favoredEnemy = components.Get<FavoredEnemy>();
             if (favoredEnemy == null)
             {
                 favoredEnemy = new FavoredEnemy();
-                character.Add(favoredEnemy);
+                components.Add(favoredEnemy);
             }
             var type = this.creatureTypeGateway.Where(x => !favoredEnemy.CreatureTypes.Contains(x)).ChooseOne(); 
             favoredEnemy.Add(type);

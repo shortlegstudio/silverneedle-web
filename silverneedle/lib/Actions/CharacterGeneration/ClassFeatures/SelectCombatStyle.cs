@@ -9,7 +9,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Serialization;
 
-    public class SelectCombatStyle : ICharacterDesignStep
+    public class SelectCombatStyle : ICharacterDesignStep, ICharacterFeatureCommand
     {
         EntityGateway<CombatStyle> combatStyleGateway;
         public SelectCombatStyle()
@@ -18,8 +18,13 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
         }
         public void ExecuteStep(CharacterSheet character)
         {
+            Execute(character.Components);
+        }
+
+        public void Execute(Utility.ComponentContainer components)
+        {
             var combat = combatStyleGateway.ChooseOne();
-            character.Add(combat);
+            components.Add(combat);
         }
     }
 }

@@ -10,11 +10,16 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.SpecialAbilities;
     
-    public class UpgradeFavoredTerrain : ICharacterDesignStep
+    public class UpgradeFavoredTerrain : ICharacterDesignStep, ICharacterFeatureCommand
     {
         public void ExecuteStep(CharacterSheet character)
         {
-            var fav = character.Get<FavoredTerrain>();
+            Execute(character.Components);
+        }
+
+        public void Execute(Utility.ComponentContainer components)
+        {
+            var fav = components.Get<FavoredTerrain>();
             var upgrade = fav.TerrainTypes.ChooseOne();
             fav.EnhanceBonus(upgrade);
         }

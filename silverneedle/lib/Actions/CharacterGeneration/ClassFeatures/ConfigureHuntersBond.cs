@@ -8,18 +8,25 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Serialization;
+    using SilverNeedle.Utility;
 
-    public class ConfigureHuntersBond : ICharacterDesignStep
+    public class ConfigureHuntersBond : ICharacterDesignStep, ICharacterFeatureCommand
     {
         private string[] bonds;
         public ConfigureHuntersBond(IObjectStore options)
         {
             this.bonds = options.GetList("bonds");
         }
-        public void ExecuteStep(CharacterSheet character)
+
+        public void Execute(ComponentContainer components)
         {
             var hunterBond = new HuntersBond(this.bonds.ChooseOne());
-            character.Add(hunterBond);
+            components.Add(hunterBond);
+        }
+
+        public void ExecuteStep(CharacterSheet character)
+        {
+            Execute(character.Components);
         }
     }
 }
