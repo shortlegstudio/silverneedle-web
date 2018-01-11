@@ -24,7 +24,7 @@
               weight: 10
             - name: Peasant's outfit
               weight: 100
-  levels:
-    - level: 1
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.CustomClassSteps.CommonerCustomSteps
+    - attribute: SilverNeedle.Characters.ClassFeature
+      name: Weapon Proficiency
+      commands:
+        - command: SilverNeedle.Actions.CharacterGeneration.CustomClassSteps.CommonerCustomSteps

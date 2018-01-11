@@ -11,7 +11,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Serialization;
 
-    public class ConfigureSummonFamiliar : ICharacterDesignStep
+    public class ConfigureSummonFamiliar : ICharacterDesignStep, ICharacterFeatureCommand
     {
         private EntityGateway<Familiar> familiars;
         public ConfigureSummonFamiliar()
@@ -26,9 +26,14 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
 
         public void ExecuteStep(CharacterSheet character)
         {
+            Execute(character.Components);
+        }
+
+        public void Execute(Utility.ComponentContainer components)
+        {
             var familiar = familiars.ChooseOne();
             var summon = new SummonFamiliar(familiar);
-            character.Add(summon);
+            components.Add(summon);
         }
     }
 }

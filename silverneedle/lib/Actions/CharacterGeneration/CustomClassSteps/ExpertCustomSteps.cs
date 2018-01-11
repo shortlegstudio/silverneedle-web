@@ -7,15 +7,16 @@ namespace SilverNeedle.Actions.CharacterGeneration.CustomClassSteps
 {
     using SilverNeedle.Characters;
 
-    public class ExpertCustomSteps : ICharacterDesignStep
+    public class ExpertCustomSteps : ICharacterFeatureCommand
     {
-        public void ExecuteStep(CharacterSheet character)
+        public void Execute(Utility.ComponentContainer components)
         {
             // Randomly pick 10 and gopherit
-            var skills = character.SkillRanks.GetSkills().Choose(10);
+            var skillRanks = components.Get<SkillRanks>();
+            var skills = skillRanks.GetSkills().Choose(10);
             foreach(var s in skills)
             {
-                character.SkillRanks.SetClassSkill(s.Name);
+                skillRanks.SetClassSkill(s.Name);
             }
         }
     }

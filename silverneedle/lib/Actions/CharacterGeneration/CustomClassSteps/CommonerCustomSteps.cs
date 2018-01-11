@@ -9,13 +9,13 @@ namespace SilverNeedle.Actions.CharacterGeneration.CustomClassSteps
     using SilverNeedle.Equipment;
     using SilverNeedle.Serialization;
 
-    public class CommonerCustomSteps : ICharacterDesignStep 
+    public class CommonerCustomSteps : ICharacterFeatureCommand 
     {
-        public void ExecuteStep(CharacterSheet character)
+        public void Execute(Utility.ComponentContainer components)
         {
             // Select a simple weapon
             var choice = GatewayProvider.Get<Weapon>().SimpleWeapons().ChooseOne();
-            character.Offense.AddWeaponProficiency(choice.ProficiencyName);
+            components.Add(new WeaponProficiency(choice.ProficiencyName));
         }
     }
 }

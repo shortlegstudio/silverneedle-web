@@ -8,17 +8,28 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using System;
     using System.Collections.Generic;
     using SilverNeedle.Bestiary;
+    using SilverNeedle.Utility;
 
-    public class SummonFamiliar : SpecialAbility, IModifiesStats
+    public class SummonFamiliar : IAbility, IComponent
     {
         public SummonFamiliar(Familiar familiar) 
         {
-            this.Name = string.Format("Summon Familiar ({0})", familiar.Name);
             Familiar = familiar;
         }
 
         public Familiar Familiar { get; set; }
 
-        public IList<IStatModifier> Modifiers { get { return Familiar.Modifiers; } }
+        public void Initialize(ComponentContainer components)
+        {
+            foreach(var mod in Familiar.Modifiers)
+            {
+                components.Add(mod);
+            }
+        }
+
+        public string DisplayString()
+        {
+            return string.Format("Summon Familiar ({0})", Familiar.Name);
+        }
     }
 }

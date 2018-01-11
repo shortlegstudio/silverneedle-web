@@ -19,7 +19,7 @@ namespace Tests.Actions.CharacterGeneration.CustomClassSteps
             var character = CharacterTestTemplates.AverageBob();
 
             var subject = new CommonerCustomSteps();
-            subject.ExecuteStep(character);
+            subject.Execute(character.Components);
             Assert.Equal(character.Offense.WeaponProficiencies.Count(), 1);
         }
     }
