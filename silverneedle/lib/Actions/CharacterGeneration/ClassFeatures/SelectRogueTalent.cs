@@ -10,7 +10,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Serialization;
 
-    public class SelectRogueTalent : ICharacterDesignStep
+    public class SelectRogueTalent : ICharacterDesignStep, ICharacterFeatureCommand
     {
         private EntityGateway<RogueTalent> rogueTalentGateway;
         private bool selectAdvanced;
@@ -26,9 +26,14 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
 
         public void ExecuteStep(CharacterSheet character)
         {
+            Execute(character.Components);
+        }
+
+        public void Execute(Utility.ComponentContainer components)
+        {
             RogueTalent selected = null;
             
-            var characterTalents = character.GetAll<RogueTalent>();
+            var characterTalents = components.GetAll<RogueTalent>();
             var availableTalents = this.rogueTalentGateway.Where(talent => 
                 (!talent.IsAdvancedTalent ||
                 talent.IsAdvancedTalent == selectAdvanced) && 
@@ -42,7 +47,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
             else
                 selected = availableTalents.ChooseOne();
 
-            character.Add(selected);
+            components.Add(selected);
         }
     }
 }

@@ -44,154 +44,236 @@
               weight: 10
   levels:
     - level: 1
-      abilities:
-        - ability: SilverNeedle.Characters.SpecialAbilities.TrapFinding
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSneakAttack
-          damage: 1d6
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Trap Finding
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.TrapFinding
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Sneak Attack
+          commands:
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSneakAttack
+              damage: 1d6
     - level: 2
-      abilities:
-        - ability: SilverNeedle.Characters.SpecialAbilities.Evasion
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRogueTalent
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Evasion
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.Evasion
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Rogue Talent
+          commands:
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRogueTalent
     - level: 3
-      modifiers:
-        - name: Trap Sense +1 (Reflex)
-          stat: Reflex
-          modifier: 1
-          type: bonus
-          condition: traps
-        - name: Trap Sense +1 (AC)
-          stat: Armor Class
-          modifier: 1
-          type: bonus
-          condition: traps
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSneakAttack
-          damage: 2d6
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Trap Sense
+          items:
+            - type: SilverNeedle.ValueStatModifier
+              name: Reflex
+              modifier: 1
+              modifier-type: bonus
+              condition: traps
+            - type: SilverNeedle.ValueStatModifier
+              name: Armor Class
+              modifier: 1
+              modifier-type: bonus
+              condition: traps
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Sneak Attack
+          commands:
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSneakAttack
+              damage: 2d6
     - level: 4
-      abilities:
-        - ability: SilverNeedle.Characters.SpecialAbilities.UncannyDodge
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRogueTalent
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Uncanny Dodge
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.UncannyDodge
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Rogue Talent
+          commands:
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRogueTalent
     - level: 5
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSneakAttack
-          damage: 3d6
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Sneak Attack
+          commands:
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSneakAttack
+              damage: 3d6
     - level: 6
-      modifiers:
-        - name: Trap Sense +2 (Reflex)
-          stat: Reflex
-          modifier: 1
-          type: bonus
-          condition: traps
-        - name: Trap Sense +2 (AC)
-          stat: Armor Class
-          modifier: 1
-          type: bonus
-          condition: traps
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRogueTalent
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Trap Sense 2
+          items:
+            - type: SilverNeedle.ValueStatModifier
+              name: Reflex
+              modifier: 1
+              modifier-type: bonus
+              condition: traps
+            - type: SilverNeedle.ValueStatModifier
+              name: Armor Class
+              modifier: 1
+              modifier-type: bonus
+              condition: traps
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Rogue Talent
+          commands:
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRogueTalent
     - level: 7
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSneakAttack
-          damage: 4d6
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Sneak Attack
+          commands:
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSneakAttack
+              damage: 4d6
     - level: 8
-      abilities:
-        - ability: SilverNeedle.Characters.SpecialAbilities.ImprovedUncannyDodge
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRogueTalent
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Rogue Talent
+          commands:
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRogueTalent
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Improved Uncanny Dodge
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.ImprovedUncannyDodge
     - level: 9
-      modifiers:
-        - name: Trap Sense +3 (Reflex)
-          stat: Reflex
-          modifier: 1
-          type: bonus
-          condition: traps
-        - name: Trap Sense +3 (AC)
-          stat: Armor Class
-          modifier: 1
-          type: bonus
-          condition: traps
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSneakAttack
-          damage: 5d6
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Sneak Attack
+          commands:
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSneakAttack
+              damage: 5d6
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Trap Sense 3
+          items:
+            - type: SilverNeedle.ValueStatModifier
+              name: Reflex
+              modifier: 1
+              modifier-type: bonus
+              condition: traps
+            - type: SilverNeedle.ValueStatModifier
+              name: Armor Class
+              modifier: 1
+              modifier-type: bonus
+              condition: traps
     - level: 10
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRogueTalent
-          advanced-talents: true
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Rogue Talent
+          commands:
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRogueTalent
+              advanced-talents: true
     - level: 11
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSneakAttack
-          damage: 6d6
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Sneak Attack
+          commands:
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSneakAttack
+              damage: 6d6
     - level: 12
-      modifiers:
-        - name: Trap Sense +4 (Reflex)
-          stat: Reflex
-          modifier: 1
-          type: bonus
-          condition: traps
-        - name: Trap Sense +4 (AC)
-          stat: Armor Class
-          modifier: 1
-          type: bonus
-          condition: traps
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRogueTalent
-          advanced-talents: true
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Rogue Talent
+          commands:
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRogueTalent
+              advanced-talents: true
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Trap Sense 4
+          items:
+            - type: SilverNeedle.ValueStatModifier
+              name: Reflex
+              modifier: 1
+              modifier-type: bonus
+              condition: traps
+            - type: SilverNeedle.ValueStatModifier
+              name: Armor Class
+              modifier: 1
+              modifier-type: bonus
+              condition: traps
     - level: 13
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSneakAttack
-          damage: 7d6
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Sneak Attack
+          commands:
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSneakAttack
+              damage: 7d6
     - level: 14
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRogueTalent
-          advanced-talents: true
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Rogue Talent
+          commands:
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRogueTalent
+              advanced-talents: true
     - level: 15
-      modifiers:
-        - name: Trap Sense +5 (Reflex)
-          stat: Reflex
-          modifier: 1
-          type: bonus
-          condition: traps
-        - name: Trap Sense +5 (AC)
-          stat: Armor Class
-          modifier: 1
-          type: bonus
-          condition: traps
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSneakAttack
-          damage: 8d6
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Sneak Attack
+          commands:
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSneakAttack
+              damage: 8d6
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Trap Sense 5
+          items:
+            - type: SilverNeedle.ValueStatModifier
+              name: Reflex
+              modifier: 1
+              modifier-type: bonus
+              condition: traps
+            - type: SilverNeedle.ValueStatModifier
+              name: Armor Class
+              modifier: 1
+              modifier-type: bonus
+              condition: traps
     - level: 16
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRogueTalent
-          advanced-talents: true
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Rogue Talent
+          commands:
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRogueTalent
+              advanced-talents: true
     - level: 17
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSneakAttack
-          damage: 9d6
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Sneak Attack
+          commands:
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSneakAttack
+              damage: 9d6
     - level: 18
-      modifiers:
-        - name: Trap Sense +6 (Reflex)
-          stat: Reflex
-          modifier: 1
-          type: bonus
-          condition: traps
-        - name: Trap Sense +6 (AC)
-          stat: Armor Class
-          modifier: 1
-          type: bonus
-          condition: traps
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRogueTalent
-          advanced-talents: true
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Rogue Talent
+          commands:
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRogueTalent
+              advanced-talents: true
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Trap Sense 6
+          items:
+            - type: SilverNeedle.ValueStatModifier
+              name: Reflex
+              modifier: 1
+              modifier-type: bonus
+              condition: traps
+            - type: SilverNeedle.ValueStatModifier
+              name: Armor Class
+              modifier: 1
+              modifier-type: bonus
+              condition: traps
     - level: 19
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSneakAttack
-          damage: 10d6
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Sneak Attack
+          commands:
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSneakAttack
+              damage: 10d6
     - level: 20
-      abilities:
-        - ability: SilverNeedle.Characters.SpecialAbilities.MasterStrike
-      class-feature-steps:
-        - step: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRogueTalent
-          advanced-talents: true
+      attributes:
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Rogue Talent
+          commands:
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRogueTalent
+              advanced-talents: true
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Master Strike
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.MasterStrike

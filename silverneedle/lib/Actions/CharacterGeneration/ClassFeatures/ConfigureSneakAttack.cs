@@ -8,7 +8,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Serialization;
-    public class ConfigureSneakAttack : ICharacterDesignStep
+    public class ConfigureSneakAttack : ICharacterDesignStep, ICharacterFeatureCommand
     {
         private string Damage { get; set; }
 
@@ -18,11 +18,16 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
         }
         public void ExecuteStep(CharacterSheet character)
         {
-            var sneakAttack = character.Get<SneakAttack>();
+            Execute(character.Components);
+        }
+
+        public void Execute(Utility.ComponentContainer components)
+        {
+            var sneakAttack = components.Get<SneakAttack>();
             if(sneakAttack == null)
             {
                 sneakAttack = new SneakAttack();
-                character.Add(sneakAttack);
+                components.Add(sneakAttack);
             }
             sneakAttack.SetDamage(this.Damage);
         }
