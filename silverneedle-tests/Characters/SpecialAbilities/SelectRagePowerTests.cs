@@ -38,7 +38,7 @@ namespace Tests.Characters.SpecialAbilities
         [Fact]
         public void SelectFromRagePowersThatCharacterIsQualifiedFor()
         {
-            barbarian.Add(ragePowerSelector);
+            ragePowerSelector.Execute(barbarian.Components);
             Assert.Equal(barbarian.Components.Get<RagePower>().Name, "Rage 1");
         }
 

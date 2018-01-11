@@ -78,8 +78,8 @@
             - type: SilverNeedle.Characters.SpecialAbilities.UncannyDodge
         - attribute:
           name: Rage Power
-          items:
-            - type: SilverNeedle.Characters.SpecialAbilities.SelectRagePower
+          commands:
+            - command: SilverNeedle.Characters.SpecialAbilities.SelectRagePower
     - level: 3
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
@@ -102,8 +102,8 @@
       attributes:
         - attribute:
           name: Rage Power
-          items:
-            - type: SilverNeedle.Characters.SpecialAbilities.SelectRagePower
+          commands:
+            - command: SilverNeedle.Characters.SpecialAbilities.SelectRagePower
     - level: 5
       attributes:
         - attribute:
@@ -121,8 +121,8 @@
               modifier-type: level-up
         - attribute:
           name: Rage Power
-          items:
-            - type: SilverNeedle.Characters.SpecialAbilities.SelectRagePower
+          commands:
+            - command: SilverNeedle.Characters.SpecialAbilities.SelectRagePower
     - level: 7
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
@@ -136,8 +136,8 @@
       attributes:
         - attribute:
           name: Rage Power
-          items:
-            - type: SilverNeedle.Characters.SpecialAbilities.SelectRagePower
+          commands:
+            - command: SilverNeedle.Characters.SpecialAbilities.SelectRagePower
     - level: 9
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
@@ -158,8 +158,8 @@
               modifier-type: level-up
         - attribute:
           name: Rage Power
-          items:
-            - type: SilverNeedle.Characters.SpecialAbilities.SelectRagePower
+          commands:
+            - command: SilverNeedle.Characters.SpecialAbilities.SelectRagePower
     - level: 11
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
@@ -188,8 +188,8 @@
               modifier-type: level-up
         - attribute:
           name: Rage Power
-          items:
-            - type: SilverNeedle.Characters.SpecialAbilities.SelectRagePower
+          commands:
+            - command: SilverNeedle.Characters.SpecialAbilities.SelectRagePower
     - level: 13
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature 
@@ -211,8 +211,8 @@
               condition: Enchantment
         - attribute:
           name: Rage Power
-          items:
-            - type: SilverNeedle.Characters.SpecialAbilities.SelectRagePower
+          commands:
+            - command: SilverNeedle.Characters.SpecialAbilities.SelectRagePower
     - level: 15
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
@@ -233,8 +233,8 @@
               modifier-type: level-up
         - attribute:
           name: Rage Power
-          items:
-            - type: SilverNeedle.Characters.SpecialAbilities.SelectRagePower
+          commands:
+            - command: SilverNeedle.Characters.SpecialAbilities.SelectRagePower
     - level: 17
       attributes:
         - attribute:
@@ -252,8 +252,8 @@
               modifier-type: level-up
         - attribute:
           name: Rage Power
-          items:
-            - type: SilverNeedle.Characters.SpecialAbilities.SelectRagePower
+          commands:
+            - command: SilverNeedle.Characters.SpecialAbilities.SelectRagePower
     - level: 19
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature 
@@ -282,5 +282,5 @@
               modifier-type: rage
         - attribute:
           name: Rage Power
-          items:
-            - type: SilverNeedle.Characters.SpecialAbilities.SelectRagePower
+          commands:
+            - command: SilverNeedle.Characters.SpecialAbilities.SelectRagePower

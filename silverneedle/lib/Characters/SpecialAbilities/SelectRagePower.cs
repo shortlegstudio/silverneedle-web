@@ -11,7 +11,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
-    public class SelectRagePower : IComponent
+    public class SelectRagePower : ICharacterFeatureCommand
     {
         private EntityGateway<RagePower> ragePowers;
         public SelectRagePower()
@@ -23,7 +23,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
         {
             this.ragePowers = ragePowers;
         }
-        public void Initialize(ComponentContainer components)
+        public void Execute(ComponentContainer components)
         {
             var options = ragePowers.All().GetAllQualified<RagePower>(components);
             var power = options.ChooseOne();

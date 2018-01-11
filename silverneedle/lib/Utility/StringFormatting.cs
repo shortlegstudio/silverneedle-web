@@ -70,5 +70,10 @@ namespace SilverNeedle.Utility
             return string.Format("{0}'", value);
         }
 
+        public static string ToRangeString(this float value)
+        {
+            return string.Format("{0}'", value);
+        }
+
    }
 }

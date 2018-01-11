@@ -56,7 +56,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
         public string DisplayString()
         {
-            return "Fast Movement";
+            return "Fast Movement ({0})".Formatted(Modifier.ToRangeString());
         }
     }
 }
