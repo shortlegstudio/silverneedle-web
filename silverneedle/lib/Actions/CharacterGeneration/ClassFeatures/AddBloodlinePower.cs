@@ -11,15 +11,20 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Characters.SpecialAbilities.BloodlinePowers;
     using SilverNeedle.Utility;
 
-    public class AddBloodlinePower : ICharacterDesignStep
+    public class AddBloodlinePower : ICharacterDesignStep, ICharacterFeatureCommand
     {
         public void ExecuteStep(CharacterSheet character)
         {
-            var bloodline = character.Get<Bloodline>();
-            var bloodlineLevel = character.Get<ClassLevel>();
+            Execute(character.Components);
+        }
+
+        public void Execute(Utility.ComponentContainer components)
+        {
+            var bloodline = components.Get<Bloodline>();
+            var bloodlineLevel = components.Get<ClassLevel>();
             var powerType = bloodline.GetPower(bloodlineLevel.Level);
             var power = Reflector.Instantiate<IBloodlinePower>(powerType);
-            character.Add(power);
+            components.Add(power);
         }
     }
 }

@@ -10,13 +10,18 @@ namespace  SilverNeedle.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Characters.SpecialAbilities.BloodlinePowers;
     using SilverNeedle.Utility;
 
-    public class AddBloodlineArcana : ICharacterDesignStep
+    public class AddBloodlineArcana : ICharacterDesignStep, ICharacterFeatureCommand
     {
         public void ExecuteStep(CharacterSheet character)
         {
-            var bloodline = character.Get<Bloodline>();
+            Execute(character.Components);
+        }
+
+        public void Execute(ComponentContainer components)
+        {
+            var bloodline = components.Get<Bloodline>();
             var arcana = bloodline.BloodlineArcana.Instantiate<BloodlineArcana>();
-            character.Add(arcana);
+            components.Add(arcana);
         }
     }
 }

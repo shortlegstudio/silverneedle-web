@@ -10,7 +10,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Serialization;
 
-    public class AddBloodlineBonusSpell : ICharacterDesignStep
+    public class AddBloodlineBonusSpell : ICharacterDesignStep, ICharacterFeatureCommand
     {
         private int spellLevel;
         public AddBloodlineBonusSpell(IObjectStore configuration)
@@ -19,9 +19,14 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
         }
         public void ExecuteStep(CharacterSheet character)
         {
-            var bloodline = character.Get<Bloodline>();
-            var casting = character.Get<SpontaneousCasting>();
-            var classLevel = character.Get<ClassLevel>();
+            Execute(character.Components);
+        }
+
+        public void Execute(Utility.ComponentContainer components)
+        {
+            var bloodline = components.Get<Bloodline>();
+            var casting = components.Get<SpontaneousCasting>();
+            var classLevel = components.Get<ClassLevel>();
             var bonusSpell = bloodline.GetBonusSpell(classLevel.Level);
             casting.LearnSpell(spellLevel, bonusSpell);
         }
