@@ -10,7 +10,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Characters.Magic;
     using SilverNeedle.Serialization;
     
-    public class SelectArcaneSchool : ICharacterDesignStep
+    public class SelectArcaneSchool : ICharacterDesignStep, ICharacterFeatureCommand
     {
         private EntityGateway<ArcaneSchool> arcaneGateway;
         public SelectArcaneSchool() : this(GatewayProvider.Get<ArcaneSchool>())
@@ -25,7 +25,12 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
 
         public void ExecuteStep(CharacterSheet character)
         {
-            var wizardCasting = character.Get<WizardCasting>();
+            Execute(character.Components);
+        }
+
+        public void Execute(Utility.ComponentContainer components)
+        {
+            var wizardCasting = components.Get<WizardCasting>();
             var school = arcaneGateway.ChooseOne();
             wizardCasting.SetFocusSchool(school);
         }

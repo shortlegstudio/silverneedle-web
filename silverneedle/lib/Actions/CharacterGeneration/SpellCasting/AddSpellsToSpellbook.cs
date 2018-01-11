@@ -11,7 +11,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.SpellCasting
     using SilverNeedle.Characters.Magic;
     using SilverNeedle.Serialization;
 
-    public class AddSpellsToSpellbook : ICharacterDesignStep
+    public class AddSpellsToSpellbook : ICharacterDesignStep, ICharacterFeatureCommand
     {
         private string[] spellsToAdd;
         private bool addModifier = false;
@@ -22,14 +22,19 @@ namespace SilverNeedle.Actions.CharacterGeneration.SpellCasting
         }
         public void ExecuteStep(CharacterSheet character)
         {
-            var casting = character.Get<ISpellCasting>();
+            Execute(character.Components);
+        }
+
+        public void Execute(Utility.ComponentContainer components)
+        {
+            var casting = components.Get<ISpellCasting>();
             var spellList = casting.SpellList;
-            var book = character.Inventory.Spellbooks.First();
+            var book = components.Get<Inventory>().Spellbooks.First();
             for(int level = 0; level < spellsToAdd.Length; level++)
             {
                 if(spellsToAdd[level].EqualsIgnoreCase("ALL"))
                 {
-                    book.AddSpells(level, spellList.GetSpells(level, character.GetAll<ISpellCastingRule>()));
+                    book.AddSpells(level, spellList.GetSpells(level, components.GetAll<ISpellCastingRule>()));
                 }
                 else
                 {
@@ -39,7 +44,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.SpellCasting
 
                     book.AddSpells(
                         level,
-                        spellList.GetSpells(level, character.GetAll<ISpellCastingRule>()).Where(x => !book.ContainsSpell(level, x))
+                        spellList.GetSpells(level, components.GetAll<ISpellCastingRule>()).Where(x => !book.ContainsSpell(level, x))
                         .Choose(spellsToChoose)
                     );
                 }

@@ -11,11 +11,16 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Utility;
 
-    public class UpdateArcaneSchoolPowers : ICharacterDesignStep
+    public class UpdateArcaneSchoolPowers : ICharacterDesignStep, ICharacterFeatureCommand
     {
         public void ExecuteStep(CharacterSheet character)
         {
-            var casting = character.Get<WizardCasting>();
+            Execute(character.Components);
+        }
+
+        public void Execute(Utility.ComponentContainer components)
+        {
+            var casting = components.Get<WizardCasting>();
             var school = casting.FocusSchool;
             var wizardLevel = casting.Class.Level;
 
@@ -24,7 +29,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
             {
                 if(ability.GetInteger("level") == wizardLevel)
                 {
-                    character.Add(
+                    components.Add(
                         ability.GetString("ability").Instantiate<object>(ability)
                     );
                 }
