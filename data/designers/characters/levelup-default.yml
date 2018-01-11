@@ -5,7 +5,6 @@
   steps:
     - step: SilverNeedle.Actions.CharacterGeneration.LevelUpCharacter
     - step: SilverNeedle.Actions.CharacterGeneration.HitPointRoller
-    - step: SilverNeedle.Actions.CharacterGeneration.ProcessCustomClassFeatures
     - designer: process-tokens
     - step: SilverNeedle.Actions.CharacterGeneration.ApplyFavoredClassBonus
     - step: SilverNeedle.Actions.CharacterGeneration.SkillPointDistributor

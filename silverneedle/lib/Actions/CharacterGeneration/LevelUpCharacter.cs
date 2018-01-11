@@ -36,7 +36,7 @@ namespace SilverNeedle.Actions.CharacterGeneration
             character.Offense.LevelUp(character.Class);            
             character.Defense.LevelUpDefenseStats(character.Class);
             var level = character.Class.GetLevel(character.Level);
-            character.ProcessLevel(level);
+            character.Add(level);
 
             if(character.Level % 2 == 1) {
                 character.Add(new FeatToken());

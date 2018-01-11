@@ -269,12 +269,6 @@ namespace SilverNeedle.Characters
             }
         }
 
-        public void ProcessLevel(Level level)
-        {
-            this.Components.Add(level);
-            this.Components.ApplyStatModifiers(level.Modifiers);
-        }
-            
         /// <summary>
         /// Processes the stat modifier. This takes anything that modifies stats and relays it to interested classes that might want to monitor for it
         /// TODO: Better mechanism would be a call back whenever a stat modifier is sent to the character sheet

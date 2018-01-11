@@ -45,7 +45,7 @@ namespace SilverNeedle.Actions.CharacterGeneration
         {
             character.SetClass(cls);
             var firstClassLevel = cls.GetLevel(1);
-            character.ProcessLevel(firstClassLevel);            
+            character.Add(firstClassLevel);            
         }
 
         public void ExecuteStep(CharacterSheet character)

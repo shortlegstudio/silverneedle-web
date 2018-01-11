@@ -4,4 +4,3 @@
   type: normal
   steps:
     - step: SilverNeedle.Actions.CharacterGeneration.ClassSelector
-    - step: SilverNeedle.Actions.CharacterGeneration.ProcessCustomClassFeatures
