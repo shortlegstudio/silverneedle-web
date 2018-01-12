@@ -6,8 +6,12 @@
 namespace SilverNeedle.Characters.SpecialAbilities
 {
     using SilverNeedle.Utility;
-    public class JackOfAllTrades : SpecialAbility, IComponent, IImprovesWithLevels
+    public class JackOfAllTrades : IAbility, IComponent, IImprovesWithLevels, INameByType
     {
+        public string DisplayString()
+        {
+            return this.Name();
+        }
         public void Initialize(ComponentContainer components)
         {
             var bardLevel = components.Get<ClassLevel>();

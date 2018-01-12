@@ -150,7 +150,7 @@
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectVersatilePerformance
         - attribute: SilverNeedle.Characters.ClassFeature
-          name: Spellcasting Level 2
+          name: Spellcasting (2)
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 3
@@ -160,13 +160,13 @@
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.BardicPerformances.InspireCompetence
         - attribute: SilverNeedle.Characters.ClassFeature
-          name: Spellcasting Level 3
+          name: Spellcasting (3)
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 4
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
-          name: Spellcasting Level 4
+          name: Spellcasting (4)
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 5
@@ -174,9 +174,20 @@
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Lore Master
           items:
+            - type: SilverNeedle.BasicStat
+              name: Lore Master Uses Per Day
+              base-value: 1
             - type: SilverNeedle.Characters.SpecialAbilities.LoreMaster
+            - type: SilverNeedle.Characters.ClassLevelModifier
+              # Extra uses every 6 levels
+              name: Lore Master Uses Per Day
+              class: bard
+              modifier: 1
+              modifier-type: class-level
+              rate: 6
+              start-level: 5
         - attribute: SilverNeedle.Characters.ClassFeature
-          name: Spellcasting Level 5
+          name: Spellcasting (5)
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 6
@@ -186,7 +197,7 @@
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.BardicPerformances.Suggestion
         - attribute: SilverNeedle.Characters.ClassFeature
-          name: Spellcasting Level 6
+          name: Spellcasting (6)
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
         - attribute: SilverNeedle.Characters.ClassFeature
@@ -196,7 +207,7 @@
     - level: 7
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
-          name: Spellcasting Level 7
+          name: Spellcasting (7)
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 8
@@ -206,7 +217,7 @@
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.BardicPerformances.DirgeOfDoom
         - attribute: SilverNeedle.Characters.ClassFeature
-          name: Spellcasting Level 8
+          name: Spellcasting (8)
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 9
@@ -216,7 +227,7 @@
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.BardicPerformances.InspireGreatness
         - attribute: SilverNeedle.Characters.ClassFeature
-          name: Spellcasting Level 9
+          name: Spellcasting (9)
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 10
@@ -226,7 +237,7 @@
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.JackOfAllTrades
         - attribute: SilverNeedle.Characters.ClassFeature
-          name: Spellcasting Level 10
+          name: Spellcasting (10)
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
         - attribute: SilverNeedle.Characters.ClassFeature
@@ -236,7 +247,7 @@
     - level: 11
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
-          name: Spellcasting Level 11
+          name: Spellcasting (11)
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 12
@@ -246,13 +257,13 @@
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.BardicPerformances.SoothingPerformance
         - attribute: SilverNeedle.Characters.ClassFeature
-          name: Spellcasting Level 12
+          name: Spellcasting (12)
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 13
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
-          name: Spellcasting Level 13
+          name: Spellcasting (13)
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 14
@@ -262,7 +273,7 @@
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.BardicPerformances.FrighteningTune
         - attribute: SilverNeedle.Characters.ClassFeature
-          name: Spellcasting Level 14
+          name: Spellcasting (14)
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
         - attribute: SilverNeedle.Characters.ClassFeature
@@ -276,19 +287,19 @@
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.BardicPerformances.InspireHeroics
         - attribute: SilverNeedle.Characters.ClassFeature
-          name: Spellcasting Level 15
+          name: Spellcasting (15)
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 16
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
-          name: Spellcasting Level 16
+          name: Spellcasting (16)
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 17
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
-          name: Spellcasting Level 17
+          name: Spellcasting (17)
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 18
@@ -298,7 +309,7 @@
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.BardicPerformances.MassSuggestion
         - attribute: SilverNeedle.Characters.ClassFeature
-          name: Spellcasting Level 18
+          name: Spellcasting (18)
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
         - attribute: SilverNeedle.Characters.ClassFeature
@@ -308,7 +319,7 @@
     - level: 19
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
-          name: Spellcasting Level 19
+          name: Spellcasting (19)
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 20
@@ -318,6 +329,6 @@
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.BardicPerformances.DeadlyPerformance
         - attribute: SilverNeedle.Characters.ClassFeature
-          name: Spellcasting Level 20
+          name: Spellcasting (20)
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells

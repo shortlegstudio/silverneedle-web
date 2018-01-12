@@ -8,7 +8,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using System.Linq;
     using System.Collections.Generic;
 
-    public class VersatilePerformance : SpecialAbility
+    public class VersatilePerformance : IAbility, INameByType
     {
         private IList<CharacterSkill> skills = new List<CharacterSkill>();
         public IEnumerable<CharacterSkill> Skills
@@ -23,12 +23,9 @@ namespace SilverNeedle.Characters.SpecialAbilities
             skills.Add(skill);
         }
 
-        public override string Name 
+        public string DisplayString() 
         {
-            get
-            {
-                return "{0} ({1})".Formatted(base.Name, string.Join(", ", this.Skills.Select(x => x.Name)));
-            }
+            return "{0} ({1})".Formatted(this.Name(), string.Join(", ", this.Skills.Select(x => x.Name)));
         }
 
     }

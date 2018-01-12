@@ -41,5 +41,28 @@ class: wizard";
             character.Add(modifier);
             Assert.Equal(1, modifier.Modifier);
         }
+
+        [Fact]
+        public void CanSpecifyTheLevelToStartCountingFrom()
+        {
+            string yaml = @"---
+name: strength
+modifier-type: bonus
+rate: 3
+start-level: 5
+minimum: 0
+class: bard";
+            
+            var modifier = new ClassLevelModifier(yaml.ParseYaml());
+            var character = CharacterTestTemplates.BardyBard();
+            character.Add(modifier);
+            Assert.Equal(0, modifier.Modifier);
+            character.SetLevel(3);
+            Assert.Equal(0, modifier.Modifier);
+            character.SetLevel(8);
+            Assert.Equal(1, modifier.Modifier);
+            character.SetLevel(14);
+            Assert.Equal(3, modifier.Modifier);
+        }
     }
 }

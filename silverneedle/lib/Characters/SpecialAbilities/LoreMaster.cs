@@ -7,30 +7,24 @@
 namespace SilverNeedle.Characters.SpecialAbilities
 {
     using SilverNeedle.Utility;
-    public class LoreMaster : SpecialAbility, IComponent
+    public class LoreMaster : IAbility, IComponent, INameByType, IUsesPerDay
     {
-        private ClassLevel bardLevels;
+        private IStatistic usesPerDay;
         public int UsesPerDay
         {
             get 
             {
-                return 1 + (bardLevels.Level - 5) / 6;
+                return usesPerDay.TotalValue;
             }
         }
         public void Initialize(ComponentContainer components)
         {
-            bardLevels = components.Get<ClassLevel>();
+            usesPerDay = components.FindStat(this.UsesPerDayStatName());
         }
 
-        public override string Name
+        public string DisplayString()
         {
-            get
-            {
-                if(bardLevels == null)
-                    return base.Name;
-                
-                return "{0} {1}/day".Formatted(base.Name, UsesPerDay);
-            }
+            return "{0} {1}/day".Formatted(this.Name(), UsesPerDay);
         }
     }
 }

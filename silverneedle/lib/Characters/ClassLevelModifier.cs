@@ -23,7 +23,7 @@ namespace SilverNeedle.Characters
 
         public float Modifier 
         { 
-            get { return (classLevel.Level / LevelRate).AtLeast(Minimum); } 
+            get { return ((classLevel.Level - StartLevel) / LevelRate).AtLeast(Minimum); } 
         }
 
         [ObjectStoreOptional("reason")]
@@ -42,6 +42,9 @@ namespace SilverNeedle.Characters
         public int Minimum { get; private set; }
         [ObjectStoreOptional("stat-type")]
         public string StatisticType { get; private set; }
+
+        [ObjectStoreOptional("start-level")]
+        public int StartLevel { get; private set; }
 
         public void Initialize(ComponentContainer components)
         {
