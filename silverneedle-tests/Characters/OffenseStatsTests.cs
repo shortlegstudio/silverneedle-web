@@ -80,7 +80,7 @@ namespace Tests.Characters {
         public void ContainsAListOfAllWeaponsAvailableAndTheirStats() {
             var longsword = Longsword();
             inventory.AddGear(longsword);
-            Assert.Equal(1, smallStats.Attacks().Count);
+            Assert.Equal(1, smallStats.GetWeaponAttacks().Count());
             Assert.Equal("Longsword", smallStats.Attacks().First().Name);
             Assert.Equal(longsword, smallStats.Attacks().OfType<WeaponAttack>().First().Weapon);
         }
@@ -90,7 +90,7 @@ namespace Tests.Characters {
             inventory.AddGear(Longsword());
             smallStats.AddWeaponProficiency("martial");
 
-            var atk = smallStats.Attacks().First();
+            var atk = smallStats.GetWeaponAttacks().First();
             Assert.NotNull(atk);
             var diceRoll = atk.Damage;
             Assert.Equal(3, diceRoll.Modifier);
@@ -104,7 +104,7 @@ namespace Tests.Characters {
         public void RangeAttackBonusHaveAttackBonusButNotDamage() {
             inventory.AddGear(ShortBow());
             smallStats.AddWeaponProficiency("martial");
-            var atk = smallStats.Attacks().First();
+            var atk = smallStats.GetWeaponAttacks().First();
             Assert.NotNull(atk);
             var diceRoll = atk.Damage;
             Assert.Equal(0, diceRoll.Modifier);
@@ -127,7 +127,7 @@ namespace Tests.Characters {
         [Fact]
         public void AttacksWithoutProficiencyAreAtMinus4() {
             inventory.AddGear(Nunchaku());
-            var atk = smallStats.Attacks().First();
+            var atk = smallStats.GetWeaponAttacks().First();
             Assert.NotNull(atk);
             Assert.Equal(smallStats.MeleeAttackBonus.TotalValue + OffenseStats.UnproficientWeaponModifier, atk.AttackBonus.TotalValue);
         }
@@ -178,8 +178,8 @@ namespace Tests.Characters {
             inventory.AddGear(Dagger());
 
             //Longsword should have bonuses while dagger should not
-            var lswordAttack = smallStats.Attacks().First(x => x.Name == "Longsword");
-            var dAttack = smallStats.Attacks().First(x => x.Name == "Dagger");
+            var lswordAttack = smallStats.GetWeaponAttacks().First(x => x.Name == "Longsword");
+            var dAttack = smallStats.GetWeaponAttacks().First(x => x.Name == "Dagger");
 
             Assert.Equal(lswordAttack.AttackBonus.TotalValue, smallStats.MeleeAttackBonus.TotalValue + 1);
             Assert.Equal(lswordAttack.Damage.Modifier, 5);

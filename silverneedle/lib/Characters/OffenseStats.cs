@@ -194,14 +194,9 @@ namespace SilverNeedle.Characters
             this.components.Add(modifier);
         }
 
-        /// <summary>
-        /// Calculates what attacks are available to this instance
-        /// </summary>
-        /// <returns>List of attacks that are available</returns>
-        public IList<IAttackStatistic> Attacks()
+        public IEnumerable<WeaponAttack> GetWeaponAttacks()
         {
-            var attacks = new List<IAttackStatistic>();
-            
+            var attacks = new List<WeaponAttack>();
             // Get all the melee weapons
             foreach (var weapon in this.inventory.Weapons.Where(x => x.IsMelee))
             {
@@ -217,9 +212,18 @@ namespace SilverNeedle.Characters
                     CreateAttack(AttackTypes.Ranged, weapon)
                 );
             }
+            return attacks;
+        }
 
+        /// <summary>
+        /// Calculates what attacks are available to this instance
+        /// </summary>
+        /// <returns>List of attacks that are available</returns>
+        public IEnumerable<IAttack> Attacks()
+        {
+            var attacks = new List<IAttack>();
+            attacks.AddRange(GetWeaponAttacks());
             attacks.AddRange(GetSpecialAttacks());
-
             return attacks;
         }
 
@@ -232,9 +236,9 @@ namespace SilverNeedle.Characters
             BaseAttackBonus.AddModifier(new ValueStatModifier(characterClass.BaseAttackBonusRate, string.Format("{0} Level", characterClass.Name)));            
         }
 
-        private IEnumerable<IAttackStatistic> GetSpecialAttacks()
+        private IEnumerable<IAttack> GetSpecialAttacks()
         {
-            return this.components.GetAll<IAttackStatistic>();
+            return this.components.GetAll<IAttack>();
         }
         private WeaponAttack CreateAttack(AttackTypes attackType, IWeapon weapon) 
         {

@@ -7,43 +7,26 @@ namespace SilverNeedle.Characters.SpecialAbilities
 {
     using SilverNeedle.Characters.Attacks;
     using SilverNeedle.Utility;
-    public class MasterStrike : SpecialAbility, IComponent
+    public class MasterStrike : IAbility, IComponent, INameByType
     {
-        public MasterStrikeAttack Attack { get; private set; }
-
+        private AbilityScore intelligence;
+        private ClassLevel rogueLevel;
         public void Initialize(ComponentContainer components)
         {
-            var rogueLevel = components.Get<ClassLevel>();
-            var intelligence = components.Get<AbilityScores>().GetAbility(AbilityScoreTypes.Intelligence);
-            Attack = new MasterStrikeAttack(rogueLevel, intelligence);
-            components.Add(this.Attack);
+            rogueLevel = components.Get<ClassLevel>();
+            intelligence = components.Get<AbilityScores>().GetAbility(AbilityScoreTypes.Intelligence);
+        }
+        public int SaveDC
+        {
+            get
+            {
+                return 10 + intelligence.TotalModifier + rogueLevel.Level / 2;
+            }
         }
 
-        public class MasterStrikeAttack : WeaponAttack
+        public string DisplayString()
         {
-            private ClassLevel rogueLevel;
-            private AbilityScore intelligence;
-            public MasterStrikeAttack(ClassLevel rogueLevel, AbilityScore intelligence)
-            {
-                this.Name = "Master Strike";
-                this.AttackType = AttackTypes.Special;
-                this.rogueLevel = rogueLevel;
-                this.intelligence = intelligence;
-            }
-
-            public override int SaveDC
-            {
-                get
-                {
-                    return 10 + intelligence.TotalModifier + rogueLevel.Level / 2;
-                }
-            }
-
-
-            public override string DisplayString()
-            {
-                return string.Format("{0} (DC {1})", this.Name, this.SaveDC);
-            }
+            return string.Format("{0} (DC {1})", this.Name(), this.SaveDC);
         }
     }
 }

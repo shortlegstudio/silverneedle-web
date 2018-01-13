@@ -6,18 +6,14 @@
 namespace SilverNeedle.Characters.Attacks
 {
     using SilverNeedle.Dice;
-    public interface IAttackStatistic
+    public interface IAttackStatistic : IAttack
     {
-        string Name { get; }
         IStatistic AttackBonus { get; }
-        Cup Damage { get; }
         int NumberOfAttacks { get; }
-        AttackTypes AttackType { get; }
         IStatistic CriticalModifier { get; }
         int CriticalThreat { get; }
         int SaveDC { get; }
         int Range { get; }
         string AttackBonusString();
-        string DisplayString();
     }
 }

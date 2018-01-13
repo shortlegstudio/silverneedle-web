@@ -8,6 +8,7 @@ namespace Tests.Characters.SpecialAbilities
     using System.Linq;
     using Xunit;
     using SilverNeedle.Characters;
+    using SilverNeedle.Characters.Attacks;
     using SilverNeedle.Characters.SpecialAbilities;
     
     
@@ -25,7 +26,7 @@ namespace Tests.Characters.SpecialAbilities
             character.SetClass(cls);
             character.SetLevel(4);
             character.Add(channel);
-            var channelAttack = character.Offense.Attacks().First(x => x.Name.Contains("Channel"));
+            var channelAttack = character.Offense.Attacks().First(x => x.Name.Contains("Channel")) as ChannelEnergyAttack;
             Assert.NotNull(channelAttack);
             Assert.Equal(channelAttack.Damage.ToString(), "2d6");
             Assert.Equal(channelAttack.SaveDC, 13);

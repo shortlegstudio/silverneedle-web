@@ -22,10 +22,9 @@ namespace Tests.Characters.SpecialAbilities
             var rogue = new Class("Rogue");
             character.SetClass(rogue);
             character.SetLevel(20);
-            character.Add(new MasterStrike());
-
-            var specialAttack = character.Offense.Attacks().First(x => x.Name == "Master Strike");
-            Assert.Equal(specialAttack.SaveDC, 22);
+            var ms = new MasterStrike();
+            character.Add(ms);
+            Assert.Equal(ms.SaveDC, 22);
         }
     }
 }

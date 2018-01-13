@@ -7,7 +7,7 @@ namespace SilverNeedle.Characters.Attacks
 {
     using SilverNeedle.Utility;
     using SilverNeedle.Dice;
-     public class ChannelEnergyAttack : WeaponAttack
+     public class ChannelEnergyAttack : IAttack
     {
         private AbilityScore charisma;
         private ClassLevel classLevel;
@@ -15,13 +15,14 @@ namespace SilverNeedle.Characters.Attacks
         {
             this.charisma = components.Get<AbilityScores>().GetAbility(AbilityScoreTypes.Charisma);
             this.classLevel = components.Get<ClassLevel>();
-            this.Name = "Channel Energy";
-            this.AttackType = AttackTypes.Special;
         }
+
+        public string Name { get { return "Channel Energy"; } }
+        public AttackTypes AttackType { get { return AttackTypes.Special; } }
 
         public bool MaximizeAmount { get; set; }
 
-        public override int SaveDC
+        public int SaveDC
         {
             get
             {
@@ -29,7 +30,7 @@ namespace SilverNeedle.Characters.Attacks
             }
         }
 
-        public override Cup Damage
+        public Cup Damage
         {
             get
             {
@@ -39,12 +40,7 @@ namespace SilverNeedle.Characters.Attacks
             }
         }
 
-        public override string ToString()
-        {
-            return string.Format("{0} (DC: {1}, {2})", Name, SaveDC, Damage.ToString());
-        }
-
-        public override string DisplayString()
+        public string DisplayString()
         {
             return string.Format("{0} (DC: {1}, {2})", Name, SaveDC, Damage.ToString());
         }
