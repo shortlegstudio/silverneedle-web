@@ -3,12 +3,12 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-using System.Linq;
-using Xunit;
-using SilverNeedle.Dice;
-
-namespace Dice
+namespace Tests.Dice
 {
+    using System.Linq;
+    using Xunit;
+    using SilverNeedle.Dice;
+    using SilverNeedle.Serialization;
     
     public class CupTests
     {
@@ -114,6 +114,20 @@ namespace Dice
             Assert.Equal(60, cup.Roll());
             Assert.Equal(60, cup.Roll());
             Assert.Equal(60, cup.Roll());
+        }
+
+        [Fact]
+        public void LoadFromYaml()
+        {
+            var yaml = @"---
+name: Cup Name
+dice: 1d6+1";
+
+            var cup = new Cup(yaml.ParseYaml());
+            Assert.Equal("Cup Name", cup.Name);
+            Assert.Equal(DiceSides.d6, cup.Dice.First().Sides);
+            Assert.Equal(1, cup.Modifier);
+
         }
     }
 }

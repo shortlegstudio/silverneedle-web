@@ -32,7 +32,12 @@ namespace SilverNeedle.Dice
         public static Cup ParseDice(string diceString)
         {
             var cup = new Cup();
+            cup.ParseDice(diceString);
+            return cup;
+        }
 
+        public static Cup ParseDice(this Cup cup, string diceString)
+        {
             var regEx = new Regex("^(?<dieCount>\\d+)?d(?<dieSides>\\d+)(?<modifier>\\+\\d+)?");
             var match = regEx.Match(diceString);
             var dieCount = DefaultOrNumber(match.Groups["dieCount"].Value, 1);

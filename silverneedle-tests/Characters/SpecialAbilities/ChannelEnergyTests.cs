@@ -31,5 +31,33 @@ namespace Tests.Characters.SpecialAbilities
             Assert.Equal(channelAttack.SaveDC, 13);
         }
 
+        public void PicksPositiveEnergyIfAlignmentIsGood()
+        {
+            var c = CharacterTestTemplates.Cleric();
+            c.Alignment = CharacterAlignment.ChaoticGood;
+            var channel = new ChannelEnergy();
+            c.Add(channel);
+            Assert.Equal(ChannelEnergy.POSITIVE_ENERGY, channel.EnergyType);
+        }
+
+        public void PicksNegativeEnergyIfAlignmentIsEvil()
+        {
+            var c = CharacterTestTemplates.Cleric();
+            c.Alignment = CharacterAlignment.LawfulEvil;
+            var channel = new ChannelEnergy();
+            c.Add(channel);
+            Assert.Equal(ChannelEnergy.NEGATIVE_ENERGY, channel.EnergyType);
+        }
+
+
+        public void NeutralCharactersPickSomething()
+        {
+            var c = CharacterTestTemplates.Cleric();
+            c.Alignment = CharacterAlignment.Neutral;
+            var channel = new ChannelEnergy();
+            c.Add(channel);
+            Assert.False(string.IsNullOrEmpty(channel.EnergyType));
+        }
+
     }
 }

@@ -45,6 +45,9 @@
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Channel Energy
           items:
+            - type: SilverNeedle.Dice.Cup
+              name: Channel Energy Dice
+              dice: 1d6
             - type: SilverNeedle.Characters.SpecialAbilities.ChannelEnergy
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Aura of Alignment
