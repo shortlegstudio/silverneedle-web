@@ -72,12 +72,9 @@
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.AuraOfAlignment
         - attribute: SilverNeedle.Characters.ClassFeature
-          name: Spontaneous Casting 
-          items:
-            - type: SilverNeedle.Characters.SpecialAbilities.SpontaneousCastingCleric
-        - attribute: SilverNeedle.Characters.ClassFeature
           name: Spell Casting
           items:
+            - type: SilverNeedle.Characters.SpecialAbilities.SpontaneousCastingCleric
             - type: SilverNeedle.Characters.Magic.CannotCastSpellsOfOpposingAlignment
             - type: SilverNeedle.Characters.Magic.DivineCasting
               list: cleric

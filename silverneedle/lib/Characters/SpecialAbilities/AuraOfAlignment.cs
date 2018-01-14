@@ -6,12 +6,38 @@
 namespace SilverNeedle.Characters.SpecialAbilities
 {
     using SilverNeedle.Utility;
-    public class AuraOfAlignment : SpecialAbility
+    public class AuraOfAlignment : IAbility, INameByType, IComponent
     {
+        private CharacterAlignment alignment;
+        private ClassLevel level;
         public AuraOfAlignment()
         {
-            //TODO: Doesn't really track alignment at this time....
-            this.Name = "Aura";
+        }
+
+        public string Strength
+        {
+            get
+            { 
+                if(level.Level >= 11)
+                    return "Overwhelming";
+                if(level.Level >= 5)
+                    return "Strong";
+                if(level.Level >= 2)
+                    return "Moderate";
+
+                return "Faint";
+            }
+        }
+
+        public string DisplayString()
+        {
+            return "Aura ({0} {1})".Formatted(Strength, alignment.ToString().Titlize());
+        }
+
+        public void Initialize(ComponentContainer components)
+        {
+            alignment = components.Get<CharacterAlignment>();
+            level = components.Get<ClassLevel>();
         }
     }
 }
