@@ -9,14 +9,14 @@ namespace SilverNeedle
     /// <summary>
     /// A Conditional stat modifier only modifies a statistic when a condition is met
     /// </summary>
-    public class ConditionalStatModifier : IStatModifier
+    public class ConditionalStatModifier : IValueStatModifier
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.ConditionalStatModifier"/> class.
         /// </summary>
         /// <param name="baseModifier">Modifier to decorate</param>
         /// <param name="condition">Condition of the modifier.</param>
-        public ConditionalStatModifier(IStatModifier baseModifier, string condition)
+        public ConditionalStatModifier(IValueStatModifier baseModifier, string condition)
         {
             this.baseModifier = baseModifier;
             this.Condition = condition;
@@ -28,7 +28,7 @@ namespace SilverNeedle
             this.Condition = configuration.GetString("condition");
         }
 
-        private IStatModifier baseModifier;
+        private IValueStatModifier baseModifier;
 
         /// <summary>
         /// Gets or sets the condition.

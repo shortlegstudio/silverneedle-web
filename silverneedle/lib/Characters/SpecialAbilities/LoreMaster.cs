@@ -9,7 +9,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using SilverNeedle.Utility;
     public class LoreMaster : IAbility, IComponent, INameByType, IUsesPerDay
     {
-        private IStatistic usesPerDay;
+        private IValueStatistic usesPerDay;
         public int UsesPerDay
         {
             get 
@@ -19,7 +19,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
         }
         public void Initialize(ComponentContainer components)
         {
-            usesPerDay = components.FindStat(this.UsesPerDayStatName());
+            usesPerDay = components.FindStat<IValueStatistic>(this.UsesPerDayStatName());
         }
 
         public string DisplayString()

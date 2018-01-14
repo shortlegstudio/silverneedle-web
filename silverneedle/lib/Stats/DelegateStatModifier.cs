@@ -7,7 +7,7 @@ using System;
 
 namespace SilverNeedle
 {
-    public class DelegateStatModifier : IStatModifier
+    public class DelegateStatModifier : IValueStatModifier
     {
         public Func<float> Calculation;
 

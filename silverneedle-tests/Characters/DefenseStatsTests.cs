@@ -217,10 +217,10 @@ namespace Tests.Characters {
         }
 
         class MockMod : IModifiesStats {
-        public IList<IStatModifier> Modifiers { get; set;  }
+        public IList<IValueStatModifier> Modifiers { get; set;  }
 
         public MockMod() {
-            Modifiers = new List<IStatModifier>();
+            Modifiers = new List<IValueStatModifier>();
             Modifiers.Add(new ValueStatModifier("Armor Class", 1, "Cause", "Dodge"));
             Modifiers.Add(new ValueStatModifier("Will", 1, "Halfing Luck", "Trait"));
             Modifiers.Add(new ValueStatModifier("Reflex", 1, "Halfing Luck", "Trait"));

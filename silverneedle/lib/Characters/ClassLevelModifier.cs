@@ -7,7 +7,7 @@ namespace SilverNeedle.Characters
 {
     using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
-    public class ClassLevelModifier : IStatModifier, IComponent
+    public class ClassLevelModifier : IValueStatModifier, IComponent
     {
         private ClassLevel classLevel;
         public ClassLevelModifier(IObjectStore configuration)

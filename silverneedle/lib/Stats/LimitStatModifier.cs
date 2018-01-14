@@ -8,7 +8,7 @@ namespace SilverNeedle
 {
     using System;
     using SilverNeedle.Characters;
-    public class LimitStatModifier : IStatModifier
+    public class LimitStatModifier : IValueStatModifier
     {
         private BasicStat baseStat;
         private BasicStat maxValue;

@@ -34,11 +34,11 @@ namespace SilverNeedle.Characters.SpecialAbilities
             );
         }
 
-        public IStatModifier MaxDexBonusModifier { get; private set; }
+        public IValueStatModifier MaxDexBonusModifier { get; private set; }
 
-        public IStatModifier ArmorCheckBonusModifier { get; private set; }
+        public IValueStatModifier ArmorCheckBonusModifier { get; private set; }
 
-        public IStatModifier ArmorMovementBonusModifier { get; private set; }
+        public IValueStatModifier ArmorMovementBonusModifier { get; private set; }
 
         public void Initialize(ComponentContainer components)
         {

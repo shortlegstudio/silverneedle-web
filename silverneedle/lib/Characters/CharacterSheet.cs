@@ -201,7 +201,7 @@ namespace SilverNeedle.Characters
         /// Gets or sets the max hit points.
         /// </summary>
         /// <value>The character's maximum hit points.</value>
-        public IStatistic HitPoints { get { return this.FindStat(StatNames.HitPoints); } }
+        public IValueStatistic HitPoints { get { return this.Components.FindStat<IValueStatistic>(StatNames.HitPoints); } }
 
         /// <summary>
         /// Gets the offense stats.
@@ -327,7 +327,7 @@ namespace SilverNeedle.Characters
 
         public IStatistic FindStat(string name)
         {
-            return GetAllStats().First(x => x.Name.EqualsIgnoreCase(name));
+            return this.Components.FindStat(name);
         }
 
         public IEnumerable<IStatistic> GetAllStats()

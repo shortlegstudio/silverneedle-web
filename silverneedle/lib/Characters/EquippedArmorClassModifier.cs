@@ -10,7 +10,7 @@ namespace SilverNeedle.Characters
     using SilverNeedle.Utility;
     using SilverNeedle.Equipment;
 
-    public class EquippedArmorClassModifier : IStatModifier
+    public class EquippedArmorClassModifier : IValueStatModifier
     {
         private Inventory inventory;
 

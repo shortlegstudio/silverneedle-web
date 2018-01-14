@@ -15,11 +15,11 @@ namespace SilverNeedle.Characters
     /// </summary>
     public class SkillRanks : ISkillRanks, IStatTracker, IComponent
     {
-        public IEnumerable<IStatistic> Statistics 
+        public IEnumerable<IValueStatistic> Statistics 
         { 
             get 
             { 
-                var statistics = new List<IStatistic>();
+                var statistics = new List<IValueStatistic>();
                 statistics.Add(this.skills.Values);
                 statistics.Add(BonusSkillPoints);
                 statistics.Add(ArmorCheckPenalty);

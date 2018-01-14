@@ -10,7 +10,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using SilverNeedle.Equipment;
     using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
-    public class FastMovement : IStatModifier, IAbility, IComponent
+    public class FastMovement : IValueStatModifier, IAbility, IComponent
     {
         public FastMovement(IObjectStore configuration)
         {
@@ -25,7 +25,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
             inventory = components.Get<Inventory>();
         }
 
-        private IStatModifier MovementModifier { get; set; }
+        private IValueStatModifier MovementModifier { get; set; }
         private Inventory inventory { get; set; }
 
         public float Modifier { get { return MovementBonus(); } }

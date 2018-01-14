@@ -5,10 +5,10 @@
 
 namespace SilverNeedle
 {
-    public interface IStatistic
+    public interface IStatisticModifier
     {
-        string Name { get; }
-        void AddModifier(IStatisticModifier modifier);
-        bool Matches(string name);
+        string StatisticName { get; }
+        string StatisticType { get; }
+
     }
 }

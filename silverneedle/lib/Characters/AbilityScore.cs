@@ -12,7 +12,7 @@ namespace SilverNeedle.Characters
     /// <summary>
     /// An ability score for a character. Examples: Strength, Intelligence, Charisma, ...
     /// </summary>
-    public class AbilityScore : BasicStat, IStatistic, IComponent
+    public class AbilityScore : BasicStat, IValueStatistic, IComponent
     {
         private BasicStat abilityModifier;
         public AbilityScore(AbilityScoreTypes type, int val)

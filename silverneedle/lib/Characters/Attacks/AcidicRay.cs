@@ -16,9 +16,9 @@ namespace SilverNeedle.Characters.Attacks
         private AbilityScore charisma;
         public string Name { get { return "Acidic Ray"; } }
 
-        public IStatistic AttackBonus { get { return this.offense.RangeAttackBonus; } }
+        public IValueStatistic AttackBonus { get { return this.offense.RangeAttackBonus; } }
 
-        public IStatistic DamageModifier { get; private set; }
+        public IValueStatistic DamageModifier { get; private set; }
 
         public Cup Damage 
         { 
@@ -34,7 +34,7 @@ namespace SilverNeedle.Characters.Attacks
 
         public AttackTypes AttackType { get { return AttackTypes.Special; } }
 
-        public IStatistic CriticalModifier { get; private set; }
+        public IValueStatistic CriticalModifier { get; private set; }
 
         public int CriticalThreat { get { return 20; } }
 

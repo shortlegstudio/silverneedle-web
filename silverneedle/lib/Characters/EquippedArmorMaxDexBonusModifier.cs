@@ -9,7 +9,7 @@ namespace SilverNeedle.Characters
     using System.Linq;
     using SilverNeedle.Equipment;
     using SilverNeedle.Utility;
-    public class EquippedArmorMaxDexBonuxModifier : IStatModifier
+    public class EquippedArmorMaxDexBonuxModifier : IValueStatModifier
     {
         private Inventory inventory;
         public EquippedArmorMaxDexBonuxModifier(ComponentContainer components)

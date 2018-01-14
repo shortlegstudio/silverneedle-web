@@ -77,10 +77,10 @@ namespace SilverNeedle.Characters.Attacks
         /// <summary>
         /// Gets or sets the attack bonus.
         /// </summary>
-        public virtual IStatistic AttackBonus { get { return this.attackBonus; } }
-        public virtual IStatistic DamageModifier { get; private set; }
+        public virtual IValueStatistic AttackBonus { get { return this.attackBonus; } }
+        public virtual IValueStatistic DamageModifier { get; private set; }
         public virtual AttackTypes AttackType { get; protected set; }
-        public virtual IStatistic CriticalModifier { get; private set; }
+        public virtual IValueStatistic CriticalModifier { get; private set; }
         public virtual int CriticalThreat { get; protected set; }
         public virtual int SaveDC { get; protected set; }
         public string DamageType { get; protected set; }

@@ -10,7 +10,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     public class MonkFastMovement : SpecialAbility, IComponent
     {
         private DataTable monkAbilities;
-        private IStatModifier movementModifier;
+        private IValueStatModifier movementModifier;
         private ClassLevel monkLevels;
         public MonkFastMovement()
         {

@@ -16,7 +16,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
             lay.MaximizeAmount = true;
 
             var channel = components.Get<ChannelEnergy>();
-            channel.ChannelAttack.MaximizeAmount = true;
+            channel.Damage.MaximizeAmount = true;
         }
 
     }

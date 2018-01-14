@@ -7,6 +7,7 @@ namespace SilverNeedle.Serialization
 {
     using System.Reflection;
     using SilverNeedle.Characters;
+    using SilverNeedle.Dice;
     using SilverNeedle.Utility;
     public static class ObjectStoreSerializer
     {
@@ -76,6 +77,9 @@ namespace SilverNeedle.Serialization
                     case "movementtype":
                         //TODO: Cannot just keep adding types here, but let's see how common it is first
                         propertyValue = data.GetEnum<MovementType>(keyName);
+                        break;
+                    case "cup":
+                        propertyValue = DiceStrings.ParseDice(data.GetString(keyName));
                         break;
                     default:
                         throw new System.NotImplementedException(string.Format("Missing case: {0}", propType));

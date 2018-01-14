@@ -46,7 +46,7 @@ namespace SilverNeedle.Characters
             return matches;
         }
 
-        public IStatModifier CreateModifier(Skill skill)
+        public IValueStatModifier CreateModifier(Skill skill)
         {
             return new ValueStatModifier(
                 skill.Name,

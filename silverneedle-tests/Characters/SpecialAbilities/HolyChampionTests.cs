@@ -22,7 +22,7 @@ namespace Tests.Characters.SpecialAbilities
             paladin.SetClass(cls);
             paladin.SetLevel(20);
             paladin.Add(new LayOnHands());
-            paladin.Add(new ChannelEnergy());
+            paladin.Add(ChannelEnergy.CreateForTests("10d6"));
             paladin.Add(new HolyChampion());
         }
         [Fact]
@@ -41,7 +41,7 @@ namespace Tests.Characters.SpecialAbilities
             Assert.Equal(lay.HealingDice.ToString(), "60 points");
             
             var channel = paladin.Get<ChannelEnergy>();
-            Assert.Equal(channel.ChannelAttack.Damage.ToString(), "60 points");
+            Assert.Equal(channel.Damage.ToString(), "60 points");
         }
     }
 }

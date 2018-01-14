@@ -9,7 +9,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 
     public class AlienResistance : SpecialAbility, IBloodlinePower, IComponent
     {
-        private IStatModifier spellResistance;
+        private IValueStatModifier spellResistance;
         public void Initialize(ComponentContainer components)
         {
             var classLevel = components.Get<ClassLevel>();

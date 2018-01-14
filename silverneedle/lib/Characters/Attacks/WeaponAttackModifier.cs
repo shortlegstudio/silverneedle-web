@@ -8,7 +8,7 @@ namespace SilverNeedle.Characters.Attacks
 {
     using System;
     using SilverNeedle.Equipment;
-    public class WeaponAttackModifier : IStatModifier, IWeaponModifier
+    public class WeaponAttackModifier : IValueStatModifier, IWeaponModifier
     {
         public float Modifier 
         { 

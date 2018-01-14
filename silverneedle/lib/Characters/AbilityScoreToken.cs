@@ -31,7 +31,7 @@ namespace SilverNeedle.Characters
         }
 
 
-        public IStatModifier CreateAdjustment(AbilityScoreTypes abilityScore)
+        public IValueStatModifier CreateAdjustment(AbilityScoreTypes abilityScore)
         {
             return new ValueStatModifier(
                 abilityScore.ToString(),

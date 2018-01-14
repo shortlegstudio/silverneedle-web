@@ -18,7 +18,7 @@ namespace SilverNeedle.Characters.Prerequisites
 
         public bool IsQualified(ComponentContainer components)
         {
-            return components.FindStat(StatNames.BaseAttackBonus).TotalValue >= AttackBonus;
+            return components.FindStat<IValueStatistic>(StatNames.BaseAttackBonus).TotalValue >= AttackBonus;
         }
     }
 

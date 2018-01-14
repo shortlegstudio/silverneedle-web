@@ -23,7 +23,7 @@ namespace SilverNeedle.Characters
         /// </summary>
         public Feat()
         {
-            this.Modifiers = new List<IStatModifier>();
+            this.Modifiers = new List<IValueStatModifier>();
             this.Prerequisites = new PrerequisiteList();
             this.Tags = new List<string>();
         }
@@ -59,7 +59,7 @@ namespace SilverNeedle.Characters
         /// Gets the modifiers for the stats that are to be modified.
         /// </summary>
         /// <value>The modifiers for stats effected by this feat.</value>
-        public IList<IStatModifier> Modifiers { get; private set; }
+        public IList<IValueStatModifier> Modifiers { get; private set; }
 
         /// <summary>
         /// Gets the prerequisites.

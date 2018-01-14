@@ -9,15 +9,15 @@ namespace SilverNeedle
     using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
-    public class StatisticStatModifier : IStatModifier, IComponent
+    public class StatisticStatModifier : IValueStatModifier, IComponent
     {
-        private IStatistic statistic;
+        private IValueStatistic statistic;
 
-        public StatisticStatModifier(string statisticName, IStatistic trackingStat) : this(statisticName, trackingStat.Name, trackingStat.Name, trackingStat)
+        public StatisticStatModifier(string statisticName, IValueStatistic trackingStat) : this(statisticName, trackingStat.Name, trackingStat.Name, trackingStat)
         {
 
         }
-        public StatisticStatModifier(string statisticName, string type, string reason, IStatistic trackingStat)
+        public StatisticStatModifier(string statisticName, string type, string reason, IValueStatistic trackingStat)
         {
             statistic = trackingStat;
             this.StatisticName = statisticName;
@@ -55,7 +55,7 @@ namespace SilverNeedle
         {
             if(statistic == null)
             {
-                statistic = components.FindStat(TrackingStatName);
+                statistic = components.FindStat<IValueStatistic>(TrackingStatName);
             }
         }
     }

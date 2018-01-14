@@ -15,7 +15,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
         private AbilityScore charisma;
         public string Name { get { return "Grasp of the Dead"; } }
 
-        public IStatistic AttackBonus => throw new System.NotImplementedException();
+        public IValueStatistic AttackBonus => throw new System.NotImplementedException();
 
         public Cup Damage
         {
@@ -30,7 +30,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 
         public AttackTypes AttackType { get { return AttackTypes.Special; } }
 
-        public IStatistic CriticalModifier => throw new System.NotImplementedException();
+        public IValueStatistic CriticalModifier => throw new System.NotImplementedException();
 
         public int CriticalThreat => throw new System.NotImplementedException();
 

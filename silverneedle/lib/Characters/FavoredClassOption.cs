@@ -16,10 +16,10 @@ namespace SilverNeedle.Characters
             optionConfiguration = configuration;
         }
 
-        public IStatModifier CreateModifier()
+        public IValueStatModifier CreateModifier()
         {
             var typeName = optionConfiguration.GetString("type");
-            return typeName.Instantiate<IStatModifier>(optionConfiguration);
+            return typeName.Instantiate<IValueStatModifier>(optionConfiguration);
         }
 
         public bool Matches(string name)

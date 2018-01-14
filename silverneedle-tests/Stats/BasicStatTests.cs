@@ -57,7 +57,7 @@ namespace Tests.Stats
         public void CastingDoesntBreakConditionalModifiers() 
         {
             var stat = new BasicStat("TestStat", 10);
-            IStatModifier mod = new ConditionalStatModifier(new ValueStatModifier("Attack Bonus", 3, "bonus", "Food"), "vs. Thor");
+            IValueStatModifier mod = new ConditionalStatModifier(new ValueStatModifier("Attack Bonus", 3, "bonus", "Food"), "vs. Thor");
             stat.AddModifier(mod);
             Assert.Equal(1, stat.GetConditions().Count());
             Assert.Equal(10, stat.TotalValue);
@@ -68,7 +68,7 @@ namespace Tests.Stats
         public void FormatNiceStringVersionOfStat() 
         {
             var stat = new BasicStat("TestStat", 20);
-            IStatModifier mod = new ConditionalStatModifier(new ValueStatModifier("Attack Bonus", 3, "bonus", "Food"), "vs. Thor");
+            IValueStatModifier mod = new ConditionalStatModifier(new ValueStatModifier("Attack Bonus", 3, "bonus", "Food"), "vs. Thor");
             stat.AddModifier(mod);
             Assert.Equal("Fight +20 (+23 vs. Thor)", stat.ToString("Fight"));
         }

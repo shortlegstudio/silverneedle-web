@@ -8,7 +8,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using SilverNeedle.Utility;
     public class DiamondSoul : SpecialAbility, IComponent
     {
-        private IStatModifier spellResistanceModifier;
+        private IValueStatModifier spellResistanceModifier;
         private ClassLevel monkLevel;
         public void Initialize(ComponentContainer components)
         {

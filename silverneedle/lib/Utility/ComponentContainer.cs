@@ -34,9 +34,9 @@ namespace SilverNeedle.Utility
             components.Add(obj);
             InitializeComponent(obj);
 
-            if(obj is IStatModifier)
+            if(obj is IStatisticModifier)
             {
-                ApplyStatModifier((IStatModifier)obj);
+                ApplyStatModifier((IStatisticModifier)obj);
             }
         }
 
@@ -87,7 +87,7 @@ namespace SilverNeedle.Utility
             return components.Contains(obj);
         }
 
-        public void ApplyStatModifiers(IEnumerable<IStatModifier> statModifiers)
+        public void ApplyStatModifiers(IEnumerable<IStatisticModifier> statModifiers)
         {
             foreach(var mod in statModifiers)
             {
@@ -95,7 +95,7 @@ namespace SilverNeedle.Utility
             }
         }
 
-        public void ApplyStatModifier(IStatModifier statModifier)
+        public void ApplyStatModifier(IStatisticModifier statModifier)
         {
             var stats = FindMatchingStats(statModifier.StatisticName);
 
@@ -111,7 +111,7 @@ namespace SilverNeedle.Utility
             }
         }
 
-        private bool ValidateStatType(IStatistic statistic, IStatModifier modifier)
+        private bool ValidateStatType(IStatistic statistic, IStatisticModifier modifier)
         {
             if(string.IsNullOrEmpty(modifier.StatisticType))
                 return true;

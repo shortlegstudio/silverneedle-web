@@ -68,8 +68,8 @@ namespace Tests.Characters {
             var strength = new AbilityScore(AbilityScoreTypes.Strength, 16);
             var container = new ComponentContainer();
             container.Add(strength);
-            var score = container.FindStat("strength");
-            var modifier = container.FindStat("strength-modifier");
+            var score = container.FindStat<IValueStatistic>("strength");
+            var modifier = container.FindStat<IValueStatistic>("strength-modifier");
 
             Assert.Equal(16, score.TotalValue);
             Assert.Equal(3, modifier.TotalValue);

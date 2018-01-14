@@ -44,7 +44,7 @@ namespace SilverNeedle.Characters
             this.ArmorMovementPenalty.AddModifier(new EquippedArmorMovementModifier(components));
         }
 
-        public IEnumerable<IStatistic> Statistics 
+        public IEnumerable<IValueStatistic> Statistics 
         { 
             get 
             { 

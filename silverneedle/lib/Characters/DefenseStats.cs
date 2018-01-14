@@ -17,11 +17,11 @@ namespace SilverNeedle.Characters
     /// </summary>
     public class DefenseStats : IStatTracker, IComponent
     {
-        public IEnumerable<IStatistic> Statistics 
+        public IEnumerable<IValueStatistic> Statistics 
         { 
             get 
             { 
-                return new IStatistic[] { 
+                return new IValueStatistic[] { 
                     BaseArmorClass,
                     ArmorClass, 
                     TouchArmorClass, 
@@ -155,7 +155,7 @@ namespace SilverNeedle.Characters
         public BasicStat WillSave { get; private set; }
         public BasicStat MaxDexterityBonus { get; private set; }
 
-        public IStatistic SpellResistance { get; private set; }
+        public IValueStatistic SpellResistance { get; private set; }
 
         public IEnumerable<IResistance> Immunities
         {

@@ -8,9 +8,9 @@ namespace SilverNeedle.Characters.Attacks
     using SilverNeedle.Dice;
     public interface IAttackStatistic : IAttack
     {
-        IStatistic AttackBonus { get; }
+        IValueStatistic AttackBonus { get; }
         int NumberOfAttacks { get; }
-        IStatistic CriticalModifier { get; }
+        IValueStatistic CriticalModifier { get; }
         int CriticalThreat { get; }
         int SaveDC { get; }
         int Range { get; }

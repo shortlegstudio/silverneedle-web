@@ -7,14 +7,14 @@
 namespace SilverNeedle.Characters.Attacks
 {
     using SilverNeedle.Utility;
-    public class RangeAttackBonus : IComponent, IStatistic
+    public class RangeAttackBonus : IComponent, IValueStatistic
     {
         public string Name { get { return baseRangeAttackBonus.Name; } }
 
         public int TotalValue { get { return baseRangeAttackBonus.TotalValue; } }
         private BasicStat baseRangeAttackBonus = new BasicStat("Range Attack Bonus");
 
-        public void AddModifier(IStatModifier modifier)
+        public void AddModifier(IStatisticModifier modifier)
         {
             baseRangeAttackBonus.AddModifier(modifier);
         }

@@ -5,13 +5,11 @@
 
 namespace SilverNeedle
 {
-    public interface IStatModifier
+    public interface IValueStatModifier : IStatisticModifier
     {
         float Modifier { get; }
         string Reason { get; }
         string ModifierType { get; }
-        string StatisticName { get; }
         string Condition { get; }
-        string StatisticType { get; }
     }
 }

@@ -21,7 +21,7 @@ namespace SilverNeedle.Characters.Prerequisites
 
         public bool IsQualified(ComponentContainer components)
         {
-            var ability = components.FindStat(this.Ability.ToString());
+            var ability = components.FindStat<AbilityScore>(this.Ability.ToString());
             return ability.TotalValue >= this.Minimum;
         }
     }

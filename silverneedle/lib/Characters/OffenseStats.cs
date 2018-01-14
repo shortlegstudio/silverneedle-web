@@ -34,11 +34,11 @@ namespace SilverNeedle.Characters
         /// </summary>
         private const string CombatManeuverBonusStatName = "CMB";
 
-        public IEnumerable<IStatistic> Statistics
+        public IEnumerable<IValueStatistic> Statistics
         {
             get 
             {
-                return new IStatistic[] { BaseAttackBonus, CombatManeuverDefense, CombatManeuverBonus };
+                return new IValueStatistic[] { BaseAttackBonus, CombatManeuverDefense, CombatManeuverBonus };
             }
         }
 
@@ -130,13 +130,13 @@ namespace SilverNeedle.Characters
         /// Calculates the melee attack bonus.
         /// </summary>
         /// <returns>The attack bonus.</returns>
-        public IStatistic MeleeAttackBonus { get; private set; }
+        public IValueStatistic MeleeAttackBonus { get; private set; }
 
         /// <summary>
         /// Calculates the range attack bonus.
         /// </summary>
         /// <returns>The attack bonus.</returns>
-        public IStatistic RangeAttackBonus { get; private set; }
+        public IValueStatistic RangeAttackBonus { get; private set; }
 
         /// <summary>
         /// The implementing class must handle modifiers to stats under its control

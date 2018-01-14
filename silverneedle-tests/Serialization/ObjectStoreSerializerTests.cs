@@ -18,6 +18,7 @@ namespace Tests.Serialization
             store.SetValue("number", 5);
             store.SetValue("float", 37.5f);
             store.SetValue("list", "one, two, three, four");
+            store.SetValue("dice", "1d6+4");
             var obj = new TestSimpleObject();
             var test = store.Deserialize<TestSimpleObject>(obj);
             Assert.Equal(test.Name, "Foo");
@@ -26,6 +27,7 @@ namespace Tests.Serialization
             Assert.NotStrictEqual(test.ListOfValues, new string[] { "one", "two", "three", "four" });
             Assert.Equal(test.Optional, "");
             Assert.Equal("defaultString", test.OptionalWithDefault);
+            Assert.Equal("1d6+4", test.DiceValues.ToString());
         }
 
         //TODO: Question? If the property is invalid what should be the expected behavior?
@@ -48,6 +50,9 @@ namespace Tests.Serialization
             
             [ObjectStoreOptional("optional-default", "defaultString")]
             public string OptionalWithDefault { get; set; }
+
+            [ObjectStore("dice")]
+            public SilverNeedle.Dice.Cup DiceValues { get; private set; }
 
             public string IgnoreMe { get; set; }
 

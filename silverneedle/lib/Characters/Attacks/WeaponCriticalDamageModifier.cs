@@ -8,7 +8,7 @@ namespace SilverNeedle.Characters.Attacks
 {
     using System;
     using SilverNeedle.Equipment;
-    public class WeaponCriticalDamageModifier : IStatModifier, IWeaponModifier
+    public class WeaponCriticalDamageModifier : IValueStatModifier, IWeaponModifier
     {
 
         public WeaponCriticalDamageModifier(string reason, float modifier, Func<IWeaponAttackStatistics, bool> qualify)

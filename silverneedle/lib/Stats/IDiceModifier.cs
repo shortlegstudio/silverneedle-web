@@ -5,10 +5,8 @@
 
 namespace SilverNeedle
 {
-    public interface IStatistic
+    public interface IDiceModifier : IStatisticModifier
     {
-        string Name { get; }
-        void AddModifier(IStatisticModifier modifier);
-        bool Matches(string name);
+        Dice.Cup Dice { get; }
     }
 }

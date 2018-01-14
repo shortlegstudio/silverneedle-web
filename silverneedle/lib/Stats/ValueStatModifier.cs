@@ -10,7 +10,7 @@ namespace SilverNeedle
     /// Basic stat modifier provides a method for tracking what modifiers to apply to various statistics
     /// An example of a modifier might be a feat that provides a +1 dodge bonus to AC
     /// </summary>
-    public class ValueStatModifier : IStatModifier
+    public class ValueStatModifier : IValueStatModifier
     {
         public ValueStatModifier()
         {

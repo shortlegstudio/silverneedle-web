@@ -6,7 +6,7 @@
 namespace SilverNeedle.Characters.Attacks
 {
     using SilverNeedle.Utility;
-    public class MeleeAttackBonus : IComponent, IStatistic
+    public class MeleeAttackBonus : IComponent, IValueStatistic
     {
         public string Name { get { return baseMeleeAttackBonus.Name; } }
 
@@ -18,7 +18,7 @@ namespace SilverNeedle.Characters.Attacks
             return baseMeleeAttackBonus.GetConditionalValue(condition);
         }
 
-        public void AddModifier(IStatModifier modifier)
+        public void AddModifier(IStatisticModifier modifier)
         {
             baseMeleeAttackBonus.AddModifier(modifier);
         }

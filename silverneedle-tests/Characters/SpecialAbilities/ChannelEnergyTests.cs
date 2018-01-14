@@ -10,14 +10,25 @@ namespace Tests.Characters.SpecialAbilities
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.Attacks;
     using SilverNeedle.Characters.SpecialAbilities;
-    
+    using SilverNeedle.Serialization;
     
     public class ChannelEnergyTests
     {
+        ChannelEnergy channel;
+        public ChannelEnergyTests()
+        {
+            var yaml = @"---
+save-dc-stat:
+  name: Channel Energy Save DC
+  base-value: 10
+dice-stat:
+  name: Channel Energy Dice
+  dice: 1d6";
+            channel = new ChannelEnergy(yaml.ParseYaml());
+        }
         [Fact]
         public void ChannelEnergyAddsASpecialAttack()
         {
-            var channel = new ChannelEnergy();
             var character = new CharacterSheet(CharacterStrategy.Default());
             character.InitializeComponents();
             character.AbilityScores.SetScore(AbilityScoreTypes.Charisma, 12);
@@ -26,36 +37,44 @@ namespace Tests.Characters.SpecialAbilities
             character.SetClass(cls);
             character.SetLevel(4);
             character.Add(channel);
-            var channelAttack = character.Offense.Attacks().First(x => x.Name.Contains("Channel")) as ChannelEnergyAttack;
+            Assert.Equal(channel.Damage.ToString(), "1d6");
+            var channelAttack = character.Offense.Attacks().First(x => x.Name.Contains("Channel"));
             Assert.NotNull(channelAttack);
-            Assert.Equal(channelAttack.Damage.ToString(), "2d6");
-            Assert.Equal(channelAttack.SaveDC, 13);
         }
 
+        [Fact]
+        public void SaveDCandDamageAreAddedToTheLargerComponentPool()
+        {
+            var character = CharacterTestTemplates.Cleric();
+            character.Add(channel);
+            Assert.NotNull(character.FindStat("Channel Energy Save DC"));
+            Assert.NotNull(character.FindStat("Channel Energy Dice"));
+        }
+
+        [Fact]
         public void PicksPositiveEnergyIfAlignmentIsGood()
         {
             var c = CharacterTestTemplates.Cleric();
             c.Alignment = CharacterAlignment.ChaoticGood;
-            var channel = new ChannelEnergy();
             c.Add(channel);
             Assert.Equal(ChannelEnergy.POSITIVE_ENERGY, channel.EnergyType);
         }
 
+        [Fact]
         public void PicksNegativeEnergyIfAlignmentIsEvil()
         {
             var c = CharacterTestTemplates.Cleric();
             c.Alignment = CharacterAlignment.LawfulEvil;
-            var channel = new ChannelEnergy();
             c.Add(channel);
             Assert.Equal(ChannelEnergy.NEGATIVE_ENERGY, channel.EnergyType);
         }
 
 
+        [Fact]
         public void NeutralCharactersPickSomething()
         {
             var c = CharacterTestTemplates.Cleric();
             c.Alignment = CharacterAlignment.Neutral;
-            var channel = new ChannelEnergy();
             c.Add(channel);
             Assert.False(string.IsNullOrEmpty(channel.EnergyType));
         }

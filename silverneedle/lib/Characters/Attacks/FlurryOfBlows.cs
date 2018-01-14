@@ -66,9 +66,9 @@ namespace SilverNeedle.Characters.Attacks
 
         public string Name { get; private set; }
 
-        public IStatistic AttackBonus { get; private set; }
+        public IValueStatistic AttackBonus { get; private set; }
 
-        public IStatistic DamageModifier { get; private set; }
+        public IValueStatistic DamageModifier { get; private set; }
 
         public virtual Cup Damage 
         { 
@@ -84,7 +84,7 @@ namespace SilverNeedle.Characters.Attacks
 
         public AttackTypes AttackType { get { return AttackTypes.Melee; } }
 
-        public IStatistic CriticalModifier { get; private set; }
+        public IValueStatistic CriticalModifier { get; private set; }
 
         public int CriticalThreat { get; private set; }
         public int SaveDC { get { return 0; } }

@@ -14,7 +14,7 @@ namespace SilverNeedle.Characters
     /// Character skills represent the character's ability in a specific skill set. This tracks
     /// the abilities and ranks applied to a skill. It also is aware of any modifiers that might happen.
     /// </summary>
-    public class CharacterSkill : IStatistic
+    public class CharacterSkill : IValueStatistic
     {
         /// <summary>
         /// The base ability score that this skill is based on.
@@ -143,7 +143,7 @@ namespace SilverNeedle.Characters
         /// Adds a stat modifier to the skill.
         /// </summary>
         /// <param name="modifier">Modifier for the skill.</param>
-        public void AddModifier(IStatModifier modifier)
+        public void AddModifier(IStatisticModifier modifier)
         {
             this.skillStats.AddModifier(modifier);
         }

@@ -16,7 +16,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
         private AbilityScore charisma;
         public string Name { get { return "Elemental Ray"; } }
 
-        public IStatistic AttackBonus { get; private set; }
+        public IValueStatistic AttackBonus { get; private set; }
 
         public Cup Damage 
         { 
@@ -32,7 +32,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 
         public AttackTypes AttackType { get { return AttackTypes.Special; } }
 
-        public IStatistic CriticalModifier { get; private set; }
+        public IValueStatistic CriticalModifier { get; private set; }
 
         public int CriticalThreat { get { return 20; } }
 

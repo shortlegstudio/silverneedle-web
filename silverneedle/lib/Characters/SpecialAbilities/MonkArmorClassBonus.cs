@@ -11,7 +11,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using SilverNeedle.Serialization;
     public class MonkArmorClassBonus : IComponent, INameByType
     {
-        private IStatModifier monkACModifier;
+        private IValueStatModifier monkACModifier;
         private AbilityScore wisdom;
         private Inventory inventory;
         private DataTable monkAbilities;

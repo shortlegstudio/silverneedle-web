@@ -6,15 +6,15 @@
 namespace SilverNeedle.Characters.SpecialAbilities
 {
     using SilverNeedle.Utility;
-    public class ManeuverTraining : SpecialAbility, IComponent
+    public class ManeuverTraining : IAbility, IComponent, INameByType
     {
-        IStatModifier modifier;
-        IStatistic baseAttackBonus;
+        IValueStatModifier modifier;
+        IValueStatistic baseAttackBonus;
         ClassLevel monkLevels; 
         
         public void Initialize(ComponentContainer components)
         {
-            baseAttackBonus = components.FindStat(StatNames.BaseAttackBonus);
+            baseAttackBonus = components.FindStat<IValueStatistic>(StatNames.BaseAttackBonus);
             monkLevels = components.Get<ClassLevel>();
             modifier = new DelegateStatModifier(
                 StatNames.CMB,
@@ -30,6 +30,11 @@ namespace SilverNeedle.Characters.SpecialAbilities
             // Base Attack Bonus is built into the CMB calculation, so add Monk levels
             // If the difference would improve
             return System.Math.Max(0, monkLevels.Level - baseAttackBonus.TotalValue);
+        }
+
+        public string DisplayString()
+        {
+            return this.Name();
         }
     }
 }

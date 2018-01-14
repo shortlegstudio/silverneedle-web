@@ -19,18 +19,18 @@ namespace SilverNeedle
     /// to specify conditional modifiers that can be used in certain circumstances to
     /// change the stat value.
     /// </summary>
-    public class BasicStat : IStatistic
+    public class BasicStat : IValueStatistic
     {
         [ObjectStore("name")]
         public string Name { get; private set; }
         /// <summary>
         /// Tracks all modifiers associated with this stat
         /// </summary>
-        private IList<IStatModifier> statModifiers;
+        private IList<IValueStatModifier> statModifiers;
 
         protected BasicStat()
         {
-            this.statModifiers = new List<IStatModifier>();
+            this.statModifiers = new List<IValueStatModifier>();
             this.Maximum = 123456789; //Set default max to weird number in case it comes into play in the future
             this.Minimum = -123456789; //Set default max to weird number in case it comes into play in the future
             this.UseModifierString = true;
@@ -91,7 +91,7 @@ namespace SilverNeedle
         /// Gets an enumerable list of modifiers associated with this stat
         /// </summary>
         /// <value>The modifiers.</value>
-        public IEnumerable<IStatModifier> Modifiers 
+        public IEnumerable<IValueStatModifier> Modifiers 
         { 
             get 
             { 
@@ -108,17 +108,22 @@ namespace SilverNeedle
             return GetStandardModifiers().Sum(x => x.Modifier).FloorToInt(); 
         }
 
+        public void AddModifier(IStatisticModifier modifier)
+        {
+            AddModifier((IValueStatModifier)modifier);
+        }
+
         /// <summary>
         /// Adds a modifier to the stat
         /// </summary>
         /// <param name="modifier">Modifier for the stat.</param>
         /// <remarks>Triggers a modified event even if the Total Value does not change</remarks>
-        public void AddModifier(IStatModifier modifier)
+        public void AddModifier(IValueStatModifier modifier)
         {
             this.statModifiers.Add(modifier);
         }
 
-        public void AddModifiers(params IStatModifier[] modifiers)
+        public void AddModifiers(params IValueStatModifier[] modifiers)
         {
             foreach(var mod in modifiers)
             {
@@ -126,7 +131,7 @@ namespace SilverNeedle
             }
         }
 
-        public void AddModifiers(IEnumerable<IStatModifier> modifiers)
+        public void AddModifiers(IEnumerable<IValueStatModifier> modifiers)
         {
             foreach(var mod in modifiers)
             {
@@ -231,12 +236,12 @@ namespace SilverNeedle
             return this.Name.EqualsIgnoreCase(name);
         }
 
-        private IEnumerable<IStatModifier> GetStandardModifiers()
+        private IEnumerable<IValueStatModifier> GetStandardModifiers()
         {
             return this.statModifiers.Where(x => string.IsNullOrEmpty(x.Condition));
         }
 
-        private IEnumerable<IStatModifier> GetConditionalModifiers()
+        private IEnumerable<IValueStatModifier> GetConditionalModifiers()
         {
             return this.statModifiers.Where(x => !string.IsNullOrEmpty(x.Condition));
         }

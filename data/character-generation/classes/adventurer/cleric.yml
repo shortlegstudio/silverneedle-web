@@ -45,10 +45,22 @@
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Channel Energy
           items:
-            - type: SilverNeedle.Dice.Cup
-              name: Channel Energy Dice
-              dice: 1d6
             - type: SilverNeedle.Characters.SpecialAbilities.ChannelEnergy
+              save-dc-stat:
+                name: Channel Energy Save DC
+                base-value: 10
+              dice-stat:
+                name: Channel Energy Dice
+                dice: 1d6
+            - type: SilverNeedle.StatisticStatModifier
+              name: Channel Energy Save DC
+              modifier: wisdom
+              modifier-type: base-value
+            - type: SilverNeedle.Characters.ClassLevelModifier
+              name: Channel Energy Save DC
+              rate: 2
+              modifier-type: base-value
+              class: cleric
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Aura of Alignment
           items:

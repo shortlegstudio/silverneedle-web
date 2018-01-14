@@ -6,7 +6,7 @@
 namespace SilverNeedle.Characters.Attacks
 {
     using System.Collections.Generic;
-    public class MultipleAttackBonusModifier : IStatModifier
+    public class MultipleAttackBonusModifier : IValueStatModifier
     {
         public MultipleAttackBonusModifier(int attackNumber)
         {
