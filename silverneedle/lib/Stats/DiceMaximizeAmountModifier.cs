@@ -3,12 +3,18 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
+
 namespace SilverNeedle
 {
+    using SilverNeedle.Dice;
     using SilverNeedle.Serialization;
 
-    public class AddDiceModifier : IDiceModifier
+    public class DiceMaximizeAmountModifier : IDiceModifier
     {
+        public void ProcessModifier(Cup dice)
+        {
+            dice.MaximizeAmount = true;
+        }
 
         [ObjectStore("name")]
         public string StatisticName { get; private set; }
@@ -16,17 +22,14 @@ namespace SilverNeedle
         [ObjectStoreOptional("statistic-type")]
         public string StatisticType { get; private set; }
 
-        [ObjectStore("dice")]
-        public Dice.Cup Dice { get; private set; }
-
-        public void ProcessModifier(Dice.Cup dice)
-        {
-            dice.AddDice(Dice.Dice);
-        }
-
-        public AddDiceModifier(IObjectStore configuration)
+        public DiceMaximizeAmountModifier(IObjectStore configuration)
         {
             configuration.Deserialize(this);
+        }
+
+        public DiceMaximizeAmountModifier(string name)
+        {
+            StatisticName = name;
         }
     }
 }

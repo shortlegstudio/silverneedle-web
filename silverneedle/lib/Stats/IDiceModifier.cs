@@ -5,8 +5,9 @@
 
 namespace SilverNeedle
 {
+    using SilverNeedle.Dice;
     public interface IDiceModifier : IStatisticModifier
     {
-        Dice.Cup Dice { get; }
+        void ProcessModifier(Cup dice);
     }
 }

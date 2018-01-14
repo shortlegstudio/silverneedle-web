@@ -54,12 +54,18 @@
                 dice: 1d6
             - type: SilverNeedle.StatisticStatModifier
               name: Channel Energy Save DC
-              modifier: wisdom
+              modifier: wisdom-modifier
               modifier-type: base-value
             - type: SilverNeedle.Characters.ClassLevelModifier
               name: Channel Energy Save DC
               rate: 2
               modifier-type: base-value
+              class: cleric
+            - type: SilverNeedle.Characters.DiceClassLevelModifier
+              name: Channel Energy Dice
+              rate: 2
+              dice: 1d6
+              start-level: 1
               class: cleric
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Aura of Alignment

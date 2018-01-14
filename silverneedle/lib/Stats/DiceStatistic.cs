@@ -6,11 +6,13 @@
 
 namespace SilverNeedle
 {
+    using System.Collections.Generic;
     using SilverNeedle.Dice;
     using SilverNeedle.Serialization;
 
     public class DiceStatistic : IDiceStatistic
     {
+        private IList<IDiceModifier> modifiers = new List<IDiceModifier>();
         public DiceStatistic(IObjectStore configuration)
         {
             configuration.Deserialize(this);
@@ -19,22 +21,30 @@ namespace SilverNeedle
         public DiceStatistic(string name, string dice)
         {
             this.Name = name;
-            this.Dice = DiceStrings.ParseDice(dice);
+            this.BaseDice = DiceStrings.ParseDice(dice);
         }
 
         [ObjectStore("name")]
         public string Name { get; private set; }
 
         [ObjectStore("dice")]
-        public Cup Dice { get; private set; }
+        public Cup BaseDice { get; private set; }
+
+        public Cup Dice 
+        {
+            get
+            {
+                var dice = BaseDice.Copy();
+                foreach(var mod in modifiers)
+                    mod.ProcessModifier(dice);
+
+                return dice;
+            }
+        }
 
         public void AddModifier(IStatisticModifier modifier)
         {
-            HandleModifier((IDiceModifier)modifier);
-        }
-        private void HandleModifier(IDiceModifier modifier)
-        {
-            this.Dice.AddDice(modifier.Dice.Dice);
+            modifiers.Add((IDiceModifier) modifier);
         }
 
         public string DisplayString()

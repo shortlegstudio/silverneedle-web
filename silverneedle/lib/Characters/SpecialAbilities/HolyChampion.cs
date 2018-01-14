@@ -6,7 +6,7 @@
 namespace SilverNeedle.Characters.SpecialAbilities
 {
     using SilverNeedle.Utility;
-    public class HolyChampion : SpecialAbility, IComponent
+    public class HolyChampion : IAbility, IComponent, INameByType
     {
         public void Initialize(ComponentContainer components)
         {
@@ -16,7 +16,13 @@ namespace SilverNeedle.Characters.SpecialAbilities
             lay.MaximizeAmount = true;
 
             var channel = components.Get<ChannelEnergy>();
-            channel.Damage.MaximizeAmount = true;
+            var maxChannelDice = new DiceMaximizeAmountModifier(channel.DamageDice.Name);
+            components.Add(maxChannelDice);
+        }
+
+        public string DisplayString()
+        {
+            return this.Name();
         }
 
     }
