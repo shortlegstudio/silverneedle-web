@@ -5,20 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class AgileFeet : SpecialAbility
+    public class AgileFeet : TempDomainPerDayAbility
     {
-        AbilityScore wisdom;
-        public int UsesPerDay
-        {
-            get
-            {
-                return 3 + wisdom.TotalModifier;
-            }
-        }
-
-        public AgileFeet(AbilityScore wisdom)
-        {
-            this.wisdom = wisdom;
-        }
     }
 }

@@ -26,19 +26,27 @@ namespace SilverNeedle.Utility
             if(type == null)
                 throw new ArgumentNullException("type");
 
-            if(constructor.Length > 0)
+            try
             {
-                var types = constructor.Select(x => x.GetType()).ToArray();
-                ShortLog.DebugFormat("type is {0}", type.ToString());
-                var matchConstructor = type.GetConstructor(types);
-
-                //Could not find a matching constructor, just try for an empty one
-                if (matchConstructor == null)
+                if(constructor.Length > 0)
                 {
-                    return (T)Activator.CreateInstance(type);
+                    var types = constructor.Select(x => x.GetType()).ToArray();
+                    ShortLog.DebugFormat("type is {0}", type.ToString());
+                    var matchConstructor = type.GetConstructor(types);
+
+                    //Could not find a matching constructor, just try for an empty one
+                    if (matchConstructor == null)
+                    {
+                        return (T)Activator.CreateInstance(type);
+                    }
                 }
+                return (T)Activator.CreateInstance(type, constructor);
             }
-            return (T)Activator.CreateInstance(type, constructor);
+            catch
+            {
+                ShortLog.ErrorFormat("Failed to created type: {0}", type.ToString());
+                throw;
+            }
         }
 
         public static T Instantiate<T>(this string typeName, params IObjectStore[] constructor)

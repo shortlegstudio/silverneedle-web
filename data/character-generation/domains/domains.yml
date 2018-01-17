@@ -1,135 +1,544 @@
 --- !<SilverNeedle.Characters.Domains.Domain>
 - name: Air
-  custom-implementation: SilverNeedle.Characters.Domains.Air
+  levels:
+    - level: 1
+      attributes:
+        - attribute: 
+          name: Lightning Arc
+          items:
+            - type: SilverNeedle.Characters.Attacks.LightningArc
+              range: 30
+    - level: 6
+      attributes:
+        - attribute: 
+          name: Energy Resistance
+          items:
+            - type: SilverNeedle.Characters.EnergyResistance
+              damage-type: electricity
+              base-value: 5
   spells: [obscuring mist, wind wall, gaseous form, air walk, control winds, 
     chain lightning, elemental body iv, whirlwind, elemental swarm]
 - name: Animal
-  custom-implementation: SilverNeedle.Characters.Domains.Animal
+  levels:
+    - level: 1
+      attributes:
+        - attribute:
+          name: Speak With Animals
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.SpeakWithAnimals
+    - level: 4
+      attributes:
+        - attribute:
+          name: Animal Companion
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.AnimalCompanion
   spells: [calm animals, hold animal, dominate animal, summon nature's ally iv,
     beast shape iii, antilife shell, animal shapes, summon nature's ally viii, 
     shapechange]
 - name: Artifice
-  custom-implementation: SilverNeedle.Characters.Domains.Artifice
+  levels:
+    - level: 1
+      attributes:
+        - attribute:
+          name: Artificer's Touch
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.ArtificerTouch
+    - level: 8
+      attributes:
+        - attribute:
+          name: Dancing Weapons
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.DancingWeapons
   spells: [animate rope, wood shape, stone shape, minor creation, fabricate, major creation,
     wall of iron, statue, prismatic sphere]
 - name: Chaos
-  custom-implementation: SilverNeedle.Characters.Domains.Chaos
+  levels:
+    - level: 1
+      attributes:
+        - attribute:
+          name: Touch of Chaos
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.TouchOfChaos
+    - level: 8
+      attributes:
+        - attribute:
+          name: Chaos Blade
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.ChaosBlade
   spells: [protection from law, align weapon, magic circle against law, chaos hammer,
     dispel law, animate objects, word of chaos, cloak of chaos, summon monster ix]
 - name: Charm
-  custom-implementation: SilverNeedle.Characters.Domains.Charm
+  levels:
+    - level: 1
+      attributes:
+        - attribute:
+          name: Dazing Touch
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.DazingTouch
+              base-ability: wisdom
+    - level: 8
+      attributes:
+        - attribute:
+          name: Charming Smile
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.CharmingSmile
   spells: [charm person, calm emotions, suggestion, heroism, charm monster, geas/quest,
     insanity, demand, dominate monster]
 - name: Community
-  custom-implementation: SilverNeedle.Characters.Domains.Community
+  levels:
+    - level: 1
+      attributes:
+        - attribute:
+          name: Calming Touch
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.CalmingTouch
+    - level: 8
+      attributes:
+        - attribute:
+          name: Charming Smile
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.Unity
   spells: [bless, shield other, prayer, imbue with spell ability, telepathic bond,
     heroes' feast, refuge, cure critical wounds - mass, miracle]
 - name: Darkness
-  custom-implementation: SilverNeedle.Characters.Domains.Darkness
+  levels:
+    - level: 1
+      attributes:
+        - attribute:
+          name: Touch of Darkness
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.TouchOfDarkness
+    - level: 8
+      attributes:
+        - attribute:
+          name: Eyes of Darkness
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.EyesOfDarkness
   spells: [obscuring mist, blindness/deafness, deeper darkness, shadow conjuration, 
     summon monster v, shadow walk, power word blind, shadow evocation - greater,
     shades]
 - name: Death
-  custom-implementation: SilverNeedle.Characters.Domains.Death
+  levels:
+    - level: 1
+      attributes:
+        - attribute:
+          name: Bleeding Touch
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.BleedingTouch
+    - level: 8
+      attributes:
+        - attribute:
+          name: Death's Embrace
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.DeathEmbrace
   spells: [cause fear, death knell, animate dead, death ward, slay living, create undead,
     destruction, create greater undead, wail of the banshee]
 - name: Destruction
-  custom-implementation: SilverNeedle.Characters.Domains.Destruction
+  levels:
+    - level: 1
+      attributes:
+        - attribute:
+          name: Destructive Smite
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.DestructiveSmite
+    - level: 8
+      attributes:
+        - attribute:
+          name: Destructive Aura
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.DestructiveAura
   spells: [true strike, shatter, rage, inflict critical wounds, shout, harm, disintegrate,
     earthquake, implosion]
 - name: Earth
-  custom-implementation: SilverNeedle.Characters.Domains.Earth
+  levels:
+    - level: 1
+      attributes:
+        - attribute:
+          name: Acid Dart
+          items:
+            - type: SilverNeedle.Characters.Attacks.AcidDart
+              base-ability: wisdom
+    - level: 6
+      attributes:
+        - attribute:
+          name: Acid Resistance
+          items:
+            - type: SilverNeedle.Characters.EnergyResistance
+              damage-type: acid
+              base-value: 10
   spells: [magic stone, soften earth and stone, stone shape, spike stones, wall of stone,
     stoneskin, elemental body iv, earthquake, elemental swarm]
 - name: Evil
-  custom-implementation: SilverNeedle.Characters.Domains.Evil
+  levels:
+    - level: 1
+      attributes:
+        - attribute:
+          name: Touch of Evil
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.TouchOfEvil
+    - level: 8
+      attributes:
+        - attribute:
+          name: Scythe of Evil
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.ScytheOfEvil
   spells: [protection from good, align weapon, magic circle against good, unholy blight,
     dispel good, create undead, blasphemy, unholy aura, summon monster ix]
 - name: Fire
-  custom-implementation: SilverNeedle.Characters.Domains.Fire
+  levels:
+    - level: 1
+      attributes:
+        - attribute:
+          name: Fire Bolt
+          items:
+            - type: SilverNeedle.Characters.Attacks.FireBolt
+              base-ability: wisdom
+    - level: 6
+      attributes:
+        - attribute:
+          name: Fire Resistance
+          items:
+            - type: SilverNeedle.Characters.EnergyResistance
+              damage-type: fire
+              base-value: 10
   spells: [burning hands, produce flame, fireball, wall of fire, fire shield, 
     fire seeds, elemental body iv, incendiary cloud, elemental swarm]
 - name: Glory
-  custom-implementation: SilverNeedle.Characters.Domains.Glory
+  levels:
+    - level: 1
+      attributes:
+        - attribute:
+          name: Touch of Glory
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.TouchOfGlory
+    - level: 8
+      attributes:
+        - attribute:
+          name: Divine Presence
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.DivinePresence
   spells: [shield of faith, bless weapon, searing light, holy smite, righteous might,
     undeath to death, holy sword, holy aura, gate]
 - name: Good
-  custom-implementation: SilverNeedle.Characters.Domains.Good
+  levels:
+    - level: 1
+      attributes:
+        - attribute:
+          name: Touch of Good
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.TouchOfGood
+    - level: 8
+      attributes:
+        - attribute:
+          name: Holy Lance
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.HolyLance
   spells: [protection from evil, align weapon, magic circle against evil, holy smite,
     dispel evil, blade barrier, holy word, holy aura, summon monster ix]
 - name: Healing
-  custom-implementation: SilverNeedle.Characters.Domains.Healing
+  levels:
+    - level: 1
+      attributes:
+        - attribute:
+          name: Rebuke Death
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.RebukeDeath
+    - level: 6
+      attributes:
+        - attribute:
+          name: Healer's Blessing
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.HealersBlessing
   spells: [cure light wounds, cure moderate wounds, cure serious wounds, cure critical wounds,
     breath of life, heal, regenerate, cure critical wounds - mass, heal - mass]
 - name: Knowledge
-  custom-implementation: SilverNeedle.Characters.Domains.Knowledge
+  levels:
+    - level: 1
+      attributes:
+        - attribute:
+          name: Lore Keeper
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.LoreKeeper
+    - level: 6
+      attributes:
+        - attribute:
+          name: Remove Viewing
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.RemoteViewing
   spells: [comprehend languages, detect thoughts, speak with dead, divination, 
     true seeing, find the path, legend lore, discern location, foresight]
 - name: Law
-  custom-implementation: SilverNeedle.Characters.Domains.Law
+  levels:
+    - level: 1
+      attributes:
+        - attribute:
+          name: Touch of Law
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.TouchOfLaw
+    - level: 8
+      attributes:
+        - attribute:
+          name: Staff of Order
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.StaffOfOrder
   spells: [protection from chaos, align weapon, magic circle against chaos, order's wrath,
     dispel chaos, hold monster, dictum, shield of law, summon monster ix]
 - name: Liberation
-  custom-implementation: SilverNeedle.Characters.Domains.Liberation
+  levels:
+    - level: 1
+      attributes:
+        - attribute:
+          name: Liberation
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.LiberationMobility
+    - level: 8
+      attributes:
+        - attribute:
+          name: Freedom's Call
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.FreedomCall
   spells: [remove fear, remove paralysis, remove curse, freedom of movement, break enchantment,
     dispel magic - greater, refuge, mind blank, freedom]
 - name: Luck
-  custom-implementation: SilverNeedle.Characters.Domains.Luck
+  levels:
+    - level: 1
+      attributes:
+        - attribute:
+          name: Bit of Luck
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.BitOfLuck
+    - level: 6
+      attributes:
+        - attribute:
+          name: Good Fortune
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.GoodFortune
   spells: [true strike, aid, protection from energy, freedom of movement, break enchantment,
     mislead, spell turning, moment of prescience, miracle]
 - name: Madness
-  custom-implementation: SilverNeedle.Characters.Domains.Madness
+  levels:
+    - level: 1
+      attributes:
+        - attribute:
+          name: Vision of Madness
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.VisionOfMadness
+    - level: 8
+      attributes:
+        - attribute:
+          name: Aura of Madness
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.AuraOfMadness
   spells: [confusion - lesser, touch of idiocy, rage, confusion, nightmare,
     phantasmal killer, insanity, scintillating pattern, weird]
 - name: Magic
-  custom-implementation: SilverNeedle.Characters.Domains.Magic
+  levels:
+    - level: 1
+      attributes:
+        - attribute:
+          name: Hand of the Acolyte
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.HandOfTheAcolyte
+    - level: 8
+      attributes:
+        - attribute:
+          name: Dispelling Touch
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.DispellingTouch
   spells: [identify, magic mouth, dispel magic, imbue with spell ability, spell resistance,
     antimagic field, spell turning, protection from spells, mage's disjunction]
 - name: Nobility
-  custom-implementation: SilverNeedle.Characters.Domains.Nobility
+  levels:
+    - level: 1
+      attributes:
+        - attribute:
+          name: Inspiring Word
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.InspiringWord
+    - level: 8
+      attributes:
+        - attribute:
+          name: Leadership
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.Leadership
   spells: [divine favor, enthrall, magic vestment, discern lies, command - greater,
     geas/quest, repulsion, demand, storm of vengeance]
 - name: Plant
-  custom-implementation: SilverNeedle.Characters.Domains.Plant
+  levels:
+    - level: 1
+      attributes:
+        - attribute:
+          name: Wooden Fist
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.WoodenFist
+    - level: 6
+      attributes:
+        - attribute:
+          name: Bramble Armor
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.BrambleArmor
   spells: [entangle, barkskin, plant growth, command plants, wall of thorns, repel wood,
     animate plants, control plants, shambler]
 - name: Protection
-  custom-implementation: SilverNeedle.Characters.Domains.Protection
+  levels:
+    - level: 1
+      attributes:
+        - attribute:
+          name: Resistant Touch
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.ResistantTouch
+    - level: 8
+      attributes:
+        - attribute:
+          name: Aura of Protection
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.AuraOfProtection
   spells: [sanctuary, shield other, protection from energy, spell immunity, spell resistance,
     antimagic field, repulsion, mind blank, prismatic sphere]
 - name: Repose
-  custom-implementation: SilverNeedle.Characters.Domains.Repose
+  levels:
+    - level: 1
+      attributes:
+        - attribute:
+          name: Gentle Rest
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.GentleRest
+    - level: 8
+      attributes:
+        - attribute:
+          name: Ward Against Death
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.WardAgainstDeath
   spells: [deathwatch, gentle repose, speak with dead, death ward, slay living, 
     undeath to death, destruction, waves of exhaustion, wail of the banshee]
 - name: Rune
-  custom-implementation: SilverNeedle.Characters.Domains.Rune
+  levels:
+    - level: 1
+      attributes:
+        - attribute:
+          name: Blast Rune
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.BlastRune
+    - level: 8
+      attributes:
+        - attribute:
+          name: Spell Rune
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.SpellRune
   spells: [erase, secret page, glyph of warding, explosive runes, planar binding - lesser,
     glyph of warding - greater, instant summons, symbol of death, teleportation circle]
 - name: Strength
-  custom-implementation: SilverNeedle.Characters.Domains.Strength
+  levels:
+    - level: 1
+      attributes:
+        - attribute:
+          name: Strength Surge
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.StrengthSurge
+    - level: 8
+      attributes:
+        - attribute:
+          name: Might of the Gods
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.MightOfTheGods
   spells: [enlarge person, bull's strength, magic vestment, spell immunity, righteous might,
     stoneskin, grasping hand, clenched fist, crushing hand]
 - name: Sun
-  custom-implementation: SilverNeedle.Characters.Domains.Sun
+  levels:
+    - level: 1
+      attributes:
+        - attribute:
+          name: Sun's Blessing
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.SunBlessing
+    - level: 8
+      attributes:
+        - attribute:
+          name: Nimbus of Light
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.NimbusOfLight
   spells: [endure elements, heat metal, searing light, fire shield, flame strike, 
     fire seeds, sunbeam, sunburst, prismatic sphere]
 - name: Travel
-  custom-implementation: SilverNeedle.Characters.Domains.Travel
+  levels:
+    - level: 1
+      attributes:
+        - attribute:
+          name: Agile Feet
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.AgileFeet
+    - level: 8
+      attributes:
+        - attribute:
+          name: Dimensional Hop
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.DimensionalHop
   spells: [longstrider, locate object, fly, dimension door, teleport, find the path,
     teleport - greater, phase door, astral projection]
 - name: Trickery
-  custom-implementation: SilverNeedle.Characters.Domains.Trickery
+  levels:
+    - level: 1
+      attributes:
+        - attribute:
+          name: Copycat
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.Copycat
+    - level: 8
+      attributes:
+        - attribute:
+          name: Master's Illusion
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.MasterIllusion
   spells: [disguise self, invisibility, nondetection, confusion, false vision, mislead,
     screen, invisibility - mass, time stop]
 - name: War
-  custom-implementation: SilverNeedle.Characters.Domains.War
+  levels:
+    - level: 1
+      attributes:
+        - attribute:
+          name: Battle Rage
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.BattleRage
+    - level: 8
+      attributes:
+        - attribute:
+          name: Weapon Master
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.WeaponMaster
   spells: [magic weapon, spiritual weapon, magic vestment, divine power, flame strike,
     blade barrier, power word blind, power word stun, power word kill]
 - name: Water
-  custom-implementation: SilverNeedle.Characters.Domains.Water
+  levels:
+    - level: 1
+      attributes:
+        - attribute:
+          name: Icicle
+          items:
+            - type: SilverNeedle.Characters.Attacks.Icicle
+              base-ability: wisdom
+    - level: 6
+      attributes:
+        - attribute:
+          name: Cold Resistance
+          items:
+            - type: SilverNeedle.Characters.EnergyResistance
+              damage-type: cold
+              base-value: 10
   spells: [obscuring mist, fog cloud, water breathing, control water, ice storm, 
     cone of cold, elemental body iv, horrid wilting, elemental swarm]
 - name: Weather
-  custom-implementation: SilverNeedle.Characters.Domains.Weather
+  levels:
+    - level: 1
+      attributes:
+        - attribute:
+          name: Storm Burst
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.StormBurst
+    - level: 8
+      attributes:
+        - attribute:
+          name: Lightning Lord
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.LightningLord
   spells: [obscuring mist, fog cloud, call lightning, sleet storm, ice storm, 
     control winds, control weather, whirlwind, storm of vengeance]

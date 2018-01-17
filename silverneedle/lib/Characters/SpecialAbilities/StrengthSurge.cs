@@ -5,20 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class StrengthSurge : SpecialAbility
+    public class StrengthSurge : TempDomainPerDayAbility
     {
-        AbilityScore wisdom;
-        public int UsesPerDay
-        {
-            get
-            {
-                return 3 + wisdom.TotalModifier;
-            }
-        }
-
-        public StrengthSurge(AbilityScore wisdom)
-        {
-            this.wisdom = wisdom;
-        }
     }
 }

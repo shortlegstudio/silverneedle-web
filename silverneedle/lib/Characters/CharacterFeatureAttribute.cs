@@ -20,7 +20,7 @@ namespace SilverNeedle.Characters
             this.Commands = configuration.GetObjectOptional("commands").Default(new MemoryStore());
         }
 
-        public void Initialize(ComponentContainer components)
+        public virtual void Initialize(ComponentContainer components)
         {
             foreach(var item in this.Items.Children)
             {

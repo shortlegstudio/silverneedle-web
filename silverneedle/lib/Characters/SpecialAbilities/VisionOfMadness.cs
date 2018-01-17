@@ -5,17 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class VisionOfMadness : SpecialAbility
+    public class VisionOfMadness : TempDomainPerDayAbility
     {
-        private AbilityScore wisdom;
-        public VisionOfMadness(AbilityScore wisdom)
-        {
-            this.wisdom = wisdom;
-        }
-
-        public int UsesPerDay
-        {
-            get { return 3 + wisdom.TotalModifier; }
-        }
     }
 }

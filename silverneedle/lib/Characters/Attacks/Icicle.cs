@@ -7,15 +7,17 @@ namespace SilverNeedle.Characters.Attacks
 {
     using System;
     using SilverNeedle.Dice;
-    //TODO: These attacks should have configuration yaml files
-    public class Icicle : WeaponAttack
+    using SilverNeedle.Serialization;
+    using SilverNeedle.Utility;
+
+    public class Icicle : WeaponAttack, IComponent
     {
         private ClassLevel source;
         private AbilityScore baseAbility;
-        public Icicle(ClassLevel source, AbilityScore baseAbility)
+        private AbilityScoreTypes baseAbilityType;
+        public Icicle(IObjectStore configuration)
         {
-            this.source = source;
-            this.baseAbility = baseAbility;
+            this.baseAbilityType = configuration.GetEnum<AbilityScoreTypes>("base-ability");
             this.AttackType = AttackTypes.Ranged;
             this.DamageType = "cold";
             this.Range = 30;
@@ -42,6 +44,12 @@ namespace SilverNeedle.Characters.Attacks
         public override string DisplayString()
         {
             return string.Format("Icicle {0}' ({1} {2})", this.Range.ToString(), this.Damage.ToString(), this.DamageType);
+        }
+
+        public void Initialize(ComponentContainer components)
+        {
+            source = components.Get<ClassLevel>();
+            baseAbility = components.Get<AbilityScores>().GetAbility(baseAbilityType);
         }
     }
 }

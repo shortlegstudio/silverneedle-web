@@ -8,7 +8,9 @@ namespace SilverNeedle.Characters
     using System;
     using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Core;
-    public class EnergyResistance : IResistance
+    using SilverNeedle.Serialization;
+
+    public class EnergyResistance : IResistance, IValueStatistic
     {
         public const int IMMUNITY_THRESHOLD = 10000;
         public EnergyResistance(int amnt, string damageType) 
@@ -26,6 +28,12 @@ namespace SilverNeedle.Characters
             );
         }
 
+        public EnergyResistance(IObjectStore configuration)
+        {
+            DamageType = configuration.GetString("damage-type");
+            this.amount = new BasicStat(this.Name, configuration.GetInteger("base-value"));
+        }
+
         private BasicStat amount;
 
         public string Name { get { return "Energy Resistance ({0})".Formatted(DamageType); } }
@@ -41,6 +49,8 @@ namespace SilverNeedle.Characters
             get { return Amount >= IMMUNITY_THRESHOLD; }
         }
 
+        public int TotalValue { get { return this.Amount; } }
+
         public void SetToImmunity()
         {
             Amount = IMMUNITY_THRESHOLD;
@@ -54,6 +64,21 @@ namespace SilverNeedle.Characters
         public string DisplayString()
         {
             return "{0} {1}".Formatted(this.DamageType, this.Amount);
+        }
+
+        public int GetConditionalValue(string condition)
+        {
+            return amount.GetConditionalValue(condition);
+        }
+
+        public bool Matches(string name)
+        {
+            return this.Name.EqualsIgnoreCase(name);
+        }
+
+        public void AddModifier(IStatisticModifier modifier)
+        {
+            amount.AddModifier(modifier);
         }
     }
 }

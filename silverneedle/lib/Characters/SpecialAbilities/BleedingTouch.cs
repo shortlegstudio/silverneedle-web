@@ -5,17 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class BleedingTouch : SpecialAbility
+    public class BleedingTouch : TempDomainPerDayAbility
     {
-        private AbilityScore wisdom;
-        public int UsesPerDay
-        {
-            get { return 3 + wisdom.TotalModifier; }
-        }
-
-        public BleedingTouch(AbilityScore wisdom)
-        {
-            this.wisdom = wisdom;
-        }
     }
 }

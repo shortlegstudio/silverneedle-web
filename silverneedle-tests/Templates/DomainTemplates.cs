@@ -9,12 +9,12 @@ namespace Tests
     using SilverNeedle.Serialization;
     public static class DomainTemplates
     {
-        public static Air AirDomain()
+        public static Domain AirDomain()
         {
             var data = new MemoryStore();
             data.SetValue("spells", "");
             data.SetValue("name", "air");
-            return new Air(data);
+            return new Domain(data);
         }
     }
 }

@@ -5,17 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class CalmingTouch : SpecialAbility
+    public class CalmingTouch : TempDomainPerDayAbility
     {
-        private AbilityScore wisdom;
-        public CalmingTouch(AbilityScore wisdom)
-        {
-            this.wisdom = wisdom;
-        }
-
-        public int UsesPerDay
-        {
-            get { return 3 + wisdom.TotalModifier; }
-        }
     }
 }

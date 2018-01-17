@@ -7,14 +7,17 @@ namespace SilverNeedle.Characters.Attacks
 {
     using System;
     using SilverNeedle.Dice;
-    public class FireBolt : WeaponAttack
+    using SilverNeedle.Serialization;
+    using SilverNeedle.Utility;
+
+    public class FireBolt : WeaponAttack, IComponent
     {
         private ClassLevel source;
         private AbilityScore baseAbility;
-        public FireBolt(ClassLevel source, AbilityScore baseAbility)
+        private AbilityScoreTypes baseAbilityType;
+        public FireBolt(IObjectStore configuration)
         {
-            this.source = source;
-            this.baseAbility = baseAbility;
+            this.baseAbilityType = configuration.GetEnum<AbilityScoreTypes>("base-ability");
             this.AttackType = AttackTypes.Ranged;
             this.DamageType = "fire";
             this.Range = 30;
@@ -41,6 +44,12 @@ namespace SilverNeedle.Characters.Attacks
         public override string DisplayString()
         {
             return string.Format("Fire Bolt {0}' ({1} {2})", this.Range.ToString(), this.Damage.ToString(), this.DamageType);
+        }
+
+        public void Initialize(ComponentContainer components)
+        {
+            source = components.Get<ClassLevel>();
+            baseAbility = components.Get<AbilityScores>().GetAbility(baseAbilityType);
         }
     }
 }

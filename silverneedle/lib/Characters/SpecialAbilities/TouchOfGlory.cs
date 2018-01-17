@@ -6,20 +6,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class TouchOfGlory : SpecialAbility
+    public class TouchOfGlory : TempDomainPerDayAbility
     {
-        public int UsesPerDay
-        {
-            get
-            {
-                return 3 + wisdom.TotalModifier;
-            }
-        }
-
-        private AbilityScore wisdom;
-        public TouchOfGlory(AbilityScore wisdom)
-        {
-            this.wisdom = wisdom;
-        }
     }
 }

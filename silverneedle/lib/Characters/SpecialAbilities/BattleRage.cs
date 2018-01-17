@@ -5,20 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class BattleRage : SpecialAbility
+    public class BattleRage : TempDomainPerDayAbility
     {
-        AbilityScore wisdom;
-        public int UsesPerDay
-        {
-            get
-            {
-                return 3 + wisdom.TotalModifier;
-            }
-        }
-
-        public BattleRage(AbilityScore wisdom)
-        {
-            this.wisdom = wisdom;
-        }
     }
 }

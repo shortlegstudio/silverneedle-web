@@ -5,20 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class StormBurst : SpecialAbility
+    public class StormBurst : TempDomainPerDayAbility
     {
-        AbilityScore wisdom;
-        public int UsesPerDay
-        {
-            get
-            {
-                return 3 + wisdom.TotalModifier;
-            }
-        }
-
-        public StormBurst(AbilityScore wisdom)
-        {
-            this.wisdom = wisdom;
-        }
     }
 }

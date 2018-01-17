@@ -5,20 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class WoodenFist : SpecialAbility
+    public class WoodenFist : TempDomainPerDayAbility
     {
-        AbilityScore wisdom;
-        public int UsesPerDay
-        {
-            get
-            {
-                return 3 + wisdom.TotalModifier;
-            }
-        }
-
-        public WoodenFist(AbilityScore wisdom)
-        {
-            this.wisdom = wisdom;
-        }
     }
 }

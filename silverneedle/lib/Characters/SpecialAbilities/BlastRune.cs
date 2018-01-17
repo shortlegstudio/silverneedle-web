@@ -5,20 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class BlastRune : SpecialAbility
+    public class BlastRune : TempDomainPerDayAbility
     {
-        AbilityScore wisdom;
-        public int UsesPerDay
-        {
-            get
-            {
-                return 3 + wisdom.TotalModifier;
-            }
-        }
-
-        public BlastRune(AbilityScore wisdom)
-        {
-            this.wisdom = wisdom;
-        }
     }
 }

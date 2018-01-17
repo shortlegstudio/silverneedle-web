@@ -5,17 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class BitOfLuck : SpecialAbility
+    public class BitOfLuck : TempDomainPerDayAbility
     {
-        private AbilityScore wisdom;
-        public BitOfLuck(AbilityScore wisdom)
-        {
-            this.wisdom = wisdom;
-        }
-
-        public int UsesPerDay
-        {
-            get { return 3 + wisdom.TotalModifier; }
-        }
     }
 }

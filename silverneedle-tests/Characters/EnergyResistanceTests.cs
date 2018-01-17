@@ -8,6 +8,7 @@ namespace Tests.Characters
     using Xunit;
     using SilverNeedle.Characters;
     using SilverNeedle.Core;
+    using SilverNeedle.Serialization;
 
     public class EnergyResistanceTests
     {
@@ -43,6 +44,19 @@ namespace Tests.Characters
             var character = CharacterTestTemplates.AverageBob();
             character.Defense.AddDamageResistance(dr);
             AssertCharacter.IsImmuneTo("fire", character);
+        }
+
+        [Fact]
+        public void EnergyResistanceCanLoadFromAConfigurationFile()
+        {
+            var yaml = @"---
+damage-type: acid
+base-value: 5";
+            var res = new EnergyResistance(yaml.ParseYaml());
+            Assert.Equal("Energy Resistance (acid)", res.Name);
+            Assert.Equal("acid", res.DamageType);
+            Assert.Equal(5, res.TotalValue);
+
         }
     }
 }

@@ -5,20 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class Copycat : SpecialAbility
+    public class Copycat : TempDomainPerDayAbility
     {
-        AbilityScore wisdom;
-        public int UsesPerDay
-        {
-            get
-            {
-                return 3 + wisdom.TotalModifier;
-            }
-        }
-
-        public Copycat(AbilityScore wisdom)
-        {
-            this.wisdom = wisdom;
-        }
     }
 }

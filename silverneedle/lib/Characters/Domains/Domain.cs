@@ -9,15 +9,10 @@ namespace SilverNeedle.Characters.Domains
     using System.Linq;
     using SilverNeedle.Serialization;
 
-    public class Domain : IGatewayObject
+    public class Domain : LevelingClassFeature, IGatewayObject
     {
-        public string Name { get; set; }
-
-        private Domain() { }
-
-        public Domain(IObjectStore configure)
+        public Domain(IObjectStore configure) : base(configure)
         {
-            this.Name = configure.GetString("name");
             this.Spells = configure.GetList("spells");
         }
 
@@ -28,17 +23,17 @@ namespace SilverNeedle.Characters.Domains
 
         public override string ToString()
         {
-            return string.Format("Domain ({0})", this.GetType().Name);
+            return string.Format("Domain ({0})", this.Name);
         }
 
         public string[] Spells { get; set; }
 
         public static Domain CreateForTesting(string name, IEnumerable<string> spells)
         {
-            var d = new Domain();
-            d.Name = name;
-            d.Spells = spells.ToArray();
-            return d;
+            var memStore = new MemoryStore();
+            memStore.SetValue("name", name);
+            memStore.SetValue("spells", spells);
+            return new Domain(memStore);
         }
     }
 }

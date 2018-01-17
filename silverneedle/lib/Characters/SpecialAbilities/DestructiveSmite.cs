@@ -5,17 +5,9 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class DestructiveSmite : SpecialAbility
-    {
-        private AbilityScore wisdom;
-        public DestructiveSmite(AbilityScore wisdom)
-        {
-            this.wisdom = wisdom;
-        }
+    using SilverNeedle.Utility;
 
-        public int UsesPerDay
-        {
-            get { return 3 + wisdom.TotalModifier; }
-        }
+    public class DestructiveSmite : TempDomainPerDayAbility
+    {
     }
 }
