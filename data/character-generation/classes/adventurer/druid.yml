@@ -51,16 +51,13 @@
               modifier: 2
               modifier-type: bonus
         - attribute: SilverNeedle.Characters.ClassFeature
-          name: Spontaneous Casting
-          items:
-            - type: SilverNeedle.Characters.SpecialAbilities.SpontaneousCastingDruid
-        - attribute: SilverNeedle.Characters.ClassFeature
           name: Wild Empathy
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.WildEmpathy
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spell Casting
           items:
+            - type: SilverNeedle.Characters.SpecialAbilities.SpontaneousCastingDruid
             - type: SilverNeedle.Characters.Magic.CannotCastSpellsOfOpposingAlignment
             - type: SilverNeedle.Characters.Magic.DivineCasting
               list: druid

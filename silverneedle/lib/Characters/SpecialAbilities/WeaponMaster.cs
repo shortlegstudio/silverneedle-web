@@ -5,8 +5,11 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class WeaponMaster : SpecialAbility
+    public class WeaponMaster : IAbility, INameByType
     {
-        
+        public string DisplayString()
+        {
+            return this.Name();
+        } 
     }
 }

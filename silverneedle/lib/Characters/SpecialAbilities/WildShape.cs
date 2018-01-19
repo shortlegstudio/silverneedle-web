@@ -8,7 +8,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using System.Linq;
     using SilverNeedle.Utility;
 
-    public class WildShape : IAbility, IComponent
+    public class WildShape : IAbility, IComponent, IUsesPerDay
     {
         private ClassLevel druidLevels;
         public int UsesPerDay
