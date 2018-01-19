@@ -5,8 +5,11 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class WholenessOfBody : SpecialAbility
+    public class WholenessOfBody : IAbility, INameByType
     {
-
+        public string DisplayString()
+        {
+            return this.Name();
+        }
     }
 }

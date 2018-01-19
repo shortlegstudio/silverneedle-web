@@ -44,6 +44,9 @@
                     { "statistic-title", "Immunities" },
                     { "statistic-notes", @immunities } }); 
             }
+            @{ Html.RenderPartial("_statistic-row", new ViewDataDictionary(this.ViewData) {
+                { "statistic-title", "Spell Resistance" },
+                { "statistic-score", charFull.Defense.SpellResistance.TotalValue } }); } 
 
         </tbody>
     </table>

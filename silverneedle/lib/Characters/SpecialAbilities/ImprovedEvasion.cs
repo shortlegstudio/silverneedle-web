@@ -6,11 +6,17 @@
 namespace SilverNeedle.Characters.SpecialAbilities
 {
     using SilverNeedle.Utility;
-    public class ImprovedEvasion : SpecialAbility, IComponent
+    public class ImprovedEvasion : IAbility, IComponent, INameByType
     {
         public void Initialize(ComponentContainer components)
         {
             components.Remove<Evasion>();
         }
+
+        public string DisplayString()
+        {
+            return this.Name();
+        }
+
     }
 }

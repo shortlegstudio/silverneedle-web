@@ -5,8 +5,11 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class HighJump : SpecialAbility
+    public class HighJump : IAbility, INameByType
     {
-
+        public string DisplayString()
+        {
+            return this.Name();
+        }
     }
 }

@@ -5,8 +5,11 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class EmptyBody : SpecialAbility
+    public class EmptyBody : IAbility, INameByType
     {
-
+        public string DisplayString()
+        {
+            return this.Name();
+        }
     }
 }
