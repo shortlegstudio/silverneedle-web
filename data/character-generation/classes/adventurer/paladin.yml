@@ -50,10 +50,9 @@
     - level: 1
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
-          name: Aura
+          name: Aura of Good
           items:
-            - type: SilverNeedle.Characters.SpecialAbilities.Aura
-              aura-type: Good
+            - type: SilverNeedle.Characters.SpecialAbilities.AuraOfAlignment
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Detect Evil
           items:
@@ -89,6 +88,21 @@
           name: Lay on Hands
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.LayOnHands
+            - type: SilverNeedle.StatisticStatModifier
+              name: Lay On Hands Uses Per Day
+              modifier: charisma-modifier
+              modifier-type: class-feature
+            - type: SilverNeedle.Characters.ClassLevelModifier
+              name: Lay On Hands Uses Per Day
+              rate: 2
+              class: paladin
+              modifier-type: class-feature
+            - type: SilverNeedle.Characters.DiceClassLevelModifier
+              name: Lay On Hands Dice
+              rate: 2
+              dice: 1d6
+              start-level: 1
+              class: paladin
     - level: 3
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
@@ -116,6 +130,27 @@
           name: Channel Energy
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.ChannelEnergy
+              save-dc-stat:
+                name: Channel Energy Save DC
+                base-value: 10
+              dice-stat:
+                name: Channel Energy Dice
+                dice: 1d6
+            - type: SilverNeedle.StatisticStatModifier
+              name: Channel Energy Save DC
+              modifier: wisdom-modifier
+              modifier-type: base-value
+            - type: SilverNeedle.Characters.ClassLevelModifier
+              name: Channel Energy Save DC
+              rate: 2
+              modifier-type: base-value
+              class: paladin
+            - type: SilverNeedle.Characters.DiceClassLevelModifier
+              name: Channel Energy Dice
+              rate: 2
+              dice: 1d6
+              start-level: 1
+              class: paladin
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting
           items:
@@ -170,7 +205,8 @@
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Aura of Resolve
           items:
-            - type: SilverNeedle.Characters.SpecialAbilities.AuraOfResolve
+            - type: SilverNeedle.Characters.Immunity
+              damage-type: charms
     - level: 9
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
@@ -233,7 +269,12 @@
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Aura of Righteousness
           items:
-            - type: SilverNeedle.Characters.SpecialAbilities.AuraOfRighteousness
+            - type: SilverNeedle.Characters.Immunity
+              damage-type: compulsion
+            - type: SilverNeedle.Characters.DamageReduction
+              name: Paladin Damage Reduction
+              bypass-type: evil
+              base-value: 5
     - level: 18
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
@@ -254,4 +295,11 @@
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Holy Champion
           items:
-            - type: SilverNeedle.Characters.SpecialAbilities.HolyChampion
+            - type: SilverNeedle.ValueStatModifier
+              name: Paladin Damage Reduction
+              modifier: 5
+              modifier-type: class-feature
+            - type: SilverNeedle.DiceMaximizeAmountModifier
+              name: Lay On Hands Dice
+            - type: SilverNeedle.DiceMaximizeAmountModifier
+              name: Channel Energy Dice

@@ -5,7 +5,8 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class DancingWeapons : SpecialAbility
+    using SilverNeedle.Utility;
+    public class DancingWeapons : IAbility, IComponent, INameByType, IUsesPerDay
     {
         private ClassLevel sourceClass;
         public int UsesPerDay 
@@ -13,9 +14,14 @@ namespace SilverNeedle.Characters.SpecialAbilities
             get { return 1 + (sourceClass.Level - 8) / 4; }
         }
 
-        public DancingWeapons(ClassLevel sourceClass)
+        public void Initialize(ComponentContainer components)
         {
-            this.sourceClass = sourceClass;
+            this.sourceClass = components.Get<ClassLevel>();
+        }
+
+        public string DisplayString()
+        {
+            return "{0}/day - {1}".Formatted(this.UsesPerDay, this.Name());
         }
     }
 }

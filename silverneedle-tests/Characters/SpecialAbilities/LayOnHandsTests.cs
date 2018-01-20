@@ -12,45 +12,22 @@ namespace Tests.Characters.SpecialAbilities
     
     public class LayOnHandsTests 
     {
-        private CharacterSheet level4Paladin;
-        public LayOnHandsTests()
+        [Fact]
+        public void CreatesAStatForTrackingUsesPerDay()
         {
-            level4Paladin = new CharacterSheet(CharacterStrategy.Default());
-            level4Paladin.AbilityScores.SetScore(AbilityScoreTypes.Charisma, 14); //+2 Modifier
-            var paladin = new Class();
-            paladin.Name = "Paladin";
-            level4Paladin.SetClass(paladin);
-            level4Paladin.SetLevel(4);
-            var layOnHands = new LayOnHands();
-            level4Paladin.Add(layOnHands);
+            var character = CharacterTestTemplates.AverageBob();
+            var lay = new LayOnHands();
+            character.Add(lay);
+            Assert.NotNull(character.FindStat(lay.UsesPerDayStatName()));
         }
 
         [Fact]
-        public void LayOnHandsCanBeUsedANumberOfTimesBasedOnCharismaAndPaladinLevels()
+        public void AddsDiceStatisticForHealingDice()
         {
-            // Charisma + 1/2 Paladin Level 
-            Assert.Equal(level4Paladin.Get<LayOnHands>().UsesPerDay, 4);
-        }
-
-        [Fact]
-        public void LayOnHandsHealingIsBasedOnLevel()
-        {
-            Assert.Equal(level4Paladin.Get<LayOnHands>().HealingDice.ToString(), "2d6");
-        }
-
-        [Fact]
-        public void NameReflectsUsesAndHealing()
-        {
-            Assert.Equal(level4Paladin.Get<LayOnHands>().DisplayString(), "Lay on Hands (2d6, 4/day)");
-        }
-
-        [Fact]
-        public void CanBeSetToAlwaysReturnTheMaximumValue()
-        {
-            var layOn = level4Paladin.Get<LayOnHands>();
-            layOn.MaximizeAmount = true;
-            Assert.Equal(layOn.HealingDice.Roll(), 12);
-            Assert.Equal(layOn.DisplayString(), "Lay on Hands (12 points, 4/day)");
+            var character = CharacterTestTemplates.AverageBob();
+            var lay = new LayOnHands();
+            character.Add(lay);
+            Assert.NotNull(character.FindStat("Lay On Hands Dice"));
         }
     }
 }

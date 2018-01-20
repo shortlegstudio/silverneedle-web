@@ -248,7 +248,7 @@
         - attribute:
           name: Healer's Blessing
           items:
-            - type: SilverNeedle.Characters.SpecialAbilities.HealersBlessing
+            - type: SilverNeedle.Characters.SpecialAbilities.HealerBlessing
   spells: [cure light wounds, cure moderate wounds, cure serious wounds, cure critical wounds,
     breath of life, heal, regenerate, cure critical wounds - mass, heal - mass]
 - name: Knowledge

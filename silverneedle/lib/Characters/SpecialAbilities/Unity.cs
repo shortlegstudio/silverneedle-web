@@ -5,17 +5,24 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class Unity : SpecialAbility
+    using SilverNeedle.Utility;
+
+    public class Unity : IAbility, IUsesPerDay, INameByType, IComponent
     {
         private ClassLevel sourceClass;
-        public Unity(ClassLevel source)
+        public void Initialize(ComponentContainer components)
         {
-            this.sourceClass = source;
+            this.sourceClass = components.Get<ClassLevel>();
         }
 
         public int UsesPerDay
         {
             get { return 1 + (sourceClass.Level - 8) / 4; }
+        }
+
+        public string DisplayString()
+        {
+            return "{0}/day - {1}".Formatted(this.UsesPerDay, this.Name());
         }
     }
 }

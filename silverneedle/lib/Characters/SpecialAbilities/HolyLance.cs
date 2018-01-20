@@ -5,7 +5,8 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class HolyLance : SpecialAbility
+    using SilverNeedle.Utility;
+    public class HolyLance : IAbility, IUsesPerDay, IComponent, INameByType
     {
         public int UsesPerDay 
         {
@@ -13,9 +14,14 @@ namespace SilverNeedle.Characters.SpecialAbilities
         }
 
         private ClassLevel sourceClass;
-        public HolyLance(ClassLevel sourceClass)
+        public void Initialize(ComponentContainer components)
         {
-            this.sourceClass = sourceClass;
+            this.sourceClass = components.Get<ClassLevel>();
+        }
+
+        public string DisplayString()
+        {
+            return "{0}/day - {1}".Formatted(this.UsesPerDay, this.Name());
         }
     }
 }

@@ -12,12 +12,20 @@ namespace SilverNeedle.Spells
 
     public class SpellList : IGatewayObject
     {
+        private EntityGateway<Spell> spellInformation;
         public string Class { get; private set; }
-        private Dictionary<int, IList<string>> Levels { get; set; }
+        private Dictionary<int, IList<string>> Levels = new Dictionary<int, IList<string>>();
+
+        private SpellList(EntityGateway<Spell> gateway)
+        {
+            spellInformation = gateway;
+        }
+
         public SpellList()
         {
-            Levels = new Dictionary<int, IList<string>>();
+            spellInformation = GatewayProvider.Get<Spell>();
         }
+
 
         public SpellList(IObjectStore data) : this()
         {
@@ -83,7 +91,7 @@ namespace SilverNeedle.Spells
         {
             return GetAllSpells(level)
                 .Where(spellName =>  
-                    rules.All(rule => rule.CanCastSpell(GetSpellInformation(spellName)))
+                    rules.All(rule => rule.CanCastSpell(spellInformation.Find(spellName)))
                 );
         }
 
@@ -94,23 +102,14 @@ namespace SilverNeedle.Spells
 
         public static SpellList CreateForTesting(string className)
         {
-            var sl = new SpellList();
+            return CreateForTesting(className, GatewayProvider.Get<Spell>());
+        }
+
+        public static SpellList CreateForTesting(string className, EntityGateway<Spell> spellList)
+        {
+            var sl = new SpellList(spellList);
             sl.Class = className;
             return sl;
         }
-
-        public static void SetSpellGateway(EntityGateway<Spell> spellInfo)
-        {
-            spellGateway = spellInfo;
-        }
-
-        private static Spell GetSpellInformation(string spellName)
-        {
-            if(spellGateway == null)
-                spellGateway = GatewayProvider.Get<Spell>();
-
-            return spellGateway.Find(spellName);
-        }
-        private static EntityGateway<Spell> spellGateway;
     }
 }

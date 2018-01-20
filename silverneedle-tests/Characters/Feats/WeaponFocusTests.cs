@@ -75,5 +75,15 @@ namespace Tests.Characters.Feats
             Assert.False(newFocus.IsQualified(bob));
         }
 
+        [Fact]
+        public void NeedToBeProficientWithAtLeastOneWeapon()
+        {
+            var longsword = new Weapon("Longsword", 1, "1d6", DamageTypes.Slashing, 20, 2, 0, WeaponType.OneHanded, WeaponGroup.HeavyBlades, WeaponTrainingLevel.Simple);
+            var list = EntityGateway<Weapon>.LoadWithSingleItem(longsword);
+            var character = CharacterTestTemplates.AverageBob();
+            var weaponFocus = new WeaponFocus(list);
+            Assert.False(weaponFocus.IsQualified(character));
+        }
+
     }
 }

@@ -8,7 +8,7 @@ namespace Tests.Characters.Magic
     using Xunit;
     using SilverNeedle.Characters.Magic;
 
-    public class WizardCastingTests
+    public class WizardCastingTests : RequiresDataFiles
     {
         [Fact]
         public void DontUseOpposingSchoolSpellsForAvailableSpellList()

@@ -44,7 +44,8 @@ namespace SilverNeedle.Characters.Feats
         public override bool IsQualified(CharacterSheet character)
         {
             var result = base.IsQualified(character);
-            return result && !character.Contains<WeaponFocus>();
+            var possibileWeapons = GetWeapons().FindByProficient(character.Offense.WeaponProficiencies);
+            return result && !character.Contains<WeaponFocus>() && possibileWeapons.NotEmpty();
         }
 
         public void Initialize(ComponentContainer components)

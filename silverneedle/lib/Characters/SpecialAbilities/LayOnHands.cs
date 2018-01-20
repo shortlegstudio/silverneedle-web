@@ -10,30 +10,31 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using System.Linq;
     using SilverNeedle.Dice;
     using SilverNeedle.Utility;
-    public class LayOnHands : IAbility, IComponent
+    public class LayOnHands : IAbility, IComponent, IUsesPerDay
     {
+        private BasicStat usesPerDayStatistic;
+        private DiceStatistic healingDice;
         public int UsesPerDay 
         { 
-            get { return charismaScore.TotalModifier + paladinLevel.Level / 2; } 
+            get { return usesPerDayStatistic.TotalValue; }
         }
         public Cup HealingDice 
         { 
             get 
             { 
-                var cup = new Cup();
-                cup.MaximizeAmount = this.MaximizeAmount;
-                cup.AddDice(Die.GetDice(DiceSides.d6, paladinLevel.Level / 2)); 
-                return cup;
+                return healingDice.Dice;
             }
         }
 
         private ClassLevel paladinLevel;
-        private AbilityScore charismaScore; 
         
         public void Initialize(ComponentContainer components)
         {
-            paladinLevel = components.GetAll<ClassLevel>().First(x => x.Class.Name.EqualsIgnoreCase("paladin"));
-            charismaScore = components.Get<AbilityScores>().GetAbility(AbilityScoreTypes.Charisma);
+            this.usesPerDayStatistic = new BasicStat(this.UsesPerDayStatName());
+            this.healingDice = new DiceStatistic("Lay On Hands Dice", "1d6");
+            components.Add(usesPerDayStatistic);
+            components.Add(healingDice);
+            paladinLevel = components.Get<ClassLevel>();
         }
 
         public string DisplayString() 

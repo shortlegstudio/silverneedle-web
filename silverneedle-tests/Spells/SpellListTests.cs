@@ -77,8 +77,7 @@ levels:
             var spellFiltered = new Spell("Fireball", "fire");
             var spellReturned = new Spell("Iceball", "cold");
             var gateway = EntityGateway<Spell>.LoadFromList(new Spell[] { spellFiltered, spellReturned });
-            SpellList.SetSpellGateway(gateway);
-            var spellList = SpellList.CreateForTesting("wizard");
+            var spellList = SpellList.CreateForTesting("wizard", gateway);
             spellList.Add(1, "Fireball");
             spellList.Add(1, "Iceball");
             var criteria = new Mock<ISpellCastingRule>();

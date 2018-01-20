@@ -5,7 +5,8 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class ScytheOfEvil : SpecialAbility
+    using SilverNeedle.Utility;
+    public class ScytheOfEvil : IAbility, IComponent, INameByType, IUsesPerDay
     {
         public int UsesPerDay 
         {
@@ -13,9 +14,14 @@ namespace SilverNeedle.Characters.SpecialAbilities
         }
 
         private ClassLevel sourceClass;
-        public ScytheOfEvil(ClassLevel sourceClass)
+        public void Initialize(ComponentContainer components)
         {
-            this.sourceClass = sourceClass;
+            this.sourceClass = components.Get<ClassLevel>();
+        }
+
+        public string DisplayString()
+        {
+            return "{0}/day - {1}".Formatted(this.UsesPerDay, this.Name());
         }
     }
 }
