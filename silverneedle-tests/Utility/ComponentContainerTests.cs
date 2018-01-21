@@ -52,6 +52,14 @@ namespace Tests.Utility
             Assert.Equal(0, stat.TotalValue);
         }
 
+        [Fact(Skip="Cannot implement this until weapon modifiers are managed")]
+        public void ThrowsExceptionIfCannotApplyModifierBecauseStatIsNotFound()
+        {
+            var container = new ComponentContainer();
+            var mod = new ValueStatModifier("Stat", 10, "Foo", "Bar");
+            Assert.Throws(typeof(StatisticNotFoundException), () => container.Add(mod));
+        }
+
     }
 
     public class CustomStatType : BasicStat

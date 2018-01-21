@@ -113,6 +113,11 @@ namespace Tests
             return CreateWithClass("ranger");
         }
 
+        public static CharacterSheet Rogue()
+        {
+            return CreateWithClass("rogue");
+        }
+
         public static CharacterSheet WithSpontaneousCasting(this CharacterSheet character)
         {
             return WithSpontaneousCasting(character, 15);

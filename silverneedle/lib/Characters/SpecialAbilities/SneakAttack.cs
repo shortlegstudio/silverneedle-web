@@ -7,51 +7,48 @@ namespace SilverNeedle.Characters.SpecialAbilities
 {
     using SilverNeedle.Characters.Attacks;
     using SilverNeedle.Dice;
+    using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
-    public class SneakAttack : SpecialAbility, IComponent
+
+    public class SneakAttack : IAbility, IComponent, INameByType
     {
-        public string Damage { get; private set; }
+        public IDiceStatistic Damage { get; private set; }
         public SneakAttackAttackStatistic Attack { get; private set; }
 
-        public SneakAttack()
+        public SneakAttack(IObjectStore configuration)
         {
-            this.Damage = "1d6";
-            this.Attack = new SneakAttackAttackStatistic(this);
+            this.Damage = new DiceStatistic(configuration.GetObject("dice-stat"));
+            this.Attack = new SneakAttackAttackStatistic(this.Damage);
         }
 
-        public void SetDamage(string damage)
+        public string DisplayString()
         {
-            this.Damage = damage;
-        }
-
-        public override string Name 
-        {
-            get
-            {
-                return string.Format("Sneak Attack +({0})", this.Damage);
-            }
+            return "{0} ({1})".Formatted(this.Name(), this.Damage.Dice);
         }
 
         public void Initialize(ComponentContainer components)
         {
+            components.Add(this.Damage);
             components.Add(this.Attack);
         }
 
-        public class SneakAttackAttackStatistic : WeaponAttack
+        public class SneakAttackAttackStatistic : IAttack
         {
-            private SneakAttack sneakAttack;
-            public SneakAttackAttackStatistic(SneakAttack sneakAttack)
+            private IDiceStatistic sneakAttackDice;
+            public SneakAttackAttackStatistic(IDiceStatistic sneakAttackDice)
             {
-                this.sneakAttack = sneakAttack;
-                this.Name = "Sneak Attack";
-                this.AttackType = AttackTypes.Special;
+                this.sneakAttackDice = sneakAttackDice;
             }
-            public override Cup Damage 
+            public Cup Damage 
             {
-                get { return DiceStrings.ParseDice(sneakAttack.Damage); }
+                get { return sneakAttackDice.Dice; }
             }
 
-            public override string DisplayString()
+            public string Name { get { return "Sneak Attack"; } }
+
+            public AttackTypes AttackType { get { return AttackTypes.Special; } }
+
+            public string DisplayString()
             {
                 return string.Format("{0} {1}", this.Name, this.Damage);
             }

@@ -48,12 +48,33 @@
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Trap Finding
           items:
-            - type: SilverNeedle.Characters.SpecialAbilities.TrapFinding
+            - type: SilverNeedle.Characters.ClassLevelModifier
+              name: Perception
+              rate: 2
+              class: rogue
+              condition: traps
+              minimum: 1
+              modifier-type: class-feature
+            - type: SilverNeedle.Characters.ClassLevelModifier
+              name: Disable Device
+              rate: 2
+              class: rogue
+              condition: traps
+              minimum: 1
+              modifier-type: class-feature
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Sneak Attack
-          commands:
-            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSneakAttack
-              damage: 1d6
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.SneakAttack
+              dice-stat:
+                name: Sneak Attack Dice
+                dice: 1d6
+            - type: SilverNeedle.Characters.DiceClassLevelModifier
+              name: Sneak Attack Dice
+              dice: 1d6
+              rate: 2
+              start-level: 1
+              class: rogue
     - level: 2
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
@@ -79,11 +100,6 @@
               modifier: 1
               modifier-type: bonus
               condition: traps
-        - attribute: SilverNeedle.Characters.ClassFeature
-          name: Sneak Attack
-          commands:
-            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSneakAttack
-              damage: 2d6
     - level: 4
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
@@ -94,13 +110,6 @@
           name: Rogue Talent
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRogueTalent
-    - level: 5
-      attributes:
-        - attribute: SilverNeedle.Characters.ClassFeature
-          name: Sneak Attack
-          commands:
-            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSneakAttack
-              damage: 3d6
     - level: 6
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
@@ -120,13 +129,6 @@
           name: Rogue Talent
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRogueTalent
-    - level: 7
-      attributes:
-        - attribute: SilverNeedle.Characters.ClassFeature
-          name: Sneak Attack
-          commands:
-            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSneakAttack
-              damage: 4d6
     - level: 8
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
@@ -139,11 +141,6 @@
             - type: SilverNeedle.Characters.SpecialAbilities.ImprovedUncannyDodge
     - level: 9
       attributes:
-        - attribute: SilverNeedle.Characters.ClassFeature
-          name: Sneak Attack
-          commands:
-            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSneakAttack
-              damage: 5d6
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Trap Sense 3
           items:
@@ -164,13 +161,6 @@
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRogueTalent
               advanced-talents: true
-    - level: 11
-      attributes:
-        - attribute: SilverNeedle.Characters.ClassFeature
-          name: Sneak Attack
-          commands:
-            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSneakAttack
-              damage: 6d6
     - level: 12
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
@@ -191,13 +181,6 @@
               modifier: 1
               modifier-type: bonus
               condition: traps
-    - level: 13
-      attributes:
-        - attribute: SilverNeedle.Characters.ClassFeature
-          name: Sneak Attack
-          commands:
-            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSneakAttack
-              damage: 7d6
     - level: 14
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
@@ -207,11 +190,6 @@
               advanced-talents: true
     - level: 15
       attributes:
-        - attribute: SilverNeedle.Characters.ClassFeature
-          name: Sneak Attack
-          commands:
-            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSneakAttack
-              damage: 8d6
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Trap Sense 5
           items:
@@ -232,13 +210,6 @@
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRogueTalent
               advanced-talents: true
-    - level: 17
-      attributes:
-        - attribute: SilverNeedle.Characters.ClassFeature
-          name: Sneak Attack
-          commands:
-            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSneakAttack
-              damage: 9d6
     - level: 18
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
@@ -259,13 +230,6 @@
               modifier: 1
               modifier-type: bonus
               condition: traps
-    - level: 19
-      attributes:
-        - attribute: SilverNeedle.Characters.ClassFeature
-          name: Sneak Attack
-          commands:
-            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureSneakAttack
-              damage: 10d6
     - level: 20
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
