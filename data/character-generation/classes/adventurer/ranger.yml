@@ -43,7 +43,20 @@
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Track
           items:
-            - type: SilverNeedle.Characters.SpecialAbilities.Track
+            - type: SilverNeedle.Characters.CapabilityStatistic
+              name: Track
+              base-value: 0
+            - type: SilverNeedle.Characters.ClassLevelModifier
+              name: Track
+              rate: 2
+              minimum: 1
+              class: ranger
+              modifier-type: class-feature
+            - type: SilverNeedle.StatisticStatModifier
+              name: Survival
+              modifier: Track
+              modifier-type: class-feature
+              condition: Tracking
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Wild Empathy
           items:

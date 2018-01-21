@@ -5,6 +5,7 @@
 
 namespace SilverNeedle.Characters.Attacks
 {
+    using System.Collections.Generic;
     using SilverNeedle.Utility;
     public class MeleeAttackBonus : IComponent, IValueStatistic
     {
@@ -12,6 +13,11 @@ namespace SilverNeedle.Characters.Attacks
 
         public int TotalValue { get { return baseMeleeAttackBonus.TotalValue; } }
         private BasicStat baseMeleeAttackBonus = new BasicStat("Melee Attack Bonus");
+
+        public IEnumerable<string> GetConditions()
+        {
+            return baseMeleeAttackBonus.GetConditions();
+        }
 
         public int GetConditionalValue(string condition)
         {

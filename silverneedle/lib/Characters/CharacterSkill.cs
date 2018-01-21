@@ -158,6 +158,11 @@ namespace SilverNeedle.Characters
             return this.Score(condition);
         }
 
+        public IEnumerable<string> GetConditions()
+        {
+            return this.skillStats.GetConditions();
+        }
+
         /// <summary>
         /// Returns a <see cref="System.String"/> that represents the current <see cref="SilverNeedle.Characters.CharacterSkill"/>.
         /// </summary>

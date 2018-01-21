@@ -6,6 +6,7 @@
 namespace SilverNeedle.Characters
 {
     using System;
+    using System.Collections.Generic;
     using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Core;
     using SilverNeedle.Serialization;
@@ -69,6 +70,11 @@ namespace SilverNeedle.Characters
         public int GetConditionalValue(string condition)
         {
             return amount.GetConditionalValue(condition);
+        }
+
+        public IEnumerable<string> GetConditions()
+        {
+            return amount.GetConditions();
         }
 
         public bool Matches(string name)

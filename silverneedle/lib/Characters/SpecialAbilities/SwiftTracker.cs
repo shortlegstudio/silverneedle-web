@@ -5,8 +5,11 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class SwiftTracker : SpecialAbility
+    public class SwiftTracker : IAbility, INameByType
     {
-        
+        public string DisplayString()
+        {
+            return this.Name();
+        }
     }
 }

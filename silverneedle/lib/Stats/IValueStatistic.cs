@@ -12,6 +12,7 @@ namespace SilverNeedle
     {
         int TotalValue { get; }
 
+        IEnumerable<string> GetConditions();
         int GetConditionalValue(string condition);
     }
 }

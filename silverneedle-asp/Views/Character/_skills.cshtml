@@ -1,3 +1,4 @@
+@using SilverNeedle;
 @using SilverNeedle.Characters;
 @using SilverNeedle.Utility;
 @{
@@ -24,7 +25,7 @@
                 {
                     Html.RenderPartial("_statistic-row", new ViewDataDictionary(this.ViewData) {
                         { "statistic-title", s.Name },
-                        { "statistic-score", s.Score().ToModifierString() } });
+                        { "statistic-score", s.DisplayModifierValues() } });
                 }
             }
             </tbody>

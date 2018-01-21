@@ -6,7 +6,9 @@
 
 namespace SilverNeedle.Characters.Attacks
 {
+    using System.Collections.Generic;
     using SilverNeedle.Utility;
+
     public class RangeAttackBonus : IComponent, IValueStatistic
     {
         public string Name { get { return baseRangeAttackBonus.Name; } }
@@ -17,6 +19,11 @@ namespace SilverNeedle.Characters.Attacks
         public void AddModifier(IStatisticModifier modifier)
         {
             baseRangeAttackBonus.AddModifier(modifier);
+        }
+
+        public IEnumerable<string> GetConditions()
+        {
+            return baseRangeAttackBonus.GetConditions();
         }
 
         public int GetConditionalValue(string condition)
