@@ -33,6 +33,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
             var wizardCasting = components.Get<WizardCasting>();
             var school = arcaneGateway.ChooseOne();
             wizardCasting.SetFocusSchool(school);
+            components.Add(school);
         }
     }
 }

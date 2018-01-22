@@ -20,6 +20,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
 
             select.ExecuteStep(wizard);
             Assert.NotNull(casting.FocusSchool);
+            Assert.NotNull(wizard.Get<IArcaneSchool>());
         }
     }
 }

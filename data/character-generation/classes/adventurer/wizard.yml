@@ -78,10 +78,6 @@
               spells: [all, 3]
               add-modifier: true
         - attribute: SilverNeedle.Characters.ClassFeature
-          name: Arcane School
-          commands:
-            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
-        - attribute: SilverNeedle.Characters.ClassFeature
           name: Arcane Bond
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.ArcaneBond
@@ -97,10 +93,6 @@
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
               spells: [0, 2]
-        - attribute: SilverNeedle.Characters.ClassFeature
-          name: Arcane School Powers (2)
-          commands:
-            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
     - level: 3
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
@@ -108,10 +100,6 @@
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
               spells: [0, 0, 2]
-        - attribute: SilverNeedle.Characters.ClassFeature
-          name: Arcane School Powers (3)
-          commands:
-            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
     - level: 4
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
@@ -119,10 +107,6 @@
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
               spells: [0, 0, 2]
-        - attribute: SilverNeedle.Characters.ClassFeature
-          name: Arcane School Powers (4)
-          commands:
-            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
     - level: 5
       attributes:
         - attribute:
@@ -135,10 +119,6 @@
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
               spells: [0, 0, 0, 2]
-        - attribute: SilverNeedle.Characters.ClassFeature
-          name: Arcane School Powers (5)
-          commands:
-            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
     - level: 6
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
@@ -146,10 +126,6 @@
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
               spells: [0, 0, 0, 2]
-        - attribute: SilverNeedle.Characters.ClassFeature
-          name: Arcane School Powers (6)
-          commands:
-            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
     - level: 7
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
@@ -157,10 +133,6 @@
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
               spells: [0, 0, 0, 0, 2]
-        - attribute: SilverNeedle.Characters.ClassFeature
-          name: Arcane School Powers (7)
-          commands:
-            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
     - level: 8
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
@@ -168,10 +140,6 @@
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
               spells: [0, 0, 0, 0, 2]
-        - attribute: SilverNeedle.Characters.ClassFeature
-          name: Arcane School Powers (8)
-          commands:
-            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
     - level: 9
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
@@ -179,10 +147,6 @@
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
               spells: [0, 0, 0, 0, 0, 2]
-        - attribute: SilverNeedle.Characters.ClassFeature
-          name: Arcane School Powers (9)
-          commands:
-            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
     - level: 10
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
@@ -190,10 +154,6 @@
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
               spells: [0, 0, 0, 0, 0, 2]
-        - attribute: SilverNeedle.Characters.ClassFeature
-          name: Arcane School Powers (10)
-          commands:
-            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
         - attribute:
           name: Wizard Bonus Feats - 10
           items:
@@ -206,10 +166,6 @@
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
               spells: [0, 0, 0, 0, 0, 0, 2]
-        - attribute: SilverNeedle.Characters.ClassFeature
-          name: Arcane School Powers (11)
-          commands:
-            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
     - level: 12
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
@@ -217,10 +173,6 @@
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
               spells: [0, 0, 0, 0, 0, 0, 2]
-        - attribute: SilverNeedle.Characters.ClassFeature
-          name: Arcane School Powers (12)
-          commands:
-            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
     - level: 13
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
@@ -228,10 +180,6 @@
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
               spells: [0, 0, 0, 0, 0, 0, 0, 2]
-        - attribute: SilverNeedle.Characters.ClassFeature
-          name: Arcane School Powers (13)
-          commands:
-            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
     - level: 14
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
@@ -239,10 +187,6 @@
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
               spells: [0, 0, 0, 0, 0, 0, 0, 2]
-        - attribute: SilverNeedle.Characters.ClassFeature
-          name: Arcane School Powers (14)
-          commands:
-            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
     - level: 15
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
@@ -250,10 +194,6 @@
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
               spells: [0, 0, 0, 0, 0, 0, 0, 0, 2]
-        - attribute: SilverNeedle.Characters.ClassFeature
-          name: Arcane School Powers (15)
-          commands:
-            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
         - attribute:
           name: Wizard Bonus Feats - 15
           items:
@@ -266,10 +206,6 @@
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
               spells: [0, 0, 0, 0, 0, 0, 0, 0, 2]
-        - attribute: SilverNeedle.Characters.ClassFeature
-          name: Arcane School Powers (16)
-          commands:
-            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
     - level: 17
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
@@ -277,10 +213,6 @@
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
               spells: [0, 0, 0, 0, 0, 0, 0, 0, 0, 2]
-        - attribute: SilverNeedle.Characters.ClassFeature
-          name: Arcane School Powers (17)
-          commands:
-            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
     - level: 18
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
@@ -288,10 +220,6 @@
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
               spells: [0, 0, 0, 0, 0, 0, 1, 0, 0, 1]
-        - attribute: SilverNeedle.Characters.ClassFeature
-          name: Arcane School Powers (18)
-          commands:
-            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
     - level: 19
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
@@ -299,10 +227,6 @@
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
               spells: [0, 0, 0, 0, 0, 0, 0, 1, 0, 1]
-        - attribute: SilverNeedle.Characters.ClassFeature
-          name: Arcane School Powers (19)
-          commands:
-            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
     - level: 20
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
@@ -310,10 +234,6 @@
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
               spells: [0, 0, 0, 0, 0, 0, 0, 0, 1, 1]
-        - attribute: SilverNeedle.Characters.ClassFeature
-          name: Arcane School Powers (20)
-          commands:
-            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpdateArcaneSchoolPowers
         - attribute:
           name: Wizard Bonus Feats - 20
           items:

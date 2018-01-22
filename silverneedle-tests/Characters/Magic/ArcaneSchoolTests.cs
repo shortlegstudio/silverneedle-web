@@ -13,42 +13,17 @@ namespace Tests.Characters.Magic
 
     public class ArcaneSchoolTests
     {
-        [Fact]
-        public void ProvidesAListOfAbilitiesForSchool()
-        {
-            var configuration = @"---
-name: Abjuration
-abilities:
-  - ability: SomePowerString1
-    level: 1
-  - ability: SomePowerString2
-    level: 4
-".ParseYaml();
-
-            var arcaneSchool = new ArcaneSchool(configuration);
-            var abilities = arcaneSchool.GetAbilities();
-            Assert.Equal(new string[] { 
-                "SomePowerString1",
-                "SomePowerString2"
-                }, abilities.Select(b => b.GetString("ability"))
-            );
-                Assert.Equal(new int[] {
-                1, 4
-                }, abilities.Select(p => p.GetInteger("level"))
-             );
-
-        }
-
-        [Fact]
         public void UniversalistIsFlaggedToAvoidOppositionSchools()
         {
 
             var configuration = @"---
 name: Universalist
 no-opposition-schools: true
-abilities:
-  - ability: SomePowerString1
-    level: 1
+levels:
+  - level: 1
+    attributes:
+      - attribute:
+        name: Some Ability
 ".ParseYaml();
             var school = new ArcaneSchool(configuration);
             Assert.True(school.NoOppositionSchools);

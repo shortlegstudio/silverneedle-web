@@ -13,7 +13,6 @@ namespace SilverNeedle.Characters.Magic
     {
         bool NoOppositionSchools { get; }
         string Name { get; }
-        IEnumerable<IObjectStore> GetAbilities();
 
     }
 }

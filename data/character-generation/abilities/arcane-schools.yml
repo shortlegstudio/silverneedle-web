@@ -1,75 +1,163 @@
 --- !<SilverNeedle.Characters.Magic.ArcaneSchool>
 - name: Abjuration
-  abilities:
-    - ability: SilverNeedle.Characters.SpecialAbilities.AbjurationResistance
-      level: 1
-    - ability: SilverNeedle.Characters.SpecialAbilities.ProtectiveWard
-      level: 1
-    - ability: SilverNeedle.Characters.SpecialAbilities.EnergyAbsorption
-      level: 6
+  levels:
+    - level: 1
+      attributes:
+        - attribute:
+          name: Abjuration Resistance
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.AbjurationResistance
+        - attribute: 
+          name: Protective Ward
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.ProtectiveWard
+    - level: 6
+      attributes:
+        - attribute:
+          name: Energy Absorption
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.EnergyAbsorption
 - name: Conjuration
-  abilities:
-    - ability: SilverNeedle.Characters.SpecialAbilities.SummonersCharm
-      level: 1
-    - ability: SilverNeedle.Characters.Attacks.AcidDart
-      level: 1
-      base-ability: intelligence
-    - ability: SilverNeedle.Characters.SpecialAbilities.DimensionalSteps
-      level: 8
+  levels:
+    - level: 1
+      attributes:
+        - attribute:
+          name: Summoner's Charm
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.SummonersCharm
+        - attribute:
+          name: Acid Dart
+          items:
+            - type: SilverNeedle.Characters.Attacks.AcidDart
+              base-ability: intelligence
+    - level: 8
+      attributes:
+        - attribute:
+          name: Dimensional Steps
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.DimensionalSteps
 - name: Divination
-  abilities:
-    - ability: SilverNeedle.Characters.SpecialAbilities.Forewarned
-      level: 1
-    - ability: SilverNeedle.Characters.SpecialAbilities.DivinersFortune
-      level: 1
-    - ability: SilverNeedle.Characters.SpecialAbilities.ScryingAdept
-      level: 8
+  levels:
+    - level: 1
+      attributes:
+        - attribute:
+          name: Forewarned
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.Forewarned
+        - attribute:
+          name: Diviner's Fortune
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.DivinersFortune
+    - level: 8
+      attributes:
+        - attribute:
+          name: Scrying Adept
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.ScryingAdept
 - name: Enchantment
-  abilities:
-    - ability: SilverNeedle.Characters.SpecialAbilities.EnchantingSmile
-      level: 1
-    - ability: SilverNeedle.Characters.SpecialAbilities.DazingTouch
-      base-ability: intelligence
-      level: 1
-    - ability: SilverNeedle.Characters.SpecialAbilities.AuraOfDespair
-      level: 8
+  levels:
+    - level: 1
+      attributes:
+        - attribute:
+          name: Enchanting Smile
+          items:  
+            - type: SilverNeedle.Characters.SpecialAbilities.EnchantingSmile
+        - attribute:
+          name: Dazing Touch
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.DazingTouch
+              base-ability: intelligence
+    - level: 8
+      attributes:
+        attribute:
+          name: Aura of Despair
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.AuraOfDespair
 - name: Evocation
-  abilities:
-    - ability: SilverNeedle.Characters.SpecialAbilities.IntenseSpells
-      level: 1
-    - ability: SilverNeedle.Characters.SpecialAbilities.ForceMissile
-      level: 1
-    - ability: SilverNeedle.Characters.SpecialAbilities.ElementalWall
-      level: 8
+  levels:
+    - level: 1
+      attributes:
+        - attribute:
+          name: Intense Spells
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.IntenseSpells
+        - attribute:
+          name: Force Missile
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.ForceMissile
+    - level: 8
+      attributes:
+        - attribute:
+          name: Elemental Wall
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.ElementalWall
 - name: Illusion
-  abilities:
-    - ability: SilverNeedle.Characters.SpecialAbilities.ExtendedIllusions
-      level: 1
-    - ability: SilverNeedle.Characters.SpecialAbilities.BlindingRay
-      level: 1
-    - ability: SilverNeedle.Characters.SpecialAbilities.InvisibilityField
-      level: 8
+  levels:
+    - level: 1
+      attributes:
+        - attribute:
+          name: Extended Illusions
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.ExtendedIllusions
+        - attribute:
+          name: Blinding Ray
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.BlindingRay
+    - level: 8
+      attributes:
+        - attribute:
+          name: Invisibility Field
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.InvisibilityField
 - name: Necromancy
-  abilities:
-    - ability: SilverNeedle.Characters.SpecialAbilities.PowerOverUndead
-      level: 1
-    - ability: SilverNeedle.Characters.SpecialAbilities.GraveTouch
-      base-ability: intelligence
-      level: 1
-    - ability: SilverNeedle.Characters.SpecialAbilities.LifeSight
-      level: 8
+  levels:
+    - level: 1
+      attributes:
+        - attribute:
+          name: Power Over Undead
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.PowerOverUndead
+        - attribute:
+          name: Grave Touch
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.GraveTouch
+              base-ability: intelligence
+    - level: 8
+      attributes:
+        - attribute:
+          name: Life Sight
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.LifeSight
 - name: Transmutation
-  abilities:
-    - ability: SilverNeedle.Characters.SpecialAbilities.PhysicalEnhancement
-      level: 1
-    - ability: SilverNeedle.Characters.SpecialAbilities.TelekineticFist
-      level: 1
-    - ability: SilverNeedle.Characters.SpecialAbilities.ChangeShape
-      level: 8
+  levels:
+    - level: 1
+      attributes:
+        - attribute:
+          name: Physical Enhancement
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.PhysicalEnhancement
+        - attribute:
+          name: Telekinetic First
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.TelekineticFist
+    - level: 8
+      attributes:
+        - attribute:
+          name: Change Shape
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.ChangeShape
 - name: Universalist
   no-opposition-schools: true
-  abilities:
-    - ability: SilverNeedle.Characters.SpecialAbilities.HandOfTheApprentice
-      level: 1
-    - ability: SilverNeedle.Characters.SpecialAbilities.MetamagicMastery
-      level: 8
+  levels:
+    - level: 1
+      attributes:
+        - attribute:
+          name: Hand of the Apprentice
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.HandOfTheApprentice
+    - level: 8
+      attributes:
+        - attribute:
+          name: Metamagic Mastery
+          items:
+            - type: SilverNeedle.Characters.SpecialAbilities.MetamagicMastery
