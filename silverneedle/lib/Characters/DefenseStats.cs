@@ -247,12 +247,10 @@ namespace SilverNeedle.Characters
                 this.SetWillGoodSave();
             }
 
-            var reason = string.Format("LEVEL UP ({0})", cls.Name);
-
             // Add Adjustment for each level
-            this.FortitudeSave.AddModifier(new ValueStatModifier(cls.FortitudeSaveRate, reason));
-            this.ReflexSave.AddModifier(new ValueStatModifier(cls.ReflexSaveRate, reason));
-            this.WillSave.AddModifier(new ValueStatModifier(cls.WillSaveRate, reason));
+            this.FortitudeSave.AddModifier(new ValueStatModifier(cls.FortitudeSaveRate));
+            this.ReflexSave.AddModifier(new ValueStatModifier(cls.ReflexSaveRate));
+            this.WillSave.AddModifier(new ValueStatModifier(cls.WillSaveRate));
         }
 
         /// <summary>

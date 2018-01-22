@@ -17,12 +17,10 @@ namespace SilverNeedle.Characters.SpecialAbilities
         public WeaponTraining(IObjectStore configuration) : base(configuration)
         {
             WeaponAttackBonus = new WeaponAttackModifier(
-                "Weapon Training",
                 () => { return this.TotalValue; } ,
                 QualifyCheck
             );
             WeaponDamageBonus = new WeaponDamageModifier(
-                "Weapon Training",
                 () => { return this.TotalValue; },
                 QualifyCheck
             );

@@ -181,7 +181,7 @@ namespace Tests.Characters
             public MockMod()
             {
                 Modifiers = new List<IValueStatModifier>();
-                Modifiers.Add(new ValueStatModifier("Climb", 3, "Cause", "Climb"));
+                Modifiers.Add(new ValueStatModifier("Climb", 3, "Cause"));
             }
         }
     }

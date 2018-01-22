@@ -35,7 +35,6 @@ namespace SilverNeedle.Characters.SpecialAbilities
                 new DelegateStatModifier(
                     roundsPerDay.Name,
                     "level-up",
-                    "bard-levels",
                     () => { return (bardLevel.Level - 1) * 2; }
                 )
             );

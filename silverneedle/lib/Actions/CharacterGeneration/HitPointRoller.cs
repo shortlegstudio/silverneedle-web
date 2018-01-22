@@ -18,11 +18,7 @@ namespace SilverNeedle.Actions.CharacterGeneration
             var cup = new Cup();
             cup.AddDie(new Die(character.Class.HitDice));
             var roll = cup.Roll();
-            var modifier = new ValueStatModifier
-            (
-                roll,
-                "Level up HP"
-            );
+            var modifier = new ValueStatModifier(roll);
             var hitpoints = character.FindStat(StatNames.HitPoints);
             hitpoints.AddModifier(modifier);
             hitpoints.AddModifier(character.AbilityScores.GetAbility(AbilityScoreTypes.Constitution).UniversalStatModifier);

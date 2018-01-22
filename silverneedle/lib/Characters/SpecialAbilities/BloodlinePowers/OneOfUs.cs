@@ -19,7 +19,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
             components.Add(new DamageReduction("-", 5));
 
             var modifier = new ConditionalStatModifier(
-                new ValueStatModifier(4, this.Name),
+                new ValueStatModifier(4),
                 "undead spells/abilities"
             );
 

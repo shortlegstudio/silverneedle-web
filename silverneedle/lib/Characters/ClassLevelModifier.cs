@@ -26,9 +26,6 @@ namespace SilverNeedle.Characters
             get { return ((classLevel.Level - StartLevel) / LevelRate).AtLeast(Minimum); } 
         }
 
-        [ObjectStoreOptional("reason")]
-        public string Reason { get; private set; }
-
         [ObjectStore("modifier-type")]
         public string ModifierType { get; private set; }
 

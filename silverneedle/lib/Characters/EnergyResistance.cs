@@ -25,7 +25,7 @@ namespace SilverNeedle.Characters
             DamageType = damageType.Name;
             this.amount = new BasicStat(this.Name);
             this.amount.AddModifier(
-                new DelegateStatModifier(this.Name, "-", "-", calculation)
+                new DelegateStatModifier(this.Name, "-", calculation)
             );
         }
 

@@ -17,7 +17,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
         public WeaponMastery()
         {
-            this.WeaponCriticalDamageBonus = new WeaponCriticalDamageModifier("Weapon Mastery", 1, Qualifies);
+            this.WeaponCriticalDamageBonus = new WeaponCriticalDamageModifier(1, Qualifies);
         }
 
         private bool Qualifies(IWeaponAttackStatistics weapon)

@@ -21,7 +21,6 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
             (
                 new DelegateStatModifier("Saves",
                     "bonus",
-                    this.Name,
                     () => { return sorcererLevels.Level >= 9 ? 4 : 2; }
                 ), "poison"
             );

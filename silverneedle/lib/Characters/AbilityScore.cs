@@ -36,7 +36,6 @@ namespace SilverNeedle.Characters
                 new DelegateStatModifier(
                     this.abilityModifier.Name,
                     "calculation",
-                    this.Name,
                     () => CalculateModifier(this.TotalValue))
             );
         }

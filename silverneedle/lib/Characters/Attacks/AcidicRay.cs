@@ -60,7 +60,7 @@ namespace SilverNeedle.Characters.Attacks
             this.offense = components.Get<OffenseStats>();
             this.sorcererLevels = components.Get<ClassLevel>();
             this.charisma = components.Get<AbilityScores>().GetAbility(AbilityScoreTypes.Charisma);
-            this.DamageModifier.AddModifier(new DelegateStatModifier(this.DamageModifier.Name, "bonus", this.Name, () => { return this.sorcererLevels.Level / 2; }));
+            this.DamageModifier.AddModifier(new DelegateStatModifier(this.DamageModifier.Name, "bonus", () => { return this.sorcererLevels.Level / 2; }));
         }
 
         public string DisplayString()

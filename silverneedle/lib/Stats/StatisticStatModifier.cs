@@ -13,16 +13,15 @@ namespace SilverNeedle
     {
         private IValueStatistic statistic;
 
-        public StatisticStatModifier(string statisticName, IValueStatistic trackingStat) : this(statisticName, trackingStat.Name, trackingStat.Name, trackingStat)
+        public StatisticStatModifier(string statisticName, IValueStatistic trackingStat) : this(statisticName, trackingStat.Name, trackingStat)
         {
 
         }
-        public StatisticStatModifier(string statisticName, string type, string reason, IValueStatistic trackingStat)
+        public StatisticStatModifier(string statisticName, string type, IValueStatistic trackingStat)
         {
             statistic = trackingStat;
             this.StatisticName = statisticName;
             this.ModifierType = type;
-            this.Reason = reason;
             this.TrackingStatName = trackingStat.Name;
         }
 
@@ -33,8 +32,6 @@ namespace SilverNeedle
 
         public float Modifier { get { return this.statistic.TotalValue; } }
 
-        [ObjectStoreOptional("reason")]
-        public string Reason { get; private set; }
 
         [ObjectStore("modifier-type")]
         public string ModifierType { get; private set; }

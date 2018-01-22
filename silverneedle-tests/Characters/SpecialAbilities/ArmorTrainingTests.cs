@@ -29,7 +29,7 @@ namespace Tests.Characters
 name: Armor Training
 base-value: 1";
             var armorTrain = new ArmorTraining(yaml.ParseYaml());
-            armorTrain.AddModifier(new ValueStatModifier(1, "level-up"));
+            armorTrain.AddModifier(new ValueStatModifier(1));
             //Set to second level
             character.Add(armorTrain);
 
@@ -46,7 +46,7 @@ base-value: 1";
             Assert.Contains(armorTrain.ArmorMovementBonusModifier, armorMove.Modifiers);
 
             //Increase ArmorTraining Level Improves Modifiers
-            armorTrain.AddModifier(new ValueStatModifier(1, "level-up"));
+            armorTrain.AddModifier(new ValueStatModifier(1));
             Assert.Equal(3, armorTrain.MaxDexBonusModifier.Modifier);
             Assert.Equal(3, armorTrain.ArmorCheckBonusModifier.Modifier);
         }

@@ -18,7 +18,6 @@ namespace SilverNeedle.Characters.SpecialAbilities
             initModifier = new DelegateStatModifier(
                 init.Name, 
                 "bonus", 
-                this.Name, 
                 () => { return (sourceLevel.Level/2).AtLeast(1); 
             });
             init.AddModifier(initModifier);

@@ -31,9 +31,6 @@ namespace SilverNeedle.Characters.SpecialAbilities
         public float Modifier { get { return MovementBonus(); } }
 
 
-        [ObjectStoreOptional("reason")]
-        public string Reason { get; private set; }
-
         [ObjectStore("modifier-type")]
         public string ModifierType { get; private set; }
 

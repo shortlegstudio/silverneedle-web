@@ -22,14 +22,12 @@ namespace SilverNeedle.Characters.SpecialAbilities
             MaxDexBonusModifier = new DelegateStatModifier(
                 StatNames.MaxDexterityBonus, 
                 "Ability", 
-                "Armor Training",
                 () => {return this.TotalValue; }
             );
 
             ArmorCheckBonusModifier = new DelegateStatModifier(
                 StatNames.ArmorCheckPenalty,
                 "Ability",
-                "Armor Training",
                 () => { return this.TotalValue; }
             );
         }
@@ -54,7 +52,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
             private Inventory inventory;
             private ArmorTraining training;
             private MovementStats movementStats;
-            public ArmorMovementModifier(ComponentContainer components) : base(StatNames.ArmorMovementPenalty, "Armor Training", "Armor Training")
+            public ArmorMovementModifier(ComponentContainer components) : base(StatNames.ArmorMovementPenalty, "Armor Training")
             {
                 this.inventory = components.Get<Inventory>();
                 this.training = components.Get<ArmorTraining>();

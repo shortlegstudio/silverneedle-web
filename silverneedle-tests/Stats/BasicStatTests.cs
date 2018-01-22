@@ -17,7 +17,7 @@ namespace Tests.Stats
         public void StatsTotalUpAdjustments() 
         {
             var stat = new BasicStat ("TestStat", 10);
-            stat.AddModifier (new ValueStatModifier (5, "Foo"));
+            stat.AddModifier (new ValueStatModifier (5));
             Assert.Equal (15, stat.TotalValue);
         }
 
@@ -25,7 +25,7 @@ namespace Tests.Stats
         public void StatModifiersCanHaveConditionalModifiers() 
         {
             var stat = new BasicStat("TestStat", 10);
-            var mod = new ValueStatModifier("Skill", 5, "bonus", "Feat");
+            var mod = new ValueStatModifier("Skill", 5, "bonus");
             mod.Condition = "vs. Giants";
             stat.AddModifier(mod);
             Assert.Equal(10, stat.TotalValue);
@@ -39,13 +39,13 @@ namespace Tests.Stats
         {
             var stat = new BasicStat("TestStat", 10);
             stat.AddModifier(
-                new ConditionalStatModifier(new ValueStatModifier("Skill", 3, "bonus", "Trait"), "vs. Corgis") 
+                new ConditionalStatModifier(new ValueStatModifier("Skill", 3, "bonus"), "vs. Corgis") 
             );
             stat.AddModifier(
-                new ConditionalStatModifier(new ValueStatModifier("Skill", 3, "bonus", "Trait"), "vs. Corgis") 
+                new ConditionalStatModifier(new ValueStatModifier("Skill", 3, "bonus"), "vs. Corgis") 
             );
             stat.AddModifier(
-                new ConditionalStatModifier(new ValueStatModifier("Skill", 3, "bonus", "Trait"), "Trapfinding") 
+                new ConditionalStatModifier(new ValueStatModifier("Skill", 3, "bonus"), "Trapfinding") 
             );
 
             Assert.Equal(2, stat.GetConditions().Count());
@@ -57,7 +57,7 @@ namespace Tests.Stats
         public void CastingDoesntBreakConditionalModifiers() 
         {
             var stat = new BasicStat("TestStat", 10);
-            IValueStatModifier mod = new ConditionalStatModifier(new ValueStatModifier("Attack Bonus", 3, "bonus", "Food"), "vs. Thor");
+            IValueStatModifier mod = new ConditionalStatModifier(new ValueStatModifier("Attack Bonus", 3, "bonus"), "vs. Thor");
             stat.AddModifier(mod);
             Assert.Equal(1, stat.GetConditions().Count());
             Assert.Equal(10, stat.TotalValue);
@@ -68,7 +68,7 @@ namespace Tests.Stats
         public void FormatNiceStringVersionOfStat() 
         {
             var stat = new BasicStat("TestStat", 20);
-            IValueStatModifier mod = new ConditionalStatModifier(new ValueStatModifier("Attack Bonus", 3, "bonus", "Food"), "vs. Thor");
+            IValueStatModifier mod = new ConditionalStatModifier(new ValueStatModifier("Attack Bonus", 3, "bonus"), "vs. Thor");
             stat.AddModifier(mod);
             Assert.Equal("Fight +20 (+23 vs. Thor)", stat.ToString("Fight"));
         }
@@ -77,8 +77,8 @@ namespace Tests.Stats
         public void AlwaysRoundDownStats() 
         {
             var stat = new BasicStat("TestStat", 2);
-            stat.AddModifier(new ValueStatModifier(-1, "Food"));
-            stat.AddModifier(new ValueStatModifier(0.667f, "Because"));
+            stat.AddModifier(new ValueStatModifier(-1));
+            stat.AddModifier(new ValueStatModifier(0.667f));
             Assert.Equal(-1, stat.SumBasicModifiers());
             Assert.Equal(1, stat.TotalValue);
         }
@@ -88,7 +88,7 @@ namespace Tests.Stats
         {
             var stat = new BasicStat("Stat 1");
             stat.Maximum = 29;
-            var mod = new ValueStatModifier(30, "Because");
+            var mod = new ValueStatModifier(30);
             stat.AddModifier(mod);
             Assert.Equal(stat.TotalValue, 29);
         }
@@ -98,7 +98,7 @@ namespace Tests.Stats
         {
             var stat = new BasicStat("Stat!");
             stat.Minimum = 3;
-            var mod = new ValueStatModifier(-20, "Loser");
+            var mod = new ValueStatModifier(-20);
             stat.AddModifier(mod);
             Assert.Equal(stat.TotalValue, 3);
         }
@@ -108,9 +108,9 @@ namespace Tests.Stats
         {
             var stat = new BasicStat("Statistic");
             stat.AddModifiers(
-                new ValueStatModifier(1, "Bonus"),
-                new ValueStatModifier(3, "Foo"),
-                new ValueStatModifier(-2, "Penalty")
+                new ValueStatModifier(1),
+                new ValueStatModifier(3),
+                new ValueStatModifier(-2)
             );
             Assert.Equal(stat.Modifiers.Count(), 3);
         }

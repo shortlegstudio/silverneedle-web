@@ -221,10 +221,10 @@ namespace Tests.Characters {
 
         public MockMod() {
             Modifiers = new List<IValueStatModifier>();
-            Modifiers.Add(new ValueStatModifier("Armor Class", 1, "Cause", "Dodge"));
-            Modifiers.Add(new ValueStatModifier("Will", 1, "Halfing Luck", "Trait"));
-            Modifiers.Add(new ValueStatModifier("Reflex", 1, "Halfing Luck", "Trait"));
-            Modifiers.Add(new ValueStatModifier("Fortitude", 1, "Halfing Luck", "Trait"));
+            Modifiers.Add(new ValueStatModifier("Armor Class", 1, "Cause"));
+            Modifiers.Add(new ValueStatModifier("Will", 1, "Halfing Luck"));
+            Modifiers.Add(new ValueStatModifier("Reflex", 1, "Halfing Luck"));
+            Modifiers.Add(new ValueStatModifier("Fortitude", 1, "Halfing Luck"));
         }
     }
 

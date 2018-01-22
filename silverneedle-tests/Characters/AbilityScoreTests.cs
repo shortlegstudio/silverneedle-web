@@ -53,8 +53,7 @@ namespace Tests.Characters {
             var adj = new ValueStatModifier (
                 "Strength",
                 2,
-                "racial",
-                "test"
+                "racial"
             );
 
             score.AddModifier (adj);

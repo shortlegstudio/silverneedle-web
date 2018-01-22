@@ -40,7 +40,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
         [Fact]
         public void SummonFamiliarModifiesTheCharacterStats()
         {
-            bat.Modifiers.Add(new ValueStatModifier("Perception", 5, "bonus", "Familiar (Bat)"));
+            bat.Modifiers.Add(new ValueStatModifier("Perception", 5, "bonus"));
             var character = new CharacterSheet(CharacterStrategy.Default());
             character.SkillRanks.AddSkill(new Skill("Perception", AbilityScoreTypes.Wisdom, false));
             var baseValue = character.SkillRanks.GetScore("Perception");

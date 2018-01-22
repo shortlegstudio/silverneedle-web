@@ -16,7 +16,6 @@ namespace SilverNeedle.Characters.SpecialAbilities
             skillBonusModifier = new DelegateStatModifier(
                 "Interaction Skills",
                 "enhancement",
-                this.Name,
                 () => { return 2 + (sourceLevel.Level / 5); }
             );
             var skills = components.Get<SkillRanks>();

@@ -13,7 +13,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     public class SlowAndSteady : DelegateStatModifier, IComponent
     {
         private Inventory inventory;
-        public SlowAndSteady() : base(StatNames.ArmorMovementPenalty, "trait", "Slow and Steady")
+        public SlowAndSteady() : base(StatNames.ArmorMovementPenalty, "trait")
         {
         }
 

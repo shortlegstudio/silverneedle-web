@@ -19,7 +19,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
             defense.AddImmunity("acid");
             defense.AddImmunity("cold");
             defense.AddImmunity("petrification");
-            var poisonResistance = new ConditionalStatModifier(new ValueStatModifier("saves", 4, "bonus", this.Name), "poison");
+            var poisonResistance = new ConditionalStatModifier(new ValueStatModifier("saves", 4, "bonus"), "poison");
             defense.FortitudeSave.AddModifier(poisonResistance);
             defense.ReflexSave.AddModifier(poisonResistance);
             defense.WillSave.AddModifier(poisonResistance);

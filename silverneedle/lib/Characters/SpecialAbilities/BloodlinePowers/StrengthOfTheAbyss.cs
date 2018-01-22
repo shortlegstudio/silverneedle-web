@@ -15,7 +15,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
         {
             var strength = components.Get<AbilityScores>().GetAbility(AbilityScoreTypes.Strength);
             this.sorcererLevels = components.Get<ClassLevel>();
-            strengthModifier = new DelegateStatModifier(strength.Name, "bonus", this.Name, this.CalculateStrengthBonus);
+            strengthModifier = new DelegateStatModifier(strength.Name, "bonus", this.CalculateStrengthBonus);
             strength.AddModifier(strengthModifier);
             
         }

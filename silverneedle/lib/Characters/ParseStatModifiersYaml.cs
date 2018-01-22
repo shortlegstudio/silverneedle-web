@@ -52,8 +52,7 @@ namespace SilverNeedle.Characters
                 modifier = new ValueStatModifier(
                     statName,
                     amount,
-                    type,
-                    name);
+                    type);
                 if (!string.IsNullOrEmpty(condition))
                 {
                     modifier = new ConditionalStatModifier(

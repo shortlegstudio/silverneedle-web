@@ -89,7 +89,6 @@ namespace SilverNeedle.Characters.Feats
             statModifier = new DelegateStatModifier(
                 this.CharacterSkill.Name,
                 "bonus",
-                this.Name,
                 () => {
                     return this.CharacterSkill.Ranks >= 10 ? 6 : 3;
                 }

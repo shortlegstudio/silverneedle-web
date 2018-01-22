@@ -14,7 +14,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
         public void Initialize(ComponentContainer components)
         {
             var level = components.Get<ClassLevel>();
-            poisonResistance = new ConditionalStatModifier(new DelegateStatModifier("saves", "bonus", this.Name, () => { return level.Level >= 9 ? 4 : 2; }), "poison");
+            poisonResistance = new ConditionalStatModifier(new DelegateStatModifier("saves", "bonus", () => { return level.Level >= 9 ? 4 : 2; }), "poison");
             damageResistance = new EnergyResistance(5, "electricity");
             var defense = components.Get<DefenseStats>();
             defense.FortitudeSave.AddModifier(poisonResistance);

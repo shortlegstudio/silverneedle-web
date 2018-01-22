@@ -100,9 +100,7 @@ namespace Tests.Characters {
             var adjust = new ValueStatModifier (
                             "Fly",
                             2,
-                            "Bonus",
-                            "Acrobatic Feat"
-                         );
+                            "Bonus");
             var flySkill = new Skill ("Fly", AbilityScoreTypes.Dexterity, false);
             var charSkill = new CharacterSkill (flySkill, new AbilityScore (AbilityScoreTypes.Dexterity, 10), false);
             charSkill.AddModifier (adjust);
@@ -117,10 +115,7 @@ namespace Tests.Characters {
             var charSkill = new CharacterSkill (skill, ability, false);
 
             var oldVal = charSkill.Score();
-            var adjustment = new ValueStatModifier(
-                2,
-                "enhancement"
-            );
+            var adjustment = new ValueStatModifier(2);
             adjustment.Modifier = 6;
             ability.AddModifier(adjustment);
             Assert.True(charSkill.Score() > oldVal);
@@ -132,7 +127,7 @@ namespace Tests.Characters {
             var skill = new Skill ("Chew", AbilityScoreTypes.Strength, false);
             var ability = new AbilityScore (AbilityScoreTypes.Strength, 10);
             var charSkill = new CharacterSkill (skill, ability, false);
-            var adj = new ValueStatModifier ("Chew", 0, "Teeth", "Chew");
+            var adj = new ValueStatModifier ("Chew", 0, "Teeth");
             charSkill.AddModifier (adj);
             Assert.Equal (0, charSkill.Score());
             adj.Modifier = 5;
@@ -144,7 +139,7 @@ namespace Tests.Characters {
             var skill = new Skill("Eat", AbilityScoreTypes.Intelligence, false);
             var ability = new AbilityScore(AbilityScoreTypes.Intelligence, 10);
             var charSkill = new CharacterSkill(skill, ability, false);
-            var adj = new ConditionalStatModifier(new ValueStatModifier("Eat", 3, "bonus", "High in Fiber"), "Celery");
+            var adj = new ConditionalStatModifier(new ValueStatModifier("Eat", 3, "bonus"), "Celery");
             charSkill.AddModifier(adj);
             Assert.Equal(1, charSkill.ConditionalModifiers.Count());
             Assert.Equal(3, charSkill.GetConditionalValue("Celery"));
@@ -158,7 +153,7 @@ namespace Tests.Characters {
             var ability = new AbilityScore(AbilityScoreTypes.Intelligence, 10);
             var charSkill = new CharacterSkill(skill, ability, false);
             charSkill.AddRank();
-            var adj = new ConditionalStatModifier(new ValueStatModifier("Eat", 3, "bonus", "High in Fiber"), "Celery");
+            var adj = new ConditionalStatModifier(new ValueStatModifier("Eat", 3, "bonus"), "Celery");
             charSkill.AddModifier(adj);
             Assert.Equal(1, charSkill.ConditionalModifiers.Count());
             Assert.Equal(4, charSkill.GetConditionalValue("Celery"));

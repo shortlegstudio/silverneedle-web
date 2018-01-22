@@ -26,7 +26,6 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
             naturalArmor = new DelegateStatModifier(
                 StatNames.ArmorClass,
                 "natural",
-                this.Name,
                 GetNaturalArmorBonus
             );
             components.ApplyStatModifier(naturalArmor);

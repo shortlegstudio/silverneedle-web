@@ -17,7 +17,6 @@ namespace SilverNeedle.Characters.SpecialAbilities
             modifier = new DelegateStatModifier(
                 "Physical Attribute",
                 "enhancement",
-                this.Name,
                 CalculateBonus
             );
 

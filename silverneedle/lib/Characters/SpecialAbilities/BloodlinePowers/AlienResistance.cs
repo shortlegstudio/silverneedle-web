@@ -16,7 +16,6 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
             spellResistance = new DelegateStatModifier(
                 "Spell Resistance",
                 "base",
-                this.Name,
                 () => { return 10 + classLevel.Level; }
             );
             var def = components.Get<DefenseStats>();

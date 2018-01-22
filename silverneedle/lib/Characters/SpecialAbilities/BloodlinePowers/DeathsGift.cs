@@ -20,7 +20,6 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
             nonLethal.AddModifier(new DelegateStatModifier(
                 nonLethal.Name,
                 "level-up",
-                this.Name,
                 () => { return sorcererLevels.Level >= 9 ? 10 : 5; }
             ));
             components.Add(coldResistance);

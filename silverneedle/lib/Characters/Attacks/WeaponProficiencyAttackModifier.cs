@@ -11,8 +11,7 @@ namespace SilverNeedle.Characters.Attacks
     {
         public WeaponProficiencyAttackModifier(OffenseStats offenseAbilities, IWeaponAttackStatistics weapon)
             : base(weapon.Name + " Proficiency Modifier", 
-                "proficiency penalty", 
-                "Level of Proficiency") 
+                "proficiency penalty") 
         {
             this.offenseAbilities = offenseAbilities;
             this.weapon = weapon;

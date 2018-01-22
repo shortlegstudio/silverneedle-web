@@ -123,10 +123,10 @@ namespace SilverNeedle.Characters
         /// </summary>
         private void SetupSkillModifiers()
         {
-            this.PositiveSizeModifier = new ValueStatModifier("Attack and Defense", 0, "size", "Size");
-            this.NegativeSizeModifier = new ValueStatModifier("Attack and Defense", 0, "size", "Size");
-            this.StealthAdj = new ValueStatModifier("Stealth", 0, "size", "Size");
-            this.FlyAdj = new ValueStatModifier("Fly", 0, "size", "Size");
+            this.PositiveSizeModifier = new ValueStatModifier("Attack and Defense", 0, "size");
+            this.NegativeSizeModifier = new ValueStatModifier("Attack and Defense", 0, "size");
+            this.StealthAdj = new ValueStatModifier("Stealth", 0, "size");
+            this.FlyAdj = new ValueStatModifier("Fly", 0, "size");
 
 
             this.Modifiers = new List<IValueStatModifier>();

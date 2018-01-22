@@ -14,7 +14,7 @@ namespace SilverNeedle.Characters
         private Inventory inventory;
         private MovementStats movement;
         
-        public EquippedArmorMovementModifier(ComponentContainer components) : base(StatNames.ArmorMovementPenalty, "Armor", "Armor")
+        public EquippedArmorMovementModifier(ComponentContainer components) : base(StatNames.ArmorMovementPenalty, "Armor")
         {
             this.inventory = components.Get<Inventory>();
             this.movement = components.Get<MovementStats>();

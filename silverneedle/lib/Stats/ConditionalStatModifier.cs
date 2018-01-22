@@ -38,8 +38,6 @@ namespace SilverNeedle
 
         public float Modifier { get { return baseModifier.Modifier; } }
 
-        public string Reason { get { return baseModifier.Reason; } }
-
         public string ModifierType { get { return baseModifier.ModifierType; } }
 
         public string StatisticName { get { return baseModifier.StatisticName; } }

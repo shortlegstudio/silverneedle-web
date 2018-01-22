@@ -233,7 +233,7 @@ namespace SilverNeedle.Characters
         }
         public void LevelUp(Class characterClass)
         {
-            BaseAttackBonus.AddModifier(new ValueStatModifier(characterClass.BaseAttackBonusRate, string.Format("{0} Level", characterClass.Name)));            
+            BaseAttackBonus.AddModifier(new ValueStatModifier(characterClass.BaseAttackBonusRate));            
         }
 
         private IEnumerable<IAttack> GetSpecialAttacks()

@@ -30,7 +30,7 @@ namespace Tests.Utility
             contain.Add(stat1);
             contain.Add(stat2);
 
-            var mod = new ValueStatModifier("A Statistic", 10, "foo", "bar");
+            var mod = new ValueStatModifier("A Statistic", 10, "foo");
             contain.Add(mod);
             Assert.Equal(10, stat1.TotalValue);
             Assert.Equal(10, stat2.TotalValue);
@@ -42,7 +42,7 @@ namespace Tests.Utility
             var contain = new ComponentContainer();
             var custom = new CustomStatType("Stat");
             var stat = new BasicStat("Stat 2");
-            var mod = new ValueStatModifier("%stat%", 10, "foo", "bar");
+            var mod = new ValueStatModifier("%stat%", 10, "foo");
             mod.StatisticType = "Tests.Utility.CustomStatType";
 
             contain.Add(custom);
@@ -56,7 +56,7 @@ namespace Tests.Utility
         public void ThrowsExceptionIfCannotApplyModifierBecauseStatIsNotFound()
         {
             var container = new ComponentContainer();
-            var mod = new ValueStatModifier("Stat", 10, "Foo", "Bar");
+            var mod = new ValueStatModifier("Stat", 10, "Foo");
             Assert.Throws(typeof(StatisticNotFoundException), () => container.Add(mod));
         }
 

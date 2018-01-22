@@ -14,10 +14,7 @@ namespace SilverNeedle.Actions.CharacterGeneration
     {
         public void ExecuteStep(CharacterSheet character)
         {
-            var baseHitpoints = new ValueStatModifier(
-                (int)character.Class.HitDice,
-                "base-hit-points"
-            );
+            var baseHitpoints = new ValueStatModifier((int)character.Class.HitDice);
             var hitpoints = character.FindStat(StatNames.HitPoints);
             hitpoints.AddModifier(baseHitpoints);
             hitpoints.AddModifier(character.AbilityScores.GetAbility(AbilityScoreTypes.Constitution).UniversalStatModifier);

@@ -11,9 +11,8 @@ namespace SilverNeedle.Characters.Attacks
     public class WeaponCriticalDamageModifier : IValueStatModifier, IWeaponModifier
     {
 
-        public WeaponCriticalDamageModifier(string reason, float modifier, Func<IWeaponAttackStatistics, bool> qualify)
+        public WeaponCriticalDamageModifier(float modifier, Func<IWeaponAttackStatistics, bool> qualify)
         {
-            this.Reason = reason;
             this.Modifier = modifier;
             this.WeaponQualifies = qualify;
         }
@@ -21,7 +20,6 @@ namespace SilverNeedle.Characters.Attacks
 
         public float Modifier { get; set; }
 
-        public string Reason { get; private set; }
 
         public string ModifierType { get { return "Bonus"; } }
 

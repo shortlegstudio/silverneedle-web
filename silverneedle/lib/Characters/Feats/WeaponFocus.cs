@@ -55,7 +55,6 @@ namespace SilverNeedle.Characters.Feats
             WeaponName = possibileWeapons.ChooseRandomly().Name;
             this.Name = "{0} ({1})".Formatted(this.Name, this.WeaponName);
             this.AttackModifier = new WeaponAttackModifier(
-                this.Name,
                 1,
                 x => { return x.Name == WeaponName; }
             );

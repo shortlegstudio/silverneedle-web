@@ -27,7 +27,6 @@ namespace SilverNeedle.Characters
             this.amount = configuration.GetInteger("modifier");
             this.type = configuration.GetString("modifier-type");
             this.source = configuration.GetString("modifier-type");
-            
         }
 
 
@@ -36,8 +35,7 @@ namespace SilverNeedle.Characters
             return new ValueStatModifier(
                 abilityScore.ToString(),
                 this.amount,
-                this.type,
-                this.source
+                this.type
             );
         }
 

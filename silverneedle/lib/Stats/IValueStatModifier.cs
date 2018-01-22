@@ -8,7 +8,6 @@ namespace SilverNeedle
     public interface IValueStatModifier : IStatisticModifier
     {
         float Modifier { get; }
-        string Reason { get; }
         string ModifierType { get; }
         string Condition { get; }
     }

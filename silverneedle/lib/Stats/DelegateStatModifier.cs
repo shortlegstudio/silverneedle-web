@@ -13,23 +13,20 @@ namespace SilverNeedle
 
         public float Modifier { get { return Calculation(); } }
 
-        public string Reason { get; private set; }
-
         public string ModifierType { get; private set; }
 
         public string StatisticName { get; private set; }
         public string Condition { get; set; }
         public string StatisticType { get; set; }
 
-        public DelegateStatModifier(string statName, string type, string reason, Func<float> calculation)
-            : this(statName, type, reason)
+        public DelegateStatModifier(string statName, string type, Func<float> calculation)
+            : this(statName, type)
         {
             this.Calculation = calculation;
         }
 
-        protected DelegateStatModifier(string statName, string type, string reason)
+        protected DelegateStatModifier(string statName, string type)
         {
-            this.Reason = reason;
             this.ModifierType = type;
             this.StatisticName = statName;
         }

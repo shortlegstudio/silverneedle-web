@@ -29,7 +29,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
             monkLevels = components.Get<ClassLevel>();
             wisdom = components.FindStat<AbilityScore>(StatNames.Wisdom);
             inventory = components.Get<Inventory>();
-            monkACModifier = new DelegateStatModifier(StatNames.ArmorClass, "bonus", this.Name(), Modifier);
+            monkACModifier = new DelegateStatModifier(StatNames.ArmorClass, "bonus", Modifier);
             components.ApplyStatModifier(monkACModifier);
 
         }

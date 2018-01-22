@@ -51,8 +51,7 @@ namespace SilverNeedle.Characters
             return new ValueStatModifier(
                 skill.Name,
                 Modifier,
-                ModifierType,
-                "Skill Modifier Token"
+                ModifierType
             );
         }
     }

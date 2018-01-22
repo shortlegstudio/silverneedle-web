@@ -19,7 +19,6 @@ namespace SilverNeedle.Characters.SpecialAbilities
             modifier = new DelegateStatModifier(
                 StatNames.CMB,
                 "Monk",
-                "Maneuver Training",
                 Modifier
             );
             components.ApplyStatModifier(modifier);

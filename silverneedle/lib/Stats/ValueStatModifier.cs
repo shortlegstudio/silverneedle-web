@@ -25,11 +25,9 @@ namespace SilverNeedle
         /// Initializes a new instance of the <see cref="SilverNeedle.ValueStatModifier"/> class.
         /// </summary>
         /// <param name="modifier">Modifier amount for the stat</param>
-        /// <param name="reason">Reason for this modifier</param>
-        public ValueStatModifier(float modifier, string reason)
+        public ValueStatModifier(float modifier)
         {
             this.Modifier = modifier;
-            this.Reason = reason;
         }
 
         /// <summary>
@@ -38,13 +36,11 @@ namespace SilverNeedle
         /// <param name="statisticName">Statistic name to modify</param>
         /// <param name="modifier">Modifier amount</param>
         /// <param name="type">Type of modifier (armor, shield, luck, morale, etc...)</param>
-        /// <param name="reason">Reason for modifier</param>
-        public ValueStatModifier(string statisticName, float modifier, string type, string reason)
+        public ValueStatModifier(string statisticName, float modifier, string type)
         {
             this.Modifier = modifier;
             this.StatisticName = statisticName;
             this.ModifierType = type;
-            this.Reason = reason;
         }
 
         /// <summary>
@@ -53,13 +49,6 @@ namespace SilverNeedle
         /// <value>The modifier amount for the statistic</value>
         [ObjectStore("modifier")]
         public virtual float Modifier { get; set; }
-
-        /// <summary>
-        /// Gets or sets the reason.
-        /// </summary>
-        /// <value>The reason for the modifier.</value>
-        [ObjectStoreOptional("reason")]
-        public virtual string Reason { get; set; }
 
         /// <summary>
         /// Gets or sets the type.

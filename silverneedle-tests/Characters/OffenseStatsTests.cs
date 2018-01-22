@@ -168,8 +168,8 @@ namespace Tests.Characters {
         public void AllowCustomModifiersToAttackBonusForSpecificWeapons()
         {
             //This allows things like WeaponFocus feats
-            var attackMod = new WeaponAttackModifier("Weapon Focus",  1, x => { return x.Name.EqualsIgnoreCase("Longsword"); });
-            var damageMod = new WeaponDamageModifier("Weapon Training", 2, x => { return x.Group == WeaponGroup.HeavyBlades; });
+            var attackMod = new WeaponAttackModifier(1, x => { return x.Name.EqualsIgnoreCase("Longsword"); });
+            var damageMod = new WeaponDamageModifier(2, x => { return x.Group == WeaponGroup.HeavyBlades; });
             smallStats.AddWeaponProficiency("simple");
             smallStats.AddWeaponProficiency("martial");
             smallStats.AddWeaponModifier(attackMod);
@@ -220,8 +220,8 @@ namespace Tests.Characters {
 
             public MockMod() {
                 Modifiers = new List<IValueStatModifier>();
-                Modifiers.Add(new ValueStatModifier("CMD", 1, "racial", "Trait"));
-                Modifiers.Add(new ValueStatModifier("CMB", 1, "racial", "Trait"));
+                Modifiers.Add(new ValueStatModifier("CMD", 1, "racial"));
+                Modifiers.Add(new ValueStatModifier("CMB", 1, "racial"));
             }
         }
     }

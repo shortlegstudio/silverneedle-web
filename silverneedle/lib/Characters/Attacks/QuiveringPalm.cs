@@ -24,7 +24,6 @@ namespace SilverNeedle.Characters.Attacks
             var monkLevels = components.Get<ClassLevel>();
             saveDC.AddModifier(new DelegateStatModifier(saveDC.Name,
                 "Monk Levels",
-                "Monk",
                 () => { return monkLevels.Level / 2; })
             );
         }

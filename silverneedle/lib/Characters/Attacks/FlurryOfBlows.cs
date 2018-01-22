@@ -116,7 +116,7 @@ namespace SilverNeedle.Characters.Attacks
         private class FlurryOfBlowsAttackBonusModifier : DelegateStatModifier
         {
             public FlurryOfBlowsAttackBonusModifier(FlurryOfBlows blows, int attackNumber) 
-                : base("Attack Bonus", "Class Ability", "Monk", 
+                : base("Attack Bonus", "Class Ability", 
                  () => {return blows.GetFlurryOfBlowsAttackBonuses().ElementAt(attackNumber - 1);})
             {
 

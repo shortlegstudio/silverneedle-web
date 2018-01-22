@@ -142,8 +142,7 @@ namespace SilverNeedle.Characters
                     Modifiers.Add(new ValueStatModifier(
                         skillName,
                         modifier,
-                        type,
-                        string.Format("{0} (feat)", Name)));
+                        type));
                 }
             }
 

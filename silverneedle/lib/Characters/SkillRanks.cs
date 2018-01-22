@@ -194,7 +194,7 @@ namespace SilverNeedle.Characters
             var armorCheckSkills = GetSkills().Where(x => x.Skill.UseArmorCheckPenalty);
             foreach(var skl in armorCheckSkills)
             {
-                var modifier = new DelegateStatModifier(skl.Name, "Armor", "Armor Check Penalty", () => { return ArmorCheckPenalty.TotalValue; });
+                var modifier = new DelegateStatModifier(skl.Name, "Armor", () => { return ArmorCheckPenalty.TotalValue; });
                 skl.AddModifier(modifier);
             }
         }

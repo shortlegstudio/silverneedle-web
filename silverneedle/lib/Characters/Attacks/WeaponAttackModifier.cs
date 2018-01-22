@@ -15,26 +15,22 @@ namespace SilverNeedle.Characters.Attacks
             get { return ModifierCalculation(); }
         }
 
-        public string Reason { get; private set; }
-
         public string ModifierType { get { return "Bonus"; } }
         public string Condition { get; set; }
 
         public string StatisticName { get { return "Weapon Attack"; } }
         public string StatisticType { get; set; }
 
-        public WeaponAttackModifier(string reason, float modifier, Func<IWeaponAttackStatistics, bool> weaponQualifies)
+        public WeaponAttackModifier(float modifier, Func<IWeaponAttackStatistics, bool> weaponQualifies)
         {
             this.staticModifier = modifier;
             ModifierCalculation = () => { return this.staticModifier; };
-            this.Reason = reason;
             this.WeaponQualifies = weaponQualifies;
         }
 
-        public WeaponAttackModifier(string reason, Func<float> modifier, Func<IWeaponAttackStatistics, bool> weaponQualifies)
+        public WeaponAttackModifier(Func<float> modifier, Func<IWeaponAttackStatistics, bool> weaponQualifies)
         {
             ModifierCalculation = modifier;
-            this.Reason = reason;
             this.WeaponQualifies = weaponQualifies;
         }
 
