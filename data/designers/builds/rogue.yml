@@ -44,6 +44,8 @@
   feats:
     - name: combat reflexes
       weight: 20
+    - name: dodge
+      weight: 20
     - name: improved initiative
       weight: 5
     - name: point-blank shot

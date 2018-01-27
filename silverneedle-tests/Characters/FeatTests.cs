@@ -44,7 +44,7 @@ namespace Tests.Characters {
             var dumbCharacter = CharacterTestTemplates.AverageBob();
             dumbCharacter.AbilityScores.SetScore (AbilityScoreTypes.Intelligence, 5);
 
-            var CombatExpertise = new Feat();
+            var CombatExpertise = Feat.Named("Combat Expertise");
             CombatExpertise.Prerequisites.Add(new AbilityPrerequisite(AbilityScoreTypes.Intelligence, 13));
 
             Assert.True (CombatExpertise.IsQualified (smartCharacter));
@@ -65,7 +65,7 @@ namespace Tests.Characters {
         [Fact]
         public void IfFeatHasPrerequisitesTheyCanBeBypassed()
         {
-            var CombatExpertise = new Feat();
+            var CombatExpertise = Feat.Named("Combat Expertise");
             CombatExpertise.Prerequisites.Add(new AbilityPrerequisite(AbilityScoreTypes.Intelligence, 13));
             var character = CharacterTestTemplates.AverageBob();
             Assert.False(CombatExpertise.IsQualified(character));
@@ -75,7 +75,7 @@ namespace Tests.Characters {
         [Fact]
         public void IgnoringPrerequisitesStillRequiresUniqueFeats()
         {
-            var feat = new Feat();
+            var feat = Feat.Named("Testing");
             var copy = feat.Copy();
             var character = CharacterTestTemplates.AverageBob();
             character.Add(feat);
@@ -93,21 +93,6 @@ namespace Tests.Characters {
         public void FeatsHaveADescription() {
             Assert.Equal ("Move good", Acrobatic.Description);
             Assert.Equal ("Hit Stuff Hard", PowerAttack.Description);
-        }
-
-        [Fact]
-        public void FeatsCanHaveSkillAdjustments() {
-            var modifiers = Acrobatic.Modifiers;
-            Assert.Equal (2, modifiers.Count);
-            var skillAdj = modifiers.First ();
-            Assert.Equal ("Acrobatics", skillAdj.StatisticName);
-            Assert.Equal("bonus", skillAdj.ModifierType);
-            Assert.Equal (2, skillAdj.Modifier);
-
-            var flyAdj = modifiers.Last ();
-            Assert.Equal ("Fly", flyAdj.StatisticName);
-            Assert.Equal("bonus", skillAdj.ModifierType);
-            Assert.Equal (4, flyAdj.Modifier);
         }
 
         [Fact]
@@ -172,23 +157,10 @@ namespace Tests.Characters {
             Assert.True(multi2.IsQualified(character));
         }
 
-        public void IfNoConfigurationAvailableCopyWontWork()
-        {
-            var feat = new Feat();
-            Assert.Throws(typeof(System.InvalidOperationException), () => feat.Copy());
-        }
-
         private const string FeatYamlFile = @"--- 
 - feat: 
   name: Acrobatic
   description: Move good
-  modifiers:
-    - type: bonus
-      stat: Acrobatics
-      modifier: 2
-    - type: bonus
-      stat: Fly
-      modifier: 4
 - feat:
   name: Combat Expertise
   description: Dodge stuff better

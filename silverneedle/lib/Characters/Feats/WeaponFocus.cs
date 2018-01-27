@@ -10,24 +10,15 @@ namespace SilverNeedle.Characters.Feats
     using SilverNeedle.Equipment;
     using SilverNeedle.Utility;
 
-    public class WeaponFocus : Feat, IComponent
+    public class WeaponFocus : Feat
     {
-        private static EntityGateway<Weapon> weapons;
-        private static EntityGateway<Weapon> GetWeapons()
+        private EntityGateway<Weapon> weaponsGateway;
+        private EntityGateway<Weapon> GetWeapons()
         {
-            if(weapons == null)
-                weapons = GatewayProvider.Get<Weapon>();
+            if(weaponsGateway == null)
+                weaponsGateway = GatewayProvider.Get<Weapon>();
 
-            return weapons;
-        }
-
-        public WeaponFocus(EntityGateway<Weapon> weaponGateway) : this() 
-        {
-            weapons = weaponGateway;
-        }
-        public WeaponFocus() : base() 
-        {
-            this.Name = "Weapon Focus";
+            return weaponsGateway;
         }
 
         public WeaponFocus(IObjectStore configure) : base(configure) { }
@@ -48,8 +39,9 @@ namespace SilverNeedle.Characters.Feats
             return result && !character.Contains<WeaponFocus>() && possibileWeapons.NotEmpty();
         }
 
-        public void Initialize(ComponentContainer components)
+        public override void Initialize(ComponentContainer components)
         {
+            base.Initialize(components);
             var offense = components.Get<OffenseStats>();
             var possibileWeapons = GetWeapons().FindByProficient(offense.WeaponProficiencies).CreateFlatTable();
             WeaponName = possibileWeapons.ChooseRandomly().Name;
@@ -59,8 +51,15 @@ namespace SilverNeedle.Characters.Feats
                 x => { return x.Name == WeaponName; }
             );
             offense.AddWeaponModifier(this.AttackModifier);
-            
+        }
 
+        public static WeaponFocus CreateForTesting(EntityGateway<Weapon> weapons)
+        {
+            var configure = new MemoryStore();
+            configure.SetValue("name", "Weapon Focus");
+            var weaponFocus = new WeaponFocus(configure);
+            weaponFocus.weaponsGateway = weapons;
+            return weaponFocus;
         }
     }
 }

@@ -2,13 +2,15 @@
 - feat:
   name: Acrobatic
   description: Skilled at leaping, jumping, and flying.
-  modifiers:
-    - stat: Acrobatics
-      type: bonus
+  items:
+    - type: SilverNeedle.ValueStatModifier
+      name: Acrobatics
       modifier: 2
-    - stat: Fly
-      type: bonus
+      modifier-type: bonus
+    - type: SilverNeedle.ValueStatModifier
+      name: Fly
       modifier: 2
+      modifier-type: bonus
 - feat:
   name: Acrobatic Steps
   description: >
@@ -25,13 +27,15 @@
 - feat:
   name: Alertness
   description: You often notice things that others might miss.
-  modifiers:
-    - stat: Perception
-      type: bonus
+  items:
+    - type: SilverNeedle.ValueStatModifier
+      name: Perception
       modifier: 2
-    - stat: Sense Motive
-      type: bonus
+      modifier-type: bonus
+    - type: SilverNeedle.ValueStatModifier
+      name: Sense Motive
       modifier: 2
+      modifier-type: bonus
 - feat:
   name: Alignment Channel (Chaos)
   description: >
@@ -63,13 +67,15 @@
 - feat:
   name: Animal Affinity
   description: You are skilled at working with animals and mounts.
-  modifiers:
-    - stat: Handle Animal
-      type: bonus
+  items:
+    - type: SilverNeedle.ValueStatModifier
+      name: Handle Animal
       modifier: 2
-    - stat: Ride
-      type: bonus
+      modifier-type: bonus
+    - type: SilverNeedle.ValueStatModifier
+      name: Ride
       modifier: 2
+      modifier-type: bonus
 - feat:
   name: Arcane Armor Mastery
   description: >
@@ -105,13 +111,15 @@
 - feat:
   name: Athletic
   description: You possess inherent physical prowess.
-  modifiers:
-    - stat: Climb
-      type: bonus
+  items:
+    - type: SilverNeedle.ValueStatModifier
+      name: Climb
       modifier: 2
-    - stat: Swim
-      type: bonus
+      modifier-type: bonus
+    - type: SilverNeedle.ValueStatModifier
+      name: Swim
       modifier: 2
+      modifier-type: bonus
 - feat:
   name: Augment Summoning
   description: Your summoned creatures are more powerful and robust.
@@ -265,13 +273,15 @@
   description: >
     You are skilled at deceiving others, both with spoken words and with
     physical disguises.
-  modifiers:
-    - stat: Bluff
-      type: bonus
+  items:
+    - type: SilverNeedle.ValueStatModifier
+      name: Bluff
       modifier: 2
-    - stat: Disguise
-      type: bonus
+      modifier-type: bonus
+    - type: SilverNeedle.ValueStatModifier
+      name: Disguise
       modifier: 2
+      modifier-type: bonus
 - feat:
   name: Defensive Combat Training
   description: You excel at defending yourself from all manner of combat maneuvers.
@@ -312,10 +322,11 @@
   tags: [ combat ]
   prerequisites:
     - dexterity: 13
-  modifiers:
-    - stat: Armor Class
+  items:
+    - type: SilverNeedle.ValueStatModifier
+      name: Armor Class
       modifier: 1
-      type: dodge
+      modifier-type: dodge
 - feat:
   name: Double Slice
   description: >
@@ -444,10 +455,11 @@
 - feat:
   name: Great Fortitude
   description: You are resistant to poisons, diseases, and other maladies.
-  modifiers:
-    - stat: Fortitude
+  items:
+    - type: SilverNeedle.ValueStatModifier
+      name: Fortitude
       modifier: 2
-      type: bonus
+      modifier-type: bonus
 - feat:
   name: Greater Bull Rush
   tags: [ combat ]
@@ -653,10 +665,11 @@
   name: Improved Initiative
   description: Your quick reflexes allow you to react rapidly to danger.
   tags: [ combat ]
-  modifiers:
-    - stat: Initiative
+  items:
+    - type: SilverNeedle.ValueStatModifier
+      name: Initiative
       modifier: 4
-      type: bonus
+      modifier-type: bonus
 - feat:
   name: Improved Iron Will
   description: Your clarity of thought allows you to resist mental attacks.
@@ -740,20 +753,22 @@
 - feat:
   name: Iron Will
   description: You are more resistant to mental effects.
-  modifiers:
-    - stat: Will
+  items:
+    - type: SilverNeedle.ValueStatModifier
+      name: Will
       modifier: 2
-      type: bonus
+      modifier-type: bonus
 - feat:
   name: Leadership
   description: You attract followers to your cause.
 - feat:
   name: Lightning Reflexes
   description: You have faster reflexes than normal.
-  modifiers:
-    - stat: Reflex
+  items:
+    - type: SilverNeedle.ValueStatModifier
+      name: Reflex
       modifier: 2
-      type: bonus
+      modifier-type: bonus
 - feat:
   name: Lighting Stance
   description: >
@@ -775,13 +790,15 @@
 - feat:
   name: Magical Aptitude
   description: You are skilled at spellcasting and using magic items.
-  modifiers:
-    - stat: Spellcraft
-      type: bonus
+  items:
+    - type: SilverNeedle.ValueStatModifier
+      name: Spellcraft
       modifier: 2
-    - stat: Use Magical Device
-      type: bonus
+      modifier-type: bonus
+    - type: SilverNeedle.ValueStatModifier
+      name: Use Magical Device
       modifier: 2
+      modifier-type: bonus
 - feat:
   name: Manyshot
   description: You can fire multiple arrows at a single target.
@@ -862,13 +879,15 @@
   description: >
     You are skilled at swaying attitudes and intimidating others into your
     way of thinking.
-  modifiers:
-    - stat: Diplomacy
-      type: bonus
+  items:
+    - type: SilverNeedle.ValueStatModifier
+      name: Diplomacy
       modifier: 2
-    - stat: Intimidate
-      type: bonus
+      modifier-type: bonus
+    - type: SilverNeedle.ValueStatModifier
+      name: Intimidate
       modifier: 2
+      modifier-type: bonus
 - feat:
   name: Pinpoint Targeting
   description: You can target the weak points in your opponent's armor.
@@ -958,13 +977,15 @@
   name: Self Sufficient
   description: >
     You know how to get along in the wild and how to effectively treat wounds.
-  modifiers:
-    - stat: Heal
+  items:
+    - type: SilverNeedle.ValueStatModifier
+      name: Heal
       modifier: 2
-      type: bonus
-    - stat: Survival
+      modifier-type: bonus
+    - type: SilverNeedle.ValueStatModifier
+      name: Survival
       modifier: 2
-      type: bonus
+      modifier-type: bonus
 - feat:
   name: Shatter Defenses
   description: >
@@ -1113,13 +1134,15 @@
 - feat:
   name: Stealthy
   description: You are good at avoiding unwanted attend and slipping out of bonds.
-  modifiers:
-    - stat: Escape Artist
+  items:
+    - type: SilverNeedle.ValueStatModifier
+      name: Escape Artist
       modifier: 2
-      type: bonus
-    - stat: Stealth
+      modifier-type: bonus
+    - type: SilverNeedle.ValueStatModifier
+      name: Stealth
       modifier: 2
-      type: bonus
+      modifier-type: bonus
 - feat:
   name: Step Up
   tags: [ combat ]

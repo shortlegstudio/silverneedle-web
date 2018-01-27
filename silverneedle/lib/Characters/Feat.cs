@@ -16,38 +16,25 @@ namespace SilverNeedle.Characters
     /// Represents a feat ability for a character that allows it to perform
     /// special and advanced abilities
     /// </summary>
-    public class Feat : IModifiesStats, IGatewayObject, IGatewayCopy<Feat>
+    public class Feat : CharacterFeatureAttribute, IGatewayObject, IGatewayCopy<Feat>
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SilverNeedle.Characters.Feat"/> class.
-        /// </summary>
-        public Feat()
+
+        public Feat(IObjectStore data) : base(data)
         {
             this.Modifiers = new List<IValueStatModifier>();
             this.Prerequisites = new PrerequisiteList();
             this.Tags = new List<string>();
-        }
-
-        public Feat(IObjectStore data) : this()
-        {
             LoadObject(data);
         }
 
-        protected Feat(Feat copy) : this()
+        protected Feat(Feat copy) : base(copy)
         {
-            this.Name = copy.Name;
             this.Description = copy.Description;
             this.AllowMultiple = copy.AllowMultiple;
             this.Modifiers = copy.Modifiers;
             this.Prerequisites = copy.Prerequisites;
             this.Tags = copy.Tags;
         }
-
-        /// <summary>
-        /// Gets or sets the name.
-        /// </summary>
-        /// <value>The name of the feat.</value>
-        public string Name { get; protected set; }
 
         /// <summary>
         /// Gets or sets the description of the feat
@@ -130,26 +117,9 @@ namespace SilverNeedle.Characters
 
         private void LoadObject(IObjectStore data)
         {
-            Name = data.GetString("name"); 
             ShortLog.DebugFormat("Loading Feat: {0}", Name);
             Description = data.GetStringOptional("description");
             AllowMultiple = data.GetBoolOptional("allow-multiple");
-
-            // Get Any skill Modifiers if they exist
-            var skills = data.GetObjectOptional("modifiers");
-            if (skills != null)
-            {
-                foreach (var skillAdj in skills.Children)
-                {
-                    var skillName = skillAdj.GetString("stat");
-                    var modifier = skillAdj.GetInteger("modifier");
-                    var type = skillAdj.GetString("type");
-                    Modifiers.Add(new ValueStatModifier(
-                        skillName,
-                        modifier,
-                        type));
-                }
-            }
 
             // Get any prerequisites
             var prereq = data.GetObjectOptional("prerequisites");
@@ -163,8 +133,9 @@ namespace SilverNeedle.Characters
 
         public static Feat Named(string name)
         {
-            var feat = new Feat();
-            feat.Name = name;
+            var emptyStore = new MemoryStore();
+            emptyStore.SetValue("name", name);
+            var feat = new Feat(emptyStore);
             return feat;
         }
 
@@ -186,13 +157,6 @@ namespace SilverNeedle.Characters
         public override int GetHashCode()
         {
             return this.Name.GetHashCode();
-        }
-
-        public static Feat Create(string name)
-        {
-            var feat = new Feat();
-            feat.Name = name;
-            return feat;
         }
     }
 }

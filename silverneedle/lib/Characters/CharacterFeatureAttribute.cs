@@ -10,7 +10,7 @@ namespace SilverNeedle.Characters
 
     public class CharacterFeatureAttribute : IComponent, ICharacterFeatureAttribute
     {
-        public virtual string Name { get; private set; }
+        public virtual string Name { get; protected set; }
         private IObjectStore Items { get; set; }
         private IObjectStore Commands { get; set; }
         public CharacterFeatureAttribute(IObjectStore configuration)
@@ -18,6 +18,13 @@ namespace SilverNeedle.Characters
             this.Name = configuration.GetString("name");
             this.Items = configuration.GetObjectOptional("items").Default(new MemoryStore());
             this.Commands = configuration.GetObjectOptional("commands").Default(new MemoryStore());
+        }
+
+        protected CharacterFeatureAttribute(CharacterFeatureAttribute copy)
+        {
+            this.Name = copy.Name;
+            this.Items = copy.Items;
+            this.Commands = copy.Commands;
         }
 
         public virtual void Initialize(ComponentContainer components)

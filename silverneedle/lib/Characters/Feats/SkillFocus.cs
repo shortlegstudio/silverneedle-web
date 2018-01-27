@@ -11,19 +11,11 @@ namespace SilverNeedle.Characters.Feats
     using SilverNeedle.Serialization;   
     using SilverNeedle.Utility;
 
-    public class SkillFocus : Feat, IComponent
+    public class SkillFocus : Feat
     {
         private DelegateStatModifier statModifier;
         public string SkillName { get; private set; }
         public CharacterSkill CharacterSkill { get; private set; }
-        public SkillFocus()
-        {
-            this.Name = "Skill Focus";
-        }
-        public SkillFocus(string skillName) : this()
-        {
-            SetSkillFocus(skillName);
-        }
         public SkillFocus(IObjectStore configure) : base(configure) { }
         public SkillFocus(SkillFocus copy) : base(copy) 
         { 
@@ -35,8 +27,9 @@ namespace SilverNeedle.Characters.Feats
             this.SkillName = skillName;
             this.Name = "Skill Focus({1})".Formatted(this.Name, this.SkillName.Titlize());
         }
-        public void Initialize(ComponentContainer components)
+        public override void Initialize(ComponentContainer components)
         {
+            base.Initialize(components);
             if(string.IsNullOrEmpty(this.SkillName))
             {
                 SelectSkillFocus(components);
@@ -94,6 +87,13 @@ namespace SilverNeedle.Characters.Feats
                 }
             );
             this.CharacterSkill.AddModifier(statModifier);
+        }
+
+        public static SkillFocus CreateForTesting()
+        {
+            var memStore = new MemoryStore();
+            memStore.SetValue("name", "Skill Focus");
+            return new SkillFocus(memStore);
         }
     }
 }

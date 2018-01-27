@@ -12,21 +12,6 @@ namespace Tests.Characters.Feats
 
     public class WeaponFocusTests
     {
-        [Fact]
-        public void ProvidesSomeDefaultNamesThatMakeSense()
-        {
-            var weapon = new WeaponFocus();
-            Assert.Equal("Weapon Focus", weapon.Name);
-        }
-
-        [Fact]
-        public void ProvidesAUsefulCopyConstructor()
-        {
-            var weapon = new WeaponFocus();
-            var copy = new WeaponFocus(weapon);
-            Assert.Equal(weapon, copy);
-        }
-
         [Theory]
         [InlineData("longsword", "Longsword")]
         [InlineData("martial", "Longsword")]
@@ -36,7 +21,7 @@ namespace Tests.Characters.Feats
             var longsword = new Weapon("Longsword", 1, "1d6", DamageTypes.Slashing, 20, 2, 0, WeaponType.OneHanded, WeaponGroup.HeavyBlades, WeaponTrainingLevel.Martial);
             var axe = new Weapon("Axe", 1, "1d6", DamageTypes.Slashing, 20, 2, 0, WeaponType.OneHanded, WeaponGroup.HeavyBlades, WeaponTrainingLevel.Simple);
             var list = EntityGateway<Weapon>.LoadFromList(new Weapon[] { longsword, axe });
-            var weaponFocus = new WeaponFocus(list);
+            var weaponFocus = WeaponFocus.CreateForTesting(list);
 
             //Specific exact weapon proficiency
             var bob = CharacterTestTemplates.AverageBob();
@@ -51,7 +36,7 @@ namespace Tests.Characters.Feats
         {
             var longsword = new Weapon("Longsword", 1, "1d6", DamageTypes.Slashing, 20, 2, 0, WeaponType.OneHanded, WeaponGroup.HeavyBlades, WeaponTrainingLevel.Simple);
             var list = EntityGateway<Weapon>.LoadWithSingleItem(longsword);
-            var weaponFocus = new WeaponFocus(list);
+            var weaponFocus = WeaponFocus.CreateForTesting(list);
 
             var bob = CharacterTestTemplates.AverageBob();
             bob.Offense.AddWeaponProficiency("simple");
@@ -67,11 +52,11 @@ namespace Tests.Characters.Feats
         {
             var longsword = new Weapon("Longsword", 1, "1d6", DamageTypes.Slashing, 20, 2, 0, WeaponType.OneHanded, WeaponGroup.HeavyBlades, WeaponTrainingLevel.Simple);
             var list = EntityGateway<Weapon>.LoadWithSingleItem(longsword);
-            var weaponFocus = new WeaponFocus(list);
+            var weaponFocus = WeaponFocus.CreateForTesting(list);
             var bob = CharacterTestTemplates.AverageBob();
             bob.Offense.AddWeaponProficiency("simple");
             bob.Add(weaponFocus);
-            var newFocus = new WeaponFocus(list);
+            var newFocus = WeaponFocus.CreateForTesting(list);
             Assert.False(newFocus.IsQualified(bob));
         }
 
@@ -81,7 +66,7 @@ namespace Tests.Characters.Feats
             var longsword = new Weapon("Longsword", 1, "1d6", DamageTypes.Slashing, 20, 2, 0, WeaponType.OneHanded, WeaponGroup.HeavyBlades, WeaponTrainingLevel.Simple);
             var list = EntityGateway<Weapon>.LoadWithSingleItem(longsword);
             var character = CharacterTestTemplates.AverageBob();
-            var weaponFocus = new WeaponFocus(list);
+            var weaponFocus = WeaponFocus.CreateForTesting(list);
             Assert.False(weaponFocus.IsQualified(character));
         }
 

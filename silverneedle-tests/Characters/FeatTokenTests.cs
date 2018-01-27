@@ -12,10 +12,10 @@ namespace Tests.Characters {
     public class FeatTokenTests {
         [Fact]
         public void FeatTokensKnowWhetherAFeatMatches() {
-            var combatFeat = new Feat();
+            var combatFeat = Feat.Named("Power Attack");
             combatFeat.Tags.Add("combat");
             combatFeat.Tags.Add("critical");
-            var magicFeat = new Feat();
+            var magicFeat = Feat.Named("Create Potion");
             magicFeat.Tags.Add("item creation");
 
             var featToken = new FeatToken("combat");
@@ -25,7 +25,7 @@ namespace Tests.Characters {
 
         [Fact]
         public void EmptyFeatTokenCanBeUsedForAnyFeat() {
-            var f = new Feat();
+            var f = Feat.Named("Combat Reflexes");
             f.Tags.Add("combat");
 
             var featToken = new FeatToken();
