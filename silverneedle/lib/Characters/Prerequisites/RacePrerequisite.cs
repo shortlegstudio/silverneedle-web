@@ -18,7 +18,11 @@ namespace SilverNeedle.Characters.Prerequisites
 
         public bool IsQualified(ComponentContainer components)
         {
-            return false;
+            var race = components.Get<Race>();
+            if(race == null)
+                return false;
+            
+            return race.Matches(this.Race);
         }
     }
 }

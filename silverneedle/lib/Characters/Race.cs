@@ -93,5 +93,12 @@ namespace SilverNeedle.Characters
             KnownLanguages.Add(languages.GetListOptional("known"));
             AvailableLanguages.Add(languages.GetListOptional("available"));
         }
+
+        public static Race Named(string name)
+        {
+            var race = new Race();
+            race.Name = name;
+            return race;
+        }
     }
 }

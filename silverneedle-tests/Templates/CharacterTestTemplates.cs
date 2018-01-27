@@ -46,6 +46,12 @@ namespace Tests
             }
             return sheet;
         }
+
+        public static CharacterSheet OfRace(this CharacterSheet sheet, string name)
+        {
+            sheet.Add(Race.Named(name));
+            return sheet;
+        }
         public static CharacterSheet WithSkills(string[] names)
         {
             return CreateWithAverageAbilityScores().WithSkills(names);
@@ -57,10 +63,6 @@ namespace Tests
             bob.Gender = Gender.Male;
             bob.Get<History>().FamilyTree.Father.FirstName = "Bob's Father";
             bob.Get<History>().FamilyTree.Mother.FirstName = "Bob's Mother";
-
-            var human = new Race();
-            human.Name = "Human";
-            bob.Add(human);
             return bob;
         }
 

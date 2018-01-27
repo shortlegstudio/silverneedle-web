@@ -18,7 +18,7 @@ namespace Tests.Actions
         public void CanCreateFamilyTreeWithParents()
         {
             var generator = new FamilyHistoryCreator();
-            var character = CharacterTestTemplates.AverageBob();
+            var character = CharacterTestTemplates.AverageBob().OfRace("Human");
             generator.ExecuteStep(character);
             
             var familyTree = character.Get<History>().FamilyTree;
@@ -50,7 +50,7 @@ namespace Tests.Actions
         public void MotherAndFatherAreGivenJobsDependingOnTagsFromBirthCircumstance()
         {
             //Bob's parents were lower-class
-            var bob = CharacterTestTemplates.AverageBob();
+            var bob = CharacterTestTemplates.AverageBob().OfRace("Human");
             bob.History.BirthCircumstance.ParentProfessions = new string[] { "lower-class" };
 
             var peasant = new Occupation("peasant", "commoner", new string[] { "lower-class" });
@@ -66,7 +66,7 @@ namespace Tests.Actions
         [Fact]
         public void IfNoOccupationsMatchJustPickUnemployed()
         {
-            var bob = CharacterTestTemplates.AverageBob();
+            var bob = CharacterTestTemplates.AverageBob().OfRace("Human");
             var historyCreator = new FamilyHistoryCreator();
             historyCreator.ExecuteStep(bob);
             
