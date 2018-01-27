@@ -23,7 +23,6 @@ namespace Tests.Characters.Attacks
         {
             var mod = new MultipleAttackBonusModifier(attack);
             Assert.Equal(expectedModifier, mod.Modifier);
-            Assert.Equal("extra attacks", mod.Reason);
             Assert.Equal("penalty", mod.ModifierType);
             Assert.Equal(StatNames.BaseAttackBonus, mod.StatisticName);
         }

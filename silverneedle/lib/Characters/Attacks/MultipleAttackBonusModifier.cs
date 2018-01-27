@@ -15,8 +15,6 @@ namespace SilverNeedle.Characters.Attacks
 
         public float Modifier { get; private set; }
 
-        public string Reason { get { return "extra attacks"; } }
-
         public string ModifierType { get { return "penalty"; } }
 
         public string StatisticName { get { return StatNames.BaseAttackBonus; } } 

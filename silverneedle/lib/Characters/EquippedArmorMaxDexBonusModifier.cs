@@ -27,8 +27,6 @@ namespace SilverNeedle.Characters
             }
         }
 
-        public string Reason { get { return "Equipped Armor"; } }
-
         public string ModifierType { get { return "Max Dex"; } }
         public string StatisticName { get { return StatNames.MaxDexterityBonus; } }
         public string Condition { get; set; }

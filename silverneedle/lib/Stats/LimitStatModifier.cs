@@ -36,8 +36,6 @@ namespace SilverNeedle
             } 
         }
 
-        public string Reason { get { return maxValue.Name; } }
-
         public string ModifierType { get { return "Maximum"; } }
 
         public string StatisticName { get { return baseStat.Name; } }
