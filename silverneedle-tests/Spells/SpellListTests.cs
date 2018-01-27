@@ -12,7 +12,7 @@ namespace Tests.Spells
     using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
-    public class SpellListTests
+    public class SpellListTests : RequiresDataFiles
     {
         [Fact]
         public void LoadsConfigurationInformationForSpellLists()

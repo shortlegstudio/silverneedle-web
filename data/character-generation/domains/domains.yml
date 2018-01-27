@@ -360,7 +360,12 @@
         - attribute:
           name: Leadership
           items:
-            - type: SilverNeedle.Characters.SpecialAbilities.Leadership
+            - type: SilverNeedle.Characters.FeatToken
+              tags: Leadership
+            - type: SilverNeedle.ValueStatModifier
+              name: Leadership
+              modifier: 2
+              modifier-type: bonus
   spells: [divine favor, enthrall, magic vestment, discern lies, command - greater,
     geas/quest, repulsion, demand, storm of vengeance]
 - name: Plant

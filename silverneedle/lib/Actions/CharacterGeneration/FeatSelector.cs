@@ -69,7 +69,12 @@ namespace SilverNeedle.Actions.CharacterGeneration
 
         private bool FeatIsValid(Feat feat, FeatToken token, CharacterSheet character)
         {
-            return (feat.IsQualified(character) || token.IgnorePrerequisites) && token.Qualifies(feat);
+            if(token.IgnorePrerequisites)
+            {
+                return feat.IsQualifiedIgnorePrerequisites(character) && token.Qualifies(feat);
+            }
+            
+            return feat.IsQualified(character) && token.Qualifies(feat);
         }
 
         public void ExecuteStep(CharacterSheet character)

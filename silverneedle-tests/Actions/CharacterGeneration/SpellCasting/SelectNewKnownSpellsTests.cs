@@ -11,7 +11,7 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.Magic;
 
-    public class SelectNewKnownSpellsTests
+    public class SelectNewKnownSpellsTests : RequiresDataFiles
     {
         [Fact]
         public void SelectsSpellsForEachLevelUntilAllAvailableSlotsAreFilled()

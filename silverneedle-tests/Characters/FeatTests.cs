@@ -55,9 +55,31 @@ namespace Tests.Characters {
         public void IfFeatIsAlreadySelectedItCannotBeSelectedAgain()
         {
             var character = new CharacterSheet(CharacterStrategy.Default());
-            var basicFeat = new Feat();
-            character.Add(basicFeat);
-            Assert.False(basicFeat.IsQualified(character));
+            var cr1 = Feat.Named("Combat Reflexes");
+            var cr2 = Feat.Named("Combat Reflexes");
+            Assert.True(cr2.IsQualified(character));
+            character.Add(cr1);
+            Assert.False(cr2.IsQualified(character));
+        }
+
+        [Fact]
+        public void IfFeatHasPrerequisitesTheyCanBeBypassed()
+        {
+            var CombatExpertise = new Feat();
+            CombatExpertise.Prerequisites.Add(new AbilityPrerequisite(AbilityScoreTypes.Intelligence, 13));
+            var character = CharacterTestTemplates.AverageBob();
+            Assert.False(CombatExpertise.IsQualified(character));
+            Assert.True(CombatExpertise.IsQualifiedIgnorePrerequisites(character));
+        }
+
+        [Fact]
+        public void IgnoringPrerequisitesStillRequiresUniqueFeats()
+        {
+            var feat = new Feat();
+            var copy = feat.Copy();
+            var character = CharacterTestTemplates.AverageBob();
+            character.Add(feat);
+            Assert.False(copy.IsQualifiedIgnorePrerequisites(character));
         }
 
         [Fact]
