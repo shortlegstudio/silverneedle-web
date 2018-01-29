@@ -944,7 +944,7 @@
   tags: [ combat ]
   description: Choose a type of crossbow. You can reload such weapons quickly.
   prerequisites:
-    - ability: Weapon Proficiency (Crossbows)
+    - weapon-proficiency: crossbow
 - feat:
   name: Rapid Shot
   tags: [ combat ]

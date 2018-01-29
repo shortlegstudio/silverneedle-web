@@ -31,6 +31,24 @@ namespace SilverNeedle.Characters
             get { return string.Join(", ", proficiencyList); }
         }
 
+        public bool IsProficient(string proficiencyName)
+        {
+            //Do a quick string check...
+            foreach(var prof in proficiencyList)
+            {
+                if(prof.EqualsIgnoreCase(proficiencyName))
+                    return true;
+            }
+
+            var equip = GatewayProvider.Get<Weapon>().Where(x => x.Name.ContainsIgnoreCase(proficiencyName));
+            foreach(var w in equip)
+            {
+                if(IsProficient(w))
+                    return true;
+            }
+            return false;
+        }
+
         public virtual bool IsProficient(IWeaponAttackStatistics weapon)
         {
             bool passes = false;
