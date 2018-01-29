@@ -68,12 +68,34 @@ namespace SilverNeedle.Characters
         {
             get
             {
-                return Name.StartsWith("craft", StringComparison.OrdinalIgnoreCase) ||
-                    Name.StartsWith("profession", StringComparison.OrdinalIgnoreCase) ||
-                    Name.StartsWith("perform", StringComparison.OrdinalIgnoreCase);
+                return IsCraftSkill ||
+                    IsProfessionSkill || 
+                    IsPerformSkill;
             }
         }
 
+        public bool IsCraftSkill
+        {
+            get
+            {
+                return Name.StartsWith("craft", StringComparison.OrdinalIgnoreCase);
+            }
+        }
+
+        public bool IsProfessionSkill
+        {
+            get
+            {
+                return Name.StartsWith("profession", StringComparison.OrdinalIgnoreCase);
+            }
+        }
+        public bool IsPerformSkill
+        {
+            get
+            {
+                return Name.StartsWith("perform", StringComparison.OrdinalIgnoreCase);
+            }
+        }
         /// <summary>
         /// Returns a <see cref="System.String"/> that represents the current <see cref="SilverNeedle.Characters.Skill"/>.
         /// </summary>

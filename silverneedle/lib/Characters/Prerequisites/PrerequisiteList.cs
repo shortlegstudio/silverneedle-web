@@ -83,7 +83,7 @@ namespace SilverNeedle.Characters.Prerequisites
                         newreq = new RacePrerequisite(prereq.GetString(key));
                         break;
                     case "skillranks":
-                        newreq = new SkillRankPrerequisite(prereq.GetString(key));
+                        newreq = new SkillRankPrerequisite(prereq);
                         break;
                     case "strength":
                     case "dexterity":

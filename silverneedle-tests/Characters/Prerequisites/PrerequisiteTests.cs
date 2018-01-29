@@ -52,7 +52,9 @@ prerequisites:
   - intelligence: 13
   - race: Elf
   - ability: Weapon Finesse
-  - skillranks: Acrobatics 4
+  - skillranks:
+    name: Acrobatics 
+    minimum: 4
   - ability: darkvision
 ";
     }

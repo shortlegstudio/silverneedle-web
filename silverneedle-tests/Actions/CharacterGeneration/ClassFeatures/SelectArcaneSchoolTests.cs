@@ -14,7 +14,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
         [Fact]
         public void SelectsAFocusedSchool()
         {
-            var wizard = CharacterTestTemplates.Wizard().WithWizardCasting();
+            var wizard = CharacterTestTemplates.Wizard().WithWizardCasting().WithSkills();
             var select = new SelectArcaneSchool();
             var casting = wizard.Get<WizardCasting>();
 

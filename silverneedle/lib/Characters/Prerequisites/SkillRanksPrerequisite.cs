@@ -5,24 +5,30 @@
 
 namespace SilverNeedle.Characters.Prerequisites
 {
+    using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
     public class SkillRankPrerequisite : IPrerequisite
     {
-        public SkillRankPrerequisite(string value)
+        public SkillRankPrerequisite(IObjectStore configuration)
         {
-            var vals = value.Split(' ');
-            this.SkillName = vals[0];
-            this.Minimum = int.Parse(vals[1]);
+            configuration.Deserialize(this);
         }
 
+        [ObjectStore("name")]
         public string SkillName { get; set; }
 
+        [ObjectStore("minimum")]
         public int Minimum { get; set; }
 
         public bool IsQualified(ComponentContainer components)
         {
-            return false;
+            var stat = components.FindStat<CharacterSkill>(SkillName);
+
+            if(stat == null)
+                throw new StatisticNotFoundException(SkillName);
+
+            return stat.Ranks >= Minimum;
         }
     }
 }

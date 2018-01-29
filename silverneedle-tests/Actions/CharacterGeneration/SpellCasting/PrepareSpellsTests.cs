@@ -13,7 +13,7 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
     using SilverNeedle.Spells;
 
     
-    public class PrepareSpellsTests
+    public class PrepareSpellsTests : RequiresDataFiles
     {
 
         [Fact]

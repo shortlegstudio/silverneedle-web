@@ -816,8 +816,13 @@
 - feat:
   name: Master Craftsman
   description: Your superior crafting skills allow you to create magic items.
-  prerequisites:
-    - skillranks: Craft 5
+  loader: SilverNeedle.Characters.Feats.LoadMasterCraftsman
+  loader-template: |
+    name: Master Craftsman ({0})
+    prerequisites:
+      - skillranks:
+        name: {0}
+        minimum: 5
 - feat:
   name: Maximize Spell
   description: Your spells have the maximum possible effect.
@@ -846,14 +851,18 @@
   description: You are skilled at making ranged attacks while mounted.
   tags: [ combat ]
   prerequisites:
-    - skillranks: Ride 1
+    - skillranks: 
+      name: Ride 
+      minimum: 1
     - ability: Mounted Combat
 - feat:
   name: Mounted Combat
   description: You are adept at guiding your mount through combat.
   tags: [ combat ]
   prerequisites:
-    - skillranks: Ride 1
+    - skillranks: 
+      name: Ride 
+      minimum: 1
 - feat:
   name: Natural Spell
   description: >
@@ -950,7 +959,9 @@
     While mounted and charging, you can move, strike at a foe, and then
     continue moving.
   prerequisites:
-    - skillranks: Ride 1
+    - skillranks: 
+      name: Ride 
+      minimum: 1
     - ability: Mounted Combat
 - feat:
   name: Run
@@ -1105,7 +1116,9 @@
   description: >
     Your mounted charge attacks deal a tremendous amount of damage.
   prerequisites:
-    - skillranks: Ride 1
+    - skillranks: 
+      name: Ride 
+      minimum: 1
     - ability: Mounted Combat
     - ability: Ride-By Attack
 - feat:
@@ -1203,7 +1216,9 @@
   description: >
     While mounted, you can ride down opponents and trample them under your mount.
   prerequisites:
-    - skillranks: Ride 1
+    - skillranks: 
+      name: Ride 
+      minimum: 1
     - ability: Mounted Combat
 - feat:
   name: Turn Undead
@@ -1245,7 +1260,9 @@
   description: You are skilled at unseating your mounted opponents.
   prerequisites:
     - strength: 13
-    - skillranks: Ride 1
+    - skillranks: 
+      name: Ride 
+      minimum: 1
     - ability: Mounted Combat
     - ability: Power Attack
     - ability: Improved Bull Rush
