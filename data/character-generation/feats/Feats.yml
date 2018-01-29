@@ -82,14 +82,16 @@
     You have masterd the ability to cast spells while wearing armor.
   prerequisites:
     - ability: Arcane Armor Training
-    - ability: Armor Proficiency (Medium)
     - casterlevel: 7
+    - armor-proficiency:
+      armor: medium
   tags: [ combat ]
 - feat:
   name: Arcane Armor Training
   description: You have learned how to cast spells while wearing armor.
   prerequisites:
-    - ability: Armor Proficiency (Light)
+    - armor-proficiency: 
+      armor: light
     - casterlevel: 3
   tags: [ combat ]
 - feat:
@@ -102,12 +104,18 @@
 - feat:
   name: Armor Proficiency (Heavy)
   description: You are skilled at wearing heavy armor.
+  prerequisites:
+    - armor-proficiency: 
+      armor: medium
 - feat:
   name: Armor Proficiency (Light)
   description: You are skilled at wearing light armor.
 - feat:
   name: Armor Proficiency (Medium)
   description: You are skilled at wearing medium armor.
+  prerequisites:
+    - armor-proficiency: 
+      armor: light
 - feat:
   name: Athletic
   description: You possess inherent physical prowess.
@@ -702,7 +710,8 @@
   description: You can protect yourself with your shield, even if you use it to attack.
   tags: [ combat ]
   prerequisites:
-    - ability: Shield Proficiency
+    - armor-proficiency:
+      armor: shield
 - feat:
   name: Improved Sunder
   description: You are skilled at damaging your foes' weapons and armor.
@@ -944,7 +953,8 @@
   tags: [ combat ]
   description: Choose a type of crossbow. You can reload such weapons quickly.
   prerequisites:
-    - weapon-proficiency: crossbow
+    - weapon-proficiency: 
+      weapon: crossbow
 - feat:
   name: Rapid Shot
   tags: [ combat ]
@@ -1013,7 +1023,8 @@
   tags: [ combat ]
   description: You are skilled at deflecting blows with your shield.
   prerequisites:
-    - ability: Shield Proficiency
+    - armor-proficiency:
+      armor: shield
     - baseattackbonus: 1
 - feat:
   name: Shield Master
@@ -1209,7 +1220,8 @@
   tags: [ combat ]
   description: You are trained in how to properly us a tower shield.
   prerequisites:
-    - ability: Shield Proficiency
+    - armor-proficiency:
+      armor: shield
 - feat:
   name: Trample
   tags: [ combat ]

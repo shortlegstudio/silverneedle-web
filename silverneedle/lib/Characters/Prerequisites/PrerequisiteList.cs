@@ -64,6 +64,9 @@ namespace SilverNeedle.Characters.Prerequisites
                     case "ability":
                         newreq = new SpecialAbilityPrerequisite(prereq.GetString(key));
                         break;
+                    case "armor-proficiency":
+                        newreq = new ArmorProficiencyPrerequisite(prereq);
+                        break;
                     case "baseattackbonus":
                         newreq = new BaseAttackBonusPrerequisite(prereq.GetString(key));
                         break;

@@ -22,7 +22,7 @@ namespace Tests.Characters.Prerequisites
 
             var prereqs = new PrerequisiteList(prereq);
 
-            Assert.Equal (5, prereqs.Count);
+            Assert.Equal (7, prereqs.Count);
             Assert.IsType<AbilityPrerequisite>(prereqs.First());
 
         }
@@ -56,6 +56,10 @@ prerequisites:
     name: Acrobatics 
     minimum: 4
   - ability: darkvision
+  - weapon-proficiency:
+    weapon: martial
+  - armor-proficiency:
+    armor: shield
 ";
     }
 }

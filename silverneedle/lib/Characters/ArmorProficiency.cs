@@ -29,6 +29,17 @@ namespace SilverNeedle.Characters
         [ObjectStore("armors")]
         public string[] ProficiencyList { get; private set; }
 
+        public bool IsProficient(string name)
+        {
+            foreach(var p in ProficiencyList)
+            {
+                if(p.EqualsIgnoreCase(name))
+                    return true;
+            }
+
+            return false;
+        }
+
         public bool IsProficient(IArmor armor)
         {
             bool passes = false;
