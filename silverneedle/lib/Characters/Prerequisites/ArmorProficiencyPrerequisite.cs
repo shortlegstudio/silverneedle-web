@@ -19,15 +19,18 @@ namespace SilverNeedle.Characters.Prerequisites
         [ObjectStore("armor")]
         public string Proficiency { get; private set; }
 
+        [ObjectStoreOptional("not-proficient")]
+        public bool CheckForNonProficiency { get; private set; }
+
         public bool IsQualified(ComponentContainer components)
         {
             var profs = components.GetAll<ArmorProficiency>();
             foreach(var p in profs)
             {
                 if(p.IsProficient(Proficiency))
-                    return true;
+                    return !CheckForNonProficiency;
             }
-            return false;
+            return CheckForNonProficiency;
         }
     }
 }

@@ -48,5 +48,19 @@ namespace Tests.Characters.Prerequisites
             bob.Add(new WeaponProficiency("simple"));
             Assert.True(prof.IsQualified(bob.Components));
         }
+
+        [Fact]
+        public void IfSetToNotProficientChecksFailIfProficientPassIfNot()
+        {
+            var configure = new MemoryStore();
+            configure.SetValue("weapon", "martial");
+            configure.SetValue("not-proficient", true);
+            var prof = new WeaponProficiencyPrerequisite(configure);
+
+            var bob = CharacterTestTemplates.AverageBob();
+            Assert.True(prof.IsQualified(bob.Components));
+            bob.Add(new WeaponProficiency("martial"));
+            Assert.False(prof.IsQualified(bob.Components));
+        }
     }
 }

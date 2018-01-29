@@ -107,15 +107,25 @@
   prerequisites:
     - armor-proficiency: 
       armor: medium
+    - armor-proficiency:
+      armor: heavy
+      not-proficient: true
 - feat:
   name: Armor Proficiency (Light)
   description: You are skilled at wearing light armor.
+  prerequisites:
+    - armor-proficiency: 
+      armor: light
+      not-proficient: true
 - feat:
   name: Armor Proficiency (Medium)
   description: You are skilled at wearing medium armor.
   prerequisites:
     - armor-proficiency: 
       armor: light
+    - armor-proficiency:
+      armor: medium
+      not-proficient: true
 - feat:
   name: Athletic
   description: You possess inherent physical prowess.
@@ -822,6 +832,10 @@
   description: >
     Choose a type of martial weapon. You understand how to use that type of
     martial weapon in combat.
+  prerequisites:
+    - weapon-proficiency:
+      weapon: martial
+      not-proficient: true
 - feat:
   name: Master Craftsman
   description: Your superior crafting skills allow you to create magic items.
@@ -1040,6 +1054,10 @@
   name: Shield Proficiency
   tags: [ combat ]
   description: You are trained in how to properly use a shield.
+  prerequisites:
+    - armor-proficiency:
+      armor: shield
+      not-proficient: true
 - feat:
   name: Shield Slam
   tags: [ combat ]
@@ -1077,6 +1095,10 @@
   name: Simple Weapon Proficiency
   tags: [ combat ]
   description: You are trained in the use of basic weapons
+  prerequisites:
+    - weapon-proficiency:
+      weapon: simple
+      not-proficient: true
 - feat:
   name: Skill Focus
   description: Choose a skill. You are particularly adept at that skill.
@@ -1222,6 +1244,9 @@
   prerequisites:
     - armor-proficiency:
       armor: shield
+    - armor-proficiency:
+      armor: towershield
+      not-proficient: true
 - feat:
   name: Trample
   tags: [ combat ]

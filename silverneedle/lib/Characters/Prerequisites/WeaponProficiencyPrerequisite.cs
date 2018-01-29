@@ -18,6 +18,9 @@ namespace SilverNeedle.Characters.Prerequisites
         [ObjectStore("weapon")]
         public string Proficiency { get; private set; }
 
+        [ObjectStoreOptional("not-proficient")]
+        public bool CheckForNonProficiency { get; private set; }
+
         public bool IsQualified(ComponentContainer components)
         {
             var proficiencies = components.GetAll<WeaponProficiency>();
@@ -25,9 +28,9 @@ namespace SilverNeedle.Characters.Prerequisites
             foreach(var prof in proficiencies)
             {
                 if(prof.IsProficient(Proficiency))
-                    return true;
+                    return !CheckForNonProficiency;
             }
-            return false;
+            return CheckForNonProficiency;
         }
     }
 

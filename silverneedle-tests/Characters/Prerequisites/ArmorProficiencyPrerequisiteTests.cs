@@ -23,8 +23,20 @@ namespace Tests.Characters.Prerequisites
             Assert.False(prof.IsQualified(bob.Components));
             bob.Add(new ArmorProficiency("shield"));
             Assert.True(prof.IsQualified(bob.Components));
+        }
 
+        [Fact]
+        public void IfFlagNotProficientItPassesIfNotProficientAndFailsIfProficient()
+        {
+            var config = new MemoryStore();
+            config.SetValue("armor", "shield");
+            config.SetValue("not-proficient", true);
+            var prof = new ArmorProficiencyPrerequisite(config);
 
+            var bob = CharacterTestTemplates.AverageBob();
+            Assert.True(prof.IsQualified(bob.Components));
+            bob.Add(new ArmorProficiency("shield"));
+            Assert.False(prof.IsQualified(bob.Components));
         }
     }
 }
