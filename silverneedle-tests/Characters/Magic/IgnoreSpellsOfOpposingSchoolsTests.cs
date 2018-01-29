@@ -9,7 +9,7 @@ namespace Tests.Characters.Magic
     using SilverNeedle.Characters.Magic;
     using SilverNeedle.Spells;
 
-    public class IgnoreSpellsOfOpposingSchoolsTests
+    public class IgnoreSpellsOfOpposingSchoolsTests : RequiresDataFiles
     {
         [Fact]
         public void IfOpposingSchoolThenDoNotAllowCasting()

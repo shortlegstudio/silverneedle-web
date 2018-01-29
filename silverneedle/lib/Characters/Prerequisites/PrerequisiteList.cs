@@ -73,9 +73,6 @@ namespace SilverNeedle.Characters.Prerequisites
                     case "casterlevel":
                         newreq = new CasterLevelPrerequisite(prereq.GetString(key));
                         break;
-                    case "classfeature":
-                        newreq = new ClassFeaturePrerequisite(prereq.GetString(key));
-                        break;
                     case "classlevel":
                         newreq = new ClassLevelPrerequisite(prereq.GetString(key));
                         break;

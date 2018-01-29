@@ -26,8 +26,7 @@ namespace SilverNeedle.Characters.Prerequisites
         {
             return 
                 components.GetAll<SpecialAbility>().Any(x => x.Name.EqualsIgnoreCase(SpecialAbilityName))
-                || components.GetAll<ITrait>().Any(x => x.Name.EqualsIgnoreCase(SpecialAbilityName))
-                || components.GetAll<Feat>().Any(x => x.Name.EqualsIgnoreCase(SpecialAbilityName));
+                || components.GetAll<ICharacterFeatureAttribute>().Any(x => x.Name.EqualsIgnoreCase(SpecialAbilityName));
         }
     }
 }

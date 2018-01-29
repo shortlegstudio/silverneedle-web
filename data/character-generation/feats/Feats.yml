@@ -42,28 +42,28 @@
     Choose chaos, evil, good, or law. You can channel divine energy to affect
     outsiders that posses this subtype.
   prerequisites:
-    - classfeature: Channel Energy
+    - ability: Channel Energy
 - feat:
   name: Alignment Channel (Evil)
   description: >
     Choose chaos, evil, good, or law. You can channel divine energy to affect
     outsiders that posses this subtype.
   prerequisites:
-    - classfeature: Channel Energy
+    - ability: Channel Energy
 - feat:
   name: Alignment Channel (Good)
   description: >
     Choose chaos, evil, good, or law. You can channel divine energy to affect
     outsiders that posses this subtype.
   prerequisites:
-    - classfeature: Channel Energy
+    - ability: Channel Energy
 - feat:
   name: Alignment Channel (Law)
   description: >
     Choose chaos, evil, good, or law. You can channel divine energy to affect
     outsiders that posses this subtype.
   prerequisites:
-    - classfeature: Channel Energy
+    - ability: Channel Energy
 - feat:
   name: Animal Affinity
   description: You are skilled at working with animals and mounts.
@@ -178,7 +178,7 @@
   description: You can channel your divine energy through a melee weapon you wield.
   tags: [ combat ]
   prerequisites:
-    - classfeature: Channel Energy
+    - ability: Channel Energy
 - feat:
   name: Cleave
   description: You can strike two adjacent foes with a single swing.
@@ -206,7 +206,7 @@
     Using foul powers of necromancy, you can command undead creates, making
     them into your servants.
   prerequisites:
-    - classfeature: Channel Negative Energy
+    - ability: Channel Energy (Negative) #TODO: Needs custom check for negative energy
 - feat:
   name: Craft Magic Arms and Armor
   description: You can create magic armor, shields, and weapons.
@@ -360,7 +360,7 @@
     channel your divine energy to harm or heal outsides that posses your chosen
     elemental subtype.
   prerequisites:
-    - classfeature: Channel Energy
+    - ability: Channel Energy
 - feat:
   name: Empower Spell
   description: >
@@ -411,33 +411,33 @@
   name: Extra Channel
   description: You can channel divine energy more often.
   prerequisites:
-    - classfeature: Channel Energy
+    - ability: Channel Energy
 - feat:
   name: Extra Ki
   description: You can use your ki pool more times per day than most.
   prerequisites:
-    - classfeature: Ki Pool
+    - ability: Ki Pool
 - feat:
   name: Extra Lay On Hands
   description: You can use your lay on hands ability more often.
   prerequisites:
-    - classfeature: Lay On Hands
+    - ability: Lay On Hands
 - feat:
   name: Extra Mercy
   description: Your lay on hands ability adds an additional mercy.
   prerequisites:
-    - classfeature: Lay On Hands
-    - classfeature: Mercy
+    - ability: Lay On Hands
+    - ability: Mercy
 - feat:
   name: Extra Performance
   description: You can use your bardic performance ability more often.
   prerequisites:
-    - classfeature: Bardic Performance
+    - ability: Bardic Performance
 - feat:
   name: Extra Rage
   description: You can rage longer than usual.
   prerequisites:
-    - classfeature: Rage
+    - ability: Rage
 - feat:
   name: Far Shot
   description: You are more accurate at longer ranges
@@ -631,12 +631,12 @@
   name: Improved Channel
   description: Your channeled energy is harder to resist.
   prerequisites:
-    - classfeature: Channel Energy
+    - ability: Channel Energy
 - feat:
   name: Improved Counterspell
   description: You are skilled at counter the spells of others using similar spells.
   prerequisites:
-    - classfeature: Spellcasting
+    - ability: Spellcasting
 - feat:
   name: Improved Critical
   description: Attacks made with your chosen weapon are quite deadly.
@@ -657,7 +657,7 @@
     This feat allows you to acquire a powerful familiar, but only when you
     could normally acquire a new familiar.
   prerequisites:
-    - classfeature: Familiar
+    - ability: Familiar
 - feat:
   name: Improved Feint
   description: You are skilled at fooling your opponents in combat.
@@ -892,7 +892,7 @@
     You can cast spells even while in a form that cannot normally cast spells.
   prerequisites:
     - wisdom: 13
-    - classfeature: Wild Shape
+    - ability: Wild Shape
 - feat:
   name: Nimble Moves
   description: You can move across a single obstacle with ease.
@@ -1007,7 +1007,7 @@
   description: You can choose whom to affect when you channel energy
   prerequisites:
     - charisma: 13
-    - classfeature: Channel Energy
+    - ability: Channel Energy
 - feat:
   name: Self Sufficient
   description: >
@@ -1263,7 +1263,7 @@
     Calling upon higher powers, you cause undead to flee from the might of your
     unleashed divine energy.
   prerequisites:
-    - classfeature: Channel Energy (Positive)
+    - ability: Channel Energy (Positive) #TODO: Needs custom check for positive
 - feat:
   name: Two-Weapon Defense
   tags: [ combat ]

@@ -10,7 +10,7 @@ namespace Tests.Characters.Prerequisites
     using SilverNeedle.Characters.Prerequisites;
     using SilverNeedle.Characters.Magic;
 
-    public class CasterLevelPrerequisiteTests
+    public class CasterLevelPrerequisiteTests : RequiresDataFiles
     {
         [Fact]
         public void RequiresASpellCastingAbilityWithCorrectCasterLevel()
