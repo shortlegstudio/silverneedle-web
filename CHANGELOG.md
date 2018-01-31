@@ -1,6 +1,24 @@
 # Change Log
 All notable changes will be tracked in this file. Most likely.
 
+## 0.5.0.0
+### Added
+- Implement Prerequisites for class features, skill ranks, proficiency, race
+- Favored Classes
+- Skill Bonus Token for extra skill ranks
+- Weapon Proficiencies for races now working
+
+### Changed
+- Removed SpecialAbility class and replaced with interfaces. Cleans up behavior and logic
+- Eliminated some of the clunky interfaces and focused on the component system
+- Classes, Races and Feats now implemented using a more consistent and flexible system of CharacterAttributes. Allows complex definition and keeps things well organized
+- Damage and Energy Resistance is more properly implemented
+
+
+### Known Issues
+- Damage Resistance shows up weird in the abilities list view
+
+
 ## 0.4.0.0
 ### Added
 - Bard Class
