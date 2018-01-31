@@ -7,7 +7,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 {
     using SilverNeedle.Utility;
 
-    public class IntenseSpells : SpecialAbility, IComponent
+    public class IntenseSpells : IAbility, INameByType, IComponent
     {
         private ClassLevel sourceLevel;
 
@@ -24,12 +24,9 @@ namespace SilverNeedle.Characters.SpecialAbilities
             sourceLevel = components.Get<ClassLevel>();
         }
 
-        public override string Name
+        public string DisplayString()
         {
-            get
-            {
-                return "{0} ({1} spell damage)".Formatted(base.Name, BonusDamage.ToModifierString());
-            }
+            return "{0} ({1} spell damage)".Formatted(this.Name(), BonusDamage.ToModifierString());
         }
     }
 }

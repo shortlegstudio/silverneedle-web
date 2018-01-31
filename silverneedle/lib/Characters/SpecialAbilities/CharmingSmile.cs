@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class CharmingSmile : SpecialAbility
+    public class CharmingSmile : AbilityDisplayAsName
     {
         
     }

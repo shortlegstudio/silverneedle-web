@@ -19,7 +19,7 @@ namespace Tests.Characters.SpecialAbilities
             Assert.Equal(1, extend.Duration);
             wizard.SetLevel(10);
             Assert.Equal(5, extend.Duration);
-            Assert.Equal("Extended Illusions (5 rounds)", extend.Name);
+            Assert.Equal("Extended Illusions (5 rounds)", extend.DisplayString());
         }
     }
 }

@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class SpellBasedAbility : SpecialAbility
+    public class SpellBasedAbility : IAbility
     {
         private string spellName;
         public int UsesPerDay { get; private set; }
@@ -16,15 +16,12 @@ namespace SilverNeedle.Characters.SpecialAbilities
             this.UsesPerDay = usesPerDay;
         }
 
-        public override string Name
+        public string DisplayString()
         {
-            get
-            {
-                return "{0}/day {1}".Formatted(
-                    this.UsesPerDay,
-                    this.spellName
-                );
-            }
+            return "{0}/day {1}".Formatted(
+                this.UsesPerDay,
+                this.spellName
+            );
         }
     }
 }

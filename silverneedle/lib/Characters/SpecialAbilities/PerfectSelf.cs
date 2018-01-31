@@ -6,7 +6,7 @@
 namespace SilverNeedle.Characters.SpecialAbilities
 {
     using SilverNeedle.Utility;
-    public class PerfectSelf : SpecialAbility, IComponent
+    public class PerfectSelf : AbilityDisplayAsName, IComponent
     {
         public void Initialize(ComponentContainer components)
         {

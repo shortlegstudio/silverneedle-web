@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class AuraOfFaith : SpecialAbility
+    public class AuraOfFaith : AbilityDisplayAsName
     {
         
     }

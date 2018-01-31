@@ -19,7 +19,7 @@ namespace Tests.Characters.SpecialAbilities
             Assert.Equal(1, summon.Duration);
             wizard.SetLevel(10);
             Assert.Equal(5, summon.Duration);
-            Assert.Equal("Summoners Charm (5 rounds)", summon.Name);
+            Assert.Equal("Summoners Charm (5 rounds)", summon.DisplayString());
         }
     }
 }

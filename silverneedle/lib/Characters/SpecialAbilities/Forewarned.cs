@@ -6,7 +6,7 @@
 namespace SilverNeedle.Characters.SpecialAbilities
 {
     using SilverNeedle.Utility;
-    public class Forewarned : SpecialAbility, IComponent
+    public class Forewarned : AbilityDisplayAsName, IComponent
     {
         private ClassLevel sourceLevel;
         private DelegateStatModifier initModifier;

@@ -7,7 +7,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 {
     using SilverNeedle.Utility;
 
-    public class DimensionalSteps : SpecialAbility, IComponent
+    public class DimensionalSteps : IAbility, INameByType, IComponent
     {
         private ClassLevel sourceLevel;
         public void Initialize(ComponentContainer components)
@@ -20,12 +20,9 @@ namespace SilverNeedle.Characters.SpecialAbilities
             get { return 30 * sourceLevel.Level; }
         }
 
-        public override string Name
+        public string DisplayString()
         {
-            get 
-            {
-                 return "{0} ({1} ft/day)".Formatted(base.Name, Distance);
-            }
+            return "{0} ({1} ft/day)".Formatted(this.Name(), Distance);
         }
     }
 }

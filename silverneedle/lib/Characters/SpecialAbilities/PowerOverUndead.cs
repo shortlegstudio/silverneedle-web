@@ -7,7 +7,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 {
     using SilverNeedle.Utility;
 
-    public class PowerOverUndead : SpecialAbility, IComponent
+    public class PowerOverUndead : AbilityDisplayAsName, IComponent
     {
         public void Initialize(ComponentContainer components)
         {
@@ -27,8 +27,6 @@ namespace SilverNeedle.Characters.SpecialAbilities
             {
                 components.Add(new FeatToken[] { good, evil }.ChooseOne());
             }
-
-
         }
     }
 }

@@ -7,7 +7,7 @@
 namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
     using SilverNeedle.Utility;
-    public class DemonResistances : SpecialAbility, IComponent, IImprovesWithLevels, IBloodlinePower
+    public class DemonResistances : AbilityDisplayAsName, IComponent, IImprovesWithLevels, IBloodlinePower
     {
         private ConditionalStatModifier poisonResistance;
         private EnergyResistance damageResistance;

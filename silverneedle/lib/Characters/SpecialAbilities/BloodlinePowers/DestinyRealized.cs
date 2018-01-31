@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
-    public class DestinyRealized : SpecialAbility, IBloodlinePower
+    public class DestinyRealized : AbilityDisplayAsName, IBloodlinePower
     {
 
     }

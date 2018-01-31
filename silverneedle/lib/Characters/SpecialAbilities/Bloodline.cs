@@ -9,7 +9,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
     
-    public class Bloodline : SpecialAbility, IComponent, IGatewayObject
+    public class Bloodline : IAbility, IComponent, IGatewayObject
     {
         private Dictionary<int, string> powers = new Dictionary<int, string>();
         private Dictionary<int, string> bonusSpells = new Dictionary<int, string>();
@@ -43,7 +43,6 @@ namespace SilverNeedle.Characters.SpecialAbilities
             }
 
             bonusFeats = configuration.GetList("bonus-feats");
-            this.Name = string.Format("{0} ({1})", base.Name, bloodlineName);
         }
 
         public string BloodlineArcana { get; private set; }
@@ -84,12 +83,17 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
         public bool Matches(string name)
         {
-            return this.Name.EqualsIgnoreCase(name);
+            return this.bloodlineName.EqualsIgnoreCase(name);
         }
 
         public static Bloodline CreateWithValues(string name, string[] classSkillOptions, Dictionary<int, string> powers, Dictionary<int, string> bonusSpells, string[] bonusFeats)
         {
             return new Bloodline(name, classSkillOptions, powers, bonusSpells, bonusFeats);
+        }
+
+        public virtual string DisplayString()
+        {
+            return string.Format("Bloodline ({1})", bloodlineName);
         }
     }
 }

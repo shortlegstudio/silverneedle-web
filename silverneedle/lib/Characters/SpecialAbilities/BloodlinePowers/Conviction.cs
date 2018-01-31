@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
-    public class Conviction : SpecialAbility, IBloodlinePower
+    public class Conviction : AbilityDisplayAsName, IBloodlinePower
     {
 
     }

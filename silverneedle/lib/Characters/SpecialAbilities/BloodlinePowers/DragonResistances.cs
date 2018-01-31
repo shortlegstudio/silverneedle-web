@@ -7,7 +7,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
     using SilverNeedle.Utility;
 
-    public class DragonResistances : SpecialAbility, IBloodlinePower, IComponent, IImprovesWithLevels
+    public class DragonResistances : AbilityDisplayAsName, IBloodlinePower, IComponent, IImprovesWithLevels
     {
         private EnergyResistance damageResistance;
         private IValueStatModifier naturalArmor;

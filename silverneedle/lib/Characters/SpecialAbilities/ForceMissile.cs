@@ -8,7 +8,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using SilverNeedle.Dice;
     using SilverNeedle.Utility;
 
-    public class ForceMissile : SpecialAbility, IComponent
+    public class ForceMissile : IAbility, INameByType, IComponent
     {
         private AbilityScore baseAbility;
         private IntenseSpells intenseSpells;
@@ -31,9 +31,9 @@ namespace SilverNeedle.Characters.SpecialAbilities
             }
         }
 
-        public override string Name
+        public string DisplayString()
         {
-            get { return "{0} {1} ({2}/day)".Formatted(base.Name, Damage, UsesPerDay); }
+            return "{0} {1} ({2}/day)".Formatted(this.Name(), Damage, UsesPerDay); 
         }
 
         public void Initialize(ComponentContainer components)

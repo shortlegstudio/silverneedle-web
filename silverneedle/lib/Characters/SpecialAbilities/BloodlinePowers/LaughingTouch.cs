@@ -7,7 +7,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
     using SilverNeedle.Utility;
 
-    public class LaughingTouch : SpecialAbility, IBloodlinePower, IComponent
+    public class LaughingTouch : IAbility, INameByType, IBloodlinePower, IComponent
     {
         private AbilityScore charisma;
 
@@ -23,15 +23,12 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
             charisma = components.Get<AbilityScores>().GetAbility(AbilityScoreTypes.Charisma);
         }
 
-        public override string Name
+        public string DisplayString()
         {
-            get
-            {
-                return "{0}/day {1}".Formatted(
-                    UsesPerDay,
-                    base.Name
-                );
-            }
+            return "{0}/day {1}".Formatted(
+                UsesPerDay,
+                this.Name()
+            );
         }
     }
 }

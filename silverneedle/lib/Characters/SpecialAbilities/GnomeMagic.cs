@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class GnomeMagic : SpecialAbility
+    public class GnomeMagic : AbilityDisplayAsName
     {
 
     }

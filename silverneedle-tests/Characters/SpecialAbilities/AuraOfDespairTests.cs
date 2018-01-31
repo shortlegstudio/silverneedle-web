@@ -19,7 +19,7 @@ namespace Tests.Characters.SpecialAbilities
             Assert.Equal(1, aura.RoundsPerDay);
             wizard.SetLevel(12);
             Assert.Equal(12, aura.RoundsPerDay);
-            Assert.Equal("Aura Of Despair (12 rounds/day)", aura.Name);
+            Assert.Equal("Aura Of Despair (12 rounds/day)", aura.DisplayString());
         }
     }
 }

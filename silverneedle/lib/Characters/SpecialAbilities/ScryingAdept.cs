@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class ScryingAdept : SpecialAbility
+    public class ScryingAdept : AbilityDisplayAsName
     {
 
     }

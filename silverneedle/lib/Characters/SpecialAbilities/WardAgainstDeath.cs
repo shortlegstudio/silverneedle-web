@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class WardAgainstDeath : SpecialAbility
+    public class WardAgainstDeath : AbilityDisplayAsName
     {
         
     }

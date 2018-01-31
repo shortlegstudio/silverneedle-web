@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
-    public class Wings : SpecialAbility, IBloodlinePower
+    public class Wings : AbilityDisplayAsName, IBloodlinePower
     {
 
     }

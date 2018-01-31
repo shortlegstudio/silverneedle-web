@@ -22,7 +22,7 @@ namespace Tests.Characters.SpecialAbilities
             Assert.Equal("1d4+1", force.Damage.ToString());
             Assert.Equal(3, force.UsesPerDay);
             
-            Assert.Equal("Force Missile 1d4+1 (3/day)", force.Name);
+            Assert.Equal("Force Missile 1d4+1 (3/day)", force.DisplayString());
         }
     }
 }

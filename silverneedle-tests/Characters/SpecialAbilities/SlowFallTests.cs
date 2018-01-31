@@ -24,9 +24,9 @@ namespace Tests.Characters.SpecialAbilities
             var monk = CharacterTestTemplates.MarkyMonk();
             monk.Add(slowFall);
 
-            Assert.Equal("Slow Fall (10 ft)", slowFall.Name);
+            Assert.Equal("Slow Fall (10 ft)", slowFall.DisplayString());
             monk.SetLevel(2);
-            Assert.Equal("Slow Fall (25 ft)", slowFall.Name);
+            Assert.Equal("Slow Fall (25 ft)", slowFall.DisplayString());
         }
 
         [Fact]
@@ -39,7 +39,7 @@ namespace Tests.Characters.SpecialAbilities
             var slowFall = new SlowFall(dataTable);
             var monk = CharacterTestTemplates.MarkyMonk();
             monk.Add(slowFall);
-            Assert.Equal("Slow Fall (Unlimited ft)", slowFall.Name);
+            Assert.Equal("Slow Fall (Unlimited ft)", slowFall.DisplayString());
         }
     }
 }

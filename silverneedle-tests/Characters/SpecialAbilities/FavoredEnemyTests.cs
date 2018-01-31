@@ -17,7 +17,7 @@ namespace Tests.Characters.SpecialAbilities
         {
             var creatureType = new CreatureType("Outsider", "Fire");
             var favEnemy = new FavoredEnemy(creatureType);
-            Assert.Equal(favEnemy.Name, "Favored Enemy (Outsider (Fire) +2)");
+            Assert.Equal(favEnemy.DisplayString(), "Favored Enemy (Outsider (Fire) +2)");
 
         }
 
@@ -33,7 +33,7 @@ namespace Tests.Characters.SpecialAbilities
             Assert.Contains(rats, favEnemy.CreatureTypes);
             Assert.Equal(favEnemy.Bonus(rats), 2);
             Assert.Equal(favEnemy.Bonus(dragons), 2);
-            Assert.Equal(favEnemy.Name, "Favored Enemy (Dragons +2, Rats +2)");
+            Assert.Equal(favEnemy.DisplayString(), "Favored Enemy (Dragons +2, Rats +2)");
         }
     }
 

@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
-    public class AddedSummonings : SpecialAbility, IBloodlinePower
+    public class AddedSummonings : AbilityDisplayAsName, IBloodlinePower
     {
 
     }

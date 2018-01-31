@@ -6,7 +6,7 @@
 namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
     using SilverNeedle.Utility;
-    public class IncorporealForm : SpecialAbility, IBloodlinePower, IComponent
+    public class IncorporealForm : IAbility, INameByType, IBloodlinePower, IComponent
     {
         private ClassLevel  sorcererLevels;
         public int RoundsPerDay
@@ -24,16 +24,13 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
             sorcererLevels = components.Get<ClassLevel>();
         }
 
-        public override string Name
+        public string DisplayString()
         {
-            get
-            {
-                return "{0}/day {1} {2}/rounds".Formatted(
-                    UsesPerDay,
-                    base.Name,
-                    RoundsPerDay
-                );
-            }
+            return "{0}/day {1} {2}/rounds".Formatted(
+                UsesPerDay,
+                this.Name(),
+                RoundsPerDay
+            );
         }
     }
 }

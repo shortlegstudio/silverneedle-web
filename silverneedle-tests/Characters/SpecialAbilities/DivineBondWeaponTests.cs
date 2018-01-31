@@ -24,7 +24,7 @@ namespace Tests.Characters.SpecialAbilities
             character.Add(bond);
             Assert.Equal(bond.WeaponBonus, 3);
             Assert.Equal(bond.UsesPerDay, 3);
-            Assert.Equal(bond.Name, "Divine Bond (Weapon +3, 3/day)");
+            Assert.Equal(bond.DisplayString(), "Divine Bond (Weapon +3, 3/day)");
         } 
     }
 }

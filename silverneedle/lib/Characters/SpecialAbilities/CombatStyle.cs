@@ -8,7 +8,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using System.Collections.Generic;
     using SilverNeedle.Serialization;
     
-    public class CombatStyle : SpecialAbility, IGatewayObject
+    public class CombatStyle : IAbility, IGatewayObject
     {
         private IDictionary<int, string[]> bonusFeats;
 
@@ -16,7 +16,6 @@ namespace SilverNeedle.Characters.SpecialAbilities
         public CombatStyle(IObjectStore configuration)
         {
             this.CombatStyleName = configuration.GetString("name");
-            this.Name = string.Format("Combat Style ({0})", CombatStyleName);
 
             bonusFeats = new Dictionary<int, string[]>();
             var bonus = configuration.GetObject("bonus-feats");
@@ -43,6 +42,11 @@ namespace SilverNeedle.Characters.SpecialAbilities
         public bool Matches(string name)
         {
             return this.CombatStyleName.EqualsIgnoreCase(name);
+        }
+
+        public string DisplayString()
+        {
+            return string.Format("Combat Style ({0})", CombatStyleName);
         }
     }
 }

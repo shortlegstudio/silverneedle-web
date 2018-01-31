@@ -9,7 +9,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
-    public class GraveTouch : SpecialAbility, IBloodlinePower, IComponent
+    public class GraveTouch : IAbility, INameByType, IBloodlinePower, IComponent
     {
         private AbilityScore baseAbility;
         private ClassLevel sourceLevels;
@@ -30,16 +30,13 @@ namespace SilverNeedle.Characters.SpecialAbilities
             }
         }
 
-        public override string Name
+        public string DisplayString()
         {
-            get
-            {
-                return "{0}/day - {1} {2}/rounds".Formatted(
-                    UsesPerDay,
-                    base.Name,
-                    RoundsDuration
-                );
-            }
+            return "{0}/day - {1} {2}/rounds".Formatted(
+                UsesPerDay,
+                this.Name(),
+                RoundsDuration
+            );
         }
 
         public void Initialize(ComponentContainer components)

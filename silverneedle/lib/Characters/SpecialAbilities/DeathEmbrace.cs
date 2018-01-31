@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class DeathEmbrace : SpecialAbility
+    public class DeathEmbrace : AbilityDisplayAsName
     {
         
     }

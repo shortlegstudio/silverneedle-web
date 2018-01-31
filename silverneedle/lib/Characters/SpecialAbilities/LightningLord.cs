@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class LightningLord : SpecialAbility
+    public class LightningLord : AbilityDisplayAsName
     {
 
     }

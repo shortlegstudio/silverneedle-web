@@ -19,7 +19,7 @@ namespace Tests.Characters.SpecialAbilities.BloodlinePowers
             var school = new SchoolPower();
             sorcerer.Add(school);
             Assert.NotNull(school.School);
-            Assert.Equal("School Power (+2 DC for " + school.School.Name + " spells)", school.Name);
+            Assert.Equal("School Power (+2 DC for " + school.School.Name + " spells)", school.DisplayString());
         }
     }
 }

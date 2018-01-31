@@ -28,7 +28,7 @@ namespace Tests.Characters.SpecialAbilities
             // just some basic configuration
 
             var combatStyle = new CombatStyle(yaml);
-            Assert.Equal(combatStyle.Name, "Combat Style (Archery)");
+            Assert.Equal(combatStyle.DisplayString(), "Combat Style (Archery)");
             var level1feats = combatStyle.GetFeats(1);
             Assert.NotStrictEqual(level1feats, new string[] { "feat one", "feat two"});
             var level6feats = combatStyle.GetFeats(6);

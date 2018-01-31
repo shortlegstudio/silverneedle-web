@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class SpellRune : SpecialAbility
+    public class SpellRune : AbilityDisplayAsName
     {
         
     }

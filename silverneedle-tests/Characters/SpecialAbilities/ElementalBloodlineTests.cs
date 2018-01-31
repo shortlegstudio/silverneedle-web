@@ -24,7 +24,7 @@ namespace Tests.Characters.SpecialAbilities
             sorcerer.Add(elemental);
             var elementalType = sorcerer.Get<ElementalType>();
             Assert.NotNull(elementalType);
-            Assert.Equal(string.Format("Elemental Bloodline ({0})", elementalType.Name), elemental.Name);
+            Assert.Equal(string.Format("Elemental Bloodline ({0})", elementalType.Name), elemental.DisplayString());
         }
     }
 

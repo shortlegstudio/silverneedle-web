@@ -7,7 +7,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 {
     using SilverNeedle.Utility;
 
-    public class BlindingRay : SpecialAbility, IComponent
+    public class BlindingRay : IAbility, INameByType, IComponent
     {
         private AbilityScore baseAbility;
 
@@ -21,9 +21,9 @@ namespace SilverNeedle.Characters.SpecialAbilities
             baseAbility = components.Get<AbilityScores>().GetAbility(AbilityScoreTypes.Intelligence);
         }
 
-        public override string Name
+        public string DisplayString()
         {
-            get { return "{0} ({1}/day)".Formatted(base.Name, UsesPerDay); }
+            return "{0} ({1}/day)".Formatted(this.Name(), UsesPerDay);
         }
 
     }

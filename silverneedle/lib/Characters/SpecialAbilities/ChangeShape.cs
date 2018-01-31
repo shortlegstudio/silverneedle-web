@@ -7,7 +7,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 {
     using SilverNeedle.Utility;
 
-    public class ChangeShape : SpecialAbility, IComponent
+    public class ChangeShape : IAbility, INameByType, IComponent
     {
         private ClassLevel sourceLevel;
         public void Initialize(ComponentContainer components)
@@ -20,9 +20,9 @@ namespace SilverNeedle.Characters.SpecialAbilities
             get { return sourceLevel.Level; }
         }
 
-        public override string Name
+        public string DisplayString()
         {
-            get { return "{0} ({1} rounds/day)".Formatted(base.Name, RoundsPerDay); }
+            return "{0} ({1} rounds/day)".Formatted(this.Name(), RoundsPerDay); 
         }
     }
 }

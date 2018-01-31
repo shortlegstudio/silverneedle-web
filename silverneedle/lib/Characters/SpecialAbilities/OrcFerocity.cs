@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class OrcFerocity : SpecialAbility
+    public class OrcFerocity : AbilityDisplayAsName
     {
 
     }

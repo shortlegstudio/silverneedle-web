@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class Camouflage : SpecialAbility
+    public class Camouflage : AbilityDisplayAsName
     {
         
     }

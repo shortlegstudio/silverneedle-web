@@ -7,7 +7,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
     using SilverNeedle.Utility;
 
-    public class InfernalResistances : SpecialAbility, IBloodlinePower, IComponent, IImprovesWithLevels
+    public class InfernalResistances : AbilityDisplayAsName, IBloodlinePower, IComponent, IImprovesWithLevels
     {
         private EnergyResistance fireResistance;
         private ConditionalStatModifier saveModifier;

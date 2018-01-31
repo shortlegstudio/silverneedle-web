@@ -7,7 +7,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 {
     using SilverNeedle.Utility;
 
-    public class PhysicalEnhancement : SpecialAbility, IComponent
+    public class PhysicalEnhancement : AbilityDisplayAsName, IComponent
     {
         private IValueStatModifier modifier;
         private ClassLevel sourceLevel;

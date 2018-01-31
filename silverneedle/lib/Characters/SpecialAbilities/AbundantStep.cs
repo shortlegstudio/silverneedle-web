@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class AbundantStep : SpecialAbility
+    public class AbundantStep : AbilityDisplayAsName
     {
 
     }

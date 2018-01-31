@@ -19,7 +19,7 @@ namespace Tests.Characters.SpecialAbilities
             Assert.Equal(30, dimSteps.Distance);
             wizard.SetLevel(10);
             Assert.Equal(300, dimSteps.Distance);
-            Assert.Equal("Dimensional Steps (300 ft/day)", dimSteps.Name);
+            Assert.Equal("Dimensional Steps (300 ft/day)", dimSteps.DisplayString());
 
         }
     }

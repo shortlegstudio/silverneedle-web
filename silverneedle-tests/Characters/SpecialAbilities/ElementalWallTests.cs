@@ -19,7 +19,7 @@ namespace Tests.Characters.SpecialAbilities
             Assert.Equal(1, wall.RoundsPerDay);
             wizard.SetLevel(10);
             Assert.Equal(10, wall.RoundsPerDay);
-            Assert.Equal("Elemental Wall (10 rounds/day)", wall.Name);
+            Assert.Equal("Elemental Wall (10 rounds/day)", wall.DisplayString());
         }
     }
 }

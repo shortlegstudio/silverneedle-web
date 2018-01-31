@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class GoodFortune : SpecialAbility
+    public class GoodFortune : AbilityDisplayAsName
     {
         
     }

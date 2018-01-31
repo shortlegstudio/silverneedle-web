@@ -9,7 +9,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
     using SilverNeedle.Spells;
     using SilverNeedle.Utility;
 
-    public class SchoolPower : SpecialAbility, IBloodlinePower, IComponent
+    public class SchoolPower : IAbility, INameByType, IBloodlinePower, IComponent
     {
         public School School { get; private set; } 
 
@@ -18,9 +18,9 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
             this.School = GatewayProvider.All<School>().ChooseOne();
         }
 
-        public override string Name 
+        public string DisplayString() 
         {
-            get { return "{0} (+2 DC for {1} spells)".Formatted(base.Name, this.School.Name); }
+            return "{0} (+2 DC for {1} spells)".Formatted(this.Name(), this.School.Name); 
         }
 
     }

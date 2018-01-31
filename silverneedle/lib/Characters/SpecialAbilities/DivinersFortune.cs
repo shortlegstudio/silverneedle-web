@@ -7,7 +7,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 {
     using SilverNeedle.Utility;
 
-    public class DivinersFortune : SpecialAbility, IComponent
+    public class DivinersFortune : IAbility, INameByType, IComponent
     {
         private ClassLevel sourceLevel;
         private AbilityScore baseAbility;
@@ -27,9 +27,9 @@ namespace SilverNeedle.Characters.SpecialAbilities
             get { return 3 + baseAbility.TotalModifier; }
         }
 
-        public override string Name
+        public string DisplayString()
         {
-            get { return "{0} {1} ({2}/day)".Formatted(base.Name, Bonus.ToModifierString(), UsesPerDay); }
+            return "{0} {1} ({2}/day)".Formatted(this.Name(), Bonus.ToModifierString(), UsesPerDay); 
         }
     }
 }

@@ -25,7 +25,7 @@ namespace Tests.Characters.SpecialAbilities.BloodlinePowers
             Assert.Equal(1, touch.Bonus);
             sorcerer.SetLevel(10);
             Assert.Equal(5, touch.Bonus);
-            Assert.Equal("Touch Of Destiny (+5 bonus 6/day)", touch.Name);
+            Assert.Equal("Touch Of Destiny (+5 bonus 6/day)", touch.DisplayString());
         }
     }
 }

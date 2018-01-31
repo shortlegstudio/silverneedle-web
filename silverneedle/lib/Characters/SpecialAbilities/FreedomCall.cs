@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class FreedomCall : SpecialAbility
+    public class FreedomCall : AbilityDisplayAsName
     {
         
     }

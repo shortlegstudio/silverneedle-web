@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class MasterHunter : SpecialAbility
+    public class MasterHunter : AbilityDisplayAsName
     {
         
     }

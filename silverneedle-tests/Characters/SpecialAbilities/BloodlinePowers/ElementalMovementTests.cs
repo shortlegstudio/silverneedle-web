@@ -23,7 +23,7 @@ namespace Tests.Characters.SpecialAbilities.BloodlinePowers
             sorcerer.Add(type);
             sorcerer.Add(move);
 
-            Assert.Contains("30' Fly", move.Name);
+            Assert.Contains("30' Fly", move.DisplayString());
         }
     }
 }

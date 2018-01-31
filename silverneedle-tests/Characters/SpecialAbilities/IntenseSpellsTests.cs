@@ -19,7 +19,7 @@ namespace Tests.Characters.SpecialAbilities
             Assert.Equal(1, intense.BonusDamage);
             wizard.SetLevel(10);
             Assert.Equal(5, intense.BonusDamage);
-            Assert.Equal("Intense Spells (+5 spell damage)", intense.Name);
+            Assert.Equal("Intense Spells (+5 spell damage)", intense.DisplayString());
         }
     }
 }

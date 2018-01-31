@@ -8,7 +8,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using System.Collections.Generic;
     using SilverNeedle.Maps;
     using SilverNeedle.Utility;
-    public class FavoredTerrain : SpecialAbility
+    public class FavoredTerrain : IAbility
     {
         private IDictionary<TerrainType, int> terrains;
         public FavoredTerrain() 
@@ -30,18 +30,14 @@ namespace SilverNeedle.Characters.SpecialAbilities
             terrains[type] += 2;
         }
 
-        public override string Name
+        public string DisplayString()
         {
-            get
+            var buildCharacterList = new List<string>();
+            foreach(var type in terrains.Keys)
             {
-                
-                var buildCharacterList = new List<string>();
-                foreach(var type in terrains.Keys)
-                {
-                    buildCharacterList.Add(string.Format("{0} {1}", type.Name, Bonus(type).ToModifierString()));
-                }
-                return string.Format("Favored Terrain ({0})", string.Join(", ", buildCharacterList));
+                buildCharacterList.Add(string.Format("{0} {1}", type.Name, Bonus(type).ToModifierString()));
             }
+            return string.Format("Favored Terrain ({0})", string.Join(", ", buildCharacterList));
         }
     }
 }

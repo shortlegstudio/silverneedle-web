@@ -7,14 +7,18 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
     using SilverNeedle.Utility;
 
-    public class ElementalMovement : SpecialAbility, IBloodlinePower, IComponent
+    public class ElementalMovement : IAbility, INameByType, IBloodlinePower, IComponent
     {
         ElementalType elementalType;
         public void Initialize(ComponentContainer components)
         {
             elementalType = components.Get<ElementalType>();
-            this.Name = "{0} ({1} {2})".Formatted(
-                base.Name,
+        }
+
+        public string DisplayString()
+        {
+            return "{0} ({1} {2})".Formatted(
+                this.Name(),
                 elementalType.MovementSpeed.ToRangeString(),
                 elementalType.MovementType
             );

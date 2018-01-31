@@ -34,12 +34,9 @@ namespace SilverNeedle.Characters.SpecialAbilities
             return new ElementalBloodline(name, classSkillOptions, powers, bonusSpells, bonusFeats);
         }
 
-        public override string Name
+        public override string DisplayString()
         {
-            get
-            {
-                return "{0} ({1})".Formatted(base.Name, elementalType.Name);
-            }
+            return "Elemental Bloodline ({0})".Formatted(elementalType.Name);
         }
     }
 }

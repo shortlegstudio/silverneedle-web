@@ -16,7 +16,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
 
         public void Execute(Utility.ComponentContainer components)
         {
-            var list = new SpecialAbility[] { new DivineBondMount(), new DivineBondWeapon() };
+            var list = new IAbility[] { new DivineBondMount(), new DivineBondWeapon() };
             var option = list.ChooseOne();
             components.Add(option);
         }

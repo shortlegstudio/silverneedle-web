@@ -19,7 +19,7 @@ namespace Tests.Characters.SpecialAbilities
             Assert.Equal(1, field.RoundsPerDay);
             wizard.SetLevel(10);
             Assert.Equal(10, field.RoundsPerDay);
-            Assert.Equal("Invisibility Field (10 rounds/day)", field.Name);
+            Assert.Equal("Invisibility Field (10 rounds/day)", field.DisplayString());
 
         }
     }

@@ -5,16 +5,13 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
-    public abstract class BloodlineArcana : SpecialAbility
+    public abstract class BloodlineArcana : IAbility, INameByType
     {
         public abstract string BonusAbility { get; }
 
-        public override string Name 
+        public string DisplayString() 
         {
-            get 
-            {
-                return "{0} ({1})".Formatted(base.Name, this.BonusAbility);
-            }
+            return "{0} ({1})".Formatted(this.Name(), this.BonusAbility);
         }
     }
 }

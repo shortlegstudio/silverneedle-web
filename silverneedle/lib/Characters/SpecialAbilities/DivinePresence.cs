@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class DivinePresence : SpecialAbility
+    public class DivinePresence : AbilityDisplayAsName
     {
         
     }

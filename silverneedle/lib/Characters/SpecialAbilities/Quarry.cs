@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class Quarry : SpecialAbility
+    public class Quarry : AbilityDisplayAsName
     {
         
     }

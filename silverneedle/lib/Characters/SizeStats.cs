@@ -86,8 +86,6 @@ namespace SilverNeedle.Characters
         public IList<IValueStatModifier> Modifiers { get; private set; }
 
 
-        public IList<SpecialAbility> SpecialAbilities { get; private set; }
-
         /// <summary>
         /// Gets or sets the stealth adj.
         /// </summary>

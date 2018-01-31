@@ -8,9 +8,9 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using System.Collections.Generic;
     using System.Linq;
 
-    public class Mercies : SpecialAbility
+    public class Mercies : IAbility
     {
-        public Mercies() : base()
+        public Mercies() 
         {
             MercyList = new List<Mercy>();
         }
@@ -21,12 +21,9 @@ namespace SilverNeedle.Characters.SpecialAbilities
             MercyList.Add(mercy);
         }
 
-        public override string Name
+        public string DisplayString()
         {
-            get
-            {
-                return string.Format("Mercies ({0})", string.Join(",", MercyList.Select(x => x.Name)));
-            }
+            return string.Format("Mercies ({0})", string.Join(",", MercyList.Select(x => x.Name)));
         }
     }
 }

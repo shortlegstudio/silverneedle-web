@@ -8,7 +8,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
-    public class DazingTouch : SpecialAbility, IComponent
+    public class DazingTouch : IAbility, INameByType, IComponent
     {
         private AbilityScore baseAbility;
         private AbilityScoreTypes baseAbilityType;
@@ -33,6 +33,11 @@ namespace SilverNeedle.Characters.SpecialAbilities
             {
                 baseAbility = components.Get<AbilityScores>().GetAbility(baseAbilityType);
             }
+        }
+
+        public string DisplayString()
+        {
+            return "{0}/day - {1}".Formatted(this.UsesPerDay, this.Name());
         }
     }
 }

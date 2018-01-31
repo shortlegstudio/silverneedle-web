@@ -18,11 +18,11 @@ namespace Tests.Characters.SpecialAbilities.BloodlinePowers
             var longLimbs = new LongLimbs();
             sorcerer.Add(longLimbs);
             sorcerer.SetLevel(3);
-            Assert.Equal("Long Limbs (5 ft)", longLimbs.Name);
+            Assert.Equal("Long Limbs (5 ft)", longLimbs.DisplayString());
             sorcerer.SetLevel(11);
-            Assert.Equal("Long Limbs (10 ft)", longLimbs.Name);
+            Assert.Equal("Long Limbs (10 ft)", longLimbs.DisplayString());
             sorcerer.SetLevel(17);
-            Assert.Equal("Long Limbs (15 ft)", longLimbs.Name);
+            Assert.Equal("Long Limbs (15 ft)", longLimbs.DisplayString());
         }
     }
 

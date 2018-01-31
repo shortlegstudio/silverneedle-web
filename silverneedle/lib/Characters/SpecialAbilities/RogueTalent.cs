@@ -8,8 +8,9 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using System;
     using SilverNeedle.Characters.Prerequisites;
     using SilverNeedle.Serialization;
-    public class RogueTalent : SpecialAbility, IGatewayObject, IHasPrerequisites
+    public class RogueTalent : IAbility, IGatewayObject, IHasPrerequisites
     {
+        public string Name { get; private set; }
         public bool IsAdvancedTalent { get; set; }
         public bool IsSneakAttack { get; set; }
 
@@ -30,6 +31,11 @@ namespace SilverNeedle.Characters.SpecialAbilities
         public bool IsQualified(Utility.ComponentContainer components)
         {
             return this.Prerequisites.IsQualified(components);
+        }
+
+        public string DisplayString()
+        {
+            return this.Name;
         }
     }
 }

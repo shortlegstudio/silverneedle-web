@@ -7,7 +7,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
     using SilverNeedle.Utility;
 
-    public class StrengthOfTheAbyss : SpecialAbility, IComponent, IBloodlinePower
+    public class StrengthOfTheAbyss : AbilityDisplayAsName, IComponent, IBloodlinePower
     {
         private IValueStatModifier strengthModifier;
         private ClassLevel sorcererLevels;

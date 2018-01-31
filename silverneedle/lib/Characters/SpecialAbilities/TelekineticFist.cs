@@ -8,7 +8,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using SilverNeedle.Dice;
     using SilverNeedle.Utility;
 
-    public class TelekineticFist : SpecialAbility, IComponent
+    public class TelekineticFist : IAbility, INameByType, IComponent
     {
         private ClassLevel sourceLevel;
         private AbilityScore baseAbility;
@@ -32,16 +32,13 @@ namespace SilverNeedle.Characters.SpecialAbilities
             }
         }
 
-        public override string Name
+        public string DisplayString()
         {
-            get
-            {
-                return "{0} {1} ({2}/day)".Formatted(
-                    base.Name,
-                    Damage,
-                    UsesPerDay
-                );
-            }
+            return "{0} {1} ({2}/day)".Formatted(
+                this.Name(),
+                Damage,
+                UsesPerDay
+            );
         }
 
     }

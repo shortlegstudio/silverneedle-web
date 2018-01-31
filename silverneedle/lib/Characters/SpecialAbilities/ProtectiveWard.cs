@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class ProtectiveWard : SpecialAbility
+    public class ProtectiveWard : AbilityDisplayAsName
     {
 
     }

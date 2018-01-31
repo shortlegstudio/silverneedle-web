@@ -8,7 +8,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using System.Collections.Generic;
     using SilverNeedle.Bestiary;
     using SilverNeedle.Utility;
-    public class FavoredEnemy : SpecialAbility
+    public class FavoredEnemy : IAbility
     {
         private IDictionary<CreatureType, int> enemies;
         public FavoredEnemy() 
@@ -34,18 +34,14 @@ namespace SilverNeedle.Characters.SpecialAbilities
             enemies[type] += 2;
         }
 
-        public override string Name
+        public string DisplayString()
         {
-            get
+            var buildCharacterList = new List<string>();
+            foreach(var type in enemies.Keys)
             {
-                
-                var buildCharacterList = new List<string>();
-                foreach(var type in enemies.Keys)
-                {
-                    buildCharacterList.Add(string.Format("{0} {1}", type.Name, Bonus(type).ToModifierString()));
-                }
-                return string.Format("Favored Enemy ({0})", string.Join(", ", buildCharacterList));
+                buildCharacterList.Add(string.Format("{0} {1}", type.Name, Bonus(type).ToModifierString()));
             }
+            return string.Format("Favored Enemy ({0})", string.Join(", ", buildCharacterList));
         }
     }
 }

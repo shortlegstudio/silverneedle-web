@@ -18,7 +18,7 @@ namespace Tests.Characters.SpecialAbilities.BloodlinePowers
             sorcerer.SetLevel(6);
             sorcerer.Add(arcana);
             Assert.Equal("summoned creatures gain DR 3/good", arcana.BonusAbility);
-            Assert.Equal("Abyssal Arcana (summoned creatures gain DR 3/good)", arcana.Name);
+            Assert.Equal("Abyssal Arcana (summoned creatures gain DR 3/good)", arcana.DisplayString());
         }
     }
 }

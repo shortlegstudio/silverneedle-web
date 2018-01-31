@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class RemoteViewing : SpecialAbility
+    public class RemoteViewing : AbilityDisplayAsName
     {
         
     }

@@ -6,7 +6,7 @@
 namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
     using SilverNeedle.Utility;
-    public class GraveTouch : SpecialAbility, IBloodlinePower, IComponent
+    public class GraveTouch : IAbility, INameByType, IBloodlinePower, IComponent
     {
         private AbilityScore charisma;
         private ClassLevel sorcererLevels;
@@ -26,16 +26,13 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
             }
         }
 
-        public override string Name
+        public string DisplayString()
         {
-            get
-            {
-                return "{0}/day - {1} {2}/rounds".Formatted(
-                    UsesPerDay,
-                    base.Name,
-                    RoundsDuration
-                );
-            }
+            return "{0}/day - {1} {2}/rounds".Formatted(
+                UsesPerDay,
+                this.Name(),
+                RoundsDuration
+            );
         }
 
         public void Initialize(ComponentContainer components)

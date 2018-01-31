@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class MightOfTheGods : SpecialAbility
+    public class MightOfTheGods : AbilityDisplayAsName
     {
         
     }

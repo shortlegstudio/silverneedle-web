@@ -7,7 +7,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 {
     using SilverNeedle.Utility;
 
-    public class DivineBondWeapon : SpecialAbility, IComponent
+    public class DivineBondWeapon : IAbility, IComponent
     {
         public int WeaponBonus 
         { 
@@ -24,15 +24,9 @@ namespace SilverNeedle.Characters.SpecialAbilities
             }
         }
 
-        public override string Name
+        public string DisplayString()
         {
-            get
-            {
-                if(paladinLevel == null)
-                    return base.Name;
-
-                return string.Format("Divine Bond (Weapon {0}, {1}/day)", WeaponBonus.ToModifierString(), UsesPerDay);
-            }
+            return string.Format("Divine Bond (Weapon {0}, {1}/day)", WeaponBonus.ToModifierString(), UsesPerDay);
         }
         private ClassLevel paladinLevel;
         public void Initialize(ComponentContainer components)

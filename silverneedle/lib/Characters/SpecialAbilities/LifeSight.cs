@@ -7,7 +7,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 {
     using SilverNeedle.Utility;
 
-    public class LifeSight : SpecialAbility, IComponent
+    public class LifeSight : IAbility, INameByType, IComponent
     {
         private ClassLevel sourceLevel;
         public int RoundsPerDay
@@ -27,16 +27,13 @@ namespace SilverNeedle.Characters.SpecialAbilities
             sourceLevel = components.Get<ClassLevel>();
         }
 
-        public override string Name
+        public string DisplayString()
         {
-            get 
-            {
-                return "{0} {1}ft ({2} rounds/day)".Formatted(
-                    base.Name,
-                    Range,
-                    RoundsPerDay
-                );
-            }
+            return "{0} {1}ft ({2} rounds/day)".Formatted(
+                this.Name(),
+                Range,
+                RoundsPerDay
+            );
         }
     }
 }

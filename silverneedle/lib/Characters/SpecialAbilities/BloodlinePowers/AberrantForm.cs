@@ -8,7 +8,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
     using SilverNeedle.Characters.Senses;
     using SilverNeedle.Utility;
-    public class AberrantForm : SpecialAbility, IBloodlinePower, IComponent
+    public class AberrantForm : AbilityDisplayAsName, IBloodlinePower, IComponent
     {
         public void Initialize(ComponentContainer components)
         {

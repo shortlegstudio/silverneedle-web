@@ -7,7 +7,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
     using SilverNeedle.Utility;
 
-    public class Ascension : SpecialAbility, IBloodlinePower, IComponent
+    public class Ascension : AbilityDisplayAsName, IBloodlinePower, IComponent
     {
         public void Initialize(ComponentContainer components)
         {

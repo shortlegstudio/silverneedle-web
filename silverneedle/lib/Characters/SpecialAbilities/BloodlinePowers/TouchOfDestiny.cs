@@ -6,7 +6,7 @@
 namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
     using SilverNeedle.Utility;
-    public class TouchOfDestiny : SpecialAbility, IBloodlinePower, IComponent
+    public class TouchOfDestiny : IAbility, INameByType, IBloodlinePower, IComponent
     {
         private AbilityScore charisma;
         private ClassLevel sorcererLevels;
@@ -26,9 +26,9 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
             get { return (sorcererLevels.Level / 2).AtLeast(1); }
         }
 
-        public override string Name
+        public string DisplayString()
         {
-            get { return "{0} ({1} bonus {2}/day)".Formatted(base.Name, Bonus.ToModifierString(), UsesPerDay); }
+            return "{0} ({1} bonus {2}/day)".Formatted(this.Name(), Bonus.ToModifierString(), UsesPerDay);
         }
     }
 }

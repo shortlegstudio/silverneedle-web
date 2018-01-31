@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class HuntersBond : SpecialAbility
+    public class HuntersBond : IAbility
     {
         public HuntersBond(string bond) : base()
         {
@@ -14,13 +14,9 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
         public string Bond { get; set; }
 
-        public override string Name
+        public string DisplayString()
         {
-            get
-            {
-                return string.Format("Hunters Bond ({0})", this.Bond);
-            }
-
+            return string.Format("Hunters Bond ({0})", this.Bond);
         }
     }
 }

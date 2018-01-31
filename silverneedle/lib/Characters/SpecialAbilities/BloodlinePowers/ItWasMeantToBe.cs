@@ -6,7 +6,7 @@
 namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
     using SilverNeedle.Utility;
-    public class ItWasMeantToBe : SpecialAbility, IBloodlinePower, IComponent
+    public class ItWasMeantToBe : IAbility, INameByType, IBloodlinePower, IComponent
     {
         private ClassLevel sorcererLevels;
         public void Initialize(ComponentContainer components)
@@ -22,12 +22,9 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
             }
         }
 
-        public override string Name
+        public string DisplayString()
         {
-            get
-            {
-                return "{0} ({1}/day)".Formatted(base.Name, UsesPerDay);
-            }
+            return "{0} ({1}/day)".Formatted(this.Name(), UsesPerDay);
         }
     }
 }

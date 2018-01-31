@@ -6,7 +6,7 @@
 namespace SilverNeedle.Characters.SpecialAbilities
 {
     using SilverNeedle.Utility;
-    public class MetamagicMastery : SpecialAbility, IComponent
+    public class MetamagicMastery : IAbility, INameByType, IComponent
     {
         private ClassLevel sourceLevel;
         public void Initialize(ComponentContainer components)
@@ -19,9 +19,9 @@ namespace SilverNeedle.Characters.SpecialAbilities
             get { return (sourceLevel.Level - 6) / 2; }
         }
 
-        public override string Name
+        public string DisplayString()
         {
-            get { return "{0} ({1}/day)".Formatted(base.Name, UsesPerDay); }
+            return "{0} ({1}/day)".Formatted(this.Name(), UsesPerDay);
         }
     }
 }

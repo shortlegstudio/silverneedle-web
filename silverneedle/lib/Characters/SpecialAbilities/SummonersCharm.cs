@@ -7,7 +7,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 {
     using SilverNeedle.Utility;
 
-    public class SummonersCharm : SpecialAbility, IComponent
+    public class SummonersCharm : IAbility, INameByType, IComponent
     {
         private ClassLevel sourceLevel;
 
@@ -21,9 +21,9 @@ namespace SilverNeedle.Characters.SpecialAbilities
             get { return (sourceLevel.Level / 2).AtLeast(1); }
         }
 
-        public override string Name
+        public string DisplayString()
         {
-            get { return "{0} ({1} rounds)".Formatted(base.Name, Duration); }
+            return "{0} ({1} rounds)".Formatted(this.Name(), Duration); 
         }
     }
 }

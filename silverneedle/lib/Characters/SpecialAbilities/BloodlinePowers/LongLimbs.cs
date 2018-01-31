@@ -7,7 +7,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
     using SilverNeedle.Utility;
 
-    public class LongLimbs : SpecialAbility, IBloodlinePower, IComponent
+    public class LongLimbs : IAbility, INameByType, IBloodlinePower, IComponent
     {
         private ClassLevel sourceClass;
         public void Initialize(ComponentContainer components)
@@ -15,12 +15,9 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
             sourceClass = components.Get<ClassLevel>();
         }
 
-        public override string Name 
+        public string DisplayString() 
         {
-            get
-            {
-                return "{0} ({1} ft)".Formatted(base.Name, this.Reach);
-            }
+            return "{0} ({1} ft)".Formatted(this.Name(), this.Reach);
         }
 
         public int Reach

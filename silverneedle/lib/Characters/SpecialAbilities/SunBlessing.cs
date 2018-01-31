@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class SunBlessing : SpecialAbility
+    public class SunBlessing : AbilityDisplayAsName
     {
 
     }

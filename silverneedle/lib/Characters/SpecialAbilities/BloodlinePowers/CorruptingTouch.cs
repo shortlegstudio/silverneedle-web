@@ -7,7 +7,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
     using SilverNeedle.Utility;
 
-    public class CorruptingTouch : SpecialAbility, IBloodlinePower, IComponent
+    public class CorruptingTouch : AbilityDisplayAsName, IBloodlinePower, IComponent
     {
         private AbilityScore charisma;
         private ClassLevel sorcererLevels;

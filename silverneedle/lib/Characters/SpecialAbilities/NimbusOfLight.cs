@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class NimbusOfLight : SpecialAbility
+    public class NimbusOfLight : AbilityDisplayAsName
     {
         
     }

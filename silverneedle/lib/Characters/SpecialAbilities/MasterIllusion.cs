@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class MasterIllusion : SpecialAbility
+    public class MasterIllusion : AbilityDisplayAsName
     {
         
     }

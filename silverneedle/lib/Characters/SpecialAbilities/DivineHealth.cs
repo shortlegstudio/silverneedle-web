@@ -8,7 +8,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using System;
     using SilverNeedle.Utility;
 
-    public class DivineHealth : SpecialAbility, IComponent
+    public class DivineHealth : AbilityDisplayAsName, IComponent
     {
         public void Initialize(ComponentContainer components)
         {

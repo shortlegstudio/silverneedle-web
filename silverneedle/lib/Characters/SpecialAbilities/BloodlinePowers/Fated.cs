@@ -6,7 +6,7 @@
 namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
     using SilverNeedle.Utility;
-    public class Fated : SpecialAbility, IBloodlinePower, IComponent
+    public class Fated : IAbility, INameByType, IBloodlinePower, IComponent
     {
         private ClassLevel sorcerer;
         public void Initialize(ComponentContainer components)
@@ -21,12 +21,9 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
             }
         }
 
-        public override string Name
+        public string DisplayString()
         {
-            get 
-            {
-                return "{0} ({1} AC & Saves during surprise rounds".Formatted(base.Name, this.Bonus.ToModifierString());
-            }
+            return "{0} ({1} AC & Saves during surprise rounds".Formatted(this.Name(), this.Bonus.ToModifierString());
         }
 
     }

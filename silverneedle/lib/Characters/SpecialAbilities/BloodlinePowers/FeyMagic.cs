@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
-    public class FeyMagic : SpecialAbility, IBloodlinePower
+    public class FeyMagic : AbilityDisplayAsName, IBloodlinePower
     {
 
     }

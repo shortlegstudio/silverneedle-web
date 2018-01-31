@@ -7,7 +7,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 {
     using SilverNeedle.Utility;
 
-    public class InvisibilityField : SpecialAbility, IComponent
+    public class InvisibilityField : IAbility, INameByType, IComponent
     {
         private ClassLevel sourceLevel;
 
@@ -18,9 +18,9 @@ namespace SilverNeedle.Characters.SpecialAbilities
             sourceLevel = components.Get<ClassLevel>();
         }
 
-        public override string Name
+        public string DisplayString()
         {
-            get { return "{0} ({1} rounds/day)".Formatted(base.Name, RoundsPerDay); }
+            return "{0} ({1} rounds/day)".Formatted(this.Name(), RoundsPerDay); 
         }
     }
 }

@@ -10,7 +10,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using SilverNeedle.Bestiary;
     using SilverNeedle.Equipment;
 
-    public class ArcaneBond : SpecialAbility, BloodlinePowers.IBloodlinePower, IComponent
+    public class ArcaneBond : INameByType, IAbility, BloodlinePowers.IBloodlinePower, IComponent
     {
         private EntityGateway<Familiar> familiars;
         private IGear[] items;
@@ -48,18 +48,15 @@ namespace SilverNeedle.Characters.SpecialAbilities
             }
         }
 
-        public override string Name 
+        public string DisplayString() 
         { 
-            get 
-            { 
-                if(IsFamiliarBond)
-                    return "{0} ({1})".Formatted(base.Name, bondedFamiliar.Name);
-                
-                if(IsItemBond)
-                    return "{0} ({1})".Formatted(base.Name, bondedItem.Name);
+            if(IsFamiliarBond)
+                return "{0} ({1})".Formatted(this.Name(), bondedFamiliar.Name);
+            
+            if(IsItemBond)
+                return "{0} ({1})".Formatted(this.Name(), bondedItem.Name);
 
-                return base.Name;
-            }
+            return this.Name();
         }
     }
 }

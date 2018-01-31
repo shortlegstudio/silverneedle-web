@@ -7,7 +7,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
     using SilverNeedle.Utility;
 
-    public class DeathsGift : SpecialAbility, IBloodlinePower, IComponent, IImprovesWithLevels
+    public class DeathsGift : AbilityDisplayAsName, IBloodlinePower, IComponent, IImprovesWithLevels
     {
         private ClassLevel sorcererLevels;
         private EnergyResistance coldResistance;

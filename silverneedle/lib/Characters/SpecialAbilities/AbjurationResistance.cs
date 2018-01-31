@@ -9,7 +9,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
-    public class AbjurationResistance : SpecialAbility, IComponent
+    public class AbjurationResistance : AbilityDisplayAsName, IComponent
     {
         private EntityGateway<EnergyType> energyTypes;
         private EnergyResistance damageResistance;

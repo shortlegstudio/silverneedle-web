@@ -6,7 +6,7 @@
 namespace SilverNeedle.Characters.SpecialAbilities
 {
     using SilverNeedle.Utility;
-    public class ImprovedQuarry : SpecialAbility, IComponent
+    public class ImprovedQuarry : AbilityDisplayAsName, IComponent
     {
         public void Initialize(ComponentContainer components)
         {

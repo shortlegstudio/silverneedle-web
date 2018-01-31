@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
-    public class ArcaneApotheosis : SpecialAbility, IBloodlinePower
+    public class ArcaneApotheosis : AbilityDisplayAsName, IBloodlinePower
     {
 
     }

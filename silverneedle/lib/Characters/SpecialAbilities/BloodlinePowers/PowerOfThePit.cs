@@ -7,7 +7,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
     using SilverNeedle.Utility;
 
-    public class PowerOfThePit : SpecialAbility, IBloodlinePower, IComponent
+    public class PowerOfThePit : AbilityDisplayAsName, IBloodlinePower, IComponent
     {
         public void Initialize(ComponentContainer components)
         {

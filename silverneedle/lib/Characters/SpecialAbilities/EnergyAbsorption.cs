@@ -7,7 +7,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 {
     using SilverNeedle.Utility;
 
-    public class EnergyAbsorption : SpecialAbility, IComponent
+    public class EnergyAbsorption : IAbility, INameByType, IComponent
     {
         private ClassLevel sourceLevel;
         public void Initialize(ComponentContainer components)
@@ -20,9 +20,9 @@ namespace SilverNeedle.Characters.SpecialAbilities
             get { return 3 * sourceLevel.Level; }
         }
 
-        public override string Name
+        public string DisplayString()
         {
-            get { return "{0} ({1} pts/day)".Formatted(base.Name, Amount); }
+            return "{0} ({1} pts/day)".Formatted(this.Name(), Amount); 
         }
     }
 }

@@ -5,11 +5,8 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class DivineBondMount : SpecialAbility
+    public class DivineBondMount : AbilityDisplayAsName
     {
-        public DivineBondMount()
-        {
-            this.Name = "Divine Bond (mount)";
-        }
+
     }
 }

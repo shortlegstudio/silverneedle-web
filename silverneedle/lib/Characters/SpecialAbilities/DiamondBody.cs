@@ -7,7 +7,7 @@ using SilverNeedle.Utility;
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class DiamondBody : SpecialAbility, IComponent
+    public class DiamondBody : AbilityDisplayAsName, IComponent
     {
         public void Initialize(ComponentContainer components)
         {

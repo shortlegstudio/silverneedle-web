@@ -7,7 +7,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 {
     using SilverNeedle.Utility;
 
-    public class HandOfTheApprentice : SpecialAbility, IComponent
+    public class HandOfTheApprentice : IAbility, INameByType, IComponent
     {
         private AbilityScore baseAbility;
         public void Initialize(ComponentContainer components)
@@ -20,9 +20,9 @@ namespace SilverNeedle.Characters.SpecialAbilities
             get { return 3 + baseAbility.TotalModifier; }
         }
 
-        public override string Name
+        public string DisplayString()
         {
-            get { return "{0} ({1}/day)".Formatted(base.Name, UsesPerDay); }
+            return "{0} ({1}/day)".Formatted(this.Name(), UsesPerDay); 
         }
     }
 }

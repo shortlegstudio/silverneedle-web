@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class AuraOfMadness : SpecialAbility
+    public class AuraOfMadness : AbilityDisplayAsName
     {
         
     }

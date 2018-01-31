@@ -6,7 +6,7 @@
 namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
     using SilverNeedle.Utility;
-    public class ElementalResistance : SpecialAbility, IBloodlinePower, IComponent, IImprovesWithLevels
+    public class ElementalResistance : AbilityDisplayAsName, IBloodlinePower, IComponent, IImprovesWithLevels
     {
         private EnergyResistance resistance; 
         private ClassLevel sorcerer;

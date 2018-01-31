@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class LiberationMobility : SpecialAbility
+    public class LiberationMobility : AbilityDisplayAsName
     {
 
     }

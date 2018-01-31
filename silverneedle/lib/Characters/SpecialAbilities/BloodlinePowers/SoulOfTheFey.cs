@@ -7,7 +7,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
     using SilverNeedle.Utility;
 
-    public class SoulOfTheFey : SpecialAbility, IBloodlinePower, IComponent
+    public class SoulOfTheFey : AbilityDisplayAsName, IBloodlinePower, IComponent
     {
         public void Initialize(ComponentContainer components)
         {

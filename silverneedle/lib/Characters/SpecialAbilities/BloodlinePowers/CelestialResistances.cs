@@ -7,7 +7,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
     using SilverNeedle.Utility;
 
-    public class CelestialResistances : SpecialAbility, IBloodlinePower, IComponent, IImprovesWithLevels
+    public class CelestialResistances : AbilityDisplayAsName, IBloodlinePower, IComponent, IImprovesWithLevels
     {
         private EnergyResistance drCold;
         private EnergyResistance drAcid;

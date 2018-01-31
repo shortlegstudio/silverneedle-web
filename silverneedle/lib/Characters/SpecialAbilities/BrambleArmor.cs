@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class BrambleArmor : SpecialAbility
+    public class BrambleArmor : AbilityDisplayAsName
     {
         
     }

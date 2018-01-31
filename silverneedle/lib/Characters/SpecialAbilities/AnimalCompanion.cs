@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class AnimalCompanion : SpecialAbility
+    public class AnimalCompanion : AbilityDisplayAsName
     {
 
     }

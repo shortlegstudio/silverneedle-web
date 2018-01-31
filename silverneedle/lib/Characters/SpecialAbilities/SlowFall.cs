@@ -7,7 +7,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 {
     using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
-    public class SlowFall : SpecialAbility, IComponent
+    public class SlowFall : IAbility, IComponent
     {
         private DataTable monkAbilities;
         private ClassLevel monkLevel;
@@ -33,12 +33,9 @@ namespace SilverNeedle.Characters.SpecialAbilities
             }
         }
 
-        public override string Name
+        public string DisplayString()
         {
-            get
-            {
-                return "Slow Fall ({0} ft)".Formatted(DistanceValue);
-            }
+            return "Slow Fall ({0} ft)".Formatted(DistanceValue);
         }
     }
 }

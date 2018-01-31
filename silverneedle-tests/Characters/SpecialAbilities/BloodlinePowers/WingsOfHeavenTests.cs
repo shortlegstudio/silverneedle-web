@@ -18,7 +18,7 @@ namespace Tests.Characters.SpecialAbilities.BloodlinePowers
             sorcerer.Add(wings);
             sorcerer.SetLevel(10);
             Assert.Equal(10, wings.MinutesPerDay);
-            Assert.Equal("Wings Of Heaven (10 minutes/day)", wings.Name);
+            Assert.Equal("Wings Of Heaven (10 minutes/day)", wings.DisplayString());
         }
 
         [Fact]
@@ -30,7 +30,7 @@ namespace Tests.Characters.SpecialAbilities.BloodlinePowers
             sorcerer.Add(new Ascension());
             sorcerer.SetLevel(10);
             Assert.Equal(int.MaxValue, wings.MinutesPerDay);
-            Assert.Equal("Wings Of Heaven (unlimited minutes/day)", wings.Name);
+            Assert.Equal("Wings Of Heaven (unlimited minutes/day)", wings.DisplayString());
         }
     }
 }

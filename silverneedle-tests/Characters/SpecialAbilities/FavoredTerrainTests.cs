@@ -18,7 +18,7 @@ namespace Tests.Characters.SpecialAbilities
             var terrain = new TerrainType("Jungle");
             var fav = new FavoredTerrain();
             fav.Add(terrain);
-            Assert.Equal(fav.Name, "Favored Terrain (Jungle +2)");
+            Assert.Equal(fav.DisplayString(), "Favored Terrain (Jungle +2)");
         }
 
         [Fact]
@@ -34,7 +34,7 @@ namespace Tests.Characters.SpecialAbilities
             Assert.Contains(plains, fav.TerrainTypes);
             Assert.Equal(fav.Bonus(forest), 2);
             Assert.Equal(fav.Bonus(plains), 2);
-            Assert.Equal(fav.Name, "Favored Terrain (Forest +2, Plains +2)");
+            Assert.Equal(fav.DisplayString(), "Favored Terrain (Forest +2, Plains +2)");
         }
     }
 }

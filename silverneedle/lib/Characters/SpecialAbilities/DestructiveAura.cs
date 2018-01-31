@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class DestructiveAura : SpecialAbility
+    public class DestructiveAura : AbilityDisplayAsName
     {
 
     }

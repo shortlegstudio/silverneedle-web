@@ -7,7 +7,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
     using SilverNeedle.Characters.Senses;
     using SilverNeedle.Utility;
-    public class PowerOfWyrms : SpecialAbility, IBloodlinePower, IComponent
+    public class PowerOfWyrms : AbilityDisplayAsName, IBloodlinePower, IComponent
     {
         public void Initialize(ComponentContainer components)
         {

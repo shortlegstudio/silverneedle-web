@@ -7,7 +7,7 @@
 namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
     using SilverNeedle.Utility;
-    public class WingsOfHeaven : SpecialAbility, IBloodlinePower, IComponent
+    public class WingsOfHeaven : IAbility, INameByType, IBloodlinePower, IComponent
     {
         private ClassLevel sorcererLevel;
         private ComponentContainer components;
@@ -32,12 +32,9 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
             } 
         }
 
-        public override string Name
+        public string DisplayString()
         {
-            get 
-            { 
-                return "{0} ({1} minutes/day)".Formatted(base.Name, IsAscended() ? "unlimited" : MinutesPerDay.ToString()); 
-            }
+            return "{0} ({1} minutes/day)".Formatted(this.Name(), IsAscended() ? "unlimited" : MinutesPerDay.ToString()); 
         }
     }
 }

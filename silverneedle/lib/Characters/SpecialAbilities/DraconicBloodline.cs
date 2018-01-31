@@ -22,7 +22,6 @@ namespace SilverNeedle.Characters.SpecialAbilities
         {
             base.Initialize(components);
             this.DragonType = GatewayProvider.All<DragonType>().ChooseOne();
-            this.Name = "{0} ({1})".Formatted(base.Name, this.DragonType.Name);
         }
 
         private DraconicBloodline(string name, string[] classSkillOptions, Dictionary<int, string> powers, Dictionary<int, string> bonusSpells, string[] bonusFeats)
@@ -33,6 +32,11 @@ namespace SilverNeedle.Characters.SpecialAbilities
         public static DraconicBloodline Create(string name, string[] classSkillOptions, Dictionary<int, string> powers, Dictionary<int, string> bonusSpells, string[] bonusFeats)
         {
             return new DraconicBloodline(name, classSkillOptions, powers, bonusSpells, bonusFeats);
+        }
+
+        public override string DisplayString()
+        {
+            return "Draconic Bloodline ({0})".Formatted(this.DragonType.Name);
         }
     }
 

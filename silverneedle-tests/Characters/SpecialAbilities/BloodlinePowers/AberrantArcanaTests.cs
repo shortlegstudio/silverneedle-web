@@ -15,7 +15,7 @@ namespace Tests.Characters.SpecialAbilities.BloodlinePowers
         {
             var arcana = new AberrantArcana();
             Assert.Equal("+50% duration polymorph spells", arcana.BonusAbility);
-            Assert.Equal("Aberrant Arcana (+50% duration polymorph spells)", arcana.Name);
+            Assert.Equal("Aberrant Arcana (+50% duration polymorph spells)", arcana.DisplayString());
         }
     }
 }

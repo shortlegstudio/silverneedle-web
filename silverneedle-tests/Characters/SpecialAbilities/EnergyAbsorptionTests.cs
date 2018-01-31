@@ -19,7 +19,7 @@ namespace Tests.Characters.SpecialAbilities
             Assert.Equal(3, absorp.Amount);
             wizard.SetLevel(10);
             Assert.Equal(30, absorp.Amount);
-            Assert.Equal("Energy Absorption (30 pts/day)", absorp.Name);
+            Assert.Equal("Energy Absorption (30 pts/day)", absorp.DisplayString());
         }
     }
 }

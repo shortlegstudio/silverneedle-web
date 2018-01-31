@@ -27,7 +27,7 @@ namespace Tests.Characters.SpecialAbilities
 
             Assert.Equal(20, lifeSight.RoundsPerDay);
 
-            Assert.Equal("Life Sight 40ft (20 rounds/day)", lifeSight.Name);
+            Assert.Equal("Life Sight 40ft (20 rounds/day)", lifeSight.DisplayString());
 
         }
     }

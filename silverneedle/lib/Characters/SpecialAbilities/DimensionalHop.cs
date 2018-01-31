@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    public class DimensionalHop : SpecialAbility
+    public class DimensionalHop : AbilityDisplayAsName
     {
         
     }

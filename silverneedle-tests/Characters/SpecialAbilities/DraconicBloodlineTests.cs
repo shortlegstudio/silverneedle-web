@@ -22,7 +22,7 @@ namespace Tests.Characters.SpecialAbilities
                 new string[] { });
             sorcerer.Add(draconic);
             Assert.NotNull(draconic.DragonType);
-            Assert.Equal(string.Format("Draconic Bloodline ({0})", draconic.DragonType.Name), draconic.Name);
+            Assert.Equal(string.Format("Draconic Bloodline ({0})", draconic.DragonType.Name), draconic.DisplayString());
         }
     }
 

@@ -6,7 +6,7 @@
 namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 {
     using SilverNeedle.Utility;
-    public class DemonicMight : SpecialAbility, IComponent, IBloodlinePower
+    public class DemonicMight : AbilityDisplayAsName, IComponent, IBloodlinePower
     {
         public void Initialize(ComponentContainer components)
         {

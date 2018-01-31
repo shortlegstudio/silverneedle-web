@@ -8,7 +8,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
     using SilverNeedle.Characters.Magic;
     using SilverNeedle.Utility;
 
-    public class NewArcana : SpecialAbility, IBloodlinePower, IImprovesWithLevels, IComponent
+    public class NewArcana : AbilityDisplayAsName, IBloodlinePower, IImprovesWithLevels, IComponent
     {
         public void LeveledUp(ComponentContainer components)
         {
