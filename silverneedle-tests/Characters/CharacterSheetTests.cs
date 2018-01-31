@@ -74,9 +74,9 @@ namespace Tests.Characters
         public void AddingASpecialAbilityAddsToComponentList()
         {
             var character = new CharacterSheet(CharacterStrategy.Default());
-            var ability = new SpecialAbility();
+            var ability = new CompAbility();
             character.Add(ability);
-            Assert.Equal(character.Components.Get<SpecialAbility>(), ability);
+            Assert.Equal(character.Components.Get<CompAbility>(), ability);
         }
 
         [Fact]
@@ -125,7 +125,7 @@ namespace Tests.Characters
             Assert.NotNull(character.Get<SilverNeedle.Characters.Attacks.MeleeAttackBonus>());
         }
 
-        public class CompAbility : SpecialAbility, IComponent
+        public class CompAbility : IComponent
         {
             public bool Called { get; private set; }
             public void Initialize(ComponentContainer bag)
