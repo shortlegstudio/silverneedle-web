@@ -9,13 +9,11 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
     using SilverNeedle.Dice;
     using SilverNeedle.Utility;
 
-    public class Hellfire : IAttackStatistic, IBloodlinePower, IComponent
+    public class Hellfire : IAttack, IBloodlinePower, IComponent
     {
         private ClassLevel sorcererLevels;
         private AbilityScore charisma;
         public string Name { get { return "Hellfire"; } }
-
-        public IValueStatistic AttackBonus => throw new System.NotImplementedException();
 
         public Cup Damage 
         {
@@ -25,13 +23,8 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
             }
         }
 
-        public int NumberOfAttacks => throw new System.NotImplementedException();
-
         public AttackTypes AttackType { get { return AttackTypes.Special; } }
 
-        public IValueStatistic CriticalModifier => throw new System.NotImplementedException();
-
-        public int CriticalThreat => throw new System.NotImplementedException();
 
         public int SaveDC 
         {
@@ -52,11 +45,6 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
                     return 2;
                 return 1;
             }
-        }
-
-        public string AttackBonusString()
-        {
-            throw new System.NotImplementedException();
         }
 
         public string DisplayString()

@@ -16,7 +16,7 @@ namespace SilverNeedle
     public static class ShortLog
     {
 
-        const string LOG_LEVEL = "LOG";
+        public const string LOG_LEVEL_ENV = "SILVERNEEDLE_LOG_LEVEL";
         /// <summary>
         /// Initializes static members of the <see cref="SilverNeedle.ShortLog"/> class.
         /// </summary>
@@ -26,12 +26,7 @@ namespace SilverNeedle
 
         public static LogLevel GetLogLevel()
         {
-            var env = Environment.GetEnvironmentVariable(LOG_LEVEL);
-            if (env == null)
-            {
-                return LogLevel.DEBUG;
-            }
-            return (LogLevel)Enum.Parse(typeof(LogLevel), env);
+            return Configuration.LogLevel;
         }
 
         /// <summary>

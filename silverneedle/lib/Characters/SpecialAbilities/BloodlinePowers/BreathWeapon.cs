@@ -9,14 +9,12 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
     using SilverNeedle.Dice;
     using SilverNeedle.Utility;
 
-    public class BreathWeapon : IBloodlinePower, IAttackStatistic, IComponent
+    public class BreathWeapon : IBloodlinePower, IAttack, IComponent
     {
         private ClassLevel sorcererLevels;
         private DragonType dragonType;
         private AbilityScore charisma;
         public string Name { get { return "Breath Weapon"; } }
-
-        public IValueStatistic AttackBonus => throw new System.NotImplementedException();
 
         public Cup Damage 
         { 
@@ -26,13 +24,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
             }
         }
 
-        public int NumberOfAttacks => throw new System.NotImplementedException();
-
         public AttackTypes AttackType { get { return AttackTypes.Special; } }
-
-        public IValueStatistic CriticalModifier => throw new System.NotImplementedException();
-
-        public int CriticalThreat => throw new System.NotImplementedException();
 
         public int SaveDC 
         {

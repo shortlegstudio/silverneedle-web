@@ -9,14 +9,13 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
     using SilverNeedle.Characters.Attacks;
     using SilverNeedle.Dice;
     using SilverNeedle.Utility; 
-    public class ElementalBlast : IAttackStatistic, IBloodlinePower, IComponent
+
+    public class ElementalBlast : IAttack, IBloodlinePower, IComponent
     {
         private ClassLevel sorcererLevels;
         private ElementalType elementalType;
         private AbilityScore charisma;
         public string Name { get { return "Elemental Blast"; } }
-
-        public IValueStatistic AttackBonus => throw new System.NotImplementedException();
 
         public Cup Damage
         {
@@ -30,10 +29,6 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
         public int NumberOfAttacks { get { return 1; } }
 
         public AttackTypes AttackType { get { return AttackTypes.Special; } }
-
-        public IValueStatistic CriticalModifier => throw new System.NotImplementedException();
-
-        public int CriticalThreat => throw new System.NotImplementedException();
 
         public int SaveDC
         {
@@ -54,11 +49,6 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
                     return 2;
                 return 1;
             }
-        }
-
-        public string AttackBonusString()
-        {
-            throw new System.NotImplementedException();
         }
 
         public string DisplayString()

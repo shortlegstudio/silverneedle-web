@@ -9,13 +9,11 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
     using SilverNeedle.Dice;
     using SilverNeedle.Utility;
 
-    public class GraspOfTheDead : IAttackStatistic, IBloodlinePower, IComponent
+    public class GraspOfTheDead : IAttack, IBloodlinePower, IComponent
     {
         private ClassLevel sorcererLevels;
         private AbilityScore charisma;
         public string Name { get { return "Grasp of the Dead"; } }
-
-        public IValueStatistic AttackBonus => throw new System.NotImplementedException();
 
         public Cup Damage
         {
@@ -26,13 +24,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
         }
         public string DamageType { get { return "slashing"; } }
 
-        public int NumberOfAttacks => throw new System.NotImplementedException();
-
         public AttackTypes AttackType { get { return AttackTypes.Special; } }
-
-        public IValueStatistic CriticalModifier => throw new System.NotImplementedException();
-
-        public int CriticalThreat => throw new System.NotImplementedException();
 
         public int SaveDC { get { return 10 + charisma.TotalModifier + sorcererLevels.Level / 2; } }
 
@@ -48,11 +40,6 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 
                 return 1;
             }
-        }
-
-        public string AttackBonusString()
-        {
-            throw new System.NotImplementedException();
         }
 
         public string DisplayString()

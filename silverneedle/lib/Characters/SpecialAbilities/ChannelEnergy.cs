@@ -10,7 +10,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using SilverNeedle.Utility;
     using SilverNeedle.Serialization;
 
-    public class ChannelEnergy : IAbility, IComponent, IAttack, INameByType, IUsesPerDay
+    public class ChannelEnergy : IAbility, IComponent, IAttack, INameByType
     {
 
         public ChannelEnergy(IObjectStore configuration)
@@ -31,8 +31,6 @@ namespace SilverNeedle.Characters.SpecialAbilities
         public IValueStatistic SaveDC { get; private set; }
 
         public AttackTypes AttackType { get { return AttackTypes.Special; } }
-
-        public int UsesPerDay => throw new System.NotImplementedException();
 
         public string DisplayString()
         {
