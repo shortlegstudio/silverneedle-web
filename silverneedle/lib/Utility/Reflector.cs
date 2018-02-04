@@ -10,7 +10,10 @@ namespace SilverNeedle.Utility
     using System.Linq;
     using System.Reflection;
     using SilverNeedle.Serialization;
+    #if SILVERNEEDLE_UNITY
+    #else
     using Microsoft.Extensions.DependencyModel;
+    #endif
 
     public static class Reflector {
         /// <summary>
@@ -24,7 +27,7 @@ namespace SilverNeedle.Utility
         public static T Instantiate<T>(this System.Type type, params IObjectStore[] constructor) 
         {
             if(type == null)
-                throw new ArgumentNullException("type");
+                throw new ArgumentNullException(nameof(type));
 
             try
             {
@@ -75,6 +78,12 @@ namespace SilverNeedle.Utility
 
         }
 
+        #if SILVERNEEDLE_UNITY
+        public static Assembly[] GetAssemblies()
+        {
+            return AppDomain.CurrentDomain.GetAssemblies();
+        }
+        #else
         public static Assembly[] GetAssemblies()
         {
             return DependencyContext.Default.RuntimeLibraries
@@ -83,16 +92,18 @@ namespace SilverNeedle.Utility
                 .ToArray();
         }
 
-        public static bool Implements(this object obj, Type testInterface)
-        {
-            return testInterface.IsInstanceOfType(obj);
-        }
-
         private static bool IsCandidateCompilationLibrary(RuntimeLibrary compilationLibrary)
         {
             return compilationLibrary.Name.StartsWith("silverneedle")
                 || compilationLibrary.Dependencies.Any(d => d.Name.StartsWith("silverneedle"));
         }
+        #endif
+
+        public static bool Implements(this object obj, Type testInterface)
+        {
+            return testInterface.IsInstanceOfType(obj);
+        }
+
 
         public static void DebugReflector()
         {
