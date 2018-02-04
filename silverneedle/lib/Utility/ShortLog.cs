@@ -6,6 +6,7 @@
 namespace SilverNeedle
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     
     /// <summary>
@@ -22,6 +23,7 @@ namespace SilverNeedle
         /// </summary>
         static ShortLog()
         {
+            RegisterLogger(new ConsoleLogger());
         }
 
         public static LogLevel GetLogLevel()
@@ -82,7 +84,11 @@ namespace SilverNeedle
             if (GetLogLevel() >= level)
             {
                 string message = string.Format(format, args);
-                Console.WriteLine(log_format, DateTime.Now.ToString(), level, message);
+                string log = string.Format(log_format, DateTime.Now.ToString(), level, message);
+                foreach(var l in loggers)
+                {
+                    l.WriteLine(log);
+                }
             }
         }
 
@@ -91,6 +97,39 @@ namespace SilverNeedle
             ERROR = 0,
             WARN = 3,
             DEBUG = 10
+        }
+
+        public static void RegisterLogger(IShortLogger logger)
+        {
+            loggers.Add(logger);
+        }
+        private static IList<IShortLogger> loggers = new List<IShortLogger>();
+
+        public interface IShortLogger
+        {
+            void WriteLine(string message);
+        }
+
+        public class ConsoleLogger : IShortLogger
+        {
+            public void WriteLine(string message)
+            {
+                System.Console.WriteLine(message);
+            }
+        }
+
+        public class FileLogger : IShortLogger
+        {
+            private System.IO.TextWriter writer;
+            public FileLogger(string fileName)
+            {
+                writer = System.IO.File.CreateText(fileName);
+            }
+
+            public void WriteLine(string message)
+            {
+                writer.WriteLine(message);
+            }
         }
     }
 }
