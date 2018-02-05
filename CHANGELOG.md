@@ -1,6 +1,12 @@
 # Change Log
 All notable changes will be tracked in this file. Most likely.
 
+## 0.5.1.0
+### Added
+- Supports Unity with a couple of considerations: Needs SILVERNEEDLE_UNITY symbol defined and only works with .net 4.6
+- Added ability to specify different kinds of loggers and logging locations
+- Created script that packages up silverneedle with dependencies. Requires case-insensitive file system and GNU sed
+
 ## 0.5.0.0
 ### Added
 - Implement Prerequisites for class features, skill ranks, proficiency, race
