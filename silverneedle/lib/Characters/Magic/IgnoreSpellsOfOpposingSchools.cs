@@ -7,20 +7,20 @@
 namespace SilverNeedle.Characters.Magic
 {
     using System.Linq;
-    using SilverNeedle.Spells;
-    using SilverNeedle.Utility;
+    using Spells;
+    using Utility;
 
     public class IgnoreSpellsOfOpposingSchools : ISpellCastingRule, IComponent
     {
-        private WizardCasting casting;
+        private WizardCasting _casting;
         public bool CanCastSpell(Spell spell)
         {
-            return !(casting.OppositionSchools.Any(x => x.Name.EqualsIgnoreCase(spell.School)));
+            return !(_casting.OppositionSchools.Any(x => x.Name.EqualsIgnoreCase(spell.School)));
         }
 
         public void Initialize(ComponentContainer components)
         {
-            casting = components.Get<WizardCasting>();
+            _casting = components.Get<WizardCasting>();
         }
     }
 }

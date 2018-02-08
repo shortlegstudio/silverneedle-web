@@ -93,7 +93,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
         public virtual string DisplayString()
         {
-            return string.Format("Bloodline ({1})", bloodlineName);
+            return string.Format("Bloodline ({0})", bloodlineName);
         }
     }
 }

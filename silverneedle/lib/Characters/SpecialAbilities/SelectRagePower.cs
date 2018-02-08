@@ -6,26 +6,28 @@
 
 namespace SilverNeedle.Characters.SpecialAbilities
 {
-    using System;
-    using SilverNeedle.Characters.Prerequisites;
-    using SilverNeedle.Serialization;
-    using SilverNeedle.Utility;
+    using Prerequisites;
+    using Serialization;
+    using Utility;
 
     public class SelectRagePower : ICharacterFeatureCommand
     {
-        private EntityGateway<RagePower> ragePowers;
+        private readonly EntityGateway<RagePower> _ragePowers;
         public SelectRagePower()
         {
-            this.ragePowers = GatewayProvider.Get<RagePower>();
+            _ragePowers = GatewayProvider.Get<RagePower>();
         }
 
         public SelectRagePower(EntityGateway<RagePower> ragePowers)
         {
-            this.ragePowers = ragePowers;
+            _ragePowers = ragePowers;
         }
         public void Execute(ComponentContainer components)
         {
-            var options = ragePowers.All().GetAllQualified<RagePower>(components);
+            var options = _ragePowers
+                .All()
+                .GetAllQualified<RagePower>(components)
+                .Exclude(components.GetAll<RagePower>());
             var power = options.ChooseOne();
             components.Add(power);
         }

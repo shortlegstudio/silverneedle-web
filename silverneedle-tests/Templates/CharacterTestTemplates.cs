@@ -3,6 +3,8 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
+using Moq;
+
 namespace Tests
 {
     using System.Collections.Generic;
@@ -78,6 +80,12 @@ namespace Tests
         {
             return CreateWithClass("Druid");
         }
+
+        public static CharacterSheet Barbarian()
+        {
+            return CreateWithClass("Barbarian");
+        }
+        
         public static CharacterSheet Cleric()
         {
             return CreateWithClass("Cleric");

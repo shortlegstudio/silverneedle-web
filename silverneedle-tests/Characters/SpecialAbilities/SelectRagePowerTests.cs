@@ -5,12 +5,12 @@
 
 namespace Tests.Characters.SpecialAbilities
 {
+    using System.Linq;
     using System.Collections.Generic;
     using Xunit;
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Serialization;
-    using SilverNeedle.Utility;
 
     
     public class SelectRagePowerTests
@@ -29,10 +29,7 @@ namespace Tests.Characters.SpecialAbilities
             var gateway = EntityGateway<RagePower>.LoadFromList(powers);
             ragePowerSelector = new SelectRagePower(gateway);
 
-            barbarian = new CharacterSheet(CharacterStrategy.Default());
-            var cls = new Class();
-            cls.Name = "Barbarian";
-            barbarian.SetClass(cls);
+            barbarian = CharacterTestTemplates.Barbarian();
         }
 
         [Fact]
@@ -41,6 +38,19 @@ namespace Tests.Characters.SpecialAbilities
             ragePowerSelector.Execute(barbarian.Components);
             Assert.Equal(barbarian.Components.Get<RagePower>().Name, "Rage 1");
         }
+
+        [Theory]
+        [Repeat(200)]
+        public void DoNotSelectTheSameRagePowerTwice()
+        {
+            barbarian.SetLevel(8);
+            ragePowerSelector.Execute(barbarian.Components);
+            ragePowerSelector.Execute(barbarian.Components);
+            var powers = barbarian.GetAll<RagePower>().Select(p => p.Name);
+            AssertExtensions.Contains("Rage 1", powers);
+            AssertExtensions.Contains("Rage 2", powers);
+        }
+        
 
         private string rageYaml =@"
 - name: Rage 1
