@@ -11,7 +11,7 @@ namespace Tests.Actions.MagicItemGeneration
     using SilverNeedle.Spells;
     using SilverNeedle.Serialization;
 
-    public class PotionCreatorTests
+    public class PotionCreatorTests : RequiresDataFiles
     {
         [Theory]
         [InlineData(1, 5000)]

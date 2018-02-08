@@ -14,7 +14,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Spells;
 
     
-    public class AddDomainSpellsTests
+    public class AddDomainSpellsTests : RequiresDataFiles
     {
         [Fact]
         public void FindsDomainsAssociatedWithCharacterAndAddsThoseSpells()

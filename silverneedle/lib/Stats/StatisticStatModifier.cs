@@ -23,6 +23,7 @@ namespace SilverNeedle
             this.StatisticName = statisticName;
             this.ModifierType = type;
             this.TrackingStatName = trackingStat.Name;
+            this.Multiplier = 1;
         }
 
         public StatisticStatModifier(IObjectStore configuration)
@@ -30,7 +31,7 @@ namespace SilverNeedle
             configuration.Deserialize(this);
         }
 
-        public float Modifier { get { return this.statistic.TotalValue; } }
+        public float Modifier { get { return this.statistic.TotalValue * this.Multiplier; } }
 
 
         [ObjectStore("modifier-type")]
@@ -47,6 +48,9 @@ namespace SilverNeedle
 
         [ObjectStoreOptional("stat-type")]
         public string StatisticType { get; set; }
+
+        [ObjectStoreOptional("multiplier", 1.0f)]
+        public float Multiplier { get; private set; }
 
         public void Initialize(ComponentContainer components)
         {

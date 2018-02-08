@@ -23,7 +23,10 @@ save-dc-stat:
   base-value: 10
 dice-stat:
   name: Channel Energy Dice
-  dice: 1d6";
+  dice: 1d6
+uses-per-day-stat:
+  name: Channel Energy Uses Per Day
+  base-value: 3";
             channel = new ChannelEnergy(yaml.ParseYaml());
         }
         [Fact]
@@ -49,6 +52,7 @@ dice-stat:
             character.Add(channel);
             Assert.NotNull(character.FindStat("Channel Energy Save DC"));
             Assert.NotNull(character.FindStat("Channel Energy Dice"));
+            Assert.NotNull(character.FindStat("Channel Energy Uses Per Day"));
         }
 
         [Fact]

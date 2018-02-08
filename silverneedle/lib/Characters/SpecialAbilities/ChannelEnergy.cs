@@ -10,13 +10,15 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using SilverNeedle.Utility;
     using SilverNeedle.Serialization;
 
-    public class ChannelEnergy : IAbility, IComponent, IAttack, INameByType
+    public class ChannelEnergy : IAbility, IComponent, IAttack, INameByType, IUsesPerDay
     {
+        private IValueStatistic usesPerDayStatistic;
 
         public ChannelEnergy(IObjectStore configuration)
         {
             SaveDC = new BasicStat(configuration.GetObject("save-dc-stat"));
             DamageDice = new DiceStatistic(configuration.GetObject("dice-stat"));
+            usesPerDayStatistic = new BasicStat(configuration.GetObject("uses-per-day-stat"));
         }
         public const string POSITIVE_ENERGY = "positive";
         public const string NEGATIVE_ENERGY = "negative";
@@ -32,9 +34,17 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
         public AttackTypes AttackType { get { return AttackTypes.Special; } }
 
+        public int UsesPerDay
+        {
+            get
+            {
+                return this.usesPerDayStatistic.TotalValue;
+            }
+        }
+
         public string DisplayString()
         {
-            return "Channel {0} Energy ({1}, DC {2})".Formatted(EnergyType, Damage, SaveDC.TotalValue);
+            return "{3}/day - Channel {0} Energy ({1}, DC {2})".Formatted(EnergyType, Damage, SaveDC.TotalValue, this.UsesPerDay);
         }
 
         public void Initialize(ComponentContainer components)
@@ -51,6 +61,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
             components.Add(this.SaveDC);
             components.Add(this.DamageDice);
+            components.Add(this.usesPerDayStatistic);
         }
 
         private bool ChoosesPositiveEnergy(CharacterAlignment alignment)
@@ -69,6 +80,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
         {
             this.SaveDC = new BasicStat("Channel Energy Save DC");
             this.DamageDice = new DiceStatistic("Channel Energy Dice", dice);
+            this.usesPerDayStatistic = new BasicStat("Channel Energy Uses Per Day");
         }
 
         public static ChannelEnergy CreateForTests(string dice)
