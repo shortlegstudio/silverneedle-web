@@ -37,14 +37,24 @@
       weight: 8
   feats:
     - name: weapon focus
-      weight: 20
-    - name: power attack
       weight: 30
+    - name: power attack
+      weight: 80
     - name: combat reflexes
-      weight: 20
+      weight: 80
     - name: cleave
+      weight: 30
+    - name: critical focus
+      weight: 80
+    - name: combat expertise
       weight: 20
+    - name: dazzling display
+      weight: 30
+    - name: dodge
+      weight: 30
     - name: improved initiative
+      weight: 5
+    - name: iron will
       weight: 5
   abilities:
     - name: strength

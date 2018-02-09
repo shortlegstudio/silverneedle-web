@@ -6,50 +6,142 @@
 - name: Fearless Rage
   prerequisites:
     - classlevel: Barbarian 12
+  items:
+    - type: SilverNeedle.Characters.Immunity
+      damage-type: shaken
+    - type: SilverNeedle.Characters.Immunity
+      damage-type: frightened
 - name: Guarded Stance
 - name: Increased Damage Reduction 1
   prerequisites:
     - classlevel: Barbarian 8
+  items:
+    - type: SilverNeedle.ValueStatModifier
+      name: Barbarian Damage Reduction
+      modifier: 1
+      modifier-type: level-up
 - name: Increased Damage Reduction 2
   prerequisites:
     - classlevel: Barbarian 8
     - ability: Increased Damage Reduction 1
+  items:
+    - type: SilverNeedle.ValueStatModifier
+      name: Barbarian Damage Reduction
+      modifier: 1
+      modifier-type: level-up
 - name: Increased Damage Reduction 3
   prerequisites:
     - classlevel: Barbarian 8
     - ability: Increased Damage Reduction 1
     - ability: Increased Damage Reduction 2
+  items:
+    - type: SilverNeedle.ValueStatModifier
+      name: Barbarian Damage Reduction
+      modifier: 1
+      modifier-type: level-up
 - name: Internal Fortitude
   prerequisites:
     - classlevel: Barbarian 8
+  items:
+    - type: SilverNeedle.Characters.Immunity
+      damage-type: sickened
+    - type: SilverNeedle.Characters.Immunity
+      damage-type: nauseated
 - name: Intimidating Glare
 - name: Knockback
 - name: Low-Light Vision
+  items:
+    - type: SilverNeedle.Characters.Senses.LowLightVision
 - name: Mighty Swing
   prerequisites:
     - classlevel: Barbarian 12
 - name: Moment of Clarity
 - name: Night Vision
+  prerequisites:
+    - component: SilverNeedle.Characters.Senses.LowLightVision
 - name: No Escape
 - name: Powerful Blow
 - name: Quick Reflexes
 - name: Raging Climber
+  items:
+    - type: SilverNeedle.Characters.ClassLevelModifier
+      name: Climb
+      class: barbarian
+      rate: 1
+      modifier-type: enhancement
+      condition: rage
 - name: Raging Leaper
+  items:
+    - type: SilverNeedle.Characters.ClassLevelModifier
+      name: Acrobatics
+      class: barbarian
+      rate: 1
+      modifier-type: enhancement
+      condition: rage, jumping
 - name: Raging Swimmer
+  items:
+    - type: SilverNeedle.Characters.ClassLevelModifier
+      name: Swim
+      class: barbarian
+      rate: 1
+      modifier-type: enhancement
+      condition: rage
 - name: Renewed Vigor
 - name: Rolling Dodge
 - name: Roused Anger
 - name: Scent
 - name: Strength Surge
 - name: Superstition
+  items:
+    - type: SilverNeedle.BasicStat
+      name: Superstition Save Bonus
+      base-value: 2
+    - type: SilverNeedle.StatisticStatModifier
+      name: Fortitude
+      modifier: Superstition Save Bonus
+      modifier-type: enhancement
+      condition: spells 
+    - type: SilverNeedle.StatisticStatModifier
+      name: Reflex
+      modifier: Superstition Save Bonus
+      modifier-type: enhancement
+      condition: spells 
+    - type: SilverNeedle.StatisticStatModifier
+      name: Will
+      modifier: Superstition Save Bonus
+      modifier-type: enhancement
+      condition: spells 
+    - type: SilverNeedle.Characters.ClassLevelModifier
+      class: barbarian
+      name: Superstition Save Bonus
+      modifier-type: class-level
+      rate: 4
 - name: Surprise Accuracy
 - name: Swift Foot 1
+  items:
+    - type: SilverNeedle.ValueStatModifier
+      name: Base Movement Speed
+      modifier: 5
+      modifier-type: enhancement
+      condition: rage
 - name: Swift Foot 2
   prerequisites:
     - ability: Swift Foot 1
+  items:
+    - type: SilverNeedle.ValueStatModifier
+      name: Base Movement Speed
+      modifier: 5
+      modifier-type: enhancement
+      condition: rage
 - name: Swift Foot 3
   prerequisites:
     - ability: Swift Foot 2
+  items:
+    - type: SilverNeedle.ValueStatModifier
+      name: Base Movement Speed
+      modifier: 5
+      modifier-type: enhancement
+      condition: rage
 - name: Terrifying Howl
   prerequisites:
     - classlevel: Barbarian 8

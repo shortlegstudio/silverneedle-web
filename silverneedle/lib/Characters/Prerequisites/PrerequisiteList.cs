@@ -76,6 +76,9 @@ namespace SilverNeedle.Characters.Prerequisites
                     case "classlevel":
                         newreq = new ClassLevelPrerequisite(prereq.GetString(key));
                         break;
+                    case "component":
+                        newreq = new ComponentPrerequisite(prereq);
+                        break;
                     case "weapon-proficiency":
                         newreq = new WeaponProficiencyPrerequisite(prereq);
                         break;
