@@ -55,9 +55,13 @@ namespace SilverNeedle.Equipment
         /// <param name="size">Size of the character.</param>
         public static string ConvertDamageBySize(string mediumDamageAmount, CharacterSize size)
         {
-
             //Drop the modifier
             Cup dice = DiceStrings.ParseDice(mediumDamageAmount);
+            return ConvertDamageBySize(dice, size).ToString();
+        }
+
+        public static Cup ConvertDamageBySize(Cup dice, CharacterSize size)
+        {
             Cup converted = new Cup();
             converted.Modifier = dice.Modifier;
             dice.Modifier = 0;
@@ -85,7 +89,7 @@ namespace SilverNeedle.Equipment
                     throw new NotImplementedException(string.Format("Character Size: {0} has not been implemented in damage tables.", size));
             }
 
-            return converted.ToString();
+            return converted;
         }
     }
 }

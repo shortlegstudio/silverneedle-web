@@ -38,5 +38,17 @@ dice: 1d6";
             diceStat.AddModifier(modifier);
             Assert.Equal("1d8+1d6", diceStat.DisplayString());
         }
+
+        [Fact]
+        public void ValueModifiersChangeTheModifierValue()
+        {
+            var yaml = @"---
+name: Damage
+dice: 1d8";
+            var diceStat = new DiceStatistic(yaml.ParseYaml());
+            var mod = new ValueStatModifier("Damage", 6, "modifier");
+            diceStat.AddModifier(mod);
+            Assert.Equal("1d8+6", diceStat.DisplayString());
+        }
     }
 }

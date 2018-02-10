@@ -13,6 +13,7 @@ namespace SilverNeedle
     public class DiceStatistic : IDiceStatistic
     {
         private IList<IDiceModifier> modifiers = new List<IDiceModifier>();
+        private IList<IValueStatModifier> valueModifiers = new List<IValueStatModifier>();
         public DiceStatistic(IObjectStore configuration)
         {
             configuration.Deserialize(this);
@@ -38,13 +39,20 @@ namespace SilverNeedle
                 foreach(var mod in modifiers)
                     mod.ProcessModifier(dice);
 
+                foreach(var vm in valueModifiers)
+                    dice.Modifier += (int)vm.Modifier;
+
                 return dice;
             }
         }
 
         public void AddModifier(IStatisticModifier modifier)
         {
-            modifiers.Add((IDiceModifier) modifier);
+            if(modifier is IDiceModifier)
+                modifiers.Add((IDiceModifier) modifier);
+            else if(modifier is IValueStatModifier)
+                valueModifiers.Add((IValueStatModifier)modifier);
+
         }
 
         public string DisplayString()

@@ -1,5 +1,28 @@
 --- !<SilverNeedle.Characters.SpecialAbilities.RagePower>
 - name: Animal Fury
+  items:
+    - type: SilverNeedle.Characters.Attacks.Bite
+      name: Bite (Animal Fury)
+      damage:
+        name: Bite (Animal Fury) Damage
+        dice: 1d4
+      attack-bonus:
+        name: Bite (Animal Fury) Attack Bonus
+        base-value: 0
+      attack-type: melee
+    - type: SilverNeedle.StatisticStatModifier
+      name: Bite (Animal Fury) Attack Bonus
+      modifier: Melee Attack Bonus
+      modifier-type: base-value
+    - type: SilverNeedle.ValueStatModifier
+      name: Bite (Animal Fury) Attack Bonus
+      modifier: -5
+      modifier-type: base-value
+    - type: SilverNeedle.StatisticStatModifier
+      name: Bite (Animal Fury) Damage
+      modifier: strength-modifier
+      modifier-type: base-value
+      multiplier: 0.5
 - name: Clear Mind
   prerequisites:
     - classlevel: Barbarian 8

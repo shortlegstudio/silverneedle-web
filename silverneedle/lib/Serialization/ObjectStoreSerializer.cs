@@ -82,7 +82,8 @@ namespace SilverNeedle.Serialization
                         propertyValue = DiceStrings.ParseDice(data.GetString(keyName));
                         break;
                     default:
-                        throw new System.NotImplementedException(string.Format("Missing case: {0}", propType));
+                        propertyValue = prop.PropertyType.Instantiate<object>(data.GetObject(keyName));
+                        break;
                 }
                 prop.SetValue(result, propertyValue);
             }
