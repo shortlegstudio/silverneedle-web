@@ -14,6 +14,9 @@ namespace SilverNeedle.Characters.Prerequisites
         [ObjectStore("component")]
         public string ComponentType { get; private set; }
 
+        [ObjectStoreOptional("inverse")]
+        public bool Inverse { get; private set; }
+
         public ComponentPrerequisite(IObjectStore configuration)
         {
             configuration.Deserialize(this);
@@ -24,10 +27,10 @@ namespace SilverNeedle.Characters.Prerequisites
             foreach(var c in components.All)
             {
                 if(c.Implements(t))
-                    return true;
+                    return !Inverse;
             }
 
-            return false;
+            return Inverse;
         }
     }
 }

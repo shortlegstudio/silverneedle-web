@@ -1,0 +1,27 @@
+@using SilverNeedle.Characters;
+@using SilverNeedle.Characters.SpecialAbilities;
+@using SilverNeedle.Utility;
+@{
+    var character = (CharacterSheetTextView)ViewData["Character"];
+    var charFull = (CharacterSheet)ViewData["characterFull"];
+}
+@if(charFull.Contains<RagePower>())
+{
+    <div class="row">
+        <div class="col-sm-12 no-padding">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Rage Powers</h3>
+                </div>
+                <div class="panel-table">
+                    <table class="table table-striped">
+                        <tbody>
+                            @foreach(var f in charFull.GetAll<RagePower>())
+                            { <tr><td>@f.Name</td></tr> }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+}

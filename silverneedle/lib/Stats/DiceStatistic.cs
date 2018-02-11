@@ -55,7 +55,7 @@ namespace SilverNeedle
 
         }
 
-        public string DisplayString()
+        public virtual string DisplayString()
         {
             return Dice.ToString();
         }

@@ -15,7 +15,7 @@
                 { "statistic-score", @character.HitPoints } }); }
             @{ Html.RenderPartial("_statistic-row", new ViewDataDictionary(this.ViewData) {
                 { "statistic-title", "Movement" },
-                { "statistic-score", @character.MovementSpeed + " ft" } }); }
+                { "statistic-score", @charFull.Movement.BaseMovement.ToString() + " ft" } }); }
             @{ Html.RenderPartial("_statistic-row", new ViewDataDictionary(this.ViewData) {
                 { "statistic-title", "Initiative" },
                 { "statistic-modifier", @character.Initiative } }); }

@@ -73,6 +73,9 @@
 - name: Intimidating Glare
 - name: Knockback
 - name: Low-Light Vision
+  prerequisites:
+    - component: SilverNeedle.Characters.Senses.LowLightVision
+      inverse: true
   items:
     - type: SilverNeedle.Characters.Senses.LowLightVision
 - name: Mighty Swing
@@ -81,10 +84,17 @@
 - name: Moment of Clarity
 - name: Night Vision
   prerequisites:
+    - component: SilverNeedle.Characters.Senses.Darkvision
+      inverse: true
     - component: SilverNeedle.Characters.Senses.LowLightVision
 - name: No Escape
 - name: Powerful Blow
 - name: Quick Reflexes
+  items:
+    - type: SilverNeedle.ValueStatModifier
+      name: Attacks of Opportunity
+      modifier: 1
+      modifier-type: bonus
 - name: Raging Climber
   items:
     - type: SilverNeedle.Characters.ClassLevelModifier
@@ -110,9 +120,27 @@
       modifier-type: enhancement
       condition: rage
 - name: Renewed Vigor
+  prerequisites:
+    - classlevel: barbarian 4
+  items:
+    - type: SilverNeedle.Characters.CapabilityDiceStatistic
+      name: Renewed Vigor Healing
+      dice: 1d8
+    - type: SilverNeedle.StatisticStatModifier
+      name: Renewed Vigor Healing
+      modifier: constitution-modifier
+      modifier-type: base-value
+    - type: SilverNeedle.Characters.DiceClassLevelModifier
+      name: Renewed Vigor Healing
+      rate: 4
+      dice: 1d8
+      start-level: 4
+      class: barbarian
 - name: Rolling Dodge
 - name: Roused Anger
 - name: Scent
+  items:
+    - type: SilverNeedle.Characters.Senses.Scent
 - name: Strength Surge
 - name: Superstition
   items:
@@ -168,6 +196,19 @@
 - name: Terrifying Howl
   prerequisites:
     - classlevel: Barbarian 8
+  items:
+    - type: SilverNeedle.Characters.CapabilityStatistic
+      name: Terrifying Howl DC
+      base-value: 10
+    - type: SilverNeedle.Characters.ClassLevelModifier
+      name: Terrifying Howl DC
+      modifier-type: base-value
+      rate: 2
+      class: barbarian
+    - type: SilverNeedle.StatisticStatModifier
+      name: Terrifying Howl DC
+      modifier: strength-modifier
+      modifier-type: base-value
 - name: Unexpected Strike
   prerequisites:
     - classlevel: Barbarian 8

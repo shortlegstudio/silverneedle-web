@@ -57,6 +57,8 @@ namespace SilverNeedle
             if(statistic == null)
             {
                 statistic = components.FindStat<IValueStatistic>(TrackingStatName);
+                if(statistic == null)
+                    throw new StatisticNotFoundException(TrackingStatName);
             }
         }
     }

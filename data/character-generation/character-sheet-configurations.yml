@@ -7,3 +7,6 @@
         - type: SilverNeedle.BasicStat
           name: Hit Points
           base-value: 0
+        - type: SilverNeedle.BasicStat
+          name: Attacks of Opportunity
+          base-value: 1

@@ -35,7 +35,9 @@ namespace SilverNeedle.Characters
         public MovementStats(int baseSpeed)
         {
             this.BaseMovement = new BasicStat(StatNames.BaseMovementSpeed, baseSpeed);
+            this.BaseMovement.UseModifierString = false;
             this.ArmorMovementPenalty = new BasicStat(StatNames.ArmorMovementPenalty, 0);
+            this.BaseMovement.AddModifier(new StatisticStatModifier(BaseMovement.Name, ArmorMovementPenalty));
             this.ArmorMovementPenalty.Maximum = 0;
         }
 
@@ -58,7 +60,7 @@ namespace SilverNeedle.Characters
         /// <value>The base movement.</value>
         public BasicStat BaseMovement { get; private set; }
         public BasicStat ArmorMovementPenalty { get; private set; }
-        public int MovementSpeed { get { return CalculateMovementSpeed(); } }
+        public int MovementSpeed { get { return BaseMovement.TotalValue; } }
 
         /// <summary>
         /// Gets the base movement in squares

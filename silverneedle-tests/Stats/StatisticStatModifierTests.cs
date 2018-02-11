@@ -53,6 +53,22 @@ multiplier: 1.5
             Assert.Equal(4.5f, modifier.Modifier);
         }
 
+        [Fact]
+        public void IfStatisticToTrackCannotBeFoundThrowException()
+        {
+            var character = CharacterTestTemplates.AverageBob();
+            var yaml = @"---
+name: hit points
+modifier: some-missing-modifier
+modifier-type: racial
+condition: rain
+multiplier: 1.5
+";
+            var mod = new StatisticStatModifier(yaml.ParseYaml());
+            Assert.Throws(typeof(StatisticNotFoundException), () => { character.Add(mod); });
+
+        }
+
 
     }
 }
