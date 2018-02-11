@@ -30,7 +30,6 @@ namespace SilverNeedle.Characters
 
         private void Setup()
         {
-            this.UniversalStatModifier = new AbilityStatModifier(this);
             this.abilityModifier = new BasicStat("{0}-modifier".Formatted(Ability).ToLower());
             this.abilityModifier.AddModifier(
                 new DelegateStatModifier(
@@ -38,6 +37,7 @@ namespace SilverNeedle.Characters
                     "calculation",
                     () => CalculateModifier(this.TotalValue))
             );
+            this.UniversalStatModifier = new AbilityStatModifier(this);
         }
 
 
@@ -58,6 +58,8 @@ namespace SilverNeedle.Characters
                 return abilityModifier.TotalValue;
             }
         }
+
+        public IValueStatistic ModifierStat { get { return abilityModifier; } }
 
         /// <summary>
         /// Gets the type of ability score

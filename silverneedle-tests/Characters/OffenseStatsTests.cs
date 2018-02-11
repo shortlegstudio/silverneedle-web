@@ -49,12 +49,6 @@ namespace Tests.Characters {
         }
 
         [Fact]
-        public void CMBIsBABAndStrengthAndSize() {
-            smallStats.BaseAttackBonus.SetValue (3);
-            Assert.Equal (5, smallStats.CombatManeuverBonus.TotalValue);
-        }
-
-        [Fact]
         public void CMDIsBABStrengthAndDexterityAndSize() {
             smallStats.BaseAttackBonus.SetValue (3);
             Assert.Equal (17, smallStats.CombatManeuverDefense.TotalValue);
@@ -150,18 +144,6 @@ namespace Tests.Characters {
             Assert.Equal(1, smallStats.BaseAttackBonus.TotalValue);
             smallStats.LevelUp(cls);
             Assert.Equal(2, smallStats.BaseAttackBonus.TotalValue);            
-        }
-
-        [Fact]
-        public void ReturnsStatsForCombat()
-        {
-            var stats = smallStats.Statistics;
-            Assert.Equal(stats.Count(), 3);
-            Assert.NotStrictEqual(stats, new BasicStat[] { 
-                smallStats.BaseAttackBonus, 
-                smallStats.CombatManeuverBonus, 
-                smallStats.CombatManeuverDefense,
-            });
         }
 
         [Fact]

@@ -12,7 +12,7 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
     using SilverNeedle.Characters.Magic;
     using SilverNeedle.Serialization;
 
-    public class AddSpellsToSpellbookTests
+    public class AddSpellsToSpellbookTests : RequiresDataFiles
     {
         private CharacterSheet wizard;
 
@@ -71,7 +71,7 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
             );
         }
         
-        [Fact]
+        [Fact(Skip="Test not written")]
         public void DoNotAddSpellsThatAlreadyExist()
         {
 

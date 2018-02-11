@@ -10,7 +10,7 @@ namespace Tests.Characters.Magic
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.Magic;
 
-    public class DivineCastingTests
+    public class DivineCastingTests : RequiresDataFiles
     {
         [Fact]
         public void DivineCastersKnowAllSpellsAvailableAtTime()

@@ -2,11 +2,15 @@
 - name: default
   attributes:
     - attribute:
-      name: Statistics
+      name: General Statistics
       items:
+        - type: SilverNeedle.Characters.AbilityScores
         - type: SilverNeedle.BasicStat
           name: Hit Points
           base-value: 0
+    - attribute: 
+      name: Offense Statistics
+      items:
         - type: SilverNeedle.BasicStat
           name: Attacks of Opportunity
           base-value: 1

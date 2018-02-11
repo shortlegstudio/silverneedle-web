@@ -91,7 +91,7 @@ namespace SilverNeedle
         /// Gets an enumerable list of modifiers associated with this stat
         /// </summary>
         /// <value>The modifiers.</value>
-        public IEnumerable<IValueStatModifier> Modifiers 
+        public IEnumerable<IStatisticModifier> Modifiers 
         { 
             get 
             { 
@@ -137,6 +137,10 @@ namespace SilverNeedle
             {
                 this.AddModifier(mod);
             }
+        }
+        public void RemoveModifier(IStatisticModifier modifier)
+        {
+            this.statModifiers.Remove((IValueStatModifier)modifier);
         }
 
         /// <summary>

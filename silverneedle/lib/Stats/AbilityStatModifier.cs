@@ -12,43 +12,14 @@ namespace SilverNeedle
     /// Ability stat modifier will represent the modifiers for a stat that affects
     /// a statistic. For example applying constitution bonus to a fortitude save
     /// </summary>
-    public class AbilityStatModifier : ValueStatModifier
+    public class AbilityStatModifier : StatisticStatModifier
     {
-        /// <summary>
-        /// The ability score to pull the modifier from
-        /// </summary>
-        private AbilityScore abilityScore;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SilverNeedle.AbilityStatModifier"/> class.
-        /// </summary>
-        /// <param name="ability">Ability score to track.</param>
-        public AbilityStatModifier(AbilityScore ability)
+        public AbilityStatModifier(AbilityScore ability) : base("any", ability.ModifierStat)
         {
-            this.abilityScore = ability;
         }
 
-        public AbilityStatModifier(AbilityScore ability, string statisticName)
+        public AbilityStatModifier(AbilityScore ability, string statisticName) : base(statisticName, ability.ModifierStat)
         {
-            this.abilityScore = ability;
-            this.StatisticName = statisticName;
-        }
-
-        /// <summary>
-        /// Gets the modifier. Set throws an exception in this case because modifying this modifier is not allowed
-        /// </summary>
-        /// <value>The modifier amount for the statistic</value>
-        public override float Modifier
-        {
-            get
-            {
-                return this.abilityScore.TotalModifier;
-            }
-
-            set
-            {
-                throw new InvalidOperationException("Cannot set the modifier for an ability modifier");
-            }
         }
     }
 }

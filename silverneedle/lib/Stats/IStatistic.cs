@@ -5,10 +5,14 @@
 
 namespace SilverNeedle
 {
+    using System.Collections.Generic;
+
     public interface IStatistic
     {
         string Name { get; }
         void AddModifier(IStatisticModifier modifier);
+        void RemoveModifier(IStatisticModifier modifier);
+        IEnumerable<IStatisticModifier> Modifiers { get; }
         bool Matches(string name);
     }
 }

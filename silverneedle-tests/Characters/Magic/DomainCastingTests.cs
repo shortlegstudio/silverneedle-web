@@ -11,7 +11,7 @@ namespace Tests.Characters.Magic
     using SilverNeedle.Characters.Domains;
     using SilverNeedle.Serialization;
 
-    public class DomainCastingTests
+    public class DomainCastingTests : RequiresDataFiles
     {
         private CharacterSheet cleric;
         private DomainCasting domainCasting;

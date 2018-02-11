@@ -21,6 +21,12 @@ namespace SilverNeedle.Characters.Attacks
             baseRangeAttackBonus.AddModifier(modifier);
         }
 
+        public IEnumerable<IStatisticModifier> Modifiers { get { return baseRangeAttackBonus.Modifiers; } }
+        public void RemoveModifier(IStatisticModifier modifier)
+        {
+            baseRangeAttackBonus.RemoveModifier(modifier);
+        }
+
         public IEnumerable<string> GetConditions()
         {
             return baseRangeAttackBonus.GetConditions();

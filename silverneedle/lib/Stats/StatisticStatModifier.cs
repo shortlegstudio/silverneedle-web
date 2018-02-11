@@ -31,7 +31,7 @@ namespace SilverNeedle
             configuration.Deserialize(this);
         }
 
-        public float Modifier { get { return this.statistic.TotalValue * this.Multiplier; } }
+        public virtual float Modifier { get { return this.statistic.TotalValue * this.Multiplier; } }
 
 
         [ObjectStore("modifier-type")]

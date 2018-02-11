@@ -28,6 +28,12 @@ namespace SilverNeedle.Characters.Attacks
         {
             baseMeleeAttackBonus.AddModifier(modifier);
         }
+        public IEnumerable<IStatisticModifier> Modifiers { get { return baseMeleeAttackBonus.Modifiers; } }
+
+        public void RemoveModifier(IStatisticModifier modifier)
+        {
+            baseMeleeAttackBonus.RemoveModifier(modifier);
+        }
 
         public void Initialize(ComponentContainer components)
         {

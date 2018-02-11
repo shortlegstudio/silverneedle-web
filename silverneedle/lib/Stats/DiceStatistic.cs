@@ -7,6 +7,7 @@
 namespace SilverNeedle
 {
     using System.Collections.Generic;
+    using System.Linq;
     using SilverNeedle.Dice;
     using SilverNeedle.Serialization;
 
@@ -46,13 +47,25 @@ namespace SilverNeedle
             }
         }
 
+        public IEnumerable<IStatisticModifier> Modifiers
+        {
+            get { return modifiers.Union<IStatisticModifier>(valueModifiers); }
+        }
+
         public void AddModifier(IStatisticModifier modifier)
         {
             if(modifier is IDiceModifier)
                 modifiers.Add((IDiceModifier) modifier);
             else if(modifier is IValueStatModifier)
                 valueModifiers.Add((IValueStatModifier)modifier);
+        }
 
+        public void RemoveModifier(IStatisticModifier modifier)
+        {
+            if(modifier is IDiceModifier)
+                modifiers.Remove((IDiceModifier) modifier);
+            else if(modifier is IValueStatModifier)
+                valueModifiers.Remove((IValueStatModifier)modifier);
         }
 
         public virtual string DisplayString()

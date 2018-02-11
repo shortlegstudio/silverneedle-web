@@ -89,7 +89,7 @@ namespace SilverNeedle.Characters
 
             this.CombatManeuverBonus.AddModifiers(
                 new StatisticStatModifier(StatNames.CMB, this.BaseAttackBonus),
-                new AbilityStatModifier(this.Strength),
+                new StatisticStatModifier(StatNames.CMB, this.Strength.ModifierStat),
                 size.NegativeSizeModifier
             );
 

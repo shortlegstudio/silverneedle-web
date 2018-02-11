@@ -82,9 +82,16 @@ namespace SilverNeedle.Characters
             return this.Name.EqualsIgnoreCase(name);
         }
 
+        public IEnumerable<IStatisticModifier> Modifiers { get { return this.amount.Modifiers; } }
+
         public void AddModifier(IStatisticModifier modifier)
         {
             amount.AddModifier(modifier);
+        }
+
+        public void RemoveModifier(IStatisticModifier modifier)
+        {
+            amount.RemoveModifier(modifier);
         }
     }
 }

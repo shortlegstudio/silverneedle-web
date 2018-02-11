@@ -139,6 +139,8 @@ namespace SilverNeedle.Characters
             this.skillStats.SetValue(this.skillStats.BaseValue + 1);
         }
 
+        public IEnumerable<IStatisticModifier> Modifiers { get { return this.skillStats.Modifiers; } }
+
         /// <summary>
         /// Adds a stat modifier to the skill.
         /// </summary>
@@ -146,6 +148,11 @@ namespace SilverNeedle.Characters
         public void AddModifier(IStatisticModifier modifier)
         {
             this.skillStats.AddModifier(modifier);
+        }
+
+        public void RemoveModifier(IStatisticModifier modifier)
+        {
+            this.skillStats.RemoveModifier(modifier);
         }
 
         /// <summary>

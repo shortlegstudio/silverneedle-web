@@ -24,6 +24,8 @@
     You've learned to use your quickness in place of brute force when performing
     combat maneuvers.
   tags: [ combat ]
+  commands:
+    - command: SilverNeedle.Characters.Feats.AgileManeuversCommand
 - feat:
   name: Alertness
   description: You often notice things that others might miss.

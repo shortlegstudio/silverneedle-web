@@ -12,7 +12,7 @@ namespace Tests.Characters.Magic
     using SilverNeedle.Spells;
     using SilverNeedle.Utility;
 
-    public class SpellCastingTests
+    public class SpellCastingTests : RequiresDataFiles
     {
         SpellList spellList;
         CharacterSheet bard;
