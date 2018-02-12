@@ -1,64 +1,93 @@
 --- !<SilverNeedle.Characters.Feat>
-- feat:
-  name: Acrobatic
+- name: Acrobatic
   description: Skilled at leaping, jumping, and flying.
   items:
     - type: SilverNeedle.ValueStatModifier
       name: Acrobatics
       modifier: 2
       modifier-type: bonus
+    - type: SilverNeedle.Characters.SkillRankDependentModifier
+      name: Acrobatics
+      skill: Acrobatics
+      minimum-ranks: 10
+      modifier: 2
+      modifier-type: bonus
     - type: SilverNeedle.ValueStatModifier
       name: Fly
       modifier: 2
       modifier-type: bonus
-- feat:
-  name: Acrobatic Steps
+    - type: SilverNeedle.Characters.SkillRankDependentModifier
+      name: Fly
+      skill: Fly
+      minimum-ranks: 10
+      modifier: 2
+      modifier-type: bonus
+- name: Acrobatic Steps
   description: >
     You can easily move over and through obstacles.
   prerequisites:
     - dexterity: 15
     - ability: Nimble Moves
-- feat:
-  name: Agile Maneuvers
+- name: Agile Maneuvers
   description: >
     You've learned to use your quickness in place of brute force when performing
     combat maneuvers.
   tags: [ combat ]
   commands:
     - command: SilverNeedle.Characters.Feats.AgileManeuversCommand
-- feat:
-  name: Alertness
+- name: Alertness
   description: You often notice things that others might miss.
   items:
     - type: SilverNeedle.ValueStatModifier
       name: Perception
       modifier: 2
       modifier-type: bonus
+    - type: SilverNeedle.Characters.SkillRankDependentModifier
+      name: Perception
+      skill: Perception
+      minimum-ranks: 10
+      modifier: 2
+      modifier-type: bonus
     - type: SilverNeedle.ValueStatModifier
       name: Sense Motive
       modifier: 2
       modifier-type: bonus
-- feat:
-  name: Alignment Channel 
+    - type: SilverNeedle.Characters.SkillRankDependentModifier
+      name: Sense Motive
+      skill: Sense Motive
+      minimum-ranks: 10
+      modifier: 2
+      modifier-type: bonus
+- name: Alignment Channel 
   description: >
     Choose chaos, evil, good, or law. You can channel divine energy to affect
     outsiders that posses this subtype.
   prerequisites:
     - ability: Channel Energy
-- feat:
-  name: Animal Affinity
+- name: Animal Affinity
   description: You are skilled at working with animals and mounts.
   items:
     - type: SilverNeedle.ValueStatModifier
       name: Handle Animal
       modifier: 2
       modifier-type: bonus
+    - type: SilverNeedle.Characters.SkillRankDependentModifier
+      name: Handle Animal
+      skill: Handle Animal
+      minimum-ranks: 10
+      modifier: 2
+      modifier-type: bonus
     - type: SilverNeedle.ValueStatModifier
       name: Ride
       modifier: 2
       modifier-type: bonus
-- feat:
-  name: Arcane Armor Mastery
+    - type: SilverNeedle.Characters.SkillRankDependentModifier
+      name: Ride
+      skill: Ride
+      minimum-ranks: 10
+      modifier: 2
+      modifier-type: bonus
+- name: Arcane Armor Mastery
   description: >
     You have masterd the ability to cast spells while wearing armor.
   prerequisites:
@@ -68,8 +97,7 @@
     - armor-proficiency:
       armor: medium
   tags: [ combat ]
-- feat:
-  name: Arcane Armor Training
+- name: Arcane Armor Training
   description: You have learned how to cast spells while wearing armor.
   prerequisites:
     - custom: SilverNeedle.Characters.Prerequisites.IsArcaneSpellCaster
@@ -77,8 +105,7 @@
       armor: light
     - casterlevel: 3
   tags: [ combat ]
-- feat:
-  name: Arcane Strike
+- name: Arcane Strike
   description: >
     You draw upon your arcane power to enhance
     your weapons with magical energy.
@@ -93,8 +120,7 @@
       modifier-type: base-value
       rate: 5
       caster-type: arcane
-- feat:
-  name: Armor Proficiency (Heavy)
+- name: Armor Proficiency (Heavy)
   description: You are skilled at wearing heavy armor.
   prerequisites:
     - armor-proficiency: 
@@ -102,15 +128,13 @@
     - armor-proficiency:
       armor: heavy
       not-proficient: true
-- feat:
-  name: Armor Proficiency (Light)
+- name: Armor Proficiency (Light)
   description: You are skilled at wearing light armor.
   prerequisites:
     - armor-proficiency: 
       armor: light
       not-proficient: true
-- feat:
-  name: Armor Proficiency (Medium)
+- name: Armor Proficiency (Medium)
   description: You are skilled at wearing medium armor.
   prerequisites:
     - armor-proficiency: 
@@ -118,139 +142,129 @@
     - armor-proficiency:
       armor: medium
       not-proficient: true
-- feat:
-  name: Athletic
+- name: Athletic
   description: You possess inherent physical prowess.
   items:
     - type: SilverNeedle.ValueStatModifier
       name: Climb
       modifier: 2
       modifier-type: bonus
+    - type: SilverNeedle.Characters.SkillRankDependentModifier
+      name: Climb
+      skill: Climb
+      minimum-ranks: 10
+      modifier: 2
+      modifier-type: bonus
     - type: SilverNeedle.ValueStatModifier
       name: Swim
       modifier: 2
       modifier-type: bonus
-- feat:
-  name: Augment Summoning
+    - type: SilverNeedle.Characters.SkillRankDependentModifier
+      name: Swim
+      skill: Swim
+      minimum-ranks: 10
+      modifier: 2
+      modifier-type: bonus
+- name: Augment Summoning
   description: Your summoned creatures are more powerful and robust.
   prerequisites:
     - ability: Spell Focus (Conjuration)
-- feat:
-  name: Bleeding Critical
+- name: Bleeding Critical
   description: Your critical hits cause opponents to bleed profusely.
   prerequisites:
     - ability: Critical Focus
     - baseattackbonus: 11
   combat: yes
   critical: yes
-- feat:
-  name: Blind-Fight
+- name: Blind-Fight
   description: >
     You are skilled at attacking opponents that you cannot clearly perceive.
   combat: yes
-- feat:
-  name: Blinding Critical
+- name: Blinding Critical
   description: Your critical hits blind your opponent.
   tags: [combat, critical]
   prerequisites:
     - ability: Critical Focus
     - baseattackbonus: 15
-- feat:
-  name: Brew Potion
+- name: Brew Potion
   description: You can create magic potions.
   tags: [ itemcreation ]
   prerequisites:
     - casterlevel: 3
-- feat:
-  name: Catch Off-Guard
+- name: Catch Off-Guard
   description: Foes are surprised by your skilled use of unorthodox and improvised weapons.
   tags: [ combat ]
-- feat:
-  name: Channel Smite
+- name: Channel Smite
   description: You can channel your divine energy through a melee weapon you wield.
   tags: [ combat ]
   prerequisites:
     - ability: Channel Energy
-- feat:
-  name: Cleave
+- name: Cleave
   description: You can strike two adjacent foes with a single swing.
   tags: [ combat ]
   prerequisites:
     - ability: Power Attack
     - strength: 13
     - baseattackbonus: 1
-- feat:
-  name: Combat Casting
+- name: Combat Casting
   description: You are adept at spellcasting when threatened or distracted.
-- feat:
-  name: Combat Expertise
+- name: Combat Expertise
   description: You can increase your defense at the expense of your accuracy.
   prerequisite:
     intelligence: 13
   tags: [ combat ]
-- feat:
-  name: Combat Reflexes
+- name: Combat Reflexes
   description: You can make additional attacks of opportunity.
   tags: [ combat ]
-- feat:
-  name: Command Undead
+- name: Command Undead
   description: >
     Using foul powers of necromancy, you can command undead creates, making
     them into your servants.
   prerequisites:
     - ability: Channel Energy (Negative) #TODO: Needs custom check for negative energy
-- feat:
-  name: Craft Magic Arms and Armor
+- name: Craft Magic Arms and Armor
   description: You can create magic armor, shields, and weapons.
   tags: [ itemcreation ]
   prerequisites:
     - casterlevel: 5
-- feat:
-  name: Craft Rod
+- name: Craft Rod
   description: You can create magic rods.
   tags: [ itemcreation ]
   prerequisites:
     - casterlevel: 9
-- feat:
-  name: Craft Staff
+- name: Craft Staff
   description: You can create magic staves.
   tags: [ itemcreation ]
   prerequisites:
     - casterlevel: 11
-- feat:
-  name: Craft Wand
+- name: Craft Wand
   description: You can create magic wands.
   tags: [ itemcreation ]
   prerequisites:
     - casterlevel: 5
-- feat:
-  name: Craft Wondrous Item
+- name: Craft Wondrous Item
   description: You can create wondrous items, a type of magic item.
   tags: [ itemcreation ]
   prerequisites:
     - casterlevel: 3
-- feat:
-  name: Critical Focus
+- name: Critical Focus
   description: You are trained in the art of causing pain.
   prerequisites:
     - baseattackbonus: 9
   tags: [ combat ]
-- feat:
-  name: Critical Mastery
+- name: Critical Mastery
   description: Your critical hits cause two additional effects.
   tags: [ combat ]
   prerequisites:
     - ability: Critical Focus
     - classlevel: Fighter 14
-- feat:
-  name: Dazzling Display
+- name: Dazzling Display
   description: Your skill with your favored weapon can frighten enemies.
   tags: [ combat ]
   prerequisites:
     - ability: Weapon Focus
     - ability: Weapon Proficiency
-- feat:
-  name: Deadly Aim
+- name: Deadly Aim
   tags: [ combat ]
   description: >
     You can make exceptionally deadly ranged attacks by pinpointing a foe's
@@ -258,8 +272,7 @@
   prerequisites:
     - dexterity: 13
     - baseattackbonus: 1
-- feat:
-  name: Deadly Strike
+- name: Deadly Strike
   tags: [ combat ]
   description: >
     With a well-placed strike, you can bring a swift and painful end
@@ -271,15 +284,13 @@
     - ability: Weapon Focus
     - ability: Weapon Proficiency
     - baseattackbonus: 11
-- feat:
-  name: Deafening Critical
+- name: Deafening Critical
   description: Your critical hits cause enemies to lose their hearing.
   tags: [combat, critical]
   prerequisites:
     - ability: Critical Focus
     - baseattackbonus: 13
-- feat:
-  name: Deceitful
+- name: Deceitful
   description: >
     You are skilled at deceiving others, both with spoken words and with
     physical disguises.
@@ -288,16 +299,26 @@
       name: Bluff
       modifier: 2
       modifier-type: bonus
+    - type: SilverNeedle.Characters.SkillRankDependentModifier
+      name: Bluff
+      skill: Bluff
+      minimum-ranks: 10
+      modifier: 2
+      modifier-type: bonus
     - type: SilverNeedle.ValueStatModifier
       name: Disguise
       modifier: 2
       modifier-type: bonus
-- feat:
-  name: Defensive Combat Training
+    - type: SilverNeedle.Characters.SkillRankDependentModifier
+      name: Disguise
+      skill: Disguise
+      minimum-ranks: 10
+      modifier: 2
+      modifier-type: bonus
+- name: Defensive Combat Training
   description: You excel at defending yourself from all manner of combat maneuvers.
   tags: [ combat ]
-- feat:
-  name: Deflect Arrows
+- name: Deflect Arrows
   description: >
     You can knock arrows and other projectiles off course, preventing them from
     hitting you.
@@ -305,27 +326,44 @@
   prerequisites:
     - dexterity: 13
     - ability: Improved Unarmed Strike
-- feat:
-  name: Deft Hands
+- name: Deft Hands
   description: You have exceptional manual dexterity.
-- feat:
-  name: Diehard
+  items:
+    - type: SilverNeedle.ValueStatModifier
+      name: Disable Device
+      modifier: 2
+      modifier-type: bonus
+    - type: SilverNeedle.Characters.SkillRankDependentModifier
+      name: Disable Device
+      skill: Disable Device
+      minimum-ranks: 10
+      modifier: 2
+      modifier-type: bonus
+    - type: SilverNeedle.ValueStatModifier
+      name: Sleight of Hand
+      modifier: 2
+      modifier-type: bonus
+    - type: SilverNeedle.Characters.SkillRankDependentModifier
+      name: Sleight of Hand
+      skill: Sleight of Hand
+      minimum-ranks: 10
+      modifier: 2
+      modifier-type: bonus
+- name: Diehard
   description: >
     You are especially hard to kill. Not only do your wounds automatically
     stabilize when grievously injured, but you can remain conscious and continue
     to act even at death's door.
   prerequisites:
     - ability: Endurance
-- feat:
-  name: Disruptive
+- name: Disruptive
   description: >
     Your training makes it difficult for enemy spellcaster to safely cast spells
     near you.
   tags: [ combat ]
   prerequisites:
     - classlevel: Fighter 6
-- feat:
-  name: Dodge
+- name: Dodge
   description: >
     Your training and reflexes allow you to react swiftly to avoid an opponent's
     attacks.
@@ -337,55 +375,47 @@
       name: Armor Class
       modifier: 1
       modifier-type: dodge
-- feat:
-  name: Double Slice
+- name: Double Slice
   description: >
     Your off-hand weapon while dual-wielding strikes with greater power.
   prerequisites:
     - dexterity: 15
     - ability: Two-Weapon Fighting
   tags: [ combat ]
-- feat:
-  name: Elemental Channel
+- name: Elemental Channel
   description: >
     Choose one elemental subtype, such as air, earth, fire, or water. You can
     channel your divine energy to harm or heal outsides that posses your chosen
     elemental subtype.
   prerequisites:
     - ability: Channel Energy
-- feat:
-  name: Empower Spell
+- name: Empower Spell
   description: >
     You can increase the power of your spells, causing them more damage.
   tags: [ metamagic ]
   prerequisite:
     - custom: SilverNeedle.Characters.Prerequisites.IsSpellCaster
-- feat:
-  name: Endurance
+- name: Endurance
   description: Harsh conditions or long exertions do not easily tire you.
-- feat:
-  name: Enlarge Spell
+- name: Enlarge Spell
   tags: [ metamagic ]
   description: You can increase the range of your spells.
   prerequisites:
     - custom: SilverNeedle.Characters.Prerequisites.IsSpellCaster
-- feat:
-  name: Eschew Materials
+- name: Eschew Materials
   description: >
     You can cast many spells without needing to utilize minor material
     components.
   prerequisites:
     - custom: SilverNeedle.Characters.Prerequisites.IsSpellCaster
-- feat:
-  name: Exhausting Critical
+- name: Exhausting Critical
   description: Your critical hits cause opponents to become exhausted.
   prerequisites:
     - baseattackbonus: 15
     - ability: Critical Focus
     - ability: Tiring Critical
   tags: [combat, critical]
-- feat:
-  name: Exotic Weapon Proficiency
+- name: Exotic Weapon Proficiency
   description: >
     Choose one type of exotic weapon, such as the spiked chain or whip. You
     understand how to use that type of exotic weapon in combat, and can
@@ -393,68 +423,56 @@
   prerequisites:
     - baseattackbonus: 1
   tags: [ combat ]
-- feat:
-  name: Extend Spell
+- name: Extend Spell
   description: You can make your spells last twice as long
   prerequisites:
     - custom: SilverNeedle.Characters.Prerequisites.IsSpellCaster
   tags: [ metamagic ]
-- feat:
-  name: Extra Channel
+- name: Extra Channel
   description: You can channel divine energy more often.
   prerequisites:
     - ability: Channel Energy
-- feat:
-  name: Extra Ki
+- name: Extra Ki
   description: You can use your ki pool more times per day than most.
   prerequisites:
     - ability: Ki Pool
-- feat:
-  name: Extra Lay On Hands
+- name: Extra Lay On Hands
   description: You can use your lay on hands ability more often.
   prerequisites:
     - ability: Lay On Hands
-- feat:
-  name: Extra Mercy
+- name: Extra Mercy
   description: Your lay on hands ability adds an additional mercy.
   prerequisites:
     - ability: Lay On Hands
     - ability: Mercy
-- feat:
-  name: Extra Performance
+- name: Extra Performance
   description: You can use your bardic performance ability more often.
   prerequisites:
     - ability: Bardic Performance
-- feat:
-  name: Extra Rage
+- name: Extra Rage
   description: You can rage longer than usual.
   prerequisites:
     - ability: Rage
-- feat:
-  name: Far Shot
+- name: Far Shot
   description: You are more accurate at longer ranges
   tags: [ combat ]
   prerequisites:
     - ability: Point-Blank Shot
-- feat:
-  name: Fleet
+- name: Fleet
   description: You are faster than most.
-- feat:
-  name: Forge Ring
+- name: Forge Ring
   description: You can create magic rings.
   prerequisites:
     - casterlevel: 7
   tags: [ itemcreation ]
-- feat:
-  name: Gorgon's Fist
+- name: Gorgon's Fist
   tags: [ combat ]
   description: With one well-placed blow, you leave your target reeling.
   prerequisites:
     - ability: Improved Unarmed Strik
     - ability: Scorpion Style
     - baseattackbonus: 6
-- feat:
-  name: Great Cleave
+- name: Great Cleave
   tags: [ combat ]
   description: You can strike many adjacent foes with a single blow.
   prerequisites:
@@ -462,16 +480,14 @@
     - ability: Power Attack
     - baseattackbonus: 4
     - strength: 13
-- feat:
-  name: Great Fortitude
+- name: Great Fortitude
   description: You are resistant to poisons, diseases, and other maladies.
   items:
     - type: SilverNeedle.ValueStatModifier
       name: Fortitude
       modifier: 2
       modifier-type: bonus
-- feat:
-  name: Greater Bull Rush
+- name: Greater Bull Rush
   tags: [ combat ]
   description: Your bull rush attacks throw enemies off balance.
   prerequisites:
@@ -479,8 +495,7 @@
     - ability: Power Attack
     - strength: 13
     - baseattackbonus: 6
-- feat:
-  name: Greater Disarm
+- name: Greater Disarm
   tags: [ combat ]
   description: You can knock weapons far from an enemy's grasp.
   prerequisites:
@@ -488,8 +503,7 @@
     - ability: Improved Disarm
     - baseattackbonus: 6
     - intelligence: 13
-- feat:
-  name: Greater Feint
+- name: Greater Feint
   description: You are skilled at making foes overreact to your attacks.
   tags: [ combat ]
   prerequisites:
@@ -497,8 +511,7 @@
     - ability: Improved Feint
     - baseattackbonus: 6
     - intelligence: 13
-- feat:
-  name: Greater Grapple
+- name: Greater Grapple
   description: Maintaining a grapple is second nature to you.
   tags: [ combat ]
   prerequisites:
@@ -506,8 +519,7 @@
     - ability: Improved Unarmed Strike
     - baseattackbonus: 6
     - dexterity: 13
-- feat:
-  name: Greater Overrun
+- name: Greater Overrun
   tags: [ combat ]
   description: Enemies must dive to avoid your dangerous move.
   prerequisites:
@@ -515,36 +527,31 @@
     - ability: Power Attack
     - baseattackbonus: 6
     - strength: 13
-- feat:
-  name: Greater Penetrating Strike
+- name: Greater Penetrating Strike
   tags: [ combat ]
   description: Your attacks penetrate the defenses of most foes.
   prerequisites:
     - ability: Penetrating Strike
     - ability: Weapon Focus
     - classlevel: Fighter 16
-- feat:
-  name: Greater Shield Focus
+- name: Greater Shield Focus
   tags: [ combat ]
   description: You are skill at deflecting blows with your shield.
   prerequisites:
     - ability: Shield Focus
     - ability: Shield Proficiency
     - classlevel: Fighter 8
-- feat:
-  name: Greater Spell Focus
+- name: Greater Spell Focus
   description: >
     Choose a school of magic to which you have applied the Spell Focus feat.
     Any spells you cast of this school are very hard to resist.
   prerequisites:
     - ability: Spell Focus
-- feat:
-  name: Greater Spell Penetration
+- name: Greater Spell Penetration
   description: Your spells break through spell resistance more easily than most.
   prerequisites:
     - ability: Spell Penetration
-- feat:
-  name: Greater Sunder
+- name: Greater Sunder
   description: >
     Your devastiting strikes cleave through weapons and armor and into their
     weilders, damaging both item and wielder alike in a single terrific strike.
@@ -554,8 +561,7 @@
     - ability: Power Attack
     - baseattackbonus: 6
     - strength: 13
-- feat:
-  name: Greater Trip
+- name: Greater Trip
   description: You can make free attacks on foes that you knock down.
   tags: [ combat ]
   prerequisites:
@@ -563,8 +569,7 @@
     - ability: Improved Trip
     - baseattackbonus: 6
     - intelligence: 13
-- feat:
-  name: Greater Two-Weapon Fighting
+- name: Greater Two-Weapon Fighting
   description: >
     You are incredibly skilled at fighting with two weapons at the same time.
   prerequisites:
@@ -573,16 +578,14 @@
     - ability: Two-Weapon Fighting
     - baseattackbonus: 11
   tags: [ combat ]
-- feat:
-  name: Greater Vital Strike
+- name: Greater Vital Strike
   description: You can make a single attack that deals incredible damage.
   tags: [ combat ]
   prerequisites:
     - ability: Improved Vital Strik
     - ability: Vital Strike
     - baseattackbonus: 16
-- feat:
-  name: Greater Weapon Focus
+- name: Greater Weapon Focus
   tags: [ combat ]
   description: >
     Choose one type of weapon (including unarmed strike or grapple) for which
@@ -592,8 +595,7 @@
     - ability: Weapon Proficiency
     - ability: Weapon Focus
     - classlevel: Fighter 8
-- feat:
-  name: Greater Weapon Specialization
+- name: Greater Weapon Specialization
   tags: [ combat ]
   description: >
     Choose one type of weapon (including unarmed strike or grapple) for which
@@ -605,74 +607,63 @@
     - ability: Weapon Focus
     - ability: Weapon Specialization
     - classlevel: Fighter 12
-- feat:
-  name: Heighten Spell
+- name: Heighten Spell
   tags: [ metamagic ]
   description: You can cast spells as if they were a higher level.
   prerequisites:
     - custom: SilverNeedle.Characters.Prerequisites.IsSpellCaster
-- feat:
-  name: Improved Bull Rush
+- name: Improved Bull Rush
   description: You are skilled at pushing your foes around.
   tags: [ combat ]
   prerequisites:
     - strength: 13
     - ability: Power Attack
     - baseattackbonus: 1
-- feat:
-  name: Improved Channel
+- name: Improved Channel
   description: Your channeled energy is harder to resist.
   prerequisites:
     - ability: Channel Energy
-- feat:
-  name: Improved Counterspell
+- name: Improved Counterspell
   description: You are skilled at counter the spells of others using similar spells.
   prerequisites:
     - ability: Spellcasting
-- feat:
-  name: Improved Critical
+- name: Improved Critical
   description: Attacks made with your chosen weapon are quite deadly.
   tags: [ combat ]
   prerequisites:
     - ability: Weapon Proficiency
     - baseattackbonus: 8
-- feat:
-  name: Improved Disarm
+- name: Improved Disarm
   description: You are skilled at knocking weapons from a foe's grasp.
   tags: [ combat ]
   prerequisites:
     - ability: Combat Expertise
     - intelligence: 13
-- feat:
-  name: Improved Familiar
+- name: Improved Familiar
   description: >
     This feat allows you to acquire a powerful familiar, but only when you
     could normally acquire a new familiar.
   prerequisites:
     - ability: Familiar
-- feat:
-  name: Improved Feint
+- name: Improved Feint
   description: You are skilled at fooling your opponents in combat.
   tags: [ combat ]
   prerequisites:
     - intelligence: 13
     - ability: Combat Expertise
-- feat:
-  name: Improved Grapple
+- name: Improved Grapple
   description: You are skilled at grappling opponents.
   tags: [ combat ]
   prerequisites:
     - dexterity: 13
     - ability: Improved Unarmed Strike
-- feat:
-  name: Improved Great Fortitude
+- name: Improved Great Fortitude
   description: >
     You can draw upon an inner reserve to resist diseases, poisons and other
     grievous harm.
   prerequisites:
     - ability: Great Fortitude
-- feat:
-  name: Improved Initiative
+- name: Improved Initiative
   description: Your quick reflexes allow you to react rapidly to danger.
   tags: [ combat ]
   items:
@@ -680,26 +671,22 @@
       name: Initiative
       modifier: 4
       modifier-type: bonus
-- feat:
-  name: Improved Iron Will
+- name: Improved Iron Will
   description: Your clarity of thought allows you to resist mental attacks.
   prerequisites:
     - ability: Iron Will
-- feat:
-  name: Improved Lightning Reflexes
+- name: Improved Lightning Reflexes
   description: You have a knack for avoiding danger all around you.
   prerequisites:
     - ability: Lightning Reflexes
-- feat:
-  name: Improved Overrun
+- name: Improved Overrun
   description: You are skilled at running down your foes.
   tags: [ combat ]
   prerequisites:
     - strength: 13
     - ability: Power Attack
     - baseattackbonus: 1
-- feat:
-  name: Improved Precise Shot
+- name: Improved Precise Shot
   description: Your ranged attacks ignore anything but total concealment and cover.
   tags: [ combat ]
   prerequisites:
@@ -707,49 +694,42 @@
     - ability: Point-Blank Shot
     - ability: Precise Shot
     - baseattackbonus: 11
-- feat:
-  name: Improved Shield Bash
+- name: Improved Shield Bash
   description: You can protect yourself with your shield, even if you use it to attack.
   tags: [ combat ]
   prerequisites:
     - armor-proficiency:
       armor: shield
-- feat:
-  name: Improved Sunder
+- name: Improved Sunder
   description: You are skilled at damaging your foes' weapons and armor.
   tags: [ combat ]
   prerequisites:
     - strength: 13
     - ability: Power Attack
     - baseattackbonus: 1
-- feat:
-  name: Improved Trip
+- name: Improved Trip
   description: You are skilled at sending your opponents to the ground.
   tags: [ combat ]
   prerequisites:
     - intelligence: 13
     - ability: Combat Expertise
-- feat:
-  name: Improved Two-Weapon Fighting
+- name: Improved Two-Weapon Fighting
   description: You are skilled at fighting with two weapons.
   tags: [ combat ]
   prerequisites:
     - dexterity: 17
     - ability: Two-Weapon Fighting
     - baseattackbonus: 6
-- feat:
-  name: Improved Unarmed Strike
+- name: Improved Unarmed Strike
   description: You are skilled at fighting while unarmed.
   tags: [ combat ]
-- feat:
-  name: Improved Vital Strike
+- name: Improved Vital Strike
   description: You can make a single attack that deal a large amount of damage.
   tags: [ combat ]
   prerequisites:
     - ability: Vital Strike
     - baseattackbonus: 11
-- feat:
-  name: Improvised Weapon Master
+- name: Improvised Weapon Master
   description: >
     You can turn nearly any object into a deadly weapon, from a razor-sharp
     chair leg to a sack of flour.
@@ -757,31 +737,26 @@
   prerequisites:
     - ability: Throw Anything
     - baseattackbonus: 8
-- feat:
-  name: Intimidating Prowess
+- name: Intimidating Prowess
   description: Your physical might is intimidating to others.
   tags: [ combat ]
-- feat:
-  name: Iron Will
+- name: Iron Will
   description: You are more resistant to mental effects.
   items:
     - type: SilverNeedle.ValueStatModifier
       name: Will
       modifier: 2
       modifier-type: bonus
-- feat:
-  name: Leadership
+- name: Leadership
   description: You attract followers to your cause.
-- feat:
-  name: Lightning Reflexes
+- name: Lightning Reflexes
   description: You have faster reflexes than normal.
   items:
     - type: SilverNeedle.ValueStatModifier
       name: Reflex
       modifier: 2
       modifier-type: bonus
-- feat:
-  name: Lighting Stance
+- name: Lighting Stance
   description: >
     The speed at which you move makes it nearly impossible for opoonents
     to strike you.
@@ -791,27 +766,36 @@
     - ability: Dodge
     - ability: Wind Stance
     - baseattackbonus: 11
-- feat:
-  name: Lunge
+- name: Lunge
   description: >
     You can strike foes that would normally be out of reach.
   tags: [ combat ]
   prerequisites:
     - baseattackbonus: 6
-- feat:
-  name: Magical Aptitude
+- name: Magical Aptitude
   description: You are skilled at spellcasting and using magic items.
   items:
     - type: SilverNeedle.ValueStatModifier
       name: Spellcraft
       modifier: 2
       modifier-type: bonus
+    - type: SilverNeedle.Characters.SkillRankDependentModifier
+      name: Spellcraft
+      skill: Spellcraft
+      minimum-ranks: 10
+      modifier: 2
+      modifier-type: bonus
     - type: SilverNeedle.ValueStatModifier
       name: Use Magical Device
       modifier: 2
       modifier-type: bonus
-- feat:
-  name: Manyshot
+    - type: SilverNeedle.Characters.SkillRankDependentModifier
+      name: Use Magical Device
+      skill: Use Magical Device
+      minimum-ranks: 10
+      modifier: 2
+      modifier-type: bonus
+- name: Manyshot
   description: You can fire multiple arrows at a single target.
   tags: [ combat ]
   prerequisites:
@@ -819,8 +803,7 @@
     - ability: Point-Blank Shot
     - ability: Rapid Shot
     - baseattackbonus: 6
-- feat:
-  name: Martial Weapon Proficiency
+- name: Martial Weapon Proficiency
   description: >
     Choose a type of martial weapon. You understand how to use that type of
     martial weapon in combat.
@@ -828,8 +811,7 @@
     - weapon-proficiency:
       weapon: martial
       not-proficient: true
-- feat:
-  name: Master Craftsman
+- name: Master Craftsman
   description: Your superior crafting skills allow you to create magic items.
   loader: SilverNeedle.Characters.Feats.LoadMasterCraftsman
   loader-template: |
@@ -838,14 +820,12 @@
       - skillranks:
         name: {0}
         minimum: 5
-- feat:
-  name: Maximize Spell
+- name: Maximize Spell
   description: Your spells have the maximum possible effect.
   prerequisites:
     - custom: SilverNeedle.Characters.Prerequisites.IsSpellCaster
   tags: [ metamagic ]
-- feat:
-  name: Medusa's Wrath
+- name: Medusa's Wrath
   description: >
     You can take advantage of your opponent's confusion, delivering multiple blows.
   tags: [ combat ]
@@ -854,15 +834,13 @@
     - ability: Gorgon's Fist
     - ability: Scorpion Style
     - baseattackbonus: 11
-- feat:
-  name: Mobility
+- name: Mobility
   description: You can easily move through a dangerous melee.
   tags: [ combat ]
   prerequisites:
     - dexterity: 13
     - ability: Dodge
-- feat:
-  name: Mounted Archery
+- name: Mounted Archery
   description: You are skilled at making ranged attacks while mounted.
   tags: [ combat ]
   prerequisites:
@@ -870,36 +848,31 @@
       name: Ride 
       minimum: 1
     - ability: Mounted Combat
-- feat:
-  name: Mounted Combat
+- name: Mounted Combat
   description: You are adept at guiding your mount through combat.
   tags: [ combat ]
   prerequisites:
     - skillranks: 
       name: Ride 
       minimum: 1
-- feat:
-  name: Natural Spell
+- name: Natural Spell
   description: >
     You can cast spells even while in a form that cannot normally cast spells.
   prerequisites:
     - wisdom: 13
     - ability: Wild Shape
-- feat:
-  name: Nimble Moves
+- name: Nimble Moves
   description: You can move across a single obstacle with ease.
   prerequisites:
     - dexterity: 13
-- feat:
-  name: Penetrating Strike
+- name: Penetrating Strike
   tags: [ combat ]
   description: Your attacks are capable of penetrating the defenses of some creatures.
   prerequisites:
     - ability: Weapon Focus
     - classlevel: Fighter 12
     - ability: Weapon Proficiency
-- feat:
-  name: Persuasive
+- name: Persuasive
   description: >
     You are skilled at swaying attitudes and intimidating others into your
     way of thinking.
@@ -908,12 +881,23 @@
       name: Diplomacy
       modifier: 2
       modifier-type: bonus
+    - type: SilverNeedle.Characters.SkillRankDependentModifier
+      name: Diplomacy
+      skill: Diplomacy
+      minimum-ranks: 10
+      modifier: 2
+      modifier-type: bonus
     - type: SilverNeedle.ValueStatModifier
       name: Intimidate
       modifier: 2
       modifier-type: bonus
-- feat:
-  name: Pinpoint Targeting
+    - type: SilverNeedle.Characters.SkillRankDependentModifier
+      name: Intimidate
+      skill: Intimidate
+      minimum-ranks: 10
+      modifier: 2
+      modifier-type: bonus
+- name: Pinpoint Targeting
   description: You can target the weak points in your opponent's armor.
   tags: [ combat ]
   prerequisites:
@@ -922,13 +906,11 @@
     - ability: Point-Blank Shot
     - ability: Precise Shot
     - baseattackbonus: 16
-- feat:
-  name: Point-Blank Shot
+- name: Point-Blank Shot
   description: >
     You are especially accurate when making range attacks aginst close targets.
   tags: [ combat ]
-- feat:
-  name: Power Attack
+- name: Power Attack
   tags: [ combat ]
   description: >
     You can make exceptionally deadly melee attacks by sacrificing accuracy
@@ -936,40 +918,34 @@
   prerequisites:
     - strength: 13
     - baseattackbonus: 1
-- feat:
-  name: Precise Shot
+- name: Precise Shot
   description: You are adept at firing ranged attacks into melee.
   tags: [ combat ]
   prerequisites:
     - ability: Point-Blank Shot
-- feat:
-  name: Quick Draw
+- name: Quick Draw
   tags: [ combat ]
   description: You can draw weapons faster than most.
   prerequisites:
     - baseattackbonus: 1
-- feat:
-  name: Quicken Spell
+- name: Quicken Spell
   tags: [ metamagic ]
   description: You can cast spells in a fraction of the normal time.
   prerequisites:
     - custom: SilverNeedle.Characters.Prerequisites.IsSpellCaster
-- feat:
-  name: Rapid Reload
+- name: Rapid Reload
   tags: [ combat ]
   description: Choose a type of crossbow. You can reload such weapons quickly.
   prerequisites:
     - weapon-proficiency: 
       weapon: crossbow
-- feat:
-  name: Rapid Shot
+- name: Rapid Shot
   tags: [ combat ]
   description: You can make an additional ranged attack
   prerequisites:
     - dexterity: 13
     - ability: Point-Blank Shot
-- feat:
-  name: Ride-By Attack
+- name: Ride-By Attack
   tags: [ combat ]
   description: >
     While mounted and charging, you can move, strike at a foe, and then
@@ -979,29 +955,24 @@
       name: Ride 
       minimum: 1
     - ability: Mounted Combat
-- feat:
-  name: Run
+- name: Run
   description: You are swift of foot.
-- feat:
-  name: Scorpion Style
+- name: Scorpion Style
   tags: [ combat ]
   description: >
     You can perform an unarmed strike that greatly hampers your target's
     movement.
   prerequisites:
     - ability: Improved Unarmed Strike
-- feat:
-  name: Scribe Scroll
+- name: Scribe Scroll
   tags: [ itemcreation ]
   description: You can create magic scrolls.
-- feat:
-  name: Selective Channeling
+- name: Selective Channeling
   description: You can choose whom to affect when you channel energy
   prerequisites:
     - charisma: 13
     - ability: Channel Energy
-- feat:
-  name: Self Sufficient
+- name: Self Sufficient
   description: >
     You know how to get along in the wild and how to effectively treat wounds.
   items:
@@ -1009,12 +980,23 @@
       name: Heal
       modifier: 2
       modifier-type: bonus
+    - type: SilverNeedle.Characters.SkillRankDependentModifier
+      name: Heal
+      skill: Heal
+      minimum-ranks: 10
+      modifier: 2
+      modifier-type: bonus
     - type: SilverNeedle.ValueStatModifier
       name: Survival
       modifier: 2
       modifier-type: bonus
-- feat:
-  name: Shatter Defenses
+    - type: SilverNeedle.Characters.SkillRankDependentModifier
+      name: Survival
+      skill: Survival
+      minimum-ranks: 10
+      modifier: 2
+      modifier-type: bonus
+- name: Shatter Defenses
   description: >
     Your skill with your chosen weapon leaves opponents unable to defend
     themselves if you strike them when their defenses are already compromised.
@@ -1024,16 +1006,14 @@
     - ability: Dazzling Display
     - baseattackbonus: 4
     - ability: Weapon Proficiency
-- feat:
-  name: Shield Focus
+- name: Shield Focus
   tags: [ combat ]
   description: You are skilled at deflecting blows with your shield.
   prerequisites:
     - armor-proficiency:
       armor: shield
     - baseattackbonus: 1
-- feat:
-  name: Shield Master
+- name: Shield Master
   tags: [ combat ]
   description: Your master of the shield allows you to fight with it without hinderance.
   prerequisites:
@@ -1042,16 +1022,14 @@
     - ability: Shield Slam
     - ability: Two-Weapon Fighting
     - baseattackbonus: 11
-- feat:
-  name: Shield Proficiency
+- name: Shield Proficiency
   tags: [ combat ]
   description: You are trained in how to properly use a shield.
   prerequisites:
     - armor-proficiency:
       armor: shield
       not-proficient: true
-- feat:
-  name: Shield Slam
+- name: Shield Slam
   tags: [ combat ]
   description: In the right position, your shield can be used to send opponents flying.
   prerequisites:
@@ -1059,8 +1037,7 @@
     - ability: Shield Proficiency
     - ability: Two-Weapon Fighting
     - baseattackbonus: 6
-- feat:
-  name: Shot on the Run
+- name: Shot on the Run
   tags: [ combat ]
   description: >
     You can move, fire a ranged weapon, and move again before your foes can react.
@@ -1070,34 +1047,29 @@
     - ability: Mobility
     - ability: Point-Blank Shot
     - baseattackbonus: 4
-- feat:
-  name: Sickening Critical
+- name: Sickening Critical
   tags: [combat, critical]
   description: Your critical hits cause opponents to become sickened.
   prerequisites:
     - ability: Critical Focus
     - baseattackbonus: 11
-- feat:
-  name: Silent Spell
+- name: Silent Spell
   tags: [ metamagic ]
   description: Youc an cast your spells without making any sound
   prerequisites:
     - custom: SilverNeedle.Characters.Prerequisites.IsSpellCaster
-- feat:
-  name: Simple Weapon Proficiency
+- name: Simple Weapon Proficiency
   tags: [ combat ]
   description: You are trained in the use of basic weapons
   prerequisites:
     - weapon-proficiency:
       weapon: simple
       not-proficient: true
-- feat:
-  name: Skill Focus
+- name: Skill Focus
   description: Choose a skill. You are particularly adept at that skill.
   custom-implementation: SilverNeedle.Characters.Feats.SkillFocus
   loader: SilverNeedle.Characters.Feats.LoadSkillFocusFeatsForEachSkill
-- feat:
-  name: Snatch Arrows
+- name: Snatch Arrows
   tags: [ combat ]
   description: >
     Instead of knocking an arrow or ranged attack aside, you can catch it in
@@ -1106,28 +1078,24 @@
     - dexterity: 15
     - ability: Deflect Arrows
     - ability: Improved Unarmed Strike
-- feat:
-  name: Spell Focus
+- name: Spell Focus
   description: >
     Choose a school of magic. Any spells you cast of that school are more
     difficult to resist.
   prerequisites:
     - custom: SilverNeedle.Characters.Prerequisites.IsArcaneSpellCaster
-- feat:
-  name: Spell Mastery
+- name: Spell Mastery
   description: >
     You have mastered a small handful of spells, and can prepare these spells
     without referencing your spellbooks at all.
   prerequisites:
     - classlevel: Wizard 1
-- feat:
-  name: Spell Penetration
+- name: Spell Penetration
   description: >
     Your spells break through spell resistance more easily than most.
   prerequisites:
     - custom: SilverNeedle.Characters.Prerequisites.IsSpellCaster
-- feat:
-  name: Spellbreaker
+- name: Spellbreaker
   tags: [ combat ]
   description: >
     You can strike at enemy spellcasters who fail to cast defensively when you
@@ -1135,8 +1103,7 @@
   prerequisites:
     - ability: Disruptive
     - classlevel: Fighter 10
-- feat:
-  name: Spirited Charge
+- name: Spirited Charge
   tags: [ combat ]
   description: >
     Your mounted charge attacks deal a tremendous amount of damage.
@@ -1146,8 +1113,7 @@
       minimum: 1
     - ability: Mounted Combat
     - ability: Ride-By Attack
-- feat:
-  name: Spring Attack
+- name: Spring Attack
   tags: [ combat ]
   description: >
     You can deftly move up to a foe, strike, and withdraw before he can react.
@@ -1156,61 +1122,65 @@
     - ability: Dodge
     - ability: Mobility
     - baseattackbonus: 4
-- feat:
-  name: Staggering Critical
+- name: Staggering Critical
   tags: [combat , critical]
   description: Your critical hits cause opponents to slow down.
   prerequisites:
     - ability: Critical Focus
     - baseattackbonus: 13
-- feat:
-  name: Stand Still
+- name: Stand Still
   tags: [ combat ]
   description: You can stop foes that try to move past you.
   prerequisites:
     - ability: Combat Reflexes
-- feat:
-  name: Stealthy
+- name: Stealthy
   description: You are good at avoiding unwanted attend and slipping out of bonds.
   items:
     - type: SilverNeedle.ValueStatModifier
       name: Escape Artist
       modifier: 2
       modifier-type: bonus
+    - type: SilverNeedle.Characters.SkillRankDependentModifier
+      name: Escape Artist
+      skill: Escape Artist
+      minimum-ranks: 10
+      modifier: 2
+      modifier-type: bonus
     - type: SilverNeedle.ValueStatModifier
       name: Stealth
       modifier: 2
       modifier-type: bonus
-- feat:
-  name: Step Up
+    - type: SilverNeedle.Characters.SkillRankDependentModifier
+      name: Stealth
+      skill: Stealth
+      minimum-ranks: 10
+      modifier: 2
+      modifier-type: bonus
+- name: Step Up
   tags: [ combat ]
   description: You can close the distance when a foe tries to move away
   prerequisites:
     - baseattackbonus: 1
-- feat:
-  name: Still Spell
+- name: Still Spell
   tags: [ metamagic ]
   description: You can cast spells without moving
   prerequisites:
     - custom: SilverNeedle.Characters.Prerequisites.IsArcaneSpellCaster
-- feat:
-  name: Strike Back
+- name: Strike Back
   tags: [ combat ]
   description: >
     You can strike at foes that attack you using their superior reach,
     by targeting their limbs or weapons as they come at you.
   prerequisites:
     - baseattackbonus: 11
-- feat:
-  name: Stunning Critical
+- name: Stunning Critical
   tags: [combat , critical]
   description: Your critical hits cause opponents to become stunned.
   prerequisites:
     - ability: Critical Focus
     - ability: Staggering Critical
     - baseattackbonus: 17
-- feat:
-  name: Stunning Fist
+- name: Stunning Fist
   tags: [ combat ]
   description: You know just where to strike to temporarily stun a foe.
   prerequisites:
@@ -1218,19 +1188,15 @@
     - wisdom: 13
     - ability: Improved Unarmed Strike
     - baseattackbonus: 8
-- feat:
-  name: Throw Anything
+- name: Throw Anything
   tags: [ combat ]
   description: You are used to throwing things you have on hand.
-- feat:
-  name: Tiring Critical
+- name: Tiring Critical
   tags: [combat, critical]
   description: Your critical hits cause opponents to become fatigued.
-- feat:
-  name: Toughness
+- name: Toughness
   description: You have enahanced physical stamina.
-- feat:
-  name: Tower Shield Proficiency
+- name: Tower Shield Proficiency
   tags: [ combat ]
   description: You are trained in how to properly us a tower shield.
   prerequisites:
@@ -1239,8 +1205,7 @@
     - armor-proficiency:
       armor: towershield
       not-proficient: true
-- feat:
-  name: Trample
+- name: Trample
   tags: [ combat ]
   description: >
     While mounted, you can ride down opponents and trample them under your mount.
@@ -1249,30 +1214,26 @@
       name: Ride 
       minimum: 1
     - ability: Mounted Combat
-- feat:
-  name: Turn Undead
+- name: Turn Undead
   description: >
     Calling upon higher powers, you cause undead to flee from the might of your
     unleashed divine energy.
   prerequisites:
     - ability: Channel Energy (Positive) #TODO: Needs custom check for positive
-- feat:
-  name: Two-Weapon Defense
+- name: Two-Weapon Defense
   tags: [ combat ]
   description: You are skilled at defending yourself while dual-wielding.
   prerequisites:
     - ability: Two-Weapon Fighting
     - dexterity: 15
-- feat:
-  name: Two-Weapon Fighting
+- name: Two-Weapon Fighting
   tags: [ combat ]
   description: >
     You can fight with a weapon wielded in each of your hands. You can make
     one extra attack each round with the secondary weapon.
   prerequisites:
     - dexterity: 15
-- feat:
-  name: Two-Weapon Rend
+- name: Two-Weapon Rend
   tags: [ combat ]
   description: >
     Striking with both of your weapons simultaneously, you can use them to
@@ -1283,8 +1244,7 @@
     - ability: Improved Two-Weapon Fighting
     - ability: Two-Weapon Fighting
     - baseattackbonus: 11
-- feat:
-  name: Unseat
+- name: Unseat
   tags: [ combat ]
   description: You are skilled at unseating your mounted opponents.
   prerequisites:
@@ -1296,20 +1256,17 @@
     - ability: Power Attack
     - ability: Improved Bull Rush
     - baseattackbonus: 1
-- feat:
-  name: Vital Strike
+- name: Vital Strike
   tags: [ combat ]
   description: You make a single attack that deals significantly more damage than normal.
   prerequisites:
     - baseattackbonus: 6
-- feat:
-  name: Weapon Finesse
+- name: Weapon Finesse
   tags: [ combat ]
   description: >
     You are trained in using your agility in melee combat, as opposed to
     brute strength.
-- feat:
-  name: Weapon Focus
+- name: Weapon Focus
   tags: [ combat ]
   custom-implementation: SilverNeedle.Characters.Feats.WeaponFocus
   description: >
@@ -1318,8 +1275,7 @@
     feat. (Multiple selection not set to limit being selected too often)
   prerequisites:
     - baseattackbonus: 1
-- feat:
-  name: Weapon Specialization
+- name: Weapon Specialization
   tags: [ combat ]
   description: >
     You are skilled at dealing damge with one weapon. Choose one type of
@@ -1330,8 +1286,7 @@
     - ability: Weapon Proficiency
     - ability: Weapon Focus
     - classlevel: Fighter 4
-- feat:
-  name: Whirlwind Attack
+- name: Whirlwind Attack
   tags: [ combat ]
   description: You can strike out at every foe within reach.
   prerequisites:
@@ -1342,14 +1297,12 @@
     - ability: Mobility
     - ability: Spring Attack
     - baseattackbonus: 4
-- feat:
-  name: Widen Spell
+- name: Widen Spell
   tags: [ metamagic ]
   description: You can cast your spells so that they occupy a larger space.
   prerequisites:
     - custom: SilverNeedle.Characters.Prerequisites.IsSpellCaster
-- feat:
-  name: Wind Stance
+- name: Wind Stance
   tags: [ combat ]
   description: >
     Your erratic movements make it difficult for enemies to pinpoint your location.

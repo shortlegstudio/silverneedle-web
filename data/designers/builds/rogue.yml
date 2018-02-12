@@ -44,22 +44,26 @@
   feats:
     - name: combat reflexes
       weight: 20
-    - name: dodge
-      weight: 20
-    - name: improved initiative
-      weight: 5
-    - name: point-blank shot
-      weight: 40
-    - name: rapid shot
-      weight: 40
-    - name: precise shot
-      weight: 20
     - name: deadly aim
+      weight: 20
+    - name: deft hands
+      weight: 5
+    - name: dodge
       weight: 20
     - name: great fortitude
       weight: 10
+    - name: improved initiative
+      weight: 15
     - name: iron will
       weight: 10
+    - name: point-blank shot
+      weight: 40
+    - name: precise shot
+      weight: 20
+    - name: rapid shot
+      weight: 40
+    - name: stealthy
+      weight: 20
     - name: weapon finesse
       weight: 10
   abilities:
