@@ -50,6 +50,8 @@
     - name: spellcraft
       weight: 10
   feats:
+    - name: arcane strike
+      weight: 5
     - name: extra performance
       weight: 10
     - name: dodge

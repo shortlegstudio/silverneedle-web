@@ -39,28 +39,7 @@
       modifier: 2
       modifier-type: bonus
 - feat:
-  name: Alignment Channel (Chaos)
-  description: >
-    Choose chaos, evil, good, or law. You can channel divine energy to affect
-    outsiders that posses this subtype.
-  prerequisites:
-    - ability: Channel Energy
-- feat:
-  name: Alignment Channel (Evil)
-  description: >
-    Choose chaos, evil, good, or law. You can channel divine energy to affect
-    outsiders that posses this subtype.
-  prerequisites:
-    - ability: Channel Energy
-- feat:
-  name: Alignment Channel (Good)
-  description: >
-    Choose chaos, evil, good, or law. You can channel divine energy to affect
-    outsiders that posses this subtype.
-  prerequisites:
-    - ability: Channel Energy
-- feat:
-  name: Alignment Channel (Law)
+  name: Alignment Channel 
   description: >
     Choose chaos, evil, good, or law. You can channel divine energy to affect
     outsiders that posses this subtype.
@@ -83,6 +62,7 @@
   description: >
     You have masterd the ability to cast spells while wearing armor.
   prerequisites:
+    - custom: SilverNeedle.Characters.Prerequisites.IsArcaneSpellCaster
     - ability: Arcane Armor Training
     - casterlevel: 7
     - armor-proficiency:
@@ -92,6 +72,7 @@
   name: Arcane Armor Training
   description: You have learned how to cast spells while wearing armor.
   prerequisites:
+    - custom: SilverNeedle.Characters.Prerequisites.IsArcaneSpellCaster
     - armor-proficiency: 
       armor: light
     - casterlevel: 3
@@ -103,6 +84,15 @@
     your weapons with magical energy.
   prerequisites:
     - custom: SilverNeedle.Characters.Prerequisites.IsArcaneSpellCaster
+  items:
+    - type: SilverNeedle.Characters.CapabilityStatistic
+      name: Arcane Strike Damage
+      base-value: 1
+    - type: SilverNeedle.Characters.CasterLevelModifier
+      name: Arcane Strike Damage
+      modifier-type: base-value
+      rate: 5
+      caster-type: arcane
 - feat:
   name: Armor Proficiency (Heavy)
   description: You are skilled at wearing heavy armor.

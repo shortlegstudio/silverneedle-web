@@ -81,7 +81,11 @@ namespace SilverNeedle.Serialization
                     case "cup":
                         propertyValue = DiceStrings.ParseDice(data.GetString(keyName));
                         break;
+                    case "spelltype":
+                        propertyValue = data.GetEnum<Spells.SpellType>(keyName);
+                        break;
                     default:
+                        ShortLog.DebugFormat("Attempting to deserialize: {0}", propType);
                         propertyValue = prop.PropertyType.Instantiate<object>(data.GetObject(keyName));
                         break;
                 }
