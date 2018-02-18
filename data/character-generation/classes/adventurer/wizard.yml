@@ -71,6 +71,18 @@
                 19: [4, 4, 4, 4, 4, 4, 4, 4, 3, 3]
                 20: [4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
             - type: SilverNeedle.Characters.Magic.IgnoreSpellsOfOpposingSchools
+            - type: SilverNeedle.Characters.CapabilityStatistic
+              name: Concentration (Wizard)
+              base-value: 0
+            - type: SilverNeedle.StatisticStatModifier
+              name: Concentration (Wizard)
+              modifier: intelligence-modifier
+              modifier-type: base-value
+            - type: SilverNeedle.Characters.CasterLevelModifier
+              name: Concentration (Wizard)
+              rate: 1
+              caster-type: arcane
+              modifier-type: base-value
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectArcaneSchool
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectArcaneOppositionSchools

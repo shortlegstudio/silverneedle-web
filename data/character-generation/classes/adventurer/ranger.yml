@@ -113,6 +113,18 @@
                 18: [0, 4, 3, 2, 2]
                 19: [0, 4, 3, 3, 2]
                 20: [0, 4, 4, 3, 3]
+            - type: SilverNeedle.Characters.CapabilityStatistic
+              name: Concentration (Ranger)
+              base-value: 0
+            - type: SilverNeedle.StatisticStatModifier
+              name: Concentration (Ranger)
+              modifier: wisdom-modifier
+              modifier-type: base-value
+            - type: SilverNeedle.Characters.CasterLevelModifier
+              name: Concentration (Ranger)
+              rate: 1
+              caster-type: divine
+              modifier-type: base-value
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Hunters Bond
           commands:

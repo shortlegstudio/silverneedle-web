@@ -42,6 +42,8 @@
   feats:
     - name: brew potion
       weight: 8
+    - name: combat casting
+      weight: 10
     - name: craft magic arms and armor
       weight: 8
     - name: craft rod

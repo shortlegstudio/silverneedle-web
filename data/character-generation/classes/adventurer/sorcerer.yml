@@ -88,6 +88,18 @@
                 18: [9, 5, 5, 4, 4, 4, 3, 3, 2, 1]
                 19: [9, 5, 5, 4, 4, 4, 3, 3, 3, 2]
                 20: [9, 5, 5, 4, 4, 4, 3, 3, 3, 3]
+            - type: SilverNeedle.Characters.CapabilityStatistic
+              name: Concentration (Sorcerer)
+              base-value: 0
+            - type: SilverNeedle.StatisticStatModifier
+              name: Concentration (Sorcerer)
+              modifier: charisma-modifier
+              modifier-type: base-value
+            - type: SilverNeedle.Characters.CasterLevelModifier
+              name: Concentration (Sorcerer)
+              rate: 1
+              caster-type: divine
+              modifier-type: base-value
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
         - attribute: SilverNeedle.Characters.ClassFeature

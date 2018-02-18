@@ -35,7 +35,7 @@ namespace SilverNeedle.Characters
                 new DelegateStatModifier(
                     this.abilityModifier.Name,
                     "calculation",
-                    () => CalculateModifier(this.TotalValue))
+                    CalculateModifier)
             );
             this.UniversalStatModifier = new AbilityStatModifier(this);
         }
@@ -79,6 +79,11 @@ namespace SilverNeedle.Characters
         public static int CalculateModifier(int val)
         {
             return (val / 2) - 5;
+        }
+
+        private int CalculateModifier()
+        {
+            return CalculateModifier(this.TotalValue);
         }
 
         /// <summary>

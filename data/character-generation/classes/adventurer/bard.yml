@@ -121,6 +121,33 @@
                 18: [6, 6, 6, 6, 5, 4, 4]
                 19: [6, 6, 6, 6, 5, 5, 4]
                 20: [6, 6, 6, 6, 6, 5, 5]
+            - type: SilverNeedle.Characters.CapabilityStatistic
+              name: Concentration (Bard)
+              base-value: 0
+            - type: SilverNeedle.StatisticStatModifier
+              name: Concentration (Bard)
+              modifier: charisma-modifier
+              modifier-type: base-value
+            - type: SilverNeedle.Characters.CasterLevelModifier
+              name: Concentration (Bard)
+              rate: 1
+              caster-type: arcane
+              modifier-type: base-value
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Domains
+          commands:
+            - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectDomains
+              count: 2
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Domain Spell Casting
+          items:
+            - type: SilverNeedle.Characters.Magic.DomainCasting
+              casting-ability: wisdom
+        - attribute: SilverNeedle.Characters.ClassFeature
+          name: Bonus Languages
+          items:
+            - type: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddBonusLanguages
+              languages: [celestial, abyssal, infernal]
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 2

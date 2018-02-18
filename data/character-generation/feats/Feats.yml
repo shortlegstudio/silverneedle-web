@@ -208,6 +208,13 @@
     - baseattackbonus: 1
 - name: Combat Casting
   description: You are adept at spellcasting when threatened or distracted.
+  prerequisite:
+    - custom: SilverNeedle.Characters.Prerequisites.IsSpellCaster
+  items:
+    - type: SilverNeedle.ValueStatModifier
+      name: "%Concentration%"
+      modifier: 4
+      modifier-type: bonus
 - name: Combat Expertise
   description: You can increase your defense at the expense of your accuracy.
   prerequisite:

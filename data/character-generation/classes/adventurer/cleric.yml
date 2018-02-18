@@ -108,6 +108,18 @@
                 18: [4, 4, 4, 4, 4, 4, 4, 3, 3, 2]
                 19: [4, 4, 4, 4, 4, 4, 4, 4, 3, 3]
                 20: [4, 4, 4, 4, 4, 4, 4, 4, 4, 4]
+            - type: SilverNeedle.Characters.CapabilityStatistic
+              name: Concentration (Cleric)
+              base-value: 0
+            - type: SilverNeedle.StatisticStatModifier
+              name: Concentration (Cleric)
+              modifier: wisdom-modifier
+              modifier-type: base-value
+            - type: SilverNeedle.Characters.CasterLevelModifier
+              name: Concentration (Cleric)
+              rate: 1
+              caster-type: divine
+              modifier-type: base-value
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Domains
           commands:
