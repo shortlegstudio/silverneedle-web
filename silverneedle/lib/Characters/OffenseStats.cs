@@ -52,6 +52,8 @@ namespace SilverNeedle.Characters
         /// </summary>
         public BasicStat CombatManeuverBonus { get; private set; }
 
+        public IValueStatistic AttacksOfOpportunity { get { return components.FindStat<IValueStatistic>(StatNames.AttacksOfOpportunity); } }
+
         /// <summary>
         /// The inventory for the character.
         /// </summary>

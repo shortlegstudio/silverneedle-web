@@ -38,9 +38,9 @@
   feats:
     - name: power attack
       weight: 30
-    - name: combat reflexes
+    - name: combat expertise
       weight: 20
-    - name: cleave
+    - name: combat reflexes
       weight: 20
     - name: improved initiative
       weight: 5

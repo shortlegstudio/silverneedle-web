@@ -19,6 +19,9 @@
             @{ Html.RenderPartial("_statistic-row", new ViewDataDictionary(this.ViewData) {
                 { "statistic-title", "CMD" },
                 { "statistic-score", @character.CombatManeuverDefense } }); }
+            @{ Html.RenderPartial("_statistic-row", new ViewDataDictionary(this.ViewData) {
+                { "statistic-title", "Attacks of Opportunity" },
+                { "statistic-score", @charFull.Offense.AttacksOfOpportunity.TotalValue } }); }
             @for(int i = 0; i < character.AttackTypes.Length; i++)
             {
                 Html.RenderPartial("_statistic-row", new ViewDataDictionary(this.ViewData) {

@@ -81,7 +81,7 @@ namespace SilverNeedle.Characters
             return (val / 2) - 5;
         }
 
-        private int CalculateModifier()
+        private float CalculateModifier()
         {
             return CalculateModifier(this.TotalValue);
         }

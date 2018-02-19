@@ -18,6 +18,7 @@ namespace SilverNeedle.Characters
         public const string RangeAttackBonus = "Range Attack Bonus";
         public const string CMD = "CMD";
         public const string CMB = "CMB"; 
+        public const string AttacksOfOpportunity = "Attacks of Opportunity";
 
         public const string BaseMovementSpeed = "Base Movement Speed";
         public const string ArmorMovementPenalty = "Armor Movement Penalty";

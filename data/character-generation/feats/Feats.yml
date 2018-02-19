@@ -208,7 +208,7 @@
     - baseattackbonus: 1
 - name: Combat Casting
   description: You are adept at spellcasting when threatened or distracted.
-  prerequisite:
+  prerequisites:
     - custom: SilverNeedle.Characters.Prerequisites.IsSpellCaster
   items:
     - type: SilverNeedle.ValueStatModifier
@@ -217,12 +217,28 @@
       modifier-type: bonus
 - name: Combat Expertise
   description: You can increase your defense at the expense of your accuracy.
-  prerequisite:
-    intelligence: 13
+  prerequisites:
+    - intelligence: 13
+  items:
+    - type: SilverNeedle.Characters.CapabilityStatistic
+      name: Combat Expertise
+      base-value: 1
+    - type: SilverNeedle.StatisticStatModifier
+      name: Combat Expertise
+      modifier: Base Attack Bonus
+      modifier-type: base-value
+      multiplier: 0.25
   tags: [ combat ]
 - name: Combat Reflexes
   description: You can make additional attacks of opportunity.
   tags: [ combat ]
+  prerequisites:
+    - dexterity: 12 #Doesn't make sense if you don't have some bonus
+  items:
+      - type: SilverNeedle.StatisticStatModifier
+        name: Attacks of Opportunity
+        modifier: dexterity-modifier
+        modifier-type: base-value
 - name: Command Undead
   description: >
     Using foul powers of necromancy, you can command undead creates, making
