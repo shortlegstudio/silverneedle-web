@@ -42,6 +42,8 @@
       weight: 20
     - name: cleave
       weight: 20
+    - name: deadly aim
+      weight: 20
     - name: improved initiative
       weight: 5
     - name: point-blank shot
@@ -49,8 +51,6 @@
     - name: rapid shot
       weight: 40
     - name: precise shot
-      weight: 20
-    - name: deadly aim
       weight: 20
     - name: great fortitude
       weight: 10

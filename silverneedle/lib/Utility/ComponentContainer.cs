@@ -8,6 +8,7 @@ namespace SilverNeedle.Utility
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Reflection;
 
     public class ComponentContainer
     {
@@ -21,6 +22,11 @@ namespace SilverNeedle.Utility
         }
 
         public void Add(object obj)
+        {
+            PerformAdd(obj);
+        }
+
+        private void PerformAdd(object obj)
         {
             if(obj == null)
                 throw new ArgumentNullException("obj");
@@ -37,6 +43,22 @@ namespace SilverNeedle.Utility
             if(obj is IStatisticModifier)
             {
                 ApplyStatModifier((IStatisticModifier)obj);
+            }
+
+            InspectObjectForCustomAttributes(obj);
+        }
+
+        private void InspectObjectForCustomAttributes(object obj)
+        {
+            var typeInfo = obj.GetType();
+            var properties = typeInfo.GetProperties();
+            foreach(var prop in properties)
+            {
+                var attribute = prop.GetCustomAttribute<AddToContainerAttribute>();
+                if(attribute == null)
+                    continue;
+
+                Add(prop.GetValue(obj));
             }
         }
 

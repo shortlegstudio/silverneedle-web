@@ -69,6 +69,33 @@ multiplier: 1.5
 
         }
 
+        [Fact]
+        public void SometimesWantToDoForEveryFourInStatAddTwoSomewhereElse()
+        {
+            var character = CharacterTestTemplates.AverageBob();
+            var yaml = @"---
+name: power attack
+modifier: base attack bonus
+modifier-type: circumstance
+every: 4
+add: 2";
+            var statMod = new StatisticStatModifier(yaml.ParseYaml());
+            character.Add(statMod);
+            Assert.Equal(0, statMod.Modifier);
+            character.Offense.BaseAttackBonus.SetValue(3);
+            Assert.Equal(0, statMod.Modifier);
+            character.Offense.BaseAttackBonus.SetValue(4);
+            Assert.Equal(2, statMod.Modifier);
+            character.Offense.BaseAttackBonus.SetValue(7);
+            Assert.Equal(2, statMod.Modifier);
+            character.Offense.BaseAttackBonus.SetValue(8);
+            Assert.Equal(4, statMod.Modifier);
+            character.Offense.BaseAttackBonus.SetValue(11);
+            Assert.Equal(4, statMod.Modifier);
+            character.Offense.BaseAttackBonus.SetValue(12);
+            Assert.Equal(6, statMod.Modifier);
+        }
+
 
     }
 }

@@ -31,7 +31,19 @@ namespace SilverNeedle
             configuration.Deserialize(this);
         }
 
-        public virtual float Modifier { get { return this.statistic.TotalValue * this.Multiplier; } }
+        public virtual float Modifier 
+        { 
+            get 
+            { 
+                if(Every != 0 && Add != 0)
+                {
+                    var count = MathHelpers.FloorToInt(this.statistic.TotalValue / Every);
+                    return count * Add;
+                }
+                
+                return this.statistic.TotalValue * this.Multiplier; 
+            } 
+        }
 
 
         [ObjectStore("modifier-type")]
@@ -51,6 +63,12 @@ namespace SilverNeedle
 
         [ObjectStoreOptional("multiplier", 1.0f)]
         public float Multiplier { get; private set; }
+
+        [ObjectStoreOptional("every", 0)]
+        public int Every { get; private set; }
+
+        [ObjectStoreOptional("add", 0)]
+        public int Add { get; private set; }
 
         public void Initialize(ComponentContainer components)
         {

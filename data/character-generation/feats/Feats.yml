@@ -220,14 +220,24 @@
   prerequisites:
     - intelligence: 13
   items:
-    - type: SilverNeedle.Characters.CapabilityStatistic
+    - type: SilverNeedle.Characters.BonusAndPenaltyStatistic
       name: Combat Expertise
-      base-value: 1
+      bonus: Armor Class
+      bonus-base-value: 1
+      penalty: Attack
+      penalty-base-value: -1
     - type: SilverNeedle.StatisticStatModifier
-      name: Combat Expertise
-      modifier: Base Attack Bonus
+      name: Combat Expertise Bonus
+      modifier: base attack bonus
       modifier-type: base-value
-      multiplier: 0.25
+      every: 4
+      add: 1
+    - type: SilverNeedle.StatisticStatModifier
+      name: Combat Expertise Penalty
+      modifier: base attack bonus
+      modifier-type: base-value
+      every: 4
+      add: -1
   tags: [ combat ]
 - name: Combat Reflexes
   description: You can make additional attacks of opportunity.
@@ -274,6 +284,12 @@
   description: You are trained in the art of causing pain.
   prerequisites:
     - baseattackbonus: 9
+  items:
+    - type: SilverNeedle.ValueStatModifier
+      name: Base Attack Bonus
+      modifier: 4
+      modifier-type: circumstance
+      condition: confirm critical
   tags: [ combat ]
 - name: Critical Mastery
   description: Your critical hits cause two additional effects.
@@ -295,6 +311,25 @@
   prerequisites:
     - dexterity: 13
     - baseattackbonus: 1
+  items:
+    - type: SilverNeedle.Characters.BonusAndPenaltyStatistic
+      name: Deadly Aim
+      bonus: Damage
+      bonus-base-value: 2
+      penalty: Attack
+      penalty-base-value: -1
+    - type: SilverNeedle.StatisticStatModifier
+      name: Deadly Aim Bonus
+      modifier: base attack bonus
+      modifier-type: base-value
+      every: 4
+      add: 2
+    - type: SilverNeedle.StatisticStatModifier
+      name: Deadly Aim Penalty
+      modifier: base attack bonus
+      modifier-type: base-value
+      every: 4
+      add: -1
 - name: Deadly Strike
   tags: [ combat ]
   description: >
@@ -941,6 +976,25 @@
   prerequisites:
     - strength: 13
     - baseattackbonus: 1
+  items:
+    - type: SilverNeedle.Characters.BonusAndPenaltyStatistic
+      name: Power Attack
+      bonus: Damage
+      bonus-base-value: 2
+      penalty: Attack
+      penalty-base-value: -1
+    - type: SilverNeedle.StatisticStatModifier
+      name: Power Attack Bonus
+      modifier: base attack bonus
+      modifier-type: base-value
+      every: 4
+      add: 2
+    - type: SilverNeedle.StatisticStatModifier
+      name: Power Attack Penalty
+      modifier: base attack bonus
+      modifier-type: base-value
+      every: 4
+      add: -1
 - name: Precise Shot
   description: You are adept at firing ranged attacks into melee.
   tags: [ combat ]

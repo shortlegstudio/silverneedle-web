@@ -13,7 +13,7 @@ namespace Tests.Actions.MagicItemGeneration
     using SilverNeedle.Treasure;
 
     
-    public class WandCreatorTests
+    public class WandCreatorTests : RequiresDataFiles
     {
         [Fact]
         public void WandsUtilizeAvailableListsToMakeWandsThatMakeSense()

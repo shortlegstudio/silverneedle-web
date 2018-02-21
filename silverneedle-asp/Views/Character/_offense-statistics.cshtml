@@ -12,7 +12,7 @@
         
             @{ Html.RenderPartial("_statistic-row", new ViewDataDictionary(this.ViewData) {
                 { "statistic-title", "Base Attack" },
-                { "statistic-score", @character.BaseAttackBonus } }); }
+                { "statistic-score", @charFull.Offense.BaseAttackBonus.ToString() } }); }
             @{ Html.RenderPartial("_statistic-row", new ViewDataDictionary(this.ViewData) {
                 { "statistic-title", "CMB" },
                 { "statistic-score", @character.CombatManeuverBonus } }); }

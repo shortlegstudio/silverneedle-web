@@ -60,10 +60,29 @@ namespace Tests.Utility
             Assert.Throws(typeof(StatisticNotFoundException), () => container.Add(mod));
         }
 
+        [Fact]
+        public void IfPropertyHasAddToContainerAttributeThenMakeSureThisValueIsAdded()
+        {
+            var container = new ComponentContainer();
+            var add = new AddToContainerTest();
+            container.Add(add);
+            Assert.NotNull(container.FindStat("Add Me"));
+
+        }
+
     }
 
     public class CustomStatType : BasicStat
     {
         public CustomStatType(string name) : base(name) { }
+    }
+
+    public class AddToContainerTest
+    {
+        private IValueStatistic _addMe = new BasicStat("Add Me");
+
+        [AddToContainer]
+        public IValueStatistic Add { get { return _addMe; } }
+        
     }
 }
