@@ -32,7 +32,7 @@ namespace Tests.Characters
         public void CalculatesSkillPointsBasedOnClassAndIntelligence()
         {
             var sheet = new CharacterSheet(CharacterStrategy.Default());
-            var fighter = new Class();
+            var fighter = Class.CreateForTesting();
             fighter.SkillPoints = 2;
             sheet.AbilityScores.SetScore(AbilityScoreTypes.Intelligence, 14);
             sheet.SetClass(fighter);

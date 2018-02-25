@@ -46,10 +46,13 @@ namespace SilverNeedle.Dice
 
         public string Name { get; private set; }
 
+        //TODO: Should be IEnumerable?
         public List<Die> Dice { get; private set; }
 
         public int Modifier { get; set; }
         public bool MaximizeAmount { get; set; }
+
+        public int Count { get { return Dice.Count; } }
 
         public void AddDie(Die die)
         {

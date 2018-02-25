@@ -35,11 +35,8 @@ namespace Tests.Characters.SpecialAbilities
         {
             var data = needsLevel.ParseYaml().Children.First();
             var power = new RagePower(data);  
-            var character = CharacterTestTemplates.AverageBob();
+            var character = CharacterTestTemplates.Barbarian();
             Assert.False(power.IsQualified(character.Components));
-            var barbarian = new Class();
-            barbarian.Name = "Barbarian";
-            character.SetClass(barbarian);
             character.SetLevel(8);
             Assert.True(power.IsQualified(character.Components));
         }

@@ -23,7 +23,7 @@ namespace SilverNeedle.Characters
             Pronoun = character.Gender.Pronoun();
             PossessivePronoun = character.Gender.PossessivePronoun();
             this.Race = Default(character.Race, SilverNeedle.Characters.Race.None).Name;
-            this.Class = Default(character.Class, SilverNeedle.Characters.Class.None).Name;
+            this.Class = Default(character.Class, SilverNeedle.Characters.Class.CreateForTesting()).Name;
             Alignment = character.Alignment.ShortString();
             Initiative = character.Initiative.TotalValue.ToModifierString();
             Senses = FormatSenses(character);

@@ -66,7 +66,7 @@ namespace Tests.Actions.CharacterGeneration
             var build = new CharacterStrategy();
             build.TargetLevel = 5;
             var character = new CharacterSheet(build);
-            character.SetClass(new Class());
+            character.SetClass(Class.CreateForTesting());
 
             var designer = new CharacterDesigner(data);
             designer.ExecuteStep(character);

@@ -30,8 +30,8 @@ namespace Tests.Actions.CharacterGeneration
         public void IfMultipleTokensAreAvailableTheNextOneShouldChooseSomethingDifferent()
         {
             var classes = new Class[] {
-                new Class("Cleric"),
-                new Class("Bard")
+                Class.CreateForTesting("Cleric", SilverNeedle.Dice.DiceSides.d8),
+                Class.CreateForTesting("Bard", SilverNeedle.Dice.DiceSides.d6)
             };
 
             var cleric = CharacterTestTemplates.Cleric();

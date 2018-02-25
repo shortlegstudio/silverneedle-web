@@ -18,7 +18,14 @@ namespace SilverNeedle.Characters
   /// </summary>
     public class Class : CharacterFeature, IGatewayObject
     {
-        public static Class None { get { return new Class(); } }
+        public static Class CreateForTesting() 
+        { 
+            return CreateForTesting("Unknown", DiceSides.d4);
+        }
+        public static Class CreateForTesting(string name, DiceSides hd)
+        {
+            return new Class(name, hd);
+        } 
 
         /// <summary>
         /// The good save rate. TODO: This should be configurable or moved
@@ -32,23 +39,18 @@ namespace SilverNeedle.Characters
         /// </summary>
         public const float PoorSaveRate = 0.334f;
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SilverNeedle.Characters.Class"/> class.
-        /// </summary>
-        public Class()
-        {
-            this.Levels = new List<Level>();
-        }
-
         public Class(IObjectStore data) : base(data)
         {
             this.Levels = new List<Level>();
             LoadFromObjectStore(data);
         }
 
-        public Class(string name) : this()
+        private Class(string name, DiceSides hd) 
         {
+            this.Levels = new List<Level>();
             this.Name = name;
+            this.HitDice = hd;
+            this.HitDicePerLevel = new DiceClassLevelModifier(new Cup(new Die(HitDice)), StatNames.HitDice, this.Name, 1);
         }
 
         /// <summary>
@@ -138,6 +140,9 @@ namespace SilverNeedle.Characters
             return l;
         }
 
+        [AddToContainer]
+        public DiceClassLevelModifier HitDicePerLevel { get; private set; }
+
         private void LoadFromObjectStore(IObjectStore data)
         {
             Name = data.GetString("name"); 
@@ -167,6 +172,8 @@ namespace SilverNeedle.Characters
             {
                 StartingWealthDice = DiceStrings.ParseDice(dice);
             }
+
+            this.HitDicePerLevel = new DiceClassLevelModifier(new Cup(new Die(HitDice)), StatNames.HitDice, this.Name, 1);
         }
 
         public bool Matches(string name)

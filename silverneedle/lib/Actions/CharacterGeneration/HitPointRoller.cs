@@ -22,7 +22,6 @@ namespace SilverNeedle.Actions.CharacterGeneration
             var hitpoints = character.FindStat(StatNames.HitPoints);
             hitpoints.AddModifier(modifier);
             hitpoints.AddModifier(character.AbilityScores.GetAbility(AbilityScoreTypes.Constitution).UniversalStatModifier);
-
         }
     }
 }

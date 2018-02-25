@@ -17,8 +17,7 @@ namespace Tests.Actions
         public void MaxHitPointsAssignsTheCharacterHPToClassHDPlusConModifier() 
         {
             var character = CharacterTestTemplates.AverageBob().FullInitialize();
-            var cls = new Class();
-            cls.HitDice = DiceSides.d8;
+            var cls = Class.CreateForTesting("Druid", DiceSides.d8);
             character.SetClass(cls);
             character.AbilityScores.SetScore(AbilityScoreTypes.Constitution, 12);
             

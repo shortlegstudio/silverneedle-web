@@ -18,15 +18,13 @@ namespace Tests.Actions {
         CharacterSheet character;
 
         public LevelUpCharacterTests() {
-            character = new CharacterSheet(CharacterStrategy.Default());
+            character = CharacterTestTemplates.Ranger();
             character.AbilityScores.SetScore(AbilityScoreTypes.Strength, 10);
             character.AbilityScores.SetScore(AbilityScoreTypes.Dexterity, 10);
             character.AbilityScores.SetScore(AbilityScoreTypes.Constitution, 10);
             character.AbilityScores.SetScore(AbilityScoreTypes.Intelligence, 10);
             character.AbilityScores.SetScore(AbilityScoreTypes.Wisdom, 10);
             character.AbilityScores.SetScore(AbilityScoreTypes.Charisma, 10);
-            var cls = new Class ();
-            character.SetClass (cls);
         }
 
 

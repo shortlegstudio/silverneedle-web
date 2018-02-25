@@ -129,5 +129,17 @@ dice: 1d6+1";
             Assert.Equal(1, cup.Modifier);
 
         }
+
+        [Fact]
+        public void ReturnsACountOfAllDiceInTheCup()
+        {
+            var cup = new Cup();
+            cup.AddDie(Die.D10());
+            Assert.Equal(1, cup.Count);
+            cup.AddDie(Die.D4());
+            Assert.Equal(2, cup.Count);
+            cup.AddDie(Die.D6());
+            Assert.Equal(3, cup.Count);
+        }
     }
 }

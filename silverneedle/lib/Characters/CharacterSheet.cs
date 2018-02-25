@@ -233,8 +233,8 @@ namespace SilverNeedle.Characters
         /// <param name="cls">Class of the character</param>
         public void SetClass(Class cls)
         {
-            this.Components.Add(cls);
             this.Components.Add(new ClassLevel(cls));
+            this.Components.Add(cls);
             this.Offense.LevelUp(cls);
             this.Defense.LevelUpDefenseStats(cls);
         }

@@ -46,5 +46,6 @@ namespace SilverNeedle.Characters
         public const string SpellResistance = "Spell Resistance";
 
         public const string HitPoints = "Hit Points";
+        public const string HitDice = "Hit Dice";
     }
 }

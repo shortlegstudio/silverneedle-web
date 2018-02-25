@@ -13,7 +13,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Serialization;
     using Xunit;
 
-    public class AddBloodlineBonusSpellTests
+    public class AddBloodlineBonusSpellTests : RequiresDataFiles
     {
         [Fact]
         public void BonusSpellsAreAddedToTheAppropriateSpellLevel()

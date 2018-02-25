@@ -4,6 +4,10 @@
     - attribute:
       name: General Statistics
       items:
+        - type: SilverNeedle.Characters.CharacterLevelStatistic
+        - type: SilverNeedle.DiceStatistic
+          name: Hit Dice
+          dice: 
         - type: SilverNeedle.BasicStat
           name: Hit Points
           base-value: 0

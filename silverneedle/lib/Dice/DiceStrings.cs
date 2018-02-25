@@ -38,6 +38,9 @@ namespace SilverNeedle.Dice
 
         public static Cup ParseDice(this Cup cup, string diceString)
         {
+            if(string.IsNullOrEmpty(diceString))
+                return cup;
+
             var regEx = new Regex("^(?<dieCount>\\d+)?d(?<dieSides>\\d+)(?<modifier>\\+\\d+)?");
             var match = regEx.Match(diceString);
             var dieCount = DefaultOrNumber(match.Groups["dieCount"].Value, 1);

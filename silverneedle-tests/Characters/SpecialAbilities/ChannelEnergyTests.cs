@@ -32,12 +32,8 @@ uses-per-day-stat:
         [Fact]
         public void ChannelEnergyAddsASpecialAttack()
         {
-            var character = new CharacterSheet(CharacterStrategy.Default());
-            character.InitializeComponents();
+            var character = CharacterTestTemplates.Cleric();
             character.AbilityScores.SetScore(AbilityScoreTypes.Charisma, 12);
-            var cls = new Class();
-            cls.Name = "Cleric";
-            character.SetClass(cls);
             character.SetLevel(4);
             character.Add(channel);
             Assert.Equal(channel.Damage.ToString(), "1d6");

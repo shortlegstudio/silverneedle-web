@@ -19,8 +19,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
         [Fact]
         public void FindsDomainsAssociatedWithCharacterAndAddsThoseSpells()
         {
-            var character = new CharacterSheet(CharacterStrategy.Default());
-            character.SetClass(new Class());
+            var character = CharacterTestTemplates.Cleric();
             var domain = Domain.CreateForTesting("Air", new string[] { "air 1", "air 2"});
             character.Add(domain);
 

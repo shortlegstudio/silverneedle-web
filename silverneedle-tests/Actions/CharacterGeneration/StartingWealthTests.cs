@@ -30,7 +30,7 @@ namespace Tests.Actions.CharacterGeneration
         [Fact]
         public void DoesNothingIfStartingWealthIsNullForClass()
         {
-            var cls = new Class();
+            var cls = Class.CreateForTesting();
             var character = CharacterTestTemplates.AverageBob();
             character.SetClass(cls);
             var action = new StartingWealth();
@@ -40,7 +40,7 @@ namespace Tests.Actions.CharacterGeneration
         [Fact]
         public void CalculatesWealthBasedOnTheDiceInGoldPiecesTimesTen()
         {
-            var cls = new Class();
+            var cls = Class.CreateForTesting();
             cls.StartingWealthDice = SilverNeedle.Dice.DiceStrings.ParseDice("2d6");
             var character = CharacterTestTemplates.AverageBob();
             character.SetClass(cls);
@@ -55,8 +55,7 @@ namespace Tests.Actions.CharacterGeneration
         [Fact]
         public void IfAfterFirstLevelPickStartValueFromWealthList()
         {
-            var character = CharacterTestTemplates.AverageBob();
-            character.SetClass(new Class());
+            var character = CharacterTestTemplates.Barbarian();
             character.SetLevel(2);
             var action = new StartingWealth(wealthGateway);
             action.ExecuteStep(character);

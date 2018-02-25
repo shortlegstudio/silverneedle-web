@@ -138,7 +138,7 @@ namespace Tests.Characters {
         [Fact]
         public void LevelsUpCombatStatsBasedOnClass()
         {
-            var cls = new Class();
+            var cls = Class.CreateForTesting();
             cls.BaseAttackBonusRate = 1;
             smallStats.LevelUp(cls);
             Assert.Equal(1, smallStats.BaseAttackBonus.TotalValue);

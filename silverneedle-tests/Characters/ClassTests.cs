@@ -10,12 +10,14 @@ namespace Tests.Characters {
     using SilverNeedle.Dice;
     using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
-    
-    public class ClassTests {
+    using SilverNeedle;
+
+    public class ClassTests : RequiresDataFiles
+    {
         [Fact]
         public void GetLevelReturnsEmptyLevelIfNothingIsThere()
         {
-            var c = new Class();
+            var c = Class.CreateForTesting();
             var l = c.GetLevel(10);
             Assert.NotNull(l);
             Assert.IsType<Level>(l);
@@ -141,6 +143,17 @@ namespace Tests.Characters {
         public void ClassesCanHaveCustomBuildStepsForFurtherSpecialization()
         {
             Assert.Equal(Monk.CustomBuildStep, "SilverNeedle.Namespace.ClassName");
+        }
+
+        [Fact]
+        public void AddsAHitDiceModifierForTheCharacter()
+        {
+            var bob = CharacterTestTemplates.AverageBob().FullInitialize();
+            bob.SetClass(Fighter);
+            bob.SetLevel(5);
+            var hd = bob.Components.FindStat<IDiceStatistic>(StatNames.HitDice);
+            Assert.Equal("5d10", hd.Dice.ToString());
+
         }
         private const string ClassYamlFile = @"--- 
 - class: 

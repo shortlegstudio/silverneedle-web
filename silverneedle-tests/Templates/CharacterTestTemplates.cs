@@ -71,7 +71,7 @@ namespace Tests
         private static CharacterSheet CreateWithClass(string className)
         {
             var character = CreateWithAverageAbilityScores();
-            var cls = new Class(className);
+            var cls = Class.CreateForTesting(className, SilverNeedle.Dice.DiceSides.d8);
             character.SetClass(cls);
             return character;
         }
@@ -94,6 +94,11 @@ namespace Tests
         public static CharacterSheet MarkyMonk()
         {
             return CreateWithClass("Monk");
+        }
+
+        public static CharacterSheet Paladin()
+        {
+            return CreateWithClass("Paladin");
         }
 
         public static CharacterSheet StrongBad()

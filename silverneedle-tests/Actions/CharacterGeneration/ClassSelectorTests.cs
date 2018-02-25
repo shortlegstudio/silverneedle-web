@@ -23,12 +23,8 @@ namespace Tests.Actions
         public ClassSelectorTests()
         {
             var classes = new List<Class>();
-            var hero = new Class();
-            hero.Name = "Fighter";
-            hero.HitDice = DiceSides.d10;
-            var bartender = new Class();
-            bartender.Name = "Bartender";
-            bartender.HitDice = DiceSides.d10;
+            var hero = Class.CreateForTesting("Fighter", DiceSides.d10);
+            var bartender = Class.CreateForTesting("Bartender", DiceSides.d4);
 
             classes.Add(hero);
             classes.Add(bartender);
@@ -71,7 +67,7 @@ namespace Tests.Actions
         [Fact]
         public void AddSpecialAbilitiesFromFirstLevelForClass()
         {
-            var cls = new Class();
+            var cls = Class.CreateForTesting();
             var lvl1 = new Level(1);
             cls.Levels.Add(lvl1);
             var character = new CharacterSheet(CharacterStrategy.Default());

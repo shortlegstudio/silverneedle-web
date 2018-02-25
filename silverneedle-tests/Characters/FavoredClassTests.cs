@@ -7,6 +7,7 @@ namespace Tests.Characters
 {
     using Xunit;
     using SilverNeedle.Characters;
+    using SilverNeedle.Dice;
     
     public class FavoredClassTests
     {
@@ -14,7 +15,7 @@ namespace Tests.Characters
         public void TracksAClassNameThatItKnowsWhetherTheClassMatches()
         {
             var favored = new FavoredClass("fighter");
-            var fighter = new Class("Fighter");
+            var fighter = Class.CreateForTesting("Fighter", DiceSides.d10); 
             Assert.True(favored.Qualifies(fighter));
         }
 

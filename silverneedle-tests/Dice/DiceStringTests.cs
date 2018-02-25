@@ -56,5 +56,13 @@ namespace Dice
             Assert.Equal(DiceSides.d6, cup.Dice[0].Sides);
             Assert.Equal(12, cup.Modifier);
         }
+
+        [Fact]
+        public void EmptyStringIsAnEmpyCup()
+        {
+            var cup = DiceStrings.ParseDice("");
+            Assert.Equal(0, cup.Count);
+            Assert.Equal("", cup.ToString());
+        }
     }
 }

@@ -20,6 +20,14 @@ namespace SilverNeedle.Characters
             configuration.Deserialize(this);
         }
 
+        public DiceClassLevelModifier(Cup dicePerLevel, string statName, string clsName, int rate)
+        {
+            this.DicePerLevel = dicePerLevel;
+            this.StatisticName = statName;
+            this.Class = clsName;
+            this.Rate = rate;
+        }
+
         public void Initialize(ComponentContainer components)
         {
             classLevel = components.Get<ClassLevel>();

@@ -85,7 +85,7 @@ namespace Tests.Characters {
 
         [Fact]
         public void LevelingUpAClassMarksGoodSaves() {
-            var fighter = new Class ();
+            var fighter = Class.CreateForTesting();
             fighter.WillSaveRate = Class.PoorSaveRate;
             fighter.FortitudeSaveRate = Class.GoodSaveRate;
             fighter.ReflexSaveRate = Class.PoorSaveRate;
@@ -99,7 +99,7 @@ namespace Tests.Characters {
 
         [Fact]
         public void LevelingUpMultipleTimesIncreasesTheSaveStats() {
-            var fighter = new Class ();
+            var fighter = Class.CreateForTesting();
             fighter.WillSaveRate = Class.PoorSaveRate;
             fighter.FortitudeSaveRate = Class.GoodSaveRate;
             fighter.ReflexSaveRate = Class.PoorSaveRate;
