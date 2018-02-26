@@ -376,6 +376,12 @@
 - name: Defensive Combat Training
   description: You excel at defending yourself from all manner of combat maneuvers.
   tags: [ combat ]
+  items:
+    - type: SilverNeedle.StatisticDifferenceModifier
+      name: cmd
+      modifier-type: base-value
+      base-statistic: base attack bonus
+      difference-statistic: hit dice count
 - name: Deflect Arrows
   description: >
     You can knock arrows and other projectiles off course, preventing them from
@@ -490,23 +496,45 @@
   description: You can channel divine energy more often.
   prerequisites:
     - ability: Channel Energy
+  items:
+    - type: SilverNeedle.ValueStatModifier
+      name: Channel Energy Uses Per Day
+      modifier: 2
+      modifier-type: bonus
 - name: Extra Ki
   description: You can use your ki pool more times per day than most.
   prerequisites:
     - ability: Ki Pool
+  items:
+    - type: SilverNeedle.ValueStatModifier
+      name: Ki Pool
+      modifier: 2
+      modifier-type: bonus
 - name: Extra Lay On Hands
   description: You can use your lay on hands ability more often.
   prerequisites:
     - ability: Lay On Hands
+  items:
+    - type: SilverNeedle.ValueStatModifier
+      name: Lay On Hands Uses Per Day
+      modifier: 2
+      modifier-type: bonus
 - name: Extra Mercy
   description: Your lay on hands ability adds an additional mercy.
   prerequisites:
     - ability: Lay On Hands
     - ability: Mercy
+  commands:
+    - type: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectMercy
 - name: Extra Performance
   description: You can use your bardic performance ability more often.
   prerequisites:
     - ability: Bardic Performance
+  items:
+    - type: SilverNeedle.ValueStatModifier
+      name: Bardic Performance Rounds Per Day
+      modifier: 6
+      modifier-type: bonus
 - name: Extra Rage
   description: You can rage longer than usual.
   prerequisites:
@@ -553,6 +581,12 @@
     - ability: Power Attack
     - strength: 13
     - baseattackbonus: 6
+  items:
+    - type: SilverNeedle.ValueStatModifier
+      name: cmb
+      modifier: 2
+      modifier-type: bonus
+      condition: bull rush
 - name: Greater Disarm
   tags: [ combat ]
   description: You can knock weapons far from an enemy's grasp.
@@ -561,6 +595,12 @@
     - ability: Improved Disarm
     - baseattackbonus: 6
     - intelligence: 13
+  items:
+    - type: SilverNeedle.ValueStatModifier
+      name: cmb
+      modifier: 2
+      modifier-type: bonus
+      condition: disarm
 - name: Greater Feint
   description: You are skilled at making foes overreact to your attacks.
   tags: [ combat ]
@@ -577,6 +617,12 @@
     - ability: Improved Unarmed Strike
     - baseattackbonus: 6
     - dexterity: 13
+  items:
+    - type: SilverNeedle.ValueStatModifier
+      name: cmb
+      modifier: 2
+      modifier-type: bonus
+      condition: grapple
 - name: Greater Overrun
   tags: [ combat ]
   description: Enemies must dive to avoid your dangerous move.
@@ -585,6 +631,12 @@
     - ability: Power Attack
     - baseattackbonus: 6
     - strength: 13
+  items:
+    - type: SilverNeedle.ValueStatModifier
+      name: cmb
+      modifier: 2
+      modifier-type: bonus
+      condition: overrun
 - name: Greater Penetrating Strike
   tags: [ combat ]
   description: Your attacks penetrate the defenses of most foes.
@@ -619,6 +671,12 @@
     - ability: Power Attack
     - baseattackbonus: 6
     - strength: 13
+  items:
+    - type: SilverNeedle.ValueStatModifier
+      name: cmb
+      modifier: 2
+      modifier-type: bonus
+      condition: sunder
 - name: Greater Trip
   description: You can make free attacks on foes that you knock down.
   tags: [ combat ]
@@ -627,6 +685,12 @@
     - ability: Improved Trip
     - baseattackbonus: 6
     - intelligence: 13
+  items:
+    - type: SilverNeedle.ValueStatModifier
+      name: cmb
+      modifier: 2
+      modifier-type: bonus
+      condition: trip
 - name: Greater Two-Weapon Fighting
   description: >
     You are incredibly skilled at fighting with two weapons at the same time.
@@ -677,10 +741,21 @@
     - strength: 13
     - ability: Power Attack
     - baseattackbonus: 1
+  items:
+    - type: SilverNeedle.ValueStatModifier
+      name: cmb
+      modifier: 2
+      modifier-type: bonus
+      condition: bull rush
 - name: Improved Channel
   description: Your channeled energy is harder to resist.
   prerequisites:
     - ability: Channel Energy
+  items:
+    - type: SilverNeedle.ValueStatModifier
+      name: channel energy save dc
+      modifier: 2
+      modifier-type: bonus
 - name: Improved Counterspell
   description: You are skilled at counter the spells of others using similar spells.
   prerequisites:
@@ -697,6 +772,12 @@
   prerequisites:
     - ability: Combat Expertise
     - intelligence: 13
+  items:
+    - type: SilverNeedle.ValueStatModifier
+      name: cmb
+      modifier: 2
+      modifier-type: bonus
+      condition: disarm
 - name: Improved Familiar
   description: >
     This feat allows you to acquire a powerful familiar, but only when you
@@ -715,6 +796,12 @@
   prerequisites:
     - dexterity: 13
     - ability: Improved Unarmed Strike
+  items:
+    - type: SilverNeedle.ValueStatModifier
+      name: cmb
+      modifier: 2
+      modifier-type: bonus
+      condition: grapple
 - name: Improved Great Fortitude
   description: >
     You can draw upon an inner reserve to resist diseases, poisons and other
@@ -744,6 +831,12 @@
     - strength: 13
     - ability: Power Attack
     - baseattackbonus: 1
+  items:
+    - type: SilverNeedle.ValueStatModifier
+      name: cmb
+      modifier: 2
+      modifier-type: bonus
+      condition: overrun
 - name: Improved Precise Shot
   description: Your ranged attacks ignore anything but total concealment and cover.
   tags: [ combat ]
@@ -765,12 +858,24 @@
     - strength: 13
     - ability: Power Attack
     - baseattackbonus: 1
+  items:
+    - type: SilverNeedle.ValueStatModifier
+      name: cmb
+      modifier: 2
+      modifier-type: bonus
+      condition: sunder
 - name: Improved Trip
   description: You are skilled at sending your opponents to the ground.
   tags: [ combat ]
   prerequisites:
     - intelligence: 13
     - ability: Combat Expertise
+  items:
+    - type: SilverNeedle.ValueStatModifier
+      name: cmb
+      modifier: 2
+      modifier-type: bonus
+      condition: trip
 - name: Improved Two-Weapon Fighting
   description: You are skilled at fighting with two weapons.
   tags: [ combat ]
@@ -798,6 +903,11 @@
 - name: Intimidating Prowess
   description: Your physical might is intimidating to others.
   tags: [ combat ]
+  items:
+    - type: SilverNeedle.StatisticStatModifier
+      name: Intimidation
+      modifier: strength-modifier
+      modifier-type: bonus
 - name: Iron Will
   description: You are more resistant to mental effects.
   items:
