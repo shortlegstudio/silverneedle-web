@@ -7,7 +7,7 @@
   parent-professions: [working-class, trained-class]
 - name: Noble Birth
   weight: 5
-  parent-professions: [aristrocrat-class]
+  parent-professions: [aristocrat-class]
 - name: Adopted Outside of Race
   weight: 2
   parent-professions: [criminal, working-class, trained-class]

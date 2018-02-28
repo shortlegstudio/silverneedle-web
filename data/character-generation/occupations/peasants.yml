@@ -1,23 +1,23 @@
 --- !<SilverNeedle.Characters.Occupation>
 - name: Bricklayer
   class: Commoner
-  tags: working-class
+  tags: [working-class]
 - name: Cook
   class: Commoner
-  tags: working-class
+  tags: [working-class]
 - name: Cottar
   class: Commoner
-  tags: working-class
+  tags: [working-class]
 - name: Ditcher
   class: Commoner
-  tags: working-class
+  tags: [working-class]
 - name: Ewerer
   class: Commoner
-  tags: working-class
+  tags: [working-class]
 - name: Serf
   class: Commoner
-  tags: servant-class
+  tags: [servant-class]
 - name: Slave
   class: Commoner
-  tags: servant-class
+  tags: [servant-class]
   

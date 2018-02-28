@@ -1,17 +1,17 @@
 --- !<SilverNeedle.Characters.Occupation>
 - name: Animal Breeder
   class: Commoner
-  tags: trained-class
+  tags: [trained-class]
 - name: Butcher
   class: Commoner
-  tags: working-class
+  tags: [working-class]
 - name: Falconer
   class: Expert
-  tags: trained-class
+  tags: [trained-class]
 - name: Furrier
   class: Expert
-  tags: trained-class
+  tags: [trained-class]
 - name: Gardnerer
   class: Commoner
-  tags: working-class
+  tags: [working-class]
   

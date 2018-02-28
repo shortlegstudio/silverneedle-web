@@ -1,4 +1,4 @@
 --- !<SilverNeedle.Characters.Occupation>
 - name: Astrologer
   class: Expert
-  tags: scholar-class
+  tags: [scholar-class]
