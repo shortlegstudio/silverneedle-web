@@ -1,4 +1,25 @@
 --- !<SilverNeedle.Characters.Occupation>
+- name: Abbot
+  class: Cleric
+  tags: [trained-class, religion]
+  skills: [Knowledge Religion, Sense Motive]
+- name: Anchorite
+  class: Cleric #TODO: Oracle
+  tags: [trained-class, religion]
+  skills: [Knowledge Religion, Knowledge Planes, Sense Motive, Diplomacy]
 - name: Chaplain
   class: Adept
-  tags: [religion]
+  tags: [trained-class, religion]
+  skills: [Knowledge Religion, Sense Motive]
+- name: Monk
+  class: Monk
+  tags: [working-class, religion]
+  skills: [Knowledge Religion]
+- name: Pilgrim
+  class: Adept
+  tags: [working-class, religion]
+  skills: [Knowledge Religion, Sense Motive]
+- name: Priest
+  class: Cleric
+  tags: [trained-class, religion]
+  skills: [Knowledge Religion, Sense Motive]

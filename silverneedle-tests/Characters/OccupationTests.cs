@@ -3,6 +3,8 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
+using System.Runtime.InteropServices.ComTypes;
+
 namespace Tests.Characters
 {
     using Xunit;
@@ -27,5 +29,17 @@ namespace Tests.Characters
             Assert.True(occ.MatchAnyTags(new string[] { "missing", "poor" }));
             Assert.False(occ.MatchAnyTags(new string[] { }));
         }
+
+        [Fact]
+        public void HasAbilityToAddWeightingForOccupationalSkillsToStrategy()
+        {
+            var occ = new Occupation("peasant", "commonet", new string[] { });
+            occ.Skills = new string[] {"Perception"};
+            var strategy = new CharacterStrategy();
+
+            occ.AddSkillEntry(strategy, 10);
+            Assert.True(strategy.FavoredSkills.HasOption("Perception"));
+        }
+        
     }
 }

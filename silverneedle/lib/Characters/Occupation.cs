@@ -20,6 +20,9 @@ namespace SilverNeedle.Characters
         [ObjectStoreOptional("tags")]
         public string[] Tags { get; set; }
 
+        [ObjectStoreOptional("skills")]
+        public string[] Skills { get; set; }
+
         public bool Matches(string name)
         {
             return this.Name.EqualsIgnoreCase(name);
@@ -51,6 +54,22 @@ namespace SilverNeedle.Characters
 
             return unemployed;
         }
+
+        public void AddSkillEntry(CharacterStrategy strategy, int weight)
+        {
+            if (Skills == null)
+                return;
+            
+            foreach (var s in Skills)
+            {
+                if (!strategy.FavoredSkills.HasOption((s)))
+                {
+                    strategy.FavoredSkills.AddEntry(s, weight);
+                }
+                
+            }
+        }
+        
 
     }
 }

@@ -73,6 +73,23 @@ namespace Tests.Actions
             Assert.Equal(Occupation.Unemployed(), bob.Get<History>().FamilyTree.Father.Get<Occupation>());
             Assert.Equal(Occupation.Unemployed(), bob.Get<History>().FamilyTree.Mother.Get<Occupation>());
         }
+
+        [Fact]
+        public void AddSomeWeightingToSkillsTableForParentOccupation()
+        {
+            var bob = CharacterTestTemplates.AverageBob().OfRace("Human");
+            bob.History.BirthCircumstance.ParentProfessions = new string[] { "lower-class" };
+
+            var peasant = new Occupation("peasant", "commoner", new string[] { "lower-class" });
+            peasant.Skills = new string[] { "Perception" };
+            var occGateway = EntityGateway<Occupation>.LoadWithSingleItem(peasant);
+            
+            var historyCreator = new FamilyHistoryCreator(occGateway);
+            historyCreator.ExecuteStep(bob);
+
+            Assert.True(bob.Strategy.FavoredSkills.HasOption("Perception"));
+
+        }
     }
 }
 

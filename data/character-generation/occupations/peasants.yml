@@ -2,9 +2,11 @@
 - name: Bricklayer
   class: Commoner
   tags: [working-class]
+  skills: [Craft (Stonemasonary)]
 - name: Cook
   class: Commoner
   tags: [working-class]
+  skills: [Profession (Cook)]
 - name: Cottar
   class: Commoner
   tags: [working-class]
@@ -14,10 +16,19 @@
 - name: Ewerer
   class: Commoner
   tags: [working-class]
+- name: Lumberjack
+  class: Commoner
+  tags: [working-class]
+  skills: [Profession (Woodcutter)]
+- name: Miner
+  class: Commoner
+  tags: [working-class]
+  skills: [Profession (Miner)]
 - name: Serf
   class: Commoner
   tags: [servant-class]
+  skills: [Perception]
 - name: Slave
   class: Commoner
   tags: [servant-class]
-  
+  skills: [Perception]

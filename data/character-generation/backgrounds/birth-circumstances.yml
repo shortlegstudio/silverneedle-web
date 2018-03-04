@@ -4,31 +4,31 @@
   parent-professions: [criminal, servant-class, working-class]
 - name: Middle-Class Birth
   weight: 25
-  parent-professions: [working-class, trained-class]
+  parent-professions: [working-class, trained-class, scholar-class]
 - name: Noble Birth
   weight: 5
   parent-professions: [aristocrat-class]
 - name: Adopted Outside of Race
   weight: 2
-  parent-professions: [criminal, working-class, trained-class]
+  parent-professions: [working-class, trained-class, scholar-class, aristocrat-class]
   tags: different-race-parents
 - name: Adopted
   weight: 5
-  parent-professions: [criminal, working-class, trained-class]
+  parent-professions: [criminal, working-class, trained-class, scholar-class]
   tags: different-name-parents
 - name: Bastard Born
   weight: 4
-  parent-professions: [criminal, working-class, trained-class, aristocrat-class]
+  parent-professions: [criminal, working-class, trained-class, scholar-class, aristocrat-class]
   tags: single-parent
 - name: Blessed Birth
-  parent-professions: [working-class, trained-class]
+  parent-professions: [working-class, trained-class, scholar-class]
   weight: 1
 - name: Born of Violence
   weight: 2
   parent-professions: [criminal, working-class]
   tags: single-parent
 - name: Born out of Time 
-  parent-professions: [working-class, trained-class]
+  parent-professions: [working-class, trained-class, scholar-class]
   weight: 1
 - name: Born into Bondage
   weight: 2
@@ -41,25 +41,25 @@
   parent-professions: [criminal, working-class, trained-class]
 - name: Heir to a Legacy
   weight: 2
-  parent-professions: [aristocrat-class, trained-class]
+  parent-professions: [aristocrat-class, trained-class, scholar-class]
 - name: Left to Die
   weight: 2
   parent-professions: [criminal, working-class]
 - name: Marked by Gods
   weight: 1
-  parent-professions: [criminal, working-class, trained-class]
+  parent-professions: [criminal, working-class, trained-class, scholar-class]
 - name: Energy Infused
   weight: 1
-  parent-professions: [criminal, working-class, trained-class]
+  parent-professions: [criminal, working-class, trained-class, scholar-class]
 - name: Progeny of Power
   weight: 1
-  parent-professions: [criminal, working-class, trained-class]
+  parent-professions: [criminal, working-class, trained-class, scholar-class]
 - name: Prophesied
   weight: 1
-  parent-professions: [criminal, working-class, trained-class]
+  parent-professions: [criminal, working-class, trained-class, scholar-class]
 - name: Reincarnated
   weight: 1
-  parent-professions: [criminal, servant-class, working-class, trained-class, aristocrat-class]
+  parent-professions: [criminal, servant-class, working-class, trained-class, scholar-class, aristocrat-class]
 - name: Omen
   weight: 1
-  parent-professions: [criminal, servant-class, working-class, trained-class, aristocrat-class]
+  parent-professions: [criminal, servant-class, working-class, trained-class, scholar-class, aristocrat-class]

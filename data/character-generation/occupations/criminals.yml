@@ -1,4 +1,29 @@
 --- !<SilverNeedle.Characters.Occupation>
 - name: Burglar
-  class: Warrior
+  class: Commoner
   tags: [criminal]
+  skills: [Disable Device, Climb]
+- name: Fence
+  class: Expert
+  tags: [criminal]
+  skills: [Appraise, Bluff]
+- name: Footpad
+  class: Commoner
+  tags: [criminal]
+  skills: [Climb, Stealth]
+- name: Outlaw
+  class: Commoner
+  tags: [criminal]
+  skills: [Climb]
+- name: Pickpocket
+  class: Commoner
+  tags: [criminal]
+  skills: [Sleight of Hand]
+- name: Poacher
+  class: Commoner
+  tags: [criminal]
+  skills: [Climb, Swim]
+- name: Thimblerigger
+  class: Commoner
+  tags: [criminal]
+  skills: [Sleight of Hand]

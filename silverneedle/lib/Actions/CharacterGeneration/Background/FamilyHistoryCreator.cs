@@ -59,7 +59,6 @@ namespace SilverNeedle.Actions.CharacterGeneration.Background
             
             familyTree.Father.Add(fatherOccupation);
             familyTree.Mother.Add(motherOccupation);
-
         }
 
         public void ExecuteStep(CharacterSheet character)
@@ -67,7 +66,20 @@ namespace SilverNeedle.Actions.CharacterGeneration.Background
             var history = character.Get<History>();
             NameParents(history.FamilyTree, character.Race.Name, character.LastName);
             ChooseParentOccupations(history.FamilyTree, history.BirthCircumstance);
+            AddPreferenceForParentOccupationSkills(character);
         }
+
+        private void AddPreferenceForParentOccupationSkills(CharacterSheet character)
+        {
+            var history = character.Get<History>();
+
+            var fatherJob = history.FamilyTree.Father.Get<Occupation>();
+            fatherJob?.AddSkillEntry(character.Strategy, 5);
+
+            var motherJob = history.FamilyTree.Mother.Get<Occupation>();
+            motherJob?.AddSkillEntry(character.Strategy, 5);
+        }
+        
 
         private enum SurnameMatcher
         {

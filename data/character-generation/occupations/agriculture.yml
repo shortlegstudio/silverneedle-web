@@ -2,16 +2,36 @@
 - name: Animal Breeder
   class: Commoner
   tags: [trained-class]
+  skills: [Profession (Stable Master), Profession (Shepherd)]
 - name: Butcher
   class: Commoner
-  tags: [working-class]
+  tags: [working-class, trained-class]
+  skills: [Profession (Butcher)]
 - name: Falconer
   class: Expert
   tags: [trained-class]
+- name: Farmer
+  class: Commoner
+  tags: [working-class, trained-class]
+  skills: [Profession (Farmer), Profession (Gardener)]
+- name: Fisherman
+  class: Commoner
+  tags: [working-class, trained-class]
+  skills: [Profession (Fisherman), Craft (Baskets)]
 - name: Furrier
   class: Expert
   tags: [trained-class]
-- name: Gardnerer
+  skills: [Craft (Traps), Craft (Clothing), Profession (Trapper)]
+- name: Gardener
   class: Commoner
   tags: [working-class]
+  skills: [Profession (Farmer), Profession (Gardener)]
+- name: Hunter
+  class: Expert
+  tags: [trained-class]
+  skills: [Craft (Traps), Profession (Trapper)]
+- name: Rat Catcher
+  class: Commoner
+  tags: [working-class]
+  skills: [Craft (Traps)]
   

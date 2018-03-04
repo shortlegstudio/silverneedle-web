@@ -1,22 +1,69 @@
 --- !<SilverNeedle.Characters.Occupation>
+- name: Apothecary
+  class: Expert
+  tags: [merchant-class]
+  skills: [Profession (Herbalist)]
 - name: Baker
   class: Commoner
   tags: [merchant-class]
+  skills: [Profession (Baker)]
+- name: Banker
+  class: Commoner
+  tags: [merchant-class]
+  skills: [Profession (Clerk)]
 - name: Barber
   class: Commoner
   tags: [merchant-class]
+  skills: [Heal, Profession (Diplomacy)]
+- name: Bartender
+  class: Commoner
+  tags: [merchant-class]
+  skills: [Profession (Innkeeper)]
 - name: Bottler
   class: Commoner
   tags: [merchant-class]
 - name: Draper
   class: Commoner
   tags: [merchant-class]
+  skills: [Craft (Cloth)]
+- name: Drover
+  class: Commoner
+  tags: [merchant-class]
+  skills: [Profession (Driver)]
 - name: Fish Monger
   class: Commoner
   tags: [merchant-class]
+  skills: [Profession (Fisherman)]
+- name: Glass Seller
+  class: Commoner
+  tags: [merchant-class]
+  skills: [Craft (Glass)]
 - name: Grocer
   class: Commoner
   tags: [merchant-class]
+- name: Haberdasher
+  class: Commoner
+  tags: [merchant-class]
+  skills: [Craft (Clothing)]
 - name: Innkeeper
+  class: Commoner
+  tags: [merchant-class]
+  skills: [Profession (Innkeeper)]
+- name: Ironmonger
+  class: Commoner
+  tags: [merchant-class]
+- name: Pie Seller
+  class: Commoner
+  tags: [merchant-class]
+- name: Spice Merchant
+  class: Commoner
+  tags: [merchant-class]
+- name: Water Seller
+  class: Commoner
+  tags: [merchant-class]
+- name: Wine Seller
+  class: Commoner
+  tags: [merchant-class]
+- name: Wool Stapler
   class: Commoner
   tags: [merchant-class]

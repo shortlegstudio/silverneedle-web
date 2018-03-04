@@ -1,4 +1,48 @@
 --- !<SilverNeedle.Characters.Occupation>
+- name: Alchemist
+  class: Expert
+  tags: [scholar-class]
+  skills: [Craft (Alchemy), Knowledge Arcana]
 - name: Astrologer
   class: Expert
   tags: [scholar-class]
+  skills: [Knowledge Planes]
+- name: Astronomer
+  class: Expert
+  tags: [scholar-class]
+  skills: [Knowledge Planes]
+- name: Dean
+  class: Expert
+  tags: [scholar-class]
+- name: Librarian
+  class: Expert
+  tags: [scholar-class]
+  skills: [Profession (Librarian), Profession (Scribe), Craft (Books)]
+- name: Mathematician
+  class: Expert
+  tags: [scholar-class]
+  skills: [Profession (Librarian), Profession (Scribe), Craft (Books)]
+- name: Philosopher
+  class: Expert
+  tags: [scholar-class]
+  skills: [Profession (Librarian), Linguistics, Knowledge Religion]
+- name: Professor
+  class: Expert
+  tags: [scholar-class]
+  skills: [Profession (Librarian), Linguistics]
+- name: Scholar
+  class: Expert
+  tags: [scholar-class]
+  skills: [Profession (Librarian), Profession (Scribe), Craft (Books)]
+- name: Scrivener
+  class: Expert
+  tags: [scholar-class]
+  skills: [Profession (Librarian), Profession (Scribe), Craft (Books), Craft (Calligraphy)]
+- name: Tutor
+  class: Expert
+  tags: [scholar-class]
+  skills: [Profession (Librarian), Profession (Scribe), Craft (Books), Craft (Calligraphy)]
+- name: Theologian
+  class: Expert
+  tags: [scholar-class]
+  skills: [Profession (Librarian), Linguistics, Knowledge Religion]

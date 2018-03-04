@@ -109,41 +109,41 @@ http://www.svincent.com/MagicJar/Economics/MedievalOccupations.html
 
 ### Criminal
 1. Boothaler
-1. Burglar
+1. ~~Burglar~~
 1. Diver/Pickpocket
-1. Fence 
-1. Footpad
-1. Outlaw
-1. Poacher
+1. ~~Fence~~ 
+1. ~~Footpad~~
+1. ~~Outlaw~~
+1. ~~Poacher~~
 1. Silk-Snatcher
 1. Stewsman
-1. Thimblerigger
+1. ~~Thimblerigger~~
 
 
 ### Merchants
 1. Acater - food provisioner
 1. Alewife
-1. Apothecary
-1. Banker
+1. ~~Apothecary~~
+1. ~~Banker~~
 1. Beer seller
 1. Boothman
 1. Chapman
 1. Collier
 1. Colporteur
 1. Costermonger
-1. Drover
+1. ~~Drover~~
 1. Eggler
-1. Fishmonger
+1. ~~Fishmonger~~
 1. Fruiterer
 1. Fueller
-1. Glass seller
+1. ~~Glass seller~~
 1. Green Grocer
-1. Grocer
-1. Harberdasher
+1. ~~Grocer~~
+1. ~~Harberdasher~~
 1. Hay Merchant
 1. Hetheleder
-1. Innkeeper
-1. Ironmonger
+1. ~~Innkeeper~~
+1. ~~Ironmonger~~
 1. Lighterman
 1. Linen-Draper
 1. Mercer
@@ -152,12 +152,12 @@ http://www.svincent.com/MagicJar/Economics/MedievalOccupations.html
 1. Old-Clothes dealer
 1. Oynter
 1. Peddler
-1. Pie seller
+1. ~~Pie seller~~
 1. Plumer
 1. Poulter
 1. Shrimper
 1. Skinner
-1. Spice Merchant
+1. ~~Spice Merchant~~
 1. Spicer
 1. Stationer
 1. Taverner
@@ -168,14 +168,13 @@ http://www.svincent.com/MagicJar/Economics/MedievalOccupations.html
 1. Weirkeeper
 1. Wine seller
 1. Wood seller
-1. Woodmonger
 1. Wool Stapler
 
 ### Farmers
 
 1. Ackerman
-1. Falconer
-1. Farmers
+1. ~~Falconer~~
+1. ~~Farmers~~
 1. Fewterer
 1. Fisherman
 1. Forester
@@ -185,7 +184,7 @@ http://www.svincent.com/MagicJar/Economics/MedievalOccupations.html
 1. Hawker
 1. Hayward
 1. Horse Trainer
-1. Hunter
+1. ~~Hunter~~
 1. Huntsman
 1. Master of Hounds
 1. Mole Catcher
@@ -207,19 +206,19 @@ http://www.svincent.com/MagicJar/Economics/MedievalOccupations.html
 
 ### Scholars
 
-1. Alchemist
-1. Astrologer
-1. Astronomer
+1. ~~Alchemist~~
+1. ~~Astrologer~~
+1. ~~Astronomer~~
 1. Bearleader
-1. Dean
-1. Librarian
-1. Mathematician
-1. Philosopher
-1. Professor
-1. Scholar
-1. Scrivener
-1. Tutor
-1. Theologian
+1. ~~Dean~~
+1. ~~Librarian~~
+1. ~~Mathematician~~
+1. ~~Philosopher~~
+1. ~~Professor~~
+1. ~~Scholar~~
+1. ~~Scrivener~~
+1. ~~Tutor~~
+1. ~~Theologian~~
 
 
 ### Craftsmen

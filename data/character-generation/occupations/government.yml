@@ -2,24 +2,32 @@
 - name: Bailiff
   class: Warrior
   tags: [trained-class]
+  skills: [Profession (Clerk)]
 - name: Catchpole
   class: Warrior
   tags: [trained-class]
 - name: Chamberlain
   class: Expert
   tags: [artistocrat-class]
+  skills: [Profession (Clerk)]
 - name: Chancellor
   class: Expert
+  tags: [artistocrat-class]
+  skills: [Profession (Barrister)]
 - name: Clerk
   class: Commoner
   tags: [trained-class]
+  skills: [Profession (Clerk), Profession (Scribe)]
 - name: Constable
-  class: Commoner
+  class: Expert
   tags: [trained-class]
+  skills: [Profession (Clerk)]
 - name: Diplomat
   class: Expert
   tags: [artistocrat-class]
+  skills: [Profession (Clerk)]
 - name: Reeve
   class: Expert
   tags: [artistocrat-class]
+  skills: [Profession (Clerk)]
   
