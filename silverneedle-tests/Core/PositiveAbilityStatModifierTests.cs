@@ -4,7 +4,7 @@
 // https://opensource.org/licenses/MIT
 
 
-namespace Tests.Stats
+namespace Tests.Core
 {
     using Xunit;
     using SilverNeedle;
