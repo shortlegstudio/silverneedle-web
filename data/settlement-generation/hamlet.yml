@@ -1,0 +1,4 @@
+--- !<SilverNeedle.Settlements.SettlementStrategy>
+- name: Hamlet
+  minimum-population: 21
+  maximum-population: 60

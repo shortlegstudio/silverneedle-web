@@ -1,0 +1,4 @@
+--- !<SilverNeedle.Settlements.SettlementStrategy>
+- name: Small City
+  minimum-population: 5001
+  maximum-population: 10000

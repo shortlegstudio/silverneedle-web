@@ -1,0 +1,4 @@
+--- !<SilverNeedle.Settlements.SettlementStrategy>
+- name: Village
+  minimum-population: 61
+  maximum-population: 200

@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using SilverNeedle;
 using SilverNeedle.Actions.Settlements;
 using SilverNeedle.Characters;
-using SilverNeedle.Groups;
+using SilverNeedle.Settlements;
 using SilverNeedle.Serialization;
 
 
@@ -16,23 +16,25 @@ namespace silverneedleweb.Controllers
 {
     public class SettlementController : Controller
     {
-        private EntityGateway<CharacterStrategy> strategyGateway = GatewayProvider.Get<CharacterStrategy>();
+        private EntityGateway<SettlementStrategy> strategyGateway = GatewayProvider.Get<SettlementStrategy>();
 
         public IActionResult Index()
         {
             var strategies = this.strategyGateway.All();
-            this.ViewData["Strategies"] = strategies.Select(x => x.Name).ToArray();
+            this.ViewData["Strategies"] = strategies.OrderBy(x => x.MinimumPopulation).Select(x => x.Name).ToArray();
             return this.View();
         }
 
 
-        public IActionResult Settlement(string strategy, int number)
+        public IActionResult Settlement(string strategy)
         {
-            var settlementBuilder = new SettlementBuilder();
-            var settlement = settlementBuilder.Create(number);
+            var strat = strategyGateway.Find(strategy);
+            var settlement = new Settlement();
+            var settlementBuilder = new SettlementDesigner();
+            settlementBuilder.Execute(settlement);
+
             this.ViewData["settlement"] = new SettlementTextView(settlement);
             this.ViewData["strategy"] = strategy;
-            this.ViewData["level"] = 1;
             return this.View();
         }
 

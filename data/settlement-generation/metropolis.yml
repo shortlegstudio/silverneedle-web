@@ -1,0 +1,4 @@
+--- !<SilverNeedle.Settlements.SettlementStrategy>
+- name: Metropolis
+  minimum-population: 25000
+  maximum-population: 100000

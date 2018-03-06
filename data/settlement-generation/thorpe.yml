@@ -1,0 +1,4 @@
+--- !<SilverNeedle.Settlements.SettlementStrategy>
+- name: Thorpe
+  minimum-population: 5
+  maximum-population: 21
