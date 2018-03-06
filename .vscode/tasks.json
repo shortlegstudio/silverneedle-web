@@ -1,15 +1,14 @@
 {
-    "version": "0.1.0",
-    "command": "dotnet",
-    "isShellCommand": true,
+    "version": "2.0.0",
     "args": [],
     "tasks": [
         {
-            "taskName": "build",
+            "label": "Build",
+            "command": "dotnet",
             "args": [
+                "build",
                 "./silverneedle-web.sln"
             ],
-            "isBuildCommand": true,
             "problemMatcher": "$msCompile",
             "group": {
                 "kind": "build",
@@ -17,10 +16,32 @@
             }
         },
         {
-            "taskName": "test",
+            "label": "Run Tests",
+            "command": "dotnet",
             "args": [
+                "test",
                 "./silverneedle-tests/silverneedle-tests.csproj"
-            ]
+            ],
+            "group":{
+                "kind": "test",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Run Web Application",
+            "command": "dotnet",
+            "args":[
+                "run",
+                "--project",
+                "./silverneedle-asp/silverneedle-asp.csproj"
+            ],
+            "group":"none",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "new"
+            }
         }
     ]
 }
