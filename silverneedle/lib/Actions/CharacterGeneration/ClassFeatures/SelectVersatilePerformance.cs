@@ -9,7 +9,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
     using System.Linq;
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.SpecialAbilities;
-    public class SelectVersatilePerformance : ICharacterDesignStep, ICharacterFeatureCommand
+    public class SelectVersatilePerformance : ICharacterDesignStep, IFeatureCommand
     {
         public void ExecuteStep(CharacterSheet character)
         {

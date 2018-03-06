@@ -3,11 +3,11 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-namespace SilverNeedle.Characters
+namespace SilverNeedle
 {
     using SilverNeedle.Utility; 
 
-    public interface ICharacterFeatureCommand
+    public interface IFeatureCommand
     {
         void Execute(ComponentContainer components);        
     }

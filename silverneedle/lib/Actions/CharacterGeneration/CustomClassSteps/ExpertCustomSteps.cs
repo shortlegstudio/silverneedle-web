@@ -7,7 +7,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.CustomClassSteps
 {
     using SilverNeedle.Characters;
 
-    public class ExpertCustomSteps : ICharacterFeatureCommand
+    public class ExpertCustomSteps : IFeatureCommand
     {
         public void Execute(Utility.ComponentContainer components)
         {

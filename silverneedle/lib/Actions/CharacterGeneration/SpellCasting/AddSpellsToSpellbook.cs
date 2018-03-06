@@ -11,7 +11,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.SpellCasting
     using SilverNeedle.Characters.Magic;
     using SilverNeedle.Serialization;
 
-    public class AddSpellsToSpellbook : ICharacterDesignStep, ICharacterFeatureCommand
+    public class AddSpellsToSpellbook : ICharacterDesignStep, IFeatureCommand
     {
         private string[] spellsToAdd;
         private bool addModifier = false;

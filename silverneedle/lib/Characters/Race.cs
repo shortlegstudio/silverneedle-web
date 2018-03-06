@@ -12,7 +12,7 @@ namespace SilverNeedle.Characters
     /// <summary>
     /// Represents a race for a character. This is selected once
     /// </summary>
-    public class Race : CharacterFeature, IGatewayObject
+    public class Race : Feature, IGatewayObject
     {
         public static Race None { get { return new Race(); } }
         /// <summary>

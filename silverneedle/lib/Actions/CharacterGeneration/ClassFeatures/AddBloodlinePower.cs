@@ -11,7 +11,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Characters.SpecialAbilities.BloodlinePowers;
     using SilverNeedle.Utility;
 
-    public class AddBloodlinePower : ICharacterDesignStep, ICharacterFeatureCommand
+    public class AddBloodlinePower : ICharacterDesignStep, IFeatureCommand
     {
         public void ExecuteStep(CharacterSheet character)
         {

@@ -16,7 +16,7 @@ namespace SilverNeedle.Characters
   /// <summary>
   /// Represents a character's Class or profession
   /// </summary>
-    public class Class : CharacterFeature, IGatewayObject
+    public class Class : Feature, IGatewayObject
     {
         public static Class CreateForTesting() 
         { 

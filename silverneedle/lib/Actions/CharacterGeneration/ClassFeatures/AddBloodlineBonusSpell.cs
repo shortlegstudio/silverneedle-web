@@ -10,7 +10,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Serialization;
 
-    public class AddBloodlineBonusSpell : ICharacterDesignStep, ICharacterFeatureCommand
+    public class AddBloodlineBonusSpell : ICharacterDesignStep, IFeatureCommand
     {
         private int spellLevel;
         public AddBloodlineBonusSpell(IObjectStore configuration)

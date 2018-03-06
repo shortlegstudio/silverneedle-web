@@ -10,7 +10,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Characters.Domains;
     using SilverNeedle.Serialization;
 
-    public class SelectDomains : ICharacterDesignStep, ICharacterFeatureCommand
+    public class SelectDomains : ICharacterDesignStep, IFeatureCommand
     {
         private int domainCount;
         private EntityGateway<Domain> domainsGateway;

@@ -12,7 +12,7 @@ namespace SilverNeedle.Characters
     using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
-    public class Level : CharacterFeature
+    public class Level : Feature
     {
         [ObjectStore("level")]
         public int Number { get; private set; }

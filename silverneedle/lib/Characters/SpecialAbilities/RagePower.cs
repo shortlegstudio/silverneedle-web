@@ -8,7 +8,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using System;
     using SilverNeedle.Characters.Prerequisites;
     using SilverNeedle.Serialization;
-    public class RagePower : CharacterFeatureAttribute, IHasPrerequisites, IGatewayObject
+    public class RagePower : FeatureAttribute, IHasPrerequisites, IGatewayObject
     {
         public RagePower(IObjectStore configuration) : base(configuration)
         {

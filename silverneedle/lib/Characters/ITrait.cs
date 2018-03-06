@@ -5,7 +5,7 @@
 
 namespace SilverNeedle.Characters
 {
-    public interface ITrait : ICharacterFeatureAttribute
+    public interface ITrait : IFeatureAttribute
     {
         
     }

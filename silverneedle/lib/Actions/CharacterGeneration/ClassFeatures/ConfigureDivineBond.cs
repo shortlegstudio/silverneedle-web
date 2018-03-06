@@ -7,7 +7,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
 {
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.SpecialAbilities;
-    public class ConfigureDivineBond : ICharacterDesignStep, ICharacterFeatureCommand
+    public class ConfigureDivineBond : ICharacterDesignStep, IFeatureCommand
     {
         public void ExecuteStep(CharacterSheet character)
         {

@@ -10,7 +10,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Serialization;
 
-    public class AddBloodlineBonusFeat : ICharacterDesignStep, ICharacterFeatureCommand
+    public class AddBloodlineBonusFeat : ICharacterDesignStep, IFeatureCommand
     {
         public void ExecuteStep(CharacterSheet character)
         {

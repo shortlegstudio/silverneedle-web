@@ -8,7 +8,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Characters;
     using SilverNeedle.Serialization;
 
-    public class AddBonusLanguages : ICharacterDesignStep, ICharacterFeatureCommand
+    public class AddBonusLanguages : ICharacterDesignStep, IFeatureCommand
     {
         string[] languages;
         public AddBonusLanguages(IObjectStore data)

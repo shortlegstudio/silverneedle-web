@@ -12,7 +12,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
-    public class SelectNaturesBond : ICharacterDesignStep, ICharacterFeatureCommand
+    public class SelectNaturesBond : ICharacterDesignStep, IFeatureCommand
     {
         private IEnumerable<Domain> domains;
         public SelectNaturesBond(IObjectStore configuration) 

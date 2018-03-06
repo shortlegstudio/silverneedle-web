@@ -3,9 +3,9 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-namespace SilverNeedle.Characters
+namespace SilverNeedle
 {
-    public interface ICharacterFeatureAttribute 
+    public interface IFeatureAttribute 
     {
         string Name { get; }
     }

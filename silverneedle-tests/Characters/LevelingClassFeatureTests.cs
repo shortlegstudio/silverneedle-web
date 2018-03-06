@@ -6,6 +6,7 @@
 namespace Tests.Characters
 {
     using System.Linq;
+    using SilverNeedle;
     using SilverNeedle.Characters;
     using SilverNeedle.Serialization;
     using Xunit;
@@ -29,8 +30,8 @@ levels:
             var feature = new LevelingClassFeature(yaml.ParseYaml());
             var character = CharacterTestTemplates.Cleric();
             character.Add(feature);
-            Assert.NotNull(character.Components.GetAll<CharacterFeatureAttribute>().First(x => x.Name == "Some attribute"));
-            Assert.Null(character.Components.GetAll<CharacterFeatureAttribute>().FirstOrDefault(x => x.Name == "Not There"));
+            Assert.NotNull(character.Components.GetAll<FeatureAttribute>().First(x => x.Name == "Some attribute"));
+            Assert.Null(character.Components.GetAll<FeatureAttribute>().FirstOrDefault(x => x.Name == "Not There"));
         }
 
     }

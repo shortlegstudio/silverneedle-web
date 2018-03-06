@@ -11,7 +11,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Spells;
     using SilverNeedle.Serialization;
 
-    public class AddDomainSpells : ICharacterDesignStep, ICharacterFeatureCommand
+    public class AddDomainSpells : ICharacterDesignStep, IFeatureCommand
     {
         private IObjectStore configuration;
 

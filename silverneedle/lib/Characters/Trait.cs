@@ -10,7 +10,7 @@ namespace SilverNeedle.Characters
     /// <summary>
     /// A trait is some basic innate attribute of the character. Usually positive
     /// </summary>
-    public class Trait : CharacterFeatureAttribute, ITrait
+    public class Trait : FeatureAttribute, ITrait
     {
         public Trait(IObjectStore configuration) : base(configuration)
         {

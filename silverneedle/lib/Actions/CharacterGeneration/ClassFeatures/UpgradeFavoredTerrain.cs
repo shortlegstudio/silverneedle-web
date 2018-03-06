@@ -10,7 +10,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.SpecialAbilities;
     
-    public class UpgradeFavoredTerrain : ICharacterDesignStep, ICharacterFeatureCommand
+    public class UpgradeFavoredTerrain : ICharacterDesignStep, IFeatureCommand
     {
         public void ExecuteStep(CharacterSheet character)
         {

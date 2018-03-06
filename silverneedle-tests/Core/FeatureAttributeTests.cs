@@ -3,15 +3,15 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-namespace Tests.Characters
+namespace Tests.Core
 {
     using Xunit;
     using SilverNeedle.Actions.CharacterGeneration;
-    using SilverNeedle.Characters;
+    using SilverNeedle;
     using SilverNeedle.Serialization;
     using SilverNeedle.Actions;
 
-    public class CharacterFeatureAttributeTests
+    public class FeatureAttributeTests
     {
         [Fact]
         public void RunsAnyCommandsThatMightBeSetToTheAttribute()
@@ -19,16 +19,16 @@ namespace Tests.Characters
             var yaml = @"---
 name: Test Commands
 commands: 
-  - command: Tests.Characters.CharacterFeatureAttributeTests+TestCommand
+  - command: Tests.Core.FeatureAttributeTests+TestCommand
     extra-data: I RAN";
 
-            var attr = new CharacterFeatureAttribute(yaml.ParseYaml());
+            var attr = new FeatureAttribute(yaml.ParseYaml());
             var character = CharacterTestTemplates.AverageBob();
             character.Add(attr);
             Assert.Equal("I RAN", character.Get<string>());
         }
 
-        public class TestCommand : ICharacterFeatureCommand
+        public class TestCommand : IFeatureCommand
         {
             string name;
             public TestCommand(IObjectStore configuration)

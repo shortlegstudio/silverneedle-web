@@ -13,7 +13,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Maps;
     using SilverNeedle.Serialization;
 
-    public class SelectFavoredTerrain : ICharacterDesignStep, ICharacterFeatureCommand
+    public class SelectFavoredTerrain : ICharacterDesignStep, IFeatureCommand
     {
         private EntityGateway<TerrainType> terrainTypeGateway;
 

@@ -8,7 +8,7 @@ namespace Tests.Characters.Prerequisites
     using System.Collections.Generic;
     using System.Linq;
     using Xunit;
-    using SilverNeedle.Characters;
+    using SilverNeedle;
     using SilverNeedle.Characters.Prerequisites;
     using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
@@ -22,7 +22,7 @@ namespace Tests.Characters.Prerequisites
             var special = new SpecialAbilityPrerequisite("Darkvision");
             var c = CharacterTestTemplates.AverageBob();
             Assert.False(special.IsQualified(c.Components));
-            var mock = new Mock<ICharacterFeatureAttribute>();
+            var mock = new Mock<IFeatureAttribute>();
             mock.SetupGet(x => x.Name).Returns("Darkvision");
             c.Add(mock.Object);
             Assert.True(special.IsQualified(c.Components));

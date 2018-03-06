@@ -10,7 +10,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Serialization;
 
-    public class SelectRogueTalent : ICharacterDesignStep, ICharacterFeatureCommand
+    public class SelectRogueTalent : ICharacterDesignStep, IFeatureCommand
     {
         private EntityGateway<RogueTalent> rogueTalentGateway;
         private bool selectAdvanced;

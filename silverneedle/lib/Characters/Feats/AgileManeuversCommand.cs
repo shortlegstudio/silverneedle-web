@@ -8,7 +8,7 @@ namespace SilverNeedle.Characters.Feats
 {
     using System.Linq;
     using SilverNeedle.Utility;
-    public class AgileManeuversCommand : ICharacterFeatureCommand
+    public class AgileManeuversCommand : IFeatureCommand
     {
         public void Execute(ComponentContainer components)
         {

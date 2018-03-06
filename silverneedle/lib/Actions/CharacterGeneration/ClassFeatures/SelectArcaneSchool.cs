@@ -10,7 +10,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Characters.Magic;
     using SilverNeedle.Serialization;
     
-    public class SelectArcaneSchool : ICharacterDesignStep, ICharacterFeatureCommand
+    public class SelectArcaneSchool : ICharacterDesignStep, IFeatureCommand
     {
         private EntityGateway<ArcaneSchool> arcaneGateway;
         public SelectArcaneSchool() : this(GatewayProvider.Get<ArcaneSchool>())

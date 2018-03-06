@@ -9,7 +9,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Serialization;
 
-    public class SelectMercy : ICharacterDesignStep, ICharacterFeatureCommand
+    public class SelectMercy : ICharacterDesignStep, IFeatureCommand
     {
         private EntityGateway<Mercy> mercyGateway;
         public SelectMercy() 

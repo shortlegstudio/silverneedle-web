@@ -9,7 +9,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Serialization;
 
-    public class SelectCombatStyle : ICharacterDesignStep, ICharacterFeatureCommand
+    public class SelectCombatStyle : ICharacterDesignStep, IFeatureCommand
     {
         EntityGateway<CombatStyle> combatStyleGateway;
         public SelectCombatStyle()

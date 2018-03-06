@@ -11,7 +11,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Serialization;
 
-    public class SelectCombatStyleFeat : ICharacterDesignStep, ICharacterFeatureCommand
+    public class SelectCombatStyleFeat : ICharacterDesignStep, IFeatureCommand
     {
 
         public SelectCombatStyleFeat()

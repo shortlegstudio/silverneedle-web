@@ -3,15 +3,15 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-namespace Tests.Characters
+namespace Tests.Core
 {
     using System.Linq;
     using Xunit;
-    using SilverNeedle.Characters;
+    using SilverNeedle;
     using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
-    public class CharacterFeatureTests
+    public class FeatureTests
     {
         [Fact]
         public void AddingToACharacterTriggersAddingTheAttributesImmediately()
@@ -22,9 +22,9 @@ attributes:
   - attribute: 
     name: Test Attr
     items:
-      - type: Tests.Characters.CharacterFeatureTests+DummyFeature
+      - type: Tests.Core.FeatureTests+DummyFeature
         value: 10";
-            var feature = new CharacterFeature(yaml.ParseYaml());
+            var feature = new Feature(yaml.ParseYaml());
             character.Add(feature);
             var dummy = character.Get<DummyFeature>();
             Assert.NotNull(dummy);
@@ -35,7 +35,7 @@ attributes:
         public void IfFeatureHasNoAttributesJustLoadEmpty()
         {
             var store = new MemoryStore();
-            var feature = new CharacterFeature(store);
+            var feature = new Feature(store);
             Assert.Empty(feature.Attributes);
         }
 

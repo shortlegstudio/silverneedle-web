@@ -10,7 +10,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
-    public class ConfigureHuntersBond : ICharacterDesignStep, ICharacterFeatureCommand
+    public class ConfigureHuntersBond : ICharacterDesignStep, IFeatureCommand
     {
         private string[] bonds;
         public ConfigureHuntersBond(IObjectStore options)

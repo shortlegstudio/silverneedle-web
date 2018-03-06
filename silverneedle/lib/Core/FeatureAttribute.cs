@@ -3,24 +3,24 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-namespace SilverNeedle.Characters
+namespace SilverNeedle
 {
     using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
-    public class CharacterFeatureAttribute : IComponent, ICharacterFeatureAttribute
+    public class FeatureAttribute : IComponent, IFeatureAttribute
     {
         public virtual string Name { get; protected set; }
         private IObjectStore Items { get; set; }
         private IObjectStore Commands { get; set; }
-        public CharacterFeatureAttribute(IObjectStore configuration)
+        public FeatureAttribute(IObjectStore configuration)
         {
             this.Name = configuration.GetString("name");
             this.Items = configuration.GetObjectOptional("items").Default(new MemoryStore());
             this.Commands = configuration.GetObjectOptional("commands").Default(new MemoryStore());
         }
 
-        protected CharacterFeatureAttribute(CharacterFeatureAttribute copy)
+        protected FeatureAttribute(FeatureAttribute copy)
         {
             this.Name = copy.Name;
             this.Items = copy.Items;
@@ -39,7 +39,7 @@ namespace SilverNeedle.Characters
             foreach(var command in this.Commands.Children)
             {
                 var typename = command.GetString("command");
-                var instance = typename.Instantiate<ICharacterFeatureCommand>(command);
+                var instance = typename.Instantiate<IFeatureCommand>(command);
                 instance.Execute(components);
             }
         }

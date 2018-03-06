@@ -3,25 +3,25 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-namespace SilverNeedle.Characters
+namespace SilverNeedle
 {
     using System.Collections.Generic;
     using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
-    public class CharacterFeature : IComponent, ICharacterFeature
+    public class Feature : IComponent, IFeature
     {
-        private IList<CharacterFeatureAttribute> attributes = new List<CharacterFeatureAttribute>();
-        protected CharacterFeature() 
+        private IList<FeatureAttribute> attributes = new List<FeatureAttribute>();
+        protected Feature() 
         { 
             
         }
-        public CharacterFeature(IObjectStore configuration)
+        public Feature(IObjectStore configuration)
         {
             LoadAttributes(configuration);
         }
 
-        public IEnumerable<ICharacterFeatureAttribute> Attributes
+        public IEnumerable<IFeatureAttribute> Attributes
         {
             get
             {
@@ -47,10 +47,10 @@ namespace SilverNeedle.Characters
             {
                 var attributeType = attr.GetString("attribute");
                 if(string.IsNullOrEmpty(attributeType))
-                    attributeType = "SilverNeedle.Characters.CharacterFeatureAttribute";
+                    attributeType = typeof(FeatureAttribute).FullName;
 
                 this.attributes.Add(
-                    attributeType.Instantiate<CharacterFeatureAttribute>(attr)
+                    attributeType.Instantiate<FeatureAttribute>(attr)
                 );
             }
         }

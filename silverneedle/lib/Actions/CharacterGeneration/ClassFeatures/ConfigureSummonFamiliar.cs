@@ -11,7 +11,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Serialization;
 
-    public class ConfigureSummonFamiliar : ICharacterDesignStep, ICharacterFeatureCommand
+    public class ConfigureSummonFamiliar : ICharacterDesignStep, IFeatureCommand
     {
         private EntityGateway<Familiar> familiars;
         public ConfigureSummonFamiliar()

@@ -13,7 +13,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Serialization;
 
-    public class SelectFavoredEnemy : ICharacterDesignStep, ICharacterFeatureCommand
+    public class SelectFavoredEnemy : ICharacterDesignStep, IFeatureCommand
     {
         private EntityGateway<CreatureType> creatureTypeGateway;
 

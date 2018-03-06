@@ -9,7 +9,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.CustomClassSteps
     using SilverNeedle.Equipment;
     using SilverNeedle.Serialization;
 
-    public class CommonerCustomSteps : ICharacterFeatureCommand 
+    public class CommonerCustomSteps : IFeatureCommand 
     {
         public void Execute(Utility.ComponentContainer components)
         {

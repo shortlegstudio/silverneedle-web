@@ -10,7 +10,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using Serialization;
     using Utility;
 
-    public class SelectRagePower : ICharacterFeatureCommand
+    public class SelectRagePower : IFeatureCommand
     {
         private readonly EntityGateway<RagePower> _ragePowers;
         public SelectRagePower()

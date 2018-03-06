@@ -10,7 +10,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Serialization;
 
-    public class SelectBloodline : ICharacterDesignStep, ICharacterFeatureCommand
+    public class SelectBloodline : ICharacterDesignStep, IFeatureCommand
     {
         private EntityGateway<Bloodline> bloodlines;
 

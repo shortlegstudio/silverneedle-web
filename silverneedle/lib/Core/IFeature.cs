@@ -3,12 +3,12 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-namespace SilverNeedle.Characters
+namespace SilverNeedle
 {
     using System.Collections.Generic;
 
-    public interface ICharacterFeature
+    public interface IFeature
     {
-        IEnumerable<ICharacterFeatureAttribute> Attributes { get; }
+        IEnumerable<IFeatureAttribute> Attributes { get; }
     }
 }

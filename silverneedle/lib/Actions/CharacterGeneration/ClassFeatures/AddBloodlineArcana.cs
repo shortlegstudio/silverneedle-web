@@ -10,7 +10,7 @@ namespace  SilverNeedle.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Characters.SpecialAbilities.BloodlinePowers;
     using SilverNeedle.Utility;
 
-    public class AddBloodlineArcana : ICharacterDesignStep, ICharacterFeatureCommand
+    public class AddBloodlineArcana : ICharacterDesignStep, IFeatureCommand
     {
         public void ExecuteStep(CharacterSheet character)
         {

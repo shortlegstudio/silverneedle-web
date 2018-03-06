@@ -11,7 +11,7 @@ namespace SilverNeedle.Actions.CharacterGeneration.SpellCasting
     using SilverNeedle.Characters.Magic;
     using SilverNeedle.Utility;
 
-    public class SelectNewKnownSpells : ICharacterDesignStep, ICharacterFeatureCommand
+    public class SelectNewKnownSpells : ICharacterDesignStep, IFeatureCommand
     {
         public void ExecuteStep(CharacterSheet character)
         {
