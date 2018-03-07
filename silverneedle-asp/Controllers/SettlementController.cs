@@ -30,10 +30,10 @@ namespace silverneedleweb.Controllers
         {
             var strat = strategyGateway.Find(strategy);
             var settlement = new Settlement();
-            var settlementBuilder = new SettlementDesigner();
+            var settlementBuilder = GatewayProvider.Find<SettlementDesigner>("create-settlement");
             settlementBuilder.Execute(settlement);
 
-            this.ViewData["settlement"] = new SettlementTextView(settlement);
+            this.ViewData["settlement"] = settlement;
             this.ViewData["strategy"] = strategy;
             return this.View();
         }

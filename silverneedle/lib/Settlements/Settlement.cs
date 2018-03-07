@@ -15,6 +15,8 @@ namespace SilverNeedle.Settlements
             inhabitants = new List<CharacterSheet>();
         }
 
+        public string Name { get; set; }
+
         public int Population { get { return inhabitants.Count; } }
         public IEnumerable<CharacterSheet> Inhabitants { get { return inhabitants; } }
         

@@ -1,0 +1,4 @@
+--- !<SilverNeedle.Actions.Settlements.SettlementDesigner>
+- name: create-settlement
+  steps:
+    - step: SilverNeedle.Actions.Settlements.NameSettlement
