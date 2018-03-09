@@ -15,8 +15,9 @@ namespace SilverNeedle.Actions.Settlements
 
         public void Execute(Settlement settlement)
         {
-            var commonNames = gateway.Find("common");
-            settlement.Name = commonNames.Names.ChooseOne(); 
+            var nameGroup = gateway.ChooseOne();
+            var gen = new MarkovNameGenerator(nameGroup.Names, 3);
+            settlement.Name = gen.Generate(10);
         }
     }
 }

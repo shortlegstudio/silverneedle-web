@@ -25,6 +25,11 @@
             "group":{
                 "kind": "test",
                 "isDefault": true
+            },
+            "options": {
+                "env": {
+                    "SILVERNEEDLE_LOG_LEVEL": "WARN"
+                }
             }
         },
         {
