@@ -7,6 +7,7 @@ namespace Tests.Actions.Settlements
 {
     using Xunit;
     using SilverNeedle.Actions.Settlements;
+    using SilverNeedle.Serialization;
     using SilverNeedle.Settlements;
 
     public class NameSettlementTests : RequiresDataFiles
@@ -15,7 +16,10 @@ namespace Tests.Actions.Settlements
         public void PicksANameForTheSettlement()
         {
             var settlement = new Settlement();
-            var name = new NameSettlement();
+            var memstore = new MemoryStore();
+            memstore.SetValue("maximum-length", 15);
+            memstore.SetValue("order", 2);
+            var name = new NameSettlement(memstore);
             name.Execute(settlement);
 
             Assert.NotNull(settlement.Name);

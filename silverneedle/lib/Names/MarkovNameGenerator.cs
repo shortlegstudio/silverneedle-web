@@ -6,8 +6,10 @@
 namespace SilverNeedle.Names
 {
     using System.Collections.Generic;
+    using System.Linq;
     public class MarkovNameGenerator
     {
+        public const string TERMINATOR = "&&terminate&&";
         public IEnumerable<MarkovState> States { get { return states.Values; } }
         public int Order { get; private set; }
         private Dictionary<string, MarkovState> states = new Dictionary<string, MarkovState>();
@@ -29,6 +31,7 @@ namespace SilverNeedle.Names
                     IncrementChain(key, token);
                     key = NextKey(key, token);
                 }
+                IncrementChain(key, TERMINATOR);
             }
         }
 
@@ -65,7 +68,10 @@ namespace SilverNeedle.Names
                 if(state.Tokens.Empty())
                     break;
 
-                var next = state.Tokens.Keys.ChooseOne();
+                var next = state.ChooseOne();
+                if(next == TERMINATOR)
+                    break;
+
                 name += next;
                 currentKey = NextKey(currentKey, next);
             }
@@ -79,7 +85,7 @@ namespace SilverNeedle.Names
         public class MarkovState
         {
             public string Key { get; private set; }
-            public Dictionary<string, int> Tokens = new Dictionary<string, int>();
+            public Dictionary<string, float> Tokens = new Dictionary<string, float>();
 
             public void IncrementToken(string token)
             {
@@ -96,6 +102,21 @@ namespace SilverNeedle.Names
             public MarkovState(string key)
             {
                 this.Key = key;
+            }
+
+            public string ChooseOne()
+            {
+                var max = Tokens.Values.Sum();
+                var v = Randomly.Range(0, max);
+                var idx = 0f;
+                foreach(var t in Tokens)
+                {
+                    idx += t.Value;
+                    if(v < idx)
+                        return t.Key;
+                }
+
+                return Tokens.Last().Key;
             }
         }
     }

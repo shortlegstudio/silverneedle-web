@@ -17,20 +17,22 @@ namespace Tests.Names
             /*
             A => A
             A => B
+            A => Terminator
             B => A
             B => B
             B => C
+            C => Terminator
              */
             var names = new string [] { "AAA", "ABA", "ABB", "ABC"};
             var gen = new MarkovNameGenerator(names, 1);
             var aToken = gen.States.First(x => x.Key == "a");
             Assert.NotNull(aToken);
-            Assert.Equal(2, aToken.Tokens.Keys.Count);
+            Assert.Equal(3, aToken.Tokens.Keys.Count);
             Assert.Equal(3, aToken.Tokens["b"]); //Score for A=>B should be 3
 
             var bToken = gen.States.First(x => x.Key == "b");
             Assert.NotNull(bToken);
-            Assert.Equal(3, bToken.Tokens.Keys.Count);
+            Assert.Equal(4, bToken.Tokens.Keys.Count);
         }
 
         [Theory]

@@ -5,6 +5,7 @@
 
 namespace SilverNeedle.Actions.Settlements
 {
+    using System.Linq;
     using SilverNeedle.Names;
     using SilverNeedle.Settlements;
     using SilverNeedle.Serialization;
@@ -13,11 +14,23 @@ namespace SilverNeedle.Actions.Settlements
     {
         EntityGateway<SettlementNames> gateway = GatewayProvider.Get<SettlementNames>();
 
+        [ObjectStore("maximum-length")]
+        public int MaximumLength { get; private set; }
+
+        [ObjectStore("order")]
+        public int Order { get; private set; }
+
+        public NameSettlement(IObjectStore configuration)
+        {
+            configuration.Deserialize(this);
+        }
+
         public void Execute(Settlement settlement)
         {
-            var nameGroup = gateway.ChooseOne();
-            var gen = new MarkovNameGenerator(nameGroup.Names, 3);
-            settlement.Name = gen.Generate(10);
+            var nameGroup = gateway.All();
+            var names = nameGroup.SelectMany(x => x.Names);
+            var gen = new MarkovNameGenerator(names, Order);
+            settlement.Name = gen.Generate(MaximumLength);
         }
     }
 }

@@ -2,3 +2,5 @@
 - name: create-settlement
   steps:
     - step: SilverNeedle.Actions.Settlements.NameSettlement
+      maximum-length: 18
+      order: 3
