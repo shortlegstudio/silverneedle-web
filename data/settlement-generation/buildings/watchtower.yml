@@ -1,0 +1,14 @@
+--- !<SilverNeedle.Settlements.Building>
+- name: Watchtower
+  attributes:
+    - attribute:
+      name: Watchtower Kingdom Modifiers
+      items:
+        - type: SilverNeedle.ValueStatModifier
+          name: stability
+          modifier: 1
+          modifier-type: building
+        - type: SilverNeedle.ValueStatModifier
+          name: unrest
+          modifier: -1
+          modifier-type: building

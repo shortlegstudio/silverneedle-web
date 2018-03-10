@@ -1,0 +1,10 @@
+--- !<SilverNeedle.Settlements.Building>
+- name: Bank
+  attributes:
+    - attribute:
+      name: Bank Kingdom Modifiers
+      items:
+        - type: SilverNeedle.ValueStatModifier
+          name: economy
+          modifier: 4
+          modifier-type: building

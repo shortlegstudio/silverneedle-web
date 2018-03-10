@@ -1,0 +1,14 @@
+--- !<SilverNeedle.Settlements.Building>
+- name: Arena
+  attributes:
+    - attribute:
+      name: Arena Kingdom Modifiers
+      items:
+        - type: SilverNeedle.ValueStatModifier
+          name: stability
+          modifier: 4
+          modifier-type: building
+        - type: SilverNeedle.ValueStatModifier
+          name: fame
+          modifier: 1
+          modifier-type: building

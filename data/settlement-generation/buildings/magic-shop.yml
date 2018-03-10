@@ -1,0 +1,10 @@
+--- !<SilverNeedle.Settlements.Building>
+- name: Magic Shop
+  attributes:
+    - attribute:
+      name: Magic Shop Kingdom Modifiers
+      items:
+        - type: SilverNeedle.ValueStatModifier
+          name: economy
+          modifier: 1
+          modifier-type: building

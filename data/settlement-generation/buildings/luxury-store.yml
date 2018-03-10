@@ -1,0 +1,10 @@
+--- !<SilverNeedle.Settlements.Building>
+- name: Luxury Store
+  attributes:
+    - attribute:
+      name: Luxury Store Kingdom Modifiers
+      items:
+        - type: SilverNeedle.ValueStatModifier
+          name: economy
+          modifier: 1
+          modifier-type: building

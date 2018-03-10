@@ -1,0 +1,10 @@
+--- !<SilverNeedle.Settlements.Building>
+- name: Mansion
+  attributes:
+    - attribute:
+      name: Mansion Kingdom Modifiers
+      items:
+        - type: SilverNeedle.ValueStatModifier
+          name: stability
+          modifier: 1
+          modifier-type: building

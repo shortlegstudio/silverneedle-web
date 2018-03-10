@@ -1,0 +1,14 @@
+--- !<SilverNeedle.Settlements.Building>
+- name: Inn
+  attributes:
+    - attribute:
+      name: Inn Kingdom Modifiers
+      items:
+        - type: SilverNeedle.ValueStatModifier
+          name: loyalty
+          modifier: 1
+          modifier-type: building
+        - type: SilverNeedle.ValueStatModifier
+          name: economy
+          modifier: 1
+          modifier-type: building

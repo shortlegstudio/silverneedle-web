@@ -1,0 +1,14 @@
+--- !<SilverNeedle.Settlements.Building>
+- name: Orphanage
+  attributes:
+    - attribute:
+      name: Orphanage Kingdom Modifiers
+      items:
+        - type: SilverNeedle.ValueStatModifier
+          name: stability
+          modifier: 1
+          modifier-type: building
+        - type: SilverNeedle.ValueStatModifier
+          name: unrest
+          modifier: -1
+          modifier-type: building

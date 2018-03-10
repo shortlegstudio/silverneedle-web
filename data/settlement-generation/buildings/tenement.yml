@@ -1,0 +1,10 @@
+--- !<SilverNeedle.Settlements.Building>
+- name: Tenement
+  attributes:
+    - attribute:
+      name: Tenement Kingdom Modifiers
+      items:
+        - type: SilverNeedle.ValueStatModifier
+          name: unrest
+          modifier: 2
+          modifier-type: building

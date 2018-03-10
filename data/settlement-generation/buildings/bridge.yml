@@ -1,0 +1,10 @@
+--- !<SilverNeedle.Settlements.Building>
+- name: Bridge
+  attributes:
+    - attribute:
+      name: Bridge Kingdom Modifiers
+      items:
+        - type: SilverNeedle.ValueStatModifier
+          name: economy
+          modifier: 1
+          modifier-type: building

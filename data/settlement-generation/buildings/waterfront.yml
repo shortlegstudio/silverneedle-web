@@ -1,0 +1,10 @@
+--- !<SilverNeedle.Settlements.Building>
+- name: Waterfront
+  attributes:
+    - attribute:
+      name: Waterfront Kingdom Modifiers
+      items:
+        - type: SilverNeedle.ValueStatModifier
+          name: economy
+          modifier: 4
+          modifier-type: building

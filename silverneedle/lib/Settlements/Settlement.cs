@@ -7,8 +7,9 @@ namespace SilverNeedle.Settlements
 {
     using System.Collections.Generic;
     using SilverNeedle.Characters;
+    using SilverNeedle.Utility;
 
-    public class Settlement
+    public class Settlement : ComponentContainer
     {
         public Settlement()
         {

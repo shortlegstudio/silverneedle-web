@@ -1,0 +1,14 @@
+--- !<SilverNeedle.Settlements.Building>
+- name: Guildhall
+  attributes:
+    - attribute:
+      name: Guildhall Kingdom Modifiers
+      items:
+        - type: SilverNeedle.ValueStatModifier
+          name: loyalty
+          modifier: 2
+          modifier-type: building
+        - type: SilverNeedle.ValueStatModifier
+          name: economy
+          modifier: 2
+          modifier-type: building

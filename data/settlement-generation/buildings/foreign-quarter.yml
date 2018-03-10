@@ -1,0 +1,14 @@
+--- !<SilverNeedle.Settlements.Building>
+- name: Foreign Quarter
+  attributes:
+    - attribute:
+      name: Foreign Quarter Kingdom Modifiers
+      items:
+        - type: SilverNeedle.ValueStatModifier
+          name: stability
+          modifier: -1
+          modifier-type: building
+        - type: SilverNeedle.ValueStatModifier
+          name: economy
+          modifier: 3
+          modifier-type: building

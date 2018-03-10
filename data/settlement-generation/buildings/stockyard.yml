@@ -1,0 +1,14 @@
+--- !<SilverNeedle.Settlements.Building>
+- name: Stockyard
+  attributes:
+    - attribute:
+      name: Stockyard Kingdom Modifiers
+      items:
+        - type: SilverNeedle.ValueStatModifier
+          name: economy
+          modifier: 1
+          modifier-type: building
+        - type: SilverNeedle.ValueStatModifier
+          name: stability
+          modifier: -1
+          modifier-type: building

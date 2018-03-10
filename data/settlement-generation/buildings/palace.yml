@@ -1,0 +1,22 @@
+--- !<SilverNeedle.Settlements.Building>
+- name: Palace
+  attributes:
+    - attribute:
+      name: Palace Kingdom Modifiers
+      items:
+        - type: SilverNeedle.ValueStatModifier
+          name: stability
+          modifier: 2
+          modifier-type: building
+        - type: SilverNeedle.ValueStatModifier
+          name: economy
+          modifier: 2
+          modifier-type: building
+        - type: SilverNeedle.ValueStatModifier
+          name: loyalty
+          modifier: 6
+          modifier-type: building
+        - type: SilverNeedle.ValueStatModifier
+          name: fame
+          modifier: 1
+          modifier-type: building

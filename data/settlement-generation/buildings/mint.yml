@@ -1,0 +1,22 @@
+--- !<SilverNeedle.Settlements.Building>
+- name: Mint
+  attributes:
+    - attribute:
+      name: Mint Kingdom Modifiers
+      items:
+        - type: SilverNeedle.ValueStatModifier
+          name: economy
+          modifier: 3
+          modifier-type: building
+        - type: SilverNeedle.ValueStatModifier
+          name: loyalty
+          modifier: 3
+          modifier-type: building
+        - type: SilverNeedle.ValueStatModifier
+          name: stability
+          modifier: 1
+          modifier-type: building
+        - type: SilverNeedle.ValueStatModifier
+          name: fame
+          modifier: 1
+          modifier-type: building

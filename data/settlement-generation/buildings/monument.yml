@@ -1,0 +1,14 @@
+--- !<SilverNeedle.Settlements.Building>
+- name: Monument
+  attributes:
+    - attribute:
+      name: Monument Kingdom Modifiers
+      items:
+        - type: SilverNeedle.ValueStatModifier
+          name: loyalty
+          modifier: 1
+          modifier-type: building
+        - type: SilverNeedle.ValueStatModifier
+          name: unrest
+          modifier: -1
+          modifier-type: building

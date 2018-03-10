@@ -1,0 +1,10 @@
+--- !<SilverNeedle.Settlements.Building>
+- name: Alchemist
+  attributes:
+    - attribute:
+      name: Alchemist Kingdom Modifiers
+      items:
+        - type: SilverNeedle.ValueStatModifier
+          name: economy
+          modifier: 1
+          modifier-type: building

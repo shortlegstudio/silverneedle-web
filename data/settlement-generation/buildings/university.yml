@@ -1,0 +1,18 @@
+--- !<SilverNeedle.Settlements.Building>
+- name: University
+  attributes:
+    - attribute:
+      name: University Kingdom Modifiers
+      items:
+        - type: SilverNeedle.ValueStatModifier
+          name: economy
+          modifier: 3
+          modifier-type: building
+        - type: SilverNeedle.ValueStatModifier
+          name: loyalty
+          modifier: 3
+          modifier-type: building
+        - type: SilverNeedle.ValueStatModifier
+          name: fame
+          modifier: 1
+          modifier-type: building

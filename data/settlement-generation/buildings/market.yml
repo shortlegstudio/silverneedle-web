@@ -1,0 +1,14 @@
+--- !<SilverNeedle.Settlements.Building>
+- name: Market
+  attributes:
+    - attribute:
+      name: Market Kingdom Modifiers
+      items:
+        - type: SilverNeedle.ValueStatModifier
+          name: stability
+          modifier: 2
+          modifier-type: building
+        - type: SilverNeedle.ValueStatModifier
+          name: economy
+          modifier: 2
+          modifier-type: building

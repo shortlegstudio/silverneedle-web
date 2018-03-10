@@ -1,0 +1,10 @@
+--- !<SilverNeedle.Settlements.Building>
+- name: House
+  attributes:
+    - attribute:
+      name: House Kingdom Modifiers
+      items:
+        - type: SilverNeedle.ValueStatModifier
+          name: unrest
+          modifier: -1
+          modifier-type: building

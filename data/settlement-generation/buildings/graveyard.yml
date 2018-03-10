@@ -1,0 +1,10 @@
+--- !<SilverNeedle.Settlements.Building>
+- name: Graveyard
+  attributes:
+    - attribute:
+      name: Graveyard Kingdom Modifiers
+      items:
+        - type: SilverNeedle.ValueStatModifier
+          name: loyalty
+          modifier: 1
+          modifier-type: building

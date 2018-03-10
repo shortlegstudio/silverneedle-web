@@ -1,0 +1,18 @@
+--- !<SilverNeedle.Settlements.Building>
+- name: Military Academy
+  attributes:
+    - attribute:
+      name: Military Academy Kingdom Modifiers
+      items:
+        - type: SilverNeedle.ValueStatModifier
+          name: loyalty
+          modifier: 2
+          modifier-type: building
+        - type: SilverNeedle.ValueStatModifier
+          name: fame
+          modifier: 1
+          modifier-type: building
+        - type: SilverNeedle.ValueStatModifier
+          name: stability
+          modifier: 1
+          modifier-type: building

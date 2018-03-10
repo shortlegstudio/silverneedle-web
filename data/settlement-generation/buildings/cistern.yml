@@ -1,0 +1,10 @@
+--- !<SilverNeedle.Settlements.Building>
+- name: Cistern
+  attributes:
+    - attribute:
+      name: Cistern Kingdom Modifiers
+      items:
+        - type: SilverNeedle.ValueStatModifier
+          name: stability
+          modifier: 1
+          modifier-type: building
