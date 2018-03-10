@@ -10,5 +10,11 @@
         <span>@settlement.Name</span>
         <a asp-area="" asp-controller="Settlement" asp-action="Settlement" asp-route-strategy="@ViewData["strategy"]" asp-route-number="@ViewData["number"]" class="btn btn-lg btn-primary pull-right" role="button">Regenerate</a>
     </h1>
+    <div class="row">
+        <div class="col-sm-4">
+            
+            @{ Html.RenderPartial("_building-list", this.ViewData); }
+        </div>
+    </div>
 </div>
 

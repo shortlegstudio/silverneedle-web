@@ -1,0 +1,25 @@
+@using SilverNeedle.Settlements;
+@{
+    var settlement = (Settlement)ViewData["settlement"];
+    var buildings = settlement.GetAll<Building>();
+}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Buildings</h3>
+    </div>
+    <table class="table table-striped table-bordered statistics">
+        <thead>
+            <tr>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var b in buildings)
+            {
+                <tr>
+                    <td>@b.Name</td>
+                </tr>
+            }
+        </tbody>
+    </table>    
+</div>
