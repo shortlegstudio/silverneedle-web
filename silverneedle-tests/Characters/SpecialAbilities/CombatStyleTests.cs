@@ -21,9 +21,9 @@ namespace Tests.Characters.SpecialAbilities
 - name: Archery
   bonus-feats:
     - level: 1
-      feats: feat one, feat two
+      feats: [feat one, feat two]
     - level: 6
-      feats: feat three, feat four".ParseYaml().Children.First();
+      feats: [feat three, feat four]".ParseYaml().Children.First();
             // TODO: The above is cumbersome for tests where I want to test 
             // just some basic configuration
 

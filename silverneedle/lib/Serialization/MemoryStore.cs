@@ -33,8 +33,8 @@ namespace SilverNeedle.Serialization
 
         public MemoryStore()
         {
-            dataStore = new Dictionary<string, IObjectStore>();
-            childList = new List<IObjectStore>();
+            dataStore = new Dictionary<string, MemoryStore>();
+            childList = new List<MemoryStore>();
         }
 
         public MemoryStore(string key, string value) : this()
@@ -102,7 +102,7 @@ namespace SilverNeedle.Serialization
             var item = GetObject(key);
             if(item.HasChildren)
             {
-                return item.Children.Select(x => x.Value).ToArray();
+                return item.Children.OfType<MemoryStore>().Select(x => x.Value).ToArray();
             }
             return new string[] { };
         }
@@ -161,7 +161,7 @@ namespace SilverNeedle.Serialization
         }
 
         public void SetValue(string key, IObjectStore data) {
-            dataStore.Add(key, data);
+            dataStore.Add(key, data as MemoryStore);
         }
 
         public void SetValue(string key, float value)
@@ -176,7 +176,7 @@ namespace SilverNeedle.Serialization
 
         public void AddListItem(IObjectStore childItem)
         {
-            childList.Add(childItem);
+            childList.Add(childItem as MemoryStore);
         }
 
         public void SetValue(string key, IEnumerable<string> values)
@@ -190,8 +190,8 @@ namespace SilverNeedle.Serialization
             SetValue(key, obj);
         }
 
-        private Dictionary<string, IObjectStore> dataStore;
-        private IList<IObjectStore> childList;
+        private Dictionary<string, MemoryStore> dataStore;
+        private IList<MemoryStore> childList;
 
     }
 }

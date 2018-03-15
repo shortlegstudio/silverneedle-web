@@ -13,7 +13,7 @@
     - '{{ choose "left-right" }} of neck'
     - lower neck
 - name: ear
-  words: '{{ choose "left-right" }} ear'
+  words: ['{{ choose "left-right" }} ear']
 - name: finger-no-thumb
   words: [index, middle, ring, pinky]
 - name: left-right

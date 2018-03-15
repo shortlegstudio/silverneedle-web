@@ -9,8 +9,6 @@ namespace SilverNeedle.Serialization
 
     public interface IObjectStore
     {
-        string Key { get; }
-        string Value { get; }
         bool HasKey(string key);
         IEnumerable<string> Keys { get; }
         IEnumerable<IObjectStore> Children { get; }
@@ -31,6 +29,5 @@ namespace SilverNeedle.Serialization
 
         IObjectStore GetObject(string key);
         IObjectStore GetObjectOptional(string key);
-        IDictionary<string, string> ChildrenToDictionary();
     }
 }

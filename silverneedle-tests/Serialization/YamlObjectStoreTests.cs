@@ -10,7 +10,7 @@ namespace Tests.Serialization
     using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
-    public class YamlNodeWrapperTests
+    public class YamlObjectStoreTests
     {
         [Fact]
         public void ProvidesAListOfKeysForNode()
@@ -63,6 +63,5 @@ list: [""%foo%"", ""%bar%""]";
             var parsed = list.ParseYaml();
             Assert.Equal(new string [] { "%foo%", "%bar%" }, parsed.GetList("list"));
         }
-
     }
 }

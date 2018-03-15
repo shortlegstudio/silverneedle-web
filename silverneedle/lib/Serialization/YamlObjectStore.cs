@@ -23,11 +23,6 @@ namespace SilverNeedle.Serialization
         private YamlSequenceNode sequenceNode;
 
         /// <summary>
-        /// Has a value if the node is a scalar
-        /// </summary>
-        private YamlScalarNode scalarNode;
-
-        /// <summary>
         /// Has a value if the mode maps to other nodes
         /// </summary>
         private YamlMappingNode mappingNode;
@@ -46,42 +41,7 @@ namespace SilverNeedle.Serialization
         {
             this.node = wrap;
             this.sequenceNode = this.node as YamlSequenceNode;
-            this.scalarNode = this.node as YamlScalarNode;
             this.mappingNode = this.node as YamlMappingNode;
-        }
-
-        /// <summary>
-        /// Gets the current scalar value associated with this node
-        /// </summary>
-        /// <value>The value as a string</value>
-        public string Value
-        { 
-            get
-            {
-                if (this.scalarNode != null)
-                {
-                    return this.scalarNode.Value;
-                }
-
-                return null;
-            }
-        }
-
-        /// <summary>
-        /// Gets the key for this noe
-        /// </summary>
-        /// <value>The key of this node</value>
-        public string Key
-        {
-            get
-            {
-                if (this.scalarNode != null)
-                {
-                    return this.scalarNode.Tag;
-                }
-
-                return null;
-            }
         }
 
         /// <summary>
@@ -123,8 +83,17 @@ namespace SilverNeedle.Serialization
         /// <param name="key">Key to lookup</param>
         public string GetString(string key)
         {
-            var item = this.GetObject(key);
+            var item = this.GetScalarNode(key);
             return item.Value;
+        }
+
+
+        private YamlScalarNode GetScalarNode(string key)
+        {
+            var item =  GetScalarNodeOptional(key);
+            if(item == null)
+                throw new KeyNotFoundException(key);
+            return item;
         }
 
         /// <summary>
@@ -134,13 +103,23 @@ namespace SilverNeedle.Serialization
         /// <param name="key">Key to lookup in node</param>
         public string GetStringOptional(string key, string defaultValue = null)
         {
-            var item = this.GetObjectOptional(key);
+            var item = this.GetScalarNodeOptional(key);
             if (item != null)
             {
                 return item.Value;
             }
 
             return defaultValue;
+        }
+
+        private YamlScalarNode GetScalarNodeOptional(string key)
+        {
+            var keyNode = new YamlScalarNode(key);
+            if(mappingNode.Children.ContainsKey(keyNode))
+            {
+                return mappingNode.Children[keyNode] as YamlScalarNode;
+            }
+            return null;
         }
 
         /// <summary>
@@ -157,16 +136,10 @@ namespace SilverNeedle.Serialization
             return new string[] { };
         }
 
-        /// <summary>
-        /// Translates a key that contains commma separated values into a string array
-        /// Throws exception if node is not found
-        /// </summary>
-        /// <returns>The string array split and trimmed around commas. 
-        /// Returns an empty array if key is not found </returns>
-        /// <param name="key">Key to the comma delimited string</param>
         public string[] GetList(string key)
         {
-            return this.GetObject(key).Children.Select(x => x.Value).ToArray();
+            var sequence = mappingNode.Children[new YamlScalarNode(key)] as YamlSequenceNode;
+            return sequence.Children.OfType<YamlScalarNode>().Select(x => x.Value).ToArray();
         }
 
         public bool GetBool(string key)
@@ -286,43 +259,9 @@ namespace SilverNeedle.Serialization
             return new YamlObjectStore(item);        
         }
 
-        /// <summary>
-        /// Maps children elements into a dictionary.
-        /// </summary>
-        /// <returns>The dictionary to map elements into</returns>
-        public IDictionary<string, string> ChildrenToDictionary()
-        {
-            var results = new Dictionary<string, string>(); 
-            if (this.mappingNode != null)
-            {
-                foreach (var item in this.mappingNode.Children)
-                {
-                    results.Add(
-                        item.Key.ToString(), 
-                        item.Value.ToString());
-                }
-            }
-
-            return results;
-        }
-
         public string GetTag()
         {
             return this.node.Tag;
-        }
-
-        /// <summary>
-        /// Returns a <see cref="System.String"/> that represents the current <see cref="SilverNeedle.YamlNodeWrapper"/>.
-        /// </summary>
-        /// <returns>A <see cref="System.String"/> that represents the current <see cref="SilverNeedle.YamlNodeWrapper"/>.</returns>
-        public override string ToString()
-        {
-            return string.Format(
-                "[YamlNodeWrapper: Node={0}, Value={1}, Key={2}, HasChildren={3}]", 
-                this.node, 
-                this.Value, 
-                this.Key, 
-                this.HasChildren);
         }
 
         public IList<T> Load<T>()
