@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 dotnet restore && dotnet build 
-dotnet test ./silverneedle-tests/silverneedle-tests.csproj
+SILVERNEEDLE_LOG_LEVEL=ERROR dotnet test ./silverneedle-tests/silverneedle-tests.csproj

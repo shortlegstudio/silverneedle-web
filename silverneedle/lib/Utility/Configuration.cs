@@ -16,10 +16,10 @@ namespace SilverNeedle
                 DataPath = System.Environment.GetEnvironmentVariable("SILVERNEEDLE_DATAFILES");
             }
 
-            LogLevel = ShortLog.LogLevel.DEBUG;
+            LogLevel = ShortLog.LogLevel.WARN;
             if (!string.IsNullOrEmpty(System.Environment.GetEnvironmentVariable(ShortLog.LOG_LEVEL_ENV)))
             {
-                LogLevel = (ShortLog.LogLevel)Enum.Parse(typeof(ShortLog.LogLevel), Environment.GetEnvironmentVariable(ShortLog.LOG_LEVEL_ENV));
+                LogLevel = (ShortLog.LogLevel)Enum.Parse(typeof(ShortLog.LogLevel), Environment.GetEnvironmentVariable(ShortLog.LOG_LEVEL_ENV), true);
             }
         }
 
