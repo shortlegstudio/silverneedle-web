@@ -17,8 +17,8 @@ namespace SilverNeedle.Characters.Background
         {
             Origins = new WeightedOptionTable<ClassOrigin>();
             Name = data.GetString("class");
-            var table = data.GetObject("table");
-            foreach (var entry in table.Children)
+            var table = data.GetObjectList("table");
+            foreach (var entry in table)
             {
                 var origin = new ClassOrigin(Name, entry);
                 Origins.AddEntry(origin, origin.Weighting);                

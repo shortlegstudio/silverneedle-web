@@ -122,7 +122,7 @@ namespace SilverNeedle.Characters
             AllowMultiple = data.GetBoolOptional("allow-multiple");
 
             // Get any prerequisites
-            var prereq = data.GetObjectOptional("prerequisites");
+            var prereq = data.GetObjectListOptional("prerequisites");
             if (prereq != null)
             {
                 Prerequisites = new PrerequisiteList(prereq);

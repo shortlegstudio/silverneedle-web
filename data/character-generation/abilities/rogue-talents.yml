@@ -7,7 +7,7 @@
 - name: Ledge Walker
 - name: Major Magic
   prerequisites:
-    ability: Minor Magic
+    - ability: Minor Magic
 - name: Minor Magic
 - name: Quick Disable
 - name: Resiliency

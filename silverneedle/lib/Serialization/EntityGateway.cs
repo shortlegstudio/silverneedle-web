@@ -92,13 +92,7 @@ namespace SilverNeedle.Serialization
         {
             var gateway = new EntityGateway<T>();
             var files = DatafileLoader.Instance.GetDataFiles<T>();
-            foreach(var f in files)
-            {
-                //NOTE: Root of a data file is the file itself not the objects contained
-                //Kind of a tricky distinction, probably need a different data type
-                //in the future
-                gateway.LoadObjects(f.Children);
-            }
+            gateway.LoadObjects(files);
             return gateway;
         }
 

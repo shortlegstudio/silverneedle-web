@@ -157,10 +157,10 @@ namespace SilverNeedle.Characters
             CustomBuildStep = data.GetStringOptional("custom-build-step");
 
             //Load Levels
-            var levels = data.GetObjectOptional("levels");
+            var levels = data.GetObjectListOptional("levels");
             if (levels != null)
             {
-                foreach(var l in levels.Children)
+                foreach(var l in levels)
                 {
                     var level = new Level(l);
                     Levels.Add(level);

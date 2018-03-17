@@ -34,7 +34,7 @@ namespace SilverNeedle.Actions.CharacterGeneration
             ShortLog.DebugFormat("Loading Character Creator: {0}", Name);
             designSteps = new List<ICharacterDesignStep>();
             
-            foreach(var step in data.GetObject("steps").Children)
+            foreach(var step in data.GetObjectList("steps"))
             {                
                 if(step.HasKey("step"))
                 {

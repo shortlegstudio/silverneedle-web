@@ -12,7 +12,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     {
         public RagePower(IObjectStore configuration) : base(configuration)
         {
-            var prereq = configuration.GetObjectOptional("prerequisites");
+            var prereq = configuration.GetObjectListOptional("prerequisites");
             Prerequisites = new PrerequisiteList(prereq);
         }
 

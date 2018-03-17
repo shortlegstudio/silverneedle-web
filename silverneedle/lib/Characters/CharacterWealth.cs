@@ -21,8 +21,8 @@ namespace SilverNeedle.Characters
         public CharacterWealth(IObjectStore data) : this()
         {
             Name = data.GetString("name");
-            var levels = data.GetObject("levels");
-            foreach(var c in levels.Children)
+            var levels = data.GetObjectList("levels");
+            foreach(var c in levels)
             {
                 var wl = new CharacterWealthLevel();
                 wl.Level = c.GetInteger("level");
@@ -38,7 +38,9 @@ namespace SilverNeedle.Characters
 
         public class CharacterWealthLevel
         {
+            [ObjectStore("amount")]
             public int Value { get; set; }
+            [ObjectStore("level")]
             public int Level { get; set; }
 
             public CharacterWealthLevel() { }

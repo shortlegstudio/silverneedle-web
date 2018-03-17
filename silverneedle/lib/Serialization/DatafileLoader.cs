@@ -56,7 +56,7 @@ namespace SilverNeedle.Serialization
                 try
                 {
                     var yaml = FileHelper.OpenYaml(f);
-                    var type = GuessFileType(yaml);
+                    var type = yaml.FileType();
                     ShortLog.DebugFormat("FILE: {0}, TYPE: {1}", f, type);
 
                     if(string.IsNullOrEmpty(type) == false)
@@ -69,7 +69,7 @@ namespace SilverNeedle.Serialization
                             fileListMap.Add(type, dataFiles);
                         }
 
-                        dataFiles.Add(yaml);
+                        dataFiles.Add(yaml.GetEntities());
                     }
                 }
                 catch(Exception e)

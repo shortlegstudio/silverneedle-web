@@ -26,9 +26,9 @@ namespace SilverNeedle.Characters.Prerequisites
         /// Initializes a new instance of the <see cref="SilverNeedle.Characters.Prerequisites"/> class.
         /// </summary>
         /// <param name="yaml">Yaml node wrapper to parse requisites from.</param>
-        public PrerequisiteList(IObjectStore yaml)
+        public PrerequisiteList(IEnumerable<IObjectStore> prereq)
         {
-            this.ParseYaml(yaml);
+            this.LoadPrerequisites(prereq);
         }
 
         /// <summary>
@@ -46,16 +46,12 @@ namespace SilverNeedle.Characters.Prerequisites
             return this.All(x => x.IsQualified(components));
         }
 
-        /// <summary>
-        /// Parses the yaml and find prerequisites
-        /// </summary>
-        /// <param name="yaml">Yaml Node to parse </param>
-        private void ParseYaml(IObjectStore yaml)
+        private void LoadPrerequisites(IEnumerable<IObjectStore> prereqs)
         {
-            if(yaml == null || !yaml.HasChildren)
+            if(prereqs == null)
                 return;
-                
-            foreach (var prereq in yaml.Children)
+
+            foreach (var prereq in prereqs)
             {
                 var key = prereq.Keys.First();
                 IPrerequisite newreq = null;

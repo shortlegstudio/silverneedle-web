@@ -18,7 +18,7 @@ namespace Tests.Characters.Prerequisites
         [Fact]
         public void ParseSomeYaml() {
             var yamlNode = PrerequisitesYaml.ParseYaml();
-            var prereq = yamlNode.GetObject("prerequisites");
+            var prereq = yamlNode.GetObjectList("prerequisites");
 
             var prereqs = new PrerequisiteList(prereq);
 
@@ -36,7 +36,7 @@ namespace Tests.Characters.Prerequisites
         [Fact]
         public void EmptyNodesJustMakeNoPrerequisites()
         {
-            var data = new MemoryStore();
+            var data = new MemoryStore[] { };
             var list = new PrerequisiteList(data);
             Assert.Equal(list.Count, 0);
         }

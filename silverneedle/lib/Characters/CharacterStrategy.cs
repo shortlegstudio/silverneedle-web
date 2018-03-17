@@ -95,38 +95,38 @@ namespace SilverNeedle.Characters
                 this.AbilityScoreRoller = typeof(SilverNeedle.Actions.CharacterGeneration.Abilities.AverageAbilityScoreGenerator).FullName;
             }
             
-            var races = data.GetObject("races");
+            var races = data.GetObjectListOptional("races");
             BuildWeightedTable(Races, races);
             
-            var classes = data.GetObject("classes");
+            var classes = data.GetObjectListOptional("classes");
             BuildWeightedTable(Classes, classes);
             
-            var skills = data.GetObject("skills");
+            var skills = data.GetObjectListOptional("skills");
             BuildWeightedTable(FavoredSkills, skills);
             
-            var feats = data.GetObject("feats");
+            var feats = data.GetObjectListOptional("feats");
             BuildWeightedTable(FavoredFeats, feats);
 
-            var abilities = data.GetObjectOptional("abilities");
+            var abilities = data.GetObjectListOptional("abilities");
             BuildAbilityTable(FavoredAbilities, abilities);
 
             BuildAlignmentTable();
             Designer = data.GetStringOptional("designer");
         }
 
-        private void BuildWeightedTable(WeightedOptionTable<string> tableToBuild, IObjectStore node)
+        private void BuildWeightedTable(WeightedOptionTable<string> tableToBuild, IEnumerable<IObjectStore> nodes)
         {
-            foreach(var child in node.Children)
+            foreach(var child in nodes)
             {
                 tableToBuild.AddEntry(child.GetString("name"), child.GetInteger("weight"));
             }
         }  
 
-        private void BuildAbilityTable(WeightedOptionTable<AbilityScoreTypes> abilityTable, IObjectStore node)
+        private void BuildAbilityTable(WeightedOptionTable<AbilityScoreTypes> abilityTable, IEnumerable<IObjectStore> nodes)
         {
-            if (node != null)
+            if (nodes != null)
             {
-                foreach(var child in node.Children)
+                foreach(var child in nodes)
                 {
                     abilityTable.AddEntry(child.GetEnum<AbilityScoreTypes>("name"), child.GetInteger("weight"));
                 }

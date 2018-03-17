@@ -5,19 +5,20 @@
 
 namespace SilverNeedle
 {
+    using System.Collections.Generic;
     using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
     public class FeatureAttribute : IComponent, IFeatureAttribute
     {
         public virtual string Name { get; protected set; }
-        private IObjectStore Items { get; set; }
-        private IObjectStore Commands { get; set; }
+        private IEnumerable<IObjectStore> Items { get; set; }
+        private IEnumerable<IObjectStore> Commands { get; set; }
         public FeatureAttribute(IObjectStore configuration)
         {
             this.Name = configuration.GetString("name");
-            this.Items = configuration.GetObjectOptional("items").Default(new MemoryStore());
-            this.Commands = configuration.GetObjectOptional("commands").Default(new MemoryStore());
+            this.Items = configuration.GetObjectListOptional("items").Default(new List<IObjectStore>());
+            this.Commands = configuration.GetObjectListOptional("commands").Default(new List<IObjectStore>());
         }
 
         protected FeatureAttribute(FeatureAttribute copy)
@@ -29,14 +30,14 @@ namespace SilverNeedle
 
         public virtual void Initialize(ComponentContainer components)
         {
-            foreach(var item in this.Items.Children)
+            foreach(var item in this.Items)
             {
                 var typename = item.GetString("type");
                 var instance = typename.Instantiate<object>(item);
                 components.Add(instance);
             }
 
-            foreach(var command in this.Commands.Children)
+            foreach(var command in this.Commands)
             {
                 var typename = command.GetString("command");
                 var instance = typename.Instantiate<IFeatureCommand>(command);

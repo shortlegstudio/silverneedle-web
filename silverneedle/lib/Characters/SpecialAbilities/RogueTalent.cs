@@ -21,7 +21,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
             this.Name = data.GetString("name");
             this.IsAdvancedTalent = data.GetBoolOptional("advanced-talent");
             this.IsSneakAttack = data.GetBoolOptional("sneak-attack");
-            this.Prerequisites = new PrerequisiteList(data.GetObjectOptional("prerequisites"));
+            this.Prerequisites = new PrerequisiteList(data.GetObjectListOptional("prerequisites"));
         }
         public bool Matches(string name)
         {

@@ -99,12 +99,8 @@ namespace SilverNeedle.Serialization
 
         public string[] GetList(string key)
         {
-            var item = GetObject(key);
-            if(item.HasChildren)
-            {
-                return item.Children.OfType<MemoryStore>().Select(x => x.Value).ToArray();
-            }
-            return new string[] { };
+            var items = GetObjectList(key);
+            return items.OfType<MemoryStore>().Select(x => x.Value).ToArray();
         }
 
         public string[] GetListOptional(string key)
@@ -189,6 +185,20 @@ namespace SilverNeedle.Serialization
             }
             SetValue(key, obj);
         }
+
+        public IEnumerable<IObjectStore> GetObjectList(string key)
+        {
+            return ((MemoryStore)GetObject(key)).Children;
+        }
+
+        public IEnumerable<IObjectStore> GetObjectListOptional(string key)
+        {
+            if(HasKey(key))
+                return GetObjectList(key);
+
+            return new List<IObjectStore>();
+        }
+
 
         private Dictionary<string, MemoryStore> dataStore;
         private IList<MemoryStore> childList;

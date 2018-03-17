@@ -69,7 +69,7 @@
               base-ability: intelligence
     - level: 8
       attributes:
-        attribute:
+        - attribute:
           name: Aura of Despair
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.AuraOfDespair

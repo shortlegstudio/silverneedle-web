@@ -27,7 +27,7 @@ namespace SilverNeedle.Bestiary
         public Familiar(IObjectStore data) : this()
         {
             Name = data.GetString("name");
-            Modifiers.Load(data.GetObjectOptional("modifiers"), "Familiar");
+            Modifiers.Load(data.GetObjectListOptional("modifiers"), "Familiar");
         } 
 
         public bool Matches(string name)

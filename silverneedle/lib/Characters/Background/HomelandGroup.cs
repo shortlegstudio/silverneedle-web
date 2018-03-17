@@ -17,8 +17,8 @@ namespace SilverNeedle.Characters.Background
         {
             Homelands = new WeightedOptionTable<Homeland>();
             Name = data.GetString("race");
-            var table = data.GetObject("table");
-            foreach (var entry in table.Children)
+            var table = data.GetObjectList("table");
+            foreach (var entry in table)
             {
                 var homeland = new Homeland(Name, entry);
                 Homelands.AddEntry(homeland, homeland.Weighting);                

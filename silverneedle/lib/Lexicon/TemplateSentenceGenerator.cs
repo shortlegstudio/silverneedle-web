@@ -22,13 +22,13 @@ namespace SilverNeedle.Lexicon
         public TemplateSentenceGenerator(IObjectStore data) : this()
         {
             Name = data.GetString("name");
-            var descs = data.GetObjectOptional("descriptors");
+            var descs = data.GetObjectListOptional("descriptors");
             LoadDescriptors(descs);
 
-            var temps = data.GetObjectOptional("templates");
+            var temps = data.GetObjectListOptional("templates");
             if(temps != null)
             {
-                this.Templates.Add(temps.Children.Select(x => new PhraseTemplate(x.GetString("template"))));
+                this.Templates.Add(temps.Select(x => new PhraseTemplate(x.GetString("template"))));
             }
         }
 
@@ -76,12 +76,12 @@ namespace SilverNeedle.Lexicon
             this.Templates.Add(new PhraseTemplate(template));
         }
 
-        private void LoadDescriptors(IObjectStore descriptors)
+        private void LoadDescriptors(IEnumerable<IObjectStore> descriptors)
         {
             if(descriptors == null)
                 return;
             
-            foreach(var descriptor in descriptors.Children) 
+            foreach(var descriptor in descriptors) 
             {
                 // Descriptor format in YAML is "- key: [item1, item2, item3]"
                 var keyName = descriptor.Keys.First();

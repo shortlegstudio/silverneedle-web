@@ -39,11 +39,11 @@ namespace SilverNeedle
 
         private void LoadAttributes(IObjectStore configuration)
         {
-            var configValues = configuration.GetObjectOptional("attributes");
+            var configValues = configuration.GetObjectListOptional("attributes");
             if(configValues == null)
                 return;
 
-            foreach(var attr in configValues.Children)
+            foreach(var attr in configValues)
             {
                 var attributeType = attr.GetString("attribute");
                 if(string.IsNullOrEmpty(attributeType))

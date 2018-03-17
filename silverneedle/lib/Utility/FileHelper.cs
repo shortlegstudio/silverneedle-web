@@ -35,7 +35,7 @@ namespace SilverNeedle
             }
         }
 
-        public static YamlObjectStore OpenYaml(string fileName)
+        public static YamlDataFile OpenYaml(string fileName)
         {
             ShortLog.DebugFormat("Loading Yaml File: {0}", fileName);
             using(var input = File.OpenText(fileName))
@@ -44,7 +44,7 @@ namespace SilverNeedle
                 yaml.Load(input);
                 
                 // Examine the stream
-                return new YamlObjectStore(yaml.Documents[0].RootNode);
+                return new YamlDataFile(yaml.Documents[0].RootNode);
             }
         }
 

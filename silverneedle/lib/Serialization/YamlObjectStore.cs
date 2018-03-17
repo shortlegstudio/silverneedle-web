@@ -142,6 +142,19 @@ namespace SilverNeedle.Serialization
             return sequence.Children.OfType<YamlScalarNode>().Select(x => x.Value).ToArray();
         }
 
+        public IEnumerable<IObjectStore> GetObjectList(string key)
+        {
+            var sequence = mappingNode.Children[new YamlScalarNode(key)] as YamlSequenceNode;
+            return sequence.Children.Select(x => new YamlObjectStore(x));
+        }
+
+        public IEnumerable<IObjectStore> GetObjectListOptional(string key)
+        {
+            if(HasKey(key))
+                return GetObjectList(key);
+            return new List<IObjectStore>();
+        }
+
         public bool GetBool(string key)
         {
             return Boolean.Parse(this.GetString(key));

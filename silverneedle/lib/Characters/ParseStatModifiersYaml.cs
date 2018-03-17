@@ -13,7 +13,7 @@ namespace SilverNeedle.Characters
     /// </summary>
     public static class ParseStatModifiersYaml
     {
-        public static void Load(this IList<IValueStatModifier> list, IObjectStore data, string source)
+        public static void Load(this IList<IValueStatModifier> list, IEnumerable<IObjectStore> data, string source)
         {
             var loaded = ParseYaml(data, source);
             foreach(var a in loaded)
@@ -28,11 +28,11 @@ namespace SilverNeedle.Characters
         /// <returns>The yaml.</returns>
         /// <param name="modifierNode">Modifier node.</param>
         /// <param name="source">Source of the modifier.</param>
-        public static IList<IValueStatModifier> ParseYaml(IObjectStore modifierNode, string source)
+        public static IList<IValueStatModifier> ParseYaml(IEnumerable<IObjectStore> modifierNode, string source)
         {
             IList<IValueStatModifier> modifiers = new List<IValueStatModifier>();
 
-            foreach (var mod in modifierNode.Children)
+            foreach (var mod in modifierNode)
             {
                 var statName = mod.GetString("stat");
                 var amount = mod.GetInteger("modifier");

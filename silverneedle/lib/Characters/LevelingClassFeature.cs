@@ -16,10 +16,10 @@ namespace SilverNeedle.Characters
 
         public LevelingClassFeature(IObjectStore configuration) : base(configuration)
         {
-            var levelConfiguration = configuration.GetObjectOptional("levels");
+            var levelConfiguration = configuration.GetObjectListOptional("levels");
             if(levelConfiguration != null)
             {
-                foreach(var l in levelConfiguration.Children)
+                foreach(var l in levelConfiguration)
                 {
                     levels.Add(new Level(l));
                 }

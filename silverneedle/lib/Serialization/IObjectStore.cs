@@ -11,8 +11,6 @@ namespace SilverNeedle.Serialization
     {
         bool HasKey(string key);
         IEnumerable<string> Keys { get; }
-        IEnumerable<IObjectStore> Children { get; }
-        bool HasChildren { get; }
         string GetString(string key);
         string GetStringOptional(string key, string defaultValue = "");
         int GetInteger(string key);
@@ -29,5 +27,8 @@ namespace SilverNeedle.Serialization
 
         IObjectStore GetObject(string key);
         IObjectStore GetObjectOptional(string key);
+
+        IEnumerable<IObjectStore> GetObjectList(string key);
+        IEnumerable<IObjectStore> GetObjectListOptional(string key);
     }
 }

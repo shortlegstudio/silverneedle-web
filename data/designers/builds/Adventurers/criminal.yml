@@ -35,7 +35,6 @@
       weight: 15
     - name: sense motive
       weight: 10
-  feats:
   abilities:
     - name: dexterity
       weight: 20

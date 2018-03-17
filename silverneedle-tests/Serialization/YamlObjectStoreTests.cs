@@ -63,5 +63,23 @@ list: [""%foo%"", ""%bar%""]";
             var parsed = list.ParseYaml();
             Assert.Equal(new string [] { "%foo%", "%bar%" }, parsed.GetList("list"));
         }
+
+        [Fact]
+        public void CanReturnAListOfObjects()
+        {
+            var yaml = @"
+list:
+  - name: key
+    value: 39
+  - name: key2
+    value: 38";
+            var store = yaml.ParseYaml();
+            var list = store.GetObjectList("list");
+            Assert.Equal("key", list.First().GetString("name"));
+            Assert.Equal(39, list.First().GetInteger("value"));
+            Assert.Equal("key2", list.Last().GetString("name"));
+            Assert.Equal(38, list.Last().GetInteger("value"));
+
+        }
     }
 }

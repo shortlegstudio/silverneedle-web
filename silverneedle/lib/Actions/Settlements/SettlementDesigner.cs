@@ -21,7 +21,7 @@ namespace SilverNeedle.Actions.Settlements
         public SettlementDesigner(IObjectStore configuration)
         {
             configuration.Deserialize(this);
-            LoadDesignSteps(configuration.GetObject("steps"));
+            LoadDesignSteps(configuration.GetObjectList("steps"));
         }
         public void Execute(Settlement settlement)
         {
@@ -36,9 +36,9 @@ namespace SilverNeedle.Actions.Settlements
             return this.Name.EqualsIgnoreCase(name);
         }
 
-        private void LoadDesignSteps(IObjectStore steps)
+        private void LoadDesignSteps(IEnumerable<IObjectStore> steps)
         {
-            foreach(var step in steps.Children)
+            foreach(var step in steps)
             {
                 var typeName = step.GetString("step");
                 designSteps.Add(typeName.Instantiate<ISettlementDesignStep>(step));

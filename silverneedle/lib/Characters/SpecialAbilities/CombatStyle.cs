@@ -18,8 +18,8 @@ namespace SilverNeedle.Characters.SpecialAbilities
             this.CombatStyleName = configuration.GetString("name");
 
             bonusFeats = new Dictionary<int, string[]>();
-            var bonus = configuration.GetObject("bonus-feats");
-            foreach(var level in bonus.Children)
+            var bonus = configuration.GetObjectList("bonus-feats");
+            foreach(var level in bonus)
             {
                 bonusFeats.Add(level.GetInteger("level"), level.GetList("feats"));
             }
