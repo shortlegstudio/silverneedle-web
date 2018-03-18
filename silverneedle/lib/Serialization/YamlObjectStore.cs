@@ -326,6 +326,16 @@ namespace SilverNeedle.Serialization
             this.mappingNode.Children[new YamlScalarNode(key)] = sequenceNode;
         }
 
+        public void SetValue(string key, bool v)
+        {
+            SetValue(key, v.ToString());
+        }
+
+        public void SetValue(string key, float v)
+        {
+            SetValue(key, v.ToString());
+        }
+
         public YamlMappingNode MappingNode { get { return this.mappingNode; } }
     }
 }

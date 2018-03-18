@@ -361,7 +361,7 @@
           name: Leadership
           items:
             - type: SilverNeedle.Characters.FeatToken
-              tags: Leadership
+              tags: [ Leadership ]
             - type: SilverNeedle.ValueStatModifier
               name: Leadership
               modifier: 2

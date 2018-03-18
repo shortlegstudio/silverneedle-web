@@ -5,6 +5,8 @@
 
 namespace SilverNeedle.Serialization
 {
+    using System.Collections.Generic;
+    using System.Linq;
     using System.Reflection;
     using SilverNeedle.Characters;
     using SilverNeedle.Dice;
@@ -93,6 +95,58 @@ namespace SilverNeedle.Serialization
             }
 
             return result;
+        }
+
+        public static void Serialize<T>(this IObjectStore storage, T val)
+        {
+            var yamlStore = storage as YamlObjectStore;
+            if(yamlStore == null)
+                throw new System.NotImplementedException("Only YamlStore supported for serializing");
+
+            var typeInfo = typeof(T);
+            var properties = typeInfo.GetProperties();
+            foreach(var prop in properties)
+            {
+                var attribute = prop.GetCustomAttribute<ObjectStoreAttribute>();
+                if(attribute == null)
+                    continue;
+
+                var propType = prop.PropertyType.Name.ToLower();
+                var propertyValue = prop.GetValue(val);
+                if(propertyValue == null)
+                    continue;
+                switch(propType)
+                {
+                    case "boolean":
+                        yamlStore.SetValue(attribute.PropertyName, (bool)propertyValue);
+                        break;
+
+                    case "int32":
+                        yamlStore.SetValue(attribute.PropertyName, (int)propertyValue);
+                        break;
+
+                    case "single":
+                        yamlStore.SetValue(attribute.PropertyName, (float)propertyValue);
+                        break;
+
+                    case "string":
+                        yamlStore.SetValue(attribute.PropertyName, propertyValue.ToString());
+                        break;
+
+                    case "string[]":
+                        yamlStore.SetValue(attribute.PropertyName, (string[])propertyValue);
+                        break;
+
+                    case "cup":
+                        var newStore = new YamlObjectStore();
+                        newStore.Serialize(propertyValue);
+
+                        yamlStore.SetValue(attribute.PropertyName, newStore);
+                        break;
+
+                }
+            }
+                    
         }
     }
 }

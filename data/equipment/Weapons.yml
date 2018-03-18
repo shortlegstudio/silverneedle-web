@@ -39,7 +39,7 @@
   group: Thrown
   training_level: Exotic
   cost: 5gp
-  tags: nonlethal, trip
+  tags: [nonlethal, trip]
 - weapon:
   name: Club
   weight: 3
@@ -137,7 +137,7 @@
   group: Double
   training_level: Exotic
   type: TwoHanded
-  tags: disarm, trip, double
+  tags: [disarm, trip, double]
 - weapon:
   name: Dwarven Urgosh
   weight: 12
@@ -147,7 +147,7 @@
   group: Double
   training_level: Exotic
   type: TwoHanded
-  tags: double, brace
+  tags: [double, brace]
   critical_modifier: 3
 - weapon:
   name: Dwarven Waraxe
@@ -187,7 +187,7 @@
   type: OneHanded
   group: Hammers
   training_level: Martial
-  tags: disarm, trip
+  tags: [disarm, trip]
   cost: 8gp
 - weapon:
   name: Gauntlet
@@ -208,7 +208,7 @@
   training_level: Martial
   cost: 8gp
   critical_modifier: 3
-  tags: reach
+  tags: [ reach ]
 - weapon:
   name: Gnome Hooked Hammer
   weight: 6
@@ -218,7 +218,7 @@
   group: Double
   training_level: Exotic
   type: TwoHanded
-  tags: trip, double
+  tags: [ trip, double ]
   critical_modifier: 3
 - weapon:
   name: Greataxe
@@ -259,7 +259,7 @@
   training_level: Martial
   cost: 9gp
   critical_modifier: 3
-  tags: reach, trip
+  tags: [reach, trip]
 - weapon:
   name: Halberd
   weight: 12
@@ -270,7 +270,7 @@
   training_level: Martial
   cost: 10gp
   critical_modifier: 3
-  tags: brace, trip
+  tags: [brace, trip]
 - weapon:
   name: Halfling Sling Staff
   weight: 3
@@ -281,7 +281,7 @@
   group: Thrown
   training_level: Exotic
   cost: 20gp
-  tags: halfling
+  tags: [ halfling ]
   critical_modifier: 3
 - weapon:
   name: Handaxe
@@ -314,7 +314,7 @@
   training_level: Martial
   cost: 15gp
   critical_threat: 19
-  tags: disarm, trip
+  tags: [ disarm, trip ]
 - weapon:
   name: Heavy Pick
   weight: 6
@@ -355,7 +355,7 @@
   group: Monk
   training_level: Exotic
   cost: 2gp
-  tags: monk, trip
+  tags: [monk, trip] 
 - weapon:
   name: Kukri
   weight: 1
@@ -376,7 +376,7 @@
   training_level: Martial
   cost: 10gp
   critical_modifier: 3
-  tags: reach
+  tags: [ reach ]
 - weapon:
   name: Light Hammer
   weight: 2
@@ -467,7 +467,7 @@
   group: Monk
   training_level: Exotic
   cost: 2gp
-  tags: monk, disarm
+  tags: [ monk, disarm ]
 - weapon:
   name: Orc Double Axe
   weight: 15
@@ -477,7 +477,7 @@
   group: Double
   training_level: Exotic
   type: TwoHanded
-  tags: double
+  tags: [ double ]
   critical_modifier: 3
 - weapon:
   name: Quarterstaff
@@ -498,7 +498,7 @@
   training_level: Martial
   cost: 10gp
   critical_modifier: 3
-  tags: disarm, reach
+  tags: [ disarm, reach ]
 - weapon:
   name: Rapier
   weight: 2
@@ -518,7 +518,7 @@
   group: Monk
   training_level: Exotic
   cost: 1gp
-  tags: monk, disarm
+  tags: [monk, disarm ]
 - weapon:
   name: Sap
   weight: 2
@@ -528,7 +528,7 @@
   group: Close
   training_level: Martial
   cost: 1gp
-  tags: nonlethal
+  tags: [ nonlethal ]
 - weapon:
   name: Scimitar
   weight: 4
@@ -549,7 +549,7 @@
   training_level: Martial
   cost: 18gp
   critical_modifier: 4
-  tags: trip
+  tags: [ trip ]
 - weapon:
   name: Shortbow
   weight: 2
@@ -581,7 +581,7 @@
   group: Thrown
   training_level: Exotic
   cost: 2sp
-  tags: monk
+  tags: [ monk ]
 - weapon:
   name: Siangham
   weight: 1
@@ -591,7 +591,7 @@
   group: Monk
   training_level: Exotic
   cost: 3gp
-  tags: monk
+  tags: [ monk ]
 - weapon:
   name: Sling
   weight: 0
@@ -632,7 +632,7 @@
   group: Flails
   training_level: Exotic
   type: TwoHanded
-  tags: disarm, trip
+  tags: [ disarm, trip ]
 - weapon:
   name: Starknife
   weight: 3
@@ -673,7 +673,7 @@
   training_level: Martial
   cost: 15gp
   range: 10
-  tags: brace
+  tags: [ brace ]
 - weapon:
   name: Two-Bladed Sword
   weight: 10
@@ -683,7 +683,7 @@
   group: Double
   training_level: Exotic
   type: TwoHanded
-  tags: double
+  tags: [ double ]
   critical_threat: 19
 - weapon:
   name: Warhammer
@@ -704,4 +704,4 @@
   group: Flails
   training_level: Exotic
   type: OneHanded
-  tags: disarm, nonlethal, reach, trip
+  tags: [ disarm, nonlethal, reach, trip ]
