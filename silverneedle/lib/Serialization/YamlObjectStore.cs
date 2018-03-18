@@ -44,6 +44,12 @@ namespace SilverNeedle.Serialization
             this.mappingNode = this.node as YamlMappingNode;
         }
 
+        public YamlObjectStore()
+        {
+            this.mappingNode = new YamlMappingNode();
+            this.node = this.mappingNode;
+        }
+
         /// <summary>
         /// Determines whether this instance has children.
         /// </summary>
@@ -288,5 +294,38 @@ namespace SilverNeedle.Serialization
             }
             return list;
         }
+
+        public void SetValue(string key, string val)
+        {
+            this.mappingNode.Children[new YamlScalarNode(key)] = new YamlScalarNode(val);
+        }
+
+        public void SetValue(string key, int val)
+        {
+            this.SetValue(key, val.ToString());
+        }
+
+        public void SetValue(string key, YamlObjectStore val)
+        {
+            this.mappingNode.Children[new YamlScalarNode(key)] = val.MappingNode;
+        }
+
+        public void SetValue(string key, IEnumerable<string> vals)
+        {
+            var sequenceNode = new YamlSequenceNode();
+            var nodes = vals.Select(x => new YamlScalarNode(x));
+            sequenceNode.Children.Add(nodes);
+            this.mappingNode.Children[new YamlScalarNode(key)] = sequenceNode;
+        }
+
+        public void SetValue(string key, IEnumerable<YamlObjectStore> vals)
+        {
+            var sequenceNode = new YamlSequenceNode();
+            var nodes = vals.Select(x => x.MappingNode);
+            sequenceNode.Children.Add(nodes);
+            this.mappingNode.Children[new YamlScalarNode(key)] = sequenceNode;
+        }
+
+        public YamlMappingNode MappingNode { get { return this.mappingNode; } }
     }
 }

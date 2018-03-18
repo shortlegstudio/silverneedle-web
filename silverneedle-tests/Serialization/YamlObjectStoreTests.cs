@@ -81,5 +81,49 @@ list:
             Assert.Equal(38, list.Last().GetInteger("value"));
 
         }
+
+        [Fact]
+        public void CanSetValuesIntoMappingElementForSerialization()
+        {
+            var yamlStore = new YamlObjectStore();
+            yamlStore.SetValue("name", "A Name");
+            yamlStore.SetValue("number", 2383);
+            yamlStore.SetValue("list-of-values", new string[] { "one", "two", "three" });
+            var childObj = new YamlObjectStore();
+            childObj.SetValue("name", "childName");
+            yamlStore.SetValue("child", childObj);
+
+            var listOfObject = new YamlObjectStore[] { new YamlObjectStore(), new YamlObjectStore() };
+            listOfObject[0].SetValue("name", "Test 1");
+            listOfObject[1].SetValue("name", "Test 2");
+            yamlStore.SetValue("list-of-objects", listOfObject);
+            
+            Assert.Equal("A Name", yamlStore.GetString("name"));
+            Assert.Equal(2383, yamlStore.GetInteger("number"));
+            Assert.Equal(new string[] { "one", "two", "three" }, yamlStore.GetList("list-of-values"));
+            Assert.Equal("childName", yamlStore.GetObject("child").GetString("name"));
+            Assert.Equal(2, yamlStore.GetObjectList("list-of-objects").Count());
+
+            var doc = new YamlDotNet.RepresentationModel.YamlDocument(yamlStore.MappingNode);
+            var sb = new System.Text.StringBuilder();
+            var yaml = new YamlDotNet.RepresentationModel.YamlStream();
+            yaml.Add(doc);
+            yaml.Save(new System.IO.StringWriter(sb));
+            var expectedYaml =@"name: A Name
+number: 2383
+list-of-values:
+- one
+- two
+- three
+child:
+  name: childName
+list-of-objects:
+- name: Test 1
+- name: Test 2
+...
+";
+            Assert.Equal(expectedYaml, sb.ToString());
+
+        }
     }
 }

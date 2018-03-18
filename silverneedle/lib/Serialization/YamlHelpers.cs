@@ -25,5 +25,15 @@ namespace SilverNeedle.Serialization
             yaml.Load(input);
             return new YamlObjectStore(yaml.Documents[0].RootNode);
         }
+
+        public static string Serialize(this YamlObjectStore yaml)
+        {
+            var doc = new YamlDotNet.RepresentationModel.YamlDocument(yaml.MappingNode);
+            var sb = new System.Text.StringBuilder();
+            var strm = new YamlDotNet.RepresentationModel.YamlStream();
+            strm.Add(doc);
+            strm.Save(new System.IO.StringWriter(sb));
+            return sb.ToString();
+        }
     }
 }
