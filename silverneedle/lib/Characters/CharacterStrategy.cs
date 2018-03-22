@@ -56,6 +56,7 @@ namespace SilverNeedle.Characters
             }
         }
         
+        [ObjectStoreOptional("name")]
         public string Name { get; set; }
         public WeightedOptionTable<string> Classes { get { return GetCustomTable<string>("classes"); } }
         public WeightedOptionTable<string> Races { get { return GetCustomTable<string>("races"); } }
@@ -66,9 +67,13 @@ namespace SilverNeedle.Characters
         public IEnumerable<string> LanguageChoices { get { return this.languageChoiceList; } }
         public IEnumerable<string> LanguagesKnown { get { return this.languagesKnownList; } }
 
+        [ObjectStore("classskillmultiplier")]
         public float ClassSkillMultiplier { get; set; }
+        [ObjectStore("baseskillweight")]
         public int BaseSkillWeight { get; set; }
+        [ObjectStoreOptional("designer")]
         public string Designer { get; set; }
+        [ObjectStoreOptional("ability-score-roller")]
         public string AbilityScoreRoller { get; set; }
 
         public int TargetLevel { get; set; }
@@ -85,11 +90,8 @@ namespace SilverNeedle.Characters
         public void AddLanguageChoices(IEnumerable<string> languages) { this.languageChoiceList.Add(languages); }
         private void ParseObjectStore(IObjectStore data)
         {
+            data.Deserialize(this);
             // Basic Properties
-            Name = data.GetString("name");
-            ClassSkillMultiplier = data.GetFloat("classskillmultiplier");
-            BaseSkillWeight = data.GetInteger("baseskillweight");
-            AbilityScoreRoller = data.GetStringOptional("ability-score-roller");
             if (string.IsNullOrEmpty(AbilityScoreRoller)) 
             {
                 this.AbilityScoreRoller = typeof(SilverNeedle.Actions.CharacterGeneration.Abilities.AverageAbilityScoreGenerator).FullName;
@@ -111,7 +113,6 @@ namespace SilverNeedle.Characters
             BuildAbilityTable(FavoredAbilities, abilities);
 
             BuildAlignmentTable();
-            Designer = data.GetStringOptional("designer");
         }
 
         private void BuildWeightedTable(WeightedOptionTable<string> tableToBuild, IEnumerable<IObjectStore> nodes)

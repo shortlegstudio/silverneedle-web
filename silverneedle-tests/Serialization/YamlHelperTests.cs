@@ -28,7 +28,7 @@ namespace Tests.Serialization
             listOfObject[1].SetValue("name", "Test 2");
             yamlStore.SetValue("list-of-objects", listOfObject);
 
-            var yamlOutput = yamlStore.Serialize();
+            var yamlOutput = yamlStore.WriteToString();
             var expectedYaml =@"name: A Name
 number: 2383
 list-of-values:

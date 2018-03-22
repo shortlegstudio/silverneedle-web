@@ -26,7 +26,7 @@ namespace SilverNeedle.Serialization
             return new YamlObjectStore(yaml.Documents[0].RootNode);
         }
 
-        public static string Serialize(this YamlObjectStore yaml)
+        public static string WriteToString(this YamlObjectStore yaml)
         {
             var doc = new YamlDotNet.RepresentationModel.YamlDocument(yaml.MappingNode);
             var sb = new System.Text.StringBuilder();

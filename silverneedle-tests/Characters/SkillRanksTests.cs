@@ -116,13 +116,6 @@ namespace Tests.Characters
         }
 
         [Fact]
-        public void SkillPointsPerLevelIsBasedOnIntelligence() {
-            _abilityScores.SetScore(AbilityScoreTypes.Intelligence, 16);
-            Assert.Equal(3, Subject.BonusSkillPointsPerLevel());
-        
-        }
-
-        [Fact]
         public void ReturnIntMinimumIfTheSkillIsNotFound()
         {
             var value = Subject.GetScore("Rippadiddledoo");
@@ -156,7 +149,6 @@ namespace Tests.Characters
         public void ProvidesAccessToTheStatisticsItProvides()
         {
             var stats = Subject.Statistics.Select(x => x.Name);
-            Assert.Contains(StatNames.SkillPoints, stats);
             Assert.Contains(StatNames.ArmorCheckPenalty, stats);
         }
 

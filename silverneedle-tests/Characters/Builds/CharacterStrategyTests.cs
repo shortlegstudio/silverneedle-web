@@ -168,6 +168,16 @@ namespace Tests.Characters
             Assert.Contains("value-2", strat.GetOptions<string>("table"));
         }
 
+        [Fact]
+        public void CanSerializeAndDeserializeTheCharacterStrategy()
+        {
+            var archer = strategies.Find("archer");
+            var saved = new YamlObjectStore();
+            saved.Serialize(archer);
+            var loaded = new CharacterStrategy(saved);
+            Assert.Equal(archer.Name, loaded.Name);
+        }
+
         private const string CharacterBuildYaml = @"--- 
 - build:
   name: Archer

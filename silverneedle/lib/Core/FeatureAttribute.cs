@@ -11,12 +11,13 @@ namespace SilverNeedle
 
     public class FeatureAttribute : IComponent, IFeatureAttribute
     {
+        [ObjectStore("name")]
         public virtual string Name { get; protected set; }
         private IEnumerable<IObjectStore> Items { get; set; }
         private IEnumerable<IObjectStore> Commands { get; set; }
         public FeatureAttribute(IObjectStore configuration)
         {
-            this.Name = configuration.GetString("name");
+            configuration.Deserialize(this);
             this.Items = configuration.GetObjectListOptional("items").Default(new List<IObjectStore>());
             this.Commands = configuration.GetObjectListOptional("commands").Default(new List<IObjectStore>());
         }

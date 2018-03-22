@@ -29,8 +29,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
         [Fact]
         public void ChoosesAFamiliarForTheCharacter()
         {
-            var character = new CharacterSheet(CharacterStrategy.Default());
-            character.InitializeComponents();
+            var character = CharacterTestTemplates.AverageBob();
             subject.ExecuteStep(character);
 
             var summon = character.Abilities.First() as SummonFamiliar;
@@ -41,7 +40,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
         public void SummonFamiliarModifiesTheCharacterStats()
         {
             bat.Modifiers.Add(new ValueStatModifier("Perception", 5, "bonus"));
-            var character = new CharacterSheet(CharacterStrategy.Default());
+            var character = CharacterTestTemplates.AverageBob();
             character.SkillRanks.AddSkill(new Skill("Perception", AbilityScoreTypes.Wisdom, false));
             var baseValue = character.SkillRanks.GetScore("Perception");
             subject.ExecuteStep(character);

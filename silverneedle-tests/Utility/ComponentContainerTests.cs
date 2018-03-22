@@ -7,6 +7,7 @@ namespace Tests.Utility
 {
     using Xunit;
     using SilverNeedle;
+    using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
     
     public class ComponentContainerTests
@@ -70,11 +71,25 @@ namespace Tests.Utility
 
         }
 
+        [Fact]
+        public void CanSerializeOutTheEntitiesInTheContainerAndReloadThem()
+        {
+            var container = new ComponentContainer();
+            container.Add(new CustomStatType("Foo"));
+            container.Add(new CustomStatType("Bar"));
+            var storage = new YamlObjectStore();
+            storage.Serialize(container);
+            var newContainer = new ComponentContainer();
+            storage.Deserialize(newContainer);
+            Assert.NotNull(newContainer.FindStat("Foo"));
+            Assert.NotNull(newContainer.FindStat("Bar"));
+        }
     }
 
     public class CustomStatType : BasicStat
     {
         public CustomStatType(string name) : base(name) { }
+        public CustomStatType(IObjectStore configure) : base(configure) { }
     }
 
     public class AddToContainerTest

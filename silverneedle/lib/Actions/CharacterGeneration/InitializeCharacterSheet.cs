@@ -24,9 +24,9 @@ namespace SilverNeedle.Actions.CharacterGeneration
         public void ExecuteStep(CharacterSheet character)
         {
             var configure = setups.Find("default");
-            character.Add(configure);
-            character.SkillRanks.FillSkills(skills.All());
+            character.Components.AddNoInitialize(new object[] { configure });
             character.InitializeComponents();
+            character.SkillRanks.FillSkills(skills.All());
         }
     }
 }

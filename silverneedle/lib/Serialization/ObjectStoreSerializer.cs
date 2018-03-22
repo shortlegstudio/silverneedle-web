@@ -13,6 +13,7 @@ namespace SilverNeedle.Serialization
     using SilverNeedle.Utility;
     public static class ObjectStoreSerializer
     {
+        public const string SERIALIZED_TYPE_KEY = "serialized-type";
         public static T Deserialize<T>(this IObjectStore data, T result)
         {
             var typeInfo = typeof(T);
@@ -86,9 +87,26 @@ namespace SilverNeedle.Serialization
                     case "spelltype":
                         propertyValue = data.GetEnum<Spells.SpellType>(keyName);
                         break;
+                    case "object[]":
+                        var objectList = data.GetObjectList(keyName);
+                        var newList = new List<object>();
+                        foreach(var o in objectList)
+                        {
+                            var instance = o.GetString(SERIALIZED_TYPE_KEY).Instantiate<object>(o);
+                            newList.Add(instance);
+                        }
+                        propertyValue = newList.ToArray();
+                        break;
                     default:
                         ShortLog.DebugFormat("Attempting to deserialize: {0}", propType);
-                        propertyValue = prop.PropertyType.Instantiate<object>(data.GetObject(keyName));
+                        if(prop.PropertyType.IsEnum)
+                        {
+                            propertyValue = System.Enum.Parse(prop.PropertyType, data.GetString(keyName), true);
+                        }
+                        else
+                        {
+                            propertyValue = DeserializeObject(data, keyName, attribute.Optional, prop.PropertyType);
+                        }
                         break;
                 }
                 prop.SetValue(result, propertyValue);
@@ -97,14 +115,30 @@ namespace SilverNeedle.Serialization
             return result;
         }
 
-        public static void Serialize<T>(this IObjectStore storage, T val)
+        private static object DeserializeObject(IObjectStore configuration, string keyName, bool optional, System.Type objectType)
+        {
+            if(optional)
+            {
+                var objInfo = configuration.GetObjectOptional(keyName);
+                if(objInfo != null)
+                    return objectType.Instantiate<object>(objInfo);
+            }
+            else
+            {
+                return objectType.Instantiate<object>(configuration.GetObject(keyName));
+            }
+            return null;
+        }
+
+        public static void Serialize(this IObjectStore storage, object val)
         {
             var yamlStore = storage as YamlObjectStore;
             if(yamlStore == null)
                 throw new System.NotImplementedException("Only YamlStore supported for serializing");
 
-            var typeInfo = typeof(T);
+            var typeInfo = val.GetType();
             var properties = typeInfo.GetProperties();
+            yamlStore.SetValue(SERIALIZED_TYPE_KEY, typeInfo.FullName);
             foreach(var prop in properties)
             {
                 var attribute = prop.GetCustomAttribute<ObjectStoreAttribute>();
@@ -115,6 +149,7 @@ namespace SilverNeedle.Serialization
                 var propertyValue = prop.GetValue(val);
                 if(propertyValue == null)
                     continue;
+
                 switch(propType)
                 {
                     case "boolean":
@@ -137,16 +172,34 @@ namespace SilverNeedle.Serialization
                         yamlStore.SetValue(attribute.PropertyName, (string[])propertyValue);
                         break;
 
-                    case "cup":
-                        var newStore = new YamlObjectStore();
-                        newStore.Serialize(propertyValue);
-
-                        yamlStore.SetValue(attribute.PropertyName, newStore);
+                    case "object[]":
+                        var objectArray = (object[])propertyValue;
+                        var store = new List<YamlObjectStore>();
+                        foreach(var o in objectArray)
+                        {
+                            var s = new YamlObjectStore();
+                            s.Serialize(o);
+                            store.Add(s);
+                        }
+                        yamlStore.SetValue(attribute.PropertyName, store);
                         break;
 
+                    case "cup":
+                    default:
+                        if(prop.PropertyType.IsEnum)
+                        {
+                            yamlStore.SetValue(attribute.PropertyName, propertyValue.ToString());
+                        }
+                        else
+                        {
+                            ShortLog.DebugFormat("Attempting to serialize: {0} {1}", attribute.PropertyName, prop.PropertyType);
+                            var newStore = new YamlObjectStore();
+                            newStore.Serialize(propertyValue);
+                            yamlStore.SetValue(attribute.PropertyName, newStore);
+                        }
+                        break;
                 }
             }
-                    
         }
     }
 }

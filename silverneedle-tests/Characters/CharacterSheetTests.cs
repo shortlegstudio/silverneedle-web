@@ -13,10 +13,11 @@ namespace Tests.Characters
     using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle;
     using SilverNeedle.Equipment;
+    using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
     
-    public class CharacterSheetTests
+    public class CharacterSheetTests : RequiresDataFiles
     {
         List<Skill> _testSkills;
 
@@ -31,7 +32,7 @@ namespace Tests.Characters
         [Fact]
         public void CalculatesSkillPointsBasedOnClassAndIntelligence()
         {
-            var sheet = new CharacterSheet(CharacterStrategy.Default());
+            var sheet = CharacterTestTemplates.AverageBob().FullInitialize();
             var fighter = Class.CreateForTesting();
             fighter.SkillPoints = 2;
             sheet.AbilityScores.SetScore(AbilityScoreTypes.Intelligence, 14);
@@ -115,6 +116,26 @@ namespace Tests.Characters
 
         }
 
+        [Fact]
+        public void CanSaveAndLoadCharacterSheets()
+        {
+            var bob = CharacterTestTemplates.AverageBob();
+            YamlObjectStore store = new YamlObjectStore();
+            bob.Alignment = CharacterAlignment.ChaoticEvil;
+            bob.Gender = Gender.Male;
+            bob.Save(store);
+
+            var yaml = store.WriteToString();
+            var loaded = yaml.ParseYaml();
+
+            var bob2 = CharacterSheet.Load(loaded);
+            Assert.Equal(bob.Name, bob2.Name);
+            Assert.Equal(CharacterAlignment.ChaoticEvil, bob2.Alignment);
+            Assert.Equal(Gender.Male, bob2.Gender);
+            Assert.NotNull(bob2.Offense);
+        }
+
+        [Fact]
         public void HasAGroupOfRequiredStandardComponentsAdded()
         {
             var character = new CharacterSheet(CharacterStrategy.Default());

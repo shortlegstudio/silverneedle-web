@@ -337,5 +337,6 @@ namespace SilverNeedle.Serialization
         }
 
         public YamlMappingNode MappingNode { get { return this.mappingNode; } }
+
     }
 }

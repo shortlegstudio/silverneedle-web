@@ -30,7 +30,7 @@ namespace Tests.Actions.CharacterGeneration.CustomClassSteps
                 new Skill("Skill 11", AbilityScoreTypes.Strength, false),
                 new Skill("Skill 12", AbilityScoreTypes.Strength, false)
             };
-            var character = new CharacterSheet(CharacterStrategy.Default());
+            var character = CharacterTestTemplates.AverageBob();
             character.SkillRanks.FillSkills(skills);
 
             var subject = new ExpertCustomSteps();

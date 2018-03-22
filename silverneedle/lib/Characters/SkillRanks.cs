@@ -21,7 +21,6 @@ namespace SilverNeedle.Characters
             { 
                 var statistics = new List<IValueStatistic>();
                 statistics.Add(this.skills.Values);
-                statistics.Add(BonusSkillPoints);
                 statistics.Add(ArmorCheckPenalty);
                 return statistics;
             } 
@@ -32,12 +31,10 @@ namespace SilverNeedle.Characters
         private IDictionary<string, CharacterSkill> skills;
         private AbilityScores abilityScores;
 
-        private BasicStat BonusSkillPoints = new BasicStat(StatNames.SkillPoints);
-
         public BasicStat ArmorCheckPenalty { get; private set; }
 
 
-        protected SkillRanks()
+        public SkillRanks()
         {
             ArmorCheckPenalty = new BasicStat(StatNames.ArmorCheckPenalty);
             ArmorCheckPenalty.Maximum = 0;
@@ -49,15 +46,10 @@ namespace SilverNeedle.Characters
         /// </summary>
         /// <param name="skillList">Skills available</param>
         /// <param name="scores">Ability scores for a baseline.</param>
-        public SkillRanks(IEnumerable<Skill> skillList, AbilityScores scores) : this(scores)
-        {
-            this.FillSkills(skillList);
-        }
-
-        public SkillRanks(AbilityScores scores) : this()
+        public SkillRanks(IEnumerable<Skill> skillList, AbilityScores scores) : this()
         {
             this.abilityScores = scores;
-            this.BonusSkillPoints.AddModifier(new AbilityStatModifier(scores.GetAbility(AbilityScoreTypes.Intelligence)));
+            this.FillSkills(skillList);
         }
 
         /// <summary>
@@ -124,9 +116,6 @@ namespace SilverNeedle.Characters
                     ShortLog.DebugFormat("Modifying Skill ({0}) by {1}", a.StatisticName, a.Modifier.ToString());
                     sk.AddModifier(a);
                 }
-                else if(a.StatisticName == "Skill Points") {
-                    BonusSkillPoints.AddModifier(a);
-                }
             }
         }
 
@@ -153,11 +142,6 @@ namespace SilverNeedle.Characters
         public IEnumerable<CharacterSkill> GetClassSkills()
         {
             return this.skills.Values.Where(x => x.ClassSkill);
-        }
-
-        public int BonusSkillPointsPerLevel() 
-        {
-            return BonusSkillPoints.TotalValue;
         }
 
         /// <summary>
@@ -190,6 +174,7 @@ namespace SilverNeedle.Characters
 
         public void Initialize(ComponentContainer components)
         {
+            abilityScores = components.Get<AbilityScores>();
             ArmorCheckPenalty.AddModifier(new EquippedArmorCheckPenaltyModifier(components));
             var armorCheckSkills = GetSkills().Where(x => x.Skill.UseArmorCheckPenalty);
             foreach(var skl in armorCheckSkills)

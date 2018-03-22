@@ -11,6 +11,26 @@
         - type: SilverNeedle.BasicStat
           name: Hit Points
           base-value: 0
+    - attribute:
+      name: Skills
+      items:
+        - type: SilverNeedle.BasicStat
+          name: Skill Points
+          base-value: 0
+        - type: SilverNeedle.StatisticStatModifier
+          name: Skill Points
+          modifier: intelligence-modifier
+          modifier-type: base-value
+    - attribute:
+      name: Initiative
+      items:
+        - type: SilverNeedle.BasicStat
+          name: Initiative
+          base-value: 0
+        - type: SilverNeedle.StatisticStatModifier
+          name: Initiative
+          modifier: dexterity-modifier
+          modifier-type: base-value
     - attribute: 
       name: Offense Statistics
       items:

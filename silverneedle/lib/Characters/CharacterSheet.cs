@@ -13,6 +13,7 @@ namespace SilverNeedle.Characters
     using SilverNeedle.Characters.Background;
     using SilverNeedle.Characters.Magic;
     using SilverNeedle.Characters.Personalities;
+    using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
     
@@ -22,6 +23,7 @@ namespace SilverNeedle.Characters
     /// <remarks>This should only delegate to proper objects to perform actions. There should not be specific rule logic here</remarks>
     public class CharacterSheet 
     {
+        private CharacterSheet() { }
         public CharacterSheet(CharacterStrategy strategy) 
         {
             this.Components = new ComponentContainer();
@@ -31,7 +33,6 @@ namespace SilverNeedle.Characters
                 abilityScores,
                 new SizeStats(),
                 new Inventory(),
-                new List<Language>(),
                 new History(),
                 new OffenseStats(),
                 new MeleeAttackBonus(),
@@ -39,9 +40,7 @@ namespace SilverNeedle.Characters
                 new DefenseStats(), 
                 new MovementStats(),
                 new CharacterAppearance(),
-                new SkillRanks(abilityScores),
-                new Initiative(abilityScores),
-                new PersonalityType("ESTJ"),
+                new SkillRanks(),
                 new Likes()
             });
         }
@@ -57,38 +56,28 @@ namespace SilverNeedle.Characters
             this.SkillRanks.ProcessModifier(this.Size);
         }
 
-        /// <summary>
-        /// Occurs when modified.
-        /// </summary>
-
+        [ObjectStoreOptional("components")]
         public ComponentContainer Components { get; private set; }
 
         public CharacterStrategy Strategy { get { return this.Get<CharacterStrategy>(); } }
 
-        /// <summary>
-        /// Gets or sets the name.
-        /// </summary>
-        /// <value>The name of the character.</value>
+        [ObjectStoreOptional("first-name")]
         public string FirstName { get; set; }
+        [ObjectStoreOptional("last-name")]
         public string LastName { get; set; }
         public string Name { get { return string.Format("{0} {1}", FirstName, LastName).Trim(); } }
 
+        [ObjectStoreOptional("age")]
         public int Age { get; set; }
 
-        /// <summary>
-        /// Gets or sets the alignment.
-        /// </summary>
-        /// <value>The character's alignment.</value>
+        [ObjectStoreOptional("alignment")]
         public CharacterAlignment Alignment 
         {
             get { return Get<CharacterAlignment>(); }
             set { Replace<CharacterAlignment>(value); }
         }
 
-        /// <summary>
-        /// Gets or sets the gender.
-        /// </summary>
-        /// <value>The character's gender.</value>
+        [ObjectStoreOptional("gender")]
         public Gender Gender { get; set; }
 
         public PersonalityType PersonalityType { 
@@ -181,7 +170,7 @@ namespace SilverNeedle.Characters
         /// Gets the initiative modifier.
         /// </summary>
         /// <value>The characters initiative modifier.</value>
-        public Initiative Initiative { get { return this.Get<Initiative>(); } }
+        public IValueStatistic Initiative { get { return Components.FindStat<IValueStatistic>("initiative"); } }
 
         /// <summary>
         /// Gets the inventory.
@@ -257,7 +246,7 @@ namespace SilverNeedle.Characters
         /// <returns>The skill points per level.</returns>
         public int GetSkillPointsPerLevel()
         {
-            return Class.SkillPoints + SkillRanks.BonusSkillPointsPerLevel();
+            return Class.SkillPoints + Components.FindStat<IValueStatistic>(StatNames.SkillPoints).TotalValue;
         }
 
         private void InitializeComponent(object obj)
@@ -312,6 +301,7 @@ namespace SilverNeedle.Characters
 
         public IEnumerable<T> GetAll<T>()
         {
+            //TODO: This seems fishy to ToList and return IEnumerable
             return this.Components.GetAll<T>().ToList();
         }
 
@@ -340,6 +330,18 @@ namespace SilverNeedle.Characters
             var list = this.GetAll<T>();
             this.Components.Remove<T>();
             return list;
+        }
+
+        public void Save(IObjectStore objectStore)
+        {
+            objectStore.Serialize(this);
+        }
+
+        public static CharacterSheet Load(IObjectStore objectStore)
+        {
+            var sheet = new CharacterSheet();
+            objectStore.Deserialize(sheet);
+            return sheet;
         }
     }
 }

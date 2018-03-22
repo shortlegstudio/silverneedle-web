@@ -7,6 +7,7 @@ namespace Tests.Serialization
 {
     using Xunit;
     using SilverNeedle.Serialization;
+    using SilverNeedle.Utility;
 
     public class ObjectStoreSerializerTests
     {
@@ -46,6 +47,8 @@ namespace Tests.Serialization
 
             yamlStore.Serialize(obj);
 
+            Assert.Equal("Tests.Serialization.ObjectStoreSerializerTests+TestSimpleObject", yamlStore.GetString("serialized-type"));
+
             Assert.Equal("Foo", yamlStore.GetString("name"));
             Assert.Equal(39, yamlStore.GetInteger("number"));
             Assert.Equal(2019.24f, yamlStore.GetFloat("float"));
@@ -75,6 +78,9 @@ namespace Tests.Serialization
 
             [ObjectStore("dice")]
             public SilverNeedle.Dice.Cup DiceValues { get; set; }
+
+            [ObjectStoreOptional("components")]
+            public ComponentContainer components { get; set; }
 
             public string IgnoreMe { get; set; }
 

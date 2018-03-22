@@ -14,13 +14,12 @@ namespace SilverNeedle.Characters.SpecialAbilities
         public void Initialize(ComponentContainer components)
         {
             sourceLevel = components.Get<ClassLevel>();
-            var init = components.Get<Initiative>();
             initModifier = new DelegateStatModifier(
-                init.Name, 
+                "initiative",
                 "bonus", 
                 () => { return (sourceLevel.Level/2).AtLeast(1); 
             });
-            init.AddModifier(initModifier);
+            components.Add(initModifier);
         }
     }
 }

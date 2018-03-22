@@ -13,7 +13,7 @@ namespace Tests.Characters.SpecialAbilities
         [Fact]
         public void ProvidesABonusToInitiative()
         {
-            var character = CharacterTestTemplates.Wizard();
+            var character = CharacterTestTemplates.Wizard().FullInitialize();
             var forewarned = new Forewarned();
             character.Add(forewarned);
             Assert.Equal(1, character.Initiative.TotalValue);

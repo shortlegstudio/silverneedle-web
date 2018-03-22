@@ -41,6 +41,10 @@ namespace silverneedleweb.Controllers
             ViewData["strategy"] = strategy;
             ViewData["scores"] = scores;
             ViewData["level"] = level;
+
+            var saveObj = new YamlObjectStore();
+            character.Save(saveObj);
+            ViewData["save-data"] = saveObj.WriteToString();
             return View();
         }
 

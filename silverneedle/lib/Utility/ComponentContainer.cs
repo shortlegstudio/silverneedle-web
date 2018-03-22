@@ -9,17 +9,30 @@ namespace SilverNeedle.Utility
     using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
+    using SilverNeedle.Serialization;
 
     public class ComponentContainer
     {
-        public IList<object> All { get { return this.components; } }
-
-        private List<object> components;
-
-        public ComponentContainer()
-        {
-            components = new List<object>();
+        public IEnumerable<object> All 
+        { 
+            get { return this.components; } 
         }
+
+        [ObjectStoreOptional("component-store")]
+        public object[] BackingDataStore 
+        { 
+            get { return components.ToArray(); } 
+            private set { components.AddRange(value); }
+        }
+
+        private List<object> components = new List<object>();
+
+        public ComponentContainer(IObjectStore configuration)
+        {
+            configuration.Deserialize(this);
+        }
+
+        public ComponentContainer() { }
 
         public void Add(object obj)
         {
