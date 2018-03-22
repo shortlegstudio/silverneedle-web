@@ -44,15 +44,27 @@ namespace SilverNeedle.Dice
              this.ParseDice(configuration.GetString("dice"));
         }
 
+        [ObjectStoreOptional("name")]
         public string Name { get; private set; }
 
-        //TODO: Should be IEnumerable?
         public List<Die> Dice { get; private set; }
 
         public int Modifier { get; set; }
+
+        [ObjectStoreOptional("maximize-amount")]
         public bool MaximizeAmount { get; set; }
 
         public int Count { get { return Dice.Count; } }
+
+        [ObjectStore("dice-value")]
+        public string DiceString
+        {
+            get { return this.ToString(); }
+            set 
+            {
+                this.ParseDice(value);
+            }
+        }
 
         public void AddDie(Die die)
         {
