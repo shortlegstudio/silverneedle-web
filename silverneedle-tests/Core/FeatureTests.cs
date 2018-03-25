@@ -18,6 +18,7 @@ namespace Tests.Core
         {
             var character = CharacterTestTemplates.AverageBob();
             var yaml = @"---
+name: Feature
 attributes:
   - attribute: 
     name: Test Attr
@@ -35,6 +36,7 @@ attributes:
         public void IfFeatureHasNoAttributesJustLoadEmpty()
         {
             var store = new MemoryStore();
+            store.SetValue("name", "Some Name");
             var feature = new Feature(store);
             Assert.Empty(feature.Attributes);
         }
@@ -48,5 +50,32 @@ attributes:
             }
         }
 
+        [Fact]
+        public void RunsAnyCommandsThatMightBeSetToTheAttribute()
+        {
+            var yaml = @"---
+name: Test Commands
+commands: 
+  - command: Tests.Core.FeatureTests+TestCommand
+    extra-data: I RAN";
+
+            var attr = new Feature(yaml.ParseYaml());
+            var character = CharacterTestTemplates.AverageBob();
+            character.Add(attr);
+            Assert.Equal("I RAN", character.Get<string>());
+        }
+
+        public class TestCommand : IFeatureCommand
+        {
+            string name;
+            public TestCommand(IObjectStore configuration)
+            {
+                name = configuration.GetString("extra-data");
+            }
+            public void Execute(SilverNeedle.Utility.ComponentContainer character)
+            {
+                character.Add(name);
+            }
+        }
     }
 }

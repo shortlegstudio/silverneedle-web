@@ -82,12 +82,11 @@ namespace Tests.Characters
             Assert.Equal(25, halfling.BaseMovementSpeed);
         }
 
-        [Fact]
         public void HasAttributesLoadedThatSpecifySpecialAbilities()
         {
-            AssertExtensions.Contains("Darkvision",
-                dwarf.Attributes.Select(x => x.Name)
-            );
+            var c = CharacterTestTemplates.AverageBob();
+            c.Add(dwarf);
+            AssertCharacter.ContainsFeature("Darkvision", c);
         }
 
         private const string RaceYamlFile = @"--- 

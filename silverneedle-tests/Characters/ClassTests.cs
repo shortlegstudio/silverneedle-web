@@ -174,8 +174,11 @@ namespace Tests.Characters {
           skills: [Climb, Swim, Craft, Profession]
   levels:
     - level: 1      
+      name: l1
     - level: 2
+      name: l2
     - level: 3
+      name: l3
 - class: 
   name: Monk
   skillpoints: 4
@@ -195,10 +198,15 @@ namespace Tests.Characters {
           skills: [Acrobatics, Climb, Craft, Perform, Profession]
   levels:
     - level: 1      
+      name: l1
     - level: 2
+      name: l2
     - level: 3
+      name: l3
     - level: 4
+      name: l4
     - level: 5
+      name: l5
 - class: 
   name: Wizard
   skillpoints: 4
@@ -216,9 +224,13 @@ namespace Tests.Characters {
           skills: [Craft,  Profession, Knowledge Arcana, Spellcraft]
   levels:
     - level: 1      
+      name: l1
     - level: 2
+      name: l2
     - level: 3
+      name: l3
     - level: 4
+      name: l4
 ...";
     }
 }

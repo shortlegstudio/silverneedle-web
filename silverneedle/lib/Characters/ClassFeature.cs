@@ -6,7 +6,7 @@
 namespace SilverNeedle.Characters
 {
     using SilverNeedle.Serialization;
-    public class ClassFeature : FeatureAttribute
+    public class ClassFeature : Feature
     {
         public ClassFeature(IObjectStore configuration) : base(configuration)
         {

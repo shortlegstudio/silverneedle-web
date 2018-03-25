@@ -8,7 +8,6 @@ namespace SilverNeedle.Characters
     using SilverNeedle.Serialization;
     public class CharacterSheetSetup : Feature, IGatewayObject
     {
-        public string Name { get; private set; }
         public CharacterSheetSetup(IObjectStore configuration) : base(configuration)
         {
             this.Name = configuration.GetString("name");

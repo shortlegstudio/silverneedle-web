@@ -40,6 +40,7 @@
               weight: 10
   levels:
     - level: 1
+      name: Fighter 1
       attributes: 
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Bonus Feat
@@ -47,6 +48,7 @@
             - type: SilverNeedle.Characters.FeatToken
               tags: [combat]
     - level: 2
+      name: Fighter 2
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Bravery 
@@ -65,6 +67,7 @@
             - type: SilverNeedle.Characters.FeatToken
               tags: [combat]
     - level: 3
+      name: Fighter 3
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Armor Training 1
@@ -73,6 +76,7 @@
               name: Armor Training
               base-value: 1
     - level: 4
+      name: Fighter 4
       attributes: 
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Bonus Feat
@@ -80,6 +84,7 @@
             - type: SilverNeedle.Characters.FeatToken
               tags: [combat]
     - level: 5
+      name: Fighter 5
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Weapon Training 1
@@ -88,6 +93,7 @@
               name: Weapon Training
               base-value: 1
     - level: 6
+      name: Fighter 6
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Bravery +2
@@ -102,6 +108,7 @@
             - type: SilverNeedle.Characters.FeatToken
               tags: [combat]
     - level: 7
+      name: Fighter 7
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Armor Training 2
@@ -111,6 +118,7 @@
               modifier: 1
               modifier-type: level-up
     - level: 8
+      name: Fighter 8
       attributes: 
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Bonus Feat
@@ -118,6 +126,7 @@
             - type: SilverNeedle.Characters.FeatToken
               tags: [combat]
     - level: 9
+      name: Fighter 9
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Weapon Training 2
@@ -130,6 +139,7 @@
               name: Weapon Training
               base-value: 1
     - level: 10
+      name: Fighter 10
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Bravery +3
@@ -144,6 +154,7 @@
             - type: SilverNeedle.Characters.FeatToken
               tags: [combat]
     - level: 11
+      name: Fighter 11
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Armor Training 3
@@ -153,6 +164,7 @@
               modifier: 1
               modifier-type: level-up
     - level: 12
+      name: Fighter 12
       attributes: 
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Bonus Feat
@@ -160,6 +172,7 @@
             - type: SilverNeedle.Characters.FeatToken
               tags: [combat]
     - level: 13
+      name: Fighter 13
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Weapon Training 3
@@ -172,6 +185,7 @@
               name: Weapon Training
               base-value: 1
     - level: 14
+      name: Fighter 14
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Bravery +4
@@ -186,6 +200,7 @@
             - type: SilverNeedle.Characters.FeatToken
               tags: [combat]
     - level: 15
+      name: Fighter 15
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Armor Training 4
@@ -195,6 +210,7 @@
               modifier: 1
               modifier-type: level-up
     - level: 16
+      name: Fighter 16
       attributes: 
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Bonus Feat
@@ -202,6 +218,7 @@
             - type: SilverNeedle.Characters.FeatToken
               tags: [combat]
     - level: 17
+      name: Fighter 17
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Weapon Training 4
@@ -214,6 +231,7 @@
               name: Weapon Training
               base-value: 1
     - level: 18
+      name: Fighter 18
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Bravery +5
@@ -228,6 +246,7 @@
             - type: SilverNeedle.Characters.FeatToken
               tags: [combat]
     - level: 19
+      name: Fighter 19
       attributes: 
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Armor Mastery
@@ -237,6 +256,7 @@
               base-value: 5
               bypass-type: "-"
     - level: 20
+      name: Fighter 20
       attributes: 
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Bonus Feat

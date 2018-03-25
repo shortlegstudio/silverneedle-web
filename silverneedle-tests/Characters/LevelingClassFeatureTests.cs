@@ -20,18 +20,20 @@ namespace Tests.Characters
 name: Feature
 levels:
   - level: 1
+    name: l1
     attributes:
       - attribute:
         name: Some attribute
   - level: 2
+    name: l2
     attributes:
       - attribute:
         name: Not There";
             var feature = new LevelingClassFeature(yaml.ParseYaml());
             var character = CharacterTestTemplates.Cleric();
             character.Add(feature);
-            Assert.NotNull(character.Components.GetAll<FeatureAttribute>().First(x => x.Name == "Some attribute"));
-            Assert.Null(character.Components.GetAll<FeatureAttribute>().FirstOrDefault(x => x.Name == "Not There"));
+            Assert.NotNull(character.Components.GetAll<Feature>().First(x => x.Name == "Some attribute"));
+            Assert.Null(character.Components.GetAll<Feature>().FirstOrDefault(x => x.Name == "Not There"));
         }
 
     }

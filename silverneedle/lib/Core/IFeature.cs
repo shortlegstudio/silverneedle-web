@@ -6,9 +6,10 @@
 namespace SilverNeedle
 {
     using System.Collections.Generic;
+    using SilverNeedle.Serialization;
 
     public interface IFeature
     {
-        IEnumerable<IFeatureAttribute> Attributes { get; }
+        string Name { get; }
     }
 }

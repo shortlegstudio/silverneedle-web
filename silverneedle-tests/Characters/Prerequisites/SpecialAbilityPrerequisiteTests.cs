@@ -22,7 +22,7 @@ namespace Tests.Characters.Prerequisites
             var special = new SpecialAbilityPrerequisite("Darkvision");
             var c = CharacterTestTemplates.AverageBob();
             Assert.False(special.IsQualified(c.Components));
-            var mock = new Mock<IFeatureAttribute>();
+            var mock = new Mock<IFeature>();
             mock.SetupGet(x => x.Name).Returns("Darkvision");
             c.Add(mock.Object);
             Assert.True(special.IsQualified(c.Components));

@@ -32,12 +32,6 @@ namespace SilverNeedle.Characters
         }
 
         /// <summary>
-        /// Gets or sets the name of the race
-        /// </summary>
-        /// <value>The name.</value>
-        public string Name { get; set; }
-
-        /// <summary>
         /// Gets the known languages that a character of this race will always know
         /// </summary>
         /// <value>The known languages.</value>

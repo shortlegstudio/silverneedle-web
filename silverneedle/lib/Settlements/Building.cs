@@ -9,9 +9,6 @@ namespace SilverNeedle.Settlements
 
     public class Building : Feature, IGatewayObject
     {
-        [ObjectStore("name")]
-        public string Name { get; private set; }
-
         public Building(IObjectStore configuration) : base(configuration)
         {
             configuration.Deserialize(this);

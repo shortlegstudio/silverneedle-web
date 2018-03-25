@@ -39,6 +39,7 @@
               weight: 10
   levels:
     - level: 1
+      name: Ranger 1
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Track
@@ -66,6 +67,7 @@
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectFavoredEnemy
     - level: 2
+      name: Ranger 2
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Combat Style
@@ -73,6 +75,7 @@
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectCombatStyle
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectCombatStyleFeat
     - level: 3
+      name: Ranger 3
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Endurance
@@ -84,6 +87,7 @@
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectFavoredTerrain
     - level: 4
+      name: Ranger 4
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting
@@ -131,6 +135,7 @@
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureHuntersBond
               bonds: [companions, badger, bird, cat, camel, dire rat, dog, horse, pony, snake, wolf]
     - level: 5
+      name: Ranger 5
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Favored Enemy
@@ -138,18 +143,21 @@
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectFavoredEnemy
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpgradeFavoredEnemy
     - level: 6
+      name: Ranger 6
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Combat Style Feat (6)
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectCombatStyleFeat
     - level: 7
+      name: Ranger 7
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Woodland Stride
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.WoodlandStride
     - level: 8
+      name: Ranger 8
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Swift Tracker
@@ -161,12 +169,14 @@
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectFavoredTerrain
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpgradeFavoredTerrain
     - level: 9
+      name: Ranger 9
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Evasion
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.Evasion
     - level: 10
+      name: Ranger 10
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Favored Enemy
@@ -178,18 +188,21 @@
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectCombatStyleFeat
     - level: 11
+      name: Ranger 11
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Quarry
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.Quarry
     - level: 12
+      name: Ranger 12
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Camouflage
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.Camouflage
     - level: 13
+      name: Ranger 13
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Favored Terrain (13)
@@ -197,12 +210,14 @@
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectFavoredTerrain
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpgradeFavoredTerrain
     - level: 14
+      name: Ranger 14
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Combat Style Feat (6)
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectCombatStyleFeat
     - level: 15
+      name: Ranger 15
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Favored Enemy
@@ -210,18 +225,21 @@
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectFavoredEnemy
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.UpgradeFavoredEnemy
     - level: 16
+      name: Ranger 16
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Improved Evasion
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.ImprovedEvasion
     - level: 17
+      name: Ranger 17
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Hide in Plain Sight
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.HideInPlainSight
     - level: 18
+      name: Ranger 18
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Favored Terrain (18)
@@ -233,12 +251,14 @@
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectCombatStyleFeat
     - level: 19
+      name: Ranger 19
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Improved Quarry
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.ImprovedQuarry
     - level: 20
+      name: Ranger 20
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Master Hunter

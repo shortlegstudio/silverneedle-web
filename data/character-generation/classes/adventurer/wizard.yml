@@ -34,6 +34,7 @@
               weight: 10
   levels:
     - level: 1
+      name: Wizard 1
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Scribe Scroll
@@ -99,6 +100,7 @@
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddBonusLanguages
               languages: [Draconic]
     - level: 2
+      name: Wizard 2
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting (2)
@@ -106,6 +108,7 @@
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
               spells: [0, 2]
     - level: 3
+      name: Wizard 3
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting (3)
@@ -113,6 +116,7 @@
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
               spells: [0, 0, 2]
     - level: 4
+      name: Wizard 4
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting (4)
@@ -120,6 +124,7 @@
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
               spells: [0, 0, 2]
     - level: 5
+      name: Wizard 5
       attributes:
         - attribute:
           name: Wizard Bonus Feats - 5
@@ -132,6 +137,7 @@
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
               spells: [0, 0, 0, 2]
     - level: 6
+      name: Wizard 6
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting (6)
@@ -139,6 +145,7 @@
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
               spells: [0, 0, 0, 2]
     - level: 7
+      name: Wizard 7
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting (7)
@@ -146,6 +153,7 @@
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
               spells: [0, 0, 0, 0, 2]
     - level: 8
+      name: Wizard 8
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting (8)
@@ -153,6 +161,7 @@
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
               spells: [0, 0, 0, 0, 2]
     - level: 9
+      name: Wizard 9
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting (9)
@@ -160,6 +169,7 @@
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
               spells: [0, 0, 0, 0, 0, 2]
     - level: 10
+      name: Wizard 10
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting (10)
@@ -172,6 +182,7 @@
             - type: SilverNeedle.Characters.FeatToken
               tags: [metamagic, itemcreation, Spell Mastery]
     - level: 11
+      name: Wizard 11
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting (11)
@@ -179,6 +190,7 @@
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
               spells: [0, 0, 0, 0, 0, 0, 2]
     - level: 12
+      name: Wizard 12
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting (12)
@@ -186,6 +198,7 @@
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
               spells: [0, 0, 0, 0, 0, 0, 2]
     - level: 13
+      name: Wizard 13
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting (13)
@@ -193,6 +206,7 @@
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
               spells: [0, 0, 0, 0, 0, 0, 0, 2]
     - level: 14
+      name: Wizard 14
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting (14)
@@ -200,6 +214,7 @@
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
               spells: [0, 0, 0, 0, 0, 0, 0, 2]
     - level: 15
+      name: Wizard 15
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting (15)
@@ -212,6 +227,7 @@
             - type: SilverNeedle.Characters.FeatToken
               tags: [metamagic, itemcreation, Spell Mastery]
     - level: 16
+      name: Wizard 16
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting (16)
@@ -219,6 +235,7 @@
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
               spells: [0, 0, 0, 0, 0, 0, 0, 0, 2]
     - level: 17
+      name: Wizard 17
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting (17)
@@ -226,6 +243,7 @@
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
               spells: [0, 0, 0, 0, 0, 0, 0, 0, 0, 2]
     - level: 18
+      name: Wizard 18
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting (18)
@@ -233,6 +251,7 @@
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
               spells: [0, 0, 0, 0, 0, 0, 1, 0, 0, 1]
     - level: 19
+      name: Wizard 19
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting (19)
@@ -240,6 +259,7 @@
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.AddSpellsToSpellbook
               spells: [0, 0, 0, 0, 0, 0, 0, 1, 0, 1]
     - level: 20
+      name: Wizard 20
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting (20)

@@ -38,6 +38,7 @@
               weight: 30
   levels:
     - level: 1
+      name: Monk 1
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Monk Bonus Feats - Level 1 
@@ -64,6 +65,7 @@
           items:
             - type: SilverNeedle.Characters.Attacks.FlurryOfBlows
     - level: 2
+      name: Monk 2
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Monk Bonus Feats - Level 2
@@ -76,6 +78,7 @@
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.Evasion
     - level: 3
+      name: Monk 3
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Fast Movement
@@ -104,6 +107,7 @@
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.ManeuverTraining
     - level: 4
+      name: Monk 4
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Ki Pool
@@ -126,6 +130,7 @@
             - type: SilverNeedle.Characters.Attacks.KiStrike
               damage-type: magic
     - level: 5
+      name: Monk 5
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: High Jump
@@ -137,6 +142,7 @@
             - type: SilverNeedle.Characters.Immunity
               damage-type: disease
     - level: 6
+      name: Monk 6
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Monk Bonus Feats - Level 6
@@ -146,6 +152,7 @@
                 Gorgon's Fist, Improved Bull Rush, Improved Disarm, Improved Feint, Improved Trip, Mobility ]
               ignore-prerequisites: true
     - level: 7
+      name: Monk 7
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Wholeness of Body
@@ -157,12 +164,14 @@
             - type: SilverNeedle.Characters.Attacks.KiStrike
               damage-type: cold iron/silver
     - level: 9
+      name: Monk 9
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Improved Evasion
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.ImprovedEvasion
     - level: 10
+      name: Monk 10
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Monk Bonus Feats - Level 10
@@ -178,18 +187,21 @@
             - type: SilverNeedle.Characters.Attacks.KiStrike
               damage-type: lawful
     - level: 11
+      name: Monk 11
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Diamond Body
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.DiamondBody
     - level: 12
+      name: Monk 12
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Abundant Step
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.AbundantStep
     - level: 13
+      name: Monk 13
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Diamond Soul
@@ -204,6 +216,7 @@
               rate: 1
               modifier-type: class-feature
     - level: 14
+      name: Monk 14
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Monk Bonus Feats - Level 14
@@ -214,12 +227,14 @@
                 Improved Critical, Medusa's Wrath, Snatch Arrows, Spring Attack]
               ignore-prerequisites: true
     - level: 15
+      name: Monk 15
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Quivering Palm
           items:
             - type: SilverNeedle.Characters.Attacks.QuiveringPalm
     - level: 16
+      name: Monk 16
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Ki Strike (16)
@@ -227,6 +242,7 @@
             - type: SilverNeedle.Characters.Attacks.KiStrike
               damage-type: adamantine
     - level: 17
+      name: Monk 17
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Tongue of Sun and Moon
@@ -237,6 +253,7 @@
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.TimelessBody
     - level: 18
+      name: Monk 18
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Monk Bonus Feats - Level 18
@@ -247,12 +264,14 @@
                 Improved Critical, Medusa's Wrath, Snatch Arrows, Spring Attack]
               ignore-prerequisites: true
     - level: 19
+      name: Monk 19
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Empty Body
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.EmptyBody
     - level: 20
+      name: Monk 20
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Perfect Self

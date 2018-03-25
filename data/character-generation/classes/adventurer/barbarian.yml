@@ -43,6 +43,7 @@
               weight: 10
   levels:
     - level: 1
+      name: Barbarian 1
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Rage
@@ -71,6 +72,7 @@
               modifier: 10
               modifier-type: class-feature
     - level: 2
+      name: Barbarian 2
       attributes:
         - attribute:
           name: Uncanny Dodge
@@ -81,6 +83,7 @@
           commands:
             - command: SilverNeedle.Characters.SpecialAbilities.SelectRagePower
     - level: 3
+      name: Barbarian 3
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Trap Sense 1
@@ -99,18 +102,21 @@
               modifier-type: bonus
               condition: traps
     - level: 4
+      name: Barbarian 4
       attributes:
         - attribute:
           name: Rage Power
           commands:
             - command: SilverNeedle.Characters.SpecialAbilities.SelectRagePower
     - level: 5
+      name: Barbarian 5
       attributes:
         - attribute:
           name: Improved Uncanny Dodge
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.ImprovedUncannyDodge
     - level: 6
+      name: Barbarian 6
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Trap Sense 2
@@ -124,6 +130,7 @@
           commands:
             - command: SilverNeedle.Characters.SpecialAbilities.SelectRagePower
     - level: 7
+      name: Barbarian 7
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Barbarian Damage Reduction 1
@@ -133,12 +140,14 @@
               base-value: 1
               bypass-type: "-"
     - level: 8
+      name: Barbarian 8
       attributes:
         - attribute:
           name: Rage Power
           commands:
             - command: SilverNeedle.Characters.SpecialAbilities.SelectRagePower
     - level: 9
+      name: Barbarian 9
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Trap Sense 3
@@ -148,6 +157,7 @@
               modifier: 1
               modifier-type: level-up
     - level: 10
+      name: Barbarian 10
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Barbarian Damage Reduction 2
@@ -161,6 +171,7 @@
           commands:
             - command: SilverNeedle.Characters.SpecialAbilities.SelectRagePower
     - level: 11
+      name: Barbarian 11
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Greater Rage
@@ -178,6 +189,7 @@
               modifier: 1
               modifier-type: rage
     - level: 12
+      name: Barbarian 12
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Trap Sense 4
@@ -191,6 +203,7 @@
           commands:
             - command: SilverNeedle.Characters.SpecialAbilities.SelectRagePower
     - level: 13
+      name: Barbarian 13
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature 
           name: Barbarian Damage Reduction 3
@@ -200,6 +213,7 @@
               modifier: 1
               modifier-type: level-up
     - level: 14
+      name: Barbarian 14
       attributes:
         - attribute:
           name: Indomitable Will
@@ -214,6 +228,7 @@
           commands:
             - command: SilverNeedle.Characters.SpecialAbilities.SelectRagePower
     - level: 15
+      name: Barbarian 15
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Trap Sense 5
@@ -223,6 +238,7 @@
               modifier: 1
               modifier-type: level-up
     - level: 16
+      name: Barbarian 16
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature 
           name: Barbarian Damage Reduction 4
@@ -236,12 +252,14 @@
           commands:
             - command: SilverNeedle.Characters.SpecialAbilities.SelectRagePower
     - level: 17
+      name: Barbarian 17
       attributes:
         - attribute:
           name: Tireless Rage
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.TirelessRage
     - level: 18
+      name: Barbarian 18
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Trap Sense 6
@@ -255,6 +273,7 @@
           commands:
             - command: SilverNeedle.Characters.SpecialAbilities.SelectRagePower
     - level: 19
+      name: Barbarian 19
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature 
           name: Barbarian Damage Reduction 5
@@ -264,6 +283,7 @@
               modifier: 1
               modifier-type: level-up
     - level: 20
+      name: Barbarian 20
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Mighty Rage

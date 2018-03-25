@@ -41,6 +41,7 @@
               weight: 10
   levels:
     - level: 1
+      name: Cleric 1
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Channel Energy

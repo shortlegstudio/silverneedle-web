@@ -54,12 +54,6 @@ namespace SilverNeedle.Characters
         }
 
         /// <summary>
-        /// Gets or sets the name of the class.
-        /// </summary>
-        /// <value>The class name.</value>
-        public string Name { get; set; }
-
-        /// <summary>
         /// Gets or sets the skill points per level
         /// </summary>
         /// <value>The skill points.</value>

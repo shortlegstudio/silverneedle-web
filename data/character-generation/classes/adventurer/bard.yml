@@ -42,6 +42,7 @@
               weight: 10
   levels:
     - level: 1
+      name: Bard 1
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Bardic Knowledge
@@ -151,6 +152,7 @@
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 2
+      name: Bard 2
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Well Versed
@@ -181,6 +183,7 @@
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 3
+      name: Bard 3
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Inspire Competence
@@ -191,12 +194,14 @@
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 4
+      name: Bard 4
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting (4)
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 5
+      name: Bard 5
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Lore Master
@@ -218,6 +223,7 @@
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 6
+      name: Bard 6
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Suggestion
@@ -232,12 +238,14 @@
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectVersatilePerformance
     - level: 7
+      name: Bard 7
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting (7)
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 8
+      name: Bard 8
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Dirge of Doom
@@ -248,6 +256,7 @@
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 9
+      name: Bard 9
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Inspire Greatness
@@ -258,6 +267,7 @@
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 10
+      name: Bard 10
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Jack of All Trades
@@ -272,12 +282,14 @@
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectVersatilePerformance
     - level: 11
+      name: Bard 11
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting (11)
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 12
+      name: Bard 12
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Soothing Performance
@@ -288,12 +300,14 @@
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 13
+      name: Bard 13
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting (13)
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 14
+      name: Bard 14
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Frightening Tune
@@ -308,6 +322,7 @@
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectVersatilePerformance
     - level: 15
+      name: Bard 15
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Inspire Heroics
@@ -318,18 +333,21 @@
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 16
+      name: Bard 16
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting (16)
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 17
+      name: Bard 17
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting (17)
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 18
+      name: Bard 18
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Mass Suggestion
@@ -344,12 +362,14 @@
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectVersatilePerformance
     - level: 19
+      name: Bard 19
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting (19)
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 20
+      name: Bard 20
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Deadly Performance

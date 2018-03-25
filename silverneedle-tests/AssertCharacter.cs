@@ -87,5 +87,12 @@ namespace Tests
                 character.Defense.WillSave.GetConditionalValue(condition)
             );
         }
+
+        public static void ContainsFeature(string name, CharacterSheet character)
+        {
+            Assert.True(
+                character.GetAll<SilverNeedle.Feature>().Any(x => x.Name.Equals(name))
+            );
+        }
     }
 }

@@ -38,6 +38,7 @@
               weight: 10
   levels:
     - level: 1
+      name: Druid 1
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Nature Sense
@@ -114,18 +115,21 @@
             - type: SilverNeedle.Characters.Magic.DomainCasting
               casting-ability: wisdom
     - level: 2
+      name: Druid 2
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Woodland Stride
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.WoodlandStride
     - level: 3
+      name: Druid 3
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Trackless Step
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.TracklessStep
     - level: 4
+      name: Druid 4
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Resist Natures Lure
@@ -150,6 +154,7 @@
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.WildShape
     - level: 9
+      name: Druid 9
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Venom Immunity
@@ -157,12 +162,14 @@
             - type: SilverNeedle.Characters.Immunity
               damage-type: poison
     - level: 12
+      name: Druid 12
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Thousand Faces
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.ThousandFaces
     - level: 15
+      name: Druid 15
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Timeless Body

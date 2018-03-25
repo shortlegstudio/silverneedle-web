@@ -2,6 +2,7 @@
 - name: Air
   levels:
     - level: 1
+      name: Air Domain 1
       attributes:
         - attribute: 
           name: Lightning Arc
@@ -9,6 +10,7 @@
             - type: SilverNeedle.Characters.Attacks.LightningArc
               range: 30
     - level: 6
+      name: Air Domain 6
       attributes:
         - attribute: 
           name: Energy Resistance
@@ -21,12 +23,14 @@
 - name: Animal
   levels:
     - level: 1
+      name: Animal Domain 1
       attributes:
         - attribute:
           name: Speak With Animals
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.SpeakWithAnimals
     - level: 4
+      name: Animal Domain 4
       attributes:
         - attribute:
           name: Animal Companion
@@ -38,12 +42,14 @@
 - name: Artifice
   levels:
     - level: 1
+      name: Artifice Domain 1
       attributes:
         - attribute:
           name: Artificer's Touch
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.ArtificerTouch
     - level: 8
+      name: Artifice Domain 8
       attributes:
         - attribute:
           name: Dancing Weapons
@@ -54,12 +60,14 @@
 - name: Chaos
   levels:
     - level: 1
+      name: Chaos Domain 1
       attributes:
         - attribute:
           name: Touch of Chaos
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.TouchOfChaos
     - level: 8
+      name: Chaos Domain 8
       attributes:
         - attribute:
           name: Chaos Blade
@@ -70,6 +78,7 @@
 - name: Charm
   levels:
     - level: 1
+      name: Charm Domain 1
       attributes:
         - attribute:
           name: Dazing Touch
@@ -77,6 +86,7 @@
             - type: SilverNeedle.Characters.SpecialAbilities.DazingTouch
               base-ability: wisdom
     - level: 8
+      name: Charm Domain 8
       attributes:
         - attribute:
           name: Charming Smile
@@ -87,12 +97,14 @@
 - name: Community
   levels:
     - level: 1
+      name: Community Domain 1
       attributes:
         - attribute:
           name: Calming Touch
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.CalmingTouch
     - level: 8
+      name: Community Domain 8
       attributes:
         - attribute:
           name: Charming Smile
@@ -103,12 +115,14 @@
 - name: Darkness
   levels:
     - level: 1
+      name: Darkness Domain 1
       attributes:
         - attribute:
           name: Touch of Darkness
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.TouchOfDarkness
     - level: 8
+      name: Darkness Domain 8
       attributes:
         - attribute:
           name: Eyes of Darkness
@@ -120,12 +134,14 @@
 - name: Death
   levels:
     - level: 1
+      name: Death Domain 1
       attributes:
         - attribute:
           name: Bleeding Touch
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.BleedingTouch
     - level: 8
+      name: Death Domain 8
       attributes:
         - attribute:
           name: Death's Embrace
@@ -136,12 +152,14 @@
 - name: Destruction
   levels:
     - level: 1
+      name: Destruction Domain 1
       attributes:
         - attribute:
           name: Destructive Smite
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.DestructiveSmite
     - level: 8
+      name: Destruction Domain 8
       attributes:
         - attribute:
           name: Destructive Aura
@@ -152,6 +170,7 @@
 - name: Earth
   levels:
     - level: 1
+      name: Earth Domain 1
       attributes:
         - attribute:
           name: Acid Dart
@@ -159,6 +178,7 @@
             - type: SilverNeedle.Characters.Attacks.AcidDart
               base-ability: wisdom
     - level: 6
+      name: Earth Domain 6
       attributes:
         - attribute:
           name: Acid Resistance
@@ -171,12 +191,14 @@
 - name: Evil
   levels:
     - level: 1
+      name: Evil Domain 1
       attributes:
         - attribute:
           name: Touch of Evil
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.TouchOfEvil
     - level: 8
+      name: Evil Domain 8
       attributes:
         - attribute:
           name: Scythe of Evil
@@ -187,6 +209,7 @@
 - name: Fire
   levels:
     - level: 1
+      name: Fire Domain 1
       attributes:
         - attribute:
           name: Fire Bolt
@@ -194,6 +217,7 @@
             - type: SilverNeedle.Characters.Attacks.FireBolt
               base-ability: wisdom
     - level: 6
+      name: Fire Domain 6
       attributes:
         - attribute:
           name: Fire Resistance
@@ -206,12 +230,14 @@
 - name: Glory
   levels:
     - level: 1
+      name: Glory Domain 1
       attributes:
         - attribute:
           name: Touch of Glory
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.TouchOfGlory
     - level: 8
+      name: Glory Domain 8
       attributes:
         - attribute:
           name: Divine Presence
@@ -222,12 +248,14 @@
 - name: Good
   levels:
     - level: 1
+      name: Good Domain 1
       attributes:
         - attribute:
           name: Touch of Good
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.TouchOfGood
     - level: 8
+      name: Good Domain 8
       attributes:
         - attribute:
           name: Holy Lance
@@ -238,12 +266,14 @@
 - name: Healing
   levels:
     - level: 1
+      name: Healing Domain 1
       attributes:
         - attribute:
           name: Rebuke Death
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.RebukeDeath
     - level: 6
+      name: Healing Domain 6
       attributes:
         - attribute:
           name: Healer's Blessing
@@ -254,12 +284,14 @@
 - name: Knowledge
   levels:
     - level: 1
+      name: Knowledge Domain 1
       attributes:
         - attribute:
           name: Lore Keeper
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.LoreKeeper
     - level: 6
+      name: Knowledge Domain 6
       attributes:
         - attribute:
           name: Remove Viewing
@@ -270,12 +302,14 @@
 - name: Law
   levels:
     - level: 1
+      name: Law Domain 1
       attributes:
         - attribute:
           name: Touch of Law
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.TouchOfLaw
     - level: 8
+      name: Law Domain 8
       attributes:
         - attribute:
           name: Staff of Order
@@ -286,12 +320,14 @@
 - name: Liberation
   levels:
     - level: 1
+      name: Liberation Domain 1
       attributes:
         - attribute:
           name: Liberation
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.LiberationMobility
     - level: 8
+      name: Liberation Domain 8
       attributes:
         - attribute:
           name: Freedom's Call
@@ -302,12 +338,14 @@
 - name: Luck
   levels:
     - level: 1
+      name: Luck Domain 1
       attributes:
         - attribute:
           name: Bit of Luck
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.BitOfLuck
     - level: 6
+      name: Luck Domain 6
       attributes:
         - attribute:
           name: Good Fortune
@@ -318,12 +356,14 @@
 - name: Madness
   levels:
     - level: 1
+      name: Madness Domain 1
       attributes:
         - attribute:
           name: Vision of Madness
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.VisionOfMadness
     - level: 8
+      name: Madness Domain 8
       attributes:
         - attribute:
           name: Aura of Madness
@@ -334,12 +374,14 @@
 - name: Magic
   levels:
     - level: 1
+      name: Magic Domain 1
       attributes:
         - attribute:
           name: Hand of the Acolyte
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.HandOfTheAcolyte
     - level: 8
+      name: Magic Domain 8
       attributes:
         - attribute:
           name: Dispelling Touch
@@ -350,12 +392,14 @@
 - name: Nobility
   levels:
     - level: 1
+      name: Nobility Domain 1
       attributes:
         - attribute:
           name: Inspiring Word
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.InspiringWord
     - level: 8
+      name: Nobility Domain 8
       attributes:
         - attribute:
           name: Leadership
@@ -371,12 +415,14 @@
 - name: Plant
   levels:
     - level: 1
+      name: Plant Domain 1
       attributes:
         - attribute:
           name: Wooden Fist
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.WoodenFist
     - level: 6
+      name: Plant Domain 6
       attributes:
         - attribute:
           name: Bramble Armor
@@ -387,12 +433,14 @@
 - name: Protection
   levels:
     - level: 1
+      name: Protection Domain 1
       attributes:
         - attribute:
           name: Resistant Touch
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.ResistantTouch
     - level: 8
+      name: Protection Domain 8
       attributes:
         - attribute:
           name: Aura of Protection
@@ -403,12 +451,14 @@
 - name: Repose
   levels:
     - level: 1
+      name: Repose Domain 1
       attributes:
         - attribute:
           name: Gentle Rest
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.GentleRest
     - level: 8
+      name: Repose Domain 8
       attributes:
         - attribute:
           name: Ward Against Death
@@ -419,12 +469,14 @@
 - name: Rune
   levels:
     - level: 1
+      name: Rune Domain 1
       attributes:
         - attribute:
           name: Blast Rune
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.BlastRune
     - level: 8
+      name: Rune Domain 8
       attributes:
         - attribute:
           name: Spell Rune
@@ -435,12 +487,14 @@
 - name: Strength
   levels:
     - level: 1
+      name: Strength Domain 1
       attributes:
         - attribute:
           name: Strength Surge
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.StrengthSurge
     - level: 8
+      name: Strength Domain 8
       attributes:
         - attribute:
           name: Might of the Gods
@@ -451,12 +505,14 @@
 - name: Sun
   levels:
     - level: 1
+      name: Sun Domain 1
       attributes:
         - attribute:
           name: Sun's Blessing
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.SunBlessing
     - level: 8
+      name: Sun Domain 8
       attributes:
         - attribute:
           name: Nimbus of Light
@@ -467,12 +523,14 @@
 - name: Travel
   levels:
     - level: 1
+      name: Travel Domain 1
       attributes:
         - attribute:
           name: Agile Feet
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.AgileFeet
     - level: 8
+      name: Travel Domain 8
       attributes:
         - attribute:
           name: Dimensional Hop
@@ -483,12 +541,14 @@
 - name: Trickery
   levels:
     - level: 1
+      name: Trickery Domain 1
       attributes:
         - attribute:
           name: Copycat
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.Copycat
     - level: 8
+      name: Trickery Domain 8
       attributes:
         - attribute:
           name: Master's Illusion
@@ -499,12 +559,14 @@
 - name: War
   levels:
     - level: 1
+      name: War Domain 1
       attributes:
         - attribute:
           name: Battle Rage
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.BattleRage
     - level: 8
+      name: War Domain 8
       attributes:
         - attribute:
           name: Weapon Master
@@ -515,6 +577,7 @@
 - name: Water
   levels:
     - level: 1
+      name: Water Domain 1
       attributes:
         - attribute:
           name: Icicle
@@ -522,6 +585,7 @@
             - type: SilverNeedle.Characters.Attacks.Icicle
               base-ability: wisdom
     - level: 6
+      name: Water Domain 6
       attributes:
         - attribute:
           name: Cold Resistance
@@ -534,12 +598,14 @@
 - name: Weather
   levels:
     - level: 1
+      name: Weather Domain 1
       attributes:
         - attribute:
           name: Storm Burst
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.StormBurst
     - level: 8
+      name: Weather Domain 8
       attributes:
         - attribute:
           name: Lightning Lord

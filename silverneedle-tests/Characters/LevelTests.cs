@@ -23,14 +23,6 @@ namespace Tests.Characters
         }
 
         [Fact]
-        public void LevelsKnowTheirNumber() 
-        {
-            var levelYaml = "level: 2".ParseYaml();
-            var level = new Level(levelYaml);
-            Assert.Equal(2, level.Number);
-        }
-
-        [Fact]
         public void LevelsCanModifyStats()
         {
             var level = new Level(fighter);
@@ -41,6 +33,7 @@ namespace Tests.Characters
 
         const string fighterLevel = @"---
 level: 2
+name: Level 2
 attributes:
   - attribute: 
     name: Bravery +1

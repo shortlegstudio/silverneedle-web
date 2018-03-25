@@ -2,6 +2,7 @@
 - name: Abjuration
   levels:
     - level: 1
+      name: Abjuration School 1
       attributes:
         - attribute:
           name: Abjuration Resistance
@@ -12,6 +13,7 @@
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.ProtectiveWard
     - level: 6
+      name: Abjuration School 6
       attributes:
         - attribute:
           name: Energy Absorption
@@ -20,6 +22,7 @@
 - name: Conjuration
   levels:
     - level: 1
+      name: Conjuration School 1
       attributes:
         - attribute:
           name: Summoner's Charm
@@ -31,6 +34,7 @@
             - type: SilverNeedle.Characters.Attacks.AcidDart
               base-ability: intelligence
     - level: 8
+      name: Conjuration School 8
       attributes:
         - attribute:
           name: Dimensional Steps
@@ -39,6 +43,7 @@
 - name: Divination
   levels:
     - level: 1
+      name: Divination School 1
       attributes:
         - attribute:
           name: Forewarned
@@ -49,6 +54,7 @@
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.DivinersFortune
     - level: 8
+      name: Divination School 8
       attributes:
         - attribute:
           name: Scrying Adept
@@ -57,6 +63,7 @@
 - name: Enchantment
   levels:
     - level: 1
+      name: Enchantment School 1
       attributes:
         - attribute:
           name: Enchanting Smile
@@ -68,6 +75,7 @@
             - type: SilverNeedle.Characters.SpecialAbilities.DazingTouch
               base-ability: intelligence
     - level: 8
+      name: Enchantment School 8
       attributes:
         - attribute:
           name: Aura of Despair
@@ -76,6 +84,7 @@
 - name: Evocation
   levels:
     - level: 1
+      name: Evocation School 1
       attributes:
         - attribute:
           name: Intense Spells
@@ -86,6 +95,7 @@
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.ForceMissile
     - level: 8
+      name: Evocation School 8
       attributes:
         - attribute:
           name: Elemental Wall
@@ -94,6 +104,7 @@
 - name: Illusion
   levels:
     - level: 1
+      name: Illusion School 1
       attributes:
         - attribute:
           name: Extended Illusions
@@ -104,6 +115,7 @@
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.BlindingRay
     - level: 8
+      name: Illusion School 8
       attributes:
         - attribute:
           name: Invisibility Field
@@ -112,6 +124,7 @@
 - name: Necromancy
   levels:
     - level: 1
+      name: Necromancy School 1
       attributes:
         - attribute:
           name: Power Over Undead
@@ -123,6 +136,7 @@
             - type: SilverNeedle.Characters.SpecialAbilities.GraveTouch
               base-ability: intelligence
     - level: 8
+      name: Necromancy School 8
       attributes:
         - attribute:
           name: Life Sight
@@ -131,6 +145,7 @@
 - name: Transmutation
   levels:
     - level: 1
+      name: Transmutation School 1
       attributes:
         - attribute:
           name: Physical Enhancement
@@ -141,6 +156,7 @@
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.TelekineticFist
     - level: 8
+      name: Transmutation School 8
       attributes:
         - attribute:
           name: Change Shape
@@ -150,12 +166,14 @@
   no-opposition-schools: true
   levels:
     - level: 1
+      name: Universalist School 1
       attributes:
         - attribute:
           name: Hand of the Apprentice
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.HandOfTheApprentice
     - level: 8
+      name: Universalist School 8
       attributes:
         - attribute:
           name: Metamagic Mastery

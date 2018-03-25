@@ -36,6 +36,7 @@
               weight: 10
   levels:
     - level: 1
+      name: Adept 1
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting
@@ -66,6 +67,7 @@
                 19: [3, 3, 3, 2, 2, 2]
                 20: [3, 3, 3, 2, 2, 2]
     - level: 2
+      name: Adept 2
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Familiar

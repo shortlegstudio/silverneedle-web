@@ -48,6 +48,7 @@
               weight: 10
   levels:
     - level: 1
+      name: Paladin 1
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Aura of Good
@@ -68,6 +69,7 @@
               modifier: 1
               modifier-type: base-level
     - level: 2
+      name: Paladin 2
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Divine Grace
@@ -104,6 +106,7 @@
               start-level: 1
               class: paladin
     - level: 3
+      name: Paladin 3
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Aura of Courage
@@ -118,6 +121,7 @@
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectMercy
     - level: 4
+      name: Paladin 4
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Smite Evil (4)
@@ -200,18 +204,21 @@
               caster-type: divine
               modifier-type: base-value
     - level: 5
+      name: Paladin 5
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Divine Bond
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.ConfigureDivineBond
     - level: 6
+      name: Paladin 6
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Mercy (6)
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectMercy
     - level: 7
+      name: Paladin 7
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Smite Evil (7)
@@ -221,6 +228,7 @@
               modifier: 1
               modifier-type: level-up
     - level: 8
+      name: Paladin 8
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Aura of Resolve
@@ -228,12 +236,14 @@
             - type: SilverNeedle.Characters.Immunity
               damage-type: charms
     - level: 9
+      name: Paladin 9
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Mercy (9)
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectMercy
     - level: 10
+      name: Paladin 10
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Smite Evil (10)
@@ -243,18 +253,21 @@
               modifier: 1
               modifier-type: level-up
     - level: 11
+      name: Paladin 11
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Aura of Justice
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.AuraOfJustice
     - level: 12
+      name: Paladin 12
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Mercy (12)
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectMercy
     - level: 13
+      name: Paladin 13
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Smite Evil (15)
@@ -264,18 +277,21 @@
               modifier: 1
               modifier-type: level-up
     - level: 14
+      name: Paladin 14
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Aura of Faith
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.AuraOfFaith
     - level: 15
+      name: Paladin 15
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Mercy (15)
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectMercy
     - level: 16
+      name: Paladin 16
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Smite Evil (16)
@@ -285,6 +301,7 @@
               modifier: 1
               modifier-type: level-up
     - level: 17
+      name: Paladin 17
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Aura of Righteousness
@@ -296,12 +313,14 @@
               bypass-type: evil
               base-value: 5
     - level: 18
+      name: Paladin 18
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Mercy (18)
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectMercy
     - level: 19
+      name: Paladin 19
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Smite Evil (19)
@@ -311,6 +330,7 @@
               modifier: 1
               modifier-type: level-up
     - level: 20
+      name: Paladin 20
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Holy Champion

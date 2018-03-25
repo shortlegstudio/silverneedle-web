@@ -11,47 +11,59 @@ namespace SilverNeedle
 
     public class Feature : IComponent, IFeature
     {
-        private IList<FeatureAttribute> attributes = new List<FeatureAttribute>();
-        protected Feature() 
-        { 
-            
-        }
+        [ObjectStore("name")]
+        public virtual string Name { get; set; }
+        public IEnumerable<IObjectStore> Items { get; private set; }
+        public IEnumerable<IObjectStore> Commands { get; private set; }
+        public IEnumerable<IObjectStore> Attributes { get; private set; }
         public Feature(IObjectStore configuration)
         {
-            LoadAttributes(configuration);
+            configuration.Deserialize(this);
+            this.Attributes = configuration.GetObjectListOptional("attributes").Default(new List<IObjectStore>());
+            this.Items = configuration.GetObjectListOptional("items").Default(new List<IObjectStore>());
+            this.Commands = configuration.GetObjectListOptional("commands").Default(new List<IObjectStore>());
         }
 
-        public IEnumerable<IFeatureAttribute> Attributes
+        public Feature() 
         {
-            get
+            this.Attributes = new List<IObjectStore>();
+            this.Items = new List<IObjectStore>();
+            this.Commands = new List<IObjectStore>();
+        }
+
+        protected Feature(Feature copy)
+        {
+            this.Attributes = copy.Attributes;
+            this.Name = copy.Name;
+            this.Items = copy.Items;
+            this.Commands = copy.Commands;
+        }
+
+        public virtual void Initialize(ComponentContainer components)
+        {
+            foreach(var attr in this.Attributes)
             {
-                return this.attributes;
+                var typename = attr.GetString("attribute");
+
+                if (string.IsNullOrEmpty(typename))
+                    typename = "SilverNeedle.Feature";
+
+                var instance = typename.Instantiate<object>(attr);
+                components.Add(instance);
             }
-        }
 
-        public void Initialize(ComponentContainer components)
-        {
-            foreach(var attr in Attributes)
+            foreach(var item in this.Items)
             {
-                components.Add(attr);
+                var typename = item.GetString("type");
+                var instance = typename.Instantiate<object>(item);
+                components.Add(instance);
             }
-        }
 
-        private void LoadAttributes(IObjectStore configuration)
-        {
-            var configValues = configuration.GetObjectListOptional("attributes");
-            if(configValues == null)
-                return;
-
-            foreach(var attr in configValues)
+            foreach(var command in this.Commands)
             {
-                var attributeType = attr.GetString("attribute");
-                if(string.IsNullOrEmpty(attributeType))
-                    attributeType = typeof(FeatureAttribute).FullName;
-
-                this.attributes.Add(
-                    attributeType.Instantiate<FeatureAttribute>(attr)
-                );
+                var typename = command.GetString("command");
+                var instance = typename.Instantiate<IFeatureCommand>(command);
+                instance.Execute(components);
             }
         }
     }

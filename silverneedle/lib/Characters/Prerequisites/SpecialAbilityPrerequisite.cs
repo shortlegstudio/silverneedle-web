@@ -24,7 +24,7 @@ namespace SilverNeedle.Characters.Prerequisites
         /// <param name="character">Character to assess qualification.</param>
         public bool IsQualified(ComponentContainer components)
         {
-            return components.GetAll<IFeatureAttribute>().Any(x => x.Name.EqualsIgnoreCase(SpecialAbilityName));
+            return components.GetAll<IFeature>().Any(x => x.Name.EqualsIgnoreCase(SpecialAbilityName));
         }
     }
 }

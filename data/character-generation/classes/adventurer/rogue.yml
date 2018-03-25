@@ -44,6 +44,7 @@
               weight: 10
   levels:
     - level: 1
+      name: Rogue 1
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Trap Finding
@@ -76,6 +77,7 @@
               start-level: 1
               class: rogue
     - level: 2
+      name: Rogue 2
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Evasion
@@ -86,6 +88,7 @@
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRogueTalent
     - level: 3
+      name: Rogue 3
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Trap Sense
@@ -101,6 +104,7 @@
               modifier-type: bonus
               condition: traps
     - level: 4
+      name: Rogue 4
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Uncanny Dodge
@@ -111,6 +115,7 @@
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRogueTalent
     - level: 6
+      name: Rogue 6
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Trap Sense 2
@@ -130,6 +135,7 @@
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRogueTalent
     - level: 8
+      name: Rogue 8
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Rogue Talent
@@ -140,6 +146,7 @@
           items:
             - type: SilverNeedle.Characters.SpecialAbilities.ImprovedUncannyDodge
     - level: 9
+      name: Rogue 9
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Trap Sense 3
@@ -155,6 +162,7 @@
               modifier-type: bonus
               condition: traps
     - level: 10
+      name: Rogue 10
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Rogue Talent
@@ -162,6 +170,7 @@
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRogueTalent
               advanced-talents: true
     - level: 12
+      name: Rogue 12
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Rogue Talent
@@ -182,6 +191,7 @@
               modifier-type: bonus
               condition: traps
     - level: 14
+      name: Rogue 14
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Rogue Talent
@@ -189,6 +199,7 @@
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRogueTalent
               advanced-talents: true
     - level: 15
+      name: Rogue 15
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Trap Sense 5
@@ -204,6 +215,7 @@
               modifier-type: bonus
               condition: traps
     - level: 16
+      name: Rogue 16
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Rogue Talent
@@ -211,6 +223,7 @@
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.SelectRogueTalent
               advanced-talents: true
     - level: 18
+      name: Rogue 18
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Rogue Talent
@@ -231,6 +244,7 @@
               modifier-type: bonus
               condition: traps
     - level: 20
+      name: Rogue 20
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Rogue Talent

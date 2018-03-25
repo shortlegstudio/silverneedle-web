@@ -16,7 +16,7 @@ namespace SilverNeedle.Characters
     /// Represents a feat ability for a character that allows it to perform
     /// special and advanced abilities
     /// </summary>
-    public class Feat : FeatureAttribute, IGatewayObject, IGatewayCopy<Feat>
+    public class Feat : Feature, IGatewayObject, IGatewayCopy<Feat>
     {
 
         public Feat(IObjectStore data) : base(data)

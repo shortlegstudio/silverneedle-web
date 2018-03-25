@@ -31,6 +31,7 @@
               weight: 10
   levels:
     - level: 1
+      name: Sorcerer 1
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Eschew Materials
@@ -109,12 +110,14 @@
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddBloodlinePower
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddBloodlineArcana
     - level: 2
+      name: Sorcerer 2
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting (2)
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 3
+      name: Sorcerer 3
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting (3)
@@ -127,12 +130,14 @@
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddBloodlineBonusSpell
               spell-level: 1
     - level: 4
+      name: Sorcerer 4
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting (4)
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 5
+      name: Sorcerer 5
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting (5)
@@ -144,12 +149,14 @@
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddBloodlineBonusSpell
               spell-level: 2
     - level: 6
+      name: Sorcerer 6
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting (6)
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 7
+      name: Sorcerer 7
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting (7)
@@ -162,12 +169,14 @@
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddBloodlineBonusSpell
               spell-level: 3
     - level: 8
+      name: Sorcerer 8
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting (8)
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 9
+      name: Sorcerer 9
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting (9)
@@ -180,12 +189,14 @@
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddBloodlineBonusSpell
               spell-level: 4
     - level: 10
+      name: Sorcerer 10
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting (10)
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 11
+      name: Sorcerer 11
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting (11)
@@ -197,12 +208,14 @@
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddBloodlineBonusSpell
               spell-level: 5
     - level: 12
+      name: Sorcerer 12
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting (12)
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 13
+      name: Sorcerer 13
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting (13)
@@ -215,12 +228,14 @@
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddBloodlineBonusSpell
               spell-level: 6
     - level: 14
+      name: Sorcerer 14
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting (14)
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 15
+      name: Sorcerer 15
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting (15)
@@ -233,12 +248,14 @@
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddBloodlineBonusSpell
               spell-level: 7
     - level: 16
+      name: Sorcerer 16
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting (16)
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 17
+      name: Sorcerer 17
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting (17)
@@ -250,12 +267,14 @@
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddBloodlineBonusSpell
               spell-level: 8
     - level: 18
+      name: Sorcerer 18
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting (18)
           commands:
             - command: SilverNeedle.Actions.CharacterGeneration.SpellCasting.SelectNewKnownSpells
     - level: 19
+      name: Sorcerer 19
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting (19)
@@ -268,6 +287,7 @@
             - command: SilverNeedle.Actions.CharacterGeneration.ClassFeatures.AddBloodlineBonusSpell
               spell-level: 9
     - level: 20
+      name: Sorcerer 20
       attributes:
         - attribute: SilverNeedle.Characters.ClassFeature
           name: Spellcasting (20)
