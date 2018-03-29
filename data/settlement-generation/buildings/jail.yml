@@ -16,3 +16,12 @@
           name: unrest
           modifier: -2
           modifier-type: building
+    - attribute:
+      name: Jail Jobs
+      items:
+        - type: SilverNeedle.Tasks.OccupationSlot
+          acceptable-occupations: [Bailiff]
+          open-slots: 1
+        - type: SilverNeedle.Tasks.OccupationSlot
+          acceptable-occupations: [Catchpole]
+          open-slots: 1

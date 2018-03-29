@@ -12,3 +12,9 @@
           name: fame
           modifier: 1
           modifier-type: building
+    - attribute:
+      name: Arena Jobs
+      items:
+        - type: SilverNeedle.Tasks.OccupationSlot
+          acceptable-occupations: [Guard]
+          open-slots: 10

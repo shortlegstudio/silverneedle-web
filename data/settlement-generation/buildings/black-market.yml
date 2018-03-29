@@ -16,3 +16,12 @@
           name: stability
           modifier: 1
           modifier-type: building
+    - attribute:
+      name: Black Market Jobs
+      items:
+        - type: SilverNeedle.Tasks.OccupationSlot
+          acceptable-occupations: [Fence]
+          open-slots: 2
+        - type: SilverNeedle.Tasks.OccupationSlot
+          acceptable-occupations: [Thimblerigger, Outlaw, Footpad, Poacher]
+          open-slots: 4

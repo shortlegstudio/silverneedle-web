@@ -16,3 +16,12 @@
           name: fame
           modifier: 1
           modifier-type: building
+    - attribute:
+      name: University Jobs
+      items:
+        - type: SilverNeedle.Tasks.OccupationSlot
+          acceptable-occupations: [Astrologer, Astronomer, Mathematician, Philosopher, Theologian]
+          open-slots: 15
+        - type: SilverNeedle.Tasks.OccupationSlot
+          acceptable-occupations: [Dean]
+          open-slots: 1

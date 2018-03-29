@@ -5,11 +5,11 @@
   skills: [Craft (Alchemy), Knowledge Arcana]
 - name: Astrologer
   class: Expert
-  tags: [scholar-class]
+  tags: [scholar-class, academia]
   skills: [Knowledge Planes]
 - name: Astronomer
   class: Expert
-  tags: [scholar-class]
+  tags: [scholar-class, academia]
   skills: [Knowledge Planes]
 - name: Dean
   class: Expert
@@ -20,23 +20,23 @@
   skills: [Profession (Librarian), Profession (Scribe), Craft (Books)]
 - name: Mathematician
   class: Expert
-  tags: [scholar-class]
+  tags: [scholar-class, academia]
   skills: [Profession (Librarian), Profession (Scribe), Craft (Books)]
 - name: Philosopher
   class: Expert
-  tags: [scholar-class]
+  tags: [scholar-class, academia]
   skills: [Profession (Librarian), Linguistics, Knowledge Religion]
 - name: Professor
   class: Expert
-  tags: [scholar-class]
+  tags: [scholar-class, academia]
   skills: [Profession (Librarian), Linguistics]
 - name: Scholar
   class: Expert
-  tags: [scholar-class]
+  tags: [scholar-class, academia]
   skills: [Profession (Librarian), Profession (Scribe), Craft (Books)]
 - name: Scrivener
   class: Expert
-  tags: [scholar-class]
+  tags: [scholar-class, academia]
   skills: [Profession (Librarian), Profession (Scribe), Craft (Books), Craft (Calligraphy)]
 - name: Tutor
   class: Expert
@@ -44,5 +44,5 @@
   skills: [Profession (Librarian), Profession (Scribe), Craft (Books), Craft (Calligraphy)]
 - name: Theologian
   class: Expert
-  tags: [scholar-class]
+  tags: [scholar-class, academia]
   skills: [Profession (Librarian), Linguistics, Knowledge Religion]

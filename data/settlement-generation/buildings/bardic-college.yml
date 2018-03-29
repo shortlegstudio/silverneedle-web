@@ -20,3 +20,9 @@
           name: fame
           modifier: 1
           modifier-type: building
+    - attribute:
+      name: Bardic College Jobs
+      items:
+        - type: SilverNeedle.Tasks.OccupationSlot
+          acceptable-occupations: [Actor, Comedian, Composer, Dancer, Musician, Orator, Singer]
+          open-slots: 8

@@ -24,3 +24,15 @@
           name: fame
           modifier: 1
           modifier-type: building
+    - attribute:
+      name: Castle Jobs
+      items:
+        - type: SilverNeedle.Tasks.OccupationSlot
+          acceptable-occupations: [Guard]
+          open-slots: 16
+        - type: SilverNeedle.Tasks.OccupationSlot
+          acceptable-occupations: [Clerk]
+          open-slots: 2
+        - type: SilverNeedle.Tasks.OccupationSlot
+          acceptable-occupations: [Cook]
+          open-slots: 2

@@ -8,3 +8,9 @@
           name: stability
           modifier: 1
           modifier-type: building
+    - attribute:
+      name: Observatory Jobs
+      items:
+        - type: SilverNeedle.Tasks.OccupationSlot
+          acceptable-occupations: [Astronomer, Astrologer]
+          open-slots: 2

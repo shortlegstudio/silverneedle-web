@@ -1,0 +1,16 @@
+--- !<SilverNeedle.Characters.Occupation>
+- name: Archer
+  class: Warrior
+  tags: [working-class]
+  skills: []
+- name: Guard
+  class: Warrior
+  tags: [working-class]
+  skills: [Perception]
+- name: Man-at-Arms
+  class: Warrior
+  tags: [trained-class]
+- name: Town Watch
+  class: Commoner
+  tags: [working-class]
+  skills: []

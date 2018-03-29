@@ -12,3 +12,12 @@
           name: loyalty
           modifier: 1
           modifier-type: building
+    - attribute:
+      name: Tavern Jobs
+      items:
+        - type: SilverNeedle.Tasks.OccupationSlot
+          acceptable-occupations: [Bartender]
+          open-slots: 1
+        - type: SilverNeedle.Tasks.OccupationSlot
+          acceptable-occupations: [Cook]
+          open-slots: 1

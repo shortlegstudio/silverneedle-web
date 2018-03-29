@@ -20,3 +20,9 @@
           name: fame
           modifier: 1
           modifier-type: building
+    - attribute:
+      name: Cathedral Jobs
+      items:
+        - type: SilverNeedle.Tasks.OccupationSlot
+          acceptable-occupations: [Priest]
+          open-slots: 1

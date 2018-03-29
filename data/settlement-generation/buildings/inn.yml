@@ -12,3 +12,15 @@
           name: economy
           modifier: 1
           modifier-type: building
+    - attribute:
+      name: Inn Jobs
+      items:
+        - type: SilverNeedle.Tasks.OccupationSlot
+          acceptable-occupations: [Innkeeper]
+          open-slots: 1
+        - type: SilverNeedle.Tasks.OccupationSlot
+          acceptable-occupations: [Bartender]
+          open-slots: 1
+        - type: SilverNeedle.Tasks.OccupationSlot
+          acceptable-occupations: [Cook]
+          open-slots: 1

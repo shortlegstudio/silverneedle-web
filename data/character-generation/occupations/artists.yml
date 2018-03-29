@@ -1,0 +1,29 @@
+--- !<SilverNeedle.Characters.Occupation>
+- name: Actor
+  class: Commoner
+  tags: [trained-class]
+  skills: [Disguise, Perform (Act)]
+- name: Comedian
+  class: Commoner
+  tags: [trained-class]
+  skills: [Perform (Comedy)]
+- name: Composer
+  class: Commoner
+  tags: [trained-class]
+  skills: []
+- name: Dancer
+  class: Commoner
+  tags: [trained-class]
+  skills: [Perform (Dance)]
+- name: Musician
+  class: Commoner
+  tags: [trained-class]
+  skills: [Perform (Keyboard Instruments), Perform (Percussion Instruments), Perform (String Instruments), Perform (Wind Instruments)]
+- name: Orator
+  class: Expert
+  tags: [trained-class]
+  skills: [Perform (Oratory)]
+- name: Singer
+  class: Expert
+  tags: [trained-class]
+  skills: [Perform (Singer)]

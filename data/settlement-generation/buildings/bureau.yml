@@ -16,3 +16,9 @@
           name: stability
           modifier: 1
           modifier-type: building
+    - attribute:
+      name: Bureau Jobs
+      items:
+        - type: SilverNeedle.Tasks.OccupationSlot
+          acceptable-occupations: [Clerk]
+          open-slots: 8

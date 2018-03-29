@@ -8,3 +8,9 @@
           name: economy
           modifier: 1
           modifier-type: building
+    - attribute:
+      name: Academy Jobs
+      items:
+        - type: SilverNeedle.Tasks.OccupationSlot
+          acceptable-occupations: [Alchemist]
+          open-slots: 1

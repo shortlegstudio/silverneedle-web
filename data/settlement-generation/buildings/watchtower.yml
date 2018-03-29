@@ -12,3 +12,9 @@
           name: unrest
           modifier: -1
           modifier-type: building
+    - attribute:
+      name: Watchtower Jobs
+      items:
+        - type: SilverNeedle.Tasks.OccupationSlot
+          acceptable-occupations: [Archer]
+          open-slots: 6

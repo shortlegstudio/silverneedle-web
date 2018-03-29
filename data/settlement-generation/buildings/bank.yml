@@ -8,3 +8,15 @@
           name: economy
           modifier: 4
           modifier-type: building
+    - attribute:
+      name: Bank Jobs
+      items:
+        - type: SilverNeedle.Tasks.OccupationSlot
+          acceptable-occupations: [Guard]
+          open-slots: 6
+        - type: SilverNeedle.Tasks.OccupationSlot
+          acceptable-occupations: [Clerk]
+          open-slots: 4
+        - type: SilverNeedle.Tasks.OccupationSlot
+          acceptable-occupations: [Banker]
+          open-slots: 2
