@@ -11,9 +11,9 @@ namespace SilverNeedle.Settlements
 
     public class Settlement : ComponentContainer
     {
-        public Settlement()
+        public Settlement(SettlementStrategy strategy)
         {
-            inhabitants = new List<CharacterSheet>();
+            this.Add(strategy);
         }
 
         public string Name { get; set; }
@@ -26,7 +26,7 @@ namespace SilverNeedle.Settlements
             inhabitants.Add(character);
         }
 
-        private IList<CharacterSheet> inhabitants;
+        private IList<CharacterSheet> inhabitants = new List<CharacterSheet>();
 
     }
 }

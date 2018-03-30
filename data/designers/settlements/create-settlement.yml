@@ -5,3 +5,4 @@
       maximum-length: 18
       order: 3
     - step: SilverNeedle.Actions.Settlements.ConstructBuildings
+    - step: SilverNeedle.Actions.Settlements.GenerateInitialInhabitants

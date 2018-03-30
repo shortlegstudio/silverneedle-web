@@ -29,7 +29,7 @@ namespace silverneedleweb.Controllers
         public IActionResult Settlement(string strategy)
         {
             var strat = strategyGateway.Find(strategy);
-            var settlement = new Settlement();
+            var settlement = new Settlement(strat);
             var settlementBuilder = GatewayProvider.Find<SettlementDesigner>("create-settlement");
             settlementBuilder.Execute(settlement);
 

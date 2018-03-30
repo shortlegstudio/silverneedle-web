@@ -15,7 +15,7 @@ namespace Tests.Actions.Settlements
         [Fact]
         public void PicksANameForTheSettlement()
         {
-            var settlement = new Settlement();
+            var settlement = new Settlement(new SettlementStrategy());
             var memstore = new MemoryStore();
             memstore.SetValue("maximum-length", 15);
             memstore.SetValue("order", 2);

@@ -23,7 +23,7 @@ steps:
   - step: Tests.Actions.Settlements.SettlementDesignerTests+SettlementStepTwo";
 
             var designer = new SettlementDesigner(yaml.ParseYaml());
-            var settlement = new Settlement();
+            var settlement = new Settlement(new SettlementStrategy());
 
             designer.Execute(settlement);
             Assert.Equal("Designer", designer.Name);

@@ -14,7 +14,7 @@ namespace Tests.Groups
         [Fact]
         public void SettlementsHaveManyCharactersInThem()
         {
-            var settlement = new Settlement();
+            var settlement = new Settlement(new SettlementStrategy());
             settlement.AddInhabitant(new CharacterSheet(CharacterStrategy.Default()));
             settlement.AddInhabitant(new CharacterSheet(CharacterStrategy.Default()));
 

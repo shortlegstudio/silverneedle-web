@@ -12,12 +12,12 @@ namespace SilverNeedle.Settlements
     public class SettlementStrategy : IGatewayObject
     {
         [ObjectStore("name")] 
-        public string Name { get; private set; }
+        public string Name { get; set; }
         [ObjectStore("minimum-population")]
-        public int MinimumPopulation { get; private set; }
+        public int MinimumPopulation { get; set; }
 
         [ObjectStore("maximum-population")]
-        public int MaximumPopulation { get; private set; }
+        public int MaximumPopulation { get; set; }
         public bool Matches(string name)
         {
             return this.Name.EqualsIgnoreCase(name);

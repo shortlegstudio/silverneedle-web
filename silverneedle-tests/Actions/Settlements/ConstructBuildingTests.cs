@@ -15,7 +15,7 @@ namespace Tests.Actions.Settlements
         [Fact]
         public void AddsSomeBuildingsToSettlement()
         {
-            var settlement = new Settlement();
+            var settlement = new Settlement(new SettlementStrategy());
             var step = new ConstructBuildings();
             step.Execute(settlement);
             var buildings = settlement.GetAll<Building>();
