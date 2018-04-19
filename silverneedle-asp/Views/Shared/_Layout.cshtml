@@ -63,12 +63,14 @@
             <p><a href="https://github.com/shortlegstudio/silverneedle-web">Source Code For this Site on GitHub</a></p>
         </footer>
     </div>
+    <div id="root"></div>
 
     <environment names="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
         <script src="~/lib/bootstrap-table/dist/bootstrap-table.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>
+        <script src="~/js/app.js" asp-append-version="true"></script>
     </environment>
     <environment names="Staging,Production">
         <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.3.min.js"

@@ -27,4 +27,9 @@
   <ItemGroup>
     <ProjectReference Include="..\silverneedle\silverneedle.csproj" />
   </ItemGroup>
+  <PropertyGroup>
+    <PostBuildEvent>
+        gulp --no-color build
+    </PostBuildEvent>
+  </PropertyGroup>
 </Project>
