@@ -305,9 +305,9 @@ namespace SilverNeedle.Serialization
             this.SetValue(key, val.ToString());
         }
 
-        public void SetValue(string key, YamlObjectStore val)
+        public void SetValue(string key, IObjectStore val)
         {
-            this.mappingNode.Children[new YamlScalarNode(key)] = val.MappingNode;
+            this.mappingNode.Children[new YamlScalarNode(key)] = ((YamlObjectStore)val).MappingNode;
         }
 
         public void SetValue(string key, IEnumerable<string> vals)
@@ -318,10 +318,10 @@ namespace SilverNeedle.Serialization
             this.mappingNode.Children[new YamlScalarNode(key)] = sequenceNode;
         }
 
-        public void SetValue(string key, IEnumerable<YamlObjectStore> vals)
+        public void SetValue(string key, IEnumerable<IObjectStore> vals)
         {
             var sequenceNode = new YamlSequenceNode();
-            var nodes = vals.Select(x => x.MappingNode);
+            var nodes = vals.Cast<YamlObjectStore>().Select(x => x.MappingNode);
             sequenceNode.Children.Add(nodes);
             this.mappingNode.Children[new YamlScalarNode(key)] = sequenceNode;
         }

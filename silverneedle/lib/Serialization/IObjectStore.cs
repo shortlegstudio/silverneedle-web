@@ -30,5 +30,13 @@ namespace SilverNeedle.Serialization
 
         IEnumerable<IObjectStore> GetObjectList(string key);
         IEnumerable<IObjectStore> GetObjectListOptional(string key);
+
+        void SetValue(string key, string val);
+        void SetValue(string key, int val);
+        void SetValue(string key, IObjectStore val);
+        void SetValue(string key, IEnumerable<string> vals);
+        void SetValue(string key, IEnumerable<IObjectStore> vals);
+        void SetValue(string key, bool v);
+        void SetValue(string key, float v);
     }
 }

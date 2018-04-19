@@ -174,6 +174,10 @@ namespace SilverNeedle.Serialization
         {
             childList.Add(childItem as MemoryStore);
         }
+        public void SetValue(string key, IEnumerable<IObjectStore> values)
+        {
+            throw new NotImplementedException();
+        }
 
         public void SetValue(string key, IEnumerable<string> values)
         {

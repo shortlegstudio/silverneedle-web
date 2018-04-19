@@ -132,13 +132,9 @@ namespace SilverNeedle.Serialization
 
         public static void Serialize(this IObjectStore storage, object val)
         {
-            var yamlStore = storage as YamlObjectStore;
-            if(yamlStore == null)
-                throw new System.NotImplementedException("Only YamlStore supported for serializing");
-
             var typeInfo = val.GetType();
             var properties = typeInfo.GetProperties();
-            yamlStore.SetValue(SERIALIZED_TYPE_KEY, typeInfo.FullName);
+            storage.SetValue(SERIALIZED_TYPE_KEY, typeInfo.FullName);
             foreach(var prop in properties)
             {
                 var attribute = prop.GetCustomAttribute<ObjectStoreAttribute>();
@@ -153,23 +149,23 @@ namespace SilverNeedle.Serialization
                 switch(propType)
                 {
                     case "boolean":
-                        yamlStore.SetValue(attribute.PropertyName, (bool)propertyValue);
+                        storage.SetValue(attribute.PropertyName, (bool)propertyValue);
                         break;
 
                     case "int32":
-                        yamlStore.SetValue(attribute.PropertyName, (int)propertyValue);
+                        storage.SetValue(attribute.PropertyName, (int)propertyValue);
                         break;
 
                     case "single":
-                        yamlStore.SetValue(attribute.PropertyName, (float)propertyValue);
+                        storage.SetValue(attribute.PropertyName, (float)propertyValue);
                         break;
 
                     case "string":
-                        yamlStore.SetValue(attribute.PropertyName, propertyValue.ToString());
+                        storage.SetValue(attribute.PropertyName, propertyValue.ToString());
                         break;
 
                     case "string[]":
-                        yamlStore.SetValue(attribute.PropertyName, (string[])propertyValue);
+                        storage.SetValue(attribute.PropertyName, (string[])propertyValue);
                         break;
 
                     case "object[]":
@@ -181,21 +177,21 @@ namespace SilverNeedle.Serialization
                             s.Serialize(o);
                             store.Add(s);
                         }
-                        yamlStore.SetValue(attribute.PropertyName, store);
+                        storage.SetValue(attribute.PropertyName, store);
                         break;
 
                     case "cup":
                     default:
                         if(prop.PropertyType.IsEnum)
                         {
-                            yamlStore.SetValue(attribute.PropertyName, propertyValue.ToString());
+                            storage.SetValue(attribute.PropertyName, propertyValue.ToString());
                         }
                         else
                         {
                             ShortLog.DebugFormat("Attempting to serialize: {0} {1}", attribute.PropertyName, prop.PropertyType);
                             var newStore = new YamlObjectStore();
                             newStore.Serialize(propertyValue);
-                            yamlStore.SetValue(attribute.PropertyName, newStore);
+                            storage.SetValue(attribute.PropertyName, newStore);
                         }
                         break;
                 }
