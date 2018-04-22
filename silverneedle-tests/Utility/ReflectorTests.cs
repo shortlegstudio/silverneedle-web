@@ -5,6 +5,7 @@
 
 namespace Tests.Utility
 {
+    using System;   
     using Xunit;
     using SilverNeedle.Utility;
 
@@ -44,6 +45,13 @@ namespace Tests.Utility
             var test = new DummyTwo();
             Assert.True(test.Implements(typeof(DummyTwo)));
             Assert.True(test.Implements(typeof(IDummy)));
+        }
+
+        [Fact]
+        public void CanIdentifyTypesThatAreDelegates()
+        {
+            Assert.True(typeof(Func<>).IsDelegate());
+            Assert.True(typeof(Func<,>).IsDelegate());
         }
 
         public interface IDummy { }

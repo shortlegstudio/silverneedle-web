@@ -9,7 +9,7 @@ namespace SilverNeedle
 {
     public class DelegateStatModifier : IValueStatModifier
     {
-        public Func<float> Calculation;
+        protected Func<float> Calculation;
 
         public float Modifier { get { return Calculation(); } }
 

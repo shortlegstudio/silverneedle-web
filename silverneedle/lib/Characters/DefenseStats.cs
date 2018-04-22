@@ -109,14 +109,14 @@ namespace SilverNeedle.Characters
 
             this.ArmorClass.AddModifiers(
                 new StatisticStatModifier(StatNames.ArmorClass, this.BaseArmorClass),
-                new LimitStatModifier(abilities.GetAbility(AbilityScoreTypes.Dexterity), this.MaxDexterityBonus),
+                new LimitStatModifier(StatNames.ArmorClass, abilities.GetAbility(AbilityScoreTypes.Dexterity), this.MaxDexterityBonus),
                 size.PositiveSizeModifier,
                 new EquippedArmorClassModifier(components)
             );
 
             this.TouchArmorClass.AddModifiers(
                 new StatisticStatModifier(StatNames.TouchArmorClass, this.BaseArmorClass),
-                new LimitStatModifier(abilities.GetAbility(AbilityScoreTypes.Dexterity), this.MaxDexterityBonus),
+                new LimitStatModifier(StatNames.TouchArmorClass, abilities.GetAbility(AbilityScoreTypes.Dexterity), this.MaxDexterityBonus),
                 size.PositiveSizeModifier
             );
 

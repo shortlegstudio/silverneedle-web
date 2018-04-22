@@ -117,5 +117,13 @@ namespace SilverNeedle.Utility
                 }
             }
         }
+
+        public static bool IsDelegate(this Type t)
+        {
+            return t.IsGenericType && ( 
+                t.GetGenericTypeDefinition() != typeof(System.Func<>) ||
+                t.GetGenericTypeDefinition() != typeof(System.Func<,>)
+            );
+        }
     }
 }

@@ -4,6 +4,7 @@
 // http://opensource.org/licenses/mit-license.php
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using SilverNeedle;
 using SilverNeedle.Actions.CharacterGeneration;
 using SilverNeedle.Characters;
@@ -42,6 +43,18 @@ namespace silverneedleweb.Controllers
             ViewData["scores"] = scores;
             ViewData["level"] = level;
 
+            var simplify = new {
+                Abilities = character.Components.GetAll<IAbility>(),
+                Statistics = character.Components.GetAll<IStatistic>()
+            };
+
+            ViewData["character-json"] = JsonConvert.SerializeObject(character,
+                Formatting.Indented, 
+                new JsonIgnoreClassConverter(),
+                new JsonCharacterSheetConverter(), 
+                new JsonValueStatisticConverter(),
+                new JsonFamilyTreeConverter()
+            );
             var saveObj = new YamlObjectStore();
             character.Save(saveObj);
             ViewData["save-data"] = saveObj.WriteToString();
