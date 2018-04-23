@@ -21,11 +21,15 @@ namespace SilverNeedle.Serialization
 
         public override void WriteJson(JsonWriter writer, CharacterSheet value, JsonSerializer serializer)
         {
+            writer.WritePropertyName(value.GetType().FullName);
+            writer.WriteStartObject();
             foreach(var c in value.Components.All)
             {
+                writer.WritePropertyName(c.GetType().FullName);
                 JToken t = JToken.FromObject(c, serializer);
                 t.WriteTo(writer);
             }
+            writer.WriteEndObject();
         }
     }
 }

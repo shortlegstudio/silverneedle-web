@@ -84,6 +84,28 @@ namespace Tests.Utility
             Assert.NotNull(newContainer.FindStat("Foo"));
             Assert.NotNull(newContainer.FindStat("Bar"));
         }
+
+        [Fact]
+        public void ReturnsComponentsFromSubcontainersAsWellWhenSearchingOrGettingAll()
+        {
+            var container = new ComponentContainer();
+            var subcontainer = new ComponentContainer();
+            subcontainer.Add(new CustomStatType("Foo"));
+            container.Add(subcontainer);
+            Assert.NotNull(container.FindStat("Foo"));
+
+        }
+
+        [Fact]
+        public void SearchesParentHierarchyForObjectsToo()
+        {
+            var container = new ComponentContainer();
+            var subcontainer = new ComponentContainer();
+            container.Add(new CustomStatType("Foo"));
+            container.Add(subcontainer);
+            Assert.NotNull(subcontainer.FindStat("Foo"));
+        }
+
     }
 
     public class CustomStatType : BasicStat

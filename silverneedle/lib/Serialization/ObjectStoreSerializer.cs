@@ -88,7 +88,12 @@ namespace SilverNeedle.Serialization
                         propertyValue = data.GetEnum<Spells.SpellType>(keyName);
                         break;
                     case "object[]":
-                        var objectList = data.GetObjectList(keyName);
+                        IEnumerable<IObjectStore> objectList;
+                        if(attribute.Optional)
+                            objectList = data.GetObjectListOptional(keyName).Default(new List<IObjectStore>());
+                        else
+                            objectList = data.GetObjectList(keyName);
+
                         var newList = new List<object>();
                         foreach(var o in objectList)
                         {

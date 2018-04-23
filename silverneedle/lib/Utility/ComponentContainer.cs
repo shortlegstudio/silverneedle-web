@@ -11,12 +11,26 @@ namespace SilverNeedle.Utility
     using System.Reflection;
     using SilverNeedle.Serialization;
 
-    public class ComponentContainer
+    public class ComponentContainer : IComponent
     {
         public IEnumerable<object> All 
         { 
-            get { return this.components; } 
+            get 
+            { 
+                if(Parent != null)
+                    return Parent.All;
+                else
+                {
+                    return this.components
+                        .OfType<ComponentContainer>()
+                        .SelectMany(x => x.BackingDataStore)
+                        .Union(this.BackingDataStore);
+                }
+            } 
         }
+
+        private ComponentContainer Parent { get; set; }
+        
 
         [ObjectStoreOptional("component-store")]
         public object[] BackingDataStore 
@@ -102,7 +116,7 @@ namespace SilverNeedle.Utility
 
         public IEnumerable<T> GetAll<T>()
         {
-            return components.OfType<T>();
+            return All.OfType<T>();
         }
 
         public void Replace<T>(T value)
@@ -119,7 +133,7 @@ namespace SilverNeedle.Utility
 
         public bool Contains(object obj)
         {
-            return components.Contains(obj);
+            return All.Contains(obj);
         }
 
         public void ApplyStatModifiers(IEnumerable<IStatisticModifier> statModifiers)
@@ -182,6 +196,11 @@ namespace SilverNeedle.Utility
             {
                 comp.Initialize(this);
             }
+        }
+
+        public virtual void Initialize(ComponentContainer components)
+        {
+            this.Parent = components;
         }
     }
 }
