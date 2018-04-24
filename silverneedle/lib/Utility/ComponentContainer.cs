@@ -11,7 +11,7 @@ namespace SilverNeedle.Utility
     using System.Reflection;
     using SilverNeedle.Serialization;
 
-    public class ComponentContainer : IComponent
+    public partial class ComponentContainer : IComponent
     {
         public IEnumerable<object> All 
         { 
