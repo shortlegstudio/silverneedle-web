@@ -23,6 +23,9 @@ namespace SilverNeedle.Serialization
                 var attribute = prop.GetCustomAttribute<ObjectStoreAttribute>();
                 if(attribute == null)
                     continue;
+
+                if(!prop.CanWrite)
+                    throw new System.InvalidOperationException("Cannot have attributes on read-only property: " + prop.Name);
                     
                 var propType = prop.PropertyType.Name.ToLower();
                 object propertyValue = null;

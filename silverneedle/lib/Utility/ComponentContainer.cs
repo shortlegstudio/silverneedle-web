@@ -11,21 +11,14 @@ namespace SilverNeedle.Utility
     using System.Reflection;
     using SilverNeedle.Serialization;
 
-    public partial class ComponentContainer : IComponent
+    public partial class ComponentContainer 
     {
         public IEnumerable<object> All 
         { 
             get 
             { 
-                if(Parent != null)
-                    return Parent.All;
-                else
-                {
-                    return this.components
-                        .OfType<ComponentContainer>()
-                        .SelectMany(x => x.BackingDataStore)
-                        .Union(this.BackingDataStore);
-                }
+                var visitor = new ComponentContainerVisitor(this);
+                return visitor.GetAllContainers().SelectMany(x => x.BackingDataStore);
             } 
         }
 
@@ -36,7 +29,7 @@ namespace SilverNeedle.Utility
         public object[] BackingDataStore 
         { 
             get { return components.ToArray(); } 
-            private set { components.AddRange(value); }
+            protected set { components.AddRange(value); }
         }
 
         private List<object> components = new List<object>();
@@ -61,9 +54,10 @@ namespace SilverNeedle.Utility
             var unique = obj as IEnsureUniqueComponent;
             if(unique != null)
             {
-                if(components.Contains(unique))
+                if(All.Contains(unique))
                     return;
             }
+
             components.Add(obj);
             InitializeComponent(obj);
 
@@ -101,7 +95,14 @@ namespace SilverNeedle.Utility
         public void AddNoInitialize(object[] objects)
         {
             foreach(var o in objects)
+            {
                 components.Add(o);
+                var container = o as ComponentContainer;
+                if(container != null)
+                {
+                    container.Parent = this;
+                }
+            }
         }
 
         public void Remove<T>()
@@ -111,7 +112,7 @@ namespace SilverNeedle.Utility
 
         public T Get<T>()
         {
-            return components.OfType<T>().FirstOrDefault();
+            return All.OfType<T>().FirstOrDefault();
         }
 
         public IEnumerable<T> GetAll<T>()
@@ -191,16 +192,17 @@ namespace SilverNeedle.Utility
 
         private void InitializeComponent(object obj)
         {
+            var cont = obj as ComponentContainer;
+            if(cont != null)
+            {
+                cont.Parent = this;
+            }
+
             var comp = obj as IComponent;
             if(comp != null)
             {
                 comp.Initialize(this);
             }
-        }
-
-        public virtual void Initialize(ComponentContainer components)
-        {
-            this.Parent = components;
         }
     }
 }
