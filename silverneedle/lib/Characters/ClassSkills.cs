@@ -10,6 +10,7 @@ namespace SilverNeedle.Characters
 
     public class ClassSkills : IComponent
     {
+        public ComponentContainer Parent { get; set; }
         public ClassSkills(IObjectStore configuration)
         {
             configuration.Deserialize(this);

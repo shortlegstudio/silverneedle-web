@@ -9,6 +9,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
     public class DivineBondWeapon : IAbility, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         public int WeaponBonus 
         { 
             get

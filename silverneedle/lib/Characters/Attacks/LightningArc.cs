@@ -11,6 +11,7 @@ namespace SilverNeedle.Characters.Attacks
 
     public class LightningArc : IAttack, IComponent, IUsesPerDay, INameByType
     {
+        public ComponentContainer Parent { get; set; }
         private ClassLevel clericLevel;
         private AbilityScore wisdom;
         public LightningArc(IObjectStore configuration)

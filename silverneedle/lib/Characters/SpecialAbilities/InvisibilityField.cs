@@ -9,6 +9,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
     public class InvisibilityField : IAbility, INameByType, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         private ClassLevel sourceLevel;
 
         public int RoundsPerDay { get { return sourceLevel.Level; } }

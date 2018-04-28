@@ -10,6 +10,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
     using SilverNeedle.Utility;
     public class AberrantForm : AbilityDisplayAsName, IBloodlinePower, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         public void Initialize(ComponentContainer components)
         {
             var def = components.Get<DefenseStats>();

@@ -12,6 +12,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using SilverNeedle.Utility;
     public class LayOnHands : IAbility, IComponent, IUsesPerDay
     {
+        public ComponentContainer Parent { get; set; }
         private BasicStat usesPerDayStatistic;
         private DiceStatistic healingDice;
         public int UsesPerDay 

@@ -9,6 +9,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
     public class SummonersCharm : IAbility, INameByType, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         private ClassLevel sourceLevel;
 
         public void Initialize(ComponentContainer components)

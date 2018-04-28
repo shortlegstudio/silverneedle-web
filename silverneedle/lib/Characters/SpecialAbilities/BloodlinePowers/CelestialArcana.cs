@@ -8,6 +8,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
     using SilverNeedle.Utility;
     public class CelestialArcana : BloodlineArcana, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         private ClassLevel sorcererLevel;
 
         public override string BonusAbility 

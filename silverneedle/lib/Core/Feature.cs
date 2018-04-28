@@ -16,6 +16,7 @@ namespace SilverNeedle
         public IEnumerable<IObjectStore> Items { get; private set; }
         public IEnumerable<IObjectStore> Commands { get; private set; }
         public IEnumerable<IObjectStore> Attributes { get; private set; }
+        public ComponentContainer Parent { get; set; }
         public Feature(IObjectStore configuration)
         {
             configuration.Deserialize(this);

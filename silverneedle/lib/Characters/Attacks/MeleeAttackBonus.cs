@@ -9,6 +9,7 @@ namespace SilverNeedle.Characters.Attacks
     using SilverNeedle.Utility;
     public class MeleeAttackBonus : IComponent, IValueStatistic
     {
+        public ComponentContainer Parent { get; set; }
         public string Name { get { return baseMeleeAttackBonus.Name; } }
 
         public int TotalValue { get { return baseMeleeAttackBonus.TotalValue; } }

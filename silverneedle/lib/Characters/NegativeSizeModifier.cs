@@ -10,6 +10,7 @@ namespace SilverNeedle.Characters
 
     public class NegativeSizeModifier : IValueStatModifier, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         public NegativeSizeModifier(IObjectStore configuration)
         {
             configuration.Deserialize(this);

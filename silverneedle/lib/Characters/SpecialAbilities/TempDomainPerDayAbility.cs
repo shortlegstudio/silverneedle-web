@@ -10,6 +10,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
     public class TempDomainPerDayAbility : IAbility, IComponent, IUsesPerDay, INameByType
     {
+        public ComponentContainer Parent { get; set; }
         private IValueStatistic wisdomModifier;
 
         public void Initialize(ComponentContainer components)

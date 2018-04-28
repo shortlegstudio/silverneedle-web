@@ -17,9 +17,19 @@ namespace SilverNeedle.Serialization
         {
             var props = base.CreateProperties(type, memberSerialization);
             return props.Where(
-                p => !p.PropertyType.IsDelegate()
+                p => ShouldSerializeProperty(p)
             ).ToList();
         }
+        private bool ShouldSerializeProperty(JsonProperty property)
+        {
+            if(property.PropertyType.IsDelegate())
+                return false;
+            
+            if(property.PropertyType == typeof(ComponentContainer) &&
+                property.PropertyName == "Parent")
+                return false;
 
+            return true;
+        }
     }
 }

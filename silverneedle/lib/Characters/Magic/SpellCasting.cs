@@ -13,6 +13,7 @@ namespace SilverNeedle.Characters.Magic
 
     public class SpellCasting : ISpellCasting, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         private AbilityScoreTypes castingAbilityType;
         private Dictionary<int, int[]> spellSlots = new Dictionary<int, int[]>();
         public virtual AbilityScore CastingAbility { get; private set; }

@@ -17,6 +17,7 @@ namespace SilverNeedle.Characters
     /// </summary>
     public class DefenseStats : IStatTracker, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         public IEnumerable<IValueStatistic> Statistics 
         { 
             get 

@@ -10,6 +10,7 @@ namespace SilverNeedle
 
     public class StatisticDifferenceModifier : IValueStatModifier, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         private IValueStatistic _baseStatistic;
         private IValueStatistic _differenceStatistic;
         public float Modifier { get { return _differenceStatistic.TotalValue - _baseStatistic.TotalValue; } }

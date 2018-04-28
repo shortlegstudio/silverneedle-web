@@ -9,6 +9,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 
     public class DragonResistances : AbilityDisplayAsName, IBloodlinePower, IComponent, IImprovesWithLevels
     {
+        public ComponentContainer Parent { get; set; }
         private EnergyResistance damageResistance;
         private IValueStatModifier naturalArmor;
         private ClassLevel sorcererLevels;

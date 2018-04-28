@@ -12,6 +12,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
     public class SummonFamiliar : IAbility, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         public SummonFamiliar(Familiar familiar) 
         {
             Familiar = familiar;

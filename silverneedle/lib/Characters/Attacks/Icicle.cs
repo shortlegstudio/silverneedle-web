@@ -12,6 +12,7 @@ namespace SilverNeedle.Characters.Attacks
 
     public class Icicle : WeaponAttack, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         private ClassLevel source;
         private AbilityScore baseAbility;
         private AbilityScoreTypes baseAbilityType;

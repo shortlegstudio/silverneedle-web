@@ -10,6 +10,7 @@ namespace SilverNeedle.Characters
 {
     public class HitDiceCountStatistic : IValueStatistic, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         private IDiceStatistic _hitDice;
         public int TotalValue { get { return _hitDice.Dice.Count; } }
 

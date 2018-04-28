@@ -13,6 +13,7 @@ namespace SilverNeedle.Characters
 
     public class DiceClassLevelModifier : IDiceModifier, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         private ClassLevel classLevel;
 
         public DiceClassLevelModifier(IObjectStore configuration)

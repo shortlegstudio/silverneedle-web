@@ -10,6 +10,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
     public class WildShape : IAbility, IComponent, IUsesPerDay
     {
+        public ComponentContainer Parent { get; set; }
         private ClassLevel druidLevels;
         public int UsesPerDay
         {

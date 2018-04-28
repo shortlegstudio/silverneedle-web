@@ -9,6 +9,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
     using SilverNeedle.Utility;
     public class DraconicArcana : BloodlineArcana, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         private DragonType dragonType;
 
         public override string BonusAbility { get { return "{0} spells deal +1 damage per die".Formatted(dragonType.EnergyType); } }

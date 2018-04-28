@@ -9,6 +9,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
     public class PowerOverUndead : AbilityDisplayAsName, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         public void Initialize(ComponentContainer components)
         {
             var alignment = components.Get<CharacterAlignment>();

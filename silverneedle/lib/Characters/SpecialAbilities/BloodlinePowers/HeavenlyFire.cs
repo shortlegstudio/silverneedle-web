@@ -12,6 +12,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
     using SilverNeedle.Utility;
     public class HeavenlyFire : IAttackStatistic, IBloodlinePower, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         private OffenseStats offense;
         private ClassLevel sorcererLevel;
         private AbilityScore charisma;

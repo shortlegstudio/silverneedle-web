@@ -9,6 +9,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
     public class DispellingTouch : IAbility, IUsesPerDay, INameByType, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         public int UsesPerDay 
         {
             get { return 1 + (sourceClass.Level - 8) /4; }

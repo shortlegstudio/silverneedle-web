@@ -201,6 +201,7 @@ namespace SilverNeedle.Utility
             var comp = obj as IComponent;
             if(comp != null)
             {
+                comp.Parent = this;
                 comp.Initialize(this);
             }
         }

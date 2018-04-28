@@ -12,6 +12,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
     public class ChannelEnergy : IAbility, IComponent, IAttack, INameByType, IUsesPerDay
     {
+        public ComponentContainer Parent { get; set; }
         private IValueStatistic usesPerDayStatistic;
 
         public ChannelEnergy(IObjectStore configuration)

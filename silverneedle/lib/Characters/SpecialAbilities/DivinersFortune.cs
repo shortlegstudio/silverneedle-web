@@ -9,6 +9,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
     public class DivinersFortune : IAbility, INameByType, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         private ClassLevel sourceLevel;
         private AbilityScore baseAbility;
         public void Initialize(ComponentContainer components)

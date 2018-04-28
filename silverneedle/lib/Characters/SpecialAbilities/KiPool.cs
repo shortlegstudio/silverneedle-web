@@ -12,7 +12,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using SilverNeedle.Utility;
     public class KiPool : BasicStat, IAbility, IComponent
     {
-        private ComponentContainer components;
+        public ComponentContainer Parent { get; set; }
 
         public KiPool() : base("Ki Pool")
         {
@@ -21,14 +21,11 @@ namespace SilverNeedle.Characters.SpecialAbilities
         public KiPool(IObjectStore configuration) : base(configuration)
         {
         }
-        public void Initialize(ComponentContainer components)
-        {
-            this.components = components;
-        }
+        public void Initialize(ComponentContainer components) { }
 
         private IEnumerable<KiStrike> GetKiStrikes()
         {
-            return components.GetAll<KiStrike>();
+            return Parent.GetAll<KiStrike>();
         }
 
         public string DisplayString()

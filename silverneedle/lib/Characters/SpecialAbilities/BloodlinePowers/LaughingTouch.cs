@@ -9,6 +9,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 
     public class LaughingTouch : IAbility, INameByType, IBloodlinePower, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         private AbilityScore charisma;
 
         public int UsesPerDay

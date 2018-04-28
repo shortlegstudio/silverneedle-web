@@ -17,6 +17,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     /// </summary>
     public class ArmorTraining : CapabilityStatistic, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         public ArmorTraining(IObjectStore configuration) : base(configuration)
         {
             MaxDexBonusModifier = new DelegateStatModifier(

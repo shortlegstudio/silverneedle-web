@@ -8,6 +8,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using SilverNeedle.Utility;
     public class ManeuverTraining : IAbility, IComponent, INameByType
     {
+        public ComponentContainer Parent { get; set; }
         IValueStatModifier modifier;
         IValueStatistic baseAttackBonus;
         ClassLevel monkLevels; 

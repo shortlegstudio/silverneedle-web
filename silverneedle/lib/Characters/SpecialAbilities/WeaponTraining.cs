@@ -14,6 +14,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
     public class WeaponTraining : CapabilityStatistic, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         public WeaponTraining(IObjectStore configuration) : base(configuration)
         {
             WeaponAttackBonus = new WeaponAttackModifier(

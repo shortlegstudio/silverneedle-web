@@ -10,6 +10,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
     public class ForceMissile : IAbility, INameByType, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         private AbilityScore baseAbility;
         private IntenseSpells intenseSpells;
 

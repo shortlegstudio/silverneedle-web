@@ -9,6 +9,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
     public class HandOfTheApprentice : IAbility, INameByType, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         private AbilityScore baseAbility;
         public void Initialize(ComponentContainer components)
         {

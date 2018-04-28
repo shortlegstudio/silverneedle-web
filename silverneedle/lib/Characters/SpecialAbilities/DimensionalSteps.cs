@@ -9,6 +9,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
     public class DimensionalSteps : IAbility, INameByType, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         private ClassLevel sourceLevel;
         public void Initialize(ComponentContainer components)
         {

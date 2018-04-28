@@ -9,6 +9,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
     public class Unity : IAbility, IUsesPerDay, INameByType, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         private ClassLevel sourceClass;
         public void Initialize(ComponentContainer components)
         {

@@ -9,6 +9,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using SilverNeedle.Utility;
     public class LoreMaster : IAbility, IComponent, INameByType, IUsesPerDay
     {
+        public ComponentContainer Parent { get; set; } 
         private IValueStatistic usesPerDay;
         public int UsesPerDay
         {

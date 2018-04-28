@@ -10,6 +10,7 @@ namespace SilverNeedle.Characters.Attacks
     using SilverNeedle.Utility;
     public class QuiveringPalm : WeaponAttack, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         private IValueStatistic saveDC = new BasicStat("Quivering Palm Save DC", 10);
         public override int SaveDC 
         { 

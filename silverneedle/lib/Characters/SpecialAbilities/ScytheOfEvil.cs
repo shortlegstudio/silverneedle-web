@@ -8,6 +8,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using SilverNeedle.Utility;
     public class ScytheOfEvil : IAbility, IComponent, INameByType, IUsesPerDay
     {
+        public ComponentContainer Parent { get; set; }
         public int UsesPerDay 
         {
             get { return 1 + (sourceClass.Level - 8) /4; }

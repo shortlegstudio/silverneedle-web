@@ -19,6 +19,7 @@ namespace SilverNeedle.Characters
     /// </summary>
     public class OffenseStats : IStatTracker, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         /// <summary>
         /// The unproficient weapon modifier.
         /// </summary>

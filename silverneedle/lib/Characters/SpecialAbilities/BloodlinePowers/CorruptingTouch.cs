@@ -9,6 +9,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 
     public class CorruptingTouch : AbilityDisplayAsName, IBloodlinePower, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         private AbilityScore charisma;
         private ClassLevel sorcererLevels;
         public int UsesPerDay

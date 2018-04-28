@@ -11,6 +11,7 @@ namespace SilverNeedle.Characters.Attacks
     using SilverNeedle.Utility;
     public class AcidicRay : IAttackStatistic, IBloodlinePower, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         private OffenseStats offense;
         private ClassLevel sorcererLevels;
         private AbilityScore charisma;

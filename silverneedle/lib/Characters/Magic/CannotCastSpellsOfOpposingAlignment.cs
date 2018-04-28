@@ -11,10 +11,10 @@ namespace SilverNeedle.Characters.Magic
 
     public class CannotCastSpellsOfOpposingAlignment : ISpellCastingRule, IComponent
     {
-        private ComponentContainer components;
+        public ComponentContainer Parent { get; set; }
         public bool CanCastSpell(Spell spell)
         {
-            var alignment = components.Get<CharacterAlignment>();
+            var alignment = Parent.Get<CharacterAlignment>();
             var invalidDescs = GetInvalidDescriptors(alignment);
             if(invalidDescs.Length == 0)
                 return true;
@@ -27,10 +27,7 @@ namespace SilverNeedle.Characters.Magic
             return result;
         }
 
-        public void Initialize(ComponentContainer components)
-        {
-            this.components = components;
-        }
+        public void Initialize(ComponentContainer components) { }
 
         private string[] GetInvalidDescriptors(CharacterAlignment alignment)
         {

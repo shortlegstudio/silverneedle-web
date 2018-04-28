@@ -11,6 +11,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
     public class GraveTouch : IAbility, INameByType, IBloodlinePower, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         private AbilityScore baseAbility;
         private ClassLevel sourceLevels;
         private AbilityScoreTypes baseAbilityType;

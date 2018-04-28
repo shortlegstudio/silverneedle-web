@@ -8,6 +8,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using SilverNeedle.Utility;
     public class DancingWeapons : IAbility, IComponent, INameByType, IUsesPerDay
     {
+        public ComponentContainer Parent { get; set; }
         private ClassLevel sourceClass;
         public int UsesPerDay 
         {

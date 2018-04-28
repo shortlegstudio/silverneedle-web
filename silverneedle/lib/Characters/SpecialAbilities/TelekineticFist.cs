@@ -10,6 +10,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
     public class TelekineticFist : IAbility, INameByType, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         private ClassLevel sourceLevel;
         private AbilityScore baseAbility;
 

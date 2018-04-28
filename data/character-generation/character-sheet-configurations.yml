@@ -1,6 +1,21 @@
 --- !<SilverNeedle.Characters.CharacterSheetSetup>
 - name: default
   attributes:
+    - attribute: SilverNeedle.Characters.AbilityScores
+      name: Ability Scores
+      items:
+        - type: SilverNeedle.Characters.AbilityScore
+          name: Strength
+        - type: SilverNeedle.Characters.AbilityScore
+          name: Dexterity
+        - type: SilverNeedle.Characters.AbilityScore
+          name: Constitution
+        - type: SilverNeedle.Characters.AbilityScore
+          name: Intelligence
+        - type: SilverNeedle.Characters.AbilityScore
+          name: Wisdom
+        - type: SilverNeedle.Characters.AbilityScore
+          name: Charisma
     - attribute:
       name: General Statistics
       items:

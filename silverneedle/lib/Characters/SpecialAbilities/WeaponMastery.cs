@@ -12,6 +12,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
     public class WeaponMastery : IAbility, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         public IWeapon Weapon { get; private set; }
         public WeaponCriticalDamageModifier WeaponCriticalDamageBonus { get; private set; }
 

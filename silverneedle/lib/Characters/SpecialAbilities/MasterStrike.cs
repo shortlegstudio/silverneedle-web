@@ -9,6 +9,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using SilverNeedle.Utility;
     public class MasterStrike : IAbility, IComponent, INameByType
     {
+        public ComponentContainer Parent { get; set; }
         private AbilityScore intelligence;
         private ClassLevel rogueLevel;
         public void Initialize(ComponentContainer components)

@@ -10,6 +10,7 @@ namespace SilverNeedle.Characters
 
     public class SkillRankDependentModifier : IValueStatModifier, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         private CharacterSkill _characterSkill;
         public float Modifier { get { return _characterSkill.Ranks < MinimumRanks ? 0 : ModifierWhenAvailable; } }
 

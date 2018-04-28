@@ -9,6 +9,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using SilverNeedle.Utility;
     public class MonkFastMovement : AbilityDisplayAsName, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         private DataTable monkAbilities;
         private IValueStatModifier movementModifier;
         private ClassLevel monkLevels;

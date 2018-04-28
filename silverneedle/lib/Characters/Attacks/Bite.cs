@@ -12,6 +12,7 @@ namespace SilverNeedle.Characters.Attacks
 
     public class Bite : IAttack, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         [ObjectStore("attack-bonus")]
         public BasicStat AttackBonus { get; private set; }
 

@@ -10,6 +10,7 @@ namespace SilverNeedle.Characters
     using SilverNeedle.Utility;
     public class CasterLevelModifier : IValueStatModifier, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         private ISpellCasting casting;
         public CasterLevelModifier(IObjectStore configuration)
         {

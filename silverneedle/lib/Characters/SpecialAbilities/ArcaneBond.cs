@@ -12,6 +12,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
     public class ArcaneBond : INameByType, IAbility, BloodlinePowers.IBloodlinePower, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         private EntityGateway<Familiar> familiars;
         private IGear[] items;
         private Familiar bondedFamiliar;

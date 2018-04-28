@@ -148,6 +148,7 @@ namespace Tests.Characters
 
         public class CompAbility : IComponent
         {
+            public ComponentContainer Parent { get; set; }
             public bool Called { get; private set; }
             public void Initialize(ComponentContainer bag)
             {

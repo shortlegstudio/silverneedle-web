@@ -11,6 +11,7 @@ namespace SilverNeedle
 
     public class StatisticStatModifier : IValueStatModifier, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         private IValueStatistic statistic;
 
         public StatisticStatModifier(string statisticName, IValueStatistic trackingStat) : this(statisticName, trackingStat.Name, trackingStat)

@@ -14,6 +14,7 @@ namespace SilverNeedle.Characters.Magic
 
     public class DomainCasting : ISpellCasting, IComponent, ICastingPreparation
     {
+        public ComponentContainer Parent { get; set; }
         private ClassLevel sourceClass;
         private IEnumerable<Domain> domains;
         private Dictionary<int, IList<string>> readySpells = new Dictionary<int, IList<string>>();

@@ -9,6 +9,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 
     public class ElementalBody : AbilityDisplayAsName, IBloodlinePower, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         public void Initialize(ComponentContainer components)
         {
             var defense = components.Get<DefenseStats>();

@@ -7,6 +7,7 @@ namespace SilverNeedle.Utility
 {
     public interface IComponent
     {
+        ComponentContainer Parent { get; set; }
         void Initialize(ComponentContainer components);
     }
 }

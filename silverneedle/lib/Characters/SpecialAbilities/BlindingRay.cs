@@ -9,6 +9,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
     public class BlindingRay : IAbility, INameByType, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         private AbilityScore baseAbility;
 
         public int UsesPerDay

@@ -11,6 +11,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
     public class AbjurationResistance : AbilityDisplayAsName, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         private EntityGateway<EnergyType> energyTypes;
         private EnergyResistance damageResistance;
         private ClassLevel sourceLevels;

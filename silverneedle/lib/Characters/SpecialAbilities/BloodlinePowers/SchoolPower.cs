@@ -11,6 +11,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 
     public class SchoolPower : IAbility, INameByType, IBloodlinePower, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         public School School { get; private set; } 
 
         public void Initialize(ComponentContainer components)

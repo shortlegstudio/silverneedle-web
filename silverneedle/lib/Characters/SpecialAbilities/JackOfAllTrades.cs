@@ -8,6 +8,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using SilverNeedle.Utility;
     public class JackOfAllTrades : IAbility, IComponent, IImprovesWithLevels, INameByType
     {
+        public ComponentContainer Parent { get; set; }
         public string DisplayString()
         {
             return this.Name();

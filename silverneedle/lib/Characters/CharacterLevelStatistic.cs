@@ -12,12 +12,12 @@ namespace SilverNeedle.Characters
 
     public class CharacterLevelStatistic : IValueStatistic, IComponent, INameByType
     {
-        private ComponentContainer _components;
+        public ComponentContainer Parent { get; set; }
         public int TotalValue
         {
             get
             {
-                var levels = _components.GetAll<ClassLevel>();
+                var levels = Parent.GetAll<ClassLevel>();
                 return levels.Sum(x => x.Level);
             }
         }
@@ -41,10 +41,7 @@ namespace SilverNeedle.Characters
             throw new System.NotImplementedException();
         }
 
-        public void Initialize(ComponentContainer components)
-        {
-            _components = components;
-        }
+        public void Initialize(ComponentContainer components) { }
 
         public bool Matches(string name)
         {

@@ -12,6 +12,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 
     public class ElementalBlast : IAttack, IBloodlinePower, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         private ClassLevel sorcererLevels;
         private ElementalType elementalType;
         private AbilityScore charisma;

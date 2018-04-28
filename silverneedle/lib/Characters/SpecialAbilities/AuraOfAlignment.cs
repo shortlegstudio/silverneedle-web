@@ -8,6 +8,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using SilverNeedle.Utility;
     public class AuraOfAlignment : IAbility, INameByType, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         private CharacterAlignment alignment;
         private ClassLevel level;
         public AuraOfAlignment()

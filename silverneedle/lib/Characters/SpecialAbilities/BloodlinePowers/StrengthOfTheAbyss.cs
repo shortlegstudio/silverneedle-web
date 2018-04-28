@@ -9,6 +9,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 
     public class StrengthOfTheAbyss : AbilityDisplayAsName, IComponent, IBloodlinePower
     {
+        public ComponentContainer Parent { get; set; }
         private IValueStatModifier strengthModifier;
         private ClassLevel sorcererLevels;
         public void Initialize(ComponentContainer components)

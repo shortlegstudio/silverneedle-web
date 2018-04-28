@@ -11,6 +11,7 @@ namespace SilverNeedle.Characters.Attacks
 
     public class RangeAttackBonus : IComponent, IValueStatistic
     {
+        public ComponentContainer Parent { get; set; }
         public string Name { get { return baseRangeAttackBonus.Name; } }
 
         public int TotalValue { get { return baseRangeAttackBonus.TotalValue; } }

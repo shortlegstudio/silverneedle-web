@@ -11,6 +11,7 @@ namespace SilverNeedle.Characters
 
     public class CharacterStrategyValue : IComponent
     {
+        public ComponentContainer Parent { get; set; }
         private IEnumerable<IObjectStore> values;
         public CharacterStrategyValue(IObjectStore configuration)
         {

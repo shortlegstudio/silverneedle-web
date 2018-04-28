@@ -11,6 +11,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 
     public class GraspOfTheDead : IAttack, IBloodlinePower, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         private ClassLevel sorcererLevels;
         private AbilityScore charisma;
         public string Name { get { return "Grasp of the Dead"; } }

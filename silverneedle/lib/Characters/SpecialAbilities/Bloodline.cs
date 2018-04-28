@@ -11,6 +11,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     
     public class Bloodline : IAbility, IComponent, IGatewayObject
     {
+        public ComponentContainer Parent { get; set; }
         private Dictionary<int, string> powers = new Dictionary<int, string>();
         private Dictionary<int, string> bonusSpells = new Dictionary<int, string>();
         private string[] bonusFeats;

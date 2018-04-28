@@ -12,6 +12,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
     public class SneakAttack : IAbility, IComponent, INameByType
     {
+        public ComponentContainer Parent { get; set; }
         public IDiceStatistic Damage { get; private set; }
         public SneakAttackAttackStatistic Attack { get; private set; }
 

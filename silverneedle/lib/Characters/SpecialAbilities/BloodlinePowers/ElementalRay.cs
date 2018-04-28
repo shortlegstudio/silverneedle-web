@@ -11,6 +11,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 
     public class ElementalRay : IAttackStatistic, IBloodlinePower, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         private ClassLevel sorcererLevels;
         private ElementalType elementalType;
         private AbilityScore charisma;

@@ -12,6 +12,7 @@ namespace SilverNeedle.Characters
 
     public class LimitAlignment : IComponent
     {
+        public ComponentContainer Parent { get; set; }
         string[] denyAlignments; 
         public LimitAlignment(IObjectStore configuration)
         {

@@ -12,6 +12,7 @@ namespace SilverNeedle.Characters.Magic
 
     public class IgnoreSpellsOfOpposingSchools : ISpellCastingRule, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         private WizardCasting _casting;
         public bool CanCastSpell(Spell spell)
         {

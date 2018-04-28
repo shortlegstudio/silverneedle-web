@@ -9,6 +9,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 
     public class InfernalResistances : AbilityDisplayAsName, IBloodlinePower, IComponent, IImprovesWithLevels
     {
+        public ComponentContainer Parent { get; set; }
         private EnergyResistance fireResistance;
         private ConditionalStatModifier saveModifier;
         private ClassLevel sorcererLevels;

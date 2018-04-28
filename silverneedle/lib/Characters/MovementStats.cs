@@ -14,6 +14,7 @@ namespace SilverNeedle.Characters
     /// </summary>
     public class MovementStats : IStatTracker, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         /// <summary>
         /// The size of a square
         /// </summary>

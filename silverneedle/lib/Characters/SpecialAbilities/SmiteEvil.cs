@@ -10,6 +10,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
     public class SmiteEvil : IAbility, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         public BasicStat UsesPerDay { get; private set; }
 
         public SmiteEvil()

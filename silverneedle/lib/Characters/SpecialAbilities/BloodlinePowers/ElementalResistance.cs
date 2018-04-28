@@ -8,6 +8,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
     using SilverNeedle.Utility;
     public class ElementalResistance : AbilityDisplayAsName, IBloodlinePower, IComponent, IImprovesWithLevels
     {
+        public ComponentContainer Parent { get; set; }
         private EnergyResistance resistance; 
         private ClassLevel sorcerer;
         public void Initialize(ComponentContainer components)

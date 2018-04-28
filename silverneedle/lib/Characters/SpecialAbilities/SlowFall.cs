@@ -9,6 +9,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using SilverNeedle.Utility;
     public class SlowFall : IAbility, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         private DataTable monkAbilities;
         private ClassLevel monkLevel;
         public SlowFall(DataTable abilities)

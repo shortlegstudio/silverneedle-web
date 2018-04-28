@@ -11,6 +11,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 
     public class BreathWeapon : IBloodlinePower, IAttack, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         private ClassLevel sorcererLevels;
         private DragonType dragonType;
         private AbilityScore charisma;

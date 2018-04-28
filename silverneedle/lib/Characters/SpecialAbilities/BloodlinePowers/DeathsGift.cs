@@ -9,6 +9,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 
     public class DeathsGift : AbilityDisplayAsName, IBloodlinePower, IComponent, IImprovesWithLevels
     {
+        public ComponentContainer Parent { get; set; }
         private ClassLevel sorcererLevels;
         private EnergyResistance coldResistance;
         private DamageReduction nonLethal;

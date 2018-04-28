@@ -8,6 +8,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using SilverNeedle.Utility;
     public class EnchantingSmile : AbilityDisplayAsName, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         private IValueStatModifier skillBonusModifier;
         private ClassLevel sourceLevel;
         public void Initialize(ComponentContainer components)

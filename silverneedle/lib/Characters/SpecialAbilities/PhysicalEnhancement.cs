@@ -9,6 +9,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
     public class PhysicalEnhancement : AbilityDisplayAsName, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         private IValueStatModifier modifier;
         private ClassLevel sourceLevel;
         public void Initialize(ComponentContainer components)

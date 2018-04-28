@@ -9,6 +9,7 @@ namespace SilverNeedle.Characters
     using SilverNeedle.Utility;
     public class ClassLevelModifier : IValueStatModifier, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         private ClassLevel classLevel;
         public ClassLevelModifier(IObjectStore configuration)
         {

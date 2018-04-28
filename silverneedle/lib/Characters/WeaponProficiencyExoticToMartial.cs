@@ -11,7 +11,7 @@ namespace SilverNeedle.Characters
     using SilverNeedle.Utility;
     public class WeaponProficiencyExoticToMartial : WeaponProficiency, IComponent
     {
-        private ComponentContainer components;
+        public ComponentContainer Parent { get; set; }
         public WeaponProficiencyExoticToMartial(IObjectStore configuration) : base(configuration)
         {
 
@@ -32,15 +32,12 @@ namespace SilverNeedle.Characters
             return false;
         }
 
-        public void Initialize(ComponentContainer components)
-        {
-            this.components = components;
-        }
+        public void Initialize(ComponentContainer components) { }
 
         private bool CheckWeaponAgainstOtherProficienciesAsIfMartial(IWeaponAttackStatistics weapon)
         {
             var martialize = new ExoticToMartialWeaponDecorator(weapon);
-            var proficiencies = components.GetAll<WeaponProficiency>().Exclude(this);
+            var proficiencies = Parent.GetAll<WeaponProficiency>().Exclude(this);
 
             return proficiencies.IsProficient(martialize);
         }

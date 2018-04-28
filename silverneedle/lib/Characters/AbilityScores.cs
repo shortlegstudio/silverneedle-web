@@ -15,6 +15,7 @@ namespace SilverNeedle.Characters
     /// </summary>
     public class AbilityScores : IComponent
     {
+        public ComponentContainer Parent { get; set; }
         /// <summary>
         /// The abilities for this character
         /// </summary>

@@ -10,6 +10,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using SilverNeedle.Utility;
     public class AuraOfCourage : IAbility, IComponent, INameByType
     {
+        public ComponentContainer Parent { get; set; }
         public void Initialize(ComponentContainer components)
         {
             var def = components.Get<DefenseStats>();

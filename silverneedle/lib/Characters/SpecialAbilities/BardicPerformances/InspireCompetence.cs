@@ -8,6 +8,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BardicPerformances
     using SilverNeedle.Utility;
     public class InspireCompetence : BardicPerformanceBase, IComponent
     {
+        public ComponentContainer Parent { get; set; }
 
         private ClassLevel bardLevel;
         public int Bonus

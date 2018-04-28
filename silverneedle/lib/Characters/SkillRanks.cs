@@ -15,6 +15,7 @@ namespace SilverNeedle.Characters
     /// </summary>
     public class SkillRanks : ISkillRanks, IStatTracker, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         public IEnumerable<IValueStatistic> Statistics 
         { 
             get 

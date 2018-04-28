@@ -12,6 +12,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using SilverNeedle.Utility;
     public class BardicPerformanceAbility : IAbility, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         private const int BASE_ROUNDS_PER_DAY = 4;
         private BasicStat roundsPerDay = new BasicStat("Bardic Performance Rounds per Day", BASE_ROUNDS_PER_DAY);
         private ComponentContainer components;

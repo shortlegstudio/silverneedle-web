@@ -13,6 +13,7 @@ namespace SilverNeedle
 
     public class ConvertDamageDiceOnSizeModifier : IDiceModifier, Utility.IComponent
     {
+        public ComponentContainer Parent { get; set; }
         private SizeStats sizeStats;
 
         [ObjectStore("name")]

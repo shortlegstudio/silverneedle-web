@@ -10,6 +10,7 @@ namespace SilverNeedle.Characters.SpecialAbilities.BloodlinePowers
 
     public class NewArcana : AbilityDisplayAsName, IBloodlinePower, IImprovesWithLevels, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         public void LeveledUp(ComponentContainer components)
         {
             var clsLevel = components.Get<ClassLevel>();

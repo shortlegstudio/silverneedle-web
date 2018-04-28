@@ -106,6 +106,24 @@ namespace Tests.Utility
             Assert.NotNull(subcontainer.FindStat("Foo"));
         }
 
+        [Fact]
+        public void AssignsIComponentParent()
+        {
+            var container = new ComponentContainer();
+            var comp = new SimpleComponent();
+            container.Add(comp);
+            Assert.Equal(container, comp.Parent);
+        }
+
+        [Fact]
+        public void CallsInitializeOnComponent()
+        {
+            var container = new ComponentContainer();
+            var comp = new SimpleComponent();
+            container.Add(comp);
+            Assert.Equal("Initialized Call", comp.Name);
+        }
+
     }
 
     public class CustomStatType : BasicStat
@@ -121,5 +139,15 @@ namespace Tests.Utility
         [AddToContainer]
         public IValueStatistic Add { get { return _addMe; } }
         
+    }
+
+    public class SimpleComponent : IComponent
+    {
+        public ComponentContainer Parent { get; set; }
+        public string Name { get; private set; }
+        public void Initialize(ComponentContainer components)
+        {
+            Name = "Initialized Call";
+        }
     }
 }

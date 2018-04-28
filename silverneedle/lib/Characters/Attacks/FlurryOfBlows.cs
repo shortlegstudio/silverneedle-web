@@ -17,6 +17,7 @@ namespace SilverNeedle.Characters.Attacks
 
     public class FlurryOfBlows : IAttackStatistic, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         private DataTable monkAbilities;
         private ClassLevel monkLevels;
         private UnarmedMonk unarmedStrike;

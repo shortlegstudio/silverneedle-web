@@ -10,6 +10,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
 
     public class DazingTouch : IAbility, INameByType, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         private AbilityScore baseAbility;
         private AbilityScoreTypes baseAbilityType;
         public int UsesPerDay

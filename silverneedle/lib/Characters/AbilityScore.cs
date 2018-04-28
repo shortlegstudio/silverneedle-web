@@ -14,6 +14,7 @@ namespace SilverNeedle.Characters
     /// </summary>
     public class AbilityScore : BasicStat, IValueStatistic, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         private BasicStat abilityModifier;
         public AbilityScore(AbilityScoreTypes type, int val)
             : base(type.ToString(), val)

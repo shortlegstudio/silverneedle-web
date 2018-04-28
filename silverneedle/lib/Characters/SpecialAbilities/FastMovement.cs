@@ -12,6 +12,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
     using SilverNeedle.Utility;
     public class FastMovement : IValueStatModifier, IAbility, IComponent
     {
+        public ComponentContainer Parent { get; set; }
         public FastMovement(IObjectStore configuration)
         {
             configuration.Deserialize(this);
