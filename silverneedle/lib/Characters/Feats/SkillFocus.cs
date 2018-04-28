@@ -57,7 +57,10 @@ namespace SilverNeedle.Characters.Feats
         {
             if(strategy.FavoredSkills.IsEmpty)
             {
-                return skills.GetSkills().Select(x => x.Name).CreateFlatTable();
+                return skills.GetSkills()
+                    .Where(sk => sk.AbleToUse)
+                    .Select(x => x.Name)
+                    .CreateFlatTable();
             }
             else
             {

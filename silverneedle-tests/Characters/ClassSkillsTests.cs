@@ -17,7 +17,7 @@ namespace Tests.Characters
             var yaml = @"---
 skills: [Climb, Swim, Diplomacy]";
             var clsSkill = new ClassSkills(yaml.ParseYaml());
-            var character = CharacterTestTemplates.AverageBob().FullInitialize();
+            var character = CharacterTestTemplates.AverageBob();
             character.Add(clsSkill);
             AssertCharacter.HasClassSkill("Climb", character);
             AssertCharacter.HasClassSkill("Swim", character);

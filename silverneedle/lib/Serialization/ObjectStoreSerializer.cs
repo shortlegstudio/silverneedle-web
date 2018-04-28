@@ -189,6 +189,8 @@ namespace SilverNeedle.Serialization
                         break;
 
                     case "cup":
+                        storage.SetValue(attribute.PropertyName, propertyValue.ToString());
+                        break;
                     default:
                         if(prop.PropertyType.IsEnum)
                         {

@@ -32,7 +32,7 @@ namespace Tests.Characters
         [Fact]
         public void CalculatesSkillPointsBasedOnClassAndIntelligence()
         {
-            var sheet = CharacterTestTemplates.AverageBob().FullInitialize();
+            var sheet = CharacterTestTemplates.AverageBob();
             var fighter = Class.CreateForTesting();
             fighter.SkillPoints = 2;
             sheet.AbilityScores.SetScore(AbilityScoreTypes.Intelligence, 14);

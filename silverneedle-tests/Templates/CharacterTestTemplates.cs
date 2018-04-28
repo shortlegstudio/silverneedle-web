@@ -24,11 +24,11 @@ namespace Tests
             {
                 s.SetValue(10);
             }
-            character.InitializeComponents();
+            character.FullInitialize();
             return character;
         }
 
-        public static CharacterSheet FullInitialize(this CharacterSheet sheet)
+        private static CharacterSheet FullInitialize(this CharacterSheet sheet)
         {
             var initialize = new SilverNeedle.Actions.CharacterGeneration.InitializeCharacterSheet();
             initialize.ExecuteStep(sheet);

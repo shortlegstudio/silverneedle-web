@@ -110,6 +110,7 @@ namespace SilverNeedle.Characters
             return string.Format("Feat: {0}", Name);
         }
 
+
         public bool Matches(string name)
         {
             return Name.EqualsIgnoreCase(name);

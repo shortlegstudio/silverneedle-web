@@ -9,7 +9,7 @@ namespace Tests.Characters.SpecialAbilities.BloodlinePowers
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.SpecialAbilities.BloodlinePowers;
 
-    public class OneOfUsTests
+    public class OneOfUsTests : RequiresDataFiles
     {
         private CharacterSheet sorcerer;
         private OneOfUs oneOfUs;

@@ -8,7 +8,7 @@ namespace Tests.Characters.SpecialAbilities.BardicPerformances
     using Xunit;
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.SpecialAbilities.BardicPerformances;
-    public class InspireCompetenceTests
+    public class InspireCompetenceTests : RequiresDataFiles
     {
         [Fact]
         public void GrantsABonusOfTwoAtThirdLeel()

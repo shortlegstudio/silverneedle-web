@@ -148,7 +148,7 @@ namespace Tests.Characters {
         [Fact]
         public void AddsAHitDiceModifierForTheCharacter()
         {
-            var bob = CharacterTestTemplates.AverageBob().FullInitialize();
+            var bob = CharacterTestTemplates.AverageBob();
             bob.SetClass(Fighter);
             bob.SetLevel(5);
             var hd = bob.Components.FindStat<IDiceStatistic>(StatNames.HitDice);

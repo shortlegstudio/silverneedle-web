@@ -16,7 +16,7 @@ namespace Tests.Actions
         [Fact]
         public void LevelUpRollerAddsSomeNumberOfHPBasedOnHitDiePlusCon() 
         {
-            var character = CharacterTestTemplates.AverageBob().FullInitialize();
+            var character = CharacterTestTemplates.AverageBob();
             var cls = Class.CreateForTesting("Cleric", DiceSides.d8);
             character.AbilityScores.SetScore(AbilityScoreTypes.Constitution, 12);
             character.SetClass(cls);
