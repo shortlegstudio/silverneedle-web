@@ -90,10 +90,8 @@ namespace SilverNeedle.Serialization
 
         public static EntityGateway<T> LoadFromDataFiles()
         {
-            var gateway = new EntityGateway<T>();
             var files = DatafileLoader.Instance.GetDataFiles<T>();
-            gateway.LoadObjects(files);
-            return gateway;
+            return new EntityGateway<T>(files);
         }
 
         public static EntityGateway<T> LoadFromList(IEnumerable<T> initialItems)
@@ -131,23 +129,22 @@ namespace SilverNeedle.Serialization
             foreach(var d in data) {
                 if(d.HasKey("loader"))
                 {
-                    CreateFromLoader(d);
+                    dataStore.Add(CreateFromLoader(d));
                 }
                 else
                 {
-                    CreateStandard(d);
+                    dataStore.Add(CreateStandard(d));
                 }
             }
         }
 
-        private void CreateFromLoader(IObjectStore d)
+        private IEnumerable<T> CreateFromLoader(IObjectStore d)
         {
             var loader = d.GetString("loader").Instantiate<IGatewayLoader<T>>();
-            var entities = loader.Load(d);
-            dataStore.Add(entities);
+            return loader.Load(d);
         }
 
-        private void CreateStandard(IObjectStore d)
+        private T CreateStandard(IObjectStore d)
         {
             T obj = InstantiateObject(d);
                 
@@ -155,7 +152,7 @@ namespace SilverNeedle.Serialization
             {
                 d.Deserialize<T>(obj); 
             }
-            dataStore.Add(obj);
+            return obj;
         }
 
         private T InstantiateObject(IObjectStore objectInformation)

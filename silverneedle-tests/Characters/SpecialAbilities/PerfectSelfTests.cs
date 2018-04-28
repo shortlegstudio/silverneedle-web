@@ -10,7 +10,7 @@ namespace Tests.Characters.SpecialAbilities
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.SpecialAbilities;
 
-    public class PerfectSelfTests
+    public class PerfectSelfTests : RequiresDataFiles
     {
         [Fact]
         public void AddsDamageResistance()

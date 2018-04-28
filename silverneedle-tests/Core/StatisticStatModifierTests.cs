@@ -10,7 +10,7 @@ namespace Tests.Core
     using SilverNeedle.Characters;
     using SilverNeedle.Serialization;
 
-    public class StatisticStatModifierTests
+    public class StatisticStatModifierTests : RequiresDataFiles
     {
         [Fact]
         public void LoadedFromYamlSpecificationWillProperlyFindStatistic()

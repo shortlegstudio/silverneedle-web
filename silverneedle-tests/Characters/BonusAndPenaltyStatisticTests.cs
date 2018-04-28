@@ -9,7 +9,7 @@ namespace Tests.Characters
     using Xunit;
     using SilverNeedle.Characters;
     
-    public class BonusAndPenaltyStatisticTests
+    public class BonusAndPenaltyStatisticTests : RequiresDataFiles
     {
         [Fact]
         public void TracksTwoStatsForThePenaltyAndTheBonus()

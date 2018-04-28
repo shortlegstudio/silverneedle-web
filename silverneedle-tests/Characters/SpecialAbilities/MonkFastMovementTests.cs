@@ -10,7 +10,7 @@ namespace Tests.Characters.SpecialAbilities
     using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Serialization;
 
-    public class MonkFastMovementTests
+    public class MonkFastMovementTests : RequiresDataFiles
     {
         [Fact]
         public void MonksMoveFasterAsLevelsIncrease()

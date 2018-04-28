@@ -9,7 +9,7 @@ namespace Tests.Characters.Prerequisites
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.Prerequisites;
 
-    public class RacePrerequisiteTests
+    public class RacePrerequisiteTests : RequiresDataFiles
     {
         [Fact]
         public void MustHaveRaceThatMatchesNameToPass()

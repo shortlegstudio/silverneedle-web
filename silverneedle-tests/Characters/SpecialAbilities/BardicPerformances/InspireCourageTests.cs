@@ -8,7 +8,7 @@ namespace Tests.Characters.SpecialAbilities.BardicPerformances
     using Xunit;
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.SpecialAbilities.BardicPerformances;
-    public class InspireCourageTests
+    public class InspireCourageTests : RequiresDataFiles
     {
         [Fact]
         public void GrantsABonusOfOneAtFirstLevel()

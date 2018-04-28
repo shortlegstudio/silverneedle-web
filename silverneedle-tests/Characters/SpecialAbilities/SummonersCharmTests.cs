@@ -8,7 +8,7 @@ namespace Tests.Characters.SpecialAbilities
     using Xunit;
     using SilverNeedle.Characters.SpecialAbilities;
 
-    public class SummonersCharmTests
+    public class SummonersCharmTests : RequiresDataFiles
     {
         [Fact]
         public void ProvideExtraRoundsEqualToHalfLevelsMinimumOne()

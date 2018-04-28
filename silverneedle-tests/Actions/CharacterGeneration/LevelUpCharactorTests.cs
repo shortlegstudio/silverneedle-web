@@ -13,7 +13,8 @@ namespace Tests.Actions {
     using System.Collections.Generic;
 
     
-    public class LevelUpCharacterTests {
+    public class LevelUpCharacterTests : RequiresDataFiles
+    {
         //Handles moving characters to Level 2 and beyond
         CharacterSheet character;
 

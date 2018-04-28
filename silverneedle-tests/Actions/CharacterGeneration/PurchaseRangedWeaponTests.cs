@@ -51,7 +51,7 @@ namespace Tests.Actions {
         }
 
         [Theory]
-        [Repeat(1000)]
+        [Repeat(100)]
         public void CharactersGetARangedAndMeleeWeaponTheyAreProficientIn() {
             //Bad test, but good enough for now
             var action = new PurchaseRangedWeapon (shop);
