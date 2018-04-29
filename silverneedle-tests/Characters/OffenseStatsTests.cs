@@ -55,22 +55,6 @@ namespace Tests.Characters {
         }
 
         [Fact]
-        public void ModifiersCanBeAppliedToCombatManeuverDefense() {
-            var mods = new MockMod();
-            var oldCMD = smallStats.CombatManeuverDefense.TotalValue;
-            smallStats.ProcessModifier(mods);
-            Assert.Equal(oldCMD + 1, smallStats.CombatManeuverDefense.TotalValue);
-        }
-
-        [Fact]
-        public void ModifiersCanBeAppliedToCombatManeuverBonus() {
-            var mods = new MockMod();
-            var oldCMB = smallStats.CombatManeuverBonus.TotalValue;
-            smallStats.ProcessModifier(mods);
-            Assert.Equal(oldCMB + 1, smallStats.CombatManeuverBonus.TotalValue);
-        }
-
-        [Fact]
         public void ContainsAListOfAllWeaponsAvailableAndTheirStats() {
             var longsword = Longsword();
             inventory.AddGear(longsword);
@@ -154,8 +138,8 @@ namespace Tests.Characters {
             var damageMod = new WeaponDamageModifier(2, x => { return x.Group == WeaponGroup.HeavyBlades; });
             smallStats.AddWeaponProficiency("simple");
             smallStats.AddWeaponProficiency("martial");
-            smallStats.AddWeaponModifier(attackMod);
-            smallStats.AddWeaponModifier(damageMod);
+            character.Add(attackMod);
+            character.Add(damageMod);
             inventory.AddGear(Longsword());
             inventory.AddGear(Dagger());
 

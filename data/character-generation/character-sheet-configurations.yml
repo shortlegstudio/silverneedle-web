@@ -34,6 +34,14 @@
           name: Hit Points
           base-value: 0
     - attribute:
+      name: Size
+      items:
+        - type: SilverNeedle.Characters.SizeStats
+    - attribute:
+      name: Inventory
+      items:
+        - type: SilverNeedle.Characters.Inventory
+    - attribute:
       name: Skills
       items:
         - type: SilverNeedle.BasicStat
@@ -56,6 +64,38 @@
     - attribute: 
       name: Offense Statistics
       items:
+        - type: SilverNeedle.Characters.Attacks.BaseAttackBonus
+        - type: SilverNeedle.BasicStat
+          name: CMB
+          base-value: 0
+        - type: SilverNeedle.StatisticStatModifier
+          name: CMB
+          modifier: Base Attack Bonus
+          modifier-type: base-value
+        - type: SilverNeedle.StatisticStatModifier
+          name: CMB
+          modifier: strength-modifier
+          modifier-type: base-value
+        - type: SilverNeedle.BasicStat
+          name: CMD
+          base-value: 10
+        - type: SilverNeedle.StatisticStatModifier
+          name: CMD
+          modifier: Base Attack Bonus
+          modifier-type: base-value
+        - type: SilverNeedle.StatisticStatModifier
+          name: CMD
+          modifier: strength-modifier
+          modifier-type: base-value
+        - type: SilverNeedle.StatisticStatModifier
+          name: CMD
+          modifier: dexterity-modifier
+          modifier-type: base-value
+        - type: SilverNeedle.Characters.OffenseStats
         - type: SilverNeedle.BasicStat
           name: Attacks of Opportunity
           base-value: 1
+    - attribute:
+      name: Background
+      items:
+        - type: SilverNeedle.Characters.Background.History

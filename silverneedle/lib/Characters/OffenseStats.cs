@@ -13,108 +13,45 @@ namespace SilverNeedle.Characters
     using SilverNeedle.Equipment;
     using SilverNeedle.Utility;
 
-    /// <summary>
-    /// Offense stats for a character. Keeps track of attacks and abilities
-    /// for attacking
-    /// </summary>
-    public class OffenseStats : IStatTracker, IComponent
+    public class OffenseStats : IComponent
     {
-        public ComponentContainer Parent { get; set; }
-        /// <summary>
-        /// The unproficient weapon modifier.
-        /// </summary>
         public const int UnproficientWeaponModifier = -4;
+        public ComponentContainer Parent { get; set; }
 
-        /// <summary>
-        /// The name of the combat manuever defense stat.
-        /// </summary>
-        private const string CombatManeuverDefenseStatName = "CMD";   // TODO: Does this belong in Defense Stats?
+        public IValueStatistic CombatManeuverDefense { get { return Parent.FindStat<IValueStatistic>(StatNames.CMD); } }
 
-        /// <summary>
-        /// The name of the combat maneuver bonus stat.
-        /// </summary>
-        private const string CombatManeuverBonusStatName = "CMB";
+        public IValueStatistic CombatManeuverBonus { get { return Parent.FindStat<IValueStatistic>(StatNames.CMB); } }
 
-        public IEnumerable<IValueStatistic> Statistics
-        {
-            get 
-            {
-                return new IValueStatistic[] { BaseAttackBonus, CombatManeuverDefense, CombatManeuverBonus };
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets the CombatManeuverDefense.
-        /// </summary>
-        public BasicStat CombatManeuverDefense { get; private set; }
-
-        /// <summary>
-        /// Gets or sets the combat maneuver bonus.
-        /// </summary>
-        public BasicStat CombatManeuverBonus { get; private set; }
-
-        public IValueStatistic AttacksOfOpportunity { get { return components.FindStat<IValueStatistic>(StatNames.AttacksOfOpportunity); } }
-
-        /// <summary>
-        /// The inventory for the character.
-        /// </summary>
         private Inventory inventory;
 
-        private ComponentContainer components;
+        public IEnumerable<IWeaponModifier> WeaponModifiers { get { return Parent.GetAll<IWeaponModifier>(); } }
 
-        public IEnumerable<IWeaponModifier> WeaponModifiers { get { return components.GetAll<IWeaponModifier>(); } }
-
-        
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SilverNeedle.Characters.OffenseStats"/> class.
-        /// </summary>
-        /// <param name="size">Size of the character.</param>
-        /// <param name="inventory">Inventory and gear of the character.</param>
-        public OffenseStats()
-        {
-            this.BaseAttackBonus = new BaseAttackBonus();
-            this.CombatManeuverDefense = new BasicStat(StatNames.CMD, 10);
-            this.CombatManeuverBonus = new BasicStat(StatNames.CMB);
-        }
+        public OffenseStats() { }
 
         public void Initialize(ComponentContainer components)
         {
-            this.components = components;
             var abilities = components.Get<AbilityScores>();
             this.Strength = abilities.GetAbility(AbilityScoreTypes.Strength);
             this.Dexterity = abilities.GetAbility(AbilityScoreTypes.Dexterity);
             var size = components.Get<SizeStats>();
             this.Size = size;
             this.inventory = components.Get<Inventory>();
-            this.MeleeAttackBonus = components.Get<MeleeAttackBonus>();
-            this.RangeAttackBonus = components.Get<RangeAttackBonus>();
 
-            this.CombatManeuverBonus.AddModifiers(
-                new StatisticStatModifier(StatNames.CMB, this.BaseAttackBonus),
-                new StatisticStatModifier(StatNames.CMB, this.Strength.ModifierStat),
-                size.NegativeSizeModifier
-            );
-
-            this.CombatManeuverDefense.AddModifiers(
-                new StatisticStatModifier(StatNames.CMB, this.BaseAttackBonus),
-                new AbilityStatModifier(this.Strength),
-                new AbilityStatModifier(this.Dexterity),
-                size.NegativeSizeModifier
-            );
+            this.CombatManeuverBonus.AddModifier(size.NegativeSizeModifier);
+            this.CombatManeuverDefense.AddModifier(size.NegativeSizeModifier);
         }
 
         /// <summary>
         /// Gets the weapon proficiencies.
         /// </summary>
         /// <value>The weapon proficiencies for the character.</value>
-        public IEnumerable<WeaponProficiency> WeaponProficiencies { get { return components.GetAll<WeaponProficiency>(); } }
+        public IEnumerable<WeaponProficiency> WeaponProficiencies { get { return Parent.GetAll<WeaponProficiency>(); } }
 
         /// <summary>
         /// Gets the base attack bonus.
         /// </summary>
         /// <value>The base attack bonus.</value>
-        public BaseAttackBonus BaseAttackBonus { get; private set; }
+        public BaseAttackBonus BaseAttackBonus { get { return Parent.FindStat<BaseAttackBonus>(StatNames.BaseAttackBonus); } }
 
         /// <summary>
         /// Gets or sets the ability scores.
@@ -133,38 +70,14 @@ namespace SilverNeedle.Characters
         /// Calculates the melee attack bonus.
         /// </summary>
         /// <returns>The attack bonus.</returns>
-        public IValueStatistic MeleeAttackBonus { get; private set; }
+        public IValueStatistic MeleeAttackBonus { get { return Parent.Get<MeleeAttackBonus>(); } }
 
         /// <summary>
         /// Calculates the range attack bonus.
         /// </summary>
         /// <returns>The attack bonus.</returns>
-        public IValueStatistic RangeAttackBonus { get; private set; }
+        public IValueStatistic RangeAttackBonus { get { return Parent.Get<RangeAttackBonus>(); } }
 
-        /// <summary>
-        /// The implementing class must handle modifiers to stats under its control
-        /// </summary>
-        /// <param name="modifier">Modifier for stats</param>
-        public void ProcessModifier(IModifiesStats modifier)
-        {
-            foreach (var m in modifier.Modifiers)
-            {
-                switch (m.StatisticName)
-                {
-                    case CombatManeuverDefenseStatName:
-                        this.CombatManeuverDefense.AddModifier(m);
-                        break;
-                    case CombatManeuverBonusStatName:
-                        this.CombatManeuverBonus.AddModifier(m);
-                        break;
-                }
-            }
-        }
-
-        /// <summary>
-        /// Adds a weapon proficiencies.
-        /// </summary>
-        /// <param name="proficiencies">Proficiencies to add</param>
         public void AddWeaponProficiencies(IEnumerable<string> proficiencies)
         {
             foreach (var p in proficiencies)
@@ -173,28 +86,14 @@ namespace SilverNeedle.Characters
             }
         }
 
-        /// <summary>
-        /// Adds the weapon proficiency.
-        /// </summary>
-        /// <param name="proficiency">Proficiency to add.</param>
         public void AddWeaponProficiency(string proficiency)
         {
-            this.components.Add(new WeaponProficiency(proficiency));
+            this.Parent.Add(new WeaponProficiency(proficiency));
         }
 
-        /// <summary>
-        /// Determines whether this instance is proficient the specified weapon.
-        /// </summary>
-        /// <returns><c>true</c> if this instance is proficient in the specified weapon; otherwise, <c>false</c>.</returns>
-        /// <param name="weapon">Weapon to check.</param>
         public bool IsProficient(IWeaponAttackStatistics weapon)
         {
             return this.WeaponProficiencies.IsProficient(weapon);
-        }
-
-        public void AddWeaponModifier(IWeaponModifier modifier)
-        {
-            this.components.Add(modifier);
         }
 
         public IEnumerable<WeaponAttack> GetWeaponAttacks()
@@ -241,7 +140,7 @@ namespace SilverNeedle.Characters
 
         private IEnumerable<IAttack> GetSpecialAttacks()
         {
-            return this.components.GetAll<IAttack>();
+            return this.Parent.GetAll<IAttack>();
         }
         private WeaponAttack CreateAttack(AttackTypes attackType, IWeapon weapon) 
         {

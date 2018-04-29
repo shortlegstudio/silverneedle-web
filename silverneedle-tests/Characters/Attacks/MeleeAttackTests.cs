@@ -122,7 +122,7 @@ namespace Tests.Characters.Attacks
         {
             var bad = CharacterTestTemplates.StrongBad();
             bad.Offense.AddWeaponProficiency(sword.ProficiencyName);
-            bad.Offense.AddWeaponModifier(new WeaponAttackModifier(1, (IWeaponAttackStatistics wpn) => { return wpn == sword; }));
+            bad.Add(new WeaponAttackModifier(1, (IWeaponAttackStatistics wpn) => { return wpn == sword; }));
             var melee = new MeleeAttack(
                 bad.Offense,
                 bad.AbilityScores.GetAbility(AbilityScoreTypes.Strength),

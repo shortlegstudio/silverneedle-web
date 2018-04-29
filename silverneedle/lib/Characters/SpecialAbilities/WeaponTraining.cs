@@ -39,9 +39,8 @@ namespace SilverNeedle.Characters.SpecialAbilities
         {
             var trainings = components.GetAll<WeaponTraining>().Exclude(this);
             this.Group = EnumHelpers.GetValues<WeaponGroup>().Where(grp => !trainings.Any(already => already.Group == grp)).ChooseOne();
-            var offStats = components.Get<OffenseStats>();
-            offStats.AddWeaponModifier(WeaponAttackBonus);
-            offStats.AddWeaponModifier(WeaponDamageBonus);
+            components.Add(WeaponAttackBonus);
+            components.Add(WeaponDamageBonus);
         }
 
         public override string DisplayString()

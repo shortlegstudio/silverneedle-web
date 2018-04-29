@@ -50,7 +50,7 @@ namespace SilverNeedle.Characters.Feats
                 1,
                 x => { return x.Name == WeaponName; }
             );
-            offense.AddWeaponModifier(this.AttackModifier);
+            components.Add(this.AttackModifier);
         }
 
         public static WeaponFocus CreateForTesting(EntityGateway<Weapon> weapons)

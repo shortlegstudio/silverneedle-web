@@ -21,5 +21,11 @@ namespace SilverNeedle
 
             return result;
         }
+
+        public static void AddModifiers(this IValueStatistic statistic, params IStatisticModifier[] modifiers)
+        {
+            foreach(var m in modifiers)
+                statistic.AddModifier(m);
+        }
     }
 }

@@ -30,7 +30,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
         public void Initialize(ComponentContainer components)
         {
             this.Weapon = GatewayProvider.Get<Weapon>().ChooseOne();
-            components.Get<OffenseStats>().AddWeaponModifier(this.WeaponCriticalDamageBonus);
+            components.Add(this.WeaponCriticalDamageBonus);
         }
 
         public string DisplayString()

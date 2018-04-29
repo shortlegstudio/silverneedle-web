@@ -30,10 +30,6 @@ namespace SilverNeedle.Actions.CharacterGeneration
             var configure = setups.Find("default");
             character.Components.AddNoInitialize(new object[] { 
                 configure,
-                new SizeStats(),
-                new Inventory(),
-                new History(),
-                new OffenseStats(),
                 new MeleeAttackBonus(),
                 new RangeAttackBonus(),
                 new DefenseStats(), 

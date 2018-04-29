@@ -14,7 +14,7 @@ namespace Tests.Actions {
     using SilverNeedle.Shops;
     
     
-    public class PurchaseRangedWeaponTests 
+    public class PurchaseRangedWeaponTests : RequiresDataFiles
     {
         WeaponShop shop;
         CharacterSheet character;

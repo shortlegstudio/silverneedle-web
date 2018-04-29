@@ -252,7 +252,6 @@ namespace SilverNeedle.Characters
         {
             SkillRanks.ProcessModifier(modifier);
             this.Defense.ProcessModifier(modifier);
-            this.Offense.ProcessModifier(modifier);
         }
 
         public void AddRange(IEnumerable<object> features)
