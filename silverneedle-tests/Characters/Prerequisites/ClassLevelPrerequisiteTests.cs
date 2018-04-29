@@ -22,7 +22,7 @@ namespace Tests.Characters.Prerequisites
         [Fact]
         public void CharacterIsQualifiedIfHasTheSameClassAtAppropriateLevel()
         {
-            var character = new CharacterSheet(CharacterStrategy.Default());
+            var character = CharacterTestTemplates.AverageBob();
             var fighter = Class.CreateForTesting();
             fighter.Name = "Fighter";
             character.SetClass(fighter);
@@ -34,7 +34,7 @@ namespace Tests.Characters.Prerequisites
         [Fact]
         public void CharacterIsNotQualifiedIfWrongClassButRightLevel()
         {
-            var character = new CharacterSheet(CharacterStrategy.Default());
+            var character = CharacterTestTemplates.AverageBob();
             var wizard = Class.CreateForTesting();
             wizard.Name = "Wizard";
             character.SetClass(wizard);
@@ -45,7 +45,7 @@ namespace Tests.Characters.Prerequisites
         [Fact]
         public void CharacterIsNotQualifiedIfRightClassButToLowLevel()
         {
-            var character = new CharacterSheet(CharacterStrategy.Default());
+            var character = CharacterTestTemplates.AverageBob();
             var fighter = Class.CreateForTesting();
             fighter.Name = "Fighter";
             character.SetClass(fighter);

@@ -12,7 +12,7 @@ namespace Tests.Actions.CharacterGeneration.Appearance
     using SilverNeedle.Serialization;
 
     
-    public class CreateHairTests
+    public class CreateHairTests : RequiresDataFiles
     {
         [Fact]
         public void ProcessCreatesADescriptionCombiningColorAndStyle()
@@ -22,7 +22,7 @@ namespace Tests.Actions.CharacterGeneration.Appearance
             styles[0].Descriptors.Add("descriptor", new string[] { "long" });
 
             var subject = new CreateHair(EntityGateway<HairColor>.LoadFromList(colors), EntityGateway<HairStyle>.LoadFromList(styles));
-            var character = new CharacterSheet(CharacterStrategy.Default());
+            var character = CharacterTestTemplates.AverageBob();
             subject.ExecuteStep(character);
             Assert.Equal(colors[0], character.Appearance.HairColor);
             Assert.Equal(styles[0], character.Appearance.HairStyle);

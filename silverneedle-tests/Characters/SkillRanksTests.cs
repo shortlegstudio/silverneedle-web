@@ -16,24 +16,15 @@ namespace Tests.Characters
     
     public class SkillRanksTests
     {
-        List<Skill> _skillList;
-        AbilityScores _abilityScores;
-
+        CharacterSheet character;
         SkillRanks Subject;
 
         public SkillRanksTests()
         {
-            _skillList = new List<Skill>();
-            _skillList.Add(new Skill("Climb", AbilityScoreTypes.Strength, false, "Climb", true));
-            _skillList.Add(new Skill("Disable Device", AbilityScoreTypes.Dexterity, true));
-            _skillList.Add(new Skill("Stealth", AbilityScoreTypes.Dexterity, false));
-
-            _abilityScores = new AbilityScores();
-            _abilityScores.SetScore(AbilityScoreTypes.Strength, 14);
-            _abilityScores.SetScore(AbilityScoreTypes.Dexterity, 12);
-
-            Subject = new SkillRanks(_skillList, _abilityScores);
-
+            character = CharacterTestTemplates.AverageBob();
+            character.AbilityScores.SetScore(AbilityScoreTypes.Strength, 14);
+            character.AbilityScores.SetScore(AbilityScoreTypes.Dexterity, 12);
+            Subject = character.SkillRanks;
         }
 
         [Fact]
@@ -65,45 +56,29 @@ namespace Tests.Characters
 						Assert.Equal("Climb", Subject.GetSkill("climb").Name);
 				}
 
-        [Fact]
-        public void IfSkillDoesNotExistWhenProcessingAModifierJustLogIt()
-        {
-            var ranks = new SkillRanks(new List<Skill>(), new AbilityScores());
-            ranks.ProcessModifier(new MockMod());
-            //Should not throw exception
-        }
 
         [Fact]
         public void SettingACraftSkillAsClassSkillSetsAllCraftSkills()
         {
-            _skillList.Add(new Skill("Craft (Shoes)", AbilityScoreTypes.Intelligence, false));
-            _skillList.Add(new Skill("Craft (Jewelry)", AbilityScoreTypes.Intelligence, false));
-            var ranks = new SkillRanks(_skillList, new AbilityScores());
-            ranks.SetClassSkill("Craft");
-            Assert.True(ranks.GetSkill("Craft (Shoes)").ClassSkill);
-            Assert.True(ranks.GetSkill("Craft (Jewelry)").ClassSkill);
+            Subject.SetClassSkill("Craft");
+            Assert.True(Subject.GetSkill("Craft (Shoes)").ClassSkill);
+            Assert.True(Subject.GetSkill("Craft (Jewelry)").ClassSkill);
         }
 
         [Fact]
         public void SettingAProfessionsSkillAsClassSkillSetsAllProfessionsSkills()
         {
-            _skillList.Add(new Skill("Profession (Bouncer)", AbilityScoreTypes.Intelligence, false));
-            _skillList.Add(new Skill("Profession (Turnip Farmer)", AbilityScoreTypes.Intelligence, false));
-            var ranks = new SkillRanks(_skillList, new AbilityScores());
-            ranks.SetClassSkill("Profession");
-            Assert.True(ranks.GetSkill("Profession (Bouncer)").ClassSkill);
-            Assert.True(ranks.GetSkill("Profession (Turnip Farmer)").ClassSkill);
+            Subject.SetClassSkill("Profession");
+            Assert.True(Subject.GetSkill("Profession (Fisherman)").ClassSkill);
+            Assert.True(Subject.GetSkill("Profession (Brewer)").ClassSkill);
         }
 
         [Fact]
         public void SettingAPerformSkillAsClassSkillSetsAllPerformSkills()
         {
-            _skillList.Add(new Skill("Perform (Debate)", AbilityScoreTypes.Intelligence, false));
-            _skillList.Add(new Skill("Perform (Art)", AbilityScoreTypes.Intelligence, false));
-            var ranks = new SkillRanks(_skillList, new AbilityScores());
-            ranks.SetClassSkill("Perform");
-            Assert.True(ranks.GetSkill("Perform (Debate)").ClassSkill);
-            Assert.True(ranks.GetSkill("Perform (Art)").ClassSkill);
+            Subject.SetClassSkill("Perform");
+            Assert.True(Subject.GetSkill("Perform (Oratory)").ClassSkill);
+            Assert.True(Subject.GetSkill("Perform (Comedy)").ClassSkill);
         }
     
         [Fact]

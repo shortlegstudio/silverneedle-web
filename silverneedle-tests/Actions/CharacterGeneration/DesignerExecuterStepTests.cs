@@ -17,8 +17,7 @@ namespace Tests.Actions.CharacterGeneration
         [Fact]
         public void ExecutesTheDesignerRequested()
         {
-            var build = new CharacterStrategy();
-            var character = new CharacterSheet(build);
+            var character = CharacterTestTemplates.AverageBob();
             var mockDesigner = new Mock<CharacterDesigner>();
             
             // Set up a character designer

@@ -9,17 +9,12 @@ namespace Tests.Characters {
     
     
     public class AbilityScoresTests {
+        private CharacterSheet character;
         private AbilityScores Subject;
 
         public AbilityScoresTests() {
-            Subject = new AbilityScores ();
-        }
-
-        [Fact]
-        public void AbilityScoresContainerHasAllTheStatsSetToZero() {
-            Assert.Equal(0, Subject.GetScore(AbilityScoreTypes.Strength));
-            Assert.Equal(0, Subject.GetScore(AbilityScoreTypes.Wisdom));
-            Assert.Equal(0, Subject.GetScore("Intelligence"));
+            character = CharacterTestTemplates.AverageBob();
+            Subject = character.AbilityScores;
         }
 
         [Fact]
@@ -33,21 +28,6 @@ namespace Tests.Characters {
             Subject.SetScore (AbilityScoreTypes.Charisma, 12);
 
             Assert.Equal (1, Subject.GetModifier (AbilityScoreTypes.Charisma));
-        }
-
-        [Fact]
-        public void YouCanCopyOneSetOfAbilityScoresToAnother() {
-            var abilityScores = new AbilityScores ();
-            var copyFrom = new AbilityScores ();
-            foreach (var e in copyFrom.Abilities) {
-                e.SetValue (15);
-            }
-
-            abilityScores.Copy (copyFrom);
-
-            foreach (var e in abilityScores.Abilities) {
-                Assert.Equal (e.TotalValue, copyFrom.GetScore (e.Ability));
-            }
         }
     }
 }

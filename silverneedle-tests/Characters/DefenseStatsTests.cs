@@ -15,7 +15,8 @@ namespace Tests.Characters {
     using SilverNeedle.Utility;
 
     
-    public class DefenseStatsTests {
+    public class DefenseStatsTests : RequiresDataFiles
+    {
         CharacterSheet character;
         DefenseStats basicStats;
         DefenseStats emptyStats;
@@ -116,22 +117,18 @@ namespace Tests.Characters {
 
         [Fact]
         public void EquippedArmorIncreasesYourDefenseAndYourFlatFootedDefenseButNotTouchDefense() {
-            var bag = new ComponentContainer();
-            var inventory = new Inventory ();
-            bag.Add(inventory);
-            bag.Add(new AbilityScores());
-            bag.Add(new SizeStats());
-            var def = new DefenseStats ();
-            def.Initialize(bag);
+
+            var def = character.Defense;
             var startAC = def.ArmorClass.TotalValue;
             var startFlat = def.FlatFootedArmorClass.TotalValue; 
             var startTouch = def.TouchArmorClass.TotalValue; 
 
             var armor = new Armor ();
             armor.ArmorClass = 10;
+            armor.MaximumDexterityBonus = 100;
 
-            inventory.AddGear (armor);
-            inventory.EquipItem (armor);
+            character.Inventory.AddGear (armor);
+            character.Inventory.EquipItem (armor);
             Assert.Equal (startAC + 10, def.ArmorClass.TotalValue);
             Assert.Equal (startFlat + 10, def.FlatFootedArmorClass.TotalValue);
             Assert.Equal (startTouch, def.TouchArmorClass.TotalValue);
@@ -171,22 +168,13 @@ namespace Tests.Characters {
         [Fact]
         public void ArmorCanLimitTheMaxDexterityBonus()
         {
-            var bag = new ComponentContainer();
-            var inventory = new Inventory ();
-            bag.Add(inventory);
-            var abilities = new AbilityScores();
-            abilities.SetScore(AbilityScoreTypes.Dexterity, 18);
-            bag.Add(abilities);
-            bag.Add(new SizeStats());
-            var def = new DefenseStats ();
-            def.Initialize(bag);
-
+            character.AbilityScores.SetScore(AbilityScoreTypes.Dexterity, 18);
             var armor = new Armor();
             armor.MaximumDexterityBonus = 1;
-            inventory.EquipItem(armor);
+            character.Inventory.EquipItem(armor);
 
-            Assert.Equal(def.MaxDexterityBonus.TotalValue, 1);
-            Assert.Equal(def.ArmorClass.TotalValue, 11);
+            Assert.Equal(character.Defense.MaxDexterityBonus.TotalValue, 1);
+            Assert.Equal(character.Defense.ArmorClass.TotalValue, 12); //Character is small && dexterity
         }
 
         [Fact]

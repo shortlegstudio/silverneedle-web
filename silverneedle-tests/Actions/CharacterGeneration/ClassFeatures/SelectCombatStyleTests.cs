@@ -16,7 +16,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
         [Fact]
         public void SelectACombatStyle()
         {
-            var character = new CharacterSheet(CharacterStrategy.Default());
+            var character = CharacterTestTemplates.AverageBob();
             var step = new SelectCombatStyle();
             step.ExecuteStep(character);
             Assert.NotNull(character.Get<CombatStyle>()); 

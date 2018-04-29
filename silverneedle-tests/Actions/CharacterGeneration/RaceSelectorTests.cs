@@ -59,7 +59,7 @@ namespace Tests.Actions
         [Fact]
         public void SettingRaceCalculatesSize()
         {
-            var sheet = new CharacterSheet(CharacterStrategy.Default());
+            var sheet = CharacterTestTemplates.AverageBob();
 
             var smallGuy = new Race();
             smallGuy.SizeSetting = CharacterSize.Small;
@@ -77,7 +77,7 @@ namespace Tests.Actions
         [Fact]
         public void SettingRaceAssignsMovement()
         {
-            var sheet = new CharacterSheet(CharacterStrategy.Default());
+            var sheet = CharacterTestTemplates.AverageBob();
             var fastGuy = new Race();
             fastGuy.SizeSetting = CharacterSize.Small;
             fastGuy.HeightRange = DiceStrings.ParseDice("2d4+10");
@@ -91,24 +91,17 @@ namespace Tests.Actions
         [Fact]
         public void OptionTableLimitsSelectionOfRace()
         {
-            var options = new WeightedOptionTable<string>();
-            var strategy = new CharacterStrategy();
-            strategy.Races.AddEntry("Human", 12);
-            var sheet = new CharacterSheet(strategy);
+            var sheet = CharacterTestTemplates.AverageBob();
+            sheet.Strategy.Races.AddEntry("Human", 12);
 
-            //Run it 1000 times, should always be human
-            for (int x = 0; x < 1000; x++)
-            {
-                raceSelectorSubject.ExecuteStep(sheet);
-                Assert.Equal(human, sheet.Race);
-            }
+            raceSelectorSubject.ExecuteStep(sheet);
+            Assert.Equal(human, sheet.Race);
         }
 
         [Fact]
         public void IfChoiceListIsEmptyChooseAnyRace() 
         {	
-            var strategy = new CharacterStrategy();
-            var sheet = new CharacterSheet(strategy);
+            var sheet = CharacterTestTemplates.AverageBob();
 
             raceSelectorSubject.ExecuteStep(sheet);
             Assert.NotNull(sheet.Race);
@@ -117,13 +110,12 @@ namespace Tests.Actions
         [Fact]
         public void AddLanguagesKnownToStrategy()
         {
-            var strategy = new CharacterStrategy();
-            strategy.Races.AddEntry("Elfy", 1000);
-            var character = new CharacterSheet(strategy);
+            var character = CharacterTestTemplates.AverageBob();
+            character.Strategy.Races.AddEntry("Elfy", 1000);
             raceSelectorSubject.ExecuteStep(character);
             Assert.Equal(character.Race.Name, "Elfy");
-            Assert.NotStrictEqual(strategy.LanguagesKnown, new string[] {"Common", "Elvish"});
-            Assert.NotStrictEqual(strategy.LanguageChoices, new string[] {"Draconic", "Celestial"});
+            AssertExtensions.EquivalentLists(character.Strategy.LanguagesKnown, new string[] {"Common", "Elvish"});
+            AssertExtensions.EquivalentLists(character.Strategy.LanguageChoices, new string[] {"Draconic", "Celestial"});
         }
     }
 }

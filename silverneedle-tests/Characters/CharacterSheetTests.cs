@@ -51,7 +51,7 @@ namespace Tests.Characters
         [Fact]
         public void CharactersHaveVitalStats()
         {
-            var sheet = new CharacterSheet(CharacterStrategy.Default());
+            var sheet = CharacterTestTemplates.AverageBob();
             sheet.FirstName = "Foobar";
             sheet.Alignment = CharacterAlignment.LawfulGood;
             Assert.Equal("Foobar", sheet.Name);
@@ -133,17 +133,6 @@ namespace Tests.Characters
             Assert.Equal(CharacterAlignment.ChaoticEvil, bob2.Alignment);
             Assert.Equal(Gender.Male, bob2.Gender);
             Assert.NotNull(bob2.Offense);
-        }
-
-        [Fact]
-        public void HasAGroupOfRequiredStandardComponentsAdded()
-        {
-            var character = new CharacterSheet(CharacterStrategy.Default());
-            Assert.NotNull(character.Get<Inventory>());
-            Assert.NotNull(character.Get<OffenseStats>());
-            Assert.NotNull(character.Get<DefenseStats>());
-            Assert.NotNull(character.Get<SizeStats>());
-            Assert.NotNull(character.Get<SilverNeedle.Characters.Attacks.MeleeAttackBonus>());
         }
 
         public class CompAbility : IComponent

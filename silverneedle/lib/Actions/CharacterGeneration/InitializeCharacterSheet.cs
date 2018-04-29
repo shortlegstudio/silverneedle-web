@@ -7,6 +7,10 @@
 namespace SilverNeedle.Actions.CharacterGeneration
 {
     using SilverNeedle.Characters;
+    using SilverNeedle.Characters.Appearance;
+    using SilverNeedle.Characters.Attacks;
+    using SilverNeedle.Characters.Background;
+    using SilverNeedle.Characters.Personalities;
     using SilverNeedle.Serialization;
 
     public class InitializeCharacterSheet : ICharacterDesignStep
@@ -24,7 +28,20 @@ namespace SilverNeedle.Actions.CharacterGeneration
         public void ExecuteStep(CharacterSheet character)
         {
             var configure = setups.Find("default");
-            character.Components.AddNoInitialize(new object[] { configure });
+            character.Components.AddNoInitialize(new object[] { 
+                configure,
+                new SizeStats(),
+                new Inventory(),
+                new History(),
+                new OffenseStats(),
+                new MeleeAttackBonus(),
+                new RangeAttackBonus(),
+                new DefenseStats(), 
+                new MovementStats(),
+                new CharacterAppearance(),
+                new SkillRanks(),
+                new Likes()
+            });
             character.InitializeComponents();
             character.SkillRanks.FillSkills(skills.All());
         }

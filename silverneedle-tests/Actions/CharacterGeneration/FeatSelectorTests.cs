@@ -45,10 +45,9 @@ namespace Tests.Actions
         public void ChooseFeatBasedOnStrategy()
         {
             
-            var buildStrategy = new CharacterStrategy();
-            buildStrategy.FavoredFeats.AddEntry("power attack", 5000000);
-            buildStrategy.FavoredFeats.AddEntry("cleave", 1);
-            var character = new CharacterSheet(buildStrategy);
+            var character = CharacterTestTemplates.AverageBob();
+            character.Strategy.FavoredFeats.AddEntry("power attack", 5000000);
+            character.Strategy.FavoredFeats.AddEntry("cleave", 1);
             character.Add(new FeatToken());
             
             selector.ExecuteStep(character);
@@ -59,60 +58,45 @@ namespace Tests.Actions
         [Fact]
         public void OnlySelectsFeatsThatCharacterQualifiesFor()
         {
-            var buildStrategy = new CharacterStrategy();
-            buildStrategy.FavoredFeats.AddEntry("power attack", 1);
-            buildStrategy.FavoredFeats.AddEntry("cleave", 5000000);
-            for(int i = 0; i < 1000; i++)
-            {
-                var character = new CharacterSheet(buildStrategy);
-                character.Add(new FeatToken());
+            var character = CharacterTestTemplates.AverageBob();
+            character.Strategy.FavoredFeats.AddEntry("power attack", 1);
+            character.Strategy.FavoredFeats.AddEntry("cleave", 5000000);
+            character.Add(new FeatToken());
 
-                selector.ExecuteStep(character);
-                Assert.Equal(powerattack, character.Feats.First());
-            }            
-        } 
+            selector.ExecuteStep(character);
+            Assert.Equal(powerattack, character.Feats.First());
+    } 
 
         [Fact]
         public void SelectFeatsBasedOnTokensAvailable() 
         {
-            var buildStrategy = new CharacterStrategy();
-            buildStrategy.FavoredFeats.AddEntry("power attack", 5000000);
-            buildStrategy.FavoredFeats.AddEntry("empower spell", 1);
+            var character = CharacterTestTemplates.AverageBob();
+            character.Strategy.FavoredFeats.AddEntry("power attack", 5000000);
+            character.Strategy.FavoredFeats.AddEntry("empower spell", 1);
+            character.Add(new FeatToken("metamagic"));
 
-            for(int i = 0; i < 1000; i++)
-            {
-                var character = new CharacterSheet(buildStrategy);
-                character.Add(new FeatToken("metamagic"));
-
-                selector.ExecuteStep(character);
-                Assert.Equal(empowerspell, character.Feats.First());
-            }            
+            selector.ExecuteStep(character);
+            Assert.Equal(empowerspell, character.Feats.First());
         }
 
         [Fact]
         public void SelectsAFeatForEachOutstandingToken() {
-            var buildStrategy = new CharacterStrategy();
-            buildStrategy.FavoredFeats.AddEntry("power attack", 5000000);
-            buildStrategy.FavoredFeats.AddEntry("empower spell", 1);
+            var character = CharacterTestTemplates.AverageBob();
+            character.Strategy.FavoredFeats.AddEntry("power attack", 5000000);
+            character.Strategy.FavoredFeats.AddEntry("empower spell", 1);
+            character.Add(new FeatToken("metamagic"));
+            character.Add(new FeatToken());
 
-            for(int i = 0; i < 1000; i++)
-            {
-                var character = new CharacterSheet(buildStrategy);
-                character.Add(new FeatToken("metamagic"));
-                character.Add(new FeatToken());
-
-                selector.ExecuteStep(character);
-                Assert.True(character.Feats.Contains(empowerspell));
-                Assert.True(character.Feats.Contains(powerattack));
-            }        
+            selector.ExecuteStep(character);
+            Assert.True(character.Feats.Contains(empowerspell));
+            Assert.True(character.Feats.Contains(powerattack));
         }
 
         [Fact]
         public void FeatTokensAreUsedUpAfterSelection() {
-            var buildStrategy = new CharacterStrategy();
-            buildStrategy.FavoredFeats.AddEntry("power attack", 5000000);
 
-            var character = new CharacterSheet(buildStrategy);
+            var character = CharacterTestTemplates.AverageBob();
+            character.Strategy.FavoredFeats.AddEntry("power attack", 5000000);
             character.Add(new FeatToken());
 
             selector.ExecuteStep(character);
@@ -122,8 +106,7 @@ namespace Tests.Actions
         [Fact]
         public void IfNoPreferredFeatsArePossibleJustSelectRandomlyFromAnyPossible()
         {
-            var buildStrategy = new CharacterStrategy();
-            var character = new CharacterSheet(buildStrategy);
+            var character = CharacterTestTemplates.AverageBob();
             character.Add(new FeatToken());
             selector.ExecuteStep(character);
             Assert.True(character.Feats.First().Equals(powerattack) || 
@@ -133,10 +116,8 @@ namespace Tests.Actions
         [Fact]
         public void FeatTokensCanSpecifyAFeatByName()
         {
-            var buildStrategy = new CharacterStrategy();
-            buildStrategy.FavoredFeats.AddEntry("power attack", 5000000);
-
-            var character = new CharacterSheet(buildStrategy);
+            var character = CharacterTestTemplates.AverageBob();
+            character.Strategy.FavoredFeats.AddEntry("power attack", 5000000);
             character.Add(new FeatToken("Empower Spell"));
 
             selector.ExecuteStep(character);

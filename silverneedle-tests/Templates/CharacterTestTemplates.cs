@@ -17,15 +17,19 @@ namespace Tests
     using SilverNeedle.Utility;
     public static class CharacterTestTemplates
     {
+        static object lockToken = new object();
         private static CharacterSheet CreateWithAverageAbilityScores()
         {
-            var character = new CharacterSheet(CharacterStrategy.Default());
-            foreach(var s in character.AbilityScores.Abilities)
+            lock(lockToken)
             {
-                s.SetValue(10);
+                var character = new CharacterSheet(CharacterStrategy.Default());
+                character.FullInitialize();
+                foreach(var s in character.AbilityScores.Abilities)
+                {
+                    s.SetValue(10);
+                }
+                return character;
             }
-            character.FullInitialize();
-            return character;
         }
 
         private static CharacterSheet FullInitialize(this CharacterSheet sheet)

@@ -27,22 +27,7 @@ namespace SilverNeedle.Characters
         public CharacterSheet(CharacterStrategy strategy) 
         {
             this.Components = new ComponentContainer();
-            var abilityScores = new AbilityScores();
-            this.Components.AddNoInitialize(new object[] { 
-                strategy,
-                abilityScores,
-                new SizeStats(),
-                new Inventory(),
-                new History(),
-                new OffenseStats(),
-                new MeleeAttackBonus(),
-                new RangeAttackBonus(),
-                new DefenseStats(), 
-                new MovementStats(),
-                new CharacterAppearance(),
-                new SkillRanks(),
-                new Likes()
-            });
+            this.Components.Add(strategy);
         }
 
         public void InitializeComponents()

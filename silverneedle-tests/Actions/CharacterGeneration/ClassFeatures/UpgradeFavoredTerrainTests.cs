@@ -20,7 +20,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
             var forest = new TerrainType("Forest");
             var fav = new FavoredTerrain();
             fav.Add(forest);
-            var character = new CharacterSheet(CharacterStrategy.Default());
+            var character = CharacterTestTemplates.AverageBob();
             character.Add(fav);
             var upgrade = new UpgradeFavoredTerrain();
             upgrade.ExecuteStep(character);

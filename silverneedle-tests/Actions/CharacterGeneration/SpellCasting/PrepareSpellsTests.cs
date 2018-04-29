@@ -19,7 +19,7 @@ namespace Tests.Actions.CharacterGeneration.SpellCasting
         [Fact]
         public void NonCastersDoNothing()
         {
-            var character = new CharacterSheet(CharacterStrategy.Default());
+            var character = CharacterTestTemplates.AverageBob();
             var prepareSpells = new PrepareSpells();
             prepareSpells.ExecuteStep(character);
         }

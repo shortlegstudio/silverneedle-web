@@ -19,7 +19,7 @@ namespace Tests.Actions.CharacterGeneration.Background
         {
             var backgroundStoryTemplate = new Descriptor("background-story", new string[] { "{{name}} was born in a shack."});
             var writer = new BackgroundStorywriter(EntityGateway<Descriptor>.LoadWithSingleItem(backgroundStoryTemplate));
-            var character = new CharacterSheet(CharacterStrategy.Default());
+            var character = CharacterTestTemplates.AverageBob();
             character.FirstName = "Foo";
             
             writer.ExecuteStep(character);

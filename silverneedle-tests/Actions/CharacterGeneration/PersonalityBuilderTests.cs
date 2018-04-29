@@ -16,7 +16,7 @@ namespace Tests.Actions.CharacterGeneration
         public void AssignsARandomPersonalityType()
         {
             var builder = new PersonalityBuilder();
-            var cs = new CharacterSheet(CharacterStrategy.Default());
+            var cs = CharacterTestTemplates.AverageBob();
 
             builder.Random(cs);
             Assert.NotNull(cs.PersonalityType);
@@ -27,7 +27,7 @@ namespace Tests.Actions.CharacterGeneration
         public void AssignsSomeRandomIdeals()
         {
             var builder = new PersonalityBuilder();
-            var cs = new CharacterSheet(CharacterStrategy.Default());
+            var cs = CharacterTestTemplates.AverageBob();
 
             builder.Random(cs);
             Assert.NotNull(cs.Ideal);

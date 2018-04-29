@@ -23,7 +23,7 @@ namespace Tests.Actions.CharacterGeneration.Appearance
             var gateway = EntityGateway<PhysicalFeature>.LoadWithSingleItem(phys);
 
             var subject = new CreatePhysicalFeatures(gateway);
-            var character = new CharacterSheet(CharacterStrategy.Default());
+            var character = CharacterTestTemplates.AverageBob();
             subject.ExecuteStep(character);
 
             Assert.Equal(character.Appearance.PhysicalAppearance, "He has a crooked nose.");
@@ -43,7 +43,7 @@ namespace Tests.Actions.CharacterGeneration.Appearance
             var gateway = EntityGateway<PhysicalFeature>.LoadWithSingleItem(phys);
             var subject = new CreatePhysicalFeatures(gateway);
 
-            var character = new CharacterSheet(CharacterStrategy.Default());
+            var character = CharacterTestTemplates.AverageBob();
             character.Gender = Gender.Female;
 
             subject.ExecuteStep(character);
@@ -73,7 +73,7 @@ namespace Tests.Actions.CharacterGeneration.Appearance
             var gateway = EntityGateway<PhysicalFeature>.LoadWithSingleItem(phys);
             var subject = new CreatePhysicalFeatures(gateway);
 
-            var character = new CharacterSheet(CharacterStrategy.Default());
+            var character = CharacterTestTemplates.AverageBob();
             character.Gender = Gender.Female;
 
             subject.ExecuteStep(character);
@@ -94,7 +94,7 @@ namespace Tests.Actions.CharacterGeneration.Appearance
             var gateway = EntityGateway<PhysicalFeature>.LoadFromList(new PhysicalFeature[] { tattoo, scar });
             var subject = new CreatePhysicalFeatures(gateway);
 
-            var character = new CharacterSheet(CharacterStrategy.Default());
+            var character = CharacterTestTemplates.AverageBob();
             subject.ExecuteStep(character);
             Assert.Contains("Tattoo of a green dragon.", character.Appearance.PhysicalAppearance);
             Assert.Contains("A scar on face.", character.Appearance.PhysicalAppearance);

@@ -36,7 +36,7 @@ namespace Tests.Actions
         [Fact]
         public void SelectARandomClassForACharacter()
         {
-            var character = new CharacterSheet(CharacterStrategy.Default());
+            var character = CharacterTestTemplates.AverageBob();
             subject.ChooseAny(character);
             Assert.NotNull(character.Class.Name);
         }
@@ -44,7 +44,7 @@ namespace Tests.Actions
         [Fact]
         public void ChoosingClassFromWeightedOptionTableSelectsFromThoseClasses()
         {
-            var character = new CharacterSheet(CharacterStrategy.Default());
+            var character = CharacterTestTemplates.AverageBob();
             var choices = new WeightedOptionTable<string>();
             choices.AddEntry("Fighter", 10);
 
@@ -56,7 +56,7 @@ namespace Tests.Actions
         [Fact]
         public void EmptyOptionTableChoosesFromAnyOfTheClasses()
         {
-            var character = new CharacterSheet(CharacterStrategy.Default());
+            var character = CharacterTestTemplates.AverageBob();
             var choices = new WeightedOptionTable<string>();
             
             Assert.Null(character.Class);
@@ -70,7 +70,7 @@ namespace Tests.Actions
             var cls = Class.CreateForTesting();
             var lvl1 = new Level(1);
             cls.Levels.Add(lvl1);
-            var character = new CharacterSheet(CharacterStrategy.Default());
+            var character = CharacterTestTemplates.AverageBob();
             subject.AssignClass(character, cls);
         }
     }
