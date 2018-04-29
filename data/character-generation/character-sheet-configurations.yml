@@ -65,6 +65,28 @@
       name: Offense Statistics
       items:
         - type: SilverNeedle.Characters.Attacks.BaseAttackBonus
+        - type: SilverNeedle.Characters.Attacks.MeleeAttackBonus
+          name: Melee Attack Bonus
+          base-value: 0
+        - type: SilverNeedle.StatisticStatModifier
+          name: Melee Attack Bonus
+          modifier: Base Attack Bonus
+          modifier-type: base-value
+        - type: SilverNeedle.StatisticStatModifier
+          name: Melee Attack Bonus
+          modifier: strength-modifier
+          modifier-type: base-value
+        - type: SilverNeedle.Characters.Attacks.RangeAttackBonus
+          name: Range Attack Bonus
+          base-value: 0
+        - type: SilverNeedle.StatisticStatModifier
+          name: Range Attack Bonus
+          modifier: Base Attack Bonus
+          modifier-type: base-value
+        - type: SilverNeedle.StatisticStatModifier
+          name: Range Attack Bonus
+          modifier: dexterity-modifier
+          modifier-type: base-value
         - type: SilverNeedle.BasicStat
           name: CMB
           base-value: 0

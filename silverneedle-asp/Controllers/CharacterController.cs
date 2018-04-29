@@ -48,13 +48,15 @@ namespace silverneedleweb.Controllers
                 Statistics = character.Components.GetAll<IStatistic>()
             };
 
-            ViewData["character-json"] = JsonConvert.SerializeObject(character,
-                Formatting.Indented, 
-                new JsonIgnoreClassConverter(),
-                new JsonCharacterSheetConverter(), 
-                new JsonValueStatisticConverter(),
-                new JsonFamilyTreeConverter()
-            );
+            var settings = new JsonSerializerSettings();
+            settings.Formatting = Formatting.Indented;
+            settings.ContractResolver = new JsonSilverNeedleContractResolver();
+            settings.Converters.Add(new JsonIgnoreClassConverter());
+            settings.Converters.Add(new JsonCharacterSheetConverter());
+            settings.Converters.Add(new JsonValueStatisticConverter());
+            settings.Converters.Add(new JsonFamilyTreeConverter());
+
+            ViewData["character-json"] = JsonConvert.SerializeObject(character, settings);
             var saveObj = new YamlObjectStore();
             character.Save(saveObj);
             ViewData["save-data"] = saveObj.WriteToString();

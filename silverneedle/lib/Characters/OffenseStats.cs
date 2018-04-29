@@ -78,6 +78,8 @@ namespace SilverNeedle.Characters
         /// <returns>The attack bonus.</returns>
         public IValueStatistic RangeAttackBonus { get { return Parent.Get<RangeAttackBonus>(); } }
 
+        public IValueStatistic AttacksOfOpportunity { get { return Parent.FindStat<IValueStatistic>(StatNames.AttacksOfOpportunity); } }
+
         public void AddWeaponProficiencies(IEnumerable<string> proficiencies)
         {
             foreach (var p in proficiencies)
