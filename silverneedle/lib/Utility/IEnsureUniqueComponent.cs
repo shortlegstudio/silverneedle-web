@@ -7,6 +7,7 @@ namespace SilverNeedle.Utility
 {
     public interface IEnsureUniqueComponent
     {
-        
+        bool ReplaceExistingComponent { get; }
+        bool ComponentUniquenessComparison(object obj);
     }
 }

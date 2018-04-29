@@ -15,7 +15,7 @@ namespace Tests.Actions {
     using SilverNeedle.Shops;
 
     
-    public class PurchaseArmorTests
+    public class PurchaseArmorTests : RequiresDataFiles
     {
         ArmorShop armorShop;
 

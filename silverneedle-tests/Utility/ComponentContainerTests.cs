@@ -5,6 +5,7 @@
 
 namespace Tests.Utility
 {
+    using System.Linq;
     using Xunit;
     using SilverNeedle;
     using SilverNeedle.Serialization;
@@ -124,6 +125,49 @@ namespace Tests.Utility
             Assert.Equal("Initialized Call", comp.Name);
         }
 
+        [Fact]
+        public void IfEnsureUniqueIsImplementedWithoutReplaceDontAddTheSameObject()
+        {
+            var container = new ComponentContainer();
+            var unique = new UniqueLeaveAlone();
+            container.Add(unique);
+            container.Add(unique);
+            Assert.Equal(1, container.GetAll<UniqueLeaveAlone>().Count());
+        }
+
+        [Fact]
+        public void IfEnsureUniqueAndReplaceIsSetThenSwapTheComponentOut()
+        {
+            var container = new ComponentContainer();
+            var unique = new UniqueReplace();
+            var unique2 = new UniqueReplace();
+            container.Add(unique);
+            container.Add(unique2);
+            Assert.Equal(unique2, container.Get<UniqueReplace>());
+            Assert.Equal(1, container.GetAll<UniqueReplace>().Count());
+            Assert.False(container.Contains(unique));
+        }
+
+    }
+
+    public class UniqueLeaveAlone : IEnsureUniqueComponent
+    {
+        public bool ReplaceExistingComponent { get { return false; } }
+
+        public bool ComponentUniquenessComparison(object obj)
+        {
+            return obj is UniqueLeaveAlone;
+        }
+    }
+
+    public class UniqueReplace : IEnsureUniqueComponent
+    {
+        public bool ReplaceExistingComponent { get { return true; } }
+
+        public bool ComponentUniquenessComparison(object obj)
+        {
+            return obj is UniqueReplace;
+        }
     }
 
     public class CustomStatType : BasicStat

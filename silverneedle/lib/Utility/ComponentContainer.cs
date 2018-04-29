@@ -54,12 +54,18 @@ namespace SilverNeedle.Utility
             var unique = obj as IEnsureUniqueComponent;
             if(unique != null)
             {
-                if(All.Contains(unique))
-                    return;
+                var match = GetAll<IEnsureUniqueComponent>().FirstOrDefault(comp => comp.ComponentUniquenessComparison(unique));
+                if(match != null)
+                {
+                    if(unique.ReplaceExistingComponent)
+                        components.Remove(match);
+                    else
+                        return;
+                }
             }
 
             components.Add(obj);
-            InitializeComponent(obj);
+           InitializeComponent(obj);
 
             if(obj is IStatisticModifier)
             {

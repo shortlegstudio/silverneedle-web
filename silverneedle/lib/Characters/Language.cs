@@ -42,6 +42,8 @@ namespace SilverNeedle.Characters
         /// <value>The description of the language.</value>
         public string Description { get; set; }
 
+        public bool ReplaceExistingComponent { get { return false; } }
+
         public bool Matches(string name)
         {
             return Name.EqualsIgnoreCase(name);
@@ -50,6 +52,16 @@ namespace SilverNeedle.Characters
         public override string ToString()
         {
             return string.Format("Language: {0}", this.Name);
+        }
+
+        public bool ComponentUniquenessComparison(object obj)
+        {
+            var language = obj as Language;
+            if(language == null)
+                return false;
+
+            
+            return language.Matches(this.Name); 
         }
     }
 }

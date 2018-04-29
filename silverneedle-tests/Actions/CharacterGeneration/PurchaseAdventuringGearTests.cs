@@ -14,7 +14,7 @@ namespace Tests.Actions.CharacterGeneration
     using SilverNeedle.Serialization;
 
     
-    public class PurchasingAdventuringGearTests
+    public class PurchasingAdventuringGearTests : RequiresDataFiles
     {
         EntityGateway<Gear> gearGateway;
         PurchaseAdventuringGear subject;

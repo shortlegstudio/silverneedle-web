@@ -47,5 +47,12 @@ namespace SilverNeedle.Characters
 
         public const string HitPoints = "Hit Points";
         public const string HitDice = "Hit Dice";
+
+        public const string SizeAttackModifier = "Size Attack Modifier";
+        public const string SizeDefenseModifier = "Size Defense Modifier";
+        public const string SizeCombatManeuverModifier = "Size Combat Maneuver Modifier";
+        public const string SizeFlyModifier = "Size Fly Modifier";
+        public const string SizeStealthModifier = "Size Stealth Modifier";
+
     }
 }

@@ -94,5 +94,12 @@ namespace Tests
                 character.GetAll<SilverNeedle.Feature>().Any(x => x.Name.Equals(name))
             );
         }
+
+        public static void StatValueIs(string statName, float value, CharacterSheet character)
+        {
+            var stat = character.Components.FindStat<SilverNeedle.IValueStatistic>(statName);
+            Assert.NotNull(stat);
+            Assert.Equal(value, stat.TotalValue);
+        }
     }
 }

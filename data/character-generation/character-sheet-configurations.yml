@@ -37,6 +37,21 @@
       name: Size
       items:
         - type: SilverNeedle.Characters.SizeStats
+        - type: SilverNeedle.BasicStat
+          name: Size Attack Modifier
+          base-value: 0
+        - type: SilverNeedle.BasicStat
+          name: Size Defense Modifier
+          base-value: 0
+        - type: SilverNeedle.BasicStat
+          name: Size Combat Maneuver Modifier
+          base-value: 0
+        - type: SilverNeedle.BasicStat
+          name: Size Fly Modifier
+          base-value: 0
+        - type: SilverNeedle.BasicStat
+          name: Size Stealth Modifier
+          base-value: 0
     - attribute:
       name: Inventory
       items:

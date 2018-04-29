@@ -16,7 +16,8 @@ namespace Tests.Characters {
     using SilverNeedle.Utility;
 
     
-    public class OffenseStatsTests {
+    public class OffenseStatsTests : RequiresDataFiles
+    {
         CharacterSheet character;
         OffenseStats smallStats;
         Inventory inventory;

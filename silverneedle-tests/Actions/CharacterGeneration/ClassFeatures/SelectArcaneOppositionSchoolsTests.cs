@@ -11,7 +11,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Characters.Magic;
     using SilverNeedle.Serialization;
 
-    public class SelectArcaneOppositionSchoolsTests
+    public class SelectArcaneOppositionSchoolsTests : RequiresDataFiles
     {
         [Fact]
         public void SelectsTwoOppositionSchoolsThatAreDifferentFromFocusSchool()
