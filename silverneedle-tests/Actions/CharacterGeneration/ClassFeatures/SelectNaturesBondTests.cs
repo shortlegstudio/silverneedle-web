@@ -11,7 +11,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
     using SilverNeedle.Serialization;
     using SilverNeedle.Characters.Domains;
 
-    public class SelectNaturesBondTests
+    public class SelectNaturesBondTests : RequiresDataFiles
     {
         [Fact]
         public void SelectsFromALimitedListOfDomains()

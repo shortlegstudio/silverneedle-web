@@ -80,7 +80,7 @@
       name: Offense Statistics
       items:
         - type: SilverNeedle.Characters.Attacks.BaseAttackBonus
-        - type: SilverNeedle.Characters.Attacks.MeleeAttackBonus
+        - type: SilverNeedle.BasicStat
           name: Melee Attack Bonus
           base-value: 0
         - type: SilverNeedle.StatisticStatModifier
@@ -91,7 +91,11 @@
           name: Melee Attack Bonus
           modifier: strength-modifier
           modifier-type: base-value
-        - type: SilverNeedle.Characters.Attacks.RangeAttackBonus
+        - type: SilverNeedle.StatisticStatModifier
+          name: Melee Attack Bonus
+          modifier: Size Attack Modifier
+          modifier-type: base-value
+        - type: SilverNeedle.BasicStat
           name: Range Attack Bonus
           base-value: 0
         - type: SilverNeedle.StatisticStatModifier
@@ -101,6 +105,10 @@
         - type: SilverNeedle.StatisticStatModifier
           name: Range Attack Bonus
           modifier: dexterity-modifier
+          modifier-type: base-value
+        - type: SilverNeedle.StatisticStatModifier
+          name: Range Attack Bonus
+          modifier: Size Attack Modifier
           modifier-type: base-value
         - type: SilverNeedle.BasicStat
           name: CMB
@@ -112,6 +120,10 @@
         - type: SilverNeedle.StatisticStatModifier
           name: CMB
           modifier: strength-modifier
+          modifier-type: base-value
+        - type: SilverNeedle.StatisticStatModifier
+          name: CMB
+          modifier: Size Combat Maneuver Modifier
           modifier-type: base-value
         - type: SilverNeedle.BasicStat
           name: CMD
@@ -127,6 +139,10 @@
         - type: SilverNeedle.StatisticStatModifier
           name: CMD
           modifier: dexterity-modifier
+          modifier-type: base-value
+        - type: SilverNeedle.StatisticStatModifier
+          name: CMD
+          modifier: Size Combat Maneuver Modifier
           modifier-type: base-value
         - type: SilverNeedle.Characters.OffenseStats
         - type: SilverNeedle.BasicStat

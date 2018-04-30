@@ -13,6 +13,7 @@ namespace Tests.Characters {
     using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Equipment;
     using SilverNeedle.Dice;
+    using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
     
@@ -21,20 +22,17 @@ namespace Tests.Characters {
         CharacterSheet character;
         OffenseStats smallStats;
         Inventory inventory;
-        MeleeAttackBonus meleeAttackBonus;
-        RangeAttackBonus rangeAttackBonus;
 
         public OffenseStatsTests() {
             character = CharacterTestTemplates.AverageBob();
             var abilities = character.Get<AbilityScores>();
             abilities.SetScore (AbilityScoreTypes.Strength, 16);
             abilities.SetScore (AbilityScoreTypes.Dexterity, 14);
+            character.Add(GatewayProvider.Find<Size>("small"));
             var size = character.Get<SizeStats>();
             size.SetSize(CharacterSize.Small, 1, 1);
             inventory = character.Get<Inventory>();
             smallStats = character.Get<OffenseStats>();
-            meleeAttackBonus = character.Get<MeleeAttackBonus>();
-            rangeAttackBonus = character.Get<RangeAttackBonus>();
         }
 
         [Fact]

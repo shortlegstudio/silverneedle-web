@@ -10,7 +10,7 @@ namespace Tests.Characters.SpecialAbilities
     using SilverNeedle.Characters.SpecialAbilities;
 
     
-    public class LayOnHandsTests 
+    public class LayOnHandsTests : RequiresDataFiles
     {
         [Fact]
         public void CreatesAStatForTrackingUsesPerDay()

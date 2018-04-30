@@ -8,7 +8,7 @@ namespace Tests.Characters.SpecialAbilities
     using Xunit;
     using SilverNeedle.Characters.SpecialAbilities;
 
-    public class ChangeShapeTests
+    public class ChangeShapeTests : RequiresDataFiles
     {
         [Fact]
         public void RoundsPerDayBasedOnLevel()

@@ -36,9 +36,6 @@ namespace SilverNeedle.Characters
             var size = components.Get<SizeStats>();
             this.Size = size;
             this.inventory = components.Get<Inventory>();
-
-            this.CombatManeuverBonus.AddModifier(size.NegativeSizeModifier);
-            this.CombatManeuverDefense.AddModifier(size.NegativeSizeModifier);
         }
 
         /// <summary>
@@ -70,13 +67,13 @@ namespace SilverNeedle.Characters
         /// Calculates the melee attack bonus.
         /// </summary>
         /// <returns>The attack bonus.</returns>
-        public IValueStatistic MeleeAttackBonus { get { return Parent.Get<MeleeAttackBonus>(); } }
+        public IValueStatistic MeleeAttackBonus { get { return Parent.FindStat<IValueStatistic>(StatNames.MeleeAttackBonus); } }
 
         /// <summary>
         /// Calculates the range attack bonus.
         /// </summary>
         /// <returns>The attack bonus.</returns>
-        public IValueStatistic RangeAttackBonus { get { return Parent.Get<RangeAttackBonus>(); } }
+        public IValueStatistic RangeAttackBonus { get { return Parent.FindStat<IValueStatistic>(StatNames.RangeAttackBonus); } }
 
         public IValueStatistic AttacksOfOpportunity { get { return Parent.FindStat<IValueStatistic>(StatNames.AttacksOfOpportunity); } }
 
