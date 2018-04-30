@@ -9,7 +9,7 @@ namespace Tests.Characters.SpecialAbilities
     using SilverNeedle.Characters.SpecialAbilities; 
     using Xunit;
 
-    public class AuraOfAlignmentTests
+    public class AuraOfAlignmentTests : RequiresDataFiles
     {
         [Fact]
         public void CalculatesTheAlignmentAndStrengthBasedOnCharacterLevelAndAlignment()

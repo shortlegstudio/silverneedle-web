@@ -57,6 +57,7 @@ namespace SilverNeedle.Actions.CharacterGeneration
 
             this.SetSpeedForRace(character, race);
             this.SetSizeForRace(character.Size, race);
+            character.Add(GatewayProvider.Find<Size>(race.SizeSetting.ToString()));
         }
 
         /// <summary>

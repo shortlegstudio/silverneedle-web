@@ -9,7 +9,7 @@ namespace Tests.Characters.Prerequisites
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.Prerequisites;
 
-    public class BaseAttackBonusPrerequisiteTests
+    public class BaseAttackBonusPrerequisiteTests : RequiresDataFiles
     {
         [Fact]
         public void ChecksAgainstCharactersToDetermineIfHasEnoughAttackBonus()

@@ -68,6 +68,7 @@ namespace Tests.Actions
 
             var assign = new RaceSelector(raceGateway);
             raceSelectorSubject.SetRace(sheet, smallGuy);
+            Assert.True(sheet.Get<Size>().Name == CharacterSize.Small);
             Assert.Equal(CharacterSize.Small, sheet.Size.Size);
             Assert.True(sheet.Size.Height >= 12);
             Assert.True(sheet.Size.Weight >= 102);

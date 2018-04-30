@@ -9,7 +9,7 @@ namespace Tests.Characters.SpecialAbilities.BloodlinePowers
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.SpecialAbilities.BloodlinePowers;
 
-    public class InfernalResistancesTests
+    public class InfernalResistancesTests : RequiresDataFiles
     {
         private CharacterSheet sorcerer;
         private InfernalResistances resistances;

@@ -94,7 +94,7 @@
         - type: SilverNeedle.StatisticStatModifier
           name: Melee Attack Bonus
           modifier: Size Attack Modifier
-          modifier-type: base-value
+          modifier-type: size
         - type: SilverNeedle.BasicStat
           name: Range Attack Bonus
           base-value: 0
@@ -109,7 +109,7 @@
         - type: SilverNeedle.StatisticStatModifier
           name: Range Attack Bonus
           modifier: Size Attack Modifier
-          modifier-type: base-value
+          modifier-type: size
         - type: SilverNeedle.BasicStat
           name: CMB
           base-value: 0
@@ -124,7 +124,7 @@
         - type: SilverNeedle.StatisticStatModifier
           name: CMB
           modifier: Size Combat Maneuver Modifier
-          modifier-type: base-value
+          modifier-type: size
         - type: SilverNeedle.BasicStat
           name: CMD
           base-value: 10
@@ -143,7 +143,7 @@
         - type: SilverNeedle.StatisticStatModifier
           name: CMD
           modifier: Size Combat Maneuver Modifier
-          modifier-type: base-value
+          modifier-type: size
         - type: SilverNeedle.Characters.OffenseStats
         - type: SilverNeedle.BasicStat
           name: Attacks of Opportunity
