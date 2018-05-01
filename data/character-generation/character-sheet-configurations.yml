@@ -149,6 +149,68 @@
           name: Attacks of Opportunity
           base-value: 1
     - attribute:
+      name: Savings Throws
+      items:
+        - type: SilverNeedle.BasicStat
+          name: Fortitude
+          base-value: 0
+        - type: SilverNeedle.StatisticStatModifier
+          name: Fortitude
+          modifier: constitution-modifier
+          modifier-type: ability-modifier
+        - type: SilverNeedle.BasicStat
+          name: Reflex
+          base-value: 0
+        - type: SilverNeedle.StatisticStatModifier
+          name: Reflex
+          modifier: dexterity-modifier
+          modifier-type: ability-modifier
+        - type: SilverNeedle.BasicStat
+          name: Will
+          base-value: 0
+        - type: SilverNeedle.StatisticStatModifier
+          name: Will
+          modifier: wisdom-modifier
+          modifier-type: ability-modifier
+    - attribute:
+      name: Defense Statistics
+      items:
+        - type: SilverNeedle.BasicStat
+          name: Max Dex Bonus
+          base-value: 0
+        - type: SilverNeedle.BasicStat
+          name: Spell Resistance
+          base-value: 0
+        - type: SilverNeedle.BasicStat
+          name: Armor Class
+          base-value: 10
+          show-as-modifier: false
+        - type: SilverNeedle.StatisticStatModifier
+          name: Armor Class
+          modifier: Size Defense Modifier
+          modifier-type: size
+        - type: SilverNeedle.Characters.EquippedArmorClassModifier
+          name: Armor Class
+        - type: SilverNeedle.BasicStat
+          name: Flat Footed Armor Class
+          base-value: 10
+          show-as-modifier: false
+        - type: SilverNeedle.Characters.EquippedArmorClassModifier
+          name: Flat Footed Armor Class
+        - type: SilverNeedle.StatisticStatModifier
+          name: Flat Footed Armor Class
+          modifier: Size Defense Modifier
+          modifier-type: size
+        - type: SilverNeedle.BasicStat
+          name: Touch Armor Class
+          base-value: 10
+          show-as-modifier: false
+        - type: SilverNeedle.StatisticStatModifier
+          name: Touch Armor Class
+          modifier: Size Defense Modifier
+          modifier-type: size
+        - type: SilverNeedle.Characters.DefenseStats
+    - attribute:
       name: Background
       items:
         - type: SilverNeedle.Characters.Background.History

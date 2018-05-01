@@ -9,14 +9,17 @@ namespace SilverNeedle.Characters
     using System.Linq;
     using SilverNeedle.Utility;
     using SilverNeedle.Equipment;
+    using SilverNeedle.Serialization;
 
-    public class EquippedArmorClassModifier : IValueStatModifier
+    [ObjectStoreSerializable]
+    public class EquippedArmorClassModifier : IValueStatModifier, IComponent
     {
         private Inventory inventory;
 
-        public EquippedArmorClassModifier(ComponentContainer components)
+        public EquippedArmorClassModifier() { }
+        public EquippedArmorClassModifier(IObjectStore configuration)
         {
-            this.inventory = components.Get<Inventory>();            
+            configuration.Deserialize(this);
         }
 
         public float Modifier 
@@ -34,8 +37,15 @@ namespace SilverNeedle.Characters
 
         public string ModifierType { get { return "Armor"; } }
 
-        public string StatisticName { get { return StatNames.ArmorClass; } }
+        [ObjectStore("name")]
+        public string StatisticName { get; set; }
         public string Condition { get; set; }
         public string StatisticType { get; private set; }
+        public ComponentContainer Parent { get; set; }
+
+        public void Initialize(ComponentContainer components)
+        {
+            inventory = components.Get<Inventory>();
+        }
     }
 }

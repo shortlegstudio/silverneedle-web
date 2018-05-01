@@ -12,6 +12,7 @@ namespace Tests.Characters {
     using SilverNeedle.Characters;
     using SilverNeedle.Characters.SpecialAbilities;
     using SilverNeedle.Equipment;
+    using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
     
@@ -27,6 +28,7 @@ namespace Tests.Characters {
             character.AbilityScores.SetScore (AbilityScoreTypes.Dexterity, 16);
             character.AbilityScores.SetScore (AbilityScoreTypes.Constitution, 9);
             character.AbilityScores.SetScore (AbilityScoreTypes.Wisdom, 12);
+            character.Add(GatewayProvider.Find<Size>("small"));
             character.Size.SetSize(CharacterSize.Small, 1, 1);
 
             basicStats = character.Get<DefenseStats>();
@@ -127,30 +129,10 @@ namespace Tests.Characters {
             armor.ArmorClass = 10;
             armor.MaximumDexterityBonus = 100;
 
-            character.Inventory.AddGear (armor);
             character.Inventory.EquipItem (armor);
             Assert.Equal (startAC + 10, def.ArmorClass.TotalValue);
             Assert.Equal (startFlat + 10, def.FlatFootedArmorClass.TotalValue);
             Assert.Equal (startTouch, def.TouchArmorClass.TotalValue);
-        }
-
-
-        [Fact]
-        public void ModifiersCanBeAppliedToArmorClass() {
-            var ac = emptyStats.ArmorClass.TotalValue;
-            emptyStats.ProcessModifier(new MockMod());
-            Assert.Equal(ac + 1, emptyStats.ArmorClass.TotalValue);
-        }
-
-        [Fact]
-        public void ModifiersCanBeAppliedToSavingsThrows() {
-            var will = emptyStats.WillSave.TotalValue;
-            var fort = emptyStats.FortitudeSave.TotalValue;
-            var reflex = emptyStats.ReflexSave.TotalValue;
-            emptyStats.ProcessModifier(new MockMod());
-            Assert.Equal(will + 1, emptyStats.WillSave.TotalValue);
-            Assert.Equal(fort + 1, emptyStats.FortitudeSave.TotalValue);
-            Assert.Equal(reflex + 1, emptyStats.ReflexSave.TotalValue);
         }
 
         [Fact]
@@ -175,25 +157,6 @@ namespace Tests.Characters {
 
             Assert.Equal(character.Defense.MaxDexterityBonus.TotalValue, 1);
             Assert.Equal(character.Defense.ArmorClass.TotalValue, 12); //Character is small && dexterity
-        }
-
-        [Fact]
-        public void ReturnStatisticsTracked()
-        {
-            var stats = basicStats.Statistics;
-            var statNames = stats.Select(x => x.Name);
-            Assert.NotStrictEqual(statNames, 
-                new string[] { 
-                    StatNames.BaseArmorClass,
-                    StatNames.ArmorClass,
-                    StatNames.FortitudeSave,
-                    StatNames.WillSave,
-                    StatNames.ReflexSave,
-                    StatNames.TouchArmorClass,
-                    StatNames.FlatFootedArmorClass,
-                    StatNames.MaxDexterityBonus 
-                }
-            );
         }
 
         [Fact]

@@ -8,17 +8,19 @@ namespace Tests.Characters
     using Xunit;
     using SilverNeedle.Characters;
     using SilverNeedle.Equipment;
+    using SilverNeedle.Serialization;
     using SilverNeedle.Utility;
 
     
-    public class EquippedArmorModifierTests
+    public class EquippedArmorModifierTests : RequiresDataFiles
     {
         [Fact]
         public void UnEquippedArmorMakesNoDifference() {
             var bag = new ComponentContainer(); 
             var inv = new Inventory ();
             bag.Add(inv);
-            var mod = new EquippedArmorClassModifier(bag);
+            var mod = new EquippedArmorClassModifier();
+            bag.Add(mod);
 
             var armor = new Armor ();
             armor.ArmorClass = 12;
@@ -32,7 +34,8 @@ namespace Tests.Characters
             var bag = new ComponentContainer();
             var inventory = new Inventory ();
             bag.Add(inventory);
-            var mod = new EquippedArmorClassModifier(bag);
+            var mod = new EquippedArmorClassModifier();
+            bag.Add(mod);
 
             var armor = new Armor ();
             armor.ArmorClass = 10;

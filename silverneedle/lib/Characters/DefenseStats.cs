@@ -15,117 +15,32 @@ namespace SilverNeedle.Characters
     /// <summary>
     /// Defense stats manage everything a character does to defend herself.
     /// </summary>
-    public class DefenseStats : IStatTracker, IComponent
+    public class DefenseStats : IComponent
     {
         public ComponentContainer Parent { get; set; }
-        public IEnumerable<IValueStatistic> Statistics 
-        { 
-            get 
-            { 
-                return new IValueStatistic[] { 
-                    BaseArmorClass,
-                    ArmorClass, 
-                    TouchArmorClass, 
-                    FlatFootedArmorClass, 
-                    FortitudeSave, 
-                    ReflexSave, 
-                    WillSave, 
-                    MaxDexterityBonus,
-                    SpellResistance
-                }; 
-            } 
-        }
 
-        /// <summary>
-        /// The good save base value.
-        /// </summary>
         private const int GoodSaveBaseValue = 2;
 
-        /// <summary>
-        /// The name of the armor class stat.
-        /// </summary>
         private const string ArmorClassStatName = "Armor Class";
 
-        /// <summary>
-        /// The name of the will save stat.
-        /// </summary>
         private const string WillSaveStatName = "Will";
 
-        /// <summary>
-        /// The name of the reflex save stat.
-        /// </summary>
         private const string ReflexSaveStatName = "Reflex";
 
-        /// <summary>
-        /// The name of the fortitude save stat.
-        /// </summary>
         private const string FortitudeSaveStatName = "Fortitude";
 
-
-        private ComponentContainer components;
-
-        private Inventory inventory;
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SilverNeedle.Characters.DefenseStats"/> class.
-        /// </summary>
-        /// <param name="abilityScores">Ability scores of the character.</param>
-        /// <param name="size">Size of the character.</param>
-        /// <param name="inv">Inventory of the character.</param>
-        public DefenseStats()
-        {
-            this.FortitudeSave = new BasicStat(StatNames.FortitudeSave);
-            this.ReflexSave = new BasicStat(StatNames.ReflexSave);
-            this.WillSave = new BasicStat(StatNames.WillSave);
-            this.BaseArmorClass = new BasicStat(StatNames.BaseArmorClass, 10);
-            this.ArmorClass = new BasicStat(StatNames.ArmorClass);
-            this.ArmorClass.UseModifierString = false;
-            this.TouchArmorClass = new BasicStat(StatNames.TouchArmorClass);
-            this.TouchArmorClass.UseModifierString = false;
-            this.FlatFootedArmorClass = new BasicStat(StatNames.FlatFootedArmorClass);
-            this.FlatFootedArmorClass.UseModifierString = false;
-            this.MaxDexterityBonus = new BasicStat(StatNames.MaxDexterityBonus);
-            this.SpellResistance = new BasicStat(StatNames.SpellResistance);
-        }
+        public DefenseStats() { }
 
         public void Initialize(ComponentContainer components)
         {
-            this.components = components;
             var abilities = components.Get<AbilityScores>(); 
             var size = components.Get<SizeStats>();
-            this.inventory = components.Get<Inventory>();
 
-            this.FortitudeSave.AddModifier(
-                new AbilityStatModifier(abilities.GetAbility(AbilityScoreTypes.Constitution)));
-            
-            this.ReflexSave.AddModifier(
-                new AbilityStatModifier(abilities.GetAbility(AbilityScoreTypes.Dexterity)));
-            
-            this.WillSave.AddModifier(
-                new AbilityStatModifier(abilities.GetAbility(AbilityScoreTypes.Wisdom)));
+            this.MaxDexterityBonus.AddModifier( new EquippedArmorMaxDexBonuxModifier(components));
 
-            this.MaxDexterityBonus.AddModifier(
-                new EquippedArmorMaxDexBonuxModifier(components)
-            );
+            this.ArmorClass.AddModifiers( new LimitStatModifier(StatNames.ArmorClass, abilities.GetAbility(AbilityScoreTypes.Dexterity), this.MaxDexterityBonus));
 
-            this.ArmorClass.AddModifiers(
-                new StatisticStatModifier(StatNames.ArmorClass, this.BaseArmorClass),
-                new LimitStatModifier(StatNames.ArmorClass, abilities.GetAbility(AbilityScoreTypes.Dexterity), this.MaxDexterityBonus),
-                size.PositiveSizeModifier,
-                new EquippedArmorClassModifier(components)
-            );
-
-            this.TouchArmorClass.AddModifiers(
-                new StatisticStatModifier(StatNames.TouchArmorClass, this.BaseArmorClass),
-                new LimitStatModifier(StatNames.TouchArmorClass, abilities.GetAbility(AbilityScoreTypes.Dexterity), this.MaxDexterityBonus),
-                size.PositiveSizeModifier
-            );
-
-            this.FlatFootedArmorClass.AddModifiers(
-                new StatisticStatModifier(StatNames.FlatFootedArmorClass, this.BaseArmorClass),
-                size.PositiveSizeModifier, 
-                new EquippedArmorClassModifier(components)
-            );
+            this.TouchArmorClass.AddModifiers( new LimitStatModifier(StatNames.TouchArmorClass, abilities.GetAbility(AbilityScoreTypes.Dexterity), this.MaxDexterityBonus));
         }
 
         /// <summary>
@@ -134,35 +49,35 @@ namespace SilverNeedle.Characters
         /// <value>The armor proficiencies.</value>
         public IEnumerable<ArmorProficiency> ArmorProficiencies
         { 
-            get { return this.components.GetAll<ArmorProficiency>(); } 
+            get { return this.Parent.GetAll<ArmorProficiency>(); } 
         }
 
         /// <summary>
         /// Gets the fortitude save
         /// </summary>
         /// <returns>The fortitude save.</returns>
-        public BasicStat FortitudeSave { get; private set; }
+        public BasicStat FortitudeSave { get { return Parent.FindStat<BasicStat>(StatNames.FortitudeSave); } }
 
         /// <summary>
         /// Gets the reflexs save.
         /// </summary>
         /// <returns>The reflex save.</returns>
-        public BasicStat ReflexSave { get; private set; }
+        public BasicStat ReflexSave { get { return Parent.FindStat<BasicStat>(StatNames.ReflexSave); } }
 
         /// <summary>
         /// Gets the will save.
         /// </summary>
         /// <returns>The will save.</returns>
-        public BasicStat WillSave { get; private set; }
-        public BasicStat MaxDexterityBonus { get; private set; }
+        public BasicStat WillSave { get { return Parent.FindStat<BasicStat>(StatNames.WillSave); } }
+        public BasicStat MaxDexterityBonus { get { return Parent.FindStat<BasicStat>(StatNames.MaxDexterityBonus); } }
 
-        public IValueStatistic SpellResistance { get; private set; }
+        public IValueStatistic SpellResistance { get { return Parent.FindStat<IValueStatistic>(StatNames.SpellResistance); } }
 
         public IEnumerable<IResistance> Immunities
         {
             get 
             { 
-                return components.GetAll<IResistance>().Where(x => x.IsImmune);
+                return Parent.GetAll<IResistance>().Where(x => x.IsImmune);
             }
         }
 
@@ -170,7 +85,7 @@ namespace SilverNeedle.Characters
         { 
             get 
             { 
-                return components.GetAll<EnergyResistance>().Where(x => !x.IsImmune);
+                return Parent.GetAll<EnergyResistance>().Where(x => !x.IsImmune);
             } 
         }
 
@@ -178,7 +93,7 @@ namespace SilverNeedle.Characters
         {
             get
             {
-                return components.GetAll<DamageReduction>();
+                return Parent.GetAll<DamageReduction>();
             }
         }
 
@@ -188,42 +103,33 @@ namespace SilverNeedle.Characters
         /// Gets the Armors class.
         /// </summary>
         /// <returns>The armor class for the character.</returns>
-        public BasicStat ArmorClass { get; private set; }
+        public IValueStatistic ArmorClass { get { return Parent.FindStat<IValueStatistic>(StatNames.ArmorClass); } }
 
         /// <summary>
         /// Return the touch armor class.
         /// </summary>
         /// <returns>The touch armor class.</returns>
-        public BasicStat TouchArmorClass { get; private set; }
+        public IValueStatistic TouchArmorClass { get { return Parent.FindStat<IValueStatistic>(StatNames.TouchArmorClass); } }
 
         /// <summary>
         /// The Flat footed armor class.
         /// </summary>
         /// <returns>The flat footed armor class.</returns>
-        public BasicStat FlatFootedArmorClass { get; private set; }
+        public IValueStatistic FlatFootedArmorClass { get { return Parent.FindStat<IValueStatistic>(StatNames.FlatFootedArmorClass); } } 
 
-        /// <summary>
-        /// Sets the fortitude save is a good save.
-        /// </summary>
         public void SetFortitudeGoodSave()
         {
-            this.FortitudeSave.SetValue(GoodSaveBaseValue);
+            this.FortitudeSave.SetValue(2);
         }
 
-        /// <summary>
-        /// Sets the reflex save is a good save.
-        /// </summary>
         public void SetReflexGoodSave()
         {
-            this.ReflexSave.SetValue(GoodSaveBaseValue);
+            this.ReflexSave.SetValue(2);
         }
 
-        /// <summary>
-        /// Sets the will save is a good save.
-        /// </summary>
         public void SetWillGoodSave()
         {
-            this.WillSave.SetValue(GoodSaveBaseValue);
+            this.WillSave.SetValue(2);
         }
             
         /// <summary>
@@ -254,33 +160,6 @@ namespace SilverNeedle.Characters
             this.WillSave.AddModifier(new ValueStatModifier(cls.WillSaveRate));
         }
 
-        /// <summary>
-        /// The implementing class must handle modifiers to stats under its control
-        /// </summary>
-        /// <param name="modifier">Modifier for stats</param>
-        public void ProcessModifier(IModifiesStats modifier)
-        {
-            foreach (var s in modifier.Modifiers)
-            {
-                switch (s.StatisticName)
-                {
-                    case ArmorClassStatName:
-                        this.ArmorClass.AddModifier(s);
-                        break;
-                    case FortitudeSaveStatName:
-                        this.FortitudeSave.AddModifier(s);
-                        break;
-                    case ReflexSaveStatName:
-                        this.ReflexSave.AddModifier(s);
-                        break;
-                    case WillSaveStatName:
-                        this.WillSave.AddModifier(s);
-                        break;
-                }
-            }
-
-
-        }
 
         /// <summary>
         /// Adds the armor proficiencies.
@@ -300,7 +179,7 @@ namespace SilverNeedle.Characters
         /// <param name="prof">Proficiency to add.</param>
         public void AddArmorProficiency(string prof)
         {
-            this.components.Add(new ArmorProficiency(prof));
+            this.Parent.Add(new ArmorProficiency(prof));
         }
 
         public void AddDamageResistance(EnergyResistance dr)
@@ -308,7 +187,7 @@ namespace SilverNeedle.Characters
             var current = this.EnergyResistance.FirstOrDefault(x => x.DamageType == dr.DamageType);
             if (current == null)
             {
-                this.components.Add(dr);
+                this.Parent.Add(dr);
             }
             else
             {
@@ -329,7 +208,7 @@ namespace SilverNeedle.Characters
 
         public void AddImmunity(string immunity)
         {
-            this.components.Add(new Immunity(immunity));
+            this.Parent.Add(new Immunity(immunity));
         }
     }
 }
