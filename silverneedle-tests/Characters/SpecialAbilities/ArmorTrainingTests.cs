@@ -20,7 +20,7 @@ namespace Tests.Characters
         [Fact]
         public void RegistersModifiersWithStats()
         {
-            var character = CharacterTestTemplates.AverageBob().WithSkills(new string[] { "Test" });
+            var character = CharacterTestTemplates.AverageBob();
             var defStats = character.Get<DefenseStats>();
             var abilityScores = character.Get<AbilityScores>();
             var skillRanks = character.Get<SkillRanks>();

@@ -16,7 +16,7 @@ namespace Tests.Actions
     using SilverNeedle.Utility;
 
     
-    public class RaceSelectorTests
+    public class RaceSelectorTests : RequiresDataFiles
     {
         private EntityGateway<Race> raceGateway;
 

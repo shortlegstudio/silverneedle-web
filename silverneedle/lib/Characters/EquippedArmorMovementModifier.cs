@@ -9,21 +9,18 @@ namespace SilverNeedle.Characters
     using SilverNeedle.Utility;
     using SilverNeedle.Equipment;
     
-    public class EquippedArmorMovementModifier : DelegateStatModifier
+    public class EquippedArmorMovementModifier : DelegateStatModifier, IComponent
     {
         private Inventory inventory;
         private MovementStats movement;
         
-        public EquippedArmorMovementModifier(ComponentContainer components) : base(StatNames.ArmorMovementPenalty, "Armor")
-        {
-            this.inventory = components.Get<Inventory>();
-            this.movement = components.Get<MovementStats>();
-            this.Calculation = CalculateMovementModifier;
-        } 
+        public EquippedArmorMovementModifier() : base(StatNames.ArmorMovementPenalty, "Armor") { }
+
+        public ComponentContainer Parent { get; set; }
 
         public float CalculateMovementModifier()
         {
-            if(movement.BaseMovement.BaseValue == 30)
+            if(movement.UseBase30MoveSpeed)
             {
                 return inventory.Equipped<IArmor>().Sum(x => x.MovementSpeedPenalty30);
             }
@@ -31,6 +28,13 @@ namespace SilverNeedle.Characters
             {
                 return inventory.Equipped<IArmor>().Sum(x => x.MovementSpeedPenalty20);
             }
+        }
+
+        public void Initialize(ComponentContainer components)
+        {
+            this.inventory = components.Get<Inventory>();
+            this.movement = components.Get<MovementStats>();
+            this.Calculation = CalculateMovementModifier;
         }
     }
 }

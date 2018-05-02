@@ -222,6 +222,23 @@
           modifier-type: dex-limit
         - type: SilverNeedle.Characters.DefenseStats
     - attribute:
+      name: Movement Statistics
+      items:
+        - type: SilverNeedle.Characters.MovementStats
+        - type: SilverNeedle.BasicStat
+          name: Base Movement Speed
+          base-value: 30
+          show-as-modifier: false
+        - type: SilverNeedle.BasicStat
+          name: Armor Movement Penalty
+          base-value: 0
+          maximum: 0
+        - type: SilverNeedle.StatisticStatModifier
+          name: Base Movement Speed
+          modifier: Armor Movement Penalty
+          modifier-type: armor-move-penalty
+        - type: SilverNeedle.Characters.EquippedArmorMovementModifier
+    - attribute:
       name: Background
       items:
         - type: SilverNeedle.Characters.Background.History

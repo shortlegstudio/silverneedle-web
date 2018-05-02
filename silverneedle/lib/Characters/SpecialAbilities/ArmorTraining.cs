@@ -74,7 +74,7 @@ namespace SilverNeedle.Characters.SpecialAbilities
                     //Counter all armor movement penalty
                     armorToNegate = inventory.Equipped<Armor>();
                 }
-                if(movementStats.BaseMovement.BaseValue == 30)
+                if(movementStats.UseBase30MoveSpeed)
                 {
                     return -armorToNegate.Sum(x => x.MovementSpeedPenalty30);
                 }

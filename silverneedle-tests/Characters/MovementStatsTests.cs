@@ -15,21 +15,16 @@ namespace Tests.Characters
     public class MovementStatsTests {
         MovementStats move30;
         MovementStats move20;
-        Inventory inventory;
+        CharacterSheet bob30;
+        CharacterSheet bob20;
 
         public MovementStatsTests()
         {
-            var bag30 = new ComponentContainer();
-            inventory = new Inventory();
-            bag30.Add(inventory);
-            move30 = new MovementStats();
-            bag30.Add(move30);
-            move30.SetBaseSpeed(30);
+            bob30 = CharacterTestTemplates.AverageBob();
+            move30 = bob30.Movement;
 
-            var bag20 = new ComponentContainer();
-            bag20.Add(inventory);
-            move20 = new MovementStats();
-            bag20.Add(move20);
+            bob20 = CharacterTestTemplates.AverageBob();
+            move20 = bob20.Movement;
             move20.SetBaseSpeed(20);
         }
 
@@ -44,15 +39,8 @@ namespace Tests.Characters
         {
             var heavyArmor = new Armor();
             heavyArmor.ArmorType = ArmorType.Heavy;
-            inventory.EquipItem(heavyArmor);
+            bob30.Inventory.EquipItem(heavyArmor);
             Assert.Equal(move30.MovementSpeed, 20);
-        }
-
-        [Fact]
-        public void ExposeMovementStatistics()
-        {
-            var stats = move30.Statistics.Select(x => x.Name);
-            Assert.NotStrictEqual(stats, new string[] { StatNames.BaseMovementSpeed, StatNames.ArmorMovementPenalty });
         }
 
         [Fact]
@@ -60,7 +48,8 @@ namespace Tests.Characters
         {
             var armor = new Armor();
             armor.ArmorType = ArmorType.Heavy;
-            inventory.EquipItem(armor);
+            bob30.Inventory.EquipItem(armor);
+            bob20.Inventory.EquipItem(armor);
             var penalty = move30.ArmorMovementPenalty;
             Assert.Equal(penalty.TotalValue, -10);
             var penalty20 = move20.ArmorMovementPenalty;
