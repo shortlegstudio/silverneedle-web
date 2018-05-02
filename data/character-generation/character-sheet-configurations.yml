@@ -239,6 +239,9 @@
           modifier-type: armor-move-penalty
         - type: SilverNeedle.Characters.EquippedArmorMovementModifier
     - attribute:
-      name: Background
+      name: Personality
       items:
         - type: SilverNeedle.Characters.Background.History
+        - type: SilverNeedle.Characters.Appearance.CharacterAppearance
+        - type: SilverNeedle.Characters.Personalities.Likes
+    
