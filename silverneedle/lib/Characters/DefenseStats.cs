@@ -31,17 +31,7 @@ namespace SilverNeedle.Characters
 
         public DefenseStats() { }
 
-        public void Initialize(ComponentContainer components)
-        {
-            var abilities = components.Get<AbilityScores>(); 
-            var size = components.Get<SizeStats>();
-
-            this.MaxDexterityBonus.AddModifier( new EquippedArmorMaxDexBonuxModifier(components));
-
-            this.ArmorClass.AddModifiers( new LimitStatModifier(StatNames.ArmorClass, abilities.GetAbility(AbilityScoreTypes.Dexterity), this.MaxDexterityBonus));
-
-            this.TouchArmorClass.AddModifiers( new LimitStatModifier(StatNames.TouchArmorClass, abilities.GetAbility(AbilityScoreTypes.Dexterity), this.MaxDexterityBonus));
-        }
+        public void Initialize(ComponentContainer components) { }
 
         /// <summary>
         /// Gets the armor proficiencies.

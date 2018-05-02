@@ -17,7 +17,8 @@ namespace Tests.Characters
         {
             var bag = new ComponentContainer();
             bag.Add(new Inventory());
-            var mod = new EquippedArmorMaxDexBonuxModifier(bag);
+            var mod = new EquippedArmorMaxDexBonusModifier();
+            bag.Add(mod);
             Assert.Equal(mod.Modifier, 10000);
         }
     } 

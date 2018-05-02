@@ -178,6 +178,7 @@
         - type: SilverNeedle.BasicStat
           name: Max Dex Bonus
           base-value: 0
+        - type: SilverNeedle.Characters.EquippedArmorMaxDexBonusModifier
         - type: SilverNeedle.BasicStat
           name: Spell Resistance
           base-value: 0
@@ -189,6 +190,11 @@
           name: Armor Class
           modifier: Size Defense Modifier
           modifier-type: size
+        - type: SilverNeedle.LimitStatModifier
+          name: Armor Class
+          min-value: dexterity-modifier
+          max-value: Max Dex Bonus
+          modifier-type: dex-limit
         - type: SilverNeedle.Characters.EquippedArmorClassModifier
           name: Armor Class
         - type: SilverNeedle.BasicStat
@@ -209,6 +215,11 @@
           name: Touch Armor Class
           modifier: Size Defense Modifier
           modifier-type: size
+        - type: SilverNeedle.LimitStatModifier
+          name: Touch Armor Class
+          min-value: dexterity-modifier
+          max-value: Max Dex Bonus
+          modifier-type: dex-limit
         - type: SilverNeedle.Characters.DefenseStats
     - attribute:
       name: Background

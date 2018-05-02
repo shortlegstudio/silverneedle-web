@@ -9,13 +9,10 @@ namespace SilverNeedle.Characters
     using System.Linq;
     using SilverNeedle.Equipment;
     using SilverNeedle.Utility;
-    public class EquippedArmorMaxDexBonuxModifier : IValueStatModifier
+    public class EquippedArmorMaxDexBonusModifier : IValueStatModifier, IComponent
     {
         private Inventory inventory;
-        public EquippedArmorMaxDexBonuxModifier(ComponentContainer components)
-        {
-            inventory = components.Get<Inventory>();
-        }
+        public EquippedArmorMaxDexBonusModifier() { }
         public float Modifier 
         {
             get
@@ -31,5 +28,11 @@ namespace SilverNeedle.Characters
         public string StatisticName { get { return StatNames.MaxDexterityBonus; } }
         public string Condition { get; set; }
         public string StatisticType { get; private set; }
+        public ComponentContainer Parent { get; set; }
+
+        public void Initialize(ComponentContainer components)
+        {
+            inventory = components.Get<Inventory>();
+        }
     }
 }

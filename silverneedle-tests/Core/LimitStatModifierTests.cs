@@ -3,21 +3,31 @@
 // This software is released under the MIT License.
 // https://opensource.org/licenses/MIT
 
-namespace Test.Core
+namespace Tests
 {
     using Xunit;
     using SilverNeedle;
     using SilverNeedle.Characters;
+    using SilverNeedle.Serialization;
 
-    public class LimitStatModifierTests
+    public class LimitStatModifierTests : RequiresDataFiles
     {
         [Fact]
-        public void WorksOffOfTheAbilityModifierIfAbilityScoreIsUsed()
+        public void FindsTheModifiersAndUsesTheLowestOne()
         {
-            var ability = new AbilityScore(AbilityScoreTypes.Strength, 18);
-            var limit = new BasicStat("Foo", 10);
-            var mod = new LimitStatModifier("Foobar", ability, limit);
-            Assert.Equal(mod.Modifier, 4);
+            var character = CharacterTestTemplates.AverageBob();
+            var yaml = @"
+name: Armor Class
+min-value: dexterity-modifier
+max-value: strength-modifier
+modifier-type: ss-tt";
+            var limitMod = new LimitStatModifier(yaml.ParseYaml());
+            character.Add(limitMod);
+            Assert.Equal(0, limitMod.Modifier);
+            character.AbilityScores.SetScore(AbilityScoreTypes.Strength, 16);
+            Assert.Equal(0, limitMod.Modifier);
+            character.AbilityScores.SetScore(AbilityScoreTypes.Dexterity, 18);
+            Assert.Equal(3, limitMod.Modifier);
         }
     }
 }
