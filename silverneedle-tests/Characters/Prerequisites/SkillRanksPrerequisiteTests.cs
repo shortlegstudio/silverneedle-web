@@ -17,7 +17,7 @@ namespace Tests.Characters.Prerequisites
         [Fact]
         public void FailsIfCharacterDoesNotHaveEnoughRanksInSkill()
         {
-            var bob = CharacterTestTemplates.AverageBob().WithSkills();
+            var bob = CharacterTestTemplates.AverageBob();
 
             var configureFail = new MemoryStore();
             configureFail.SetValue("name", "Climb");
@@ -30,7 +30,7 @@ namespace Tests.Characters.Prerequisites
         public void PassesIfCharacterHasEnoughRanksInSkill()
         {
 
-            var bob = CharacterTestTemplates.AverageBob().WithSkills();
+            var bob = CharacterTestTemplates.AverageBob();
             bob.SkillRanks.GetSkill("Perception").AddRank();
             bob.SkillRanks.GetSkill("Perception").AddRank();
             bob.SkillRanks.GetSkill("Perception").AddRank();

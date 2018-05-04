@@ -15,12 +15,7 @@ namespace Tests.Characters.SpecialAbilities
         private EnchantingSmile smile;
         public EnchantingSmileTests()
         {
-            wizard = CharacterTestTemplates.Wizard().WithSkills(
-                new string [] {
-                    "Bluff",
-                    "Diplomacy",
-                    "Intimidate"
-                });
+            wizard = CharacterTestTemplates.Wizard();
             smile = new EnchantingSmile();
             wizard.Add(smile);
         }

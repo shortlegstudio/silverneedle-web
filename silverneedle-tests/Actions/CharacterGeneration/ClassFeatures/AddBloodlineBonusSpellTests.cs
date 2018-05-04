@@ -18,9 +18,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
         [Fact]
         public void BonusSpellsAreAddedToTheAppropriateSpellLevel()
         {
-            var sorcerer = CharacterTestTemplates.Sorcerer()
-                .WithSkills(new string[] { "perception" })
-                .WithSpontaneousCasting();
+            var sorcerer = CharacterTestTemplates.Sorcerer().WithSpontaneousCasting();
             var bloodline = Bloodline.CreateWithValues(
                 "aberrant", 
                 new string[] { "perception" },

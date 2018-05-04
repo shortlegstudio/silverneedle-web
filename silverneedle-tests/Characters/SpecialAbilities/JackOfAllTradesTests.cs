@@ -14,34 +14,21 @@ namespace Tests.Characters.SpecialAbilities
         [Fact]
         public void AtTenthLevelCanUseAllSkills()
         {
-            var bard = CharacterTestTemplates.BardyBard().WithSkills(
-                new string[] {
-                    "Training 1",
-                    "Training 2"
-                }
-            );
-            bard.SkillRanks.GetSkill("Training 1").Skill.RequireTraining(true);
-            bard.SkillRanks.GetSkill("Training 2").Skill.RequireTraining(true);
+            var bard = CharacterTestTemplates.BardyBard();
             var jack = new JackOfAllTrades();
             bard.Add(jack);
 
             bard.SetLevel(9);
-            Assert.False(bard.SkillRanks.GetSkill("Training 1").AbleToUse);
-            Assert.False(bard.SkillRanks.GetSkill("Training 2").AbleToUse);
+            Assert.False(bard.SkillRanks.GetSkill("Knowledge Arcana").AbleToUse);
             bard.SetLevel(10);
             jack.LeveledUp(bard.Components);
-            Assert.True(bard.SkillRanks.GetSkill("Training 1").AbleToUse);
-            Assert.True(bard.SkillRanks.GetSkill("Training 2").AbleToUse);
+            Assert.True(bard.SkillRanks.GetSkill("Knowledge Arcana").AbleToUse);
         }
 
         [Fact]
         public void AddLevel16AllSkillsAreClassSkills()
         {
-            var bard = CharacterTestTemplates.BardyBard().WithSkills(
-                new string[] {
-                    "Perception",
-                    "Climb"
-                });
+            var bard = CharacterTestTemplates.BardyBard();
 
             var jack = new JackOfAllTrades();
             bard.Add(jack);

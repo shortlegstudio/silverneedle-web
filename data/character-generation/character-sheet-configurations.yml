@@ -244,4 +244,14 @@
         - type: SilverNeedle.Characters.Background.History
         - type: SilverNeedle.Characters.Appearance.CharacterAppearance
         - type: SilverNeedle.Characters.Personalities.Likes
+    - attribute:
+      name: Skills
+      items:
+        - type: SilverNeedle.BasicStat
+          name: Armor Check Penalty
+          base-value: 0
+          maximum: 0
+        - type: SilverNeedle.Characters.SkillRanks
+      commands:
+        - command: SilverNeedle.Characters.FillSkills
     

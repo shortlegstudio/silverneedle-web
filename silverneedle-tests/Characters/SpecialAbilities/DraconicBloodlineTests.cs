@@ -14,7 +14,7 @@ namespace Tests.Characters.SpecialAbilities
         [Fact]
         public void ChoosesADragonTypeWhenAdded()
         {
-            var sorcerer = CharacterTestTemplates.Sorcerer().WithSkills();
+            var sorcerer = CharacterTestTemplates.Sorcerer();
             var draconic = DraconicBloodline.Create("draconic", 
                 new string[] { "perception" }, 
                 new Dictionary<int, string>(),

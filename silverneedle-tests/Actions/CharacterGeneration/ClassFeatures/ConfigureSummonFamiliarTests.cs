@@ -41,7 +41,6 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
         {
             bat.Modifiers.Add(new ValueStatModifier("Perception", 5, "bonus"));
             var character = CharacterTestTemplates.AverageBob();
-            character.SkillRanks.AddSkill(new Skill("Perception", AbilityScoreTypes.Wisdom, false));
             var baseValue = character.SkillRanks.GetScore("Perception");
             subject.ExecuteStep(character);
             Assert.Equal(character.SkillRanks.GetScore("Perception"), baseValue + 5);

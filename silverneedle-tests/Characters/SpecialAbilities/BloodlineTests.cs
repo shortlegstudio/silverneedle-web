@@ -26,7 +26,7 @@ namespace Tests.Characters.SpecialAbilities
         [Fact]
         public void AddingToCharacterGrantsNewClassSkill()
         {
-            var character = CharacterTestTemplates.AverageBob().WithSkills(new string[] { "Knowledge Dungeoneering"});
+            var character = CharacterTestTemplates.AverageBob();
             character.Add(aberrant);
             Assert.True(character.SkillRanks.GetSkill("Knowledge Dungeoneering").ClassSkill);
         }
@@ -34,7 +34,7 @@ namespace Tests.Characters.SpecialAbilities
         [Fact]
         public void WillChooseAKnowledgeSkillIfOptionsAreAvailable()
         {
-            var character = CharacterTestTemplates.AverageBob().WithSkills(new string[] { "Knowledge Dungeoneering", "Knowledge Arcana" });
+            var character = CharacterTestTemplates.AverageBob();
             var bloodline = Bloodline.CreateWithValues("Special", 
                 new string[] { "Knowledge Arcana", "Knowledge Dungeoneering" }, 
                 new Dictionary<int, string>(),

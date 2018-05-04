@@ -34,12 +34,6 @@ namespace Tests.Characters
             Assert.Equal(int.MinValue, Subject.GetScore("Disable Device"));
         }
 
-        [Fact]
-        public void CanProcessASkillModifierForModifyingSkills()
-        {
-            Subject.ProcessModifier(new MockMod());
-            Assert.Equal(5, Subject.GetScore("Climb"));
-        }
 
         [Fact]
         public void ReturnsAListOfSkillsThatHaveRanks()
@@ -91,13 +85,6 @@ namespace Tests.Characters
         }
 
         [Fact]
-        public void ReturnIntMinimumIfTheSkillIsNotFound()
-        {
-            var value = Subject.GetScore("Rippadiddledoo");
-            Assert.Equal(value, int.MinValue);
-        }
-
-        [Fact]
         public void WearingArmorIncreasesArmorCheckPenalty()
         {
             var climb = Subject.GetSkill("Climb");
@@ -112,26 +99,6 @@ namespace Tests.Characters
             Subject.Initialize(bag);
             Assert.Equal(Subject.ArmorCheckPenalty.TotalValue, -3);
             Assert.Equal(climb.Score(), startScore - 3);
-        }
-
-        [Fact]
-        public void EnsureThatArmorCheckPenaltyCannotBePositive()
-        {
-            Assert.Equal(Subject.ArmorCheckPenalty.Maximum, 0);
-        }
-
-        [Fact]
-        public void ProvidesAccessToTheStatisticsItProvides()
-        {
-            var stats = Subject.Statistics.Select(x => x.Name);
-            Assert.Contains(StatNames.ArmorCheckPenalty, stats);
-        }
-
-        [Fact]
-        public void ExposesSkillsAsStatsToBeModified()
-        {
-            var climbStat = Subject.Statistics.First(x => x.Name == "Climb");
-            Assert.NotNull(climbStat);
         }
 
         [Fact]

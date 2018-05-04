@@ -15,25 +15,17 @@ namespace SilverNeedle.Actions.CharacterGeneration
 
     public class InitializeCharacterSheet : ICharacterDesignStep
     {
-        EntityGateway<Skill> skills;
         EntityGateway<CharacterSheetSetup> setups;
 
         public InitializeCharacterSheet()
         {
-            skills = GatewayProvider.Get<Skill>();
-
             setups = GatewayProvider.Get<CharacterSheetSetup>();
         }
 
         public void ExecuteStep(CharacterSheet character)
         {
             var configure = setups.Find("default");
-            character.Components.AddNoInitialize(new object[] { 
-                configure,
-                new SkillRanks(),
-            });
-            character.InitializeComponents();
-            character.SkillRanks.FillSkills(skills.All());
+            character.Components.Add(configure);
         }
     }
 }

@@ -17,7 +17,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
         public void AssignsBloodlineToCharacter()
         {
             var selector = new SelectBloodline();
-            var character = CharacterTestTemplates.AverageBob().WithSkills();
+            var character = CharacterTestTemplates.AverageBob();
             selector.ExecuteStep(character);
             Assert.NotNull(character.Get<Bloodline>());
         }

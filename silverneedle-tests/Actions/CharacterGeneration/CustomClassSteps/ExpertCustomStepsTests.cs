@@ -16,23 +16,7 @@ namespace Tests.Actions.CharacterGeneration.CustomClassSteps
         [Fact]
         public void SelectsTenSkillsForClassSkills()
         {
-            //Add twelve skills
-            var skills = new Skill[] {
-                new Skill("Skill 1", AbilityScoreTypes.Strength, false),
-                new Skill("Skill 2", AbilityScoreTypes.Strength, false),
-                new Skill("Skill 3", AbilityScoreTypes.Strength, false),
-                new Skill("Skill 4", AbilityScoreTypes.Strength, false),
-                new Skill("Skill 5", AbilityScoreTypes.Strength, false),
-                new Skill("Skill 6", AbilityScoreTypes.Strength, false),
-                new Skill("Skill 7", AbilityScoreTypes.Strength, false),
-                new Skill("Skill 9", AbilityScoreTypes.Strength, false),
-                new Skill("Skill 10", AbilityScoreTypes.Strength, false),
-                new Skill("Skill 11", AbilityScoreTypes.Strength, false),
-                new Skill("Skill 12", AbilityScoreTypes.Strength, false)
-            };
             var character = CharacterTestTemplates.AverageBob();
-            character.SkillRanks.FillSkills(skills);
-
             var subject = new ExpertCustomSteps();
             subject.Execute(character.Components);
             Assert.Equal(character.SkillRanks.GetClassSkills().Count(), 10);

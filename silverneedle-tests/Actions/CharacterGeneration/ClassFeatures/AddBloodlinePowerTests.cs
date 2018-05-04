@@ -25,7 +25,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
                 new string[] { }
             );
 
-            var character = CharacterTestTemplates.Sorcerer().WithSkills();
+            var character = CharacterTestTemplates.Sorcerer();
             character.Add(bloodline);
             var addPower = new AddBloodlinePower();
             character.SetLevel(3);

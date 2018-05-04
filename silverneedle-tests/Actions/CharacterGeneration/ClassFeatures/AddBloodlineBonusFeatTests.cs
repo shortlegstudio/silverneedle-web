@@ -18,7 +18,7 @@ namespace Tests.Actions.CharacterGeneration.ClassFeatures
         public void AddsAFeatTokenFromTheListOfOptions()
         {
             var adder = new AddBloodlineBonusFeat();
-            var sorcerer = CharacterTestTemplates.Sorcerer().WithSkills();
+            var sorcerer = CharacterTestTemplates.Sorcerer();
             var bloodline = Bloodline.CreateWithValues(
                 "arcane",
                 new string[] { "perception" },

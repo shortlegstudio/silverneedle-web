@@ -14,7 +14,7 @@ namespace Tests.Actions.CharacterGeneration
         [Fact]
         public void CreatesAModifierToASkillThatMatchesTheToken()
         {
-            var character = CharacterTestTemplates.AverageBob().WithSkills(new string[] { "Climb", "Appraise" });
+            var character = CharacterTestTemplates.AverageBob();
             var modifier = new SkillModifierToken(new string[] { "Climb" }, 2, "trait");
             character.Add(modifier);
             var step = new ProcessSkillModifierToken();

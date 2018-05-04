@@ -19,7 +19,7 @@ namespace Tests.Characters
 
             foreach(var c in classes)
             {
-                var bob = CharacterTestTemplates.AverageBob().WithSkills();
+                var bob = CharacterTestTemplates.AverageBob();
                 bob.SetClass(c);
             }
         }

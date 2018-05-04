@@ -16,7 +16,7 @@ namespace Tests.Characters
 
         private void SetupCharacterWithAcrobaticsDependentModifier()
         {
-            bob = CharacterTestTemplates.AverageBob().WithSkills();
+            bob = CharacterTestTemplates.AverageBob();
 
             var yaml = @"
 name: Acrobatics

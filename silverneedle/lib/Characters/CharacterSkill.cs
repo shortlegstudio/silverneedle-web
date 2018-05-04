@@ -27,6 +27,8 @@ namespace SilverNeedle.Characters
         private BasicStat skillStats;
         private bool bypassTraining;
 
+        public CharacterSkill() { }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="SilverNeedle.Characters.CharacterSkill"/> class.
         /// </summary>
@@ -46,6 +48,8 @@ namespace SilverNeedle.Characters
         /// </summary>
         /// <value>The base skill.</value>
         public Skill Skill { get; private set; }
+
+        public bool ArmorCheckPenalty { get { return this.Skill.UseArmorCheckPenalty; } }
 
         /// <summary>
         /// Gets the ranks added to this skill.

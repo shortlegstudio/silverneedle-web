@@ -14,7 +14,7 @@ namespace Tests.Characters.SpecialAbilities
         [Fact]
         public void CanAddPerformCharacterSkills()
         {
-            var bard = CharacterTestTemplates.BardyBard().WithSkills(new string[] { "Perform (Oratory)"});
+            var bard = CharacterTestTemplates.BardyBard();
             var versatilePerformance = new VersatilePerformance();
             versatilePerformance.AddSkill(bard.SkillRanks.GetSkill("Perform (Oratory)"));
             AssertExtensions.Contains(bard.SkillRanks.GetSkill("Perform (Oratory)"), versatilePerformance.Skills);
@@ -23,7 +23,7 @@ namespace Tests.Characters.SpecialAbilities
         [Fact]
         public void WillOnlyAllowPerformSkillsToBeSelected()
         {
-            var bard = CharacterTestTemplates.BardyBard().WithSkills(new string[] { "Bluff" });
+            var bard = CharacterTestTemplates.BardyBard();
             var versatilePerformance = new VersatilePerformance();
             Assert.Throws(typeof(ArgumentException),() => { 
                 versatilePerformance.AddSkill(bard.SkillRanks.GetSkill("Bluff"));

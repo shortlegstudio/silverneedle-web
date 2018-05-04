@@ -39,28 +39,10 @@ namespace Tests
             return sheet;
         }
 
-        public static CharacterSheet WithSkills(this CharacterSheet sheet)
-        {
-            var skills = GatewayProvider.All<Skill>().Select(x => x.Name);
-            return sheet.WithSkills(skills);
-        }
-        public static CharacterSheet WithSkills(this CharacterSheet sheet, IEnumerable<string> names)
-        {
-            foreach(var n in names)
-            {
-                sheet.SkillRanks.AddSkill(new Skill(n, AbilityScoreTypes.Wisdom, false));
-            }
-            return sheet;
-        }
-
         public static CharacterSheet OfRace(this CharacterSheet sheet, string name)
         {
             sheet.Add(Race.Named(name));
             return sheet;
-        }
-        public static CharacterSheet WithSkills(string[] names)
-        {
-            return CreateWithAverageAbilityScores().WithSkills(names);
         }
         public static CharacterSheet AverageBob()
         {

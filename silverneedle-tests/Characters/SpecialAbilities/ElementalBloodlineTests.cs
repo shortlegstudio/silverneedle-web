@@ -15,7 +15,7 @@ namespace Tests.Characters.SpecialAbilities
         [Fact]
         public void ChoosesAnElementalTypeWhenAdded()
         {
-            var sorcerer = CharacterTestTemplates.Sorcerer().WithSkills();
+            var sorcerer = CharacterTestTemplates.Sorcerer();
             var elemental = ElementalBloodline.Create("elemental", 
                 new string[] { "perception" }, 
                 new Dictionary<int, string>(),

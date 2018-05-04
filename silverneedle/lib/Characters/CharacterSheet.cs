@@ -30,17 +30,6 @@ namespace SilverNeedle.Characters
             this.Components.Add(strategy);
         }
 
-        public void InitializeComponents()
-        {
-            var components = this.Components.GetAll<IComponent>().ToList();
-            foreach(var c in components)
-            {
-                c.Initialize(this.Components);
-            }
-            // TODO: This is interesting...
-            this.SkillRanks.ProcessModifier(this.Size);
-        }
-
         [ObjectStoreOptional("components")]
         public ComponentContainer Components { get; private set; }
 
@@ -243,16 +232,6 @@ namespace SilverNeedle.Characters
             }
         }
 
-        /// <summary>
-        /// Processes the stat modifier. This takes anything that modifies stats and relays it to interested classes that might want to monitor for it
-        /// TODO: Better mechanism would be a call back whenever a stat modifier is sent to the character sheet
-        /// </summary>
-        /// <param name="modifier">Modifier that can change stats.</param>
-        public void ProcessStatModifier(IModifiesStats modifier)
-        {
-            SkillRanks.ProcessModifier(modifier);
-        }
-
         public void AddRange(IEnumerable<object> features)
         {
             foreach(var f in features)
@@ -261,11 +240,7 @@ namespace SilverNeedle.Characters
 
         public void Add<T>(T feature)
         {
-            ShortLog.DebugFormat("Adding component: {0}", feature.ToString());
             this.Components.Add(feature);
-            var statMod = feature as IModifiesStats;
-            if(statMod != null)
-                this.ProcessStatModifier(statMod);
         }
 
         public T Get<T>()
