@@ -631,18 +631,11 @@
   blue: 50
 -
   id: brown_traditional
-  name: 'Brown (Traditional)'
+  name: 'Brown'
   hex: '#964b00'
   red: 150
   green: 75
   blue: 0
--
-  id: brown_web
-  name: 'Brown (Web)'
-  hex: '#a52a2a'
-  red: 165
-  green: 42
-  blue: 42
 -
   id: bubble_gum
   name: 'Bubble Gum'
@@ -1051,16 +1044,9 @@
   blue: 172
 -
   id: chartreuse_traditional
-  name: 'Chartreuse (Traditional)'
+  name: 'Chartreuse'
   hex: '#dfff00'
   red: 223
-  green: 255
-  blue: 0
--
-  id: chartreuse_web
-  name: 'Chartreuse (Web)'
-  hex: '#7fff00'
-  red: 127
   green: 255
   blue: 0
 -
@@ -1107,18 +1093,11 @@
   blue: 30
 -
   id: chocolate_traditional
-  name: 'Chocolate (Traditional)'
+  name: 'Chocolate'
   hex: '#7b3f00'
   red: 123
   green: 63
   blue: 0
--
-  id: chocolate_web
-  name: 'Chocolate (Web)'
-  hex: '#d2691e'
-  red: 210
-  green: 105
-  blue: 30
 -
   id: chrome_yellow
   name: 'Chrome Yellow'
@@ -2157,18 +2136,11 @@
   blue: 79
 -
   id: forest_green_traditional
-  name: 'Forest Green (Traditional)'
+  name: 'Forest Green'
   hex: '#014421'
   red: 1
   green: 68
   blue: 33
--
-  id: forest_green_web
-  name: 'Forest Green (Web)'
-  hex: '#228b22'
-  red: 34
-  green: 139
-  blue: 34
 -
   id: french_beige
   name: 'French Beige'
@@ -2295,13 +2267,6 @@
   red: 212
   green: 175
   blue: 55
--
-  id: gold_web_golden
-  name: 'Gold (Web) (Golden)'
-  hex: '#ffd700'
-  red: 255
-  green: 215
-  blue: 0
 -
   id: golden_brown
   name: 'Golden Brown'
@@ -2576,13 +2541,6 @@
   green: 65
   blue: 106
 -
-  id: indigo_web
-  name: 'Indigo (Web)'
-  hex: '#4b0082'
-  red: 75
-  green: 0
-  blue: 130
--
   id: international_klein_blue
   name: 'International Klein Blue'
   hex: '#002fa7'
@@ -2828,13 +2786,6 @@
   green: 160
   blue: 227
 -
-  id: lavender_web
-  name: 'Lavender (Web)'
-  hex: '#e6e6fa'
-  red: 230
-  green: 230
-  blue: 250
--
   id: lawn_green
   name: 'Lawn Green'
   hex: '#7cfc00'
@@ -3058,13 +3009,6 @@
   red: 50
   green: 205
   blue: 50
--
-  id: lime_web_x11_green
-  name: 'Lime (Web) (X11 Green)'
-  hex: '#0f0'
-  red: 0
-  green: 255
-  blue: 0
 -
   id: limerick
   name: Limerick
@@ -3689,13 +3633,6 @@
   green: 52
   blue: 31
 -
-  id: olive_drab_web_olive_drab_3
-  name: 'Olive Drab (Web) (Olive Drab #3)'
-  hex: '#6b8e23'
-  red: 107
-  green: 142
-  blue: 35
--
   id: olivine
   name: Olivine
   hex: '#9ab973'
@@ -3744,13 +3681,6 @@
   red: 251
   green: 153
   blue: 2
--
-  id: orange_web_color
-  name: 'Orange (Web Color)'
-  hex: '#ffa500'
-  red: 255
-  green: 165
-  blue: 0
 -
   id: orchid
   name: Orchid
@@ -4299,18 +4229,11 @@
   blue: 226
 -
   id: plum_traditional
-  name: 'Plum (Traditional)'
+  name: 'Plum'
   hex: '#8e4585'
   red: 142
   green: 69
   blue: 133
--
-  id: plum_web
-  name: 'Plum (Web)'
-  hex: '#dda0dd'
-  red: 221
-  green: 160
-  blue: 221
 -
   id: portland_orange
   name: 'Portland Orange'
@@ -4325,13 +4248,6 @@
   red: 176
   green: 224
   blue: 230
--
-  id: princeton_orange
-  name: 'Princeton Orange'
-  hex: '#ff8f00'
-  red: 255
-  green: 143
-  blue: 0
 -
   id: prune
   name: Prune
@@ -4719,18 +4635,11 @@
   blue: 168
 -
   id: royal_blue_traditional
-  name: 'Royal Blue (Traditional)'
+  name: 'Royal Blue'
   hex: '#002366'
   red: 0
   green: 35
   blue: 102
--
-  id: royal_blue_web
-  name: 'Royal Blue (Web)'
-  hex: '#4169e1'
-  red: 65
-  green: 105
-  blue: 225
 -
   id: royal_fuchsia
   name: 'Royal Fuchsia'
@@ -5474,20 +5383,6 @@
   green: 120
   blue: 195
 -
-  id: ucla_blue
-  name: 'Ucla Blue'
-  hex: '#536895'
-  red: 83
-  green: 104
-  blue: 149
--
-  id: ucla_gold
-  name: 'Ucla Gold'
-  hex: '#ffb300'
-  red: 255
-  green: 179
-  blue: 0
--
   id: ufo_green
   name: 'Ufo Green'
   hex: '#3cd070'
@@ -5530,20 +5425,6 @@
   green: 221
   blue: 202
 -
-  id: united_nations_blue
-  name: 'United Nations Blue'
-  hex: '#5b92e5'
-  red: 91
-  green: 146
-  blue: 229
--
-  id: university_of_california_gold
-  name: 'University Of California Gold'
-  hex: '#b78727'
-  red: 183
-  green: 135
-  blue: 39
--
   id: unmellow_yellow
   name: 'Unmellow Yellow'
   hex: '#ff6'
@@ -5578,34 +5459,6 @@
   red: 225
   green: 173
   blue: 33
--
-  id: usafa_blue
-  name: 'Usafa Blue'
-  hex: '#004f98'
-  red: 0
-  green: 79
-  blue: 152
--
-  id: usc_cardinal
-  name: 'Usc Cardinal'
-  hex: '#900'
-  red: 153
-  green: 0
-  blue: 0
--
-  id: usc_gold
-  name: 'Usc Gold'
-  hex: '#fc0'
-  red: 255
-  green: 204
-  blue: 0
--
-  id: utah_crimson
-  name: 'Utah Crimson'
-  hex: '#d3003f'
-  red: 211
-  green: 0
-  blue: 63
 -
   id: vanilla
   name: Vanilla
@@ -5683,13 +5536,6 @@
   red: 134
   green: 1
   blue: 175
--
-  id: violet_web
-  name: 'Violet (Web)'
-  hex: '#ee82ee'
-  red: 238
-  green: 130
-  blue: 238
 -
   id: viridian
   name: Viridian
