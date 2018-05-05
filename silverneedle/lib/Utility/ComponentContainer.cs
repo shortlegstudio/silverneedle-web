@@ -65,7 +65,7 @@ namespace SilverNeedle.Utility
             }
 
             components.Add(obj);
-           InitializeComponent(obj);
+            InitializeComponent(obj);
 
             if(obj is IStatisticModifier)
             {
@@ -86,28 +86,6 @@ namespace SilverNeedle.Utility
                     continue;
 
                 Add(prop.GetValue(obj));
-            }
-        }
-
-        public void Add(params object[] objects)
-        {
-            if(objects == null)
-                throw new ArgumentNullException("objects");
-
-            foreach(var o in objects)
-                Add(o);
-        }
-
-        public void AddNoInitialize(object[] objects)
-        {
-            foreach(var o in objects)
-            {
-                components.Add(o);
-                var container = o as ComponentContainer;
-                if(container != null)
-                {
-                    container.Parent = this;
-                }
             }
         }
 
@@ -143,14 +121,6 @@ namespace SilverNeedle.Utility
             return All.Contains(obj);
         }
 
-        public void ApplyStatModifiers(IEnumerable<IStatisticModifier> statModifiers)
-        {
-            foreach(var mod in statModifiers)
-            {
-                ApplyStatModifier(mod);
-            }
-        }
-
         public void ApplyStatModifier(IStatisticModifier statModifier)
         {
             var stats = FindMatchingStats(statModifier.StatisticName);
@@ -177,8 +147,7 @@ namespace SilverNeedle.Utility
 
         public IEnumerable<IStatistic> GetAllStats()
         {
-            return GetAll<IStatTracker>().SelectMany(x => x.Statistics)
-                .Union(GetAll<IStatistic>());
+            return GetAll<IStatistic>();
         }
 
         public IStatistic FindStat(string name)
