@@ -21,7 +21,7 @@
             @{ var skills = charFull.Get<SkillRanks>(); }
             @foreach(var s in skills.GetRankedSkills())
             { 
-                if(s.AbleToUse && !(s.Skill.IsBackgroundSkill && s.Ranks == 0))
+                if(s.AbleToUse && !(s.IsBackgroundSkill && s.Ranks == 0))
                 {
                     Html.RenderPartial("_statistic-row", new ViewDataDictionary(this.ViewData) {
                         { "statistic-title", s.Name },

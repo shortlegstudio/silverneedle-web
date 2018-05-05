@@ -6,6 +6,7 @@
 namespace SilverNeedle
 {
     using System;
+    using StackExchange.Profiling;
     public static class Configuration
     {
         static Configuration() 
@@ -25,6 +26,18 @@ namespace SilverNeedle
 
         public static string DataPath { get; set; }
         public static ShortLog.LogLevel LogLevel { get; set; }
+
+        private static MiniProfiler _profiler;
+        public static MiniProfiler Profiler 
+        { 
+            get 
+            { 
+                if(_profiler == null)
+                    _profiler = MiniProfiler.Current;
+                return _profiler;
+            } 
+            set { _profiler = value; } 
+        }
     }
     
 }

@@ -27,6 +27,7 @@ namespace silverneedleweb.Controllers
 
         public IActionResult Character(string strategy, int level, string scores)
         {
+            Configuration.Profiler = StackExchange.Profiling.MiniProfiler.Current;
             var build = strategyGateway.Find(strategy);
             var roller = GatewayProvider.Find<AbilityScoreGenerator>(scores);
             build.TargetLevel = level;

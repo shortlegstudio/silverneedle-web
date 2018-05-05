@@ -30,6 +30,9 @@ namespace silverneedleweb
         {
             // Add framework services.
             services.AddMvc();
+
+            services.AddMiniProfiler();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,6 +51,8 @@ namespace silverneedleweb
                 app.UseExceptionHandler("/Home/Error");
             }
 
+            app.UseMiniProfiler();
+
             app.UseStaticFiles();
 
             app.UseMvc(routes =>
@@ -60,6 +65,7 @@ namespace silverneedleweb
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
         }
     }
 }
