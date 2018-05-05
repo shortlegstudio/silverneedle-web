@@ -47,7 +47,7 @@ namespace SilverNeedle.Characters
         /// Gets the skill this stat is based on.
         /// </summary>
         /// <value>The base skill.</value>
-        public Skill Skill { get; private set; }
+        private Skill Skill { get; set; }
 
         public bool ArmorCheckPenalty { get { return this.Skill.UseArmorCheckPenalty; } }
 
@@ -79,6 +79,11 @@ namespace SilverNeedle.Characters
             {
                 return !Skill.TrainingRequired || this.Ranks > 0 || this.bypassTraining;
             } 
+        }
+
+        public bool IsBackgroundSkill
+        {
+            get { return Skill.IsBackgroundSkill; }
         }
 
         /// <summary>

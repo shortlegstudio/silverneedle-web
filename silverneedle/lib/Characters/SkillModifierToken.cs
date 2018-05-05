@@ -33,12 +33,12 @@ namespace SilverNeedle.Characters
             this.ModifierType = type;
         }
 
-        public bool Qualifies(Skill skill)
+        public bool Qualifies(string skill)
         {
             bool matches = false;
             foreach(var skillName in this.Skills)
             {
-                matches = skill.Name.SearchFor(skillName);
+                matches = skill.SearchFor(skillName);
                 if(matches)
                     return true;
             }
@@ -46,10 +46,10 @@ namespace SilverNeedle.Characters
             return matches;
         }
 
-        public IValueStatModifier CreateModifier(Skill skill)
+        public IValueStatModifier CreateModifier(string skill)
         {
             return new ValueStatModifier(
-                skill.Name,
+                skill,
                 Modifier,
                 ModifierType
             );

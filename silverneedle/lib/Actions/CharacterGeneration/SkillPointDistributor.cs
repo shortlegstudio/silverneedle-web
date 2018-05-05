@@ -76,9 +76,9 @@ namespace SilverNeedle.Actions.CharacterGeneration
 
                 // Background skills require special attention
                 // In general just take one background skill
-                if (skill.Skill.IsBackgroundSkill)
+                if (skill.IsBackgroundSkill)
                 {
-                    if (skill.Ranks > 0 || skills.GetSkills().Where(x => x.Skill.IsBackgroundSkill).All(x => x.Ranks == 0))
+                    if (skill.Ranks > 0 || skills.GetSkills().Where(x => x.IsBackgroundSkill).All(x => x.Ranks == 0))
                     {
                         return skill;                       
                     }

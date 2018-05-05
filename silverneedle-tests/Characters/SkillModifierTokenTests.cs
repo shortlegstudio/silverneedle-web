@@ -20,10 +20,8 @@ skills: [Appraise, Climb]
 modifier: 2
 modifier-type: racial";            
             var token = new SkillModifierToken(yaml.ParseYaml());
-            var skill = new Skill("Appraise", AbilityScoreTypes.Intelligence, false);
-            var somethignElse = new Skill("Foobar", AbilityScoreTypes.Charisma, false);
-            Assert.True(token.Qualifies(skill));
-            Assert.False(token.Qualifies(somethignElse));
+            Assert.True(token.Qualifies("Appraise"));
+            Assert.False(token.Qualifies("Foobar"));
         }
 
         [Fact]
@@ -34,16 +32,14 @@ skills: [Climb, ""%Craft%""]
 modifier: 2
 modifier-type: racial";            
             var token = new SkillModifierToken(yaml.ParseYaml());
-            var skill = new Skill("Craft (Shoes)", AbilityScoreTypes.Intelligence, false);
-            Assert.True(token.Qualifies(skill));
+            Assert.True(token.Qualifies("Craft (Shoes)"));
         }
 
         [Fact]
         public void CreatesTheModifierForASkill()
         {
             var token = new SkillModifierToken(new string[] { "Climb" }, 2, "trait");
-            var skill = new Skill("Climb", AbilityScoreTypes.Strength, false);
-            var modifier = token.CreateModifier(skill);
+            var modifier = token.CreateModifier("Climb");
 
             Assert.Equal("Climb", modifier.StatisticName);
             Assert.Equal(2, modifier.Modifier);
