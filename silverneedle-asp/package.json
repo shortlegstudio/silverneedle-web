@@ -4,11 +4,11 @@
   "private": true,
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babelify": "^8.0.0",
-    "browserify": "^16.2.0",
+    "browserify": "^16.2.2",
     "gulp": "3.9.1",
     "gulp-dotnet-cli": "^1.1.0",
     "gulp-less": "3.3.0",
@@ -17,7 +17,8 @@
   },
   "dependencies": {
     "gulp-babel": "^7.0.1",
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2"
+    "natives": "^1.1.4",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0"
   }
 }
