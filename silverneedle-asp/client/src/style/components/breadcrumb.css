@@ -1,0 +1,144 @@
+/*!
+ * # Semantic UI 2.3.1 - Breadcrumb
+ * http://github.com/semantic-org/semantic-ui/
+ *
+ *
+ * Released under the MIT license
+ * http://opensource.org/licenses/MIT
+ *
+ */
+
+
+/*******************************
+           Breadcrumb
+*******************************/
+
+.ui.breadcrumb {
+  line-height: 1;
+  display: inline-block;
+  margin: 0em 0em;
+  vertical-align: middle;
+}
+.ui.breadcrumb:first-child {
+  margin-top: 0em;
+}
+.ui.breadcrumb:last-child {
+  margin-bottom: 0em;
+}
+
+
+/*******************************
+          Content
+*******************************/
+
+
+/* Divider */
+.ui.breadcrumb .divider {
+  display: inline-block;
+  opacity: 0.7;
+  margin: 0em 0.21428571rem 0em;
+  font-size: 0.92857143em;
+  color: rgba(255, 255, 255, 0.7);
+  vertical-align: baseline;
+}
+
+/* Link */
+.ui.breadcrumb a {
+  color: #fff;
+}
+.ui.breadcrumb a:hover {
+  color: #fff;
+}
+
+/* Icon Divider */
+.ui.breadcrumb .icon.divider {
+  font-size: 0.85714286em;
+  vertical-align: baseline;
+}
+
+/* Section */
+.ui.breadcrumb a.section {
+  cursor: pointer;
+}
+.ui.breadcrumb .section {
+  display: inline-block;
+  margin: 0em;
+  padding: 0em;
+}
+
+/* Loose Coupling */
+.ui.breadcrumb.segment {
+  display: inline-block;
+  padding: 0.78571429em 1em;
+}
+
+
+/*******************************
+            States
+*******************************/
+
+.ui.breadcrumb .active.section {
+  font-weight: bold;
+}
+
+
+/*******************************
+           Variations
+*******************************/
+
+.ui.mini.breadcrumb {
+  font-size: 0.78571429rem;
+}
+.ui.tiny.breadcrumb {
+  font-size: 0.85714286rem;
+}
+.ui.small.breadcrumb {
+  font-size: 0.92857143rem;
+}
+.ui.breadcrumb {
+  font-size: 1rem;
+}
+.ui.large.breadcrumb {
+  font-size: 1.14285714rem;
+}
+.ui.big.breadcrumb {
+  font-size: 1.28571429rem;
+}
+.ui.huge.breadcrumb {
+  font-size: 1.42857143rem;
+}
+.ui.massive.breadcrumb {
+  font-size: 1.71428571rem;
+}
+.ui.breadcrumb {
+  background-image: -webkit-linear-gradient(#484e55, #3A3F44 60%, #313539);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#484e55), color-stop(60%, #3A3F44), to(#313539));
+  background-image: linear-gradient(#484e55, #3A3F44 60%, #313539);
+  background-repeat: no-repeat;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff484e55', endColorstr='#ff313539', GradientType=0);
+  -webkit-filter: none;
+          filter: none;
+  color: #7A8288;
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+  padding: 0.6em;
+  border-radius: 4px;
+}
+.ui.breadcrumb a {
+  color: #7A8288;
+}
+.ui.breadcrumb .divider {
+  color: #7A8288;
+}
+.ui.breadcrumb .active.section {
+  color: #e6e6e6;
+}
+.ui.breadcrumb .active.section:hover {
+  color: #cccccc;
+}
+
+
+/*******************************
+         Site Overrides
+*******************************/
+
