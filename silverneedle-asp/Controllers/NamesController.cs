@@ -39,6 +39,19 @@ namespace silverneedleweb.Controllers
             return View();
         }
 
+        public IActionResult Create(string race, string gender)
+        {
+            var namer = new NameCharacter();
+            var fn = namer.GetFirstName(EnumHelpers.EnumValue<Gender>(gender), race);
+            var ln = namer.GetLastName(race);
+            return Json(
+                new {
+                    firstName = fn,
+                    lastName = ln
+                }
+            );
+        }
+
         public IActionResult Error()
         {
             return View();

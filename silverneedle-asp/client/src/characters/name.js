@@ -20,9 +20,9 @@ class Name extends Component {
 
     async onRerollName() {
         //Connect to name api and request a new name....
-        const response = await fetch("/characters/name/create?race=human");
+        const response = await fetch("/names/create?race=human&gender=female");
         const json = await response.json();
-        this.props.onNameChange(json.firstname, json.lastname);
+        this.props.onNameChange(json.firstName, json.lastName);
     }
 }
 
